@@ -1,0 +1,77 @@
+2001 AMC 12 Problems/Problem 7
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Solution 4
+6 Video Solution by Daily Dose of Math
+7 See Also
+Problem
+A charity sells $140$ benefit tickets for a total of $\$2001$ . Some tickets sell for full price (a whole dollar amount), and the rest sells for half price. How much money is raised by the full-price tickets?
+$\textbf{(A) } \textdollar 782 \qquad \textbf{(B) } \textdollar 986 \qquad \textbf{(C) } \textdollar 1158 \qquad \textbf{(D) } \textdollar 1219 \qquad \textbf{(E) }\ \textdollar 1449$
+Solution 1
+Let's multiply ticket costs by $2$ , then the half price becomes an integer, and the charity sold $140$ tickets worth a total of $4002$ dollars.
+Let $h$ be the number of half price tickets, we then have $140-h$ full price tickets. The cost of $140-h$ full price tickets is equal to the cost of $280-2h$ half price tickets.
+Hence we know that $h+(280-2h) = 280-h$ half price tickets cost $4002$ dollars. Then a single full price ticket costs $\frac{4002}{280-h}$ dollars, and this must be an integer. Thus $280-h$ must be a divisor of $4002$ . Keeping in mind that $0\leq h\leq 140$ , we are looking for a divisor between $140$ and $280$ , inclusive.
+The prime factorization of $4002$ is $4002=2\cdot 3\cdot 23\cdot 29$ . We can easily find out that the only divisor of $4002$ within the given range is $2\cdot 3\cdot 29 = 174$ .
+This gives us $280-h=174$ , hence there were $h=106$ half price tickets and $140-h = 34$ full price tickets.
+In our modified setting (with prices multiplied by $2$ ) the price of a half price ticket is $\frac{4002}{174} = 23$ . In the original setting this is the price of a full price ticket. Hence $23\cdot 34 = \boxed{\textbf{(A) }782}$ dollars are raised by the full price tickets.
+Solution 2
+Let the cost of the full price ticket be $x$ , the number of full-price tickets be $A$ , and the number of half-price tickets be $B$
+Let's multiply both sides of the equation that naturally follows by 2. We have
+\[2Ax+Bx=4002\]
+And we have $A+B=140\implies B=140-A$
+Plugging in, we get $\implies 2Ax+(140-A)(x)=4002$
+Simplifying, we get $Ax+140x=4002$
+Factoring out the $x$ , we get $x(A+140)=4002\implies x=\frac{4002}{A+140}$
+We see that the fraction has to simplify to an integer (the full price is a whole dollar amount)
+Thus, $A+140$ must be a factor of 4002.
+Consider the prime factorization of $4002$ : $2\times3\times23\times29$
+$A$ must be a positive integer. So, we seek a factor of $4002$ to set equal to $A+140$ so that we get an integer solution for $A$ that is less than $140$ . By guess-and-check OR inspection, the appropriate factor is $174$ ( $2\times3\times29$ ), meaning that $A$ has a value of $34$ . Plug this into the above equation for $x$ to get $x = 23$ .
+Therefore, the price of full tickets out of $2001$ is $23\times34=\boxed{\textbf{(A) }782}$ .
+--Edits by Joseph2718 (Reason: Ease of understanding)
+Solution 3
+Let $f$ equal the number of full-price tickets, and let $h$ equal the number of half-price tickets. Additionally, suppose that the price of $f$ is $p$ . We are trying to solve for $f \cdot p$ .
+Since the total number of tickets sold is $140$ , we know that
+
+\[f+h=140.\]
+
+The sales from full-price tickets ( $f \cdot p$ ) plus the sales from half-price tickets $\Big(\frac{h \cdot p}{2}$ , because each hall-price ticket costs $\frac{p}{2}$ dollars $\Big)$ equals $2001.$ Then we can write
+
+\[fx + \frac{hx}{2}=2001.\]
+Substituting $h=140-f$ into the second equation, we get
+
+\[f \cdot p +\frac{(140-f)p}{2}=f \cdot p+\frac{140p-f\cdot p}{2}=\frac{f\cdot p+140p}{2}=2001.\]
+Multiplying by $2$ and subtracting $140p$ gives us
+
+\[f\cdot p=4002-140p.\]
+Since the problem states that $p$ is a whole number, $140p$ will be some integer multiple of $140$ that ends in a $0$ . Thus, $4002-140p$ will end in a $2$ . Looking at the answer choices, only $\boxed{\textbf{(A) }782}$ satisfies that condition.
+Solution 4
+Stop messing around, y'all! This is just a Diophantine Equation!
+Let full-price sales in # ticket be $f$ . So half-price is just $140-f$ .
+Let full-price price be $p$ .
+$(140-f)\frac p2+fp=2001$
+$(140-f)p+2fp=4002$
+$140p+fp=4002$
+$(140+f)p=4002$
+Factor $4002=2\times3\times23\times29$ . Note, we need a factor greater than $140$ . It is $2\times3\times29=174$ , which makes $140+f=174$ , $f=34$ , and $p=\frac{4002}{174}=23$ .
+$fp=34\times23=782=A$ .
+~johnzhou721
+Video Solution by Daily Dose of Math
+https://youtu.be/x7SYSp2lYrE?si=If1SLv7j8iNdM10l
+~Thesmartgreekmathdude
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2001 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

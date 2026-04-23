@@ -1,0 +1,40 @@
+2010 AMC 12B Problems/Problem 5
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 Video Solution
+5 See also
+Problem
+Lucky Larry's teacher asked him to substitute numbers for $a$ , $b$ , $c$ , $d$ , and $e$ in the expression $a-(b-(c-(d+e)))$ and evaluate the result. Larry ignored the parenthese but added and subtracted correctly and obtained the correct result by coincidence. The number Larry substituted for $a$ , $b$ , $c$ , and $d$ were $1$ , $2$ , $3$ , and $4$ , respectively. What number did Larry substitute for $e$ ?
+$\textbf{(A)}\ -5 \qquad \textbf{(B)}\ -3 \qquad \textbf{(C)}\ 0 \qquad \textbf{(D)}\ 3 \qquad \textbf{(E)}\ 5$
+Solution
+We simply plug in the numbers
+
+\[1 - 2 - 3 - 4 + e = 1 - (2 - (3 - (4 + e)))\]
+
+\[-8 + e = -2 - e\]
+
+\[2e = 6\]
+
+\[e = 3 \;\;(D)\]
+Video Solution
+https://youtu.be/OiJ-9eGCLGM
+~Education, the Study of Everything
+Video Solution
+https://youtu.be/I3yihAO87CE?t=303
+~IceMatrix
+See also
+2010 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2010 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 8 Followed by 
+ Problem 10
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

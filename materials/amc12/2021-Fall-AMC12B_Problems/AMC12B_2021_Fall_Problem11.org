@@ -1,0 +1,49 @@
+2021 AMC 12B Problems/Problem 11
+Contents
+1 Problem
+2 Solution
+3 Video Solution by Interstigation
+4 Video Solution (Just 4 min!)
+5 Video Solution by WhyMath
+6 Video Solution by TheBeautyofMath
+7 See Also
+Problem
+Una rolls $6$ standard $6$ -sided dice simultaneously and calculates the product of the $6{ }$ numbers obtained. What is the probability that the product is divisible by $4?$
+$\textbf{(A)}\: \frac34\qquad\textbf{(B)} \: \frac{57}{64}\qquad\textbf{(C)} \: \frac{59}{64}\qquad\textbf{(D)} \: \frac{187}{192}\qquad\textbf{(E)} \: \frac{63}{64}$
+Solution
+We will use complementary counting to find the probability that the product is not divisible by $4$ . Then, we can find the probability that we want by subtracting this from 1. We split this into $2$ cases.
+Case 1: The product is not divisible by $2$ .
+We need every number to be odd, and since the chance we roll an odd number is $\frac12,$ our probability is $\left(\frac12\right)^6=\frac1{64}.$
+Case 2: The product is divisible by $2$ , but not by $4$ .
+We need $5$ numbers to be odd, and one to be divisible by $2$ , but not by $4$ . There is a $\frac12$ chance that an odd number is rolled, a $\frac13$ chance that we roll a number satisfying the second condition (only $2$ and $6$ work), and $6$ ways to choose the order in which the even number appears.
+Our probability is $\left(\frac12\right)^5\left(\frac13\right)\cdot6=\frac1{16}.$
+Therefore, the probability the product is not divisible by $4$ is $\frac1{64}+\frac1{16}=\frac{5}{64}$ .
+Our answer is $1-\frac{5}{64}=\boxed{\textbf{(C)}\ \frac{59}{64}}$ .
+~kingofpineapplz (Most of Solution)
+~stjwyl (Edits)
+Video Solution by Interstigation
+https://www.youtube.com/watch?v=G_31gUNwkzQ
+Video Solution (Just 4 min!)
+https://youtu.be/ucR90-j78hI
+~Education, the Study of Everything
+Video Solution by WhyMath
+https://youtu.be/KpHlKsUsEXo
+~savannahsolver
+Video Solution by TheBeautyofMath
+https://youtu.be/R7TwXgAGYuw?t=833
+~IceMatrix
+See Also
+2021 Fall AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 10 Followed by 
+ Problem 12
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

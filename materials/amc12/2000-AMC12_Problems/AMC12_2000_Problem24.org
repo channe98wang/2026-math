@@ -1,0 +1,31 @@
+2000 AMC 12 Problems/Problem 24
+Contents
+1 Problem
+2 Solutions
+2.1 Solution (Pythagorean Theorem)
+3 Video Solution by Power Solve
+4 Video Solution by OmegaLearn
+5 Video Solution
+6 See Also
+Problem
+If circular arcs $AC$ and $BC$ have centers at $B$ and $A$ , respectively, then there exists a circle tangent to both $\overarc {AC}$ and $\overarc{BC}$ , and to $\overline{AB}$ . If the length of $\overarc{BC}$ is $12$ , then the circumference of the circle is
+[asy] label("A", (0,0), W); label("B", (64,0), E); label("C", (32, 32*sqrt(3)), N); draw(arc((0,0),64,0,60)); draw(arc((64,0),64,120,180)); draw((0,0)--(64,0)); draw(circle((32, 24), 24)); [/asy]
+$\textbf {(A)}\ 24 \qquad \textbf {(B)}\ 25 \qquad \textbf {(C)}\ 26 \qquad \textbf {(D)}\ 27 \qquad \textbf {(E)}\ 28$
+Solutions
+Solution (Pythagorean Theorem)
+First, note the triangle $ABC$ is equilateral. Next, notice that since the arc $BC$ has length 12, it follows that we can find the radius of the sector centered at $A$ . $\frac {1}{6}({2}{\pi})AB=12 \implies AB=\frac{36}{\pi}$ . Next, connect the center of the circle to side $AB$ , and call this length $r$ , and call the foot $M$ . Since $ABC$ is equilateral, it follows that $MB=\frac{18}{\pi}$ , and $OA$ (where $O$ is the center of the circle) is $\frac{36}{\pi}-r$ . By the Pythagorean Theorem, you get $r^2+\left(\frac{18}{\pi}\right)^2=\left(\frac{36}{\pi}-r\right)^2 \implies r=\frac{27}{2\pi}$ . Finally, we see that the circumference is $2{\pi}\cdot \frac{27}{2\pi}=\boxed{(D)27}$ .
+Video Solution by Power Solve
+https://www.youtube.com/watch?v=PuVeGNHIkDg
+Video Solution by OmegaLearn
+https://youtu.be/NsQbhYfGh1Q?t=3466
+~ pi_is_3.14
+Video Solution
+https://youtu.be/QyeaoEtgu-Y
+See Also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

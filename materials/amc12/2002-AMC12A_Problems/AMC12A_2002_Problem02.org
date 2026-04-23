@@ -1,0 +1,31 @@
+2002 AMC 12A Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Video Solution by Daily Dose of Math
+5 See Also
+Problem
+Cindy was asked by her teacher to subtract 3 from a certain number and then divide the result by 9. Instead, she subtracted 9 and then divided the result by 3, giving an answer of 43. What would her answer have been had she worked the problem correctly?
+$\textbf{(A) } 15\qquad \textbf{(B) } 34\qquad \textbf{(C) } 43\qquad \textbf{(D) } 51\qquad \textbf{(E) } 138$
+Solution
+We work backwards; the number that Cindy started with is $3(43)+9=138$ . Now, the correct result is $\frac{138-3}{9}=\frac{135}{9}=15$ . Our answer is $\boxed{\textbf{(A) }15}$ .
+Solution 2
+Let the number be $x$ . We transform the problem into an equation: $\frac{x-9}{3}=43$ . Solve for $x$ gives us $x=138$ . Therefore, the correct result is $\frac{138-3}{9}=\frac{135}{9}=\boxed{\textbf{(A) }15}$ .
+Video Solution by Daily Dose of Math
+https://youtu.be/ZgEkIB1qmRw?si=LpBb-qb3OaUbQ8_W
+~Thesmartgreekmathdude
+See Also
+2002 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2002 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

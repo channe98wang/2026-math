@@ -1,0 +1,25 @@
+2003 AMC 12A Problems/Problem 21
+Contents
+1 Problem
+2 Solution
+2.1 Solution 1
+2.2 Solution 2
+3 See Also
+Problem
+The graph of the polynomial
+\[P(x) = x^5 + ax^4 + bx^3 + cx^2 + dx + e\]
+has five distinct $x$ -intercepts, one of which is at $(0,0)$ . Which of the following coefficients cannot be zero?
+$\text{(A)}\ a \qquad \text{(B)}\ b \qquad \text{(C)}\ c \qquad \text{(D)}\ d \qquad \text{(E)}\ e$
+Solution
+Solution 1
+Let the roots be $r_1=0, r_2, r_3, r_4, r_5$ . According to Viète's formulae , we have $d=r_1r_2r_3r_4 + r_1r_2r_3r_5 + r_1r_2r_4r_5 + r_1r_3r_4r_5 + r_2r_3r_4r_5$ . The first four terms contain $r_1=0$ and are therefore zero, thus $d=r_2r_3r_4r_5$ . This is a product of four non-zero numbers, therefore $d$ must be non-zero $\Longrightarrow \mathrm{(D)}$ .
+Solution 2
+Clearly, since $(0,0)$ is an intercept, $e$ must be $0$ . But if $d$ was $0$ , $x^2$ would divide the polynomial, which means it would have a double root at $0$ , which is impossible, since all five roots are distinct.
+See Also
+2003 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 20 Followed by 
+ Problem 22
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

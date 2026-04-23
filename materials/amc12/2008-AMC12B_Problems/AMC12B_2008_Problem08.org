@@ -1,0 +1,16 @@
+2008 AMC 12B Problems/Problem 8
+Problem
+Points $B$ and $C$ lie on $\overline{AD}$ . The length of $\overline{AB}$ is $4$ times the length of $\overline{BD}$ , and the length of $\overline{AC}$ is $9$ times the length of $\overline{CD}$ . The length of $\overline{BC}$ is what fraction of the length of $\overline{AD}$ ?
+$\textbf{(A)}\ \frac {1}{36} \qquad \textbf{(B)}\ \frac {1}{13} \qquad \textbf{(C)}\ \frac {1}{10} \qquad \textbf{(D)}\ \frac {5}{36} \qquad \textbf{(E)}\ \frac {1}{5}$
+Solution
+Since $\overline{AB}=4\overline{BD}$ and $\overline{AB}+\overline{BD}=\overline{AD}$ , $\overline{AB}=\frac{4}{5}\overline{AD}$ .
+Since $\overline{AC}=9\overline{CD}$ and $\overline{AC}+\overline{CD}=\overline{AD}$ , $\overline{AC}=\frac{9}{10}\overline{AD}$ .
+Thus, $\overline{BC}=\overline{AC}-\overline{AB}=\left(\frac{9}{10}-\frac{4}{5}\right)\overline{AD} = \frac {1}{10}\overline{AD} \Rightarrow C$ .
+See Also
+2008 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

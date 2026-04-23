@@ -1,0 +1,24 @@
+2006 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+2.1 Solution 1
+2.2 Solution 2
+3 See also
+Problem
+A football game was played between two teams, the Cougars and the Panthers. The two teams scored a total of 34 points, and the Cougars won by a margin of 14 points. How many points did the Panthers score?
+$\text {(A) } 10 \qquad \text {(B) } 14 \qquad \text {(C) } 17 \qquad \text {(D) } 20 \qquad \text {(E) } 24$
+Solution
+Solution 1
+If the Cougars won by a margin of 14 points, then the Panthers' score would be half of (34-14). That's 10 $\Rightarrow \boxed{\text{(A)}}$ .
+Solution 2
+Let the Panthers' score be $x$ . The Cougars then scored $x+14$ . Since the teams combined scored $34$ , we get $x+x+14=34 \\ \rightarrow 2x+14=34 \\ \rightarrow 2x=20 \\ \rightarrow x = 10$ ,
+and the answer is $\boxed{\text{(A)}}$ .
+See also
+2006 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

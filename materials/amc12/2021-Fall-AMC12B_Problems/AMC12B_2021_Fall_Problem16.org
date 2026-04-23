@@ -1,0 +1,72 @@
+2021 AMC 12B Problems/Problem 16
+Contents
+1 Problem
+2 Solution 1 (Observation)
+3 Solution 2 (Enumeration)
+4 Solution 3
+5 Video Solution By Power Of Logic
+6 See Also
+Problem
+Suppose $a$ , $b$ , $c$ are positive integers such that
+
+\[a+b+c=23\]
+
+and
+
+\[\gcd(a,b)+\gcd(b,c)+\gcd(c,a)=9.\]
+
+What is the sum of all possible distinct values of $a^2+b^2+c^2$ ?
+$\textbf{(A)}\: 259\qquad\textbf{(B)} \: 438\qquad\textbf{(C)} \: 516\qquad\textbf{(D)} \: 625\qquad\textbf{(E)} \: 687$
+Solution 1 (Observation)
+Because $a + b + c$ is odd, $a$ , $b$ , $c$ are either one odd and two evens or three odds.
+$\textbf{Case 1}$ : $a$ , $b$ , $c$ have one odd and two evens.
+Without loss of generality, we assume $a$ is odd and $b$ and $c$ are even.
+Hence, ${\rm gcd} \left( a , b \right)$ and ${\rm gcd} \left( a , c \right)$ are odd, and ${\rm gcd} \left( b , c \right)$ is even.
+Hence, ${\rm gcd} \left( a , b \right) + {\rm gcd} \left( b , c \right) + {\rm gcd} \left( c , a \right)$ is even. This violates the condition given in the problem.
+Therefore, there is no solution in this case.
+$\textbf{Case 2}$ : $a$ , $b$ , $c$ are all odd.
+In this case, ${\rm gcd} \left( a , b \right)$ , ${\rm gcd} \left( a , c \right)$ , ${\rm gcd} \left( b , c \right)$ are all odd.
+Without loss of generality, we assume
+
+\[{\rm gcd} \left( a , b \right) \leq {\rm gcd} \left( b , c \right) \leq {\rm gcd} \left( c , a \right) .\]
+
+$\textbf{Case 2.1}$ : ${\rm gcd} \left( a , b \right) = 1$ , ${\rm gcd} \left( b , c \right) = 1$ , ${\rm gcd} \left( c , a \right) = 7$ .
+The only solution is $(a, b, c) = (7, 9, 7)$ .
+Hence, $a^2 + b^2 + c^2 = 179$ .
+$\textbf{Case 2.2}$ : ${\rm gcd} \left( a , b \right) = 1$ , ${\rm gcd} \left( b , c \right) = 3$ , ${\rm gcd} \left( c , a \right) = 5$ .
+The only solution is $(a, b, c) = (5, 3, 15)$ .
+Hence, $a^2 + b^2 + c^2 = 259$ .
+$\textbf{Case 2.3}$ : ${\rm gcd} \left( a , b \right) = 3$ , ${\rm gcd} \left( b , c \right) = 3$ , ${\rm gcd} \left( c , a \right) = 3$ .
+There is no solution in this case.
+Therefore, putting all cases together, the answer is $179 + 259 = \boxed{\textbf{(B)} \: 438}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 2 (Enumeration)
+Let $\gcd(a,b)=x$ , $\gcd(b,c)=y$ , $\gcd(c,a)=z$ . Without the loss of generality, let $x \le y \le z$ . We can split this off into cases:
+$x=1,y=1,z=7$ : let $a=7A, c=7C,$ we can try all possibilities of $A$ and $C$ to find that $a=7, b=9, c=7$ is the only solution.
+$x=1,y=2,z=6$ : No solutions. By $y$ and $z$ , we know that $a$ , $b$ , and $c$ have to all be divisible by $2$ . Therefore, $x$ cannot be equal to $1$ .
+$x=1,y=3,z=5$ : Note that $c$ has to be both a multiple of $3$ and $5$ . Therefore, $c$ has to be a multiple of $15$ . The only solution for this is $a=5, b=3, c=15$ .
+$x=1,y=4,z=4$ : No solutions. By $y$ and $z$ , we know that $a$ , $b$ , and $c$ have to all be divisible by $4$ . Therefore, $x$ cannot be equal to $1$ .
+$x=2,y=2,z=5$ : No solutions. By $x$ and $y$ , we know that $a$ , $b$ , and $c$ have to all be divisible by $2$ . Therefore, $z$ cannot be equal to $5$ .
+$x=2,y=3,z=4$ : No solutions. By $x$ and $z$ , we know that $a$ , $b$ , and $c$ have to all be divisible by $2$ . Therefore, $y$ cannot be equal to $3$ .
+$x=3,y=3,z=3$ : No solutions. As $a$ , $b$ , and $c$ have to all be divisible by $3$ , $a+b+c$ has to be divisible by $3$ . This contradicts the sum $a+b+c=23$ .
+Putting these solutions together, we have $(7^2+9^2+7^2)+(5^2+3^2+15^2)=179+259=\boxed{\textbf{(B)} \: 438}$ .
+~ConcaveTriangle
+Solution 3
+Since $a+b+c=23$ , $\gcd(a,b,c)=23$ or $\gcd(a,b,c)=1$ .
+As $\gcd(a,b)+\gcd(b,c)+\gcd(c,a)=9$ , it is impossible for $\gcd(a,b,c)=23$ , so $\gcd(a,b,c)=1$ .
+This means that $\gcd(a,b)$ , $\gcd(b,c)$ , and $\gcd(c,a)$ must all be coprime. The only possible ways for this to be true are $1+1+7=9$ and $1+3+5=9$ .
+Without loss of generality, let $a\le b\le c$ . Since $a+b+c=23$ , then $a=7, b=7, c=9$ or $a=3, b=5, c=15$ .
+$(7^2+7^2+9^2)+(3^2+5^2+15^2)=179+259=\boxed{\textbf{(B)} \: 438}$ .
+~bkunzang
+Video Solution By Power Of Logic
+https://youtu.be/QNNIVYKvIyI
+~~Hayabusa1
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

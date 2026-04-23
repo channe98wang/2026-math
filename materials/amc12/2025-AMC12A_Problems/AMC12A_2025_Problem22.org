@@ -1,0 +1,20 @@
+2025 AMC 12A Problems/Problem 22
+Problem 22
+Three real numbers are chosen independently and uniformly at random between $0$ and $1$ . What is the probability that the greatest of these three numbers is greater than $2$ times each of the other two numbers? (In other words, if the chosen numbers are $a \geq b \geq c$ , then $a > 2b$ .)
+$\textbf{(A)}~\frac{1}{12}\qquad\textbf{(B)}~\frac19\qquad\textbf{(C)}~\frac18\qquad\textbf{(D)}~\frac16\qquad\textbf{(E)}~\frac14$
+Solution 1
+We can solve the problem by approaching it geometrically, where each possible outcome is a coordinate in a 1 by 1 by cube (a, b, c). Now we just have to find the area of the solution set over 1. Let's assume that a is the greatest number, and then multiply by 3 afterwards to account for b or c also possible being the largest. It can be seen that the possible values of a change linearly with b and c changing values, so to find the figure, we can just find the vertices and then connect them. By doing this, we can determine the solution set with a being the biggest value is the volume of the figure with coordinates (1,0,0), (0,0,0), (1,1/2,0), (1,0,1/2), which forms a tetrahedron which the volume can easily be calculated to be 1/12 with the formula V=1/3bh and the base is an isosceles right triangle with side length 1/2, and the height is just the height of the cube which is 1. Now just multiplying this value by 3 to account for b or c also being the maximum gives us the answer of $\boxed{\frac{1}{4},\textbf{E}}.$
+~Zak2155
+See Also
+2025 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ 21 Followed by 
+ Problem 23
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+- AMC 12
+- AMC 12 Problems and Solutions
+- Mathematics competitions
+- Mathematics competition resources
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions . Error creating thumbnail: File missing
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions. Error creating thumbnail: File missing

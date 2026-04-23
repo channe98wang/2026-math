@@ -1,0 +1,592 @@
+% AMC12B 2017 Problem 10 - Strategic Analysis
+% Using the AMC12/COMC Strategic Problem Analysis Framework
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12B 2017 Problem 10}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=KEY INSIGHT,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=WARNING: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=PRO TIP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{\textbf{AMC12B 2017 Problem 10\\Strategic Analysis}}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+At Typico High School, $60\%$ of the students like dancing, and the rest dislike it. Of those who like dancing, $80\%$ say that they like it, and the rest say that they dislike it. Of those who dislike dancing, $90\%$ say that they dislike it, and the rest say that they like it. What fraction of students who say they dislike dancing actually like it?
+
+\vspace{0.5em}
+\textbf{Answer Choices:}\\
+$\textbf{(A)}\ 10\%\qquad\textbf{(B)}\ 12\%\qquad\textbf{(C)}\ 20\%\qquad\textbf{(D)}\ 25\%\qquad\textbf{(E)}\ \frac{100}{3}\%$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - calculate a conditional probability (fraction)
+    \item \textbf{Difficulty Band}: Mid-band (Problem 10 of 25) - requires conditional probability understanding but is accessible with clear reasoning
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3 minutes allocated per problem
+    \item \textbf{Mathematical Domain}: Probability (conditional probability, Bayes' Theorem)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}:
+    \begin{itemize}
+        \item $60\%$ of students like dancing (therefore $40\%$ dislike it)
+        \item Of those who like dancing: $80\%$ say they like it, $20\%$ say they dislike it
+        \item Of those who dislike dancing: $90\%$ say they dislike it, $10\%$ say they like it
+    \end{itemize}
+    
+    \item \textbf{Constraints}:
+    \begin{itemize}
+        \item Percentages must sum to $100\%$ within each group
+        \item Students are partitioned into two groups (like/dislike) with two reporting behaviors (say like/say dislike)
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find $P(\text{Actually Like} \mid \text{Say Dislike})$
+    
+    \item \textbf{Hidden Assumptions}:
+    \begin{itemize}
+        \item Students' statements don't always match their true preferences
+        \item The problem creates a $2 \times 2$ confusion matrix situation
+        \item We need conditional probability, not simple probability
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}:
+    \begin{itemize}
+        \item All answers are "nice" percentages or simple fractions
+        \item Can eliminate obviously wrong answers through sanity checks
+        \item Should be able to compute exact answer without approximation
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Given student population with preferences and reporting behaviors
+    
+    \item \textbf{Conclusion}: Need to find what fraction of those who \textit{say} they dislike actually \textit{like} dancing
+    
+    \item \textbf{Notation}:
+    \begin{itemize}
+        \item $L$ = Actually likes dancing ($60\%$ of students)
+        \item $D$ = Actually dislikes dancing ($40\%$ of students)
+        \item $S_L$ = Says they like dancing
+        \item $S_D$ = Says they dislike dancing
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: Use conditional probability formula or construct a $2 \times 2$ table with concrete numbers (assume 100 students for simplicity)
+    
+    \item \textbf{Cross-Domain Potential}: This is a pure probability problem, but could be visualized with tree diagrams or Venn diagrams
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Problem requires careful tracking of percentages - resist the urge to rush through calculations
+    
+    \item \textbf{Creativity Cultivation}: Consider multiple solution paths (Bayes' Theorem vs. concrete numbers approach)
+    
+    \item \textbf{Iterative Refinement}: If first approach seems messy, pivot to the concrete numbers method which is often clearer
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately recognize this as a conditional probability problem - the key phrase is "of students who say they dislike"
+    
+    \item \textbf{Get Your Hands Dirty}: Use concrete numbers (assume 100 students) to avoid percentage confusion
+    
+    \item \textbf{Penultimate Step}: Need to find two quantities: (1) number who like but say dislike, and (2) total number who say dislike
+    
+    \item \textbf{Wishful Thinking}: If we had a table showing all four combinations (like/say like, like/say dislike, dislike/say like, dislike/say dislike), we could directly compute the answer
+    
+    \item \textbf{Make It Easier}: Use 100 students instead of working with abstract percentages
+    
+    \item \textbf{Visualization}: Create a $2 \times 2$ table or tree diagram to organize the information
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item Not applicable - this is a mid-band problem (P10)
+    \item However, answer choices can still be used for sanity checking
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Apply conditional probability formula directly or use population counting
+    
+    \item \textbf{Method Selection}: Direct calculation with concrete numbers is clearest for this problem type
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Tree diagram with two stages: (1) actual preference, (2) stated preference
+    
+    \item \textbf{Recast the Problem}: This is equivalent to finding the false negative rate in a diagnostic test scenario
+    
+    \item \textbf{Change Your Point of View}: Can think of this as signal detection theory or confusion matrix analysis
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Conditional Probability}: The central tactic - computing $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$
+    
+    \item \textbf{Law of Total Probability}: The denominator requires summing over all ways to "say dislike"
+    
+    \item \textbf{Partition Principle}: The student population is partitioned into like/dislike groups
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Table/Matrix Organization}: Using a $2 \times 2$ table to organize the four scenarios
+    
+    \item \textbf{Concrete Value Method}: Using $N = 100$ students to avoid percentage confusion
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index - Why This Technique Applies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Signature Pattern}: Phrase "of students who say they dislike" signals conditional probability
+    
+    \item \textbf{Trigger}: Multiple conditional percentages given (80\%, 90\%) suggest Bayes' Theorem or table method
+    
+    \item \textbf{Problem Structure}: Two-stage process (actual preference $\rightarrow$ stated preference) indicates need for joint and marginal probabilities
+\end{itemize}
+
+\subsection*{B. Applicable High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Technique 1: Bayes' Theorem (Primary)}
+    \begin{itemize}
+        \item Formula: $P(L \mid S_D) = \frac{P(S_D \mid L) \cdot P(L)}{P(S_D)}$
+        \item $P(S_D \mid L) = 0.2$ (20\% of likers say dislike)
+        \item $P(L) = 0.6$ (60\% actually like)
+        \item $P(S_D) = P(S_D \mid L) \cdot P(L) + P(S_D \mid D) \cdot P(D)$
+        \item $P(S_D) = 0.2 \times 0.6 + 0.9 \times 0.4 = 0.12 + 0.36 = 0.48$
+        \item $P(L \mid S_D) = \frac{0.2 \times 0.6}{0.48} = \frac{0.12}{0.48} = \frac{1}{4} = 25\%$
+    \end{itemize}
+    
+    \item \textbf{Technique 2: Concrete Numbers (Alternative)}
+    \begin{itemize}
+        \item Assume 100 students total
+        \item 60 students like dancing: $60 \times 0.8 = 48$ say like, $60 \times 0.2 = 12$ say dislike
+        \item 40 students dislike dancing: $40 \times 0.1 = 4$ say like, $40 \times 0.9 = 36$ say dislike
+        \item Total who say dislike: $12 + 36 = 48$ students
+        \item Of these, 12 actually like dancing
+        \item Fraction: $\frac{12}{48} = \frac{1}{4} = 25\%$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+Both methods yield the same answer ($25\%$), providing strong confirmation. The concrete numbers method is often clearer for students less familiar with Bayes' Theorem, while Bayes' Theorem is more elegant and generalizable.
+
+\subsection*{D. Rationale for Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Why Concrete Numbers}: Eliminates percentage confusion, makes calculation transparent, suitable for competition time pressure
+    
+    \item \textbf{Why Bayes' Theorem}: More sophisticated, demonstrates understanding of conditional probability, useful for verification
+    
+    \item \textbf{Competition Choice}: Use concrete numbers as primary method (faster, less error-prone), verify with Bayes if time permits
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection - Decision Tree}
+
+Given:
+\begin{itemize}[leftmargin=*]
+    \item Problem difficulty: Mid-band (P10)
+    \item Solution confidence: High (90\%+) after applying both methods
+    \item Time available: Approximately 3 minutes allocated
+    \item Impact: Standard AMC12 problem, 6 points
+\end{itemize}
+
+\textbf{Selected Level}: Level 4 - Standard Verification (30-60 seconds)
+
+\subsection*{B. Specific Verification Methods}
+
+\textbf{Primary Verification:}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Sanity Check}: Does $25\%$ make sense?
+    \begin{itemize}
+        \item Yes - it's between $0\%$ and $100\%$
+        \item 12 out of 48 is indeed exactly $\frac{1}{4}$
+        \item Not too small (rules out 10\%, 12\%) nor too large (rules out 33\%)
+    \end{itemize}
+    
+    \item \textbf{Alternative Method}: Verify with Bayes' Theorem
+    \begin{itemize}
+        \item Computed: $\frac{0.12}{0.48} = \frac{1}{4}$ $\checkmark$
+        \item Matches concrete numbers result $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Boundary Verification}:
+    \begin{itemize}
+        \item Total students: $48 + 52 = 100$ $\checkmark$
+        \item All groups sum correctly $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Match}:
+    \begin{itemize}
+        \item $\frac{1}{4} = 25\%$ corresponds to choice (D) $\checkmark$
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Specialized Domain Verification (Probability):}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Probability Axioms}: All probabilities in [0,1] $\checkmark$
+    \item \textbf{Conditional Probability Structure}: Numerator $\leq$ Denominator $\checkmark$ ($12 \leq 48$)
+    \item \textbf{Consistency}: Creating the full $2 \times 2$ table shows all cells are non-negative $\checkmark$
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Initial Confidence}: 85\% (after concrete numbers method)
+
+\textbf{Post-Verification Confidence}: 95\%
+\begin{itemize}[leftmargin=*]
+    \item Two independent methods agree
+    \item All sanity checks pass
+    \item Answer matches a provided choice
+    \item No computational errors detected
+\end{itemize}
+
+\textbf{Flag for Review}: No - high confidence, verified answer
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Phase 1: Problem Understanding (30 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Read problem carefully, identifying it as conditional probability
+    \item Note the key phrase: "of students who say they dislike"
+    \item Recognize we need $P(\text{Actually Like} \mid \text{Say Dislike})$
+    \item Time checkpoint: If not clear by 30 sec, re-read
+\end{enumerate}
+
+\textbf{Phase 2: Setup (30 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Decide on approach: Choose concrete numbers (assume 100 students)
+    \item Identify the two groups and their sizes:
+    \begin{itemize}
+        \item 60 students actually like dancing
+        \item 40 students actually dislike dancing
+    \end{itemize}
+    \item Time checkpoint: Setup should be quick and clear
+\end{enumerate}
+
+\textbf{Phase 3: Calculation (60-90 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Calculate how many students say they dislike from each group:
+    \begin{itemize}
+        \item From "like" group: $60 \times 0.2 = 12$ students
+        \item From "dislike" group: $40 \times 0.9 = 36$ students
+    \end{itemize}
+    
+    \item Find total who say dislike: $12 + 36 = 48$ students
+    
+    \item Calculate the fraction: $\frac{12}{48} = \frac{1}{4} = 25\%$
+    
+    \item Time checkpoint: Should have answer by 2 minutes
+\end{enumerate}
+
+\textbf{Phase 4: Verification (30-45 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Quick verification with Bayes' Theorem (if time permits)
+    \item Check that answer matches choice (D)
+    \item Confirm all numbers make sense
+    \item Time checkpoint: Total time $\leq$ 3 minutes
+\end{enumerate}
+
+\subsection*{Alternative Approaches}
+
+\textbf{Alternative 1: Direct Bayes' Theorem}
+\begin{itemize}[leftmargin=*]
+    \item Compute $P(L \mid S_D) = \frac{P(S_D \mid L) \cdot P(L)}{P(S_D)}$
+    \item More elegant but requires comfort with formula
+    \item Use as verification method if time permits
+\end{itemize}
+
+\textbf{Alternative 2: Tree Diagram}
+\begin{itemize}[leftmargin=*]
+    \item Draw tree with two levels
+    \item First level: Actually Like (60\%) vs Dislike (40\%)
+    \item Second level: Say Like vs Say Dislike
+    \item Trace paths that end in "Say Dislike"
+    \item More visual but takes more time
+\end{itemize}
+
+\subsection*{Pivot Indicators}
+\begin{itemize}[leftmargin=*]
+    \item If percentages become confusing $\rightarrow$ Switch to concrete numbers
+    \item If calculation seems wrong $\rightarrow$ Verify with alternative method
+    \item If taking $>$ 4 minutes $\rightarrow$ Mark answer and move on
+\end{itemize}
+
+\subsection*{Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target time}: 2.5-3 minutes (appropriate for P10)
+    \item \textbf{Checkpoint at 2 min}: Should have numerical answer
+    \item \textbf{Checkpoint at 3 min}: Should have verified and marked answer
+    \item \textbf{Abandon threshold}: If no progress by 4 minutes, flag and move on
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Allocated Time}: 3 minutes (appropriate for mid-band problem)
+    \item \textbf{Actual Expected Time}: 2.5-3 minutes with verification
+    \item \textbf{Time Distribution}:
+    \begin{itemize}
+        \item Understanding: 30 seconds
+        \item Setup: 30 seconds
+        \item Calculation: 90 seconds
+        \item Verification: 30 seconds
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Solve Now}: Yes - P10 is accessible and worth full points
+    \item \textbf{Difficulty Assessment}: Medium - requires conditional probability understanding but straightforward calculation
+    \item \textbf{Domain Comfort}: If comfortable with probability, solve immediately; if not, consider flagging for later
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: 95\% after verification - high confidence
+    \item \textbf{Answer Choice Validation}: Answer is (D) $25\%$, a clean fraction
+    \item \textbf{Error Recovery}: If initial approach confusing, immediately pivot to concrete numbers method
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon Trigger}: If no clear approach after 1 minute, consider moving to next problem
+    \item \textbf{Hard Abandon Trigger}: If calculation becomes messy or confusing after 4 minutes total
+    \item \textbf{Return Strategy}: If abandoned, likely indicates need to review conditional probability concepts
+\end{itemize}
+
+\subsection*{E. Answer Format Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Multiple Choice}: Mark (D) carefully on answer sheet
+    \item \textbf{Verification}: $25\% = \frac{1}{4}$ matches choice (D) exactly
+    \item \textbf{Common Errors to Avoid}:
+    \begin{itemize}
+        \item Don't bubble (B) 12\% (that's just the numerator as percentage)
+        \item Don't bubble (C) 20\% (that's $P(S_D \mid L)$, not what we want)
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{The Key Realization:}
+
+This problem asks for $P(\text{Actually Like} \mid \text{Say Dislike})$, which requires finding:
+\begin{itemize}
+    \item \textbf{Numerator}: Number who actually like BUT say dislike (the "false negatives")
+    \item \textbf{Denominator}: Total number who say dislike (from BOTH groups)
+\end{itemize}
+
+The critical insight is that students who say they dislike come from \textit{two sources}:
+\begin{enumerate}
+    \item Those who like but say dislike (20\% of the 60\% who like = 12\%)
+    \item Those who dislike and say dislike (90\% of the 40\% who dislike = 36\%)
+\end{enumerate}
+
+We want the first group as a fraction of the total: $\frac{12}{12+36} = \frac{12}{48} = \frac{1}{4} = 25\%$
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Most Common Error: Confusing Conditional Probabilities}
+
+Students often incorrectly compute $P(S_D \mid L) = 20\%$ and select choice (C), but this is NOT what the problem asks for!
+
+\vspace{0.5em}
+\textbf{What the problem asks}: Of students who SAY dislike, what fraction ACTUALLY like?
+
+\textbf{What 20\% represents}: Of students who ACTUALLY like, what fraction SAY dislike?
+
+\vspace{0.5em}
+These are \textit{not} the same! The problem requires reversing the conditional relationship, which is why we need Bayes' Theorem or the concrete numbers approach.
+
+\vspace{0.5em}
+\textbf{Another Common Error:} Computing $\frac{12}{100} = 12\%$ (choice B) by dividing by the total population instead of by those who say dislike. Always check: what is the reference group for "of students who..."?
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Strategy for Conditional Probability Problems:}
+
+\begin{enumerate}
+    \item \textbf{Identify the conditioning}: Look for "of students who..." phrases
+    \item \textbf{Use concrete numbers}: Assume 100 people to eliminate fraction/percentage confusion
+    \item \textbf{Build a table}: Create a $2 \times 2$ table showing all four scenarios
+    \item \textbf{Verify with formula}: If time permits, check with Bayes' Theorem
+\end{enumerate}
+
+\textbf{Time-Saving Tip}: For AMC12 conditional probability problems, the concrete numbers approach is usually faster and less error-prone than manipulating formulas directly. Save Bayes' Theorem for verification!
+\end{tipbox}
+
+\section*{Final Answer}
+\boxed{\textbf{(D) } 25\%}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Two independent methods yield identical answer, all verification checks pass
+    
+    \item \textbf{Verification Applied}: Level 4 Standard Verification - sanity checks, alternative method (Bayes' Theorem), boundary verification, answer choice match
+    
+    \item \textbf{Flag for Review}: No - high confidence in both approach and calculation
+    
+    \item \textbf{Time Spent}: Approximately 2.5-3 minutes (optimal for P10)
+\end{itemize}
+
+\section*{Learning Points}
+
+\textbf{Key Takeaways from This Problem:}
+\begin{enumerate}
+    \item Conditional probability problems require careful attention to which group is the reference (denominator)
+    \item Concrete numbers (assuming 100 students) often clarifies percentage problems
+    \item Bayes' Theorem provides elegant verification for conditional probability calculations
+    \item Creating a $2 \times 2$ table helps organize information and prevents errors
+    \item Always distinguish $P(A \mid B)$ from $P(B \mid A)$ - they are generally not equal!
+\end{enumerate}
+
+\textbf{Transferable Skills:}
+\begin{itemize}
+    \item Recognition of conditional probability patterns
+    \item Ability to switch between abstract formulas and concrete calculations
+    \item Systematic verification using multiple methods
+    \item Time management for mid-difficulty problems
+\end{itemize}
+
+\end{document}

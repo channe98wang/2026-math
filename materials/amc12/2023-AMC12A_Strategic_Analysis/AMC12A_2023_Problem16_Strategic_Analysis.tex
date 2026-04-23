@@ -1,0 +1,712 @@
+% AMC 12A 2023 Problem 16 Strategic Analysis
+% Generated using Strategic Problem Solving Framework v2.1
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{xcolor}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Custom colored boxes
+\newtcolorbox{problembox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Problem Configuration Analysis,
+    breakable,
+    #1
+}
+
+\newtcolorbox{strategybox}[1][]{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=Strategic Framework Application,
+    breakable,
+    #1
+}
+
+\newtcolorbox{tacticalbox}[1][]{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=Tactical Selection,
+    breakable,
+    #1
+}
+
+\newtcolorbox{conversionbox}[1][]{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=Conversion Techniques,
+    breakable,
+    #1
+}
+
+\newtcolorbox{verificationbox}[1][]{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=Verification Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{roadmapbox}[1][]{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=Solution Roadmap,
+    breakable,
+    #1
+}
+
+\newtcolorbox{competitionbox}[1][]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=Competition Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{pitfallbox}[1][]{
+    colback=gray!5!white,
+    colframe=gray!75!black,
+    title=Common Pitfalls and Warnings,
+    breakable,
+    #1
+}
+
+\newtcolorbox{solutionbox}[1][]{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=Detailed Solution,
+    breakable,
+    #1
+}
+
+\newtcolorbox{keyinsightbox}[1][]{
+    colback=magenta!5!white,
+    colframe=magenta!75!black,
+    title=Key Insights,
+    breakable,
+    #1
+}
+
+\begin{document}
+
+\title{\textbf{AMC 12A 2023 Problem 16}\\Strategic Analysis}
+\author{Using Framework v2.1}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+
+Consider the set of complex numbers $z$ satisfying $|1+z+z^2|=4$. The maximum value of the imaginary part of $z$ can be written in the form $\frac{\sqrt{m}}{n}$, where $m$ and $n$ are relatively prime positive integers. What is $m+n$?
+
+\[\textbf{(A) } 20 \qquad \textbf{(B) } 21 \qquad \textbf{(C) } 22 \qquad \textbf{(D) } 23 \qquad \textbf{(E) } 24\]
+
+\begin{problembox}
+\section*{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Competition}: AMC 12A 2023
+    \item \textbf{Problem Number}: 16
+    \item \textbf{Difficulty Band}: Upper-mid range (Problem 16/25)
+    \item \textbf{Expected Time}: 4-5 minutes
+    \item \textbf{Point Value}: 6 points (standard AMC 12 scoring)
+\end{itemize}
+
+\subsection*{B. Mathematical Domain Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Domain}: Complex Numbers
+    \item \textbf{Secondary Domain}: Optimization
+    \item \textbf{Tertiary Domain}: Algebra (Quadratic Formula) / Geometry (Locus)
+    \item \textbf{Cross-Domain Potential}: Very High (complex numbers, algebra, optimization, geometry)
+\end{itemize}
+
+\subsection*{C. Problem Type}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Format}: Multiple choice (integer answer)
+    \item \textbf{Question Type}: Optimization problem (maximize imaginary part)
+    \item \textbf{Core Task}: Find maximum $\text{Im}(z)$ subject to constraint
+    \item \textbf{Answer Form}: Sum $m + n$ where max imaginary part is $\frac{\sqrt{m}}{n}$
+\end{itemize}
+
+\subsection*{D. Given Information}
+\begin{itemize}[leftmargin=*]
+    \item Constraint: $|1+z+z^2| = 4$
+    \item Variable: $z$ is a complex number
+    \item Objective: Maximize $\text{Im}(z)$
+    \item Answer format: $\text{Im}(z)_{\text{max}} = \frac{\sqrt{m}}{n}$ with $\gcd(m,n) = 1$
+    \item Need to find: $m + n$
+\end{itemize}
+
+\subsection*{E. Constraints}
+\begin{itemize}[leftmargin=*]
+    \item $z$ must be a complex number
+    \item Must satisfy the magnitude constraint exactly
+    \item $m$ and $n$ must be relatively prime positive integers
+    \item Answer is an integer between 20 and 24
+\end{itemize}
+
+\subsection*{F. Objective}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Find}: Maximum imaginary part of $z$
+    \item \textbf{Express}: In form $\frac{\sqrt{m}}{n}$
+    \item \textbf{Output}: Calculate $m + n$
+\end{itemize}
+
+\subsection*{G. Key Structural Features}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Magnitude constraint}: $1+z+z^2$ lies on circle of radius 4
+    \item \textbf{Quadratic in $z$}: Can use quadratic formula
+    \item \textbf{Completing the square}: $1+z+z^2 = (z+\frac{1}{2})^2 + \frac{3}{4}$
+    \item \textbf{Optimization}: Need to maximize one component (imaginary part)
+    \item \textbf{Geometric interpretation}: Locus forms an ellipse in complex plane
+\end{itemize}
+
+\subsection*{H. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Strategy}: Use quadratic formula and optimization
+    \item \textbf{Key Insight}: Maximum occurs when $1+z+z^2 = -4$ (most negative real)
+    \item \textbf{Expected Difficulty}: Challenging - requires complex number manipulation and optimization reasoning
+    \item \textbf{Time Pressure}: Should be completed in 4-5 minutes
+\end{itemize}
+\end{problembox}
+
+\begin{strategybox}
+\section*{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Calibration}: 
+    \begin{itemize}
+        \item Upper-mid difficulty problem
+        \item Requires solid understanding of complex numbers
+        \item Multiple approaches available (algebraic, geometric)
+    \end{itemize}
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item Recognize quadratic form in $z$
+        \item Completing the square technique
+        \item Optimization of one variable subject to constraint
+    \end{itemize}
+    \item \textbf{Problem Familiarity}:
+    \begin{itemize}
+        \item Similar to constrained optimization problems
+        \item Related to locus problems in complex plane
+        \item Connection to AM-GM type inequalities
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Exploration}:
+    \begin{itemize}
+        \item Let $z = a + bi$ and expand $|1+z+z^2|$
+        \item Apply quadratic formula: $z = \frac{-1 \pm \sqrt{4c-3}}{2}$ where $|c| = 4$
+        \item Consider when imaginary part is maximized
+    \end{itemize}
+    \item \textbf{Key Observations}:
+    \begin{itemize}
+        \item $1+z+z^2 = c$ where $|c| = 4$
+        \item $c$ lies on circle of radius 4 centered at origin
+        \item Imaginary part of $z$ depends on square root of $c$
+    \end{itemize}
+    \item \textbf{Optimization Reasoning}:
+    \begin{itemize}
+        \item To maximize $\text{Im}(z)$, need to maximize $\text{Im}(\sqrt{4c-3})$
+        \item When is $\sqrt{4c-3}$ most purely imaginary?
+        \item Answer: When $4c-3$ is most negative (i.e., $c = -4$)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Logical Structure (Quadratic Formula Method)}:
+    \begin{enumerate}
+        \item Apply quadratic formula to $z^2 + z + (1-c) = 0$
+        \item Get $z = \frac{-1 \pm \sqrt{4c-3}}{2}$
+        \item To maximize $\text{Im}(z)$, need to maximize $\text{Im}(\sqrt{4c-3})$
+        \item This occurs when $c = -4$ (on the circle $|c| = 4$)
+        \item Compute: $z = \frac{-1 \pm \sqrt{-19}}{2} = \frac{-1 \pm i\sqrt{19}}{2}$
+        \item Maximum imaginary part: $\frac{\sqrt{19}}{2}$
+        \item Therefore: $m = 19$, $n = 2$, and $m + n = 21$
+    \end{enumerate}
+    \item \textbf{Key Deductions}:
+    \begin{itemize}
+        \item $|c| = 4$ means $c$ is on circle of radius 4
+        \item $4c - 3$ is also on a circle (centered at $-3$, radius 16)
+        \item Most negative point is $4c - 3 = -19$
+        \item $\sqrt{-19} = i\sqrt{19}$ is purely imaginary
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic}: Solve quadratic equation with parameter
+    \item \textbf{Geometric}: Locus of $z$ forms ellipse, find highest point
+    \item \textbf{Optimization}: Constrained optimization using calculus or geometric reasoning
+    \item \textbf{Complex Analysis}: Magnitude and argument manipulation
+\end{itemize}
+\end{strategybox}
+
+\begin{tacticalbox}
+\section*{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Quadratic Formula}: Solve for $z$ in terms of parameter $c$
+    \item \textbf{Parametrization}: Let $1+z+z^2 = c$ with $|c| = 4$
+    \item \textbf{Completing the Square}: Express as $(z+\frac{1}{2})^2 + \frac{3}{4}$
+    \item \textbf{Optimization}: Maximize imaginary component
+    \item \textbf{Geometric Reasoning}: Visualize locus in complex plane
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Complex Numbers}:
+    \begin{itemize}
+        \item $z = a + bi$ substitution
+        \item Magnitude: $|w| = \sqrt{(\text{Re}(w))^2 + (\text{Im}(w))^2}$
+        \item Square root: $\sqrt{re^{i\theta}} = \sqrt{r}e^{i\theta/2}$
+    \end{itemize}
+    \item \textbf{Optimization}:
+    \begin{itemize}
+        \item Identify which parameter to vary ($c$ on circle)
+        \item Determine when objective function is maximized
+        \item Geometric interpretation helps intuition
+    \end{itemize}
+    \item \textbf{Algebraic Manipulation}:
+    \begin{itemize}
+        \item Expand expressions carefully
+        \item Factor quadratics when possible
+        \item Simplify square roots
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Tactical Priorities}
+\begin{enumerate}[leftmargin=*]
+    \item Set up parametrization: $1+z+z^2 = c$ with $|c| = 4$ (60 seconds)
+    \item Apply quadratic formula (60 seconds)
+    \item Identify optimization condition: $c = -4$ (90 seconds)
+    \item Calculate maximum imaginary part (60 seconds)
+    \item Find $m + n$ (30 seconds)
+\end{enumerate}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\section*{4. Conversion Techniques Application}
+
+\subsection*{A. Method 1: Quadratic Formula (Most Direct)}
+\begin{itemize}[leftmargin=*]
+    \item Let $1+z+z^2 = c$ where $|c| = 4$
+    \item Rearrange: $z^2 + z + (1-c) = 0$
+    \item Apply quadratic formula:
+    \[z = \frac{-1 \pm \sqrt{1 - 4(1-c)}}{2} = \frac{-1 \pm \sqrt{4c-3}}{2}\]
+    \item The imaginary part of $z$ is:
+    \[\text{Im}(z) = \frac{\text{Im}(\sqrt{4c-3})}{2}\]
+    \item To maximize $\text{Im}(\sqrt{4c-3})$, we need $4c-3$ to have:
+    \begin{itemize}
+        \item Maximum magnitude (for largest $\sqrt{r}$)
+        \item Argument that gives maximum $\sin(\theta/2)$
+    \end{itemize}
+    \item Since $|c| = 4$, the point $c$ lies on a circle of radius 4
+    \item Therefore $4c - 3$ lies on a circle centered at $-3$ with radius $16$
+    \item The leftmost point of this circle is $-3 - 16 = -19$
+    \item So the optimal value is $4c - 3 = -19$, which gives $c = -4$
+    \item Then:
+    \[z = \frac{-1 \pm \sqrt{-19}}{2} = \frac{-1 \pm i\sqrt{19}}{2}\]
+    \item Maximum imaginary part: $\frac{\sqrt{19}}{2}$
+    \item Therefore: $m = 19$, $n = 2$, $\gcd(19,2) = 1$ $\checkmark$
+    \item Answer: $m + n = 21$
+\end{itemize}
+
+\subsection*{B. Method 2: Substitution and Optimization}
+\begin{itemize}[leftmargin=*]
+    \item Let $z = a + bi$
+    \item Expand:
+    \begin{align*}
+    1 + z + z^2 &= 1 + (a+bi) + (a+bi)^2\\
+    &= 1 + a + a^2 - b^2 + (b + 2ab)i\\
+    &= (1 + a + a^2 - b^2) + (b + 2ab)i
+    \end{align*}
+    \item Apply magnitude constraint:
+    \[(1 + a + a^2 - b^2)^2 + (b + 2ab)^2 = 16\]
+    \item Expand the second term:
+    \[(b + 2ab)^2 = b^2(1 + 2a)^2 = b^2(1 + 4a + 4a^2)\]
+    \item Let $p = b^2$ and $q = 1 + a + a^2$:
+    \[(q - p)^2 + p(1 + 4a + 4a^2) = 16\]
+    \item Note: $1 + 4a + 4a^2 = 4(a^2 + a + \frac{1}{4}) = 4q - 3$
+    \item So: $(q - p)^2 + p(4q - 3) = 16$
+    \item Expand: $p^2 - 2pq + q^2 + 4pq - 3p = 16$
+    \item Simplify: $p^2 + (2q - 3)p + (q^2 - 16) = 0$
+    \item Solve for $p$:
+    \[p = \frac{-(2q-3) \pm \sqrt{(2q-3)^2 - 4(q^2-16)}}{2}\]
+    \[= \frac{3-2q \pm \sqrt{4q^2 - 12q + 9 - 4q^2 + 64}}{2}\]
+    \[= \frac{3-2q \pm \sqrt{-12q + 73}}{2}\]
+    \item To maximize $b = \sqrt{p}$, maximize $p$
+    \item Take the $+$ sign and minimize $q$
+    \item Note: $q = 1 + a + a^2 = (a + \frac{1}{2})^2 + \frac{3}{4} \geq \frac{3}{4}$
+    \item Minimum $q = \frac{3}{4}$ when $a = -\frac{1}{2}$
+    \item Then:
+    \[p = \frac{3 - 2 \cdot \frac{3}{4} + \sqrt{-12 \cdot \frac{3}{4} + 73}}{2} = \frac{3 - \frac{3}{2} + \sqrt{64}}{2} = \frac{\frac{3}{2} + 8}{2} = \frac{19}{4}\]
+    \item Therefore: $b = \sqrt{\frac{19}{4}} = \frac{\sqrt{19}}{2}$
+    \item Answer: $m + n = 19 + 2 = 21$
+\end{itemize}
+
+\subsection*{C. Method 3: Geometric/Completing the Square}
+\begin{itemize}[leftmargin=*]
+    \item Complete the square:
+    \[1 + z + z^2 = (z + \frac{1}{2})^2 + \frac{3}{4}\]
+    \item So:
+    \[\left|(z + \frac{1}{2})^2 + \frac{3}{4}\right| = 4\]
+    \item Let $u = (z + \frac{1}{2})^2$, then $|u + \frac{3}{4}| = 4$
+    \item This means $u$ lies on a circle centered at $-\frac{3}{4}$ with radius 4
+    \item Now let $v = z + \frac{1}{2}$, so $v^2 = u$
+    \item Since adding $\frac{1}{2}$ doesn't change imaginary part, we want to maximize $\text{Im}(v)$
+    \item The point on the $u$-circle with largest magnitude is $-\frac{3}{4} - 4 = -\frac{19}{4}$
+    \item So $v^2 = -\frac{19}{4}$, which gives $v = \pm \frac{i\sqrt{19}}{2}$
+    \item Taking positive imaginary part: $v = \frac{i\sqrt{19}}{2}$
+    \item Therefore: $z = v - \frac{1}{2} = -\frac{1}{2} + \frac{i\sqrt{19}}{2}$
+    \item Maximum imaginary part: $\frac{\sqrt{19}}{2}$
+    \item Answer: $m + n = 19 + 2 = 21$
+\end{itemize}
+
+\subsection*{D. Method 4: Factoring Approach}
+\begin{itemize}[leftmargin=*]
+    \item Factor: $1 + z + z^2 = (z - \omega)(z - \overline{\omega})$ where $\omega = e^{2\pi i/3} = \frac{-1 + i\sqrt{3}}{2}$
+    \item So:
+    \[\left|z - \omega\right| \cdot \left|z - \overline{\omega}\right| = 4\]
+    \item Let $z = a + bi$. To maximize $b$, set $a = -\frac{1}{2}$ (the real part of $\omega$)
+    \item Then:
+    \[\left|bi + \frac{i\sqrt{3}}{2}\right| \cdot \left|bi - \frac{i\sqrt{3}}{2}\right| = 4\]
+    \[\left|b + \frac{\sqrt{3}}{2}\right| \cdot \left|b - \frac{\sqrt{3}}{2}\right| = 4\]
+    \[\left(b + \frac{\sqrt{3}}{2}\right)\left(b - \frac{\sqrt{3}}{2}\right) = 4\]
+    \[b^2 - \frac{3}{4} = 4\]
+    \[b^2 = \frac{19}{4}\]
+    \[b = \frac{\sqrt{19}}{2}\]
+    \item Answer: $m + n = 19 + 2 = 21$
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\section*{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 4 - Direct Substitution
+    \item \textbf{Reasoning}: Can verify by checking constraint
+    \item \textbf{Time Budget}: 60 seconds
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Check solution}: $z = -\frac{1}{2} + \frac{i\sqrt{19}}{2}$
+    \begin{itemize}
+        \item Compute $z^2 = \frac{1}{4} - \frac{19}{4} - \frac{i\sqrt{19}}{2} = -\frac{18}{4} - \frac{i\sqrt{19}}{2} = -\frac{9}{2} - \frac{i\sqrt{19}}{2}$
+        \item Compute $1 + z + z^2 = 1 - \frac{1}{2} + \frac{i\sqrt{19}}{2} - \frac{9}{2} - \frac{i\sqrt{19}}{2}$
+        \item $= 1 - 5 = -4$ $\checkmark$
+        \item Magnitude: $|-4| = 4$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Check form}:
+    \begin{itemize}
+        \item Imaginary part: $\frac{\sqrt{19}}{2}$ $\checkmark$
+        \item $\gcd(19, 2) = 1$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Check answer}:
+    \begin{itemize}
+        \item $m + n = 19 + 2 = 21$ $\checkmark$
+        \item Matches choice (B) $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1}: Verify that $b = \frac{\sqrt{19}}{2}$ is indeed maximum (check derivative or boundary)
+    \item \textbf{Method 2}: Check that other values of $c$ give smaller imaginary parts
+    \item \textbf{Method 3}: Verify geometric interpretation (ellipse, highest point)
+\end{itemize}
+
+\subsection*{D. Answer Choice Validation}
+\begin{itemize}[leftmargin=*]
+    \item Our answer: 21
+    \item Matches choice: \textbf{(B)}
+    \item Why not the others?
+    \begin{itemize}
+        \item Answer must be computed, not guessed
+        \item Other values don't satisfy the constraint
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\section*{6. Solution Roadmap}
+
+\subsection*{A. High-Level Solution Path}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Parametrize}: Let $1+z+z^2 = c$ with $|c| = 4$
+    \item \textbf{Apply quadratic formula}: $z = \frac{-1 \pm \sqrt{4c-3}}{2}$
+    \item \textbf{Optimize}: Maximize $\text{Im}(\sqrt{4c-3})$ by choosing $c = -4$
+    \item \textbf{Calculate}: $z = \frac{-1 \pm i\sqrt{19}}{2}$
+    \item \textbf{Extract answer}: $\text{Im}(z)_{\max} = \frac{\sqrt{19}}{2}$, so $m+n = 21$
+\end{enumerate}
+
+\subsection*{B. Detailed Solution Steps}
+
+\textbf{Step 1}: Set up the problem.
+\begin{itemize}
+    \item Given: $|1+z+z^2| = 4$
+    \item Let $1+z+z^2 = c$ where $c$ is some complex number with $|c| = 4$
+\end{itemize}
+
+\textbf{Step 2}: Solve for $z$ using quadratic formula.
+\begin{itemize}
+    \item Rearrange: $z^2 + z + (1-c) = 0$
+    \item Apply quadratic formula:
+    \[z = \frac{-1 \pm \sqrt{1-4(1-c)}}{2} = \frac{-1 \pm \sqrt{4c-3}}{2}\]
+\end{itemize}
+
+\textbf{Step 3}: Identify optimization condition.
+\begin{itemize}
+    \item Imaginary part of $z$ is $\frac{\text{Im}(\sqrt{4c-3})}{2}$
+    \item To maximize this, need to maximize $\text{Im}(\sqrt{4c-3})$
+    \item Since $|c| = 4$, $c$ lies on circle of radius 4
+    \item Then $4c-3$ lies on circle centered at $-3$ with radius 16
+    \item For $\sqrt{w}$ with $w = re^{i\theta}$, we have $\sqrt{w} = \sqrt{r}e^{i\theta/2}$
+    \item So $\text{Im}(\sqrt{w}) = \sqrt{r}\sin(\theta/2)$
+    \item This is maximized when both $r$ and $\sin(\theta/2)$ are large
+    \item The point on the circle with largest $r$ and $\theta = \pi$ is $w = -19$
+    \item Therefore $4c - 3 = -19$, giving $c = -4$
+\end{itemize}
+
+\textbf{Step 4}: Calculate maximum imaginary part.
+\begin{itemize}
+    \item With $c = -4$:
+    \[z = \frac{-1 \pm \sqrt{4(-4)-3}}{2} = \frac{-1 \pm \sqrt{-19}}{2} = \frac{-1 \pm i\sqrt{19}}{2}\]
+    \item Taking positive imaginary part: $\text{Im}(z) = \frac{\sqrt{19}}{2}$
+\end{itemize}
+
+\textbf{Step 5}: Find $m + n$.
+\begin{itemize}
+    \item $\frac{\sqrt{19}}{2}$ is in the form $\frac{\sqrt{m}}{n}$ with $m = 19$, $n = 2$
+    \item Check: $\gcd(19, 2) = 1$ $\checkmark$
+    \item Answer: $m + n = 19 + 2 = 21$
+\end{itemize}
+
+\subsection*{C. Key Decision Points}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Decision 1}: Parametrize with $c$ on circle
+    \item \textbf{Decision 2}: Use quadratic formula
+    \item \textbf{Decision 3}: Recognize that $c = -4$ maximizes imaginary part
+    \item \textbf{Decision 4}: Correctly compute square root of negative number
+\end{itemize}
+
+\subsection*{D. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item Understanding problem: 30 seconds
+    \item Setting up parametrization: 60 seconds
+    \item Applying quadratic formula: 60 seconds
+    \item Optimization reasoning: 90 seconds
+    \item Calculation: 60 seconds
+    \item Verification: 60 seconds
+    \item \textbf{Total}: 5 minutes
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\section*{7. Competition Strategy Integration}
+
+\subsection*{A. Problem Triage}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Difficulty Assessment}: Upper-medium (Problem 16/25)
+    \item \textbf{Confidence Level}: Moderate to high if comfortable with complex numbers
+    \item \textbf{Decision}: Skip if unfamiliar with complex numbers; attempt if comfortable
+\end{itemize}
+
+\subsection*{B. Time Allocation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 4-5 minutes
+    \item \textbf{Maximum Time}: 6 minutes
+    \item \textbf{Abandonment Criteria}: If no progress after 4 minutes, move on
+\end{itemize}
+
+\subsection*{C. Solution Format}
+\begin{itemize}[leftmargin=*]
+    \item Multiple choice: Select \textbf{(B) 21}
+    \item Verification: Check constraint with computed $z$
+    \item Bubble answer sheet carefully
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}: If you recognize the quadratic formula approach, this is faster
+    \item \textbf{Elimination}: Cannot eliminate choices without solving
+    \item \textbf{Key insight}: $c = -4$ gives maximum - this is the crucial step
+    \item \textbf{Verification}: Always check $\gcd(m,n) = 1$
+\end{itemize}
+\end{competitionbox}
+
+\begin{pitfallbox}
+\section*{Common Pitfalls and Warnings}
+
+\subsection*{A. Conceptual Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Wrong parametrization}: Not recognizing that $c$ lies on circle
+    \item \textbf{Optimization error}: Thinking maximum occurs at $c = 4$ instead of $c = -4$
+    \item \textbf{Square root confusion}: $\sqrt{-19} = i\sqrt{19}$, not $-\sqrt{19}$
+    \item \textbf{Missing imaginary unit}: Forgetting that square root of negative is imaginary
+\end{itemize}
+
+\subsection*{B. Computational Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Quadratic formula}: Sign errors or arithmetic mistakes
+    \item \textbf{Completing square}: $(z + \frac{1}{2})^2 = z^2 + z + \frac{1}{4}$, not $z^2 + z + 1$
+    \item \textbf{GCD check}: Must verify $\gcd(19, 2) = 1$ before adding
+    \item \textbf{Arithmetic}: $19 + 2 = 21$, not 20 or 22
+\end{itemize}
+
+\subsection*{C. Strategic Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Overcomplicated algebra}: Using substitution method is much longer
+    \item \textbf{Missing geometric intuition}: Not seeing why $c = -4$ is optimal
+    \item \textbf{Time management}: Spending too long on algebraic manipulation
+\end{itemize}
+
+\subsection*{D. Warning Signs}
+\begin{itemize}[leftmargin=*]
+    \item If you get imaginary part with wrong denominator, recheck calculation
+    \item If answer isn't among choices, revisit optimization step
+    \item If $m$ and $n$ aren't coprime, you made an error
+\end{itemize}
+\end{pitfallbox}
+
+\begin{solutionbox}
+\subsection*{A. Main Solution (Quadratic Formula)}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Parametrize the constraint}:
+    \begin{itemize}
+        \item Let $1 + z + z^2 = c$ where $|c| = 4$
+        \item This means $c$ lies on a circle of radius 4 in the complex plane
+    \end{itemize}
+    
+    \item \textbf{Solve for $z$}:
+    \begin{itemize}
+        \item Rearrange: $z^2 + z + (1-c) = 0$
+        \item Quadratic formula:
+        \[z = \frac{-1 \pm \sqrt{1 - 4(1-c)}}{2} = \frac{-1 \pm \sqrt{4c-3}}{2}\]
+    \end{itemize}
+    
+    \item \textbf{Optimize for maximum imaginary part}:
+    \begin{itemize}
+        \item $\text{Im}(z) = \frac{\text{Im}(\sqrt{4c-3})}{2}$
+        \item Since $|c| = 4$, we have $c = 4e^{i\alpha}$ for some angle $\alpha$
+        \item Then $4c - 3 = 16e^{i\alpha} - 3$
+        \item This traces a circle centered at $-3$ with radius 16
+        \item The leftmost point is $-3 - 16 = -19$ (when $\alpha = \pi$, i.e., $c = -4$)
+        \item For $w = re^{i\theta}$, we have $\sqrt{w} = \sqrt{r}e^{i\theta/2}$
+        \item With $w = -19 = 19e^{i\pi}$: $\sqrt{-19} = \sqrt{19}e^{i\pi/2} = i\sqrt{19}$
+    \end{itemize}
+    
+    \item \textbf{Calculate maximum}:
+    \begin{align*}
+    z &= \frac{-1 \pm i\sqrt{19}}{2}\\
+    \text{Im}(z)_{\max} &= \frac{\sqrt{19}}{2}
+    \end{align*}
+    
+    \item \textbf{Find answer}:
+    \begin{itemize}
+        \item $m = 19$, $n = 2$
+        \item $\gcd(19, 2) = 1$ $\checkmark$
+        \item $m + n = 21$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Verification}
+\begin{itemize}[leftmargin=*]
+    \item Check: $z = -\frac{1}{2} + \frac{i\sqrt{19}}{2}$
+    \item Compute:
+    \begin{align*}
+    z^2 &= \frac{1}{4} - \frac{19}{4} - \frac{i\sqrt{19}}{2} = -\frac{9}{2} - \frac{i\sqrt{19}}{2}\\
+    1 + z + z^2 &= 1 - \frac{1}{2} + \frac{i\sqrt{19}}{2} - \frac{9}{2} - \frac{i\sqrt{19}}{2}\\
+    &= 1 - 5 = -4
+    \end{align*}
+    \item $|-4| = 4$ $\checkmark$
+\end{itemize}
+\end{solutionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The crucial observation is that to maximize the imaginary part of $z = \frac{-1 \pm \sqrt{4c-3}}{2}$, we need to maximize $\text{Im}(\sqrt{4c-3})$.
+
+For a complex number $w = re^{i\theta}$:
+\[\text{Im}(\sqrt{w}) = \text{Im}(\sqrt{r}e^{i\theta/2}) = \sqrt{r}\sin(\theta/2)\]
+
+This is maximized when:
+\begin{itemize}
+    \item $r$ is as large as possible
+    \item $\sin(\theta/2)$ is as large as possible
+\end{itemize}
+
+Since $4c - 3$ lies on a circle centered at $-3$ with radius 16, the point with:
+\begin{itemize}
+    \item Largest magnitude: $|-3 - 16| = 19$
+    \item Argument $\theta = \pi$ (negative real axis): $\sin(\pi/2) = 1$
+\end{itemize}
+
+is $w = -19$, which occurs when $c = -4$.
+
+\textbf{General Pattern}: For optimization problems involving $\sqrt{f(c)}$ where $c$ is on a circle:
+\begin{itemize}
+    \item Consider where $f(c)$ is located
+    \item Find the point that maximizes both magnitude and favorable argument
+    \item For imaginary part, want argument $\pi$ (negative real)
+    \item For real part, want argument $0$ (positive real)
+\end{itemize}
+
+\textbf{Why $c = -4$ works}: 
+\begin{itemize}
+    \item $4c - 3 = -19$ is the most negative real number possible
+    \item $\sqrt{-19} = i\sqrt{19}$ is purely imaginary with maximum magnitude
+    \item This gives the largest positive imaginary part for $z$
+\end{itemize}
+\end{keyinsightbox}
+
+\section*{Final Answer}
+
+The maximum imaginary part of $z$ is $\frac{\sqrt{19}}{2}$, so:
+
+\[\boxed{\textbf{(B) } 21}\]
+
+\textbf{Solution Summary}:
+\begin{itemize}
+    \item Parametrize: $1+z+z^2 = c$ with $|c| = 4$
+    \item Solve: $z = \frac{-1 \pm \sqrt{4c-3}}{2}$
+    \item Optimize: Maximum imaginary part when $c = -4$
+    \item Calculate: $z = \frac{-1 \pm i\sqrt{19}}{2}$, so $\text{Im}(z)_{\max} = \frac{\sqrt{19}}{2}$
+    \item Answer: $m + n = 19 + 2 = 21$
+\end{itemize}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\%
+    \begin{itemize}
+        \item Standard quadratic formula approach
+        \item Clear optimization condition ($c = -4$)
+        \item Verified by direct substitution
+        \item Answer matches expected form
+    \end{itemize}
+    \item \textbf{Verification Applied}: Level 4 - Direct Substitution
+    \begin{itemize}
+        \item Checked that $z = -\frac{1}{2} + \frac{i\sqrt{19}}{2}$ satisfies constraint
+        \item Confirmed $\gcd(19, 2) = 1$
+        \item Verified arithmetic: $19 + 2 = 21$
+    \end{itemize}
+    \item \textbf{Time-Confidence Trade-off}: High confidence in 4-5 minutes
+\end{itemize}
+
+\end{document}
+

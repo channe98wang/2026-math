@@ -1,0 +1,14 @@
+2007 AMC 12B Problems/Problem 5
+Problem
+The 2007 AMC 12 contests will be scored by awarding 6 points for each correct response, 0 points for each incorrect response, and 1.5 points for each problem left unanswered. After looking over the 25 problems, Sarah has decided to attempt the first 22 and leave the last 3 unanswered. How many of the first 22 problems must she solve correctly in order to score at least 100 points?
+$\mathrm {(A)}\ 13 \qquad \mathrm {(B)}\ 14 \qquad \mathrm {(C)}\ 15 \qquad \mathrm {(D)}\ 16 \qquad \mathrm {(E)} 17$
+Solution
+She must get at least $100 - 4.5 = 95.5$ points, and that can only be possible by answering at least $\lceil \frac{95.5}{6}\rceil = 16 \Rightarrow \mathrm {(D)}$ questions correctly.
+See Also
+2007 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

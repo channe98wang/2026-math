@@ -1,0 +1,14 @@
+2015 AMC 12B Problems/Problem 1
+Problem
+What is the value of $2-(-2)^{-2}$ ?
+$\textbf{(A) } -2\qquad\textbf{(B) } \dfrac{1}{16}\qquad\textbf{(C) } \dfrac{7}{4}\qquad\textbf{(D) } \dfrac{9}{4}\qquad\textbf{(E) } 6$
+Solution
+$2-(-2)^{-2}=2-\frac{1}{(-2)^2}=2-\frac{1}{4}=\frac{8}{4}-\frac{1}{4}=\boxed{\textbf{(C) }\frac{7}{4}}$
+See Also
+2015 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ First Problem Followed by 
+ Problem 2
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

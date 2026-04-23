@@ -1,0 +1,25 @@
+2009 AMC 12A Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+2.1 Solution 1
+2.2 Solution 2
+3 See Also
+Problem
+What number is one third of the way from $\frac14$ to $\frac34$ ?
+$\textbf{(A)}\ \frac {1}{3} \qquad \textbf{(B)}\ \frac {5}{12} \qquad \textbf{(C)}\ \frac {1}{2} \qquad \textbf{(D)}\ \frac {7}{12} \qquad \textbf{(E)}\ \frac {2}{3}$
+Solution
+Solution 1
+We can rewrite the two given fractions as $\frac 3{12}$ and $\frac 9{12}$ . (We multiplied all numerators and denominators by $3$ .)
+Now it is obvious that the interval between them is divided into three parts by the fractions $\boxed{\frac 5{12}}$ and $\frac 7{12}$ .
+Solution 2
+The number we seek can be obtained as a weighted average of the two endpoints, where the closer one has weight $2$ and the further one $1$ . We compute:
+\[\dfrac{ 2\cdot\frac 14 + 1\cdot\frac 34 }3 = \dfrac{ \frac 54 }3 = \boxed{\dfrac 5{12}}\]
+See Also
+2009 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

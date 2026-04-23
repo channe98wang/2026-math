@@ -1,0 +1,536 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2017 Problem 14: Strategic Analysis\\
+\large Ice Cream Cone and Frustum Volume}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+An ice-cream novelty item consists of a cup in the shape of a 4-inch-tall frustum of a right circular cone, with a 2-inch-diameter base at the bottom and a 4-inch-diameter base at the top, packed solid with ice cream, together with a solid cone of ice cream of height 4 inches, whose base, at the bottom, is the top base of the frustum. What is the total volume of the ice cream, in cubic inches?
+
+$$\textbf{(A)}\ 8\pi \qquad \textbf{(B)}\ \frac{28\pi}{3} \qquad \textbf{(C)}\ 12\pi \qquad \textbf{(D)}\ 14\pi \qquad \textbf{(E)}\ \frac{44\pi}{3}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (compute exact numerical volume)
+    \item \textbf{Difficulty Band}: Mid-band (Problem 14 of 25)
+    \item \textbf{Competition Context}: AMC12B 2017
+    \item \textbf{Mathematical Domain}: Solid Geometry (Volume Calculations)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Frustum: height $h_1 = 4$ inches, bottom diameter $d_1 = 2$ inches (radius $r_1 = 1$), top diameter $d_2 = 4$ inches (radius $r_2 = 2$)
+        \item Cone on top: height $h_2 = 4$ inches, base diameter $d_3 = 4$ inches (radius $r_3 = 2$)
+        \item Cone's base sits on frustum's top
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item All shapes are right circular (axis perpendicular to bases)
+        \item Frustum is part of a cone (linear taper from bottom to top)
+        \item Answer must be in terms of $\pi$
+    \end{itemize}
+    \item \textbf{Objective}: Find total volume $V_{\text{total}} = V_{\text{frustum}} + V_{\text{cone}}$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Frustum formula not explicitly given (must recall or derive)
+        \item Similar triangles relationship in frustum structure
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All choices involve $\pi$ and are relatively simple expressions
+        \item Choices (B) and (E) have denominators of 3 (suggesting $\frac{1}{3}$ from cone formula)
+        \item Choice (E) is largest, suggesting additive answer
+        \item Can verify by checking if answer is reasonable for given dimensions
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Frustum can be computed as difference of two cones
+    \item \textbf{Conclusion}: Total volume equals frustum volume plus top cone volume
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $V_f$ = volume of frustum
+        \item $V_c$ = volume of top cone  
+        \item $r_1, r_2$ = radii at bottom and top of frustum
+        \item $h_1, h_2$ = heights of frustum and cone
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Cone formula is straightforward: $V = \frac{1}{3}\pi r^2 h$
+        \item Frustum requires either: (1) direct formula, or (2) difference of cones method
+        \item Difference method: imagine completing the frustum to a full cone
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: Could use calculus integration with $\pi \int_0^4 r(h)^2 \, dh$, but algebraic approach is simpler for AMC12
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is a mid-band problem (14/25), so expect 4-6 minutes of work. If frustum formula isn't recalled, derive it systematically rather than giving up
+    \item \textbf{Creativity Cultivation}: Multiple approaches exist (direct formula vs. cone difference). If one stalls, switch methods
+    \item \textbf{Iterative Refinement}: After computing frustum volume, double-check similar triangles setup before proceeding to final addition
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as volume decomposition problem. Sketch the shape to visualize frustum + cone structure
+    \item \textbf{Get Your Hands Dirty}: Start with what's known: top cone has clear dimensions ($r=2$, $h=4$)
+    \item \textbf{Penultimate Step}: Final step will be addition $V_f + V_c$, so focus on getting frustum volume correct
+    \item \textbf{Wishful Thinking}: ``I wish I remembered the frustum formula'' $\rightarrow$ derive it via cone subtraction
+    \item \textbf{Make It Easier}: Top cone is easier than frustum, so compute it first for a small confidence boost
+    \item \textbf{Conjecture via Small Cases}: Verify formula with simple example: if frustum has $r_1=r_2$, it becomes a cylinder ($V=\pi r^2 h$)
+    \item \textbf{Visualization}: Draw cross-section showing frustum as part of cone with vertex below bottom base
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+Not directly applicable (this is mid-band P14), but general principles:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Check if answer choices help eliminate options (e.g., too small/large)
+    \item \textbf{Dimensional Analysis}: Answer must have units of $\text{inches}^3$ and factor of $\pi$
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Compute each volume component and add
+    \item \textbf{Geometric Construction}: Extend frustum lines to find apex of complete cone
+    \item \textbf{Similar Triangles}: Use proportionality to find height of small cone above frustum
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential for understanding frustum as part of larger cone
+    \item \textbf{Algebraic vs. Geometric}: While calculus integration is possible, geometric decomposition is cleaner
+    \item \textbf{Coordinate System}: Could place origin at frustum base, but not necessary for this problem
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactic}: Volume Decomposition (TM31-VolumeDecompose)
+    \item \textbf{Supporting Tactics}:
+    \begin{itemize}
+        \item Similar Triangles (T3-SimilarTriangles) for finding cone apex
+        \item Algebraic Manipulation for combining terms
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Solid Geometry Fundamentals}:
+    \begin{itemize}
+        \item Cone volume: $V = \frac{1}{3}\pi r^2 h$
+        \item Frustum as difference of cones: $V_{\text{frustum}} = V_{\text{large}} - V_{\text{small}}$
+        \item Direct frustum formula: $V = \frac{\pi h}{3}(r_1^2 + r_1 r_2 + r_2^2)$
+    \end{itemize}
+    \item \textbf{Similar Triangles}:
+    \begin{itemize}
+        \item In cross-section, frustum sides form similar triangles with full cone
+        \item If frustum has bottom radius $r_1$, top radius $r_2$, height $h$
+        \item Then small cone removed has height ratio $\frac{r_1}{r_2-r_1} \cdot h$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Calculus Alternative}: $V_{\text{frustum}} = \pi \int_0^4 \left(\frac{h}{4}+1\right)^2 dh$
+    \item \textbf{Coordinate Geometry}: Place cone apex at origin and integrate, but overkill for AMC12
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}: Composite solid with two components
+    \item \textbf{Formula Recognition}: Cone volume formula is standard; frustum requires recall or derivation
+    \item \textbf{Structure Recognition}: Frustum is truncated cone (part of larger cone)
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: TM31-VolumeDecompose (Volume Decomposition)
+    \item \textbf{Confidence Level}: 95\% (standard technique for composite solids)
+    \item \textbf{Alternative Techniques}:
+    \begin{itemize}
+        \item Direct frustum formula (requires memorization)
+        \item Calculus integration (slower but verifiable)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Step 1}: Compute top cone volume (straightforward)
+    \item \textbf{Step 2}: Compute frustum volume via cone subtraction
+    \begin{itemize}
+        \item Find dimensions of large cone (extending frustum downward)
+        \item Find dimensions of small cone (removed part above frustum)
+        \item Subtract: $V_f = V_{\text{large}} - V_{\text{small}}$
+    \end{itemize}
+    \item \textbf{Step 3}: Add components: $V_{\text{total}} = V_f + V_c$
+\end{itemize}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Potential Issue}: Frustum formula not recalled
+    \item \textbf{Resolution}: Derive using similar triangles and cone subtraction
+    \item \textbf{Verification}: Check that frustum formula gives same result as direct computation
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Level Selection with Decision Tree}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Time Available}: 4-6 minutes for mid-band problem
+    \item \textbf{Confidence}: High (standard formulas and clear structure)
+    \item \textbf{Verification Level}: Level 3 (Sanity + Primary)
+    \begin{itemize}
+        \item Level 1: Quick check (units, sign)
+        \item Level 2: Recompute final addition
+        \item Level 3: Verify frustum computation with alternative method
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Dimensional Analysis}:
+    \begin{itemize}
+        \item All terms must have units of $\text{inches}^3$
+        \item Factor of $\pi$ must appear (circular bases)
+        \item Answer should be between $12\pi$ and $20\pi$ (rough estimate)
+    \end{itemize}
+    \item \textbf{Answer Choice Verification}:
+    \begin{itemize}
+        \item Top cone: $V_c = \frac{1}{3}\pi (2)^2 (4) = \frac{16\pi}{3} \approx 16.76$ cubic inches
+        \item Frustum should be larger than cone (wider base)
+        \item Choice (E) $\frac{44\pi}{3} \approx 46.08$ is reasonable
+    \end{itemize}
+    \item \textbf{Algebraic Verification}:
+    \begin{itemize}
+        \item Recompute frustum using direct formula: $V = \frac{\pi h}{3}(r_1^2 + r_1 r_2 + r_2^2)$
+        \item $V_f = \frac{\pi \cdot 4}{3}(1^2 + 1 \cdot 2 + 2^2) = \frac{4\pi}{3}(1+2+4) = \frac{28\pi}{3}$
+        \item Matches our cone-subtraction result
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (familiar problem type)
+    \item \textbf{Post-Calculation Confidence}: 95\% (clean arithmetic, verified formula)
+    \item \textbf{Post-Verification Confidence}: 98\% (two methods agree, answer choice reasonable)
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Phase 1: Compute Top Cone Volume (1 minute)}
+
+The cone sits on top with radius $r = 2$ inches and height $h = 4$ inches.
+
+Using cone formula:
+$$V_c = \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi (2)^2 (4) = \frac{16\pi}{3}$$
+
+\textbf{Checkpoint 1}: Verify $\frac{16\pi}{3}$ is reasonable for 4-inch tall cone with 2-inch radius.
+
+\textbf{Phase 2: Compute Frustum Volume via Cone Subtraction (3 minutes)}
+
+The frustum has:
+\begin{itemize}
+    \item Bottom radius: $r_1 = 1$ inch
+    \item Top radius: $r_2 = 2$ inches
+    \item Height: $h_1 = 4$ inches
+\end{itemize}
+
+\textbf{Step 2a}: Find height of complete large cone
+
+Using similar triangles in cross-section: if we extend the frustum downward to apex, let total height be $H$.
+
+From similar triangles:
+$$\frac{r_1}{H-h_1} = \frac{r_2}{H}$$
+$$\frac{1}{H-4} = \frac{2}{H}$$
+$$H = 2(H-4)$$
+$$H = 2H - 8$$
+$$H = 8 \text{ inches}$$
+
+\textbf{Step 2b}: Compute large cone volume
+
+Large cone: radius $r_2 = 2$, height $H = 8$
+$$V_{\text{large}} = \frac{1}{3}\pi (2)^2 (8) = \frac{32\pi}{3}$$
+
+\textbf{Step 2c}: Compute small cone volume (removed part)
+
+Small cone: radius $r_1 = 1$, height $H - h_1 = 4$
+$$V_{\text{small}} = \frac{1}{3}\pi (1)^2 (4) = \frac{4\pi}{3}$$
+
+\textbf{Step 2d}: Compute frustum volume
+
+$$V_f = V_{\text{large}} - V_{\text{small}} = \frac{32\pi}{3} - \frac{4\pi}{3} = \frac{28\pi}{3}$$
+
+\textbf{Checkpoint 2}: Note that $\frac{28\pi}{3}$ matches answer choice (B), but this is only the frustum!
+
+\textbf{Phase 3: Compute Total Volume (1 minute)}
+
+$$V_{\text{total}} = V_f + V_c = \frac{28\pi}{3} + \frac{16\pi}{3} = \frac{44\pi}{3}$$
+
+\textbf{Checkpoint 3}: This matches answer choice (E).
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Alternative 1: Direct Frustum Formula}
+
+Using $V = \frac{\pi h}{3}(r_1^2 + r_1 r_2 + r_2^2)$:
+
+$$V_f = \frac{\pi \cdot 4}{3}(1^2 + 1 \cdot 2 + 2^2) = \frac{4\pi}{3}(1 + 2 + 4) = \frac{4\pi}{3} \cdot 7 = \frac{28\pi}{3}$$
+
+Same result! Then add cone volume: $\frac{28\pi}{3} + \frac{16\pi}{3} = \frac{44\pi}{3}$
+
+\textbf{Alternative 2: Calculus Integration}
+
+For frustum, radius varies linearly: $r(h) = 1 + \frac{h}{4}$ for $0 \leq h \leq 4$
+
+$$V_f = \pi \int_0^4 r(h)^2 \, dh = \pi \int_0^4 \left(1 + \frac{h}{4}\right)^2 dh$$
+
+$$= \pi \int_0^4 \left(1 + \frac{h}{2} + \frac{h^2}{16}\right) dh$$
+
+$$= \pi \left[h + \frac{h^2}{4} + \frac{h^3}{48}\right]_0^4$$
+
+$$= \pi \left(4 + 4 + \frac{64}{48}\right) = \pi \left(8 + \frac{4}{3}\right) = \frac{28\pi}{3}$$
+
+Again matches!
+
+\subsection*{C. Critical Pitfalls and How to Avoid Them}
+
+\textbf{Pitfall 1}: Forgetting to add the top cone volume
+\begin{itemize}
+    \item \textbf{Warning}: The frustum volume $\frac{28\pi}{3}$ appears as answer choice (B) --- this is a trap!
+    \item \textbf{Prevention}: Re-read problem to confirm both frustum AND cone are included
+    \item \textbf{Recovery}: After selecting answer, verify by re-reading problem statement
+\end{itemize}
+
+\textbf{Pitfall 2}: Using diameter instead of radius
+\begin{itemize}
+    \item \textbf{Warning}: Problem gives diameters (2 and 4 inches), but formulas use radius
+    \item \textbf{Prevention}: Immediately convert: $r_1 = 1$, $r_2 = 2$, $r_3 = 2$
+    \item \textbf{Recovery}: If answer doesn't match choices, check radius vs. diameter
+\end{itemize}
+
+\textbf{Pitfall 3}: Incorrect similar triangles setup
+\begin{itemize}
+    \item \textbf{Warning}: Setting up ratio incorrectly when finding large cone height
+    \item \textbf{Prevention}: Draw clear diagram with labels; verify $\frac{r_1}{H-h_1} = \frac{r_2}{H}$
+    \item \textbf{Recovery}: Use alternative direct frustum formula as verification
+\end{itemize}
+
+\textbf{Pitfall 4}: Arithmetic errors in fraction addition
+\begin{itemize}
+    \item \textbf{Warning}: $\frac{28\pi}{3} + \frac{16\pi}{3}$ could be miscalculated
+    \item \textbf{Prevention}: Factor out $\frac{\pi}{3}$ first: $\frac{\pi}{3}(28+16) = \frac{44\pi}{3}$
+    \item \textbf{Recovery}: Recompute addition; verify against answer choices
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 4-6 minutes for Problem 14
+    \item \textbf{Time Allocation}:
+    \begin{itemize}
+        \item Problem reading and setup: 0.5 min
+        \item Top cone calculation: 1 min
+        \item Frustum calculation: 2.5 min
+        \item Addition and verification: 1 min
+        \item Total: $\sim$5 minutes
+    \end{itemize}
+    \item \textbf{Actual Complexity}: Standard mid-band problem, should be comfortable within time
+\end{itemize}
+
+\subsection*{B. Problem Prioritization Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Accessibility}: High (clear problem statement, standard formulas)
+    \item \textbf{Domain Comfort}: If comfortable with 3D geometry, tackle immediately
+    \item \textbf{Point Value}: All AMC12 problems worth 6 points, so no special priority
+    \item \textbf{Strategic Decision}: Good problem to solve early for confidence boost
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: 95\% confidence after verification
+    \item \textbf{Flag for Review}: No (high confidence, clean calculation)
+    \item \textbf{Move-On Decision}: Proceed to next problem after brief check
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\textbf{Soft Abandon Triggers}:
+\begin{itemize}[leftmargin=*]
+    \item If frustum formula not recalled after 2 minutes $\rightarrow$ use similar triangles derivation
+    \item If arithmetic becomes messy $\rightarrow$ slow down and recompute carefully
+\end{itemize}
+
+\textbf{Hard Abandon Triggers}:
+\begin{itemize}[leftmargin=*]
+    \item None applicable (this is straightforward mid-band problem)
+    \item If spending $>8$ minutes, something is fundamentally wrong $\rightarrow$ skip and return
+\end{itemize}
+
+\textbf{Strategic Note}: This problem should not be abandoned. If stuck, use alternative method (direct frustum formula or calculus).
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The frustum is the difference between two cones with radii in ratio 2:1. Using similar triangles, the large cone has height 8 (twice the frustum height), making all calculations clean. The trap answer (B) $\frac{28\pi}{3}$ is just the frustum volume --- don't forget to add the top cone!
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Answer choice (B) $\frac{28\pi}{3}$ is the frustum volume alone. This is a deliberate trap for students who forget to include the top cone. Always re-read the problem to ensure all components are included in the final answer.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: For frustum problems, quickly check if the direct formula $V = \frac{\pi h}{3}(r_1^2 + r_1 r_2 + r_2^2)$ is faster than similar triangles. With simple integer radii like 1 and 2, direct computation is often cleaner. However, knowing both methods provides built-in verification!
+\end{tipbox}
+
+\section*{Final Answer}
+$$\boxed{\textbf{(E)}\ \frac{44\pi}{3}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 98\% (verified with multiple methods, answer reasonable)
+    \item \textbf{Verification Applied}: Level 3 (Sanity + Primary + Alternative method check)
+    \item \textbf{Flag for Review}: No (high confidence, clean arithmetic)
+    \item \textbf{Time Spent}: 5 minutes (within target range for Problem 14)
+\end{itemize}
+
+\end{document}

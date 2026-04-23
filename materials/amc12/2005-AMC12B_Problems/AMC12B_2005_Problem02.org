@@ -1,0 +1,31 @@
+2005 AMC 12B Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+2.1 Solution 1
+2.2 Solution 2
+3 See also
+Problem
+A positive number $x$ has the property that $x\%$ of $x$ is $4$ . What is $x$ ?
+$\textbf{(A) }\ 2 \qquad \textbf{(B) }\ 4 \qquad \textbf{(C) }\ 10 \qquad \textbf{(D) }\ 20 \qquad \textbf{(E) }\ 40$
+Solution
+Solution 1
+Since $x\%$ means $0.01x$ , the statement " $x\% \text{ of } x \text{ is 4}$ " can be rewritten as " $0.01x \cdot x = 4$ ":
+$0.01x \cdot x=4 \Rightarrow x^2 = 400 \Rightarrow x = \boxed{\textbf{(D) }20}.$
+Solution 2
+Try the answer choices one by one. Upon examination, it is quite obvious that the answer is $\boxed{\textbf{(D) }20}.$ Very fast.
+Solution by franzliszt
+See also
+2005 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2005 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

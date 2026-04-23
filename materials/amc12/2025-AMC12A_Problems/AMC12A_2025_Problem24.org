@@ -1,0 +1,16 @@
+2025 AMC 12A Problems/Problem 24
+Problem
+A circle of radius $r$ is surrounded by $12$ circles of radius $1,$ externally tangent to the central circle and sequentially tangent to each other, as shown. Then $r$ can be written as $\sqrt a + \sqrt b + c,$ where $a, b, c$ are integers. What is $a+ b+c?$
+[center][img width=60] https://wiki.randommath.com/amc/2025_11_05_e415ed6e80d65fa550edg-7.jpg [/img][/center]
+$\textbf{(A) } 3 \qquad \textbf{(B) } 5 \qquad \textbf{(C) } 7 \qquad \textbf{(D) } 9 \qquad \textbf{(E) } 11$
+Solution 1(No sin15)
+Let the center of the large circle be $O$ and the centers of any two circles be $A$ and $B$ . Triangle $OAB$ has side lengths $r+1, r+1, 2$ , with the angle opposite $2$ being $360/12 = 30$ .
+Using Law of Cosines, $2^2=AO^2+BO^2-2AOBO\cos30$ . Plugging in the radius yields $2^2=(r+1)^2+(r+1)^2-2(r+1)^2*1/2$ . After solving for $r$ and simplifying, we get $r=\sqrt6+\sqrt2-1$ . Therefore our answer is $7$ .
+~Kevin Wang
+Solution 2
+Let the center of the large circle be $O$ and the centers of the $12$ circles be $A_1, A_2, A_3, \dots, A_{12}$ . Triangle $OA_1A_2$ has side lengths $r+1, r+1, 2$ , with the angle opposite $2$ being $360/12 = 30$ .
+Drawing the angle bisector of the $30$ degree angle, we split $OA_1A_2$ into two congruent right triangles, each with hypotenuse $r+1$ and side opposite the $15$ degree angle $1$ .
+From here, note that $\sin{15} = \frac{\sqrt{6}-\sqrt{2}}{4}$ , which be derived using the trigonometric identity $\sin{(A-B)}$ , with $A=45$ and $B=30$ .
+In our right triangle, $\sin{15} = \frac{1}{r+1} = \frac{\sqrt{6}-\sqrt{2}}{4}$ . Let $x=r+1$ . Solving for $x$ , we get $x = \frac{4}{\sqrt{6}-\sqrt{2}}$ . Rationalizing, we get that $x = \sqrt{6}+\sqrt{2}$ .
+Remember $x = r+1 = \sqrt{6}+\sqrt{2}$ , so $r = \sqrt{6}+\sqrt{2} - 1$ . Therefore, our answer is $6+2-1 = \boxed{7}.$
+~lprado

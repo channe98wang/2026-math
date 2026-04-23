@@ -1,0 +1,74 @@
+2021 AMC 12A Problems/Problem 19
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Easy Solution with Intermediate Value Theorem
+5 Video Solution by Mathematical Dexterity
+6 Video Solution by TheBeautyofMath
+7 See Also
+Problem
+Let $x$ be the least real number greater than $1$ such that $\sin(x)= \sin(x^2)$ , where the arguments are in degrees. What is $x$ rounded up to the closest integer?
+$\textbf{(A) } 10 \qquad \textbf{(B) } 13 \qquad \textbf{(C) } 14 \qquad \textbf{(D) } 19 \qquad \textbf{(E) } 20$
+Solution 1
+The smallest $x$ to make $\sin(x) = \sin(x^2)$ would require $x=x^2$ , but since $x$ needs to be greater than $1$ , these solutions are not valid.
+The next smallest $x$ would require $x=180-x^2$ , or $x^2+x=180$ .
+After a bit of guessing and checking, we find that $12^2+12=156$ , and $13^2+13=182$ , so the solution lies between $12{ }$ and $13$ , making our answer $\boxed{\textbf{(B) } 13}.$
+Note: One can also solve the quadratic and estimate the radical.
+~kingofpineapplz
+Solution 2
+For choice $\textbf{(A)},$ we have 
+
+\begin{align*} \left| \sin x - \sin \left( x^2 \right) \right| & = \left| \sin 10^\circ - \sin \left( \left( 10^2 \right)^\circ \right) \right| \\ & = \left| \sin 10^\circ - \sin 100^\circ \right| \\ & = \left| \sin 10^\circ - \sin 80^\circ \right| \\ & = \sin 80^\circ - \sin 10^\circ . \end{align*}
+
+ For choice $\textbf{(B)},$ we have 
+
+\begin{align*} \left| \sin x - \sin \left( x^2 \right) \right| & = \left| \sin 13^\circ - \sin \left( \left( 13^2 \right)^\circ \right) \right| \\ & = \left| \sin 13^\circ - \sin 169^\circ \right| \\ & = \left| \sin 10^\circ - \sin 11^\circ \right| \\ & = \sin 11^\circ - \sin 10^\circ . \end{align*}
+
+ For choice $\textbf{(C)},$ we have 
+
+\begin{align*} \left| \sin x - \sin \left( x^2 \right) \right| & = \left| \sin 14^\circ - \sin \left( \left( 14^2 \right)^\circ \right) \right| \\ & = \left| \sin 14^\circ - \sin 196^\circ \right| \\ & = \left| \sin 14^\circ + \sin 16^\circ \right| \\ & = \sin 14^\circ + \sin 16^\circ . \end{align*}
+
+ For choice $\textbf{(D)},$ we have 
+
+\begin{align*} \left| \sin x - \sin \left( x^2 \right) \right| & = \left| \sin 19^\circ - \sin \left( \left( 19^2 \right)^\circ \right) \right| \\ & = \left| \sin 19^\circ - \sin 361^\circ \right| \\ & = \left| \sin 19^\circ - \sin 1^\circ \right| \\ & = \sin 19^\circ - \sin 1^\circ . \end{align*}
+
+ For choice $\textbf{(E)},$ we have 
+
+\begin{align*} \left| \sin x - \sin \left( x^2 \right) \right| & = \left| \sin 20^\circ - \sin \left( \left( 20^2 \right)^\circ \right) \right| \\ & = \left| \sin 20^\circ - \sin 400^\circ \right| \\ & = \left| \sin 20^\circ - \sin 40^\circ \right| \\ & = \sin 40^\circ - \sin 20^\circ . \end{align*}
+
+ Therefore, the answer is $\boxed{\textbf{(B) }13},$ as $\sin 11^\circ - \sin 10^\circ$ is the closest to $0.$
+~Steven Chen (www.professorchenedu.com)
+Easy Solution with Intermediate Value Theorem
+We know that $x^2-x=180-2x+360k$ or $x^2-x=360k$ from looking at the $\text{sin}$ values on the unit circle. 
+With these equations, we can just insert the values that are given in the $5$ answers.
+Let's try $\text{A}$ first.
+We know that one of the equations should be greater on the left, and another equation we make should be greater on the right for the solution to be in between the values inserted into the equations. 
+The two numbers it is in between is $9$ and $10$ since it is rounded up.
+$100-10$ vs $180-20,$
+$81-9$ vs $180-18.$
+This does not satisfy what we would like to find.
+Now let's try $\text{B}$ .
+Between $12$ and $13$ ;
+$144-12$ vs $180-24,$
+$169-13$ vs $180-26.$
+Now this satisfies our hunt for the solution.
+The answer is $\boxed{\text{(B)}}$
+emilyyunhanq@gmail.com
+Solution by Emily Q
+(edited by A7456321)
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=H0pNJFbV4jE
+Video Solution by TheBeautyofMath
+Solved both Mentally and by writing things down
+https://youtu.be/o2MAmtgBbKc
+~IceMatrix
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 18 Followed by 
+ Problem 20
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,35 @@
+2010 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Video Solution
+5 Video Solution
+6 See also
+Problem
+A ticket to a school play cost $x$ dollars, where $x$ is a whole number. A group of 9th graders buys tickets costing a total of $ $48$ , and a group of 10th graders buys tickets costing a total of $ $64$ . How many values for $x$ are possible?
+$\textbf{(A)}\ 1 \qquad \textbf{(B)}\ 2 \qquad \textbf{(C)}\ 3 \qquad \textbf{(D)}\ 4 \qquad \textbf{(E)}\ 5$
+Solution
+We find the greatest common factor of $48$ and $64$ to be $16$ . The number of factors of $16$ is $5$ which is the answer $(E)$ .
+Solution 2
+Since the price of one ticket is a whole number, it must be a divisor of both $48$ and $64$ . An integer is a common divisor of two numbers if and only if it is divisible by their difference. Hence, all the possible prices are positive divisors of $16$ , or $1$ , $2$ , $4$ , $8$ , and $16$ , making the answer $5$ , or E. - By Monkey_King
+Video Solution
+https://youtu.be/eVp2z5Y3kUY
+~Education, the Study of Everything
+Video Solution
+https://youtu.be/I3yihAO87CE?t=179
+~IceMatrix
+See also
+2010 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2010 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

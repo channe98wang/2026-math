@@ -1,0 +1,14 @@
+2005 AMC 12A Problems/Problem 1
+Problem
+Two is $10 \%$ of $x$ and $20 \%$ of $y$ . What is $x - y$ ?
+$(\mathrm {A}) \ 1 \qquad (\mathrm {B}) \ 2 \qquad (\mathrm {C})\ 5 \qquad (\mathrm {D}) \ 10 \qquad (\mathrm {E})\ 20$
+Solution
+$2 = \frac {1}{10}x \Longrightarrow x = 20,\quad 2 = \frac{1}{5}y \Longrightarrow y = 10,\quad x-y = 20 - 10=10 \mathrm{(D)}$ .
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ First question Followed by 
+ Problem 2
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

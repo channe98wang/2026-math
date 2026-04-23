@@ -1,0 +1,14 @@
+2005 AMC 12A Problems/Problem 4
+Problem
+A store normally sells windows at $\$100$ each. This week the store is offering one free window for each purchase of four. Dave needs seven windows and Doug needs eight windows. How many dollars will they save if they purchase the windows together rather than separately?
+$(\mathrm {A}) \ 100 \qquad (\mathrm {B}) \ 200 \qquad (\mathrm {C})\ 300 \qquad (\mathrm {D}) \ 400 \qquad (\mathrm {E})\ 500$
+Solution
+For $n$ windows, the store offers a discount of $100 \cdot \left\lfloor\frac{n}{5}\right\rfloor$ ( floor function ). Dave receives a discount of $100 \cdot \left\lfloor \frac{7}{5}\right \rfloor = 100$ and Doug receives a discount of $100 \cdot \left\lfloor \frac{8}{5}\right\rfloor = 100$ . These amount to $200$ dollars in discounts. Together, they receive a discount of $100 \cdot \left\lfloor \frac{15}{5} \right\rfloor = 300$ , so they save $300-200=100\ \mathrm{(A)}$ .
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 3 Followed by 
+ Problem 5
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

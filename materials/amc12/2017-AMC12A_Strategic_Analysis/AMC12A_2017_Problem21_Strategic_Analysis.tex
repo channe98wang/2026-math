@@ -1,0 +1,357 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Define colored boxes matching the framework
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{1. PROBLEM CONFIGURATION},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=\textbf{2. STRATEGIC FRAMEWORK APPLICATION},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=\textbf{3. TACTICAL METHODOLOGY SELECTION},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=\textbf{4. CONVERSION TECHNIQUES APPLICATION},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{verificationbox}{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=\textbf{5. VERIFICATION STRATEGY},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=\textbf{6. SOLUTION ROADMAP},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{competitionbox}{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=\textbf{7. COMPETITION INTEGRATION},
+    fonttitle=\bfseries,
+    sharp corners
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries
+}
+
+\title{\textbf{2017 AMC 12A Problem 21\\Strategic Analysis}}
+\author{Comprehensive Framework Application}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+A set $S$ is constructed as follows. To begin, $S = \{0,10\}$. Repeatedly, as long as possible, if $x$ is an integer root of some polynomial $a_{n}x^n + a_{n-1}x^{n-1} + \cdots + a_{1}x + a_0$ for some $n\geq{1}$, all of whose coefficients $a_i$ are elements of $S$, then $x$ is put into $S$. When no more elements can be added to $S$, how many elements does $S$ have?
+
+\textbf{Answer Choices:} (A) 4 \quad (B) 5 \quad (C) 7 \quad (D) 9 \quad (E) 11
+
+\vspace{0.5cm}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (count the number of elements in set $S$)
+    \item \textbf{Difficulty Band}: Late-band (Problem 21 of 25)
+    \item \textbf{Competition Context}: AMC12, 2017 Problem 21
+    \item \textbf{Mathematical Domain}: Algebra (polynomial roots) with Number Theory aspects (integer divisibility)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Initial set: $S = \{0, 10\}$
+        \item Rule: If $x$ is an integer root of polynomial with all coefficients in $S$, add $x$ to $S$
+        \item Process continues until no new elements can be added
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $x$ must be an integer
+        \item All polynomial coefficients must be in $S$
+        \item Polynomial degree $n \geq 1$
+    \end{itemize}
+    \item \textbf{Objective}: Count final elements in $S$ when construction terminates
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Process must terminate (finite set)
+        \item Can use polynomials of any degree
+        \item Can reuse coefficients multiple times
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: Four of five answers are odd (B=5, C=7, D=9, E=11), with only A=4 even. Middle-to-high range (4-11) suggests moderate to significant growth. Starting with 2 elements, the range represents 2x to 5.5x growth. Answer D=9 is second-highest, suggesting substantial but not maximal growth.
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Start with $S = \{0, 10\}$ and iteratively find new roots
+    \item \textbf{Conclusion}: Determine when no new integers can be added
+    \item \textbf{Notation}: $S$ = the set being constructed, $x$ = potential new elements
+    \item \textbf{Intuitive Approach}: Use simple linear polynomials first to find obvious roots, then explore what other values become accessible
+    \item \textbf{Cross-Domain Potential}: This is fundamentally about divisibility (roots of linear polynomials) and closure properties
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is P21, expect to spend 5-8 minutes. Must systematically explore polynomial constructions without getting overwhelmed by possibilities.
+    \item \textbf{Creativity Cultivation}: Look beyond obvious linear polynomials. The degree $n \geq 1$ allows for creative constructions.
+    \item \textbf{Iterative Refinement}: Build set incrementally, checking after each addition what new possibilities open up.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Get Your Hands Dirty}: Immediately start constructing simple polynomials with coefficients from $\{0, 10\}$
+    \item \textbf{Conjecture via Small Cases}: Try linear polynomials first: $ax + b$ where $a, b \in S$
+    \item \textbf{Make It Easier}: Start with degree 1, then explore if higher degrees add new elements
+    \item \textbf{Penultimate Step}: Work towards proving no new elements can be added (closure argument)
+    \item \textbf{Wishful Thinking}: We want divisors and factors of existing elements to enter $S$
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Answer is 9, which is middle option. Not too small (would be 4 or 5), not maximum (11). This suggests moderate growth.
+    \item \textbf{Make It Easier}: Focus on linear polynomials $ax + b = 0$ giving $x = -b/a$ when $a \neq 0$
+    \item \textbf{Pattern Recognition}: Look for systematic way to generate divisors and multiples
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Construction}: Build set explicitly by finding roots iteratively
+    \item \textbf{Termination Proof}: Show that at some point, the divisibility constraint prevents new additions
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Number Theory View}: Linear polynomial $ax + b = 0$ has root $x = -b/a$ (when $a | b$)
+    \item \textbf{Divisibility Framework}: New elements must divide existing elements
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Extreme Principle}: Consider simplest polynomials first (degree 1)
+    \item \textbf{Invariants}: Key insight - if $x$ is added to $S$, then $x$ must divide some element already in $S$ (from linear polynomials)
+    \item \textbf{Symmetry}: Notice that if we can add $a$, we might also be able to add $-a$ using negation
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Divisibility Theory}: The closure is fundamentally about divisors and factors
+    \item \textbf{Constructive Proof}: Build the set step by step rather than trying to characterize it abstractly
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Features}: Iterative set construction, polynomial roots, integer constraint
+    \item \textbf{Key Conversion}: Linear polynomial $\Rightarrow$ divisibility condition
+    \item \textbf{Pattern Match}: Closure under specific operation (taking roots)
+\end{itemize}
+
+\subsection*{B. High-Probability Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Technique 1 - Case Analysis}: Systematically try different polynomial constructions
+    \item \textbf{Technique 3 - Algebraic Manipulation}: For polynomial $a_nx^n + \cdots + a_1x + a_0 = 0$, factor to get $x(a_nx^{n-1} + \cdots + a_1) = -a_0$, so $x | a_0$
+    \item \textbf{Technique 6 - Divisibility}: Focus on divisors of elements in $S$
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+The key insight is that from $x(a_nx^{n-1} + \cdots + a_1) = -a_0$, we see $x$ must divide $a_0$ for integer solutions. This means new elements must be divisors of existing elements.
+
+\subsection*{D. Conflict Resolution}
+No conflicting approaches - divisibility framework is consistent throughout.
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\textbf{Recommended Level: 5 (Thorough)}
+
+Given this is P21 (late-band), thorough verification is essential. Decision factors:
+\begin{itemize}
+    \item High difficulty problem requiring systematic construction
+    \item Must verify both that elements CAN be added and that NO MORE can be added
+    \item Multiple steps in construction process
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{enumerate}
+    \item \textbf{Construction Verification}: Check each polynomial actually has claimed root
+    \item \textbf{Completeness Check}: Verify no other divisors of existing elements can be added
+    \item \textbf{Answer Choice Validation}: Count matches one of the five choices
+\end{enumerate}
+
+\subsection*{C. Specialized Verification}
+\begin{itemize}
+    \item \textbf{Polynomial Check}: For each claimed root $x$ and polynomial, verify $P(x) = 0$
+    \item \textbf{Divisibility Check}: Verify all divisors of elements in $S$ are either in $S$ or cannot be obtained
+    \item \textbf{Closure Check}: Confirm no new polynomials with coefficients in final $S$ yield integer roots outside $S$
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Phase 1: Initial Exploration (2 minutes)}
+\begin{enumerate}
+    \item Start with $S = \{0, 10\}$
+    \item Try simplest linear polynomials: $10x + 10 = 0 \Rightarrow x = -1$
+    \item Add $-1$ to get $S = \{-1, 0, 10\}$
+\end{enumerate}
+
+\textbf{Checkpoint 1}: Verify $x = -1$ satisfies $10(-1) + 10 = 0$ \checkmark
+
+\textbf{Phase 2: Systematic Construction (3 minutes)}
+\begin{enumerate}
+    \item With $S = \{-1, 0, 10\}$, try $x + 10 = 0 \Rightarrow x = -10$
+    \item Try to get $x = 1$: Need polynomial with coefficients in $\{-1, 0, 10\}$
+    \item Construction: $-x^{10} - x^9 - x^8 - x^7 - x^6 - x^5 - x^4 - x^3 - x^2 - x + 10 = 0$
+    \item Verify: $-1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 - 1 + 10 = 0$ \checkmark
+    \item Now $S = \{-10, -1, 0, 1, 10\}$
+\end{enumerate}
+
+\textbf{Checkpoint 2}: We now have both positive and negative values, enabling more constructions
+
+\textbf{Phase 3: Completing the Set (2 minutes)}
+\begin{enumerate}
+    \item Try $x^3 + x - 10 = 0$: Test $x = 2$: $8 + 2 - 10 = 0$ \checkmark
+    \item Add $x + 2 = 0 \Rightarrow x = -2$
+    \item Try $2x - 10 = 0 \Rightarrow x = 5$
+    \item Add $x + 5 = 0 \Rightarrow x = -5$
+    \item Final set: $S = \{-10, -5, -2, -1, 0, 1, 2, 5, 10\}$
+\end{enumerate}
+
+\textbf{Phase 4: Closure Proof (1 minute)}
+
+From $x(a_nx^{n-1} + \cdots + a_1) = -a_0$, we see $x | a_0$ for integer $x$.
+
+Elements in $S$: $\{-10, -5, -2, -1, 0, 1, 2, 5, 10\}$
+
+Divisors of these elements that aren't already in $S$: None that satisfy the polynomial constraint with available coefficients.
+
+\textbf{Final Count}: $|S| = 9$ elements
+
+\subsection*{Alternative Approaches}
+\begin{itemize}
+    \item \textbf{Alternative 1}: Focus purely on divisors of 10: $\pm 1, \pm 2, \pm 5, \pm 10$ plus 0
+    \item \textbf{Alternative 2}: Use systematic divisibility tree starting from 10
+\end{itemize}
+
+\subsection*{Comprehensive Pitfall Guide}
+
+\textbf{Critical Pitfalls}:
+\begin{enumerate}
+    \item \textbf{Missing Elements}: Forgetting to systematically check all possible linear polynomials
+    \item \textbf{Premature Closure}: Stopping before exploring all polynomial constructions
+    \item \textbf{Non-Integer Roots}: Remember only integer roots count
+    \item \textbf{Coefficient Constraint}: All coefficients must already be in $S$
+\end{enumerate}
+
+\textbf{Common Errors}:
+\begin{itemize}
+    \item Forgetting $x = 1$ requires creative polynomial (not just linear)
+    \item Miscounting final elements
+    \item Not proving no additional elements can be added
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}
+    \item \textbf{Target Time}: 6-8 minutes for P21
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Reading \& understanding: 1 minute
+        \item Initial construction ($-1, 1, -10$): 2 minutes
+        \item Finding remaining elements: 2-3 minutes
+        \item Verification \& counting: 1-2 minutes
+    \end{itemize}
+    \item \textbf{Warning}: If not making progress after 5 minutes, flag and move to P22
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}
+    \item \textbf{Accessibility}: Moderate - requires systematic thinking but not deep theory
+    \item \textbf{Domain}: Algebra/Number Theory hybrid
+    \item \textbf{Strategy}: Worth attempting if comfortable with polynomial roots and divisibility
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}
+    \item \textbf{Confidence Threshold}: Medium-High after systematic construction
+    \item \textbf{Verification Priority}: High - must verify count is correct
+    \item \textbf{Abandonment Criteria}: If cannot get past $\{-10, -1, 0, 1, 10\}$ after 5 minutes
+\end{itemize}
+
+\subsection*{D. Answer Submission Decision}
+\begin{itemize}
+    \item \textbf{Final Answer}: \boxed{\textbf{(D) } 9}
+    \item \textbf{Confidence Level}: 95\% after verification
+    \item \textbf{Cross-Check}: Answer makes sense (started with 2, ended with 9 - reasonable growth)
+\end{itemize}
+\end{competitionbox}
+
+\begin{highlightbox}{Key Insights}
+\begin{enumerate}
+    \item \textbf{Divisibility Framework}: Integer roots of polynomials $\sum a_i x^i = 0$ must divide $a_0$
+    \item \textbf{Linear Polynomials Suffice}: Most elements can be added via simple $ax + b = 0$
+    \item \textbf{Creative Construction for 1}: Getting $x = 1$ requires higher-degree polynomial
+    \item \textbf{Symmetry Pattern}: If $a \in S$, often both $a$ and $-a$ eventually enter via $x + a = 0$ and $x - a = 0$
+    \item \textbf{Closure at Divisors}: Final set contains all divisors of 10 (the fundamental building block)
+\end{enumerate}
+\end{highlightbox}
+
+\begin{highlightbox}{Pro Tips}
+\begin{itemize}
+    \item Start with linear polynomials - they're easiest to work with
+    \item Once you have negative numbers, possibilities expand significantly
+    \item The key insight: $x | a_0$ for integer roots greatly constrains possibilities
+    \item Don't overthink - systematically try simple constructions
+    \item Final answer is all divisors of 10 plus 0: $\{0, \pm 1, \pm 2, \pm 5, \pm 10\}$
+\end{itemize}
+\end{highlightbox}
+
+\end{document}

@@ -1,0 +1,89 @@
+2001 AMC 12 Problems/Problem 12
+Contents
+1 Problem
+2 Solutions
+2.1 Solution 1
+2.2 Solution 2
+2.3 Solution 3
+2.4 Solution 4
+2.5 Solution 5
+2.6 Solution 5
+3 Solution 6 (Venn Diagram)
+3.1 Solution 6
+3.2 Solution 7
+4 Video Solutions
+5 See Also
+Problem
+How many positive integers not exceeding $2001$ are multiples of $3$ or $4$ but not $5$ ?
+$\textbf{(A) }768 \qquad \textbf{(B) }801 \qquad \textbf{(C) }934 \qquad \textbf{(D) }1067 \qquad \textbf{(E) }1167$
+Solutions
+Solution 1
+Out of the numbers $1$ to $12$ four are divisible by $3$ and three by $4$ , counting $12$ twice.
+Hence $6$ out of these $12$ numbers are multiples of $3$ or $4$ .
+The same is obviously true for the numbers $12k+1$ to $12k+12$ for any positive integer $k$ .
+Hence out of the numbers $1$ to $60=5\cdot 12$ there are $5\cdot 6=30$ numbers that are divisible by $3$ or $4$ .
+Out of these $30$ , the numbers $10$ , $15$ , $20$ , $30$ , $40$ , $45$ and $60$ are divisible by $5$ .
+Therefore in the set $\{1,\dots,60\}$ there are precisely $30-6=24$ numbers that satisfy all criteria from the problem statement.
+Again, the same is obviously true for the set $\{60k+1,\dots,60k+60\}$ for any positive integer $k$ .
+We have $1980/60 = 33$ , hence there are $24\cdot 33 = 792$ good numbers among the numbers $1$ to $1980$ . At this point we already know that the only answer that is still possible is $\boxed{\textbf{(B)}}$ , as we only have $20$ numbers left.
+By examining the remaining $20$ by hand we can easily find out that exactly $9$ of them match all the criteria, giving us $792+9=\boxed{\textbf{(B) }801}$ good numbers.
+This is correct.
+Solution 2
+We can solve this problem by finding the cases where the number is divisible by $3$ or $4$ , then subtract from the cases where none of those cases divide $5$ . To solve the ways the numbers divide $3$ or $4$ we find the cases where a number is divisible by $3$ and $4$ as separate cases. We apply the floor function to every case to get $\left\lfloor \frac{2001}{3} \right\rfloor$ , $\left\lfloor \frac{2001}{4} \right\rfloor$ , and $\left\lfloor \frac{2001}{12} \right\rfloor$ . The first two floor functions were for calculating the number of individual cases for $3$ and $4$ . The third case was to find any overlapping numbers. The numbers were $667$ , $500$ , and $166$ , respectively. We add the first two terms and subtract the third to get $1001$ . The first case is finished.
+The second case is more or less the same, except we are applying $3$ and $4$ to $5$ . We must find the cases where the first case over counts multiples of five. Utilizing the floor function again on the fractions $\left\lfloor \frac{2001}{3\cdot5} \right\rfloor$ , $\left\lfloor \frac{2001}{4\cdot5} \right\rfloor$ , and $\left\lfloor \frac{2001}{3\cdot4\cdot5} \right\rfloor$ yields the numbers $133$ , $100$ , and $33$ . The first two numbers counted all the numbers that were multiples of either four with five or three with five less than $2001$ . The third counted the overlapping cases, which we must subtract from the sum of the first two. We do this to reach $200$ . Subtracting this number from the original $1001$ numbers procures $\boxed{\textbf{(B)}\ 801}$ .
+Solution 3
+First find the number of such integers between 1 and 2000 (inclusive) and then add one to this result because 2001 is a multiple of $3$ .
+There are $\frac45\cdot2000=1600$ numbers that are not multiples of $5$ . $\frac23\cdot\frac34\cdot1600=800$ are not multiples of $3$ or $4$ , so $800$ numbers are. $800+1=\boxed{\textbf{(B)}\ 801}$
+Solution 4
+Take a good-sized sample of consecutive integers; for example, the first $25$ positive integers. Determine that the numbers $3, 4, 6, 8, 9, 12, 16, 18, 21,$ and $24$ exhibit the properties given in the question. $25$ is a divisor of $2000$ , so there are $\frac{10}{25}\cdot2000=800$ numbers satisfying the given conditions between $1$ and $2000$ . Since $2001$ is a multiple of $3$ , add $1$ to $800$ to get $800+1=\boxed{\textbf{(B)}\ 801}$ .
+~ mathmagical
+Solution 5
+By PIE, there are $1001$ numbers that are multiples of $3$ or $4$ and less than or equal to $2001$ . $80\%$ of them will not be divisible by $5$ , and by far the closest number to $80\%$ of $1001$ is $\boxed{\textbf{(B)}\ 801}$ .
+~ Fasolinka
+Solution 5
+Similar to some of the above solutions. 
+We can divide $2001$ by $3$ and $4$ to find the number of integers divisible by $3$ and $4$ . Hence, we find that there are $667$ numbers less than $2001$ that are divisible by $3$ , and $500$ numbers that are divisible by $4$ . However, we will need to subtract the number of multiples of $15$ from 667 and that of $20$ from $500$ , since they're also divisible by 5 which we don't want. There are $133$ + $100$ = $233$ such numbers. Note that during this process, we've subtracted the multiples of $60$ twice because they're divisible by both $15$ and $20$ , so we have to add $33$ back to the tally (there are $33$ multiples of $60$ that does not exceed $2001$ ). Lastly, we have to subtract multiples of both $3$ AND $4$ since we only want multiples of either $3$ or $4$ . This is tantamount to subtracting the number of multiples of $12$ . And there are $166$ such numbers. Let's now collect our numbers and compute the total: $667$ + $500$ - $133$ - $100$ + $33$ - $166$ = $\boxed{\textbf{(B)}\ 801}$ .
+~ PlainOldNumberTheory
+Solution 6 (Venn Diagram)
+[asy] size(10cm); // Draw circles draw(circle((0,0),2), blue); // Circle for multiples of 3 draw(circle((2,0),2), red); // Circle for multiples of 4 draw(circle((1,-1.5),2), green); // Circle for multiples of 5 // Labels for the sets label("$3$", (-2.5,1.5), blue); label("$4$", (4.5,1.5), red); label("$5$", (1,-3.8), green); // Numbers in regions (precisely adjusted) label("$401$", (-1.5,0.5), black); // Only 3 label("$267$", (3.5,0.5), black); // Only 4 label("$200$", (1,-3), black); // Only 5 label("$133$", (1,1.1), black); // 3 and 4 (not 5) label("$100$", (0.2,-1.8), black); // 3 and 5 (not 4) label("$67$", (1.8,-1.8), black); // 4 and 5 (not 3) label("$33$", (1,-0.4), black); // 3, 4, and 5 [/asy]
+We have the following Venn diagram (sorry for the bad asymptote). To calculate this Venn diagram we can just use PIE to find the numbers or just work our way out from the inside. We just need to find the numbers that are divisible by $3$ or $4$ but not by $5$ , and looking back at the diagram we just have the answer of
+
+\[401+133+267 = \boxed{\textbf{(B)}\ 801}\]
+
+.
+-jb2015007
+Solution 6
+Similar to @above:
+Let the function $M_{2001}(n)$ return how many multiples of $n$ are there not exceeding $2001$ . Then we have that the desired number is:
+
+\[M_{2001}(3)+M_{2001}(4)-M_{2001}(3\cdot 4)-M_{2001}(3 \cdot 5) - M_{2001}(4 \cdot 5)+M_{2001}(3 \cdot 4 \cdot 5)\]
+Evaluating each of these we get:
+
+\[667+500-166-133-100+33 = 1100-299 = 801.\]
+Thus, the answer is $\boxed{\textbf{(B)}\ 801}.$
+-ConfidentKoala4
+Solution 7
+The smallest common multiple of 3, 4, and 5 is 30. 
+There are 12 integers between 1~30 that are multiples of 3 and 4 but not 5. 
+2001/30 = 66 R 21. 
+Between 1~21 there are 9 integers that are multiples of 3 and 4 but not 5. 
+66 * 12 + 9 = $\boxed{\textbf{(B)}\ 801}.$
+- mathlover1205
+- AH2025 (math and number corrections)
+Video Solutions
+https://youtu.be/EXWK7U8uXyk
+https://www.youtube.com/watch?v=XHmKu-ZoRxI&feature=youtu.be
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2001 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 25 Followed by 
+ Last Question
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

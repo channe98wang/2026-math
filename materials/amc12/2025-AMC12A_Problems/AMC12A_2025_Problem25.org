@@ -1,0 +1,3 @@
+2025 AMC 12A Problems/Problem 25
+Polynomials $P(x)$ and $Q(x)$ each have degree $3$ and leading coefficient $1$ , and their roots are all elements of $\{1,2,3,4,5\}$ . The function $f(x) = \tfrac{P(x)}{Q(x)}$ has the property that there exist real numbers $a < b < c < d$ such that the set of all real numbers $x$ such that $f(x) \leq 0$ consists of the closed interval $[a,b]$ together with the open interval $(c,d)$ . How many functions $f(x)$ are possible?
+For this question, none of the answer choices were correct during the exam. We will soon replace one of the original answer choices with the correct answer.

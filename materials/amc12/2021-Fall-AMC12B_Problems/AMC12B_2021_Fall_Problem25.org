@@ -1,0 +1,107 @@
+2021 AMC 12B Problems/Problem 25
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Solution 4
+6 Video Solution
+7 Video Solution by Mathematical Dexterity
+Problem
+For $n$ a positive integer, let $R(n)$ be the sum of the remainders when $n$ is divided by $2$ , $3$ , $4$ , $5$ , $6$ , $7$ , $8$ , $9$ , and $10$ . For example, $R(15) = 1+0+3+0+3+1+7+6+5=26$ . How many two-digit positive integers $n$ satisfy $R(n) = R(n+1)\,?$
+$\textbf{(A) }0\qquad\textbf{(B) }1\qquad\textbf{(C) }2\qquad\textbf{(D) }3\qquad\textbf{(E) }4$
+Solution 1
+Note that we can add $9$ to $R(n)$ to get $R(n+1)$ , but must subtract $k$ for all $k|n+1$ . Hence, we see that there are four ways to do that because $9=7+2=6+3=5+4=4+3+2$ . Note that only $7+2$ is a plausible option, since $4+3+2$ indicates $n+1$ is divisible by $6$ , $5+4$ indicates that $n+1$ is divisible by $2$ , $6+3$ indicates $n+1$ is divisible by $2$ , and $9$ itself indicates divisibility by $3$ , too. So, $14|n+1$ and $n+1$ is not divisible by any positive integers from $2$ to $10$ , inclusive, except $2$ and $7$ . We check and get that only $n+1=14 \cdot 1$ and $n+1=14 \cdot 7$ give possible solutions so our answer is $\boxed{\textbf{(C) }2}$ .
+- kevinmathz
+Solution 2
+Denote by ${\rm Rem} \ \left( n, k \right)$ the remainder of $n$ divided by $k$ .
+Define $\Delta \left( n, k \right) = {\rm Rem} \ \left( n + 1, k \right) - {\rm Rem} \ \left( n, k \right)$ .
+Hence,
+
+\[\Delta \left( n, k \right) = \left\{ \begin{array}{ll} 1 & \mbox{ if } n \not\equiv -1 \pmod{k} \\ - \left( k -1 \right) & \mbox{ if } n \equiv -1 \pmod{k} \end{array} \right..\]
+Hence, this problem asks us to find all $n \in \left\{ 10 , 11, \cdots , 99 \right\}$ , such that $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ .
+$\textbf{Case 1}$ : $\Delta \left( n, 10 \right) = - 9$ .
+We have $\sum_{k = 2}^9 \Delta \left( n, k \right) \leq \sum_{k = 2}^9 1 = 8$ .
+Therefore, there is no $n$ in this case.
+$\textbf{Case 2}$ : $\Delta \left( n, 10 \right) = 1$ and $\Delta \left( n, 9 \right) = -8$ .
+The condition $\Delta \left( n, 9 \right) = -8$ implies $n \equiv - 1 \pmod{9}$ .
+This further implies $n \equiv - 1 \pmod{3}$ .
+Hence, $\Delta \left( n, 3 \right) = -2$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\sum_{k \in \left\{ 2 , 4 , 5 , 6, 7, 8\right\}} \Delta \left( n, k \right) = 9$ .
+However, we have $\sum_{k \in \left\{ 2 , 4 , 5 , 6, 7, 8\right\}} \Delta \left( n, k \right) \leq \sum_{k \in \left\{ 2 , 4 , 5 , 6, 7, 8\right\}} 1 = 6$ .
+Therefore, there is no $n$ in this case.
+$\textbf{Case 3}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 9 , 10 \right\}$ and $\Delta \left( n, 8 \right) = -7$ .
+The condition $\Delta \left( n, 8 \right) = -7$ implies $n \equiv - 1 \pmod{k}$ with $k \in \left\{ 2, 4 \right\}$ .
+Hence, $\Delta \left( n, 2 \right) = -1$ and $\Delta \left( n, 4 \right) = -3$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\sum_{k \in \left\{ 3, 5, 6, 7 \right\}} \Delta \left( n, k \right) = 9$ .
+However, we have $\sum_{k \in \left\{ 3, 5, 6, 7 \right\}} \Delta \left( n, k \right) \leq \sum_{k \in \left\{ 3, 5, 6, 7 \right\}} 1 = 4$ .
+Therefore, there is no $n$ in this case.
+$\textbf{Case 4}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 8, \cdots , 10 \right\}$ and $\Delta \left( n, 7 \right) = -6$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\sum_{k \in \left\{ 2, 3, 4, 5, 6 \right\}} \Delta \left( n, k \right) = 3$ .
+Hence, we must have $\Delta \left( n, 2 \right) = -1$ and $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 3 , 4 , 5 , 6 \right\}$ .
+Therefore, $n = 13, 97$ .
+$\textbf{Case 5}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 7 , \cdots , 10 \right\}$ and $\Delta \left( n, 6 \right) = -5$ .
+The condition $\Delta \left( n, 6 \right) = -5$ implies $n \equiv - 1 \pmod{k}$ with $k \in \left\{ 2, 3 \right\}$ .
+Hence, $\Delta \left( n, 2 \right) = -1$ and $\Delta \left( n, 3 \right) = -2$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\sum_{k \in \left\{ 4, 5 \right\}} \Delta \left( n, k \right) = 4$ .
+However, we have $\sum_{k \in \left\{ 4, 5 \right\}} \Delta \left( n, k \right) \leq \sum_{k \in \left\{ 4, 5 \right\}} 1 = 2$ .
+Therefore, there is no $n$ in this case.
+$\textbf{Case 6}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 6 , \cdots , 10 \right\}$ and $\Delta \left( n, 5 \right) = -4$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\sum_{k \in \left\{ 2, 3, 4 \right\}} \Delta \left( n, k \right) = -1$ .
+This can be achieved if $\Delta \left( n, 2 \right) = 1$ , $\Delta \left( n, 3 \right) = 1$ , $\Delta \left( n, 4 \right) = -3$ .
+However, $\Delta \left( n, 4 \right) = -3$ implies $n \equiv - 1 \pmod{4}$ . This implies $n \equiv -1 \pmod{2}$ . Hence, $\Delta \left( n, 2 \right) = -1$ .
+We get a contradiction.
+Therefore, there is no $n$ in this case.
+$\textbf{Case 7}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 5 , \cdots , 10 \right\}$ and $\Delta \left( n, 4 \right) = -3$ .
+The condition $\Delta \left( n, 4 \right) = -3$ implies $n \equiv - 1 \pmod{k}$ with $k = 2$ .
+Hence, $\Delta \left( n, 2 \right) = -1$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\Delta \left( n, 3 \right) = - 2$ . This implies $n \equiv - 1 \pmod{3}$ .
+Because $n \equiv - 1 \pmod{2}$ and $n \equiv - 1 \pmod{3}$ , we have $n \equiv - 1 \pmod{6}$ .
+Hence, $\Delta \left( n, 6 \right) = - 5$ .
+However, in this case, we assume $\Delta \left( n, 6 \right) = 1$ .
+We get a contradiction.
+Therefore, there is no $n$ in this case.
+$\textbf{Case 8}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{ 4 , \cdots , 10 \right\}$ and $\Delta \left( n, 3 \right) = -2$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\Delta \left( n, 2 \right) = - 5$ . This is infeasible.
+Therefore, there is no $n$ in this case.
+$\textbf{Case 9}$ : $\Delta \left( n, k \right) = 1$ for $k \in \left\{3 , \cdots , 10 \right\}$ .
+To get $\sum_{k = 2}^{10} \Delta \left( n, k \right) = 0$ , we have $\Delta \left( n, 2 \right) = - 8$ . This is infeasible.
+Therefore, there is no $n$ in this case.
+Putting all cases together, the answer is $\boxed{\textbf{(C) }2}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 3
+To get from $n$ to $n+1$ , $R(n)$ would add by $9$ for each remainder $2, 3, 4, 5, 6, 7, 8, 9, 10$ . However, given that some of these remainders can "round down" to $0$ given the nature of mods, we must calculate the possible values of $n$ such that the remainders in $R(n+1)$ "rounds down" by a total of $9$ , effectively canceling out the adding by $9$ initially.
+To do so, we will analyze the "rounding down" for each of $2, 3, 4, 5, 6, 7, 8, 9, 10$ :
+$n+1 \equiv 0 \pmod 2$ : subtract by $2$
+$n+1 \equiv 0 \pmod 3$ : subtract by $3$
+$n+1 \equiv 0 \pmod 4$ : subtract by $4$ , but this also implies mod $2$ , so subtract by $6$ .
+$n+1 \equiv 0 \pmod 5$ : subtract by $5$
+$n+1 \equiv 0 \pmod 6$ : subtract by $6$ , but this also implies mod $2$ and $3$ , so subtract by $11$ : too much
+$n+1 \equiv 0 \pmod 7$ : subtract by $7$
+$n+1 \equiv 0 \pmod 8$ : subtract by $8$ , but this also implies mod $2$ and $4$ , so subtract by $14$ : too much
+$n+1 \equiv 0 \pmod 9$ : subtract by $9$ , but this also implies mod $3$ , so subtract by $12$ : too much
+$n+1 \equiv 0 \pmod {10}$ : subtract by $10$ : too much
+Notice that $9 = 7+2 = 6+3 = 5+4 = 4+3+2$ . By testing these sums, we can easily show that the only time when the total subtraction is $9$ is when $n+1 \equiv 0 \pmod 2$ AND $n+1 \equiv 0 \pmod 7$ . By CRT, $n+1 \equiv 0 \pmod {14}$ :
+As in solution 1, then, only $n+1=14 \cdot 1$ and $n+1=14 \cdot 7$ give possible solutions, so our answer is $\boxed{\textbf{(C) }2}$ .
+~xHypotenuse
+Solution 4
+Upon adding one to $n$ , consider each individual remainder. Either it will increase by 1, or it will "wrap around', going from $5\rightarrow 0$ (mod 6) and in general, $(n-1) \rightarrow 0$ (mod n). We will use ' $+1$ ' to refer to remainders that increase by 1, and 'wrap-around's to refer to remainders that go to 0.
+Clearly, $9$ $+1$ s isn't possible, since then $R(n)\ne R(n+1)$ .
+If there are $8$ $+1$ s and $1$ wrap-around, the wrap-around must be equal to $-8$ , which is the case for mod $(9)$ . However, if $n$ is $8$ mod $9$ , it clearly must also be $2$ mod $3$ , meaning mod (3) must also be a wrap-around, and this case won't work.
+If there are $7$ $+1$ s and $2$ wrap-arounds, these two wrap-arounds must add to $-7$ . For the possible modulo, we could have $(2,7)$ , $(3,6)$ , and $(4,5)$ . Clearly, $(3,6)$ won't work since if it is $5$ mod $6$ , then it must also be $1$ mod $2$ , meaning $(3,6)$ won't be the only wrap-arounds. Similarly, $(4,5)$ doesn't work since $3$ mod $4$ implies that $1$ mod $2$ will also be a wrap-around. That leaves $(2,7)$ . The number must be $1$ mod $2$ and $6$ mod $7$ , or in other words, $-1$ mod $2$ and $-1$ mod $7$ , meaning n will be $-1 \equiv 13$ mod $14$ . Testing all such two digits numbers that are equivalent to $13$ mod $14$ , we see that $13$ and $97$ are the only two that work.
+If there are $6$ $+1$ s and $3$ wrap-arounds, the only possible combination of modulo is $(2,3,4)$ . Thus, $n$ must be $11$ mod $12$ . However, this means that mod $6$ will also be a wrap around, so this case won't work.
+Notice that there can be no more cases, as for $5$ $+1$ s, no matter what mods wrap around, the $+1$ s will not be able to balance them out, as it's magnitude is too small. Therefore, there are only $\boxed{\textbf{C) }2}$ numbers, namely $13$ and $97$ .
+~skibbysiggy
+Video Solution
+https://youtu.be/vRKB4JdUIJ4
+~MathProblemSolvingSkills.com
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=Fy8wU4VAzkQ
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 24 Followed by 
+ Last problem
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

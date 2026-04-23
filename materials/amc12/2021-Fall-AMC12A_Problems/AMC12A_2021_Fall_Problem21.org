@@ -1,0 +1,70 @@
+2021 AMC 12A Problems/Problem 21
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Video Solution by The Power of Logic
+6 Video Solution by Mathematical Dexterity
+7 Video Solution by TheBeautyofMath
+8 Video Solution by OmegaLearn
+9 See Also
+Problem
+Let $ABCD$ be an isosceles trapezoid with $\overline{BC}\parallel \overline{AD}$ and $AB=CD$ . Points $X$ and $Y$ lie on diagonal $\overline{AC}$ with $X$ between $A$ and $Y$ , as shown in the figure. Suppose $\angle AXD = \angle BYC = 90^\circ$ , $AX = 3$ , $XY = 1$ , and $YC = 2$ . What is the area of $ABCD?$
+[asy] size(10cm); usepackage("mathptmx"); import geometry; void perp(picture pic=currentpicture, pair O, pair M, pair B, real size=5, pen p=currentpen, filltype filltype = NoFill){ perpendicularmark(pic, M,unit(unit(O-M)+unit(B-M)),size,p,filltype); } pen p=black+linewidth(1),q=black+linewidth(5); pair C=(0,0),Y=(2,0),X=(3,0),A=(6,0),B=(2,sqrt(5.6)),D=(3,-sqrt(12.6)); draw(A--B--C--D--cycle,p); draw(A--C,p); draw(B--Y,p); draw(D--X,p); dot(A,q); dot(B,q); dot(C,q); dot(D,q); dot(X,q); dot(Y,q); label("2",C--Y,S); label("1",Y--X,S); label("3",X--A,S); label("$A$",A,2*E); label("$B$",B,2*N); label("$C$",C,2*W); label("$D$",D,2*S); label("$Y$",Y,2*sqrt(2)*NE); label("$X$",X,2*N); perp(B,Y,C,8,p); perp(A,X,D,8,p); [/asy]
+
+ $\textbf{(A)}\: 15\qquad\textbf{(B)} \: 5\sqrt{11}\qquad\textbf{(C)} \: 3\sqrt{35}\qquad\textbf{(D)} \: 18\qquad\textbf{(E)} \: 7\sqrt{7}$
+Solution 1
+First realize that $\triangle BCY \sim \triangle DAX.$ Thus, because $CY: XA = 2:3,$ we can say that $BY = 2s$ and $DX = 3s.$ From the Pythagorean Theorem, we have $AB^2 =(2s)^2 + 4^2 = 4s^2 + 16$ and $CD^2 = (3s)^2 + 3^2 = 9s^2 + 9.$ Because $AB = CD,$ from the problem statement, we have that
+
+\[4s^2 + 16 = 9s^2 + 9.\]
+
+Solving, gives $s = \frac{\sqrt{7}}{\sqrt{5}}.$ To find the area of the trapezoid, we can compute the area of $\triangle ABC$ and add it to the area of $\triangle ACD.$ Thus, the area of the trapezoid is $\frac{1}{2} \cdot 2 \cdot \frac{\sqrt{7}}{\sqrt{5}} \cdot 6 + \left(\frac{1}{2} \cdot 3 \cdot \frac{\sqrt{7}}{\sqrt{5}} \cdot 6 \right) = \frac{15\sqrt{7}}{\sqrt{5}} = 3\sqrt{35}.$ Thus, the answer is $\boxed{\textbf{(C)} \: 3\sqrt{35}}.$
+~NH14
+Solution 2
+We put the graph to a coordinate plane. We put $X$ to the origin, $AC$ to the $x$ -axis, and $DX$ to the $y$ -axis.
+We have the coordinates of the following points: $X = \left( 0 , 0 \right)$ , $A = \left( 3 , 0 \right)$ , $Y = \left( - 1 , 0 \right)$ , $C = \left( - 3 , 0 \right)$ .
+Denote $BY = u$ , $DX = v$ . Hence, $B = \left( - 1 , u \right)$ , $D = \left( 0 , - v \right)$ .
+Hence, the slope of $BC$ is $m_{BC} = \frac{u}{2}$ .
+The slope of $AD$ is $m_{AD} = \frac{v}{3}$ .
+Because $BC \parallel AD$ , $m_{BC} = m_{AD}$ . Hence,
+
+\[\frac{u}{2} = \frac{v}{3} . \hspace{1cm} (1)\]
+In $\triangle AYB$ , following from the Pythagorean theorem, we have $AB^2 = AY^2 + BY^2 = 4^2 + u^2$ .
+In $\triangle CXD$ , following from the Pythagorean theorem, we have $CD^2 = CX^2 + XD^2 = 3^2 + v^2$ .
+Because $AB = CD$ ,
+
+\[4^2 + u^2 = 3^2 + v^2 . \hspace{1cm} (2)\]
+Solving Equations (1) and (2), we get $u = \frac{2 \sqrt{35}}{5}$ , $V = \frac{3 \sqrt{35}}{5}$ .
+Therefore, 
+
+\begin{align*} {\rm Area} \ ABCD & = {\rm Area} \ \triangle ABC + {\rm Area} \ \triangle ADC \\ & = \frac{1}{2} AC \cdot BY + \frac{1}{2} AC \cdot DX \\ & = \frac{1}{2} AC \left( BY + DY \right) \\ & = 3 \sqrt{35} . \end{align*}
+Therefore, the answer is $\boxed{\textbf{(C)} \: 3\sqrt{35}}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 3
+Since both $\overline{BY}$ and $\overline{DX}$ are perpendicular to $\overline{AC}$ , we have $BD^2=XY^2+(BY+DX)^2$ .
+Since the trapezoid is equilateral, $BD=AC=6$ . Hence, $BY+DX=\sqrt{6^2-1^2}=\sqrt{35}$ .
+Notice that both triangles $ABC$ and $ADC$ share a common base $\overline{AC}$ .
+Therefore,
+
+\[[ABCD]=[ABC]+[ADC]=\frac{1}{2}AC\cdot(BY+DX)=\frac{1}{2}\cdot6\cdot\sqrt{35}=\boxed{\textbf{(C)} \: 3\sqrt{35}}.\]
+
+~RunyangWang
+Video Solution by The Power of Logic
+https://youtu.be/R1cyesL2t8A
+~math2718281828459
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=TCeYkekkjrU
+Video Solution by TheBeautyofMath
+https://youtu.be/9dyA0hSqfXE
+~IceMatrix
+Video Solution by OmegaLearn
+https://youtu.be/FWmrHV1dWPM?t=950
+~ pi_is_3.14
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 20 Followed by 
+ Problem 22
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions

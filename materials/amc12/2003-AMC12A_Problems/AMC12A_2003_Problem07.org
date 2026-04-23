@@ -1,0 +1,28 @@
+2003 AMC 12A Problems/Problem 7
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 See Also
+Problem
+How many non- congruent triangles with perimeter $7$ have integer side lengths?
+$\mathrm{(A) \ } 1\qquad \mathrm{(B) \ } 2\qquad \mathrm{(C) \ } 3\qquad \mathrm{(D) \ } 4\qquad \mathrm{(E) \ } 5$
+Solution
+By the triangle inequality , no side may have a length greater than the semiperimeter, which is $\frac{1}{2}\cdot7=3.5$ .
+Since all sides must be integers, the largest possible length of a side is $3$ . Therefore, all such triangles must have all sides of length $1$ , $2$ , or $3$ . Since $2+2+2=6<7$ , at least one side must have a length of $3$ . Thus, the remaining two sides have a combined length of $7-3=4$ . So, the remaining sides must be either $3$ and $1$ or $2$ and $2$ . Therefore, the number of triangles is $\boxed{\mathrm{(B)}\ 2}$ .
+Video Solution
+https://www.youtube.com/watch?v=gII2tj5TZZY ~David
+See Also
+2003 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2003 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,15 @@
+2006 AMC 12B Problems/Problem 2
+Problem
+For real numbers $x$ and $y$ , define $x\spadesuit y = (x + y)(x - y)$ . What is $3\spadesuit(4\spadesuit 5)$ ?
+$\text {(A) } - 72 \qquad \text {(B) } - 27 \qquad \text {(C) } - 24 \qquad \text {(D) } 24 \qquad \text {(E) } 72$
+Solution
+$4\spadesuit 5=-9$
+$3\spadesuit -9=-72 \Rightarrow \text{(A)}$
+See also
+2006 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,70 @@
+2025 AMC 12A Problems/Problem 5
+Contents
+1 Solution 1
+1.1 Remark
+2 Solution 2
+3 Solution 3 (Faster)
+4 Solution 4 (The fastest, no sequences/series)
+5 Video Solution (In 1 Min)
+6 Video Solution
+7 See Also
+In the figure below, the outside square contains infinitely many squares, each of them with the same center and sides parallel to the outside square. The ratio of the side length of a square to the side length of the next inner square is $k,$ where $0 < k < 1.$ The spaces between squares are alternately shaded, as shown in the figure (which is not necessarily drawn to scale).
+[asy] unitsize(1cm); int n = 25; // number of squares real s = 6; // side length of largest square real ratio = 0.8; // shrink factor for each square real a = s; // current square side for (int i = 0; i < n; ++i) { real b = a * ratio; // next smaller square // Draw current square draw(box((-a/2,-a/2),(a/2,a/2))); if (i % 2 == 1) { fill(box((-a/2,-a/2),(a/2,a/2)), gray(1)); // light shading on the outside } else { fill(box((-a/2,-a/2),(a/2,a/2)), gray(0.4)); // dark shading on the outside } a = b; // move to the next square } // Draw innermost square outline draw(box((-a/2,-a/2),(a/2,a/2))); [/asy]
+The area of the shaded portion of the figure is $64\%$ of the area of the original square. What is $k?$
+$\textbf{(A) } \frac 35 \qquad \textbf{(B) } \frac {16}{25} \qquad \textbf{(C) } \frac 23 \qquad \textbf{(D) } \frac 34 \qquad \textbf{(E) } \frac 45$
+Solution 1
+Let the side length of the largest square be $a,$ so it has area $a^2.$ Hence, the second-largest square has area $a^2k^2,$ the third-largest has $a^2k^4,$ and so on.
+It follows that the total shaded area is
+
+\[a^2-a^2k^2+a^2k^4-a^2k^6+...=a^2(1-k^2+k^4-k^6+...)=a^2\dfrac{1}{1+k^2}.\]
+The ratio of the area of the shaded region to that of the original square is then
+
+\[\dfrac{a^2\frac{1}{1+k^2}}{a^2}=\dfrac{1}{1+k^2}=\dfrac{64}{100}\]
+
+\[\implies 64+64k^2=100\implies k^2=\dfrac{36}{64}\implies k=\boxed{\text{(D) }\dfrac{3}{4}}.\]
+~Tacos_are_yummy_1
+Remark
+We can just let $a=1$ because the question deals with ratios, meaning that there wouldn't be a loss of generality if we let the side length equal some value, getting the same answer $\boxed{D}$ .
+~vgarg (minor clarifications by ~Logibyte)
+Solution 2
+Let the side length of the first square be $a$ and the second square be $b$ . The area of the original square is $a^2.$ The area of the outermost shaded region is $a^2 - b^2.$ Let $\frac{a}{b} = r.$ We have $b = \frac{a}{r}.$ So the outermost shaded region area becomes:
+\[a^2 - b^2 = a^2 - \frac{a^2}{r^2}\]
+Now let the next square's side lengths be $c$ and $d.$ Similarly, $c = \frac{b}{r} = \frac{a}{r^2}$ and $d = \frac{c}{r} = \frac{a}{r^3}$ and the area of the next shaded region becomes:
+
+\[c^2 - d^2 = \frac{a^2}{r^4} - \frac{a^2}{r^6}\]
+Notice the pattern of adding $4$ to the exponent. If this sequence continues infinitely, we ultimately get:
+\[(a^2 + \frac{a^2}{r^4} + \frac{a^2}{r^8} + ...) - (\frac{a^2}{r^2} + \frac{a^2}{r^6} + ...)\]
+Which can be simplified using the infinite geometric sequence formula. The problem also tells us that all of this equals $64\% a^2,$ or $\frac{16}{25}a^2:$
+\[\frac{a^2}{1 - \frac{1}{r^4}} - \frac{\frac{a^2}{r^2}}{1 - \frac{1}{r^4}} = \frac{16}{25}a^2\]
+\[\frac{1}{1 - \frac{1}{r^4}} - \frac{\frac{1}{r^2}}{1 - \frac{1}{r^4}} = \frac{16}{25}\]
+\[r^2 = \frac{16}{9} \implies r = \frac{4}{3}\]
+
+Since the problem tells us the ratio must be less than one, we take the reciprocal to finally get
+
+\[k = \frac{1}{r} = \boxed{\text{(D) }\dfrac{3}{4}}.\]
+~ grogg007
+Solution 3 (Faster)
+Let the outside square be of side length $1$ , and let $p = k²$ . Then the area of the square is $1-p+p^{2}-p^{3}+p^{4}-p^{5} \dots$ or $\left(1-p\right)\left(1+p^{2}+p^{4}+p^{6}+\dots\right)$ . Then, using geometric series, we get $\left(1-p\right)\left(\frac{1}{1-p^{2}}\right)$ = $\frac{1}{1+p}$ . This is equal to $\frac{64}{100}$ . Therefore, $1+p=\frac{25}{16}$ , so $p = 9/16$ and $k = \frac{3}{4}$ . Therefore, the answer is $\boxed{(D)\frac{3}{4}}.$
+~ Moonwatcher22 (Latex fixed by ~ roblmin235 )
+Solution 4 (The fastest, no sequences/series)
+Since this is an infinite fixed pattern, we can actually take a huge shortcut. Suppose we take off the outer "layer" and then swap the colors. We have essentially created a smaller copy of the original diagram, specifically with a $k:1$ ratio of side lengths. Assume the original diagram had 100 units of area. Then, based on the givens, the original diagram had 64 units of shaded area and 36 units of unshaded area, meaning our new smaller diagram has 36 units of shaded area. Since the ratio of corresponding side lengths between our new diagram and the original diagram is $k$ , the ratio of corresponding areas is $k^2$ . Thus, we get $k^2 = \frac{36}{64}$ , so $k = \boxed{\text{(D) }\dfrac{3}{4}}$ .
+Note: the explanation seems complicated to explain, but the thought process while doing it is extremely fast, much faster than any of the methods involving a series.
+~ dg6665
+Video Solution (In 1 Min)
+https://youtu.be/5H8L7_M9BWc?si=ZDOYb3ZKllXsWFyn ~ Pi Academy
+Video Solution
+https://youtu.be/gWSZeCKrOfU
+~MK
+See Also
+2025 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+- AMC 10
+- AMC 10 Problems and Solutions
+- Mathematics competitions
+- Mathematics competition resources
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions . Error creating thumbnail: File missing
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions. Error creating thumbnail: File missing

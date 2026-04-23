@@ -1,0 +1,99 @@
+2021 AMC 12A Problems/Problem 14
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Video Solution 1 (Trigonometry)
+6 Video Solution by SpreadTheMathLove
+7 See Also
+Problem
+In the figure, equilateral hexagon $ABCDEF$ has three nonadjacent acute interior angles that each measure $30^\circ$ . The enclosed area of the hexagon is $6\sqrt{3}$ . What is the perimeter of the hexagon?
+[asy] size(10cm); pen p=black+linewidth(1),q=black+linewidth(5); pair C=(0,0),D=(cos(pi/12),sin(pi/12)),E=rotate(150,D)*C,F=rotate(-30,E)*D,A=rotate(150,F)*E,B=rotate(-30,A)*F; draw(C--D--E--F--A--B--cycle,p); dot(A,q); dot(B,q); dot(C,q); dot(D,q); dot(E,q); dot(F,q); label("$C$",C,2*S); label("$D$",D,2*S); label("$E$",E,2*S); label("$F$",F,2*dir(0)); label("$A$",A,2*N); label("$B$",B,2*W); [/asy]
+$\textbf{(A)} \: 4 \qquad \textbf{(B)} \: 4\sqrt3 \qquad \textbf{(C)} \: 12 \qquad \textbf{(D)} \: 18 \qquad \textbf{(E)} \: 12\sqrt3$
+Solution 1
+Divide the equilateral hexagon $ABCDEF$ into isosceles triangles $ABF$ , $CBD$ , and $EDF$ and triangle $BDF$ . The three isosceles triangles are congruent by SAS congruence. By CPCTC , $BF=BD=DF$ , so triangle $BDF$ is equilateral.
+Let the side length of the hexagon be $s$ . The area of each isosceles triangle is
+
+\[\frac{1}{2} a b \sin\angle C = \frac{1}{2} \cdot s \cdot s \cdot \sin{30^{\circ}} = \frac{1}{4}s^2.\]
+By the Law of Cosines on triangle $ABF$ ,
+
+\[BF^2=s^2+s^2-2s^2\cos{30^{\circ}}=2s^2-\sqrt{3}s^2.\]
+Hence, the area of the equilateral triangle $BDF$ is
+
+\[\frac{\sqrt{3}}{4} BF^2 = \frac{\sqrt{3}}{4}\left(2s^2-\sqrt{3}s^2\right)=\frac{\sqrt{3}}{2}s^2-\frac{3}{4}s^2.\]
+The total area of the hexagon is thrice the area of each isosceles triangle plus the area of the equilateral triangle, or
+
+\[3\left(\frac{1}{4}s^2\right)+ \left( \frac{\sqrt{3}}{2}s^2-\frac{3}{4}s^2 \right)=\frac{\sqrt{3}}{2}s^2=6\sqrt{3}.\]
+
+Hence, $s=2\sqrt{3}$ , and the perimeter of the hexagon is $6s=\boxed{\textbf{(E)} \: 12\sqrt3}$ .
+Solution 2
+We will be referring to the following diagram:
+[asy] size(10cm); pen p=black+linewidth(1),q=black+linewidth(5); pair C=(0,0),D=(cos(pi/12),sin(pi/12)),E=rotate(150,D)*C,F=rotate(-30,E)*D,A=rotate(150,F)*E,B=rotate(-30,A)*F,G=(1/2)*(C+E); draw(C--D--E--F--A--B--cycle,p); draw(C--E--A--C,p+dashed); draw(D--G,p+dashed); dot(A,q); dot(B,q); dot(C,q); dot(D,q); dot(E,q); dot(F,q); dot(G,q); label("$C$",C,2*S); label("$D$",D,2*N); label("$E$",E,2*S); label("$F$",F,2*dir(0)); label("$A$",A,2*N); label("$G$",G,2*S); label("$B$",B,2*W); [/asy]
+Observe that 
+
+\begin{align}6\sqrt3=[ACE]-3\cdot[DCE].\end{align}
+
+ Letting $x=CD,$ the perimeter will be $6x.$
+We know that $\angle CDG=75^{\circ}$ and using such, we have 
+
+\begin{alignat*}{8} CG &= x\sin(75^{\circ}) &&= \frac{\sqrt6+\sqrt2}{4}x, \\ DG &= x\cos(75^{\circ}) &&= \frac{\sqrt6-\sqrt2}{4}x. \end{alignat*}
+
+ Thus, we have 
+
+\begin{align*}[ACE]&=\frac{\sqrt3}{4}\left(2\cdot CG\right)^2\\ &=\frac{\sqrt3}{4}(2+\sqrt3)x^2 \\ &=\frac{3+2\sqrt3}{4} x^2.\end{align*}
+
+ Computing the area of $DCE,$ we have 
+
+\begin{align*}[DCE]&=\frac12 \cdot 2\cdot CG\cdot DG \\ &=CG\cdot DG\\ &=\frac{x^2}{4}.\end{align*}
+
+ Plugging back into $(1),$ we have
+
+\[6\sqrt3=\frac{3+2\sqrt3}{4} x^2 -\frac{3x^2}{4}=\frac{\sqrt3}{2}x^2,\]
+
+which means $x=2\sqrt3$ and $6x=\boxed{\textbf{(E)} \: 12\sqrt3}.$
+~ASAB
+Solution 3
+The following diagram will be used:
+[asy] size(10cm); pen p=black+linewidth(1),q=black+linewidth(5); pair C=(0,0),D=(cos(pi/12),sin(pi/12)),E=rotate(150,D)*C,F=rotate(-30,E)*D,A=rotate(150,F)*E,B=rotate(-30,A)*F,M=(1/2)*(B+F); draw(C--D--E--F--A--B--cycle,p); draw(B--F--D--cycle,p+dashed); draw(A--M,p+dashed); dot(A,q); dot(B,q); dot(C,q); dot(D,q); dot(E,q); dot(F,q); dot(M,q); label("$C$",C,2*S); label("$D$",D,2*S); label("$E$",E,2*S); label("$F$",F,2*dir(0)); label("$A$",A,2*N); label("$B$",B,2*W); label("$M$",M,2*S); [/asy]
+Start by drawing equilateral triangle $BFD$ , splitting equilateral hexagon $ABCDEF$ into said equilateral triangle as well as congruent isosceles $\triangle FBA$ , $\triangle BDC$ , and $\triangle DFE$ .
+Along $\overline{BF}$ , draw midpoint $M$ . Then draw $\overline{AM}$ , forming $\triangle ABM$ . Note that $\triangle ABM$ is a right triangle with angles of $15^\circ$ and $75^\circ$ .
+By letting $x=BM$ , it can be found that the area of $\triangle ABM$ can be written as
+
+\[A_1=\left(\frac{2+\sqrt{3}}{2}\right)x^2\]
+The area of $\triangle BFD$ can be written as
+
+\[A_2=x^2\sqrt3\]
+Thus, the area of hexagon $ABCDEF$ is
+
+\[A=(6+4\sqrt3)x^2\]
+Knowing the area of hexagon $ABCDEF$ is also equal to $6\sqrt3$ , we have
+
+\[6\sqrt3=(6+4\sqrt3)x^2\]
+
+Simplifying this, we have
+
+\[x=\frac{3\sqrt{2+\sqrt{3}}}{3+2\sqrt{3}}\]
+
+Additionally, since $x = BM$ , the ratios of sides of a right triangle with angles of $15^\circ$ and $75^\circ$ can be used to find $AB = 2x\sqrt{2+\sqrt3}$ . It is important to note that the perimeter of hexagon $ABCDEF$ is equal to $6AB$ .
+Knowing this, the perimeter of hexagon $ABCDEF$ can be written as
+
+\[P=6 \cdot 2\sqrt{2+\sqrt3} \cdot \frac{3\sqrt{2+\sqrt{3}}}{3+2\sqrt{3}}\]
+
+After simplifying and rationalizing the denominator, we find
+
+\[P=\boxed{\textbf{(E)} \: 12\sqrt3}.\]
+~mehthatcat, minor edits by Voidling
+Video Solution 1 (Trigonometry)
+~TheBeautyofMath
+Video Solution by SpreadTheMathLove
+https://www.youtube.com/watch?v=g6Dk6An2ALY&t=208
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

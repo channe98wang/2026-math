@@ -1,0 +1,21 @@
+2000 AMC 12 Problems/Problem 7
+Contents
+1 Problem
+2 Solution
+3 Video Solution by Power Solve
+4 See also
+Problem
+How many positive integers $b$ have the property that $\log_{b} 729$ is a positive integer?
+$\mathrm{(A) \ 0 } \qquad \mathrm{(B) \ 1 } \qquad \mathrm{(C) \ 2 } \qquad \mathrm{(D) \ 3 } \qquad \mathrm{(E) \ 4 }$
+Solution
+If $\log_{b} 729 = n$ , then $b^n = 729$ . Since $729 = 3^6$ , $b$ must be $3$ to some factor of 6. Thus, there are four (3, 9, 27, 729) possible values of $b \Longrightarrow \boxed{\mathrm{E}}$ .
+Video Solution by Power Solve
+https://youtu.be/p3bwMuK1RUM?si=KWRsbwzVa2Z8MN69&t=157
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

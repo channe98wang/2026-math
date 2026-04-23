@@ -1,0 +1,16 @@
+2005 AMC 12A Problems/Problem 8
+Problem
+Let $A,M$ , and $C$ be digits with
+\[(100A+10M+C)(A+M+C) = 2005.\]
+What is $A$ ?
+$(\mathrm {A}) \ 1 \qquad (\mathrm {B}) \ 2 \qquad (\mathrm {C})\ 3 \qquad (\mathrm {D}) \ 4 \qquad (\mathrm {E})\ 5$
+Solution
+Clearly the two quantities are both integers, so we check the prime factorization of $2005 = 5 \cdot 401$ . It is easy to see now that $(A,M,C) = (4,0,1)$ works, so the answer is $\mathrm{(D)}$ .
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

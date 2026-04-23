@@ -1,0 +1,18 @@
+2009 AMC 12B Problems/Problem 12
+Problem
+The fifth and eighth terms of a geometric sequence of real numbers are $7!$ and $8!$ respectively. What is the first term?
+$\mathrm{(A)}\ 60\qquad \mathrm{(B)}\ 75\qquad \mathrm{(C)}\ 120\qquad \mathrm{(D)}\ 225\qquad \mathrm{(E)}\ 315$
+Solution
+Let the $n$ th term of the series be $ar^{n-1}$ . Because
+
+\[\frac {8!}{7!} = \frac {ar^7}{ar^4} = r^3 = 8,\]
+
+it follows that $r = 2$ and the first term is $a = \frac {7!}{r^4} = \frac {7!}{16} = \boxed{315}$ . The answer is $\mathrm{(E)}$ .
+See also
+2009 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

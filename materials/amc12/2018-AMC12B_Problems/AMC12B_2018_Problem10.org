@@ -1,0 +1,37 @@
+2018 AMC 12B Problems/Problem 10
+Contents
+1 Problem
+2 Solution 1 (Statistics)
+3 Solution 2 (Algebra)
+4 Solution 3 (Literally Solution 1)
+5 Video Solution (HOW TO THINK CRITICALLY!!!)
+6 See Also
+Problem
+A list of $2018$ positive integers has a unique mode, which occurs exactly $10$ times. What is the least number of distinct values that can occur in the list?
+$\textbf{(A)}\ 202\qquad\textbf{(B)}\ 223\qquad\textbf{(C)}\ 224\qquad\textbf{(D)}\ 225\qquad\textbf{(E)}\ 234$
+Solution 1 (Statistics)
+To minimize the number of distinct values, we want to maximize the number of times a number appears. So, we could have $223$ numbers appear $9$ times, $1$ number appear once, and the mode appear $10$ times, giving us a total of $223 + 1 + 1 = \boxed{\textbf{(D)}\ 225}.$
+Solution 2 (Algebra)
+As in Solution 1, we want to maximize the number of time each number appears to do so. We can set up an equation $10 + 9( x - 1 )\geq2018,$ where $x$ is the number of values. Notice how we can then rearrange the equation into $1 + 9 ( 1 )+9 ( x - 1 )\geq2018,$ which becomes $9 x\geq2017,$ or $x\geq224\frac19.$ We cannot have a fraction of a value so we must round up to $\boxed{\textbf{(D)}\ 225}.$
+~Username_taken12
+Solution 3 (Literally Solution 1)
+There is a unique number \( n \) with a mode of 10. This means we have 2008 terms left. We see that \( \lfloor 2008/9 \rfloor = 223 \), with remainder 1. Our answer is simply \( 223 + 1 + 1 =\) $\boxed{\textbf{(D)}\ 225}.$
+~Pinotation
+Video Solution (HOW TO THINK CRITICALLY!!!)
+https://youtu.be/M-z7SJwlsLY
+~Education, the Study of Everything
+See Also
+2018 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2018 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 9 Followed by 
+ Problem 11
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

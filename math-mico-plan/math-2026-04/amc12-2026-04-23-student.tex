@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{xcolor}
+\usepackage{asymptote}
+
+\title{AMC 12 Prep 2026}
+\author{}
+\date{\today}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+\maketitle
+
+\section{2000 AMC 12}
+
+\subsection{2000 AMC12 Problem 10}
+
+\textbf{Problem:}
+The point $P = (1,2,3)$ is reflected in the $xy$ -plane, then its image $Q$ is rotated by $180^\circ$ about the $x$ -axis to produce $R$ , and finally, $R$ is translated by 5 units in the positive- $y$ direction to produce $S$ . What are the coordinates of $S$ ?
+
+$\text {(A) } (1,7, - 3) \qquad \text {(B) } ( - 1,7, - 3) \qquad \text {(C) } ( - 1, - 2,8) \qquad \text {(D) } ( - 1,3,3) \qquad \text {(E) } (1,3,3)$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2001 AMC 12}
+
+\subsection{2001 AMC12 Problem 10}
+
+\textbf{Problem:}
+The plane is tiled by congruent squares and congruent pentagons as indicated. The percent of the plane that is enclosed by the pentagons is closest to \begin{asy}
+unitsize(3mm);
+defaultpen(linewidth(0.8pt));
+path p1=(0,0)--(3,0)--(3,3)--(0,3)--(0,0);
+path p2=(0,1)--(1,1)--(1,0);
+path p3=(2,0)--(2,1)--(3,1);
+path p4=(3,2)--(2,2)--(2,3);
+path p5=(1,3)--(1,2)--(0,2);
+path p6=(1,1)--(2,2);
+path p7=(2,1)--(1,2);
+path[] p=p1^^p2^^p3^^p4^^p5^^p6^^p7;
+for(int i=0;
+i<3;
+++i) { for(int j=0;
+j<3;
+++j) { draw(shift(3*i,3*j)*p);
+} };
+\end{asy}
+
+$\textbf{(A) }50 \qquad \textbf{(B) }52 \qquad \textbf{(C) }54 \qquad \textbf{(D) }56 \qquad \textbf{(E) }58$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\end{document}

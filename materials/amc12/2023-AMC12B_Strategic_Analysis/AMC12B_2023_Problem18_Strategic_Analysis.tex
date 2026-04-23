@@ -1,0 +1,750 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% Strategic Analysis of AMC12B 2023 Problem 18
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12B 2023 Problem 18 Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{proofbox}{
+    colback=proofwriting,
+    colframe=violet,
+    title=Proof Structure and Justification (COMC Part C),
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2023 Problem 18\\Strategic Analysis}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Last academic year Yolanda and Zelda took different courses that did not necessarily administer the same number of quizzes during each of the two semesters. Yolanda's average on all the quizzes she took during the first semester was $3$ points higher than Zelda's average on all the quizzes she took during the first semester. Yolanda's average on all the quizzes she took during the second semester was $18$ points higher than her average for the first semester and was again $3$ points higher than Zelda's average on all the quizzes Zelda took during her second semester. Which one of the following statements \textbf{cannot possibly be true}?
+
+\textbf{(A)} Yolanda's quiz average for the academic year was $22$ points higher than Zelda's.
+
+\textbf{(B)} Zelda's quiz average for the academic year was higher than Yolanda's.
+
+\textbf{(C)} Yolanda's quiz average for the academic year was $3$ points higher than Zelda's.
+
+\textbf{(D)} Zelda's quiz average for the academic year equaled Yolanda's.
+
+\textbf{(E)} If Zelda had scored $3$ points higher on each quiz she took, then she would have had the same average for the academic year as Yolanda.
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (identify which statement cannot possibly be true)
+    \item \textbf{Competition Context}: AMC 12B 2023, Problem 18
+    \item \textbf{Difficulty Band}: Late-band (P18) - Mid-level late-band problem
+    \item \textbf{Mathematical Domain}: Algebra (Weighted Averages, Inequalities, Logic)
+    \item \textbf{Estimated Time}: 5-7 minutes (requires careful setup and analysis of extreme cases)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Let $Y_1, Y_2$ = Yolanda's averages in semesters 1 and 2
+        \item Let $Z_1, Z_2$ = Zelda's averages in semesters 1 and 2
+        \item Condition 1: $Y_1 = Z_1 + 3$
+        \item Condition 2: $Y_2 = Y_1 + 18$
+        \item Condition 3: $Y_2 = Z_2 + 3$
+        \item Number of quizzes per semester can vary independently for each person
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Each person takes at least one quiz per semester (to have an average)
+        \item Yearly average is a weighted average based on number of quizzes
+        \item All quiz scores are non-negative (implied)
+    \end{itemize}
+    \item \textbf{Objective}: 
+    \begin{itemize}
+        \item Determine which statement about yearly averages is \textit{impossible}
+        \item Four statements can be true; one cannot
+    \end{itemize}
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item From conditions: $Z_2 = Y_2 - 3 = (Y_1 + 18) - 3 = Y_1 + 15 = Z_1 + 18$
+        \item So both students improve by 18 points from semester 1 to semester 2
+        \item The yearly average lies between the two semester averages for each student
+        \item Extreme cases occur when all quizzes are in one semester
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Look for the one that's impossible; the others must be constructible
+        \item Can use process of elimination by finding examples for 4 choices
+        \item Or find the maximum possible difference analytically
+    \end{itemize}
+    \item \textbf{Proof Requirements}: Need to either prove impossibility or construct examples
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: This is a weighted average problem with extreme case analysis
+    \item \textbf{Conclusion}: Find maximum and minimum possible differences between yearly averages
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $Y_1, Y_2$ = Yolanda's semester averages
+        \item $Z_1, Z_2$ = Zelda's semester averages
+        \item $n_1, n_2$ = number of quizzes Yolanda took in semesters 1, 2
+        \item $m_1, m_2$ = number of quizzes Zelda took in semesters 1, 2
+        \item $Y_{year} = \frac{Y_1 n_1 + Y_2 n_2}{n_1 + n_2}$ (weighted average)
+        \item $Z_{year} = \frac{Z_1 m_1 + Z_2 m_2}{m_1 + m_2}$ (weighted average)
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item The maximum difference occurs at extreme weightings
+        \item If Yolanda takes all quizzes in semester 2 and Zelda in semester 1: $Y_{year} - Z_{year} = Y_2 - Z_1$
+        \item Calculate: $Y_2 - Z_1 = (Y_1 + 18) - (Y_1 - 3) = 21$
+        \item So 22 is impossible!
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure algebra with weighted averages
+        \item Optimization/extremal principle (find maximum difference)
+        \item Logic and proof by counterexample (for other choices)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This problem requires careful reading and systematic analysis. Don't rush to judgment on which is impossible.
+    \item \textbf{Creativity Cultivation}: Two main approaches:
+    \begin{itemize}
+        \item Analytical: Find bounds on possible differences
+        \item Constructive: Build examples to eliminate 4 choices
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: Start with the given conditions, derive relationships, then analyze extremes.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{itemize}
+        \item Carefully parse the problem statement (it's wordy!)
+        \item Extract the three key relationships between averages
+        \item Recognize this as a weighted average problem
+    \end{itemize}
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Write down: $Y_1 = Z_1 + 3$, $Y_2 = Y_1 + 18$, $Y_2 = Z_2 + 3$
+        \item Derive: $Z_2 = Y_1 + 15 = Z_1 + 18$
+        \item Test extreme cases: what if all quizzes in one semester?
+    \end{itemize}
+    \item \textbf{Extreme Principle}: 
+    \begin{itemize}
+        \item Maximum difference: Yolanda heavily weighted toward semester 2, Zelda toward semester 1
+        \item Minimum difference: Could be negative (Zelda higher) or zero (equal)
+    \end{itemize}
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Express yearly averages as convex combinations
+        \item $Y_{year} = \alpha Y_1 + (1-\alpha) Y_2$ where $\alpha \in (0, 1)$
+        \item $Z_{year} = \beta Z_1 + (1-\beta) Z_2$ where $\beta \in (0, 1)$
+    \end{itemize}
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item If both take equal quizzes each semester: $Y_{year} - Z_{year} = 3$
+        \item If Yolanda takes 1 quiz semester 1, many in semester 2, her average approaches $Y_2$
+        \item If Zelda takes many quizzes semester 1, 1 in semester 2, her average approaches $Z_1$
+    \end{itemize}
+    \item \textbf{Wishful Thinking}: If we could find the maximum value of $Y_{year} - Z_{year}$, we could check if 22 is achievable
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item Can use elimination: find explicit examples for 4 choices
+        \item Or analytical bound: prove one choice exceeds the maximum
+    \end{itemize}
+    \item \textbf{Extreme Principle}: Focus on boundary cases (all quizzes in one semester)
+    \item \textbf{Penultimate Step}: Once we have max difference = 21, immediately identify choice (A) as impossible
+    \item \textbf{Wishful Thinking}: If only we knew the semester averages' ranges...
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1 - Direct Bound}: 
+    \begin{enumerate}
+        \item Express yearly averages as weighted averages
+        \item Find the maximum value of $Y_{year} - Z_{year}$
+        \item Show this maximum is at most 21
+        \item Conclude 22 is impossible
+    \end{enumerate}
+    \item \textbf{Method 2 - Elimination}: 
+    \begin{enumerate}
+        \item For choices B, C, D, E: construct explicit examples
+        \item The remaining choice must be impossible
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Recast the Problem}: This is an optimization problem in disguise
+    \item \textbf{Change Your Point of View}: View yearly averages as points in intervals $[Y_1, Y_2]$ and $[Z_1, Z_2]$
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Extreme Principle}: Maximum difference achieved at boundary (all quizzes in one semester)
+    \item \textbf{Weighted Averages}: Understand that yearly average is between semester averages
+    \item \textbf{Algebraic Manipulation}: Derive relationships between all four semester averages
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+
+\textbf{Algebra:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Weighted Average Formula}: $\bar{x} = \frac{\sum w_i x_i}{\sum w_i}$
+    \item \textbf{Inequalities}: $\min(x_1, x_2) \leq \text{weighted average} \leq \max(x_1, x_2)$
+    \item \textbf{Linear Combinations}: Express difference as sum of fixed and variable parts
+\end{itemize}
+
+\textbf{Logic:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proof by Counterexample}: Show 4 choices are possible by construction
+    \item \textbf{Proof by Contradiction}: Assume choice (A) is true, derive impossibility
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic-Logical}: Use algebra to find bounds, logic to eliminate possibilities
+    \item \textbf{Optimization within Algebra}: Find maximum value of expression subject to constraints
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Extreme Principle + Weighted Average Analysis
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Problem involves averages over two periods
+        \item Number of data points in each period varies
+        \item Asked which statement \textit{cannot} be true (looking for impossibility)
+        \item This signals need for bounds/extreme case analysis
+    \end{itemize}
+    \item \textbf{Application}: 
+    \begin{enumerate}
+        \item Extract the three conditions: $Y_1 = Z_1 + 3$, $Y_2 = Y_1 + 18$, $Y_2 = Z_2 + 3$
+        \item Derive: $Z_2 = Y_1 + 15$, so $Z_1 = Y_1 - 3$ and $Z_2 = Y_1 + 15$
+        \item Yearly averages: $Y_{year} \in [Y_1, Y_1 + 18]$ and $Z_{year} \in [Y_1 - 3, Y_1 + 15]$
+        \item Maximum difference: $\max(Y_{year}) - \min(Z_{year}) = (Y_1 + 18) - (Y_1 - 3) = 21$
+        \item Since 22 > 21, choice (A) is impossible
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Process of Elimination (Constructive)}:
+    \begin{itemize}
+        \item For each of choices B, C, D, E, construct specific quiz distributions
+        \item Example for (C): If both take equal quizzes each semester, difference is exactly 3
+        \item Example for (D): Find weights such that averages are equal
+        \item Example for (B): Weight Zelda heavily toward semester 2, Yolanda toward semester 1
+        \item The choice for which no example exists must be impossible
+    \end{itemize}
+    \item \textbf{Algebraic Formula Derivation}:
+    \begin{itemize}
+        \item Let $p = \frac{n_2}{n_1 + n_2}$ (Yolanda's weight on semester 2)
+        \item Let $q = \frac{m_2}{m_1 + m_2}$ (Zelda's weight on semester 2)
+        \item Then $Y_{year} = Y_1 + 18p$ and $Z_{year} = Z_1 + 18q$
+        \item So $Y_{year} - Z_{year} = (Y_1 - Z_1) + 18(p - q) = 3 + 18(p - q)$
+        \item Since $p, q \in (0, 1)$, we have $p - q \in (-1, 1)$
+        \item Therefore $Y_{year} - Z_{year} \in (3 - 18, 3 + 18) = (-15, 21)$
+        \item Endpoints achievable in limit, so $Y_{year} - Z_{year} \leq 21 < 22$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Selection Justification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Why Extreme Principle}: 
+    \begin{itemize}
+        \item Maximum/minimum of weighted average occurs at extremes
+        \item Quick to compute extreme cases
+        \item Gives definitive bound (21) to compare against 22
+    \end{itemize}
+    \item \textbf{Computational Simplicity}: Two-line calculation for extreme case
+    \item \textbf{Reliability}: Extreme principle is well-established
+    \item \textbf{Time Efficiency}: 3-4 minutes with proper setup
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 - Standard Verification (30-60 seconds)
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Late-band problem (P18) requiring careful logic
+        \item Can verify by checking that 21 is achievable (shows bound is tight)
+        \item Can verify by checking one other answer choice is possible
+        \item Target confidence: 90\%+
+    \end{itemize}
+    \item \textbf{Time Budget}: 45-60 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Verify derived relationships}:
+    \begin{itemize}
+        \item From $Y_1 = Z_1 + 3$ and $Y_2 = Y_1 + 18$ and $Y_2 = Z_2 + 3$
+        \item Get: $Z_2 = Y_2 - 3 = Y_1 + 18 - 3 = Y_1 + 15$ \checkmark
+        \item Also: $Z_1 = Y_1 - 3$ \checkmark
+    \end{itemize}
+    \item \textbf{Verify maximum difference calculation}:
+    \begin{itemize}
+        \item $\max(Y_{year}) = Y_2 = Y_1 + 18$ (when Yolanda takes all quizzes in semester 2)
+        \item $\min(Z_{year}) = Z_1 = Y_1 - 3$ (when Zelda takes all quizzes in semester 1)
+        \item Difference: $(Y_1 + 18) - (Y_1 - 3) = 21$ \checkmark
+    \end{itemize}
+    \item \textbf{Verify 21 is achievable}:
+    \begin{itemize}
+        \item Set $n_1 = 1, n_2 = 1000$ (Yolanda: essentially all in semester 2)
+        \item Set $m_1 = 1000, m_2 = 1$ (Zelda: essentially all in semester 1)
+        \item Then $Y_{year} \approx Y_2$ and $Z_{year} \approx Z_1$
+        \item Difference $\approx 21$ \checkmark
+    \end{itemize}
+    \item \textbf{Verify another choice is possible (e.g., C)}:
+    \begin{itemize}
+        \item If $n_1 = n_2$ and $m_1 = m_2$ (equal quizzes both semesters for both)
+        \item Then $Y_{year} = \frac{Y_1 + Y_2}{2}$ and $Z_{year} = \frac{Z_1 + Z_2}{2}$
+        \item $Y_{year} - Z_{year} = \frac{(Y_1 - Z_1) + (Y_2 - Z_2)}{2} = \frac{3 + 3}{2} = 3$ \checkmark
+        \item So choice (C) is possible
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1}: Verify choices B, C, D, E are possible by construction
+    \begin{itemize}
+        \item (B) Zelda higher: Set $(n_1, n_2, m_1, m_2) = (289, 1, 1, 289)$ as in Solution 2
+        \item (C) Difference = 3: Equal quizzes for both
+        \item (D) Equal averages: Set $(n_1, n_2, m_1, m_2) = (7, 5, 5, 7)$ as in Solution 2
+        \item (E) Shift by 3: If Zelda adds 3 to all quizzes, her averages become $Z_1 + 3 = Y_1$ and $Z_2 + 3 = Y_2$, making them equal
+    \end{itemize}
+    \item \textbf{Method 2}: Algebraic bound via formula
+    \begin{itemize}
+        \item $Y_{year} - Z_{year} = 3 + 18(p - q)$ where $p, q \in (0, 1)$
+        \item Maximum when $p \to 1$ (Yolanda all semester 2) and $q \to 0$ (Zelda all semester 1)
+        \item Gives $3 + 18(1 - 0) = 21$ \checkmark
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Extract Given Information}: 
+    \begin{itemize}
+        \item Let $Y_1$ = Yolanda's average in semester 1
+        \item Let $Y_2$ = Yolanda's average in semester 2
+        \item Let $Z_1$ = Zelda's average in semester 1
+        \item Let $Z_2$ = Zelda's average in semester 2
+        \item Given: $Y_1 = Z_1 + 3$
+        \item Given: $Y_2 = Y_1 + 18$
+        \item Given: $Y_2 = Z_2 + 3$
+    \end{itemize}
+    
+    \item \textbf{Derive Relationships}: 
+    \begin{itemize}
+        \item From $Y_1 = Z_1 + 3$: $Z_1 = Y_1 - 3$
+        \item From $Y_2 = Z_2 + 3$: $Z_2 = Y_2 - 3 = (Y_1 + 18) - 3 = Y_1 + 15$
+        \item Summary: In terms of $Y_1$:
+        \begin{align}
+        Y_1 &= Y_1\\
+        Y_2 &= Y_1 + 18\\
+        Z_1 &= Y_1 - 3\\
+        Z_2 &= Y_1 + 15
+        \end{align}
+    \end{itemize}
+    
+    \item \textbf{Understand Yearly Averages}: 
+    \begin{itemize}
+        \item Let $n_1, n_2$ = number of quizzes Yolanda took in semesters 1, 2
+        \item Let $m_1, m_2$ = number of quizzes Zelda took in semesters 1, 2
+        \item Yolanda's yearly average:
+        \[Y_{year} = \frac{Y_1 n_1 + Y_2 n_2}{n_1 + n_2} = \frac{Y_1 n_1 + (Y_1 + 18)n_2}{n_1 + n_2} = Y_1 + \frac{18n_2}{n_1 + n_2}\]
+        \item Zelda's yearly average:
+        \[Z_{year} = \frac{Z_1 m_1 + Z_2 m_2}{m_1 + m_2} = \frac{(Y_1-3)m_1 + (Y_1+15)m_2}{m_1 + m_2} = Y_1 + \frac{-3m_1 + 15m_2}{m_1 + m_2}\]
+    \end{itemize}
+    
+    \item \textbf{Determine Range of Yearly Averages}:
+    \begin{itemize}
+        \item Since $\frac{n_2}{n_1 + n_2} \in (0, 1)$ (strictly, as each semester has at least one quiz), we have:
+        \[Y_{year} \in (Y_1, Y_1 + 18) = (Y_1, Y_2)\]
+        \item For Zelda:
+        \[\frac{-3m_1 + 15m_2}{m_1 + m_2} = \frac{-3(m_1 + m_2) + 18m_2}{m_1 + m_2} = -3 + \frac{18m_2}{m_1 + m_2}\]
+        \item Since $\frac{m_2}{m_1 + m_2} \in (0, 1)$:
+        \[Z_{year} \in (Y_1 - 3, Y_1 + 15) = (Z_1, Z_2)\]
+    \end{itemize}
+    
+    \item \textbf{Find Maximum Difference}:
+    \begin{itemize}
+        \item Maximum value of $Y_{year}$ approaches $Y_2 = Y_1 + 18$ (when $n_2 \gg n_1$)
+        \item Minimum value of $Z_{year}$ approaches $Z_1 = Y_1 - 3$ (when $m_1 \gg m_2$)
+        \item Therefore:
+        \[\max(Y_{year} - Z_{year}) = (Y_1 + 18) - (Y_1 - 3) = 21\]
+    \end{itemize}
+    
+    \item \textbf{Alternative: Direct Formula}:
+    \begin{itemize}
+        \item Let $p = \frac{n_2}{n_1 + n_2}$ and $q = \frac{m_2}{m_1 + m_2}$
+        \item Then $Y_{year} = Y_1 + 18p$ and $Z_{year} = Y_1 - 3 + 18q$
+        \item Therefore:
+        \[Y_{year} - Z_{year} = (Y_1 + 18p) - (Y_1 - 3 + 18q) = 3 + 18(p - q)\]
+        \item Since $p, q \in (0, 1)$, we have $p - q \in (-1, 1)$
+        \item Therefore: $Y_{year} - Z_{year} \in (3 - 18, 3 + 18) = (-15, 21)$
+        \item Maximum difference is 21 (approaching but not exceeding)
+    \end{itemize}
+    
+    \item \textbf{Analyze Answer Choices}:
+    \begin{itemize}
+        \item (A) states $Y_{year} - Z_{year} = 22$
+        \item Since the maximum possible difference is 21, and $22 > 21$
+        \item Choice (A) \textbf{cannot possibly be true}
+    \end{itemize}
+    
+    \item \textbf{Verification - Check 21 is Achievable}:
+    \begin{itemize}
+        \item Let Yolanda take 1 quiz in semester 1, 1000 in semester 2
+        \item Let Zelda take 1000 quizzes in semester 1, 1 in semester 2
+        \item Then $Y_{year} \approx Y_2$ and $Z_{year} \approx Z_1$
+        \item Difference $\approx 21$ \checkmark (bound is tight)
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Method 2: Process of Elimination (Constructive Examples)}
+
+Show that choices B, C, D, E are possible:
+
+\textbf{Choice (C): $Y_{year} - Z_{year} = 3$}
+\begin{itemize}
+    \item Let both students take equal numbers of quizzes in each semester
+    \item $Y_{year} = \frac{Y_1 + Y_2}{2} = \frac{Y_1 + (Y_1 + 18)}{2} = Y_1 + 9$
+    \item $Z_{year} = \frac{Z_1 + Z_2}{2} = \frac{(Y_1-3) + (Y_1+15)}{2} = Y_1 + 6$
+    \item Difference: $(Y_1 + 9) - (Y_1 + 6) = 3$ \checkmark
+\end{itemize}
+
+\textbf{Choice (E): If Zelda scored 3 points higher on each quiz, averages would be equal}
+\begin{itemize}
+    \item If Zelda adds 3 to each quiz score, her averages become:
+    \item New $Z_1 = Z_1 + 3 = Y_1$
+    \item New $Z_2 = Z_2 + 3 = Y_1 + 15 + 3 = Y_1 + 18 = Y_2$
+    \item With equal semester averages and any quiz distribution:
+    \item New $Z_{year} = Y_{year}$ \checkmark
+    \item This works for \textit{any} quiz distribution
+\end{itemize}
+
+\textbf{Choice (D): $Y_{year} = Z_{year}$}
+\begin{itemize}
+    \item We need: $Y_1 + 18p = Y_1 - 3 + 18q$
+    \item Simplify: $18p = -3 + 18q$
+    \item $18p - 18q = -3$
+    \item $p - q = -\frac{1}{6}$
+    \item Example: $p = \frac{5}{12}$, $q = \frac{7}{12}$
+    \item This gives: $\frac{n_2}{n_1+n_2} = \frac{5}{12}$, so try $n_1 = 7, n_2 = 5$
+    \item And: $\frac{m_2}{m_1+m_2} = \frac{7}{12}$, so try $m_1 = 5, m_2 = 7$
+    \item Verify: $Y_{year} = Y_1 + 18 \cdot \frac{5}{12} = Y_1 + 7.5$
+    \item $Z_{year} = Y_1 - 3 + 18 \cdot \frac{7}{12} = Y_1 - 3 + 10.5 = Y_1 + 7.5$ \checkmark
+\end{itemize}
+
+\textbf{Choice (B): $Z_{year} > Y_{year}$}
+\begin{itemize}
+    \item We need: $Y_1 + 18p < Y_1 - 3 + 18q$
+    \item Simplify: $18p < -3 + 18q$
+    \item $p - q < -\frac{1}{6}$
+    \item Example: $p = \frac{1}{290}$ (very small), $q = \frac{289}{290}$ (close to 1)
+    \item Set $n_1 = 289, n_2 = 1$ and $m_1 = 1, m_2 = 289$
+    \item Then $Y_{year} \approx Y_1$ and $Z_{year} \approx Z_2 = Y_1 + 15$
+    \item So $Z_{year} > Y_{year}$ \checkmark
+\end{itemize}
+
+Since B, C, D, E are all possible, choice (A) must be impossible.
+
+\textbf{Method 3: Divisibility Argument (Advanced)}
+
+From Solution 5, we can show that $Y_{year} - Z_{year}$ must be a multiple of 3:
+\begin{itemize}
+    \item $Y_{year} - Z_{year} = 3 + 18(p - q)$ where $p, q$ are rational
+    \item $= 3(1 + 6(p - q))$
+    \item This is always a multiple of 3
+    \item Since 22 is not divisible by 3, it's impossible
+\end{itemize}
+
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 5-7 minutes total
+    \begin{itemize}
+        \item Problem understanding and extraction: 1-1.5 minutes
+        \item Derive relationships between averages: 1 minute
+        \item Analyze extreme cases: 1.5-2 minutes
+        \item Calculate maximum difference: 1 minute
+        \item Identify impossible choice: 30 seconds
+        \item Verification: 45-60 seconds
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 2 minutes: Should have all relationships written out
+        \item At 4 minutes: Should have identified maximum difference is 21
+        \item At 5 minutes: Should have selected choice (A)
+        \item At 6-7 minutes: Should have verified with one alternative approach
+    \end{itemize}
+    \item \textbf{Priority Level}: Medium-High
+    \begin{itemize}
+        \item P18 is mid-level late-band, worth attempting
+        \item Requires careful reading but uses standard weighted average concepts
+        \item If struggling after 4 minutes, could skip and return
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% after verification
+    \begin{itemize}
+        \item Clear mathematical bound: maximum difference is 21
+        \item 22 > 21, so choice (A) is impossible
+        \item Can verify by constructing examples for other choices
+        \item Logic is sound
+    \end{itemize}
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If after 3 minutes unable to set up weighted average formulas, move on
+        \item If confusion persists about which averages we're comparing, reread carefully
+        \item However, this is a very doable problem with systematic approach
+    \end{itemize}
+    \item \textbf{Flag for Review}: 
+    \begin{itemize}
+        \item No, if maximum difference calculation is verified
+        \item Yes, if only used one method without checking alternatives
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Answer Format}
+\begin{itemize}[leftmargin=*]
+    \item Multiple choice: Select (A)
+    \item Double-check: $21 < 22$ \checkmark
+    \item Bubble carefully on answer sheet
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: This is fundamentally a weighted average problem. The crucial observation is that yearly averages lie strictly between the two semester averages (since each semester has at least one quiz). The maximum difference between Yolanda's and Zelda's yearly averages occurs when Yolanda's average is as high as possible (approaching $Y_2 = Y_1 + 18$) and Zelda's is as low as possible (approaching $Z_1 = Y_1 - 3$). This gives a maximum difference of $(Y_1 + 18) - (Y_1 - 3) = 21$. Since $22 > 21$, choice (A) is impossible. The bound is tight (21 can be approached arbitrarily closely), confirming our analysis.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Don't confuse the semester averages with the yearly averages! The problem gives relationships between \textit{semester} averages, but asks about \textit{yearly} averages. The yearly average is a weighted average of the two semester averages, where the weights depend on the number of quizzes taken each semester. Also, be careful about whether endpoints are included: with at least one quiz per semester, the yearly average lies in an \textit{open} interval between the semester averages (strictly between, not including endpoints). However, we can get arbitrarily close to the endpoints, so for finding the maximum, we can use the endpoint values.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: For "which cannot be true" problems, you have two strategic options:
+\begin{enumerate}
+    \item \textbf{Analytical Bound} (faster if you see it): Find the maximum/minimum possible value of the relevant quantity, then check which choice violates the bound.
+    \item \textbf{Process of Elimination} (more reliable): Construct explicit examples showing 4 choices are possible. The remaining choice must be impossible.
+\end{enumerate}
+
+For this problem, the analytical bound approach is faster (compute max difference = 21 in 2-3 minutes). But if you're unsure, the elimination approach is safer (5-6 minutes but very reliable).
+
+Also, for weighted average problems, always remember:
+\begin{itemize}
+    \item The weighted average lies between the values being averaged
+    \item Extreme cases occur when weight is concentrated on one value
+    \item Express as: $\bar{x} = x_1 + \alpha(x_2 - x_1)$ where $\alpha \in (0,1)$ is the weight on $x_2$
+\end{itemize}
+
+Finally, verify your answer! For "cannot be true" problems, double-check that your claimed impossible statement truly exceeds the bound, and optionally verify one other choice is possible as a sanity check.
+\end{tipbox}
+
+\section*{Final Answer}
+
+The maximum possible difference between Yolanda's and Zelda's yearly averages occurs when:
+\begin{itemize}
+    \item Yolanda takes almost all quizzes in semester 2 (average approaches $Y_2 = Y_1 + 18$)
+    \item Zelda takes almost all quizzes in semester 1 (average approaches $Z_1 = Y_1 - 3$)
+\end{itemize}
+
+This gives: $\max(Y_{year} - Z_{year}) = (Y_1 + 18) - (Y_1 - 3) = 21$
+
+Since $22 > 21$, it is \textbf{impossible} for Yolanda's yearly average to be 22 points higher than Zelda's.
+
+$$\boxed{\textbf{(A) } \text{Yolanda's quiz average for the academic year was 22 points higher than Zelda's.}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% 
+    \begin{itemize}
+        \item Clear derivation of relationships: $Z_1 = Y_1 - 3$, $Z_2 = Y_1 + 15$
+        \item Maximum difference correctly computed: 21
+        \item Bound is tight (can approach 21 arbitrarily closely)
+        \item 22 > 21, so (A) is impossible
+        \item Verified that other choices are possible (at least choice C)
+        \item Logic is sound and verifiable
+    \end{itemize}
+    \item \textbf{Verification Applied}: Level 4 - Standard Verification
+    \begin{itemize}
+        \item Primary method: Extreme case analysis (max = 21)
+        \item Alternative verification: Showed choice (C) is possible with equal quiz distribution
+        \item Cross-check: Algebraic formula $Y_{year} - Z_{year} = 3 + 18(p-q)$ confirms bound
+        \item Divisibility check: Difference must be multiple of 3; 22 is not
+    \end{itemize}
+    \item \textbf{Flag for Review}: No
+    \begin{itemize}
+        \item Very high confidence after multiple verification methods
+        \item Clear mathematical bound that cannot be exceeded
+        \item Alternative approaches all confirm the same answer
+    \end{itemize}
+    \item \textbf{Time Spent}: 
+    \begin{itemize}
+        \item Estimated: 4-5 minutes for solution + 1 minute for verification = 5-6 minutes total
+        \item This is appropriate for a P18 problem
+        \item Good time investment with very high confidence
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

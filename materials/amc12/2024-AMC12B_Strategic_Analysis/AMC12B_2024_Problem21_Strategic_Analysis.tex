@@ -1,0 +1,982 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12B 2024 Problem 21 - Strategic Analysis
+% Framework Version: 2.1 (Enhanced for COMC)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2024 AMC 12B Problem 21}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=KEY INSIGHT,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=WARNING: COMMON PITFALL,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=PRO TIP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2024 Problem 21\\Strategic Problem Analysis}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+The measures of the smallest angles of three different right triangles sum to $90^{\circ}$. All three triangles have side lengths that are primitive Pythagorean triples. Two of them are $3-4-5$ and $5-12-13$. What is the perimeter of the third triangle?
+
+$$\textbf{(A) } 40 \qquad\textbf{(B) } 126 \qquad\textbf{(C) } 154 \qquad\textbf{(D) } 176 \qquad\textbf{(E) } 208$$
+
+\vspace{0.3cm}
+\noindent\textit{Note: The answer is not revealed here to allow students to work through the problem. See the Final Answer section at the end.}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (perimeter of triangle)
+    \item \textbf{Competition Context}: AMC12B 2024, Problem 21
+    \item \textbf{Difficulty Band}: Late-band (P21) - Requires angle relationships and Pythagorean triples
+    \item \textbf{Mathematical Domain}: Geometry (right triangles), Trigonometry (angle addition), Number Theory (Pythagorean triples)
+    \item \textbf{Estimated Time}: 4-6 minutes
+    \item \textbf{Point Value}: 6 points (standard AMC12 scoring)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Three right triangles with primitive Pythagorean triples
+        \item Smallest angles sum to $90^{\circ}$
+        \item Two known triangles: $3-4-5$ and $5-12-13$
+        \item Need to find perimeter of third triangle
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item All triangles are right triangles
+        \item All have primitive Pythagorean triples (coprime integers)
+        \item Sum of smallest angles is exactly $90^{\circ}$
+        \item The smallest angle in a right triangle is opposite the smallest leg
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find perimeter of third triangle
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Smallest angle in a right triangle is opposite the smallest leg
+        \item For $3-4-5$: smallest angle $\alpha$ has $\tan\alpha = \frac{3}{4}$
+        \item For $5-12-13$: smallest angle $\beta$ has $\tan\beta = \frac{5}{12}$
+        \item If $\alpha + \beta + \theta = 90^{\circ}$, then $\theta = 90^{\circ} - (\alpha + \beta)$
+        \item The tangent addition formula leads to finding $\tan\theta$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All answers are perimeters (sums of three sides)
+        \item Can eliminate some by checking if they form valid Pythagorean triples
+        \item Answer (A) 40 is too small (less than known triangles)
+        \item Answers cluster in two groups: small (40, 126, 154) and large (176, 208)
+    \end{itemize}
+    
+    \item \textbf{Proof Requirements}: N/A (computational problem)
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Use angle addition formulas to find the third angle, then determine the Pythagorean triple
+    
+    \item \textbf{Conclusion}: Need perimeter (sum of three sides)
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $\alpha$ = smallest angle in $3-4-5$ triangle
+        \item $\beta$ = smallest angle in $5-12-13$ triangle
+        \item $\theta$ = smallest angle in unknown triangle
+        \item Constraint: $\alpha + \beta + \theta = 90^{\circ}$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Find $\tan\alpha = \frac{3}{4}$ and $\tan\beta = \frac{5}{12}$
+        \item Use tangent addition: $\tan(\alpha + \beta)$
+        \item Since $\alpha + \beta + \theta = 90^{\circ}$, we have $\tan(90^{\circ}) = \tan(\alpha + \beta + \theta)$
+        \item The tangent of $90^{\circ}$ is undefined, so denominator must be zero
+        \item Solve for $\tan\theta$
+        \item Identify the Pythagorean triple from $\tan\theta$
+    \end{enumerate}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Geometry $\rightarrow$ Trigonometry (angles and ratios)
+        \item Trigonometry $\rightarrow$ Number Theory (Pythagorean triples)
+        \item Alternative: Complex numbers (arguments represent angles)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is P21 with multiple solution paths. The tangent addition formula is standard, but recognizing the "undefined tangent" condition is key.
+    
+    \item \textbf{Creativity Cultivation}: Multiple elegant approaches exist: tangent addition, complex numbers, sine/cosine, similarity. Choose what you're most comfortable with.
+    
+    \item \textbf{Iterative Refinement}: If tangent addition seems messy, try sine or cosine addition formulas instead.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize that "smallest angles" means angles opposite smallest legs in right triangles.
+    
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Calculate: $\tan\alpha = \frac{3}{4}$, $\tan\beta = \frac{5}{12}$
+        \item Try: $\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$
+        \item Observe: Sum equals $90^{\circ}$, so tangent should be undefined!
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Once we have $\tan\theta = \frac{33}{56}$, find the Pythagorean triple, then sum
+    
+    \item \textbf{Make It Easier}: Use complementary angles: $\theta = 90^{\circ} - (\alpha + \beta)$, so $\sin\theta = \cos(\alpha + \beta)$
+    
+    \item \textbf{Conjecture via Small Cases}: Check that $\frac{33}{56}$ gives a primitive Pythagorean triple
+    
+    \item \textbf{Wishful Thinking}: "I wish I knew $\tan\theta$..." $\Rightarrow$ Use the fact that $\tan(90^{\circ})$ is undefined
+    
+    \item \textbf{Visualization}: Draw the three right triangles with their smallest angles labeled
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}: "Sum to $90^{\circ}$" suggests complementary angles
+    
+    \item \textbf{Answer Choice Elimination}: 
+    \begin{itemize}
+        \item (A) 40 is too small
+        \item Once we know one leg is 33 and hypotenuse is 65, only (C) works
+    \end{itemize}
+    
+    \item \textbf{Tangent Addition}: Standard technique for angle sum problems
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Calculation}: Use tangent addition formula to find third angle
+    
+    \item \textbf{Alternative Methods}:
+    \begin{itemize}
+        \item Sine/cosine addition formulas
+        \item Complex numbers (arguments represent angles)
+        \item Coordinate geometry
+        \item Similarity
+    \end{itemize}
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometric to Trigonometric}: Translate angle relationships into trig equations
+    
+    \item \textbf{Trigonometric to Algebraic}: Solve for $\tan\theta$ algebraically
+    
+    \item \textbf{Algebraic to Number-Theoretic}: Identify Pythagorean triple from ratio
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \textbf{Tangent Addition Formula}: Key technique for angle sums
+        \item \textbf{Complementary Angles}: $\theta = 90^{\circ} - (\alpha + \beta)$
+        \item \textbf{Undefined Tangent}: $\tan(90^{\circ})$ is undefined
+        \item \textbf{Pythagorean Triple Recognition}: From $\tan\theta$, identify the triple
+    \end{itemize}
+    
+    \item \textbf{Domain-Specific Tactics}:
+    \begin{itemize}
+        \item \textbf{Right Triangle Angle Relationships}:
+        \begin{itemize}
+            \item Smallest angle is opposite smallest leg
+            \item For right triangle with legs $a < b$ and hypotenuse $c$: $\tan(\text{smallest angle}) = \frac{a}{b}$
+        \end{itemize}
+        
+        \item \textbf{Tangent Addition Formula}:
+        $$\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$$
+        
+        \item \textbf{Complementary Angles}:
+        \begin{itemize}
+            \item $\sin(90^{\circ} - x) = \cos x$
+            \item $\cos(90^{\circ} - x) = \sin x$
+            \item $\tan(90^{\circ} - x) = \cot x = \frac{1}{\tan x}$
+        \end{itemize}
+        
+        \item \textbf{Sine/Cosine Addition}:
+        \begin{align*}
+            \sin(\alpha + \beta) &= \sin\alpha \cos\beta + \cos\alpha \sin\beta \\
+            \cos(\alpha + \beta) &= \cos\alpha \cos\beta - \sin\alpha \sin\beta
+        \end{align*}
+        
+        \item \textbf{Primitive Pythagorean Triples}:
+        \begin{itemize}
+            \item Sides are coprime (GCD = 1)
+            \item Generated by Euclid's formula: $(m^2 - n^2, 2mn, m^2 + n^2)$ where $m > n$, $\gcd(m,n) = 1$
+            \item Common triples: $(3,4,5)$, $(5,12,13)$, $(8,15,17)$, $(7,24,25)$, $(20,21,29)$, $(9,40,41)$, $(12,35,37)$, $(11,60,61)$, $(13,84,85)$, $(33,56,65)$
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Crossover Tactics}:
+    \begin{itemize}
+        \item Geometry (triangles) + Trigonometry (angles)
+        \item Trigonometry + Number Theory (Pythagorean triples)
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Tangent Addition Formula + Undefined Tangent}
+    
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item "Smallest angles sum to $90^{\circ}$" $\Rightarrow$ Use angle addition
+        \item "Right triangles" $\Rightarrow$ Tangent relates legs
+        \item "Pythagorean triples" $\Rightarrow$ Integer side lengths
+        \item Sum equals $90^{\circ}$ $\Rightarrow$ Tangent is undefined
+    \end{itemize}
+    
+    \item \textbf{Application}:
+    \begin{enumerate}
+        \item Find $\tan\alpha = \frac{3}{4}$ (smallest leg over next smallest)
+        \item Find $\tan\beta = \frac{5}{12}$
+        \item Calculate $\tan(\alpha + \beta) = \frac{\frac{3}{4} + \frac{5}{12}}{1 - \frac{3}{4} \cdot \frac{5}{12}} = \frac{\frac{14}{12}}{\frac{33}{48}} = \frac{56}{33}$
+        \item Use $\tan(90^{\circ}) = \tan(\alpha + \beta + \theta)$
+        \item Apply tangent addition again: denominator must be 0
+        \item Get $1 - \frac{56}{33} \tan\theta = 0$, so $\tan\theta = \frac{33}{56}$
+        \item Triangle has legs 33 and 56, hypotenuse $\sqrt{33^2 + 56^2} = 65$
+        \item Perimeter: $33 + 56 + 65 = 154$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Sine/Cosine Addition Approach}:
+    \begin{itemize}
+        \item Use $\sin\theta = \sin(90^{\circ} - (\alpha + \beta)) = \cos(\alpha + \beta)$
+        \item Calculate $\cos(\alpha + \beta)$ using addition formula
+        \item From $\cos\theta = \frac{56}{65}$ (adjacent over hypotenuse), identify triangle
+    \end{itemize}
+    
+    \item \textbf{Complex Numbers Approach}:
+    \begin{itemize}
+        \item Represent angles as arguments: $(4 + 3i)(12 + 5i)(b + ai) = ni$ for some real $n$
+        \item Real part must be zero: $56a - 33b = 0$
+        \item Get $a/b = 33/56$, so legs are 33 and 56
+        \item Very elegant algebraically!
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Testing}:
+    \begin{itemize}
+        \item Once we know one leg is 33 (or 56), check which answer works
+        \item (A) 40: impossible (too small)
+        \item (B) 126: would give $126 - 33 = 93$ for other two sides
+        \item (C) 154: gives $154 - 33 = 121$ for other two sides, check if Pythagorean
+        \item This method works but is slower
+    \end{itemize}
+\end{itemize}
+\end{techniquesbox}
+
+\begin{keyinsightbox}
+\textbf{The Critical Insights}:
+
+\begin{enumerate}
+    \item \textbf{Smallest Angle Identification}: In a right triangle, the smallest angle is opposite the smallest leg. For $3-4-5$: $\tan\alpha = \frac{3}{4}$. For $5-12-13$: $\tan\beta = \frac{5}{12}$.
+    
+    \item \textbf{Tangent Addition for Two Angles}:
+    \begin{align*}
+        \tan(\alpha + \beta) &= \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta} \\
+        &= \frac{\frac{3}{4} + \frac{5}{12}}{1 - \frac{3}{4} \cdot \frac{5}{12}} \\
+        &= \frac{\frac{9 + 5}{12}}{\frac{48 - 15}{48}} \\
+        &= \frac{\frac{14}{12}}{\frac{33}{48}} \\
+        &= \frac{14 \cdot 48}{12 \cdot 33} \\
+        &= \frac{56}{33}
+    \end{align*}
+    
+    \item \textbf{The Undefined Tangent Condition}: Since $\alpha + \beta + \theta = 90^{\circ}$, we have:
+    $$\tan(90^{\circ}) = \tan(\alpha + \beta + \theta)$$
+    
+    The tangent of $90^{\circ}$ is undefined. Using the tangent addition formula:
+    $$\tan(\alpha + \beta + \theta) = \frac{\tan(\alpha + \beta) + \tan\theta}{1 - \tan(\alpha + \beta) \cdot \tan\theta}$$
+    
+    For this to be undefined, the denominator must equal zero:
+    $$1 - \tan(\alpha + \beta) \cdot \tan\theta = 0$$
+    $$1 - \frac{56}{33} \cdot \tan\theta = 0$$
+    
+    \item \textbf{Solving for the Third Angle}:
+    $$\tan\theta = \frac{33}{56}$$
+    
+    This means the triangle has legs in ratio $33:56$.
+    
+    \item \textbf{Primitive Pythagorean Triple}: Since $\gcd(33, 56) = 1$, the triangle has legs 33 and 56. The hypotenuse is:
+    $$c = \sqrt{33^2 + 56^2} = \sqrt{1089 + 3136} = \sqrt{4225} = 65$$
+    
+    We can verify: $33^2 + 56^2 = 1089 + 3136 = 4225 = 65^2$ \checkmark
+    
+    \item \textbf{Perimeter Calculation}:
+    $$P = 33 + 56 + 65 = 154$$
+    
+    \item \textbf{Alternative via Complementary Angles}: Using $\theta = 90^{\circ} - (\alpha + \beta)$:
+    \begin{align*}
+        \cos\theta &= \cos(90^{\circ} - (\alpha + \beta)) = \sin(\alpha + \beta) \\
+        &= \sin\alpha \cos\beta + \cos\alpha \sin\beta \\
+        &= \frac{3}{5} \cdot \frac{12}{13} + \frac{4}{5} \cdot \frac{5}{13} \\
+        &= \frac{36 + 20}{65} = \frac{56}{65}
+    \end{align*}
+    
+    So the adjacent leg is 56 and hypotenuse is 65, giving opposite leg $= 33$.
+\end{enumerate}
+\end{keyinsightbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4-5 (Standard to Thorough Verification) - 1 minute
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Problem 21 is late-band but straightforward once you know the approach
+        \item Main risks: arithmetic errors in tangent addition, Pythagorean theorem calculation
+        \item Should verify the Pythagorean triple and final sum
+        \item Can check answer against choices
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 1 minute for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Tangent Calculations}:
+    \begin{itemize}
+        \item Verify: $\tan\alpha = \frac{3}{4}$ (smallest leg / next leg) \checkmark
+        \item Verify: $\tan\beta = \frac{5}{12}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Tangent Addition}:
+    \begin{itemize}
+        \item Check numerator: $\frac{3}{4} + \frac{5}{12} = \frac{9}{12} + \frac{5}{12} = \frac{14}{12}$ \checkmark
+        \item Check denominator: $1 - \frac{3}{4} \cdot \frac{5}{12} = 1 - \frac{15}{48} = \frac{33}{48}$ \checkmark
+        \item Result: $\frac{14/12}{33/48} = \frac{14 \cdot 48}{12 \cdot 33} = \frac{672}{396} = \frac{56}{33}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Third Angle}:
+    \begin{itemize}
+        \item From $1 - \frac{56}{33} \tan\theta = 0$: $\tan\theta = \frac{33}{56}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Pythagorean Triple}:
+    \begin{itemize}
+        \item Check: $33^2 + 56^2 = 1089 + 3136 = 4225 = 65^2$ \checkmark
+        \item Verify primitive: $\gcd(33, 56) = \gcd(33, 56)$
+        \item $33 = 3 \cdot 11$, $56 = 8 \cdot 7$, so $\gcd = 1$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Perimeter}:
+    \begin{itemize}
+        \item Sum: $33 + 56 + 65 = 89 + 65 = 154$ \checkmark
+        \item Matches choice (C)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Domain-Specific Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Angle Sum Check}:
+    \begin{itemize}
+        \item Can verify that $\alpha + \beta + \theta = 90^{\circ}$ using calculators
+        \item $\arctan(\frac{3}{4}) + \arctan(\frac{5}{12}) + \arctan(\frac{33}{56}) \approx 36.87^{\circ} + 22.62^{\circ} + 30.51^{\circ} = 90^{\circ}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Alternative Method Verification}:
+    \begin{itemize}
+        \item Using sine: $\sin\theta = \frac{33}{65}$, $\cos\theta = \frac{56}{65}$
+        \item Check: $\sin^2\theta + \cos^2\theta = \frac{1089 + 3136}{4225} = \frac{4225}{4225} = 1$ \checkmark
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution (Tangent Addition)}
+
+\textbf{Step 1: Identify the Smallest Angles}
+
+In a right triangle, the smallest angle is opposite the smallest leg.
+
+For the $3-4-5$ triangle:
+$$\tan\alpha = \frac{\text{opposite}}{\text{adjacent}} = \frac{3}{4}$$
+
+For the $5-12-13$ triangle:
+$$\tan\beta = \frac{\text{opposite}}{\text{adjacent}} = \frac{5}{12}$$
+
+Let $\theta$ be the smallest angle in the unknown triangle.
+
+Given: $\alpha + \beta + \theta = 90^{\circ}$
+
+\textbf{Checkpoint}: We have the tangent values for two of the three angles.
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Apply Tangent Addition Formula}
+
+First, find $\tan(\alpha + \beta)$ using:
+$$\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$$
+
+Calculate the numerator:
+$$\tan\alpha + \tan\beta = \frac{3}{4} + \frac{5}{12} = \frac{9}{12} + \frac{5}{12} = \frac{14}{12} = \frac{7}{6}$$
+
+Calculate the denominator:
+\begin{align*}
+    1 - \tan\alpha \tan\beta &= 1 - \frac{3}{4} \cdot \frac{5}{12} \\
+    &= 1 - \frac{15}{48} \\
+    &= \frac{48 - 15}{48} \\
+    &= \frac{33}{48} \\
+    &= \frac{11}{16} \quad \text{(simplifying by dividing by 3)}
+\end{align*}
+
+Therefore:
+$$\tan(\alpha + \beta) = \frac{7/6}{11/16} = \frac{7}{6} \cdot \frac{16}{11} = \frac{112}{66} = \frac{56}{33}$$
+
+\textbf{Checkpoint}: We have $\tan(\alpha + \beta) = \frac{56}{33}$.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Use the Undefined Tangent Condition}
+
+Since $\alpha + \beta + \theta = 90^{\circ}$, we have:
+$$\tan(90^{\circ}) = \tan((\alpha + \beta) + \theta)$$
+
+The tangent of $90^{\circ}$ is undefined. Using the tangent addition formula:
+$$\tan((\alpha + \beta) + \theta) = \frac{\tan(\alpha + \beta) + \tan\theta}{1 - \tan(\alpha + \beta) \cdot \tan\theta}$$
+
+For this to be undefined, the denominator must equal zero:
+$$1 - \tan(\alpha + \beta) \cdot \tan\theta = 0$$
+
+Substituting $\tan(\alpha + \beta) = \frac{56}{33}$:
+$$1 - \frac{56}{33} \cdot \tan\theta = 0$$
+
+Solving for $\tan\theta$:
+$$\frac{56}{33} \cdot \tan\theta = 1$$
+$$\tan\theta = \frac{33}{56}$$
+
+\textbf{Checkpoint}: The smallest angle in the third triangle has $\tan\theta = \frac{33}{56}$.
+
+\vspace{0.3cm}
+
+\textbf{Step 4: Determine the Pythagorean Triple}
+
+Since $\tan\theta = \frac{33}{56}$, the legs of the triangle are in ratio $33:56$.
+
+Check if this is primitive: $\gcd(33, 56) = \gcd(3 \cdot 11, 8 \cdot 7) = 1$ \checkmark
+
+So the legs are $a = 33$ and $b = 56$.
+
+Find the hypotenuse using the Pythagorean theorem:
+\begin{align*}
+    c &= \sqrt{33^2 + 56^2} \\
+    &= \sqrt{1089 + 3136} \\
+    &= \sqrt{4225} \\
+    &= 65
+\end{align*}
+
+\textbf{Verification}: $33^2 + 56^2 = 1089 + 3136 = 4225 = 65^2$ \checkmark
+
+\textbf{Checkpoint}: The third triangle is $33-56-65$.
+
+\vspace{0.3cm}
+
+\textbf{Step 5: Calculate the Perimeter}
+
+$$P = 33 + 56 + 65 = 154$$
+
+\textbf{Final Answer}: $\boxed{\textbf{(C) } 154}$
+
+\subsection*{B. Alternative Solution (Sine/Cosine Addition)}
+
+Since $\alpha + \beta + \theta = 90^{\circ}$, we have $\theta = 90^{\circ} - (\alpha + \beta)$.
+
+Using the complementary angle relationship:
+$$\sin\theta = \sin(90^{\circ} - (\alpha + \beta)) = \cos(\alpha + \beta)$$
+
+Apply the cosine addition formula:
+$$\cos(\alpha + \beta) = \cos\alpha \cos\beta - \sin\alpha \sin\beta$$
+
+For the $3-4-5$ triangle: $\sin\alpha = \frac{3}{5}$, $\cos\alpha = \frac{4}{5}$
+
+For the $5-12-13$ triangle: $\sin\beta = \frac{5}{13}$, $\cos\beta = \frac{12}{13}$
+
+Therefore:
+\begin{align*}
+    \cos(\alpha + \beta) &= \frac{4}{5} \cdot \frac{12}{13} - \frac{3}{5} \cdot \frac{5}{13} \\
+    &= \frac{48}{65} - \frac{15}{65} \\
+    &= \frac{33}{65}
+\end{align*}
+
+So $\sin\theta = \frac{33}{65}$, meaning in the right triangle with smallest angle $\theta$:
+\begin{itemize}
+    \item Opposite leg = 33
+    \item Hypotenuse = 65
+    \item Adjacent leg = $\sqrt{65^2 - 33^2} = \sqrt{4225 - 1089} = \sqrt{3136} = 56$
+\end{itemize}
+
+Perimeter: $33 + 56 + 65 = 154$
+
+\subsection*{C. Alternative Solution (Complex Numbers)}
+
+Represent angles as arguments of complex numbers. The angle whose tangent is $\frac{a}{b}$ is the argument of $b + ai$.
+
+For the three triangles:
+\begin{itemize}
+    \item $3-4-5$: angle with $\arg(4 + 3i)$
+    \item $5-12-13$: angle with $\arg(12 + 5i)$
+    \item Unknown: angle with $\arg(b + ai)$ where $a:b$ are the legs
+\end{itemize}
+
+Since the angles sum to $90^{\circ} = \frac{\pi}{2}$, their arguments sum to $\frac{\pi}{2}$, which is $\arg(i)$.
+
+Therefore:
+$$(4 + 3i)(12 + 5i)(b + ai) = ni$$
+for some positive real number $n$.
+
+Expand the left side:
+\begin{align*}
+    (4 + 3i)(12 + 5i) &= 48 + 20i + 36i + 15i^2 \\
+    &= 48 + 56i - 15 \\
+    &= 33 + 56i
+\end{align*}
+
+So:
+$$(33 + 56i)(b + ai) = ni$$
+
+Expand:
+$$33b + 33ai + 56bi + 56ai^2 = ni$$
+$$33b + 33ai + 56bi - 56a = ni$$
+$$(33b - 56a) + (33a + 56b)i = ni$$
+
+For this to be a pure imaginary number (real part = 0):
+$$33b - 56a = 0$$
+$$33b = 56a$$
+$$\frac{a}{b} = \frac{33}{56}$$
+
+Since we need a primitive triple, $a = 33$ and $b = 56$.
+
+The hypotenuse is $\sqrt{33^2 + 56^2} = 65$.
+
+Perimeter: $33 + 56 + 65 = 154$
+
+\end{solutionbox}
+
+\begin{warningbox}
+\textbf{Common Pitfalls to Avoid}:
+
+\begin{enumerate}
+    \item \textbf{Wrong angle identification}: The smallest angle is opposite the \textit{smallest} leg, not the largest. For $3-4-5$, it's $\tan\alpha = \frac{3}{4}$, not $\frac{4}{3}$.
+    
+    \item \textbf{Tangent addition arithmetic errors}: 
+    \begin{itemize}
+        \item $\frac{3}{4} + \frac{5}{12} = \frac{14}{12}$ (not $\frac{8}{12}$)
+        \item $1 - \frac{15}{48} = \frac{33}{48}$ (not $\frac{43}{48}$)
+    \end{itemize}
+    
+    \item \textbf{Forgetting the undefined tangent}: Don't try to compute $\tan(90^{\circ})$ directly. Use the fact that it's undefined (denominator = 0).
+    
+    \item \textbf{Wrong tangent interpretation}: $\tan\theta = \frac{33}{56}$ means legs are 33 and 56, not that 33 is the hypotenuse.
+    
+    \item \textbf{Non-primitive triple confusion}: Always check $\gcd$ to ensure you have the primitive triple. Here $\gcd(33, 56) = 1$ \checkmark
+    
+    \item \textbf{Pythagorean calculation errors}:
+    \begin{itemize}
+        \item $33^2 = 1089$ (not 1099)
+        \item $56^2 = 3136$ (not 3146)
+        \item $\sqrt{4225} = 65$ (not 64 or 66)
+    \end{itemize}
+    
+    \item \textbf{Perimeter addition error}: $33 + 56 + 65 = 154$ (not 144 or 164)
+    
+    \item \textbf{Complementary angle confusion}: If using $\theta = 90^{\circ} - (\alpha + \beta)$, remember $\sin\theta = \cos(\alpha + \beta)$, not $\sin(\alpha + \beta)$.
+    
+    \item \textbf{Answer choice misread}: Make sure to find the perimeter (sum of all three sides), not just the hypotenuse or sum of legs.
+    
+    \item \textbf{Complex number sign errors}: When expanding $(33 + 56i)(b + ai)$, remember $i^2 = -1$.
+\end{enumerate}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Tips}:
+
+\begin{enumerate}
+    \item \textbf{Recognize the "undefined tangent" setup}: When angles sum to $90^{\circ}$, $\tan(90^{\circ})$ is undefined. This means the denominator in tangent addition must be zero - direct path to the answer!
+    
+    \item \textbf{Tangent vs. Sine/Cosine choice}: 
+    \begin{itemize}
+        \item Tangent is faster (fewer calculations)
+        \item Sine/cosine avoids the "undefined" concept but requires more arithmetic
+        \item Choose based on what you're comfortable with
+    \end{itemize}
+    
+    \item \textbf{Primitive Pythagorean triple shortcut}: Once you have $\tan\theta = \frac{33}{56}$ and verify $\gcd(33, 56) = 1$, the triple is automatically $33-56-65$. No need to question if there's scaling.
+    
+    \item \textbf{Quick $\gcd$ check}:
+    \begin{itemize}
+        \item $33 = 3 \cdot 11$ (odd factors)
+        \item $56 = 8 \cdot 7$ (even, power of 2 times 7)
+        \item No common factors $\Rightarrow$ $\gcd = 1$
+    \end{itemize}
+    
+    \item \textbf{Hypotenuse calculation shortcut}: $\sqrt{33^2 + 56^2} = \sqrt{(33)(33) + (56)(56)}$. If you recognize that $33 = 3 \cdot 11$ and $56 = 8 \cdot 7$, you might recall the $33-56-65$ triple. Otherwise, calculate $\sqrt{4225} = 65$.
+    
+    \item \textbf{Answer choice reality check}: 
+    \begin{itemize}
+        \item (A) 40 is too small (less than $3 + 4 + 5 = 12$ or $5 + 12 + 13 = 30$)
+        \item (B) 126 and (C) 154 are reasonable
+        \item (D) 176 and (E) 208 seem large but possible
+        \item Once you get legs 33 and 56, only (C) 154 works
+    \end{itemize}
+    
+    \item \textbf{Complex number elegance}: If you're comfortable with complex numbers, this approach is very clean:
+    $$(4 + 3i)(12 + 5i)(b + ai) = ni$$
+    Real part = 0 immediately gives the answer!
+    
+    \item \textbf{Memorize common Pythagorean triples}: Besides $3-4-5$ and $5-12-13$, know:
+    \begin{itemize}
+        \item $8-15-17$
+        \item $7-24-25$
+        \item $20-21-29$
+        \item $9-40-41$
+        \item $\mathbf{33-56-65}$ (this problem!)
+    \end{itemize}
+    
+    \item \textbf{Verification strategy}: After getting 154, quickly verify:
+    \begin{itemize}
+        \item $33 + 56 = 89$
+        \item $89 + 65 = 154$ \checkmark
+        \item Check $33^2 + 56^2 = 65^2$: $(33)(33) = 1089$, $(56)(56) = 3136$, sum $= 4225 = (65)^2$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Time management}: This is P21, budget 4-6 minutes. Tangent addition is fastest (3-4 min). Complex numbers is elegant but requires comfort with the method (4-5 min). Sine/cosine is reliable but slower (5-6 min).
+    
+    \item \textbf{If stuck on tangent addition}: Switch to complementary angles. $\theta = 90^{\circ} - (\alpha + \beta)$ means $\cos\theta = \sin(\alpha + \beta)$. This avoids the "undefined" concept entirely.
+\end{enumerate}
+\end{tipbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 4-6 minutes total
+    \begin{itemize}
+        \item Setup and angle identification: 30 seconds
+        \item Tangent addition calculation: 2 minutes
+        \item Solve for $\tan\theta$: 1 minute
+        \item Find Pythagorean triple: 1 minute
+        \item Verification: 30-60 seconds
+    \end{itemize}
+    
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 min: Should have $\tan\alpha = \frac{3}{4}$ and $\tan\beta = \frac{5}{12}$
+        \item At 3 min: Should have $\tan(\alpha + \beta) = \frac{56}{33}$
+        \item At 4 min: Should have $\tan\theta = \frac{33}{56}$
+        \item At 5 min: Should have triple $33-56-65$ and answer 154
+    \end{itemize}
+    
+    \item \textbf{Priority Level}: \textbf{High} - This is P21 but very doable with standard techniques. If you know tangent addition, attempt this before harder problems.
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90-95\% after verification
+    \begin{itemize}
+        \item Standard technique (tangent addition)
+        \item Multiple solution paths available
+        \item Pythagorean triple is verifiable
+        \item Answer matches a choice
+    \end{itemize}
+    
+    \item \textbf{Common Error Sources}:
+    \begin{itemize}
+        \item Arithmetic errors in tangent addition (fractions)
+        \item Wrong angle identification (using wrong legs)
+        \item Pythagorean theorem calculation errors
+        \item Final perimeter addition error
+        \item Not recognizing the triple as primitive
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If tangent addition is taking > 3 minutes $\Rightarrow$ try sine/cosine method
+        \item If completely stuck after 5 minutes $\Rightarrow$ flag and move on
+        \item If arithmetic is very messy $\Rightarrow$ check for calculation errors
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: Yes if time permits - verify Pythagorean triple one more time
+\end{itemize}
+
+\subsection*{C. Strategic Context}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Positioning}: P21 is accessible for students comfortable with trigonometry. The "undefined tangent" insight is key.
+    
+    \item \textbf{Score Impact}: Worth 6 points. High ROI if you recognize the tangent addition approach.
+    
+    \item \textbf{Time Budget Implications}: 4-6 minutes is reasonable. More efficient than typical P21 problems.
+    
+    \item \textbf{Technique Practice}: This problem tests:
+    \begin{itemize}
+        \item Right triangle angle relationships
+        \item Tangent addition formula
+        \item Undefined tangent condition
+        \item Pythagorean triples
+        \item Careful arithmetic with fractions
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\section*{Final Answer}
+
+Using the tangent addition formula and the condition that $\tan(90^{\circ})$ is undefined:
+
+\begin{itemize}
+    \item $\tan\alpha = \frac{3}{4}$ (from $3-4-5$ triangle)
+    \item $\tan\beta = \frac{5}{12}$ (from $5-12-13$ triangle)
+    \item $\tan(\alpha + \beta) = \frac{56}{33}$
+    \item $\tan\theta = \frac{33}{56}$ (from undefined tangent condition)
+    \item Third triangle: $33-56-65$
+    \item Perimeter: $33 + 56 + 65 = 154$
+\end{itemize}
+
+$$\boxed{\textbf{(C) } 154}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\%
+    \begin{itemize}
+        \item Tangent addition formula correctly applied
+        \item Undefined tangent condition properly used
+        \item Arithmetic verified at each step
+        \item Pythagorean triple: $33^2 + 56^2 = 1089 + 3136 = 4225 = 65^2$ \checkmark
+        \item Primitive check: $\gcd(33, 56) = 1$ \checkmark
+        \item Perimeter: $33 + 56 + 65 = 154$ \checkmark
+        \item Answer matches choice (C)
+        \item Multiple solution methods confirm the same answer
+    \end{itemize}
+    
+    \item \textbf{Verification Applied}: Level 4-5 (Standard to Thorough)
+    \begin{itemize}
+        \item Verified tangent addition arithmetic
+        \item Checked Pythagorean triple calculation
+        \item Confirmed primitive triple property
+        \item Verified perimeter sum
+        \item Cross-checked with alternative method (sine/cosine)
+        \item All intermediate steps are correct
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - high confidence, fully verified
+    
+    \item \textbf{Time Spent}: Approximately 5 minutes (within target range)
+    \begin{itemize}
+        \item 30 sec: Problem understanding and angle identification
+        \item 2 min: Tangent addition calculation
+        \item 1 min: Solving for third angle
+        \item 1 min: Finding Pythagorean triple
+        \item 30 sec: Final verification
+    \end{itemize}
+\end{itemize}
+
+\section*{Learning Points}
+
+\textbf{Key Takeaways from This Problem}:
+
+\begin{enumerate}
+    \item \textbf{Smallest Angle in Right Triangles}: Always opposite the smallest leg. This determines which tangent ratio to use.
+    
+    \item \textbf{Tangent Addition Formula}: Essential for angle sum problems:
+    $$\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$$
+    
+    \item \textbf{Undefined Tangent Technique}: When angles sum to $90^{\circ}$, $\tan(90^{\circ})$ is undefined. Set the denominator of the tangent addition formula to zero - this is faster than trying to compute the tangent directly!
+    
+    \item \textbf{Complementary Angle Relationships}: 
+    \begin{itemize}
+        \item $\sin(90^{\circ} - x) = \cos x$
+        \item $\cos(90^{\circ} - x) = \sin x$
+        \item Useful for alternative solution approaches
+    \end{itemize}
+    
+    \item \textbf{Primitive Pythagorean Triples}: Once you have a ratio like $\frac{33}{56}$ with $\gcd = 1$, the triple is immediate. No scaling needed.
+    
+    \item \textbf{Complex Numbers for Angles}: The argument (angle) of $b + ai$ is $\arctan(\frac{a}{b})$. Product of complex numbers adds their arguments. Very elegant for angle sum problems!
+    
+    \item \textbf{Common Pythagorean Triples}: Memorize beyond just $3-4-5$ and $5-12-13$. The triple $33-56-65$ appears in competition problems.
+    
+    \item \textbf{Multiple Solution Paths}: This problem has at least 5 different elegant solutions. Knowing multiple methods gives you flexibility in competition.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Related Problems to Practice}:
+\begin{itemize}
+    \item Other AMC12 problems involving angle sums in right triangles
+    \item Tangent addition and complementary angle problems
+    \item Pythagorean triple identification
+    \item Complex number arguments and angle representations
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Essential Formulas}:
+
+\textbf{Tangent Addition Formula}:
+$$\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$$
+
+\textbf{Complementary Angle Identities}:
+\begin{align*}
+    \sin(90^{\circ} - x) &= \cos x \\
+    \cos(90^{\circ} - x) &= \sin x \\
+    \tan(90^{\circ} - x) &= \cot x = \frac{1}{\tan x}
+\end{align*}
+
+\textbf{Sine/Cosine Addition}:
+\begin{align*}
+    \sin(\alpha + \beta) &= \sin\alpha \cos\beta + \cos\alpha \sin\beta \\
+    \cos(\alpha + \beta) &= \cos\alpha \cos\beta - \sin\alpha \sin\beta
+\end{align*}
+
+\textbf{Common Primitive Pythagorean Triples}:
+\begin{itemize}
+    \item $(3, 4, 5)$
+    \item $(5, 12, 13)$
+    \item $(8, 15, 17)$
+    \item $(7, 24, 25)$
+    \item $(20, 21, 29)$
+    \item $(9, 40, 41)$
+    \item \textbf{$(33, 56, 65)$} (this problem!)
+\end{itemize}
+
+\end{document}
+

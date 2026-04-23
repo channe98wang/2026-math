@@ -1,0 +1,14 @@
+2007 AMC 12A Problems/Problem 8
+Problem
+A star- polygon is drawn on a clock face by drawing a chord from each number to the fifth number counted clockwise from that number. That is, chords are drawn from 12 to 5, from 5 to 10, from 10 to 3, and so on, ending back at 12. What is the degree measure of the angle at each vertex in the star polygon?
+$\mathrm{(A)}\ 20\qquad \mathrm{(B)}\ 24\qquad \mathrm{(C)}\ 30\qquad \mathrm{(D)}\ 36\qquad \mathrm{(E)}\ 60$
+Solution
+We look at the angle between 12, 5, and 10. It subtends $\frac 16$ of the circle, or $60$ degrees (or you can see that the arc is $\frac 23$ of the right angle ). Thus, the angle at each vertex is an inscribed angle subtending $60$ degrees, making the answer $\frac 1260 = 30^{\circ} \Longrightarrow \mathrm{(C)}$
+See also
+2007 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

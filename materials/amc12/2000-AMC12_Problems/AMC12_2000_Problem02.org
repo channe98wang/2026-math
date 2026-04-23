@@ -1,0 +1,47 @@
+2000 AMC 12 Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Solution 3
+5 Solution 4
+5.1 Remark
+6 Video Solution (Power Solve)
+7 Video Solution (Daily Dose of Math)
+8 See also
+Problem
+$2000(2000^{2000}) =$ .
+$\textbf{(A)} \ 2000^{2001} \qquad \textbf{(B)} \ 4000^{2000} \qquad \textbf{(C)} \ 2000^{4000} \qquad \textbf{(D)} \ 4,000,000^{2000} \qquad \textbf{(E)} \ 2000^{4,000,000}$
+Solution
+We can use an elementary exponents rule to solve our problem.
+We know that $a^b\cdot a^c = a^{b+c}$ . Hence, $2000(2000^{2000}) = (2000^{1})(2000^{2000}) = 2000^{2000+1} = 2000^{2001} \Rightarrow \boxed{\textbf{(A) } 2000^{2001}}$ .
+Solution edited by armang32324 and integralarefun
+Solution 2
+We see that $a(a^{2000})=a^{2001}.$ Only answer choice $\boxed{\textbf{(A)}}$ satisfies this requirement.
+-SirAppel
+Solution 3
+Say you somehow forgot the basic rules of exponents, you could just deduce $2000^{2000}$ is a line of 2000 2000's being multiplied, and if we multiplied by this line by an additional 2000, we would then have $\boxed{\textbf{(A)}}$ 2000's lined up multiplying each other.
+- itsj
+Solution 4
+To find $2000^{2000} \cdot 2000$ , all you need to remember is that exponentiation is repeated multiplication. This means $2000^{2000} = 2000^{1999} \cdot 2000 = 2000^{1998} \cdot 2000 \cdot 2000$ and so on. This means the multiplied 2000 can also be picked up into this product chain of 2000s, to make $2000^{2001}$ or $2000 \cdot ... \text{ 2001 2000's } \cdot 2000$ .
+Remark
+This makes it one of the best AMC 10 problems, in my opinion. -AlgowheelAZ1
+Video Solution (Power Solve)
+https://youtu.be/YrAs8vadKMk?si=QQg5xvRfvKra54bE&t=124
+Video Solution (Daily Dose of Math)
+https://www.youtube.com/watch?v=h0QtF9J0oPs
+~Thesmartgreekmathdude
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

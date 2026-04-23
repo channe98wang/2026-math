@@ -1,0 +1,33 @@
+2002 AMC 12B Problems/Problem 5
+Contents
+1 Problem
+2 Solution
+2.1 Solution 1
+2.2 Solution 2
+3 See also
+Problem
+Let $v, w, x, y,$ and $z$ be the degree measures of the five angles of a pentagon . Suppose that $v < w < x < y < z$ and $v, w, x, y,$ and $z$ form an arithmetic sequence . Find the value of $x$ .
+$\mathrm{(A)}\ 72 \qquad\mathrm{(B)}\ 84 \qquad\mathrm{(C)}\ 90 \qquad\mathrm{(D)}\ 108 \qquad\mathrm{(E)}\ 120$
+Solution
+Solution 1
+The sum of the degree measures of the angles of a pentagon (as a pentagon can be split into $5- 2 = 3$ triangles) is $3 \cdot 180 = 540^{\circ}$ . If we let $v = x - 2d, w = x - d, y = x + d, z = x+2d$ , it follows that
+\[(x-2d)+(x-d)+x+(x+d)+(x+2d) = 5x = 540 \Longrightarrow x = 108 \ \mathrm{(D)}\]
+Note that since $x$ is the middle term of an arithmetic sequence with an odd number of terms, it is simply the average of the sequence.
+You can always assume the values are the same so $\frac{540}{5}=108$
+Solution 2
+Let $v$ , $w$ , $x$ , $y$ , $z$ be $v$ , $v + d$ , $v+2d$ , $v+3d$ , $v+4d$ , respectively. Then we have
+
+\[v + w + x + y + z = 5v + 10d = 180^{\circ} (5 - 2) = 540^{\circ}\]
+
+Dividing the equation by $5$ , we have
+
+\[v + 2d = x = 108^{\circ} \mathrm {(D)}\]
+~ Nafer
+See also
+2002 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

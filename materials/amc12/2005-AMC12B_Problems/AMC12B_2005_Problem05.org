@@ -1,0 +1,24 @@
+2005 AMC 12B Problems/Problem 5
+Problem
+An $8$ -foot by $10$ -foot bathroom floor is tiled with square tiles of size $1$ foot by $1$ foot. Each tile has a pattern consisting of four white quarter circles of radius $1/2$ foot centered at each corner of the tile. The remaining portion of the tile is shaded. How many square feet of the floor are shaded?
+[asy] unitsize(2cm); defaultpen(linewidth(.8pt)); fill(unitsquare,gray); filldraw(Arc((0,0),.5,0,90)--(0,0)--cycle,white,black); filldraw(Arc((1,0),.5,90,180)--(1,0)--cycle,white,black); filldraw(Arc((1,1),.5,180,270)--(1,1)--cycle,white,black); filldraw(Arc((0,1),.5,270,360)--(0,1)--cycle,white,black); [/asy]
+$\textbf{(A) }\ 80-20\pi \qquad \textbf{(B) }\ 60-10\pi \qquad \textbf{(C) }\ 80-10\pi \qquad \textbf{(D) }\ 60+10\pi \qquad \textbf{(E) }\ 80+10\pi$
+Solution
+There are $80$ tiles. Each tile has $[\mbox{square} - 4 \cdot (\mbox{quarter circle})]$ shaded. Thus:
+\begin{align*} \mbox{shaded area} &= 80 \left( 1 - 4 \cdot \dfrac{1}{4} \cdot \pi \cdot \left(\dfrac{1}{2}\right)^2\right) \\ &= 80\left(1-\dfrac{1}{4}\pi\right) \\ &= \boxed{\textbf{(A) }80-20\pi}. \end{align*}
+
+ 4 quarters of a circle is a circle so that may save you 0.5 seconds (very much lots) :)
+See also
+2005 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2005 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,539 @@
+\documentclass[11pt]{article}
+%\usepackage[utf-8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Define colored boxes for different sections
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{SECTION 1: PROBLEM CONFIGURATION},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{strategicbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=\textbf{SECTION 2: STRATEGIC FRAMEWORK},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=\textbf{SECTION 3: TACTICAL SELECTION},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=\textbf{SECTION 4: CONVERSION TECHNIQUES},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{verificationbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=\textbf{SECTION 5: VERIFICATION STRATEGY},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=\textbf{SECTION 6: SOLUTION ROADMAP},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{competitionbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=\textbf{SECTION 7: COMPETITION INTEGRATION},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=yellow!20!white,
+    colframe=orange!75!black,
+    fonttitle=\bfseries,
+    title=#1
+}
+
+\title{\textbf{Strategic Analysis: 2017 AMC 12B Problem 12} \\ Complex Roots with Positive Real Parts}
+\author{Comprehensive Problem-Solving Framework}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+What is the sum of the roots of $z^{12}=64$ that have a positive real part?
+
+\begin{align*}
+\textbf{(A)}\ 2 \qquad \textbf{(B)}\ 4 \qquad \textbf{(C)}\ \sqrt{2}+2\sqrt{3} \qquad \textbf{(D)}\ 2\sqrt{2}+\sqrt{6} \qquad \textbf{(E)}\ (1+\sqrt{3}) + (1+\sqrt{3})i
+\end{align*}
+
+\vspace{0.5cm}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (sum of specific roots)
+    \item \textbf{Difficulty Band}: Mid-band (Problem 12 of 25)
+    \item \textbf{Competition Context}: AMC 12B 2017
+    \item \textbf{Mathematical Domain}: Complex Numbers, Algebra, Trigonometry (Roots of Unity)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Equation: $z^{12}=64$
+        \item Need roots with positive real part
+        \item Must find their sum
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Complex number solutions only
+        \item Filter by sign of real part (positive only)
+        \item 12 total roots exist (by fundamental theorem of algebra)
+    \end{itemize}
+    \item \textbf{Objective}: Calculate the sum of roots with $\text{Re}(z) > 0$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Roots are distributed symmetrically on the complex plane
+        \item Answer is in simplified radical form
+        \item Imaginary parts of qualifying roots may cancel
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item (A), (B): Pure real numbers suggest imaginary parts cancel
+        \item (C), (D): Sums of radicals indicate trigonometric values
+        \item (E): Complex answer suggests imaginary parts don't cancel (likely wrong)
+        \item All positive answers suggest the sum is indeed positive
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The 12 roots are equally spaced around a circle in the complex plane
+    \item \textbf{Conclusion}: Sum equals $2\sqrt{2}+\sqrt{6}$ (Answer D)
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $z_k = r \cdot e^{i\theta_k}$ where $r = |z|$ is the modulus and $\theta_k$ is the argument
+        \item $r = \sqrt[12]{64} = \sqrt{2}$
+        \item $\theta_k = \frac{2\pi k}{12} = \frac{\pi k}{6}$ for $k = 0, 1, 2, \ldots, 11$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Convert to polar form using roots of unity
+        \item Identify which roots have positive real parts (right half-plane)
+        \item Use symmetry to simplify summation
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Geometric: Visualize as regular 12-gon on circle of radius $\sqrt{2}$
+        \item Trigonometric: Express roots using $\cos$ and $\sin$
+        \item Algebraic: Could potentially factor as products of simpler polynomials
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 
+    \begin{itemize}
+        \item Don't be intimidated by the 12th power
+        \item Complex numbers are manageable with polar form
+        \item If stuck, remember: roots of unity are a standard technique
+    \end{itemize}
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}
+        \item Visualize the roots geometrically as vertices of regular polygon
+        \item Consider using symmetry to reduce calculation
+        \item Think about which roots contribute to the sum
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: 
+    \begin{itemize}
+        \item Start with finding all roots using polar form
+        \item Filter by positive real part condition
+        \item Use geometric symmetry to simplify the sum
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as roots of unity problem; convert $64$ to polar form
+    \item \textbf{Get Your Hands Dirty}: Write out first few roots explicitly to see the pattern
+    \item \textbf{Penultimate Step}: Before finding sum, identify which 5 roots have positive real parts
+    \item \textbf{Wishful Thinking}: Hope that imaginary parts cancel (which they do by symmetry!)
+    \item \textbf{Make It Easier}: Consider $z^{12}=1$ first, then scale by $\sqrt{2}$
+    \item \textbf{Conjecture via Small Cases}: Try $z^4=16$ to understand pattern
+    \item \textbf{Visualization}: Draw the unit circle with 12 equally-spaced points, identify right half
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item Not applicable (Problem 12 is mid-band, not late-band 17-25)
+    \item However, answer-choice analysis suggests real answer (A-D likely, E unlikely)
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: 
+    \begin{enumerate}
+        \item Express $64$ in polar form: $64 = 64e^{i \cdot 0}$
+        \item Apply $n$-th root formula: $z = \sqrt[12]{64} \cdot e^{i \cdot \frac{2\pi k}{12}}$ for $k=0,1,\ldots,11$
+        \item Identify roots with $\cos(\frac{\pi k}{6}) > 0$
+        \item Sum the real parts (imaginary parts cancel by symmetry)
+    \end{enumerate}
+    \item \textbf{Key Insight}: Symmetry about real axis means imaginary parts of paired roots cancel
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Circle of radius $\sqrt{2}$ with 12 equally-spaced points
+    \item \textbf{Recast the Problem}: Find sum of $x$-coordinates of 5 vertices in right half-plane
+    \item \textbf{Change Your Point of View}: Use trigonometric identities instead of complex exponentials
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: 
+    \begin{itemize}
+        \item Roots are symmetric about the real axis
+        \item This causes imaginary parts to cancel when summing
+        \item Only need to compute real parts
+    \end{itemize}
+    \item \textbf{The Extreme Principle}: 
+    \begin{itemize}
+        \item Consider the roots at $k=0$ (rightmost point) and $k=6$ (leftmost point)
+        \item Boundary roots at $k=3$ and $k=9$ lie on imaginary axis
+    \end{itemize}
+    \item \textbf{Invariants}: 
+    \begin{itemize}
+        \item All roots have the same modulus $\sqrt{2}$
+        \item Angular spacing between consecutive roots is constant: $\frac{\pi}{6}$ (30 degrees)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Complex Numbers}: Central technique - use polar form and Euler's formula
+    \item \textbf{Geometric Interpretation}: Regular 12-gon inscribed in circle
+    \item \textbf{Trigonometry}: Use special angles: $0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ$
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques Applied}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Complex Number Conversion}: Convert $z^{12}=64$ to polar form
+    \begin{itemize}
+        \item Recognition: Equation of form $z^n = a$ requires polar form
+        \item Application: $64 = 64 \cdot e^{i \cdot 0}$, so $z_k = \sqrt{2} \cdot e^{i\pi k/6}$
+    \end{itemize}
+    
+    \item \textbf{Symmetry Exploitation}: 
+    \begin{itemize}
+        \item Recognition: Roots come in conjugate pairs (symmetry about real axis)
+        \item Application: Sum of imaginary parts = 0, only compute real parts
+    \end{itemize}
+    
+    \item \textbf{Trigonometric Identities}:
+    \begin{itemize}
+        \item Recognition: Need to evaluate $\cos(0), \cos(\pi/6), \cos(\pi/3)$
+        \item Known values: $\cos(0)=1$, $\cos(30^\circ)=\frac{\sqrt{3}}{2}$, $\cos(60^\circ)=\frac{1}{2}$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Path}: Polar form $\to$ Roots of unity $\to$ Filter by real part $\to$ Sum
+    \item \textbf{Key Connection}: Geometric visualization clarifies which 5 roots qualify
+    \item \textbf{Calculation Strategy}: 
+    \begin{enumerate}
+        \item Find modulus: $r = \sqrt[12]{64} = 2^{6/12} = 2^{1/2} = \sqrt{2}$
+        \item Find arguments: $\theta_k = \frac{2\pi k}{12} = \frac{\pi k}{6}$ for $k=0,1,\ldots,11$
+        \item Identify positive real parts: $\cos(\theta_k) > 0 \iff -\frac{\pi}{2} < \theta_k < \frac{\pi}{2}$
+        \item This gives $k \in \{0, 1, 2, 10, 11\}$ (5 roots)
+        \item Sum real parts: $\sqrt{2}[\cos(0) + \cos(\pi/6) + \cos(\pi/3) + \cos(5\pi/3) + \cos(11\pi/6)]$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{C. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Potential Confusion}: Counting roots with $\text{Re}(z) > 0$ vs $\text{Re}(z) \geq 0$
+    \item \textbf{Resolution}: Problem says "positive real part" which typically means $>0$, not $\geq 0$
+    \item \textbf{Check}: Roots at $k=3$ and $k=9$ have $\theta = \pi/2$ and $3\pi/2$, giving $\cos(\theta)=0$
+    \item \textbf{Conclusion}: Exclude $k=3,9$; include only $k \in \{0,1,2,10,11\}$
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Recommended Level}: Level 4 (Comprehensive) - This is a mid-band problem worth full verification
+
+\subsection*{B. Specialized Verification Methods}
+
+\textbf{Complex Numbers Verification:}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Check Modulus}: 
+    \begin{itemize}
+        \item For any root $z_k = \sqrt{2} \cdot e^{i\pi k/6}$
+        \item Verify: $|z_k|^{12} = (\sqrt{2})^{12} = 2^6 = 64$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Check Arguments}:
+    \begin{itemize}
+        \item For $k=0$: $z_0 = \sqrt{2} \cdot e^{i \cdot 0} = \sqrt{2}$
+        \item Check: $(\sqrt{2})^{12} = 64$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Check Symmetry}:
+    \begin{itemize}
+        \item Root at $k=1$: $z_1 = \sqrt{2} \cdot e^{i\pi/6}$ has conjugate at $k=11$: $z_{11} = \sqrt{2} \cdot e^{i \cdot 11\pi/6} = \sqrt{2} \cdot e^{-i\pi/6}$
+        \item Sum: $z_1 + z_{11} = \sqrt{2}(e^{i\pi/6} + e^{-i\pi/6}) = 2\sqrt{2}\cos(\pi/6) = 2\sqrt{2} \cdot \frac{\sqrt{3}}{2} = \sqrt{6}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Verify Answer Calculation}:
+    \begin{align*}
+        \text{Sum} &= \sqrt{2}[\cos(0) + \cos(\pi/6) + \cos(\pi/3) + \cos(5\pi/3) + \cos(11\pi/6)] \\
+        &= \sqrt{2}[1 + \frac{\sqrt{3}}{2} + \frac{1}{2} + \frac{1}{2} + \frac{\sqrt{3}}{2}] \\
+        &= \sqrt{2}[1 + \sqrt{3} + 1] \\
+        &= \sqrt{2}[2 + \sqrt{3}] \\
+        &= 2\sqrt{2} + \sqrt{6} \quad \checkmark
+    \end{align*}
+\end{enumerate}
+
+\subsection*{C. Confidence Calibration}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\%
+    \item \textbf{Reasoning}:
+    \begin{itemize}
+        \item Standard roots of unity technique correctly applied
+        \item Geometric visualization confirms 5 roots in right half-plane
+        \item Trigonometric values are exact (special angles)
+        \item Answer matches choice (D)
+        \item Multiple verification checks passed
+    \end{itemize}
+    \item \textbf{Remaining Uncertainty}: Minor possibility of arithmetic error in simplification
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Phase 1: Problem Setup and Conversion (60 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Read problem carefully: need sum of roots with positive real part
+    \item Recognize as roots of unity problem
+    \item Convert to polar form: $64 = 64 \cdot e^{i \cdot 0}$
+    \item \textbf{Checkpoint}: Is polar form correct? \checkmark
+\end{enumerate}
+
+\textbf{Phase 2: Find All Roots (90 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Calculate modulus: $r = \sqrt[12]{64} = \sqrt{2}$
+    \item Calculate arguments: $\theta_k = \frac{2\pi k}{12} = \frac{\pi k}{6}$ for $k=0,1,\ldots,11$
+    \item Write general form: $z_k = \sqrt{2} \cdot e^{i\pi k/6}$
+    \item \textbf{Checkpoint}: Do all 12 roots satisfy $z^{12}=64$? \checkmark
+\end{enumerate}
+
+\textbf{Phase 3: Identify Positive Real Part Roots (60 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Condition: $\text{Re}(z_k) = \sqrt{2}\cos(\pi k/6) > 0$
+    \item Equivalent: $\cos(\pi k/6) > 0$
+    \item Determine range: $-\pi/2 < \pi k/6 < \pi/2$ gives $-3 < k < 3$
+    \item For $k \in \{0,1,2,\ldots,11\}$: qualifying values are $k \in \{0,1,2,10,11\}$
+    \item \textbf{Checkpoint}: Have we correctly identified 5 roots? \checkmark
+\end{enumerate}
+
+\textbf{Phase 4: Calculate Sum Using Symmetry (120 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Note symmetry: $z_1$ and $z_{11}$ are conjugates, as are $z_2$ and $z_{10}$
+    \item Real parts: 
+    \begin{itemize}
+        \item $k=0$: $\sqrt{2}\cos(0) = \sqrt{2} \cdot 1 = \sqrt{2}$
+        \item $k=1$: $\sqrt{2}\cos(\pi/6) = \sqrt{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{6}}{2}$
+        \item $k=2$: $\sqrt{2}\cos(\pi/3) = \sqrt{2} \cdot \frac{1}{2} = \frac{\sqrt{2}}{2}$
+        \item $k=10$: $\sqrt{2}\cos(5\pi/3) = \sqrt{2} \cdot \frac{1}{2} = \frac{\sqrt{2}}{2}$
+        \item $k=11$: $\sqrt{2}\cos(11\pi/6) = \sqrt{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{6}}{2}$
+    \end{itemize}
+    \item Sum: $\sqrt{2} + \frac{\sqrt{6}}{2} + \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} + \frac{\sqrt{6}}{2}$
+    \item Simplify: $\sqrt{2} + \sqrt{6} + \sqrt{2} = 2\sqrt{2} + \sqrt{6}$
+    \item \textbf{Checkpoint}: Does this match answer choice (D)? \checkmark
+\end{enumerate}
+
+\textbf{Phase 5: Verification (45 seconds)}
+\begin{enumerate}[leftmargin=*]
+    \item Quick check: $2\sqrt{2} \approx 2.83$, $\sqrt{6} \approx 2.45$, sum $\approx 5.28$
+    \item Alternative: $\sqrt{2}(2+\sqrt{3}) = \sqrt{2}(2+1.73) \approx 1.41 \times 3.73 \approx 5.26$ \checkmark
+    \item Verify imaginary parts cancel (by conjugate symmetry) \checkmark
+    \item \textbf{Final Answer}: \boxed{\textbf{(D) } 2\sqrt{2} + \sqrt{6}}
+\end{enumerate}
+
+\subsection*{Alternative Approaches}
+
+\textbf{Alternative 1: Direct Calculation Without Symmetry}
+\begin{itemize}[leftmargin=*]
+    \item Calculate all 5 complex roots explicitly
+    \item Add real parts and imaginary parts separately
+    \item Verify imaginary sum equals zero
+    \item \textbf{Trade-off}: More calculation but potentially clearer
+\end{itemize}
+
+\textbf{Alternative 2: Factor $z^{12}-64$}
+\begin{itemize}[leftmargin=*]
+    \item Factor as $(z^6-8)(z^6+8)$, then further
+    \item Identify roots geometrically
+    \item \textbf{Trade-off}: More algebraically intensive
+\end{itemize}
+
+\subsection*{Common Pitfalls and Prevention}
+
+\begin{highlightbox}{PITFALL \#1: Counting Roots Incorrectly}
+\textbf{Error}: Including roots on imaginary axis ($k=3,9$) which have $\text{Re}(z)=0$
+
+\textbf{Prevention}: "Positive real part" means $>0$, not $\geq 0$
+
+\textbf{Check}: Explicitly verify $\cos(\pi/2) = 0$, so exclude these roots
+\end{highlightbox}
+
+\begin{highlightbox}{PITFALL \#2: Arithmetic Errors in Trigonometric Values}
+\textbf{Error}: Misremembering $\cos(30^\circ) = \frac{1}{2}$ instead of $\frac{\sqrt{3}}{2}$
+
+\textbf{Prevention}: 
+\begin{itemize}
+    \item Use mnemonic: 30-60-90 triangle has sides $1:\sqrt{3}:2$
+    \item Double-check: $\cos(30^\circ) = \sin(60^\circ) = \frac{\sqrt{3}}{2}$
+\end{itemize}
+\end{highlightbox}
+
+\begin{highlightbox}{PITFALL \#3: Sign Errors in Conjugate Roots}
+\textbf{Error}: Incorrectly handling $\cos(11\pi/6)$ vs $\cos(-\pi/6)$
+
+\textbf{Prevention}: 
+\begin{itemize}
+    \item Remember: $\cos$ is even, so $\cos(-\theta) = \cos(\theta)$
+    \item Verify: $\cos(11\pi/6) = \cos(2\pi - \pi/6) = \cos(-\pi/6) = \cos(\pi/6)$
+\end{itemize}
+\end{highlightbox}
+
+\begin{highlightbox}{PRO TIP: Visualization Shortcut}
+\textbf{Technique}: Draw a quick sketch of the 12 roots on the complex plane
+
+\textbf{Benefit}:
+\begin{itemize}
+    \item Immediately see 5 roots in right half-plane
+    \item Verify symmetry visually
+    \item Catch counting errors before calculation
+\end{itemize}
+
+\textbf{Implementation}: Takes 20 seconds but saves potential 2+ minutes of error correction
+\end{highlightbox}
+
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Target Time}: 4-5 minutes (Problem 12 is mid-band)
+
+\textbf{Time Breakdown}:
+\begin{itemize}[leftmargin=*]
+    \item Initial reading and recognition: 30 seconds
+    \item Converting to polar form and finding roots: 90 seconds
+    \item Identifying qualifying roots: 60 seconds
+    \item Calculating sum: 90 seconds
+    \item Verification: 30 seconds
+    \item \textbf{Total}: ~5 minutes
+\end{itemize}
+
+\textbf{Time-Saving Tips}:
+\begin{itemize}[leftmargin=*]
+    \item Recognize roots of unity pattern immediately (saves 1 min)
+    \item Use symmetry to reduce calculation (saves 1 min)
+    \item Draw quick diagram to identify qualifying roots (saves potential errors)
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+
+\textbf{Accessibility Rating}: Medium-High
+\begin{itemize}[leftmargin=*]
+    \item Standard complex numbers technique
+    \item Straightforward once pattern recognized
+    \item Good investment of time for students comfortable with complex numbers
+\end{itemize}
+
+\textbf{When to Attempt}:
+\begin{itemize}[leftmargin=*]
+    \item First pass: If strong in complex numbers
+    \item Second pass: After completing easier algebra/geometry problems
+    \item Skip if: Unfamiliar with polar form or roots of unity
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Confidence Assessment After Solving}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{High confidence (90\%+)}: Answer matches choice (D), verification passed
+    \item \textbf{Move on}: Yes, this is a high-confidence solution
+    \item \textbf{Flag for review}: Only if time permits at end
+\end{itemize}
+
+\textbf{Error Recovery Protocol}:
+\begin{itemize}[leftmargin=*]
+    \item If sum doesn't match any answer choice:
+    \begin{enumerate}
+        \item Recheck which roots have positive real parts
+        \item Verify trigonometric values
+        \item Recalculate sum step-by-step
+    \end{enumerate}
+    \item If still stuck after 2 minutes: make educated guess and move on
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+
+\textbf{When to Abandon} (Total time invested > 7 minutes):
+\begin{itemize}[leftmargin=*]
+    \item Cannot remember roots of unity formula
+    \item Multiple arithmetic errors in trigonometric calculations
+    \item Confusion about which roots to include
+\end{itemize}
+
+\textbf{Educated Guess Strategy}:
+\begin{itemize}[leftmargin=*]
+    \item Eliminate (E): Complex answer unlikely (imaginary parts should cancel)
+    \item Between (A-D): Choose (D) as it has the most "complex" radical expression fitting a sum of multiple trigonometric values
+    \item Expected value: Better than random 20\% chance
+\end{itemize}
+
+\end{competitionbox}
+
+\section*{Summary}
+
+This problem tests mastery of complex numbers, specifically roots of unity. The key insights are:
+\begin{enumerate}
+    \item Converting $z^{12}=64$ to polar form yields 12 equally-spaced roots on circle of radius $\sqrt{2}$
+    \item Exactly 5 roots have positive real parts (angles between $-90^\circ$ and $90^\circ$)
+    \item Symmetry causes imaginary parts to cancel, leaving only real sum
+    \item Answer: $\boxed{2\sqrt{2} + \sqrt{6}}$
+\end{enumerate}
+
+\textbf{Key Takeaway}: Roots of unity problems require visualization, polar form conversion, and exploitation of geometric symmetry.
+
+\end{document}

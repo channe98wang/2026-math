@@ -1,0 +1,16 @@
+2005 AMC 12A Problems/Problem 7
+Problem
+Square $EFGH$ is inside square $ABCD$ so that each side of $EFGH$ can be extended to pass through a vertex of $ABCD$ . Square $ABCD$ has side length $\sqrt{50}$ , $E$ is between $B$ and $H$ , and $BE = 1$ . What is the area of the inner square $EFGH$ ?
+[asy] unitsize(4cm); defaultpen(linewidth(.8pt)+fontsize(10pt)); pair D=(0,0), C=(1,0), B=(1,1), A=(0,1); pair F=intersectionpoints(Circle(D,2/sqrt(5)),Circle(A,1))[0]; pair G=foot(A,D,F), H=foot(B,A,G), E=foot(C,B,H); draw(A--B--C--D--cycle); draw(D--F); draw(C--E); draw(B--H); draw(A--G); label("$A$",A,NW); label("$B$",B,NE); label("$C$",C,SE); label("$D$",D,SW); label("$E$",E,NNW); label("$F$",F,ENE); label("$G$",G,SSE); label("$H$",H,WSW); [/asy]
+$(\mathrm {A}) \ 25 \qquad (\mathrm {B}) \ 32 \qquad (\mathrm {C})\ 36 \qquad (\mathrm {D}) \ 40 \qquad (\mathrm {E})\ 42$
+Solution
+Arguable the hardest part of this question is to visualize the diagram. Since each side of $EFGH$ can be extended to pass through a vertex of $ABCD$ , we realize that $EFGH$ must be tilted in such a fashion. Let a side of $EFGH$ be $x$ .
+Notice the right triangle (in blue) with legs $1, x+1$ and hypotenuse $\sqrt{50}$ . By the Pythagorean Theorem , we have $1^2 + (x+1)^2 = (\sqrt{50})^2 \Longrightarrow (x+1)^2 = 49 \Longrightarrow x = 6$ . Thus, $[EFGH] = x^2 = 36\ \mathrm{(C)}$
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

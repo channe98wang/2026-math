@@ -1,0 +1,20 @@
+2013 AMC 12B Problems/Problem 5
+Problem
+The average age of $33$ fifth-graders is $11$ . The average age of $55$ of their parents is $33$ . What is the average age of all of these parents and fifth-graders?
+$\textbf{(A)}\ 22 \qquad \textbf{(B)}\ 23.25 \qquad \textbf{(C)}\ 24.75 \qquad \textbf{(D)}\ 26.25 \qquad \textbf{(E)}\ 28$
+Solution
+The sum of the ages of the fifth graders is $33 * 11$ , while the sum of the ages of the parents is $55 * 33$ . Therefore, the total sum of all their ages must be $2178$ , and given $33 + 55 = 88$ people in total, their average age is $\frac{2178}{88} = \frac{99}{4} = \boxed{\textbf{(C)}\ 24.75}$ .
+See also
+2013 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2013 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

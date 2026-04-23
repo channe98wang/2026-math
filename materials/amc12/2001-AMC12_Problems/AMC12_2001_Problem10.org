@@ -1,0 +1,35 @@
+2001 AMC 12 Problems/Problem 10
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Video Solution
+5 See Also
+Problem
+The plane is tiled by congruent squares and congruent pentagons as indicated. The percent of the plane that is enclosed by the pentagons is closest to
+[asy] unitsize(3mm); defaultpen(linewidth(0.8pt)); path p1=(0,0)--(3,0)--(3,3)--(0,3)--(0,0); path p2=(0,1)--(1,1)--(1,0); path p3=(2,0)--(2,1)--(3,1); path p4=(3,2)--(2,2)--(2,3); path p5=(1,3)--(1,2)--(0,2); path p6=(1,1)--(2,2); path p7=(2,1)--(1,2); path[] p=p1^^p2^^p3^^p4^^p5^^p6^^p7; for(int i=0; i<3; ++i) { for(int j=0; j<3; ++j) { draw(shift(3*i,3*j)*p); } } [/asy]
+$\textbf{(A) }50 \qquad \textbf{(B) }52 \qquad \textbf{(C) }54 \qquad \textbf{(D) }56 \qquad \textbf{(E) }58$
+Solution
+Consider any single tile:
+[asy] unitsize(1cm); defaultpen(linewidth(0.8pt)); path p1=(0,0)--(3,0)--(3,3)--(0,3)--(0,0); path p2=(0,1)--(1,1)--(1,0); path p3=(2,0)--(2,1)--(3,1); path p4=(3,2)--(2,2)--(2,3); path p5=(1,3)--(1,2)--(0,2); path p6=(1,1)--(2,2); path p7=(2,1)--(1,2); path[] p=p1^^p2^^p3^^p4^^p5^^p6^^p7; draw(p); [/asy]
+If the side of the small square is $a$ , then the area of the tile is $\left(3a\right)^2 = 9a^2$ , with $4a^2$ covered by squares, and therefore $9a^2-4a^2 = 5a^2$ by pentagons.
+Hence exactly $\frac{5}{9}$ of any tile is covered by pentagons, and therefore pentagons cover $\frac{5}{9}$ of the plane. When expressed as a percentage, this is $55.\overline{5}\%$ , and the closest integer to this value is $\boxed{\textbf{(D) }56}$ .
+Solution 2
+There are $6$ smaller square tiles on each side of the bigger square. We are double counting the four corner tiles, however, so we subtract by $4$ . Additionally, there are $4$ inner square inside each hole of the two 8 looking figures inside the square. Thus, there are $4$ * $2$ * $2$ = $16$ inner squares. Thus, there are a total of $36$ squares. Because we are dealing with percentages, and therefore fractions and ratios, we can set the side length to anything we want as long as we maintain consistency throughout the entire figure. For simplicity sake, we set the side length of each small square to $1$
+Thus, the side length of the big square is $9$ . Because the amount of squares is $36$ , the total area of all the small squares is $36$ . The area of the big square is $9$ * $9$ = $81$ . Hence, $\frac{36}{81}$ or $\frac{4}{9}$ of the entire figure is covered by squares. Thus, $\frac{5}{9}$ is covered by pentagons. Expressed as a decimal, this is $55.\overline{5}\%$ . The closest percent value to this is $\boxed{\textbf{(D) }56}$ .
+Video Solution
+https://www.youtube.com/watch?v=P43NYTbZH4k
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 9 Followed by 
+ Problem 11
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2001 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 17 Followed by 
+ Problem 19
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

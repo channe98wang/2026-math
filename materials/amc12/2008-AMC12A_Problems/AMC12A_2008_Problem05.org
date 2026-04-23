@@ -1,0 +1,26 @@
+2008 AMC 12A Problems/Problem 5
+Problem
+Suppose that
+
+\[\frac{2x}{3}-\frac{x}{6}\]
+
+is an integer. Which of the following statements must be true about $x$ ?
+$\mathrm{(A)}\ \text{It is negative.}\\\mathrm{(B)}\ \text{It is even, but not necessarily a multiple of 3.}\\\mathrm{(C)}\ \text{It is a multiple of 3, but not necessarily even.}\\\mathrm{(D)}\ \text{It is a multiple of 6, but not necessarily a multiple of 12.}\\\mathrm{(E)}\ \text{It is a multiple of 12.}$
+Solution
+\[\frac{2x}{3}-\frac{x}{6}\quad\Longrightarrow\quad\frac{4x}{6}-\frac{x}{6}\quad\Longrightarrow\quad\frac{3x}{6}\quad\Longrightarrow\quad\frac{x}{2}\]
+
+For $\frac{x}{2}$ to be an integer, $x$ must be even, but not necessarily divisible by $3$ . Thus, the answer is $\mathrm{(B)}$ .
+See also
+2008 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2008 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 8 Followed by 
+ Problem 10
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

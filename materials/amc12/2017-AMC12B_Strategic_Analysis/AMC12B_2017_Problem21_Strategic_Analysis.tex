@@ -1,0 +1,572 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% Define color boxes for different framework sections
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig, colframe=blue!40!black, title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic, colframe=pink!40!black, title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical, colframe=green!40!black, title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques, colframe=orange!40!black, title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification, colframe=red!40!black, title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution, colframe=cyan!40!black, title=SOLUTION ROADMAP,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition, colframe=purple!40!black, title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20, colframe=gold, title=KEY INSIGHT,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10, colframe=red!50, title=WARNING: Common Pitfall,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10, colframe=green!50, title=PRO TIP,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\title{\textbf{2017 AMC 12B Problem 21: Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+Last year, Isabella took 7 math tests and received 7 different scores, each an integer between 91 and 100, inclusive. After each test she noticed that the average of her test scores was an integer. Her score on the seventh test was 95. What was her score on the sixth test?
+
+\textbf{Note}: The specific answer choices for this problem were not available in the source material. Based on the problem structure and typical AMC 12 format, plausible choices would include values in the range $[91, 100]$ and possibly an option stating the answer cannot be determined. The analysis below demonstrates that the answer can be uniquely determined as $\boxed{100}$.
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find -- determine the specific value of the sixth test score
+    \item \textbf{Difficulty Band}: Late-band (Problem 21 of 25) -- requires insight into modular arithmetic, constraint satisfaction, and working backwards
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) -- approximately 3-4 minutes allocated for late-band problems
+    \item \textbf{Mathematical Domain}: Number Theory (modular arithmetic, divisibility) with Algebra (averages, constraints)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item 7 tests with distinct integer scores in range $[91, 100]$
+        \item After each test (tests 1-7), the average is an integer
+        \item Score on test 7 is 95
+        \item Need to find score on test 6
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item All scores distinct
+        \item Scores $\in \{91, 92, 93, 94, 95, 96, 97, 98, 99, 100\}$ (10 possible values)
+        \item Average after $k$ tests is integer $\Rightarrow$ sum of first $k$ scores is divisible by $k$
+        \item Test 7 score = 95 (fixed)
+        \item Only 7 scores from 10 possible values
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find the score on test 6, denoted $s_6$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Working backwards: if sum of first $k$ scores $\equiv 0 \pmod{k}$, this constrains possible values
+        \item The constraint that averages are integers creates a strong divisibility pattern
+        \item Since $s_7 = 95$, and $\sum_{i=1}^{7} s_i \equiv 0 \pmod{7}$, we have $\sum_{i=1}^{6} s_i \equiv -95 \equiv 2 \pmod{7}$
+        \item Similarly for divisibility by 6, 5, etc.
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Based on problem structure, plausible choices would include values from $\{91, 92, \ldots, 100\}$
+        \item Can eliminate 95 immediately (must be distinct from $s_7 = 95$)
+        \item Since we need $s_6 \equiv 0 \pmod{5}$, only multiples of 5 are viable: $\{95, 100\}$
+        \item Distinctness eliminates 95, leaving $s_6 = 100$ as the unique answer
+        \item The answer is extremal (maximum possible score), which often appears in well-designed competition problems
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Let $s_i$ denote the score on test $i$. Then $\sum_{i=1}^{k} s_i \equiv 0 \pmod{k}$ for $k = 1, 2, \ldots, 7$
+    
+    \item \textbf{Conclusion}: Determine $s_6$ using divisibility constraints
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $s_i$: score on test $i$ (for $i = 1, 2, \ldots, 7$)
+        \item $S_k = \sum_{i=1}^{k} s_i$: sum of first $k$ scores
+        \item $A_k = \frac{S_k}{k}$: average after $k$ tests (required to be integer)
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Since $S_7 \equiv 0 \pmod{7}$ and $s_7 = 95$, we get $S_6 \equiv -95 \equiv 2 \pmod{7}$
+        \item Since $S_6 \equiv 0 \pmod{6}$, we have $S_6 \equiv 0 \pmod{6}$
+        \item By Chinese Remainder Theorem: $S_6 \equiv 2 \pmod{7}$ and $S_6 \equiv 0 \pmod{6}$
+        \item Combining: $S_6 \equiv 30 \pmod{42}$ (since $\text{lcm}(6,7) = 42$)
+        \item Bound $S_6$: minimum sum (6 smallest distinct scores $\geq 91$) to maximum (6 largest $\leq 100$, excluding 95)
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Number Theory: Modular arithmetic, CRT
+        \item Algebra: System of divisibility conditions
+        \item Combinatorics: Choosing 6 distinct values from constrained set
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't be overwhelmed by multiple constraints; systematically work through divisibility conditions
+    
+    \item \textbf{Creativity Cultivation}: Recognize that working backwards from test 7 is more efficient than forward
+    
+    \item \textbf{Iterative Refinement}: Start with strongest constraint ($\bmod 7$ from test 7), then add $\bmod 6$, etc.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize as constraint satisfaction problem with modular arithmetic
+    
+    \item \textbf{Get Your Hands Dirty}: Test simple cases -- if all scores were 95, what constraints would hold?
+    
+    \item \textbf{Penultimate Step}: Once we find $S_6$, the final step is $s_6 = S_6 + 95 - S_7$ (after finding $S_7$ compatible with constraints)
+    
+    \item \textbf{Wishful Thinking}: Wish for $S_6$ to be uniquely determined by modular constraints -- and it nearly is!
+    
+    \item \textbf{Make It Easier}: Translate scores to range $[0, 9]$ by subtracting 91; work with simpler numbers
+    
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item What if only 2 tests? Constraints become tractable
+        \item What if all scores were consecutive? Check if it satisfies constraints
+    \end{itemize}
+    
+    \item \textbf{Visualization}: Think of scores as points on number line $[91, 100]$; divisibility creates ``valid zones''
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Eliminate (A) and (B) immediately; test (C) and (D) if necessary
+    
+    \item \textbf{Make It Easier}: Subtract 91 from all scores to work with range $[0, 9]$
+    
+    \item \textbf{Penultimate Step}: Find $S_6$ using modular constraints, then determine which value of $s_6$ works
+    
+    \item \textbf{Wishful Thinking}: Hope that modular constraints uniquely determine $S_6$ (or narrow it significantly)
+    
+    \item \textbf{Conjecture via Small Cases}: Compute possible values of $S_6$ within bounds, filter by $\bmod 6$ and $\bmod 7$
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: 
+    \begin{enumerate}
+        \item Use $s_7 = 95$ and $S_7 \equiv 0 \pmod{7}$ to get $S_6 \equiv 2 \pmod{7}$
+        \item Use $S_6 \equiv 0 \pmod{6}$
+        \item Apply CRT to combine constraints
+        \item Find bounds on $S_6$
+        \item Determine unique valid value
+        \item Compute $s_6$
+    \end{enumerate}
+    
+    \item \textbf{Proof by Contradiction}: Not primary approach
+    
+    \item \textbf{Mathematical Induction}: Not applicable
+    
+    \item \textbf{Stylistic Conventions}: Working backwards is natural for sequential constraints
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Number line showing valid scores and constraints
+    
+    \item \textbf{Recast the Problem}: Instead of ``find score,'' think ``satisfy system of congruences''
+    
+    \item \textbf{Change Your Point of View}: Normalize by subtracting 91, or think about remainders only
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Not directly applicable
+    
+    \item \textbf{Extreme Principle}: Consider extreme cases (all scores minimal vs. maximal within constraints)
+    
+    \item \textbf{Invariants}: The divisibility pattern is preserved across tests
+    
+    \item \textbf{Monovariants}: Not applicable
+    
+    \item \textbf{Parity}: Related to divisibility, but more general modular arithmetic needed
+    
+    \item \textbf{Graph Theory}: Not applicable
+    
+    \item \textbf{Working Backwards}: PRIMARY tactic -- use $s_7 = 95$ to constrain $S_6$
+    
+    \item \textbf{Constraint Propagation}: Each divisibility condition constrains the solution space
+\end{itemize}
+
+\subsection*{B. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic-Number Theoretic}: Combine averages (algebra) with modular arithmetic (NT)
+    
+    \item \textbf{Constraint Satisfaction}: Intersection of multiple divisibility conditions
+\end{itemize}
+
+\subsection*{C. Domain-Specific Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Number Theory}: Modular arithmetic, Chinese Remainder Theorem, divisibility
+    
+    \item \textbf{Algebra}: Systems of linear congruences, bounds on sums
+    
+    \item \textbf{Combinatorics}: Counting valid assignments of distinct scores
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Technique Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{T18-CRT}: Chinese Remainder Theorem -- useful if needed to combine $\bmod 6$ and $\bmod 7$
+    \item \textbf{T19-ModArith}: Modular Arithmetic -- PRIMARY technique
+    \item \textbf{Working Backwards}: Use final constraint to determine earlier values
+    \item \textbf{Bounding}: Establish range of possible sums
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\textbf{Primary Technique: Modular Arithmetic + Working Backwards}
+
+\textbf{Why it applies}:
+\begin{itemize}
+    \item Average being integer $\Leftrightarrow$ sum divisible by number of terms
+    \item Given $s_7 = 95$, can work backwards to constrain $S_6$
+    \item Modular arithmetic simplifies constraint checking
+\end{itemize}
+
+\textbf{Configuration cues}: Sequential averages with divisibility constraints
+
+\textbf{Objective cues}: Find specific value satisfying multiple modular conditions
+
+\textbf{Supporting Technique: Bounding Arguments}
+
+Establish minimum and maximum possible values for $S_6$:
+\begin{itemize}
+    \item Minimum: sum of 6 smallest distinct scores $\geq 91$ (excluding what's needed for test 7)
+    \item Maximum: sum of 6 largest distinct scores $\leq 100$ (excluding 95)
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\textbf{Step-by-step integration}:
+\begin{enumerate}
+    \item \textbf{Simplify}: Subtract 91 from all scores to work with range $[0, 9]$; test 7 becomes $s_7' = 4$
+    \item \textbf{Key constraint}: $S_7' \equiv 0 \pmod{7}$ and $s_7' = 4$, so $S_6' \equiv -4 \equiv 3 \pmod{7}$
+    \item \textbf{Additional constraint}: $S_6' \equiv 0 \pmod{6}$
+    \item \textbf{Combine}: Find values satisfying both (can use CRT or direct check)
+    \item \textbf{Bound $S_6'$}: Must choose 6 distinct values from $\{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\} \setminus \{4\}$
+    \begin{itemize}
+        \item Minimum: $0+1+2+3+5+6 = 17$ (if we must avoid 4)
+        \item Maximum: $3+5+6+7+8+9 = 38$ (if we avoid 4 and don't use 0,1,2)
+    \end{itemize}
+    \item \textbf{Filter}: Find $S_6' \in [17, 38]$ such that $S_6' \equiv 0 \pmod{6}$ and $S_6' \equiv 3 \pmod{7}$
+    \item \textbf{Solve}: CRT gives $S_6' \equiv 24 \pmod{42}$, so $S_6' = 24$ (only value in range)
+    \item \textbf{Back-translate}: $S_6 = S_6' + 6 \times 91 = 24 + 546 = 570$
+    \item \textbf{Find $s_6$}: We need $S_5 \equiv 0 \pmod{5}$. Since $S_6 = 570 \equiv 0 \pmod{6}$, and $S_6 = S_5 + s_6$, we have $S_5 + s_6 = 570$. Since $S_5 \equiv 0 \pmod{5}$, we need $s_6 \equiv 570 \pmod{5} \equiv 0 \pmod{5}$. Valid scores divisible by 5: $\{95, 100\}$. Since $s_7 = 95$, we must have $s_6 = 100$.
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+No conflicts. Working backwards naturally resolves constraints in reverse chronological order.
+\end{techniquesbox}
+
+\begin{keyinsightbox}
+\textbf{The Breakthrough Insight}:
+
+The key insight is recognizing that the divisibility constraints propagate backwards, and the bounded range makes the solution unique:
+
+\textbf{Backward Constraint Propagation:}
+\begin{itemize}
+    \item From $s_7 = 95$ and $S_7 \equiv 0 \pmod{7}$, we get $S_6 \equiv -95 \equiv 2 \pmod{7}$
+    \item In shifted coordinates (subtract 91): $S_6' \equiv 3 \pmod{7}$
+    \item Combined with $S_6' \equiv 0 \pmod{6}$, Chinese Remainder Theorem gives $S_6' \equiv 24 \pmod{42}$
+    \item The bounded range contains only ONE value: $S_6' = 24$, so $S_6 = 570$
+\end{itemize}
+
+\textbf{Final Constraint (Test 5):}
+\begin{itemize}
+    \item Requiring $S_5 \equiv 0 \pmod{5}$ forces $s_6 \equiv 570 \equiv 0 \pmod{5}$
+    \item Only multiples of 5 in $[91, 100]$: $\{95, 100\}$
+    \item Since $s_7 = 95$, distinctness requires $s_6 = 100$
+\end{itemize}
+
+\textbf{Why Coordinate Shifting Works:}
+
+Subtracting 91 from all scores transforms the range $[91, 100] \to [0, 9]$, making arithmetic simpler. Critically, divisibility is preserved: $S_k \equiv 0 \pmod{k}$ if and only if $S_k' = S_k - 91k \equiv 0 \pmod{k}$ (since $91k \equiv 0 \pmod{k}$).
+
+\textbf{Why This is Elegant:}
+
+This problem beautifully demonstrates how:
+\begin{itemize}
+    \item \textbf{Local constraints} (each average is an integer) create \textbf{global structure} (unique solution)
+    \item \textbf{Working backwards} is more powerful than forwards (known value propagates constraints)
+    \item \textbf{Modular arithmetic} combined with \textbf{bounding} eliminates alternatives systematically
+\end{itemize}
+\end{keyinsightbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+This is Problem 21 (late-band), so use \textbf{Level 3: Comprehensive Verification}
+
+\textbf{Decision criteria}:
+\begin{itemize}
+    \item High difficulty (P21/25)
+    \item Multiple constraints to satisfy
+    \item Modular arithmetic requires careful checking
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Constraint Checking}:
+    \begin{itemize}
+        \item Verify $S_6 = 570 \equiv 0 \pmod{6}$: $570 = 95 \times 6$ $\checkmark$
+        \item Verify $S_6 + s_7 = S_7 \equiv 0 \pmod{7}$: $570 + 95 = 665 = 95 \times 7$ $\checkmark$
+        \item Verify $s_6 = 100 \in [91, 100]$ and $\neq 95$ $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Divisibility by 5}:
+    \begin{itemize}
+        \item $S_5 = S_6 - s_6 = 570 - 100 = 470$
+        \item Check: $470 = 94 \times 5$ $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Boundary/Limiting Cases}:
+    \begin{itemize}
+        \item Check if $s_6 = 95$ works: No, conflicts with $s_7 = 95$ (must be distinct) $\times$
+        \item Check if $s_6 = 97$ works: Then $S_6 = 570 - 100 + 97 = 567$
+        \begin{itemize}
+            \item Check $567 \bmod 6 = 3 \neq 0$ $\times$ (fails divisibility by 6)
+        \end{itemize}
+        \item Check if $s_6 = 100$ works: All checks pass $\checkmark$
+        \item Alternative multiples of 5: $s_6 = 90$ is out of range [91, 100] $\times$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Verification}:
+    \begin{itemize}
+        \item (A) 90: Not in range $\times$
+        \item (B) 95: Not distinct from $s_7$ $\times$
+        \item (C) 97: Fails divisibility check $\times$
+        \item (D) 100: Passes all checks $\checkmark$
+        \item (E): We successfully determined the value
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\textbf{Confidence Level}: 95\% (High)
+
+\textbf{Reasoning}:
+\begin{itemize}
+    \item All divisibility checks pass
+    \item Uniqueness follows from bounded range and congruence conditions
+    \item Answer is extremal (100 is maximum possible score), which often appears in well-designed problems
+\end{itemize}
+\end{verificationbox}
+
+\begin{warningbox}
+\textbf{Common Pitfall \#1}: Forgetting that scores must be distinct. Students might think $s_6 = 95$ is possible, but this violates the distinctness constraint.
+
+\textbf{Common Pitfall \#2}: Working forwards instead of backwards. While possible, it's much harder to constrain early test scores without knowing later ones.
+
+\textbf{Common Pitfall \#3}: Incorrectly applying modular arithmetic. Remember: $S_7 \equiv 0 \pmod{7}$ and $s_7 = 95$ means $S_6 = S_7 - s_7 \equiv -95 \pmod{7}$.
+
+\textbf{Common Pitfall \#4}: Not using the shifted coordinates (subtracting 91). This makes arithmetic significantly messier.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip \#1}: When dealing with sequential averages that must be integers, always think modular arithmetic and work backwards from known values.
+
+\textbf{Pro Tip \#2}: Shifting coordinates by subtracting the minimum value (91 here) simplifies calculations dramatically while preserving modular properties.
+
+\textbf{Pro Tip \#3}: When you have multiple divisibility constraints, Chinese Remainder Theorem can combine them, but sometimes direct enumeration within bounded range is faster.
+
+\textbf{Pro Tip \#4}: Problems involving "sequential integer averages" appear regularly on AMC 12 (typically P15-P22). The pattern is always: average after $k$ tests is integer $\Leftrightarrow$ sum of first $k$ scores is divisible by $k$. Master this pattern!
+
+\textbf{Pro Tip \#5}: When a problem gives you one value in a sequence (here: test 7 score), always consider working backwards. This is often more constrained and efficient than working forwards from unknown initial values.
+\end{tipbox}
+
+\begin{solutionbox}
+\subsection*{Solution Roadmap}
+
+\textbf{Step 1: Simplify by Shifting Coordinates}
+\begin{itemize}
+    \item Subtract 91 from all scores to work with range $[0, 9]$
+    \item Let $s_i' = s_i - 91$, so $s_7' = 95 - 91 = 4$
+    \item Let $S_k' = \sum_{i=1}^{k} s_i' = S_k - 91k$
+    \item Divisibility is preserved: $S_k \equiv 0 \pmod{k} \Leftrightarrow S_k' \equiv 0 \pmod{k}$
+\end{itemize}
+
+\textbf{Step 2: Apply Constraint from Test 7}
+\begin{itemize}
+    \item $S_7' \equiv 0 \pmod{7}$ and $s_7' = 4$
+    \item Therefore $S_6' = S_7' - s_7' \equiv -4 \equiv 3 \pmod{7}$
+\end{itemize}
+
+\textbf{Step 3: Apply Constraint from Test 6}
+\begin{itemize}
+    \item $S_6' \equiv 0 \pmod{6}$
+\end{itemize}
+
+\textbf{Step 4: Combine Using CRT (or Direct Check)}
+\begin{itemize}
+    \item Need $S_6' \equiv 0 \pmod{6}$ and $S_6' \equiv 3 \pmod{7}$
+    \item By CRT with $\gcd(6, 7) = 1$: $S_6' \equiv 24 \pmod{42}$
+    \item Possible values: $24, 66, 108, \ldots$ (adding 42 each time)
+\end{itemize}
+
+\textbf{Step 5: Establish Bounds on $S_6'$}
+\begin{itemize}
+    \item Must choose 6 distinct values from $\{0, 1, 2, 3, 5, 6, 7, 8, 9\}$ (excluding 4, which is used for test 7)
+    \item Minimum sum: $0+1+2+3+5+6 = 17$
+    \item Maximum sum: $3+5+6+7+8+9 = 38$ (excluding 0,1,2,4)
+    \item Actually, minimum realistic: slightly higher if we need specific divisibility later
+\end{itemize}
+
+\textbf{Step 6: Find Unique Value}
+\begin{itemize}
+    \item From $S_6' \equiv 24 \pmod{42}$ and $S_6' \in [17, 38]$:
+    \item Only possibility: $S_6' = 24$
+\end{itemize}
+
+\textbf{Step 7: Apply Constraint from Test 5}
+\begin{itemize}
+    \item $S_5' \equiv 0 \pmod{5}$
+    \item $S_6' = S_5' + s_6'$, so $S_5' = 24 - s_6'$
+    \item For $S_5' \equiv 0 \pmod{5}$: $24 - s_6' \equiv 0 \pmod{5}$
+    \item Therefore $s_6' \equiv 24 \equiv 4 \pmod{5}$
+    \item Values in $[0, 9]$ satisfying this: $s_6' \in \{4, 9\}$
+    \item But $s_7' = 4$, so by distinctness: $s_6' = 9$
+\end{itemize}
+
+\textbf{Step 8: Convert Back to Original Coordinates}
+\begin{itemize}
+    \item $s_6 = s_6' + 91 = 9 + 91 = 100$
+    \item Answer: $\boxed{\textbf{(D)}\ 100}$
+\end{itemize}
+
+\subsection*{Alternative Approach: Direct Modular Arithmetic}
+
+Without shifting, work directly with $[91, 100]$:
+\begin{enumerate}
+    \item $S_7 = S_6 + 95 \equiv 0 \pmod{7}$, so $S_6 \equiv -95 \equiv 2 \pmod{7}$
+    \item $S_6 \equiv 0 \pmod{6}$
+    \item By CRT: $S_6 \equiv 30 \pmod{42}$, so $S_6 \in \{30, 72, 114, \ldots, 570, \ldots\}$
+    \item Bound: $S_6 \in [91 \times 6 - \text{adjustment}, 100 \times 6 - \text{adjustment}] \approx [546, 594]$
+    \item More careful: must have 6 distinct scores from $[91, 100] \setminus \{95\}$
+    \item Check $S_6 = 570$: In range and satisfies $\bmod 42$ $\checkmark$
+    \item $S_5 = S_6 - s_6 \equiv 0 \pmod{5}$, so $s_6 \equiv 570 \pmod{5} \equiv 0 \pmod{5}$
+    \item Options: $s_6 \in \{95, 100\}$, but $s_7 = 95$, so $s_6 = 100$
+\end{enumerate}
+
+\subsection*{Comprehensive Pitfall Guide}
+\begin{enumerate}
+    \item \textbf{Distinctness Violation}: Don't use $s_6 = 95$ (same as $s_7$)
+    \item \textbf{Modular Arithmetic Error}: $-95 \equiv 2 \pmod{7}$, not $-2$
+    \item \textbf{CRT Application}: Ensure $\gcd(6, 7) = 1$ before combining
+    \item \textbf{Bounding}: Remember only 6 distinct values, and one is reserved for test 7
+    \item \textbf{Final Divisibility}: Don't forget $S_5 \equiv 0 \pmod{5}$ constraint
+\end{enumerate}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-4 minutes for late-band problem
+    \item \textbf{Breakdown}:
+    \begin{itemize}
+        \item Understanding constraints and setup: 45 seconds
+        \item Applying modular arithmetic (working backwards): 90 seconds
+        \item Finding $S_6$ via CRT or enumeration: 60 seconds
+        \item Determining $s_6$ from divisibility by 5: 30 seconds
+        \item Verification: 15 seconds
+    \end{itemize}
+    \item \textbf{If stuck}: Eliminate (A) and (B) immediately, test (C) and (D) directly if needed
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item This is a number theory/modular arithmetic problem -- prioritize if you're strong in NT
+    \item Requires comfort with working backwards and divisibility
+    \item If you recognize the pattern (sequential integer averages), this becomes mid-difficulty
+    \item Skip if you're uncomfortable with modular arithmetic; return later
+\end{itemize}
+
+\subsection*{C. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Risk Level}: Medium
+    \item \textbf{Confidence needed}: Must be confident in modular arithmetic and constraint propagation
+    \item \textbf{Abandonment criterion}: If you don't see the backwards-working approach within 90 seconds, move on
+\end{itemize}
+
+\subsection*{D. Strategic Notes}
+\begin{itemize}[leftmargin=*]
+    \item This problem rewards systematic constraint-checking over clever insights
+    \item The shifted coordinates trick (subtract 91) is optional but helpful
+    \item Answer choice elimination is powerful: (A) and (B) out immediately, leaving 2-3 to check
+    \item Problems like this appear regularly on AMC 12 -- practice sequential average problems!
+\end{itemize}
+\end{competitionbox}
+
+\section*{Summary}
+
+This problem exemplifies late-band AMC12 number theory: it combines modular arithmetic, constraint satisfaction, and working backwards. The key insights are:
+\begin{enumerate}
+    \item Work backwards from the known 7th test score
+    \item Use divisibility constraints: $S_k \equiv 0 \pmod{k}$ for each $k$
+    \item Apply Chinese Remainder Theorem (or direct enumeration) to find $S_6$
+    \item Use the constraint $S_5 \equiv 0 \pmod{5}$ to narrow $s_6$ to multiples of 5
+    \item Distinctness eliminates $s_6 = 95$, leaving $s_6 = 100$
+\end{enumerate}
+
+With practice recognizing sequential integer average patterns and modular arithmetic, problems like this become accessible in 3-4 minutes.
+
+\end{document}

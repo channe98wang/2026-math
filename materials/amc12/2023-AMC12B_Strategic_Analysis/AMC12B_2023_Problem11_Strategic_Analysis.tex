@@ -1,0 +1,790 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% AMC12B 2023 Problem 11 Strategic Analysis
+% Generated using AMC12_COMC_Problem_Solving_Prompt.md framework
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12B 2023 Problem 11 Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2023 Problem 11\\Strategic Problem Analysis}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+What is the maximum area of an isosceles trapezoid that has legs of length $1$ and one base twice as long as the other?
+
+$$\textbf{(A) }\frac{5}{4} \qquad \textbf{(B) } \frac{8}{7} \qquad \textbf{(C)} \frac{5\sqrt{2}}{4} \qquad \textbf{(D) } \frac{3}{2} \qquad \textbf{(E) } \frac{3\sqrt{3}}{4}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (maximum value)
+    \item \textbf{Competition Context}: AMC12B 2023, Problem 11
+    \item \textbf{Difficulty Band}: Mid-band (P11) - Intermediate level, 3-5 minutes expected
+    \item \textbf{Mathematical Domain}: Geometry (Optimization, Trapezoid Geometry) with Algebraic Techniques
+    \item \textbf{Estimated Time}: 3-5 minutes with verification
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Isosceles trapezoid (two legs of equal length)
+        \item Legs have length $1$
+        \item One base is twice as long as the other base
+        \item Need to find maximum possible area
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Legs must be length $1$ (fixed)
+        \item Base ratio must be $2:1$ (fixed relationship)
+        \item Must form a valid trapezoid (geometric feasibility)
+        \item Isosceles symmetry condition
+    \end{itemize}
+    \item \textbf{Objective}: Find the maximum area achievable under these constraints
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The trapezoid must be convex
+        \item Bases are parallel (definition of trapezoid)
+        \item Variable parameter: the length of the shorter base (which determines everything else)
+        \item Geometric feasibility: shorter base $x$ must satisfy $0 < x < 2$
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Mix of simple fractions and expressions with radicals
+        \item Option (D) $\frac{3}{2} = 1.5$ is clean and relatively large
+        \item Options with $\sqrt{2}$ and $\sqrt{3}$ suggest optimization might yield irrational critical points
+        \item Can estimate: reasonable trapezoid area should be between $0.5$ and $2$
+        \item All options are positive and less than $2$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Given fixed leg lengths and base ratio, find optimal base length
+    \item \textbf{Conclusion}: Determine the maximum area value
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let shorter base = $x$, then longer base = $2x$
+        \item Height of trapezoid = $h$ (to be expressed in terms of $x$)
+        \item Area formula: $A = \frac{1}{2}(b_1 + b_2) \cdot h = \frac{1}{2}(x + 2x) \cdot h = \frac{3xh}{2}$
+        \item Pythagorean relation connects $x$ and $h$ via leg length $1$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: This is an optimization problem. Express area in terms of one variable, then maximize using algebra (AM-GM) or calculus
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure geometry: Similar triangles, height formula via Pythagorean theorem
+        \item Algebraic optimization: AM-GM inequality application
+        \item Calculus: Derivative to find critical points (if familiar with calculus)
+        \item Trigonometry: Parametric approach using angles
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is an optimization problem requiring algebraic manipulation. Don't be discouraged if the area expression looks messy initially - it simplifies nicely for AM-GM application.
+    \item \textbf{Creativity Cultivation}: Multiple valid approaches exist:
+    \begin{itemize}
+        \item AM-GM inequality (elegant, competition-standard)
+        \item Calculus derivative (if you know calculus)
+        \item Similar triangles (geometric insight)
+        \item Trigonometric substitution (clean but less common)
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: If your area formula doesn't simplify well, check the geometry setup. The key is properly relating height to base via the Pythagorean theorem.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{enumerate}
+        \item Draw an isosceles trapezoid with labeled dimensions
+        \item Identify the variable (shorter base length $x$)
+        \item Set up coordinate system or drop perpendiculars to find height
+    \end{enumerate}
+    \item \textbf{Get Your Hands Dirty}: Draw the trapezoid clearly:
+    \begin{itemize}
+        \item Place longer base $2x$ horizontally
+        \item Shorter base $x$ parallel above it
+        \item By symmetry, each leg projects horizontally by $\frac{x}{2}$
+        \item Height $h$ and horizontal projection satisfy: $h^2 + \left(\frac{x}{2}\right)^2 = 1^2$
+    \end{itemize}
+    \item \textbf{Penultimate Step}: After setting up area expression $A(x)$, the final step is applying optimization technique (AM-GM or derivative) to find maximum.
+    \item \textbf{Make It Easier}: Instead of general trapezoid, focus on the specific constraint (base ratio $2:1$). This reduces complexity significantly.
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item If $x$ is very small: trapezoid is nearly a line segment, area $\approx 0$
+        \item If $x$ approaches $2$: height approaches $0$, area $\approx 0$
+        \item Maximum must occur at some intermediate value
+    \end{itemize}
+    \item \textbf{Visualization}: Sketch helps tremendously:
+    \begin{itemize}
+        \item Visualize how changing $x$ affects both base sum and height
+        \item As $x$ increases, base sum increases but height decreases
+        \item Optimal balance occurs at specific $x$ value
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proof Method}: Direct computation with optimization
+    \item \textbf{Key Lemmas}: 
+    \begin{itemize}
+        \item Height formula: $h = \sqrt{1 - \frac{x^2}{4}}$ (from Pythagorean theorem)
+        \item Area formula: $A = \frac{3x}{2} \sqrt{1 - \frac{x^2}{4}}$
+        \item AM-GM inequality: For positive $a, b$: $ab \leq \frac{(a+b)^2}{4}$ with equality when $a = b$
+    \end{itemize}
+    \item \textbf{Logical Structure}: 
+    \begin{enumerate}
+        \item Express height in terms of base length
+        \item Substitute into area formula
+        \item Apply optimization technique (AM-GM preferred)
+        \item Solve for optimal $x$ and compute maximum area
+    \end{enumerate}
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \textbf{Optimization via AM-GM}: Convert area expression to form suitable for AM-GM application
+        \item \textbf{Pythagorean Theorem}: Relate height to base length via right triangle formed by dropping perpendicular
+        \item \textbf{Symmetry Exploitation}: Isosceles trapezoid has vertical line of symmetry
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics}: 
+    \begin{itemize}
+        \item \textbf{Trapezoid Properties}: Area = $\frac{1}{2}$(sum of bases)(height)
+        \item \textbf{Similar Triangles}: Can extend legs to form larger triangle containing trapezoid
+        \item \textbf{Coordinate Geometry}: Can place trapezoid on coordinate system for algebraic approach
+    \end{itemize}
+    \item \textbf{Crossover Tactics}: 
+    \begin{itemize}
+        \item \textbf{Geometric-Algebraic}: Express geometric constraint algebraically, then optimize
+        \item \textbf{Trigonometric Substitution}: Use parametric form $x = 2\cos\theta$ for elegant solution
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{AM-GM Inequality} (H7 in conversion techniques)
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Optimization problem (finding maximum)
+        \item Expression involves product of terms
+        \item AMC12 mid-band level
+        \item Area formula will have form that fits AM-GM pattern
+    \end{itemize}
+    \item \textbf{Application}: 
+    \begin{enumerate}
+        \item Derive area: $A = \frac{3x}{2}\sqrt{1 - \frac{x^2}{4}} = \frac{3}{4}\sqrt{x^2(4-x^2)}$
+        \item Recognize AM-GM form: need to maximize $\sqrt{x^2(4-x^2)}$
+        \item Apply AM-GM: $x^2(4-x^2) \leq \left(\frac{x^2 + (4-x^2)}{2}\right)^2 = 4$
+        \item Equality when $x^2 = 4-x^2$, so $x = \sqrt{2}$
+        \item Maximum area: $A = \frac{3}{4} \cdot 2 = \frac{3}{2}$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Backup Technique 1}: \textbf{Calculus - Derivative Method}
+    \begin{itemize}
+        \item Express area: $A(x) = \frac{3x}{2}\sqrt{1 - \frac{x^2}{4}}$
+        \item Take derivative: $\frac{dA}{dx} = \frac{3}{2}\sqrt{1-\frac{x^2}{4}} - \frac{3x^2}{4\sqrt{1-\frac{x^2}{4}}}$
+        \item Set equal to zero and solve for critical point
+        \item Find $x = \sqrt{2}$, evaluate $A(\sqrt{2}) = \frac{3}{2}$
+    \end{itemize}
+    
+    \item \textbf{Backup Technique 2}: \textbf{Similar Triangles (Geometric)}
+    \begin{itemize}
+        \item Extend trapezoid legs to meet at point $E$ above
+        \item Form similar triangles with ratio $1:2$
+        \item Larger triangle has legs of length $2$
+        \item Maximize isosceles triangle area (achieved when angle = $90^\circ$)
+        \item Use ratio to find trapezoid area
+    \end{itemize}
+    
+    \item \textbf{Backup Technique 3}: \textbf{Trigonometric Parametrization}
+    \begin{itemize}
+        \item Use constraint $x^2/4 + h^2 = 1$ to set $x/2 = \cos\theta$, $h = \sin\theta$
+        \item Area becomes $A = 3\cos\theta \sin\theta = \frac{3}{2}\sin(2\theta)$
+        \item Maximum when $\sin(2\theta) = 1$, giving $A_{max} = \frac{3}{2}$
+    \end{itemize}
+    
+    \item \textbf{Technique Integration}: 
+    \begin{itemize}
+        \item AM-GM is fastest and most elegant for competition
+        \item Calculus provides verification for those who know it
+        \item Similar triangles offers pure geometric insight
+        \item Trigonometry is cleanest but requires familiarity with parametrization
+    \end{itemize}
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification)
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Mid-band problem (P11) with multi-step algebra
+        \item Optimization problem where errors in setup are common
+        \item Expected confidence: 75-85\% after first solve
+        \item Should verify: height formula, area expression, AM-GM application
+    \end{itemize}
+    \item \textbf{Time Budget}: 45-60 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Domain Restrictions}: 
+    \begin{itemize}
+        \item[$\checkmark$] Verify $x = \sqrt{2}$ gives valid trapezoid: $0 < \sqrt{2} < 2$ $\checkmark$
+        \item[$\checkmark$] Height at $x = \sqrt{2}$: $h = \sqrt{1 - \frac{2}{4}} = \sqrt{\frac{1}{2}} = \frac{1}{\sqrt{2}}$ $\checkmark$
+        \item[$\checkmark$] Check geometric feasibility: positive height and bases $\checkmark$
+    \end{itemize}
+    \item \textbf{Computational Accuracy}: 
+    \begin{itemize}
+        \item[$\checkmark$] Height formula: $h = \sqrt{1 - \frac{x^2}{4}}$ from $h^2 + \left(\frac{x}{2}\right)^2 = 1$ $\checkmark$
+        \item[$\checkmark$] Area formula: $A = \frac{3x}{2} \cdot h = \frac{3x}{2}\sqrt{1-\frac{x^2}{4}}$ $\checkmark$
+        \item[$\checkmark$] Simplification: $A = \frac{3}{4}\sqrt{x^2(4-x^2)}$ $\checkmark$
+        \item[$\checkmark$] AM-GM application: $x^2(4-x^2) \leq 4$ with equality at $x^2 = 2$ $\checkmark$
+        \item[$\checkmark$] Final calculation: $A_{max} = \frac{3}{4}\sqrt{4} = \frac{3}{4} \cdot 2 = \frac{3}{2}$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Alternative Method Verification}:
+    \begin{itemize}
+        \item Using $x = \sqrt{2}$: bases are $\sqrt{2}$ and $2\sqrt{2}$, sum = $3\sqrt{2}$
+        \item Height: $h = \frac{1}{\sqrt{2}}$
+        \item Area: $\frac{1}{2} \cdot 3\sqrt{2} \cdot \frac{1}{\sqrt{2}} = \frac{3}{2}$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Edge Cases}: 
+    \begin{itemize}
+        \item[$\checkmark$] Boundary behavior: As $x \to 0$ or $x \to 2$, area $\to 0$ $\checkmark$
+        \item[$\checkmark$] Answer matches choice (D): $\frac{3}{2}$ $\checkmark$
+        \item[$\checkmark$] Reasonableness: $1.5$ is plausible for such trapezoid $\checkmark$
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution}
+
+\subsubsection*{Method 1: AM-GM Inequality (Recommended - 3 minutes)}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Setup - Find Height Formula (45 seconds)}
+    
+    Draw an isosceles trapezoid with:
+    \begin{itemize}
+        \item Shorter base (top) = $x$
+        \item Longer base (bottom) = $2x$
+        \item Both legs = $1$
+    \end{itemize}
+    
+    Drop perpendiculars from the ends of the top base to the bottom base. By symmetry, each leg projects horizontally a distance of $\frac{2x - x}{2} = \frac{x}{2}$.
+    
+    By the Pythagorean theorem on the right triangle formed:
+    \begin{equation}
+        h^2 + \left(\frac{x}{2}\right)^2 = 1^2
+    \end{equation}
+    
+    Solving for height:
+    \begin{equation}
+        h = \sqrt{1 - \frac{x^2}{4}}
+    \end{equation}
+    
+    \item \textbf{Express Area Formula (30 seconds)}
+    
+    Using the trapezoid area formula:
+    \begin{align*}
+        A &= \frac{1}{2}(b_1 + b_2) \cdot h \\
+        &= \frac{1}{2}(x + 2x) \cdot \sqrt{1 - \frac{x^2}{4}} \\
+        &= \frac{3x}{2} \sqrt{1 - \frac{x^2}{4}}
+    \end{align*}
+    
+    Factor out constants:
+    \begin{align*}
+        A &= \frac{3x}{2} \cdot \frac{1}{2}\sqrt{4 - x^2} \\
+        &= \frac{3}{4} \sqrt{x^2(4 - x^2)}
+    \end{align*}
+    
+    \item \textbf{Apply AM-GM Inequality (60 seconds)}
+    
+    To maximize $A$, we need to maximize $\sqrt{x^2(4-x^2)}$, which is equivalent to maximizing $x^2(4-x^2)$.
+    
+    By the AM-GM inequality, for positive values $a$ and $b$:
+    \begin{equation}
+        ab \leq \left(\frac{a+b}{2}\right)^2
+    \end{equation}
+    
+    Let $a = x^2$ and $b = 4-x^2$. Then $a + b = 4$ (constant), so:
+    \begin{align*}
+        x^2(4-x^2) &\leq \left(\frac{x^2 + (4-x^2)}{2}\right)^2 \\
+        &= \left(\frac{4}{2}\right)^2 \\
+        &= 4
+    \end{align*}
+    
+    Equality holds when $x^2 = 4-x^2$, which gives:
+    \begin{align*}
+        2x^2 &= 4 \\
+        x^2 &= 2 \\
+        x &= \sqrt{2} \quad \text{(taking positive root)}
+    \end{align*}
+    
+    \item \textbf{Calculate Maximum Area (30 seconds)}
+    
+    \begin{align*}
+        A_{max} &= \frac{3}{4}\sqrt{x^2(4-x^2)} \\
+        &= \frac{3}{4}\sqrt{4} \\
+        &= \frac{3}{4} \cdot 2 \\
+        &= \frac{3}{2}
+    \end{align*}
+    
+    \item \textbf{Verification (30 seconds)}
+    
+    Check with $x = \sqrt{2}$:
+    \begin{itemize}
+        \item Bases: $\sqrt{2}$ and $2\sqrt{2}$, sum = $3\sqrt{2}$
+        \item Height: $h = \sqrt{1-\frac{2}{4}} = \frac{1}{\sqrt{2}}$
+        \item Area: $\frac{1}{2} \cdot 3\sqrt{2} \cdot \frac{1}{\sqrt{2}} = \frac{3}{2}$ $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Final Answer}
+    
+    The maximum area is $\frac{3}{2}$, which is \textbf{answer choice (D)}.
+\end{enumerate}
+
+\subsubsection*{Method 2: Similar Triangles (Geometric - 3-4 minutes)}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Extend Trapezoid to Triangle}
+    
+    Let trapezoid $ABCD$ have $AB = x$ (shorter base), $CD = 2x$ (longer base), and $AD = BC = 1$ (legs).
+    
+    Extend legs $AD$ and $BC$ upward until they meet at point $E$.
+    
+    \item \textbf{Identify Similar Triangles}
+    
+    Triangles $\triangle ABE$ and $\triangle DCE$ are similar with ratio $1:2$ (since $AB:CD = x:2x = 1:2$).
+    
+    Since the ratio is $1:2$, and $AD = 1$, we have:
+    \begin{itemize}
+        \item $ED = 2 \cdot 1 = 2$
+        \item $AE = ED - AD = 2 - 1 = 1$
+    \end{itemize}
+    
+    Similarly, $BE = 1$.
+    
+    \item \textbf{Relate Areas}
+    
+    Since the linear ratio is $1:2$, the area ratio is $1:4$:
+    \begin{equation}
+        [DCE] = 4 \cdot [ABE]
+    \end{equation}
+    
+    Therefore:
+    \begin{align*}
+        [ABCD] &= [DCE] - [ABE] \\
+        &= 4[ABE] - [ABE] \\
+        &= 3[ABE]
+    \end{align*}
+    
+    Or equivalently: $[ABCD] = \frac{3}{4}[DCE]$
+    
+    \item \textbf{Maximize Triangle Area}
+    
+    We need to maximize $[DCE]$, which is an isosceles triangle with legs $ED = EC = 2$.
+    
+    For an isosceles triangle with legs of length $\ell$ and angle $\theta$ between them:
+    \begin{equation}
+        \text{Area} = \frac{1}{2}\ell^2 \sin\theta
+    \end{equation}
+    
+    For $\triangle DCE$ with $\ell = 2$:
+    \begin{equation}
+        [DCE] = \frac{1}{2}(2)(2)\sin\theta = 2\sin\theta
+    \end{equation}
+    
+    This is maximized when $\sin\theta = 1$, i.e., $\theta = 90^\circ$.
+    
+    Maximum: $[DCE]_{max} = 2(1) = 2$
+    
+    \item \textbf{Calculate Trapezoid Area}
+    
+    \begin{align*}
+        [ABCD]_{max} &= \frac{3}{4}[DCE]_{max} \\
+        &= \frac{3}{4} \cdot 2 \\
+        &= \frac{3}{2}
+    \end{align*}
+\end{enumerate}
+
+\subsubsection*{Method 3: Trigonometric Parametrization (Alternative - 3 minutes)}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Parametrize Using Angle}
+    
+    From the constraint $h^2 + \left(\frac{x}{2}\right)^2 = 1$, we can write:
+    \begin{align*}
+        \frac{x}{2} &= \cos\theta \\
+        h &= \sin\theta
+    \end{align*}
+    
+    where $0 < \theta < \frac{\pi}{2}$ (first quadrant for positive values).
+    
+    \item \textbf{Express Area in Terms of $\theta$}
+    
+    \begin{align*}
+        A &= \frac{1}{2}(x + 2x) \cdot h \\
+        &= \frac{3x}{2} \cdot h \\
+        &= \frac{3(2\cos\theta)}{2} \cdot \sin\theta \\
+        &= 3\cos\theta \sin\theta
+    \end{align*}
+    
+    \item \textbf{Use Double-Angle Formula}
+    
+    \begin{align*}
+        A &= 3\cos\theta \sin\theta \\
+        &= \frac{3}{2}(2\cos\theta \sin\theta) \\
+        &= \frac{3}{2}\sin(2\theta)
+    \end{align*}
+    
+    \item \textbf{Maximize}
+    
+    Since $0 < \theta < \frac{\pi}{2}$, we have $0 < 2\theta < \pi$.
+    
+    The maximum value of $\sin(2\theta)$ in this range is $1$, occurring at $2\theta = \frac{\pi}{2}$, i.e., $\theta = \frac{\pi}{4}$.
+    
+    \item \textbf{Calculate Maximum}
+    
+    \begin{equation}
+        A_{max} = \frac{3}{2} \cdot 1 = \frac{3}{2}
+    \end{equation}
+\end{enumerate}
+
+\subsection*{B. Solution Comparison}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1 (AM-GM) Advantages}: 
+    \begin{itemize}
+        \item Standard AMC12 technique for optimization
+        \item Algebraic and systematic
+        \item No calculus or trigonometry required
+        \item Clean and efficient
+    \end{itemize}
+    \item \textbf{Method 2 (Similar Triangles) Advantages}:
+    \begin{itemize}
+        \item Pure geometric insight
+        \item Reduces to maximizing isosceles triangle
+        \item Elegant conceptual approach
+        \item Good for geometric thinkers
+    \end{itemize}
+    \item \textbf{Method 3 (Trigonometry) Advantages}:
+    \begin{itemize}
+        \item Cleanest algebraic form
+        \item Natural parametrization
+        \item Requires trigonometric facility
+        \item Very efficient if comfortable with technique
+    \end{itemize}
+    \item \textbf{All methods yield}: $A_{max} = \frac{3}{2}$, confirming answer \textbf{(D)}.
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-5 minutes total (including verification)
+    \begin{itemize}
+        \item Setup and height formula: 45-60 seconds
+        \item Method 1 (AM-GM): 2-2.5 minutes
+        \item OR Method 2 (Similar triangles): 2.5-3 minutes
+        \item OR Method 3 (Trigonometry): 2-2.5 minutes
+        \item Verification: 45-60 seconds
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 minute: Should have height formula and area expression
+        \item At 2.5 minutes: Should be applying optimization technique
+        \item At 4 minutes: Should be verifying answer
+        \item If stuck after 5 minutes: Make educated guess and move on
+    \end{itemize}
+    \item \textbf{Priority Level}: \textbf{High} - Accessible P11 with standard optimization techniques. Complete before attempting P17+.
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 80-85\% (standard optimization with some algebraic complexity)
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If height formula setup is unclear after 2 minutes
+        \item If AM-GM pattern isn't recognized after 4 minutes total
+        \item If algebra becomes unmanageably messy (check setup)
+    \end{itemize}
+    \item \textbf{Flag for Review}: Possibly (if AM-GM application felt uncertain)
+\end{itemize}
+
+\subsection*{C. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Elimination Potential}:
+    \begin{itemize}
+        \item All choices are positive (good - area must be positive)
+        \item Can estimate: with legs = 1, reasonable area is 0.5 to 2
+        \item (A) $\frac{5}{4} = 1.25$
+        \item (B) $\frac{8}{7} \approx 1.14$
+        \item (C) $\frac{5\sqrt{2}}{4} \approx 1.77$
+        \item (D) $\frac{3}{2} = 1.50$ $\checkmark$
+        \item (E) $\frac{3\sqrt{3}}{4} \approx 1.30$
+    \end{itemize}
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item Answer involves factor of $\frac{3}{4}$ times something
+        \item This matches our area formula structure
+        \item The $\frac{3}{2}$ comes from $\frac{3}{4} \cdot 2$
+    \end{itemize}
+    \item Our answer $\frac{3}{2}$ matches choice (D) exactly.
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: This problem combines geometric constraint with algebraic optimization. The crucial steps are:
+
+\begin{enumerate}
+    \item \textbf{Setup}: Use Pythagorean theorem to express height in terms of base: $h = \sqrt{1 - \frac{x^2}{4}}$
+    
+    \item \textbf{Formula}: Area becomes $A = \frac{3}{4}\sqrt{x^2(4-x^2)}$
+    
+    \item \textbf{Optimization}: Apply AM-GM to the product $x^2(4-x^2)$ where the sum $x^2 + (4-x^2) = 4$ is constant. This immediately gives maximum of $4$ when $x^2 = 2$.
+    
+    \item \textbf{Result}: $A_{max} = \frac{3}{4} \cdot 2 = \frac{3}{2}$
+\end{enumerate}
+
+The AM-GM pattern: When optimizing $a \cdot b$ where $a + b = k$ (constant), the maximum is $\left(\frac{k}{2}\right)^2$ achieved when $a = b = \frac{k}{2}$.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning: Common Pitfalls}
+
+\begin{enumerate}
+    \item \textbf{Height Formula Error}: Students often forget the factor of $\frac{1}{2}$ in $\left(\frac{x}{2}\right)^2$. The horizontal projection is half the base difference, not the full difference.
+    
+    \item \textbf{Area Formula Mistake}: Don't forget the $\frac{1}{2}$ in trapezoid area formula, or that both bases contribute (sum = $3x$, not $2x$).
+    
+    \item \textbf{AM-GM Misapplication}: AM-GM requires $a + b$ to be constant. Here, $x^2 + (4-x^2) = 4$ is indeed constant, which makes AM-GM applicable.
+    
+    \item \textbf{Domain Issues}: The value $x = \sqrt{2}$ must satisfy $0 < x < 2$ for a valid trapezoid. Check: $\sqrt{2} \approx 1.41 < 2$ $\checkmark$
+    
+    \item \textbf{Arithmetic Error}: When computing $\frac{3}{4} \cdot 2$, don't mistakenly get $\frac{3}{8}$ or $\frac{6}{4}$ without simplifying.
+    
+    \item \textbf{Similar Triangles Confusion}: The area ratio is the square of the linear ratio: $(1:2)$ for lengths gives $(1:4)$ for areas.
+\end{enumerate}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tips for Competition Success}
+
+\begin{enumerate}
+    \item \textbf{Pattern Recognition}: "Maximize area with constraints" + "product form" → Think AM-GM immediately. This is a P9-P13 level standard pattern.
+    
+    \item \textbf{Algebraic Setup}: Always express area as a function of a single variable. Here, choosing $x$ (shorter base) as the variable makes everything clean.
+    
+    \item \textbf{AM-GM Recognition}: When you see $A = c\sqrt{f(x)(k-f(x))}$ where $k$ is constant, AM-GM applies beautifully.
+    
+    \item \textbf{Quick Check}: After finding $x = \sqrt{2}$, verify it's in valid domain $(0, 2)$ before proceeding.
+    
+    \item \textbf{Answer Estimation}: Before detailed work, estimate: "Area should be around $1$ to $1.5$ based on dimensions." This helps catch gross errors.
+    
+    \item \textbf{Multiple Methods}: If you know calculus or trigonometry, these provide quick verification paths. But AM-GM is competition-standard and should be your first choice.
+    
+    \item \textbf{Geometric Insight}: The similar triangles method is elegant and worth knowing. It shows that optimization reduces to maximizing an isosceles triangle with fixed leg length (achieved at right angle).
+\end{enumerate}
+\end{tipbox}
+
+\section*{Final Answer}
+
+Using AM-GM inequality to optimize the area expression, we find that the maximum area is:
+
+\begin{equation*}
+\boxed{\textbf{(D) } \frac{3}{2}}
+\end{equation*}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% - Standard optimization problem with well-established AM-GM technique. Verified with direct calculation.
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Level 4 (Standard Verification)
+        \item Primary method: AM-GM inequality application
+        \item Cross-check: Direct substitution of $x = \sqrt{2}$ confirms answer
+        \item Reasonableness: Value of $1.5$ is plausible given constraints
+        \item Domain check: Optimal $x = \sqrt{2}$ satisfies $0 < x < 2$
+    \end{itemize}
+    \item \textbf{Flag for Review}: No - High confidence with algebraic verification
+    \item \textbf{Time Spent}: Approximately 3 minutes for solution + 1 minute for verification = 4 minutes total (within target range for P11)
+\end{itemize}
+
+\section*{Pattern Library Entry}
+
+\textbf{Problem Signature}: Geometric optimization with constraint
+
+\textbf{Recognition Cues}: 
+\begin{itemize}
+    \item Maximize/minimize area or length
+    \item Fixed constraints (leg lengths, base ratio)
+    \item Single degree of freedom
+    \item Product form in area expression
+\end{itemize}
+
+\textbf{Primary Technique}: AM-GM inequality for optimization
+
+\textbf{Key Formula}: For product $ab$ with $a+b = k$ constant, maximum is $\frac{k^2}{4}$ when $a = b = \frac{k}{2}$
+
+\textbf{Alternative Approaches}: 
+\begin{itemize}
+    \item Calculus (derivative)
+    \item Similar triangles (geometric reduction)
+    \item Trigonometric parametrization
+\end{itemize}
+
+\textbf{Common Traps}: Height formula errors, AM-GM misapplication, arithmetic mistakes
+
+\textbf{Time Estimate}: 3-5 minutes
+
+\textbf{Similar Problems}: AMC12 optimization problems (inscribed/circumscribed figures, constrained maxima), trapezoid geometry, AM-GM applications
+
+\end{document}
+

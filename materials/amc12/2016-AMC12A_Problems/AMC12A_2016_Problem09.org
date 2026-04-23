@@ -1,0 +1,29 @@
+2016 AMC 12A Problems/Problem 9
+Contents
+1 Problem 9
+2 Solution
+3 Solution 2
+4 Video Solution by OmegaLearn
+5 See Also
+Problem 9
+The five small shaded squares inside this unit square are congruent and have disjoint interiors. The midpoint of each side of the middle square coincides with one of the vertices of the other four small squares as shown. The common side length is $\tfrac{a-\sqrt{2}}{b}$ , where $a$ and $b$ are positive integers. What is $a+b$ ?
+[asy] real x=.369; draw((0,0)--(0,1)--(1,1)--(1,0)--cycle); filldraw((0,0)--(0,x)--(x,x)--(x,0)--cycle, gray); filldraw((0,1)--(0,1-x)--(x,1-x)--(x,1)--cycle, gray); filldraw((1,1)--(1,1-x)--(1-x,1-x)--(1-x,1)--cycle, gray); filldraw((1,0)--(1,x)--(1-x,x)--(1-x,0)--cycle, gray); filldraw((.5,.5-x*sqrt(2)/2)--(.5+x*sqrt(2)/2,.5)--(.5,.5+x*sqrt(2)/2)--(.5-x*sqrt(2)/2,.5)--cycle, gray); [/asy]
+$\textbf{(A)}\ 7\qquad\textbf{(B)}\ 8\qquad\textbf{(C)}\ 9\qquad\textbf{(D)}\ 10\qquad\textbf{(E)}\ 11$
+Solution
+Let $s$ be the side length of the small squares.
+The diagonal of the big square can be written in two ways: $\sqrt{2}$ and $s \sqrt{2} + s + s \sqrt{2}$ .
+Solving for $s$ , we get $s = \frac{4 - \sqrt{2}}{7}$ , so our answer is $4 + 7 \Rightarrow \boxed{\textbf{(E) } 11}$
+Solution 2
+The diagonal of the small square can be written in two ways: $s \sqrt(2)$ and $2*(1-2s).$ Equating and simplifying gives $s = \frac{4 - \sqrt{2}}{7}$ . Hence our answer is $4 + 7 \Rightarrow \boxed{\textbf{(E) } 11}.$
+Video Solution by OmegaLearn
+https://youtu.be/4_x1sgcQCp4?t=4036
+~ pi_is_3.14
+See Also
+2016 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 8 Followed by 
+ Problem 10
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions .
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions.

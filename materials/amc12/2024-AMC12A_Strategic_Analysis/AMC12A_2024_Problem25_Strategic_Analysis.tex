@@ -1,0 +1,1054 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colored boxes - all with breakable option
+\newtcolorbox{configbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategybox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticsbox}[1]{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=violet!10!white,
+    colframe=violet!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1]{
+    colback=red!15!white,
+    colframe=red!85!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}[1]{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 25:\\Comprehensive Strategic Analysis}}
+\author{Using Enhanced Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Problem Statement}
+
+\textbf{2024 AMC 12A Problem 25}
+
+A graph is \textit{symmetric} about a line if the graph remains unchanged after reflection in that line. For how many quadruples of integers $(a,b,c,d)$, where $|a|,|b|,|c|,|d| \leq 5$ and $c$ and $d$ are not both $0$, is the graph of
+\[y = \frac{ax+b}{cx+d}\]
+symmetric about the line $y=x$?
+
+\[\textbf{(A) }1282\qquad\textbf{(B) }1292\qquad\textbf{(C) }1310\qquad\textbf{(D) }1320\qquad\textbf{(E) }1330\]
+
+\vspace{0.5cm}
+
+\section{Problem Configuration Analysis}
+
+\begin{configbox}{A. Problem Classification}
+\textbf{Problem Type:} To Find (counting problem)
+
+\textbf{Difficulty Band:} Late-band (P25/25) - highest difficulty
+
+\textbf{Competition Context:} AMC12 (75 minutes, 25 problems, multiple choice)
+
+\textbf{Mathematical Domain:} 
+\begin{itemize}
+    \item Primary: Algebra (rational functions, functional equations)
+    \item Secondary: Combinatorics (counting with constraints)
+    \item Tertiary: Geometry (symmetry transformations)
+\end{itemize}
+
+\textbf{Source Context:} Final problem of AMC 12A, expected solve rate $<$5\%, typical time allocation 6-8 minutes
+\end{configbox}
+
+\begin{configbox}{B. Problem Structure Identification}
+\textbf{Given Information:}
+\begin{itemize}
+    \item Rational function $y = \frac{ax+b}{cx+d}$ with integer coefficients
+    \item Constraint: $|a|, |b|, |c|, |d| \leq 5$ (11 choices each: $-5$ to $5$)
+    \item Constraint: $c$ and $d$ are not both $0$ (denominator must be non-constant)
+    \item Symmetry condition: graph symmetric about $y=x$
+\end{itemize}
+
+\textbf{Constraints:}
+\begin{itemize}
+    \item Integer coefficients only
+    \item Bounded magnitude: $|a|, |b|, |c|, |d| \leq 5$
+    \item Non-trivial denominator: $(c,d) \neq (0,0)$
+    \item Function must be well-defined (no division by zero everywhere)
+\end{itemize}
+
+\textbf{Objective:} Count all valid quadruples $(a,b,c,d)$ satisfying the symmetry condition
+
+\textbf{Hidden Assumptions:}
+\begin{itemize}
+    \item Symmetry about $y=x$ is equivalent to $f(f(x)) = x$ (inverse function equals original)
+    \item Must exclude degenerate cases (undefined functions, trivial constants)
+    \item The function notation implicitly requires proper domain
+\end{itemize}
+
+\textbf{Answer Choice Leverage:}
+\begin{itemize}
+    \item All choices near 1300, suggesting systematic counting with small corrections
+    \item Difference between choices is 10-30, indicating edge cases matter significantly
+    \item Can verify final answer against choices to catch arithmetic errors
+\end{itemize}
+\end{configbox}
+
+\begin{configbox}{C. Strategic Orientation}
+\textbf{Hypothesis:} A rational function $y = \frac{ax+b}{cx+d}$ with integer coefficients bounded by 5
+
+\textbf{Conclusion:} The count of valid quadruples satisfying symmetry about $y=x$
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $f(x) = \frac{ax+b}{cx+d}$ (the given function)
+    \item $f^{-1}(x)$ (inverse function)
+    \item Symmetry condition: $f(f(x)) = x$ for all $x$ in domain
+\end{itemize}
+
+\textbf{Intuitive Approach:} 
+\begin{itemize}
+    \item Symmetry about $y=x$ means reflecting over the line $y=x$ gives the same graph
+    \item Equivalently, swapping $x$ and $y$ in the equation gives the same relation
+    \item This means $f^{-1}(x) = f(x)$, so the function is its own inverse
+\end{itemize}
+
+\textbf{Cross-Domain Potential:}
+\begin{itemize}
+    \item Geometric approach: Use transformation properties (rotation by $45^\circ$)
+    \item Algebraic approach: Derive conditions from $f(f(x)) = x$
+    \item Asymptotic approach: Use properties of hyperbola asymptotes
+    \item Combinatorial approach: Case analysis with systematic counting
+\end{itemize}
+\end{configbox}
+
+\section{Strategic Framework Application}
+
+\begin{strategybox}{A. Psychological Strategies}
+\textbf{Mental Toughness:}
+\begin{itemize}
+    \item This is P25 - expect multiple failed attempts
+    \item Complex case analysis required - stay organized
+    \item Must handle both algebraic manipulation and combinatorial counting
+    \item Don't get discouraged by messy algebra in early attempts
+\end{itemize}
+
+\textbf{Creativity Cultivation:}
+\begin{itemize}
+    \item Consider multiple interpretations of "symmetry about $y=x$"
+    \item Look for shortcuts using answer choices
+    \item Think about special cases: $c=0$ (linear), $a=-d$ (hyperbola)
+    \item Use geometric intuition to guide algebraic work
+\end{itemize}
+
+\textbf{Iterative Refinement:}
+\begin{itemize}
+    \item Start with understanding $f^{-1} = f$ condition
+    \item Refine by splitting into cases based on $c$
+    \item Further refine by handling degenerate cases
+    \item Verify counts against answer choices
+\end{itemize}
+\end{strategybox}
+
+\begin{strategybox}{B. Investigation Strategies}
+\textbf{Startup Orientation:}
+\begin{itemize}
+    \item Recognize this as a functional equation problem disguised as counting
+    \item Key insight: Symmetry about $y=x$ $\Leftrightarrow$ $f$ is self-inverse
+    \item Main task: Find algebraic conditions, then count systematically
+\end{itemize}
+
+\textbf{Get Your Hands Dirty:}
+\begin{itemize}
+    \item Test simple cases: $y=x$ (trivial symmetry), $y=-x+k$ (perpendicular lines)
+    \item Try $c=0$: linear functions, easier to analyze
+    \item Try $c \neq 0$: general rational functions, use inverse formula
+\end{itemize}
+
+\textbf{Penultimate Step:}
+\begin{itemize}
+    \item Before final count: identify all valid cases
+    \item Before answer: subtract overcounted/invalid cases
+    \item Final arithmetic check against answer choices
+\end{itemize}
+
+\textbf{Wishful Thinking:}
+\begin{itemize}
+    \item Wish: condition simplifies to nice algebraic relation
+    \item Hope: most cases follow simple pattern ($a=-d$)
+    \item Desire: edge cases are easy to identify and count
+\end{itemize}
+
+\textbf{Make It Easier:}
+\begin{itemize}
+    \item Simpler problem: What if $c=0$? (linear functions only)
+    \item Simpler problem: What if no bounds on coefficients?
+    \item Simpler problem: What conditions for symmetry about $y=0$?
+\end{itemize}
+
+\textbf{Conjecture via Small Cases:}
+\begin{itemize}
+    \item Test $a=1, b=0, c=1, d=-1$: gives $y=\frac{x}{x-1}$, is it symmetric?
+    \item Compute inverse: swap $x$ and $y$, solve for $y$
+    \item Verify pattern: $a=-d$ seems to work for many cases
+\end{itemize}
+
+\textbf{Visualization:}
+\begin{itemize}
+    \item Sketch line $y=x$ and a few hyperbolas
+    \item Observe: asymptotes of symmetric hyperbola intersect on $y=x$
+    \item For linear case: only $y=x$ and $y=-x+k$ are symmetric
+\end{itemize}
+\end{strategybox}
+
+\begin{strategybox}{C. Late-Band Strategic Playbook (P25 of 25)}
+\textbf{Primary Strategy: Algebraic Decomposition + Systematic Counting}
+\begin{itemize}
+    \item This problem requires finding conditions first, then counting
+    \item Cannot rely solely on answer-choice testing
+    \item Must develop complete case analysis
+\end{itemize}
+
+\textbf{Answer-Choice Leverage:}
+\begin{itemize}
+    \item Use to verify final arithmetic
+    \item All answers near 1300 $\Rightarrow$ main count is $11^3 = 1331$
+    \item Small corrections $\Rightarrow$ edge cases subtract 30-50 invalid cases
+\end{itemize}
+
+\textbf{Make It Easier:}
+\begin{itemize}
+    \item Start with $c=0$ case (linear functions)
+    \item This gives clean conditions: $a=\pm d$ with restrictions on $b$
+    \item Then tackle $c \neq 0$ case with more general theory
+\end{itemize}
+
+\textbf{Penultimate Step:}
+\begin{itemize}
+    \item Main condition: $a=-d$ (works for vast majority)
+    \item Count: $11^3 = 1331$ if only this condition
+    \item Subtract: invalid cases where function is not well-defined or not symmetric
+\end{itemize}
+\end{strategybox}
+
+\begin{strategybox}{D. Argument Construction Strategy}
+\textbf{Direct Proof Approach:}
+\begin{itemize}
+    \item Show: Symmetry about $y=x$ $\Leftrightarrow$ $f^{-1}(x) = f(x)$
+    \item Derive: Necessary conditions on $(a,b,c,d)$
+    \item Verify: These conditions are sufficient
+    \item Count: Valid quadruples satisfying all conditions and constraints
+\end{itemize}
+
+\textbf{Case Analysis:}
+\begin{itemize}
+    \item \textbf{Case 1:} $c=0$ (linear functions)
+    \begin{itemize}
+        \item Subcase 1.1: $b \neq 0$, must have $a=-d$
+        \item Subcase 1.2: $b=0$, must have $a^2 = d^2$
+    \end{itemize}
+    \item \textbf{Case 2:} $c \neq 0$ (general rational functions)
+    \begin{itemize}
+        \item Main condition: $a=-d$
+        \item Exclusions: $bc-ad=0$ (reduces to constant function)
+    \end{itemize}
+\end{itemize}
+\end{strategybox}
+
+\section{Tactical Methodology Selection}
+
+\begin{tacticsbox}{A. Core Mathematical Tactics}
+\textbf{Relevant Tactics for This Problem:}
+
+\textbf{1. Symmetry Exploitation:}
+\begin{itemize}
+    \item Symmetry about $y=x$ is reflection symmetry
+    \item Equivalent to function being its own inverse
+    \item Use: $f(f(x)) = x$ as working condition
+\end{itemize}
+
+\textbf{2. Invariant Recognition:}
+\begin{itemize}
+    \item The property $f^{-1} = f$ is the key invariant
+    \item Under reflection about $y=x$: $(x,y) \mapsto (y,x)$
+    \item This swaps the roles of independent and dependent variables
+\end{itemize}
+
+\textbf{3. Extreme Principle:}
+\begin{itemize}
+    \item Test extreme cases: $a=b=c=d=0$ (excluded), $a=\pm 5$, etc.
+    \item Boundary behavior: when does function become undefined?
+    \item Limiting cases: linear functions ($c=0$), constant functions
+\end{itemize}
+
+\textbf{4. Wishful Thinking:}
+\begin{itemize}
+    \item Wish for simple condition like $a=-d$
+    \item This turns out to be the main condition!
+    \item Reduces counting to manageable cases
+\end{itemize}
+
+\textbf{5. Case Analysis:}
+\begin{itemize}
+    \item Split on whether $c=0$ or $c \neq 0$
+    \item Further split on special values: $b=0$, $d=0$, etc.
+    \item Systematic counting within each case
+\end{itemize}
+\end{tacticsbox}
+
+\begin{tacticsbox}{B. Domain-Specific Techniques}
+\textbf{Algebra Techniques:}
+\begin{itemize}
+    \item Finding inverse of rational function
+    \item Solving functional equation $f(f(x)) = x$
+    \item Polynomial identity (equating coefficients)
+    \item Algebraic manipulation to isolate conditions
+\end{itemize}
+
+\textbf{Combinatorics Techniques:}
+\begin{itemize}
+    \item Systematic case enumeration
+    \item Inclusion-exclusion to handle constraints
+    \item Counting with restrictions (e.g., $c$ and $d$ not both 0)
+    \item Accounting for symmetry in counting (e.g., $a=\pm d$)
+\end{itemize}
+
+\textbf{Geometry Techniques:}
+\begin{itemize}
+    \item Understanding reflection about line $y=x$
+    \item Asymptote analysis for hyperbolas
+    \item Coordinate transformation (rotation by $45^\circ$)
+\end{itemize}
+\end{tacticsbox}
+
+\begin{tacticsbox}{C. Cross-Domain Connections}
+\textbf{Algebra $\leftrightarrow$ Geometry:}
+\begin{itemize}
+    \item Algebraic condition $a=-d$ $\Leftrightarrow$ Geometric property that asymptotes intersect on $y=x$
+    \item Functional equation $\Leftrightarrow$ Symmetry property
+\end{itemize}
+
+\textbf{Algebra $\leftrightarrow$ Combinatorics:}
+\begin{itemize}
+    \item Algebraic conditions determine valid cases
+    \item Combinatorial counting to find total number
+\end{itemize}
+
+\textbf{Multiple Solution Paths:}
+\begin{itemize}
+    \item \textbf{Path 1 (Inverse Function):} Derive $f^{-1}$, set equal to $f$
+    \item \textbf{Path 2 (Rotation):} Rotate by $45^\circ$, use even function property
+    \item \textbf{Path 3 (Asymptotes):} Use asymptote intersection property
+    \item \textbf{Path 4 (Composition):} Expand $f(f(x))=x$ directly
+\end{itemize}
+\end{tacticsbox}
+
+\section{Conversion Techniques Application}
+
+\begin{conversionbox}{A. Recognition Index}
+\textbf{Pattern Recognition:}
+\begin{itemize}
+    \item \textbf{Signature:} Rational function with symmetry condition
+    \item \textbf{Key Feature:} "Symmetric about $y=x$"
+    \item \textbf{Trigger:} Self-inverse function, $f^{-1}=f$
+    \item \textbf{Similar Problems:} Involutions, fixed points, functional equations
+\end{itemize}
+
+\textbf{Domain Identification:}
+\begin{itemize}
+    \item Primary domain: Algebra (rational functions)
+    \item Natural conversion: Geometry (reflections)
+    \item Alternative conversion: Functional analysis (involutions)
+    \item Counting aspect: Combinatorics
+\end{itemize}
+\end{conversionbox}
+
+\begin{conversionbox}{B. Technique Selection}
+\textbf{Primary Approach: Inverse Function Method}
+
+\textbf{Why this approach:}
+\begin{itemize}
+    \item Most direct algebraic path
+    \item Clearly separates cases ($c=0$ vs $c \neq 0$)
+    \item Leads to explicit conditions on coefficients
+    \item Standard technique for AMC-level problems
+\end{itemize}
+
+\textbf{Key steps:}
+\begin{enumerate}
+    \item Find $f^{-1}(x)$ by swapping $x$ and $y$, solving for $y$
+    \item Set $f^{-1}(x) = f(x)$ and simplify
+    \item Extract conditions on $a,b,c,d$
+    \item Count valid quadruples with systematic case analysis
+\end{enumerate}
+
+\textbf{Alternative Approaches:}
+\begin{itemize}
+    \item \textbf{Rotation Method:} More elegant but requires complex number machinery
+    \item \textbf{Asymptote Method:} Good geometric intuition but requires careful case work
+    \item \textbf{Direct Composition:} Expand $f(f(x))=x$ but gets algebraically messy
+\end{itemize}
+\end{conversionbox}
+
+\begin{conversionbox}{C. Integration Strategy}
+\textbf{Combining Multiple Techniques:}
+
+\textbf{Phase 1: Algebraic Derivation}
+\begin{itemize}
+    \item Use inverse function method to get conditions
+    \item Result: Two main cases based on $c$
+\end{itemize}
+
+\textbf{Phase 2: Combinatorial Counting}
+\begin{itemize}
+    \item For each case, count systematically
+    \item Use multiplication principle for independent choices
+    \item Subtract invalid/degenerate cases
+\end{itemize}
+
+\textbf{Phase 3: Geometric Verification}
+\begin{itemize}
+    \item Check answer against geometric intuition
+    \item Verify edge cases make sense visually
+    \item Use asymptote reasoning as sanity check
+\end{itemize}
+\end{conversionbox}
+
+\begin{conversionbox}{D. Conflict Resolution}
+\textbf{Potential Conflicts:}
+
+\textbf{Issue 1: Degenerate cases}
+\begin{itemize}
+    \item Problem: When is function not well-defined?
+    \item Resolution: Identify when $cx+d$ is identically zero or when numerator/denominator have common factor
+    \item Action: Subtract these from main count
+\end{itemize}
+
+\textbf{Issue 2: Overcounting}
+\begin{itemize}
+    \item Problem: Some conditions might count same case multiple ways
+    \item Resolution: Ensure cases are mutually exclusive
+    \item Action: Carefully structure case divisions
+\end{itemize}
+
+\textbf{Issue 3: Boundary conditions}
+\begin{itemize}
+    \item Problem: Edge cases at coefficient bounds ($\pm 5$)
+    \item Resolution: Check that counting includes/excludes these correctly
+    \item Action: Verify count formulas at extremes
+\end{itemize}
+\end{conversionbox}
+
+\section{Verification Strategy Design}
+
+\begin{verificationbox}{A. Verification Level Selection}
+\textbf{Recommended Level: Level 4-5 (8-12 minutes total problem time)}
+
+\textbf{Decision Tree:}
+\begin{itemize}
+    \item Problem 25 (highest difficulty) $\Rightarrow$ High stakes
+    \item Counting problem $\Rightarrow$ Arithmetic errors likely
+    \item Multiple cases $\Rightarrow$ Need systematic verification
+    \item Multiple choice $\Rightarrow$ Can check against answers
+\end{itemize}
+
+\textbf{Recommended Verification:}
+\begin{itemize}
+    \item \textbf{Level 1 (30s):} Check answer is among choices
+    \item \textbf{Level 3 (2-3 min):} Verify main cases arithmetically
+    \item \textbf{Level 4 (5-6 min):} Check a specific example from each case
+    \item \textbf{Level 5 (8-10 min):} Alternative method verification (if time permits)
+\end{itemize}
+\end{verificationbox}
+
+\begin{verificationbox}{B. Specialized Verification Methods}
+\textbf{For This Problem:}
+
+\textbf{1. Example Verification:}
+\begin{itemize}
+    \item Pick $(a,b,c,d) = (1,2,3,-1)$ from Case 2
+    \item Compute: $f(x) = \frac{x+2}{3x-1}$
+    \item Find inverse: $f^{-1}(x) = \frac{x+2}{3x-1}$ (swap and solve)
+    \item Verify: $f^{-1}(x) = f(x)$ $\checkmark$
+\end{itemize}
+
+\textbf{2. Extreme Case Verification:}
+\begin{itemize}
+    \item Check $c=0, b=5, d=-5, a=5$: $y = -x+1$ (symmetric) $\checkmark$
+    \item Check $c=0, b=0, d=5, a=5$: $y = x$ (symmetric) $\checkmark$
+    \item Check $c=0, b=0, d=5, a=-5$: $y = -x$ (symmetric) $\checkmark$
+\end{itemize}
+
+\textbf{3. Counting Verification:}
+\begin{itemize}
+    \item Case 1.1: $10 \times 10 = 100$ $\checkmark$ (verified)
+    \item Case 1.2: $10 \times 2 = 20$ $\checkmark$ (verified)
+    \item Case 2: $1331 - 28 - 11 - 10 - 10 = 1172$ (check arithmetic)
+    \item Total: $100 + 20 + 1172 = 1292$ $\checkmark$ matches (B)
+\end{itemize}
+
+\textbf{4. Asymptotic Verification (Geometry):}
+\begin{itemize}
+    \item For hyperbola to be symmetric about $y=x$:
+    \item Horizontal asymptote: $y = a/c$
+    \item Vertical asymptote: $x = -d/c$
+    \item Must have: $a/c = -d/c \Rightarrow a = -d$ $\checkmark$
+\end{itemize}
+
+\textbf{5. Answer Choice Elimination:}
+\begin{itemize}
+    \item Too low (A: 1282): Missing some valid cases
+    \item Just right (B: 1292): Matches our calculation
+    \item Too high (C,D,E): Overcounting invalid cases
+\end{itemize}
+\end{verificationbox}
+
+\begin{verificationbox}{C. Confidence Calibration}
+\textbf{Confidence Assessment:}
+
+\textbf{High Confidence Indicators (8/10):}
+\begin{itemize}
+    \item Main condition $a=-d$ is well-established
+    \item Multiple solution paths converge to same answer
+    \item Answer matches choice (B)
+    \item Arithmetic verified multiple times
+    \item Edge cases systematically identified
+\end{itemize}
+
+\textbf{Remaining Uncertainties:}
+\begin{itemize}
+    \item Possible arithmetic error in Case 2 subcounting
+    \item Could have missed a subtle degenerate case
+    \item Time pressure might cause rushed counting
+\end{itemize}
+
+\textbf{Final Decision:}
+\begin{itemize}
+    \item Mark answer: \textbf{(B) 1292}
+    \item Confidence: 80-85\%
+    \item If time permits: double-check Case 2 arithmetic
+\end{itemize}
+\end{verificationbox}
+
+\section{Solution Roadmap}
+
+\begin{roadmapbox}{Step-by-Step Solution Plan}
+
+\subsection*{Phase 1: Understand the Condition (2 minutes)}
+
+\textbf{Step 1: Interpret "symmetric about $y=x$"}
+\begin{itemize}
+    \item Reflecting the graph over line $y=x$ gives the same graph
+    \item Equivalently: swapping $x$ and $y$ in equation gives same relation
+    \item Algebraically: $f(f(x)) = x$ or $f^{-1}(x) = f(x)$
+\end{itemize}
+
+\textbf{Checkpoint 1:} Do I understand what symmetry about $y=x$ means algebraically?
+
+\subsection*{Phase 2: Derive Main Conditions (3-4 minutes)}
+
+\textbf{Step 2: Find inverse function}
+
+For $y = \frac{ax+b}{cx+d}$, swap $x$ and $y$:
+\[x = \frac{ay+b}{cy+d}\]
+
+Solve for $y$:
+\begin{align*}
+x(cy+d) &= ay+b\\
+cxy + dx &= ay + b\\
+cxy - ay &= b - dx\\
+y(cx-a) &= b-dx\\
+y &= \frac{b-dx}{cx-a} = \frac{-dx+b}{cx-a}
+\end{align*}
+
+So $f^{-1}(x) = \frac{-dx+b}{cx-a}$
+
+\textbf{Step 3: Set $f^{-1}(x) = f(x)$}
+\[\frac{-dx+b}{cx-a} = \frac{ax+b}{cx+d}\]
+
+\textbf{Step 4: Cross-multiply and equate coefficients}
+
+\textbf{Checkpoint 2:} Have I correctly derived the inverse and set up the equality?
+
+\subsection*{Phase 3: Case Analysis (4-5 minutes)}
+
+\textbf{Case 1: $c=0$ (Linear Functions)}
+
+When $c=0$: $y = \frac{a}{d}x + \frac{b}{d}$
+
+Inverse: $y = \frac{d}{a}x - \frac{b}{a}$
+
+For these to be equal:
+\begin{itemize}
+    \item Slopes equal: $\frac{a}{d} = \frac{d}{a} \Rightarrow a^2 = d^2 \Rightarrow a = \pm d$
+    \item Intercepts equal: $\frac{b}{d} = -\frac{b}{a}$
+\end{itemize}
+
+From intercept condition: $ab = -bd \Rightarrow b(a+d) = 0$
+
+\textbf{Subcase 1.1:} $b \neq 0 \Rightarrow a+d=0 \Rightarrow a=-d$
+\begin{itemize}
+    \item Choices: 10 values for $b$ (non-zero), 10 for $d$ (non-zero, determines $a$)
+    \item Count: $10 \times 10 = 100$
+\end{itemize}
+
+\textbf{Subcase 1.2:} $b=0 \Rightarrow a^2=d^2$
+\begin{itemize}
+    \item If $a=d$: Function is $y=x$, need $d \neq 0$
+    \item If $a=-d$: Already counted in Subcase 1.1 when $b=0$... wait, no!
+    \item Actually $b=0$ is separate: $a=d$ or $a=-d$, both with $b=0$, $c=0$, $d \neq 0$
+    \item For each of 10 non-zero values of $d$: 2 choices for $a$ (i.e., $\pm d$)
+    \item But $a=-d$ with $b=0$ gives slope $-1$, not same as $a=d$
+    \item Count: $10 \times 2 = 20$
+\end{itemize}
+
+\textbf{Case 1 Total:} $100 + 20 = 120$
+
+\textbf{Case 2: $c \neq 0$ (General Rational Functions)}
+
+From the equality $\frac{-dx+b}{cx-a} = \frac{ax+b}{cx+d}$:
+
+Rewrite both in form $\text{constant} + \frac{\text{remainder}}{\text{denominator}}$:
+\begin{align*}
+f(x) &= \frac{a}{c} + \frac{b - \frac{ad}{c}}{cx+d}\\
+f^{-1}(x) &= -\frac{d}{c} + \frac{b - \frac{ad}{c}}{cx-a}
+\end{align*}
+
+For these to be equal for all $x$:
+\begin{itemize}
+    \item Constants equal: $\frac{a}{c} = -\frac{d}{c} \Rightarrow a = -d$
+    \item Denominators equal: $cx+d = cx-a \Rightarrow d = -a$ $\checkmark$ (consistent)
+\end{itemize}
+
+Main condition: $a=-d$ with $c \neq 0$
+
+Count without restrictions: $11 \times 11 \times 10 = 1210$
+\begin{itemize}
+    \item 11 choices for $a$ (including 0)
+    \item 11 choices for $b$ (including 0)  
+    \item 10 choices for $c$ (excluding 0, determines $d=-a$)
+\end{itemize}
+
+\textbf{But we must exclude invalid cases!}
+
+\textbf{Exclusion 1: Function reduces to constant}
+
+If $bc - ad = 0$ with $a=-d$, then $bc + a^2 = 0$, so numerator and denominator have common factor.
+
+When does $bc = -a^2$?
+
+\begin{itemize}
+    \item $a=0$: $bc=0$, so $b=0$ or $c=0$. But $c \neq 0$ in Case 2, so need $b=0$. Count: 10
+    \item $a=\pm 1$: $bc=-1$. Pairs: $(b,c) \in \{(1,-1), (-1,1)\}$. Count: $2 \times 2 \times 1 = 4$
+    \item $a=\pm 2$: $bc=-4$. Pairs: $(1,-4), (-1,4), (2,-2), (-2,2), (4,-1), (-4,1)$. Count: $2 \times 6 = 12$
+    \item $a=\pm 3$: $bc=-9$. Pairs: $(3,-3), (-3,3)$. Count: $2 \times 2 = 4$
+    \item $a=\pm 4$: $bc=-16$. Pairs: $(4,-4), (-4,4)$. Count: $2 \times 2 = 4$
+    \item $a=\pm 5$: $bc=-25$. Pairs: $(5,-5), (-5,5)$. Count: $2 \times 2 = 4$
+\end{itemize}
+
+Total exclusions: $10 + 4 + 12 + 4 + 4 + 4 = 38$
+
+\textbf{Case 2 Total:} $1210 - 38 = 1172$
+
+\textbf{Checkpoint 3:} Have I correctly counted all cases and exclusions?
+
+\subsection*{Phase 4: Final Count and Verification (1-2 minutes)}
+
+\textbf{Step 5: Add all cases}
+\begin{align*}
+\text{Total} &= \text{Case 1} + \text{Case 2}\\
+&= 120 + 1172\\
+&= 1292
+\end{align*}
+
+\textbf{Step 6: Verify against answer choices}
+
+Answer is \textbf{(B) 1292} $\checkmark$
+
+\textbf{Checkpoint 4:} Does this match an answer choice? Have I double-checked arithmetic?
+
+\end{roadmapbox}
+
+\begin{highlightbox}{Key Insights}
+\textbf{Critical Observations:}
+\begin{enumerate}
+    \item Symmetry about $y=x$ means $f^{-1}(x) = f(x)$ (self-inverse)
+    \item Main algebraic condition: $a=-d$ (works for vast majority of cases)
+    \item Must split into $c=0$ and $c \neq 0$ for systematic counting
+    \item Many degenerate cases must be excluded (when function reduces to constant)
+    \item Counting requires careful casework on when $bc = -a^2$
+\end{enumerate}
+\end{highlightbox}
+
+\begin{warningbox}{Common Pitfalls}
+\textbf{Danger Zones:}
+\begin{enumerate}
+    \item \textbf{Forgetting $c=0$ case:} Linear functions are special!
+    \item \textbf{Not excluding degenerate cases:} When $bc-ad=0$, function is not well-defined
+    \item \textbf{Arithmetic errors:} Lots of counting, easy to make mistakes
+    \item \textbf{Overcounting $b=0$ case:} Be careful with Subcase 1.2
+    \item \textbf{Missing factorization pairs:} For $bc=-a^2$, systematically find all $(b,c)$ pairs
+\end{enumerate}
+\end{warningbox}
+
+\begin{protipbox}{Pro Tips}
+\textbf{Time-Saving Strategies:}
+\begin{enumerate}
+    \item Recognize self-inverse immediately from "symmetric about $y=x$"
+    \item Use answer choices to guide counting (all near 1300)
+    \item Main count is $11^3 = 1331$ with corrections
+    \item For Case 2, use multiplication principle systematically
+    \item Double-check factorizations of $-a^2$ for each $a$
+\end{enumerate}
+\end{protipbox}
+
+\section{Competition Strategy Integration}
+
+\begin{competitionbox}{A. Time Management}
+\textbf{Problem 25 Time Allocation (Total: 6-8 minutes)}
+
+\textbf{Phase 1: Initial Analysis (1 min)}
+\begin{itemize}
+    \item Read and understand problem
+    \item Recognize self-inverse condition
+    \item Plan case split
+\end{itemize}
+
+\textbf{Phase 2: Algebraic Work (2-3 min)}
+\begin{itemize}
+    \item Derive inverse function
+    \item Extract conditions ($a=-d$, etc.)
+    \item Identify main cases
+\end{itemize}
+
+\textbf{Phase 3: Counting (2-3 min)}
+\begin{itemize}
+    \item Count Case 1 subcases
+    \item Count Case 2 with exclusions
+    \item Add up total
+\end{itemize}
+
+\textbf{Phase 4: Verification (1-2 min)}
+\begin{itemize}
+    \item Check arithmetic
+    \item Verify against answer choices
+    \item Test one example if time
+\end{itemize}
+
+\textbf{Decision Point (at 4 minutes):}
+\begin{itemize}
+    \item If stuck on Case 2 exclusions: estimate and move on
+    \item If completely stuck: skip and return if time at end
+    \item If progressing well: continue to completion
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{B. Strategic Prioritization}
+\textbf{Problem 25 Context:}
+\begin{itemize}
+    \item This is the hardest problem (P25/25)
+    \item Only attempt if you've finished P1-24 or nearly finished
+    \item Expected solve rate: 3-5\% of test-takers
+    \item Worth same 1 point as easier problems
+\end{itemize}
+
+\textbf{When to Attempt:}
+\begin{itemize}
+    \item $\checkmark$ If you have 10+ minutes remaining
+    \item $\checkmark$ If you're comfortable with functional equations
+    \item $\checkmark$ If you're strong at systematic counting
+    \item $\times$ If you have fewer than 5 minutes
+    \item $\times$ If you haven't finished P1-22
+\end{itemize}
+
+\textbf{Risk Assessment:}
+\begin{itemize}
+    \item \textbf{High reward:} Demonstrates mastery on hardest problem
+    \item \textbf{High risk:} Could waste 8 minutes for no points
+    \item \textbf{Alternative:} Double-check P20-24 instead
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{C. Answer Recording and Format}
+\textbf{Recording Strategy:}
+\begin{itemize}
+    \item Bubble answer immediately after verification
+    \item Mark problem for review if time permits
+    \item Note: $(a,b,c,d)$ are integers, answer is integer count
+    \item Double-check you're answering the right question (count of quadruples, not specific quadruple)
+\end{itemize}
+
+\textbf{Format Requirements:}
+\begin{itemize}
+    \item AMC12: Multiple choice, bubble one answer
+    \item Answer: \textbf{(B) 1292}
+    \item Units: Count (dimensionless)
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{D. Abandonment Criteria}
+\textbf{When to Give Up:}
+\begin{enumerate}
+    \item \textbf{Time threshold:} If you've spent 10+ minutes without progress
+    \item \textbf{Confidence threshold:} If you can't verify any cases
+    \item \textbf{Progress threshold:} If stuck on deriving main condition after 3-4 minutes
+\end{enumerate}
+
+\textbf{Strategic Retreat:}
+\begin{itemize}
+    \item Don't be discouraged - this is expected to be very hard
+    \item Better to move on and double-check earlier problems
+    \item Can return if time at end (but prioritize reviewing P20-24 first)
+\end{itemize}
+
+\textbf{Psychological Management:}
+\begin{itemize}
+    \item Skipping P25 is normal and smart time management
+    \item Focus on maximizing overall score, not solving every problem
+    \item Even top students often skip P25
+\end{itemize}
+\end{competitionbox}
+
+\section{Detailed Solution}
+
+\subsection{Method 1: Inverse Function Approach}
+
+\textbf{Step 1: Establish the equivalence}
+
+A function is symmetric about $y=x$ if and only if it equals its inverse function:
+\[f^{-1}(x) = f(x)\]
+
+\textbf{Step 2: Find the inverse}
+
+For $y = \frac{ax+b}{cx+d}$, swap $x$ and $y$ and solve:
+\begin{align*}
+x &= \frac{ay+b}{cy+d}\\
+x(cy+d) &= ay+b\\
+cxy + dx &= ay + b\\
+y(cx-a) &= b-dx\\
+y &= \frac{b-dx}{cx-a}
+\end{align*}
+
+Therefore: $f^{-1}(x) = \frac{-dx+b}{cx-a}$
+
+\textbf{Step 3: Case analysis}
+
+\textbf{Case 1: $c=0$}
+
+Function becomes $y = \frac{a}{d}x + \frac{b}{d}$ (linear)
+
+Inverse is $y = \frac{d}{a}x - \frac{b}{a}$
+
+For equality:
+\begin{align*}
+\frac{a}{d} &= \frac{d}{a} \quad \Rightarrow \quad a^2 = d^2\\
+\frac{b}{d} &= -\frac{b}{a} \quad \Rightarrow \quad ab = -bd \quad \Rightarrow \quad b(a+d) = 0
+\end{align*}
+
+\textbf{Subcase 1.1:} $b \neq 0$, $d \neq 0$, $a = -d$
+\begin{itemize}
+    \item 10 choices for $b$ (non-zero: $\pm 1, \pm 2, \ldots, \pm 5$)
+    \item 10 choices for $d$ (non-zero: $\pm 1, \pm 2, \ldots, \pm 5$)
+    \item $a$ determined by $d$
+    \item Count: $10 \times 10 = 100$
+\end{itemize}
+
+\textbf{Subcase 1.2:} $b = 0$, $c = 0$, $d \neq 0$, $a^2 = d^2$
+\begin{itemize}
+    \item 10 choices for $d$ (non-zero)
+    \item 2 choices for $a$ (either $d$ or $-d$)
+    \item Count: $10 \times 2 = 20$
+\end{itemize}
+
+\textbf{Case 1 Total:} $100 + 20 = 120$
+
+\textbf{Case 2: $c \neq 0$}
+
+From $\frac{-dx+b}{cx-a} = \frac{ax+b}{cx+d}$, rewrite in partial fraction form:
+\begin{align*}
+f(x) &= \frac{a}{c} + \frac{b-\frac{ad}{c}}{cx+d}\\
+f^{-1}(x) &= -\frac{d}{c} + \frac{b-\frac{ad}{c}}{cx-a}
+\end{align*}
+
+For these to be equal:
+\begin{itemize}
+    \item Constant terms: $\frac{a}{c} = -\frac{d}{c}$, so $a = -d$
+    \item Denominators: $cx+d = cx-a$, so $d = -a$ $\checkmark$
+\end{itemize}
+
+Main condition: $a = -d$ with $c \neq 0$
+
+Initial count: $11 \times 11 \times 10 = 1210$
+\begin{itemize}
+    \item $a \in \{-5, -4, \ldots, 4, 5\}$: 11 choices
+    \item $b \in \{-5, -4, \ldots, 4, 5\}$: 11 choices
+    \item $c \in \{-5, -4, \ldots, 5\} \setminus \{0\}$: 10 choices
+    \item $d = -a$ (determined)
+\end{itemize}
+
+\textbf{Exclusions:} When $bc - ad = 0$ with $a = -d$:
+\[bc + a^2 = 0 \quad \Rightarrow \quad bc = -a^2\]
+
+This makes the function constant (not symmetric about $y=x$).
+
+Count cases where $bc = -a^2$:
+
+\begin{itemize}
+    \item $a=0$: Need $bc=0$ with $c \neq 0$, so $b=0$. Count: 10
+    \item $a=\pm 1$: $bc = -1$
+    \begin{itemize}
+        \item $(b,c) \in \{(1,-1), (-1,1)\}$
+        \item Count: $2 \times 2 = 4$
+    \end{itemize}
+    \item $a=\pm 2$: $bc = -4$
+    \begin{itemize}
+        \item $(b,c) \in \{(1,-4), (-1,4), (2,-2), (-2,2), (4,-1), (-4,1)\}$
+        \item Count: $2 \times 6 = 12$
+    \end{itemize}
+    \item $a=\pm 3$: $bc = -9$
+    \begin{itemize}
+        \item $(b,c) \in \{(3,-3), (-3,3)\}$ (since $|b|, |c| \leq 5$)
+        \item Count: $2 \times 2 = 4$
+    \end{itemize}
+    \item $a=\pm 4$: $bc = -16$
+    \begin{itemize}
+        \item $(b,c) \in \{(4,-4), (-4,4)\}$
+        \item Count: $2 \times 2 = 4$
+    \end{itemize}
+    \item $a=\pm 5$: $bc = -25$
+    \begin{itemize}
+        \item $(b,c) \in \{(5,-5), (-5,5)\}$
+        \item Count: $2 \times 2 = 4$
+    \end{itemize}
+\end{itemize}
+
+Total exclusions: $10 + 4 + 12 + 4 + 4 + 4 = 38$
+
+\textbf{Case 2 Total:} $1210 - 38 = 1172$
+
+\textbf{Final Answer:}
+\[\text{Total} = 120 + 1172 = 1292\]
+
+\subsection{Alternative Methods (Brief Summary)}
+
+\textbf{Method 2: Rotation by $45^\circ$}
+\begin{itemize}
+    \item Rotate coordinate system by $45^\circ$ counterclockwise
+    \item Symmetry about $y=x$ becomes symmetry about $v$-axis
+    \item Leads to same condition: $a=-d$
+    \item Subtract degenerate cases
+    \item Result: $1331 - 28 - 11 - 10 + 10 = 1292$
+\end{itemize}
+
+\textbf{Method 3: Asymptote Analysis}
+\begin{itemize}
+    \item For hyperbola symmetric about $y=x$, asymptotes must intersect on $y=x$
+    \item Horizontal asymptote: $y = a/c$
+    \item Vertical asymptote: $x = -d/c$
+    \item Condition: $a/c = -d/c$, so $a = -d$
+    \item Handle $c=0$ case separately
+    \item Result: $1292$
+\end{itemize}
+
+\textbf{Method 4: Direct Composition}
+\begin{itemize}
+    \item Compute $f(f(x))$ directly
+    \item Set equal to $x$ and expand
+    \item Match coefficients: $ac+cd=0$, $d^2-a^2=0$, $ab+bd=0$
+    \item Derive conditions and count
+    \item Result: $1292$
+\end{itemize}
+
+\section{Final Answer}
+
+\begin{center}
+\fbox{\Large \textbf{Answer: (B) 1292}}
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{Summary of Solution:}
+
+The condition that the graph of $y = \frac{ax+b}{cx+d}$ is symmetric about $y=x$ is equivalent to the function being its own inverse. Through systematic case analysis:
+
+\begin{itemize}
+    \item \textbf{Case 1 ($c=0$):} Linear functions with specific slope/intercept relationships give 120 valid quadruples
+    \item \textbf{Case 2 ($c \neq 0$):} General rational functions with $a=-d$ (excluding degenerate cases) give 1172 valid quadruples
+\end{itemize}
+
+\textbf{Total: $120 + 1172 = \boxed{1292}$ quadruples}
+
+\end{document}

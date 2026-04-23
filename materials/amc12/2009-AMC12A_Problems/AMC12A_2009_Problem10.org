@@ -1,0 +1,22 @@
+2009 AMC 12A Problems/Problem 10
+Problem
+In quadrilateral $ABCD$ , $AB = 5$ , $BC = 17$ , $CD = 5$ , $DA = 9$ , and $BD$ is an integer. What is $BD$ ?
+[asy] unitsize(4mm); defaultpen(linewidth(.8pt)+fontsize(8pt)); dotfactor=4; pair C=(0,0), B=(17,0); pair D=intersectionpoints(Circle(C,5),Circle(B,13))[0]; pair A=intersectionpoints(Circle(D,9),Circle(B,5))[0]; pair[] dotted={A,B,C,D}; draw(D--A--B--C--D--B); dot(dotted); label("$D$",D,NW); label("$C$",C,W); label("$B$",B,E); label("$A$",A,NE); [/asy]
+$\textbf{(A)}\ 11 \qquad \textbf{(B)}\ 12 \qquad \textbf{(C)}\ 13 \qquad \textbf{(D)}\ 14 \qquad \textbf{(E)}\ 15$
+Solution
+By the triangle inequality we have $BD < DA + AB = 9 + 5 = 14$ , and also $BD + CD > BC$ , hence $BD > BC - CD = 17 - 5 = 12$ .
+We get that $12 < BD < 14$ , and as we know that $BD$ is an integer, we must have $BD=\boxed{13}$ .
+See Also
+2009 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 9 Followed by 
+ Problem 11
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2009 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

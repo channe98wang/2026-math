@@ -1,0 +1,47 @@
+2001 AMC 12 Problems/Problem 17
+Contents
+1 Problem
+2 Solution
+3 Solution 1.5
+4 Solution 2
+5 Video Solution
+6 See Also
+Problem
+A point $P$ is selected at random from the interior of the pentagon with vertices $A = (0,2)$ , $B = (4,0)$ , $C = (2 \pi + 1, 0)$ , $D = (2 \pi + 1,4)$ , and $E=(0,4)$ . What is the probability that $\angle APB$ is obtuse?
+$\text{(A) }\frac {1}{5} \qquad \text{(B) }\frac {1}{4} \qquad \text{(C) }\frac {5}{16} \qquad \text{(D) }\frac {3}{8} \qquad \text{(E) }\frac {1}{2}$
+Solution
+The angle $APB$ is obtuse if and only if $P$ lies inside the circle with diameter $AB$ . (This follows for example from the fact that the inscribed angle is half of the central angle for the same arc.)
+[asy] defaultpen(0.8); real pi=3.14159265359; pair A=(0,2), B=(4,0), C=(2*pi+1, 0), D=(2*pi+1,4), E=(0,4), F=(0,0); draw(A--B--C--D--E--cycle); draw(circle((A+B)/2,length(B-A)/2)); label("$A$",A,W); label("$B$",B,SE); label("$C$",C,SE); label("$D$",D,NE); label("$E$",E,NW); label("$F$",F,SW); draw(A--F--B,dashed); [/asy]
+The area of $AFB$ is $[AFB] = \frac {AF\cdot FB}2 = 4$ , and the area of $ABCDE$ is $CD\cdot DE - [AFB] = 4\cdot (2\pi+1) - 4 = 8\pi$ .
+From the Pythagorean theorem the length of $AB$ is $\sqrt{2^2 + 4^2} = 2\sqrt{5}$ , thus the radius of the circle is $\sqrt{5}$ , and the area of the half-circle that is inside $ABCDE$ is $\frac{ 5\pi }2$ .
+Therefore the probability that $APB$ is obtuse is $\frac{ \frac{ 5\pi }2 }{ 8\pi } = \boxed{\text{(C) } \frac 5{16}}$ .
+Solution 1.5
+Remember that an obtuse angle is any angle greater than a right angle (90 degrees). This means that if we can figure out all of the points at which $P$ creates a right angle with $A$ and $B$ , any points within these bounds will yield an obtuse angle. Notice that by the Pythagorean theorem , the length of $AB$ is $2\sqrt{5}$ . Also notice that when there is a right angle at $P$ , $AB$ becomes the hypotenuse. Therefore, the sum of the squares of lengths $AP$ and $BP$ (or the "legs") must equal $AB^2$ , or $20$ . This can be written as an equation.
+If Point $P$ is situated at $(x, y)$ , then the distance from $P$ to $A$ is as follows: $\sqrt{|x-0|^2 + |y-2|^2}$ . Accordingly, the distance from $P$ to $B$ is $\sqrt{|x-4|^2 + |y-0|^2}$ . Since absolute value and squaring (because we will be squaring the lengths) both eliminate negatives, we can ignore the absolute value and solve. Setting the sum of the squares of these lengths equal to 20 yields $x^2 - 4x + y^2 - 2y = 0$ . Completing the square for both $x$ and $y$ , we get $(x-2)^2 + (y-1)^2 = 5$ , or the equation of a circle with center $(2,1)$ and radius $\sqrt{5}$ . Graphing both the pentagon and the circle, we see that the area enclosed is a semicircle. This is $\frac{2\pi*(\sqrt{5})^2}{2}$ or $\frac{5\pi}{2}$ .
+Calculating the area of the pentagon yields $16\pi$ . The probability of point P being within the bounds of the semicircle is then $\frac{5\pi}{16\pi}$ $\rightarrow$ $\frac{5}{16}$ or $\boxed{\text{(C)}}$ .
+Solution 2
+(Alcumus Solution)
+Since $\angle APB = 90^{\circ}$ if and only if $P$ lies on the semicircle with center $(2,1)$ and radius $\sqrt{5}$ , the angle is obtuse if and only if the point $P$ lies inside this semicircle. The semicircle lies entirely inside the pentagon, since the distance, 3, from $(2,1)$ to $\overline{DE}$ is greater than the radius of the circle. Thus the probability that the angle is obtuse is the ratio of the area of the semicircle to the area of the pentagon.
+[asy] pair A,B,C,D,I; A=(0,2); B=(4,0); C=(7.3,0); D=(7.3,4); I=(0,4); draw(A--B--C--D--I--cycle); label("$A$",A,W); label("$B$",B,S); label("$C$",C,E); label("$D$",D,E); label("$E$",I,W); draw(A--(0,0)--B,dashed); draw((3,3)..A--B..cycle,dashed); dot((2,1)); [/asy]
+
+ Let $O=(0,0)$ , $A=(0,2)$ , $B=(4,0)$ , $C=(2\pi+1,0)$ , $D=(2\pi+1,4)$ , and $E=(0,4)$ . Then the area of the pentagon is
+
+\[[ABCDE]=[OCDE]-[OAB] = 4\cdot(2\pi+1)-\frac{1}{2}(2\cdot4) = 8\pi,\]
+
+and the area of the semicircle is
+
+\[\frac{1}{2}\pi(\sqrt{5})^2 = \frac{5}{2}\pi.\]
+
+The probability is
+
+\[\frac{\frac{5}{2}\pi}{8\pi} = \boxed{\text{(C) } \frac 5{16}}.\]
+Video Solution
+https://youtu.be/EUQtgOSKYBQ
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 16 Followed by 
+ Problem 18
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

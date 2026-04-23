@@ -1,0 +1,65 @@
+2021 AMC 12B Problems/Problem 9
+Contents
+1 Problem
+2 Solution 1 (Cosine Rule)
+3 Solution 2
+4 Solution 3
+5 Solution 5 (SIMPLE)
+6 Solution 6 (Ptolemy)
+7 Video Solution (Just 3 min!)
+8 Video Solution by TheBeautyofMath
+9 See Also
+Problem
+Triangle $ABC$ is equilateral with side length $6$ . Suppose that $O$ is the center of the inscribed
+circle of this triangle. What is the area of the circle passing through $A$ , $O$ , and $C$ ?
+$\textbf{(A)} \: 9\pi \qquad\textbf{(B)} \: 12\pi \qquad\textbf{(C)} \: 18\pi \qquad\textbf{(D)} \: 24\pi \qquad\textbf{(E)} \: 27\pi$
+Solution 1 (Cosine Rule)
+Construct the circle that passes through $A$ , $O$ , and $C$ , centered at $X$ .
+Also notice that $\overline{OA}$ and $\overline{OC}$ are the angle bisectors of angle $\angle BAC$ and $\angle BCA$ respectively. We then deduce $\angle AOC=120^\circ$ .
+Consider another point $M$ on Circle $X$ opposite to point $O$ .
+As $AOCM$ is an inscribed quadrilateral of Circle $X$ , $\angle AMC=180^\circ-120^\circ=60^\circ$ .
+Afterward, deduce that $\angle AXC=2·\angle AMC=120^\circ$ .
+By the Cosine Rule, we have the equation: (where $r$ is the radius of circle $X$ )
+$2r^2(1-\cos(120^\circ))=6^2$
+$r^2=12$
+The area is therefore $\pi r^2 = \boxed{\textbf{(B)}\ 12\pi}$ .
+~Wilhelm Z
+Solution 2
+We have $\angle AOC = 120^\circ$ .
+Denote by $R$ the circumradius of $\triangle AOC$ .
+In $\triangle AOC$ , the law of sines implies
+
+\[2 R = \frac{AC}{\sin \angle AOC} = 4 \sqrt{3} .\]
+Hence, the area of the circumcircle of $\triangle AOC$ is
+
+\[\pi R^2 = 12 \pi .\]
+Therefore, the answer is $\boxed{\textbf{(B) }12 \pi}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 3
+As in the previous solution, construct the circle that passes through $A$ , $O$ , and $C$ , centered at $X$ . Let $Y$ be the intersection of $\overline{OX}$ and $\overline{AB}$ .
+Note that since $\overline{OA}$ is the angle bisector of $\angle BAC$ that $\angle OAC=30^\circ$ . Also by symmetry, $\overline{OX}$ $\perp$ $\overline{AB}$ and $AY = 3$ . Thus $\tan(30^\circ) = \frac{OY}{3}$ so $OY = \sqrt{3}$ .
+Let $r$ be the radius of circle $X$ , and note that $AX = OX = r$ . So $\triangle AYX$ is a right triangle with legs of length $3$ and $r - \sqrt{3}$ and hypotenuse $r$ . By Pythagoras, $3^2 + (r - \sqrt{3})^2 = r^2$ . So $r = 2\sqrt{3}$ .
+Thus the area is $\pi r^2 = \boxed{\textbf{(B)}\ 12\pi}$ .
+-SharpeMind
+Solution 5 (SIMPLE)
+The semiperimeter is $\frac{6+6+6}{2}=9$ units.
+The area of the triangle is $9\sqrt{3}$ units squared. By the formula that says that the area of the triangle is its semiperimeter times its inradius, the inradius $r=\sqrt{3}$ . As $\angle{AOC}=120^\circ$ , we can form an altitude from point $O$ to side $AC$ at point $M$ , forming two 30-60-90 triangles. As $CM=MA=3$ , we can solve for $OC=2\sqrt{3}$ . Now, the area of the circle is just $\pi*(2*\sqrt{3})^2 = 12\pi$ . Select $\boxed{B}$ .
+~hastapasta, bob4108
+Solution 6 (Ptolemy)
+Call the diameter of the circle $d$ . If we extend points $A$ and $C$ to meet at a point on the circle and call it $E$ , then $\bigtriangleup OAE=\bigtriangleup OCE$ . Note that both triangles are right, since their hypotenuse is the diameter of the circle. Therefore, $CE=AE=\sqrt{d^2-12}$ . We know this since $OC=OA=OB$ and $OC$ is the hypotenuse of a $30-60-90$ right triangle, with the longer leg being $\frac{6}{2}=3$ so $OC=2\sqrt{3}$ . Applying Ptolemy's Theorem on cyclic quadrilateral $OCEA$ , we get $2({\sqrt{d^2-12}})\cdot{2\sqrt{3}}=6d$ . Squaring and solving we get $d^2=48 \Longrightarrow (2r)^2=48$ so $r^2=12$ . Therefore, the area of the circle is $\boxed{12\pi}$
+~ Magnetoninja
+Video Solution (Just 3 min!)
+https://youtu.be/kkm1d09bVpM
+~Education, the Study of Everything
+Video Solution by TheBeautyofMath
+https://www.youtube.com/watch?v=4qgYrCYG-qw&t=1039
+~IceMatrix
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 8 Followed by 
+ Problem 10
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

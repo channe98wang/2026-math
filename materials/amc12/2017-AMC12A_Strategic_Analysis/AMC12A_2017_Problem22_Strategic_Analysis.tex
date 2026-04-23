@@ -1,0 +1,709 @@
+% Strategic Analysis: 2017 AMC 12A Problem 22
+% Random Walk on Square Lattice - Markov Chain Problem
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{asymptote}
+
+\geometry{margin=1in}
+
+% Define colored boxes
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{1. Problem Configuration Analysis},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=\textbf{2. Strategic Framework Application},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=\textbf{3. Tactical Methodology Selection},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=\textbf{4. Conversion Techniques Application},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=\textbf{5. Verification Strategy},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=\textbf{6. Solution Roadmap},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=\textbf{7. Competition Integration},
+    fonttitle=\bfseries\large
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=orange!20!white,
+    colframe=orange!75!black,
+    title=\textbf{Key Insight},
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!20!white,
+    colframe=red!75!black,
+    title=\textbf{Warning},
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{protipbox}{
+    colback=green!20!white,
+    colframe=green!75!black,
+    title=\textbf{Pro Tip},
+    fonttitle=\bfseries
+}
+
+\title{\textbf{Strategic Analysis:\\2017 AMC 12A Problem 22\\Random Walk on Square Lattice}}
+\author{Comprehensive Problem-Solving Framework Application}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+A square is drawn in the Cartesian coordinate plane with vertices at $(2, 2)$, $(-2, 2)$, $(-2, -2)$, $(2, -2)$. A particle starts at $(0,0)$. Every second it moves with equal probability to one of the eight lattice points (points with integer coordinates) closest to its current position, independently of its previous moves. In other words, the probability is $1/8$ that the particle will move from $(x, y)$ to each of $(x, y + 1)$, $(x + 1, y + 1)$, $(x + 1, y)$, $(x + 1, y - 1)$, $(x, y - 1)$, $(x - 1, y - 1)$, $(x - 1, y)$, or $(x - 1, y + 1)$. 
+
+The particle will eventually hit the square for the first time, either at one of the 4 corners of the square or at one of the 12 lattice points in the interior of one of the sides of the square. The probability that it will hit at a corner rather than at an interior point of a side is $m/n$, where $m$ and $n$ are relatively prime positive integers. What is $m + n$?
+
+\textbf{Answer Choices}: (A) 4 \quad (B) 5 \quad (C) 7 \quad (D) 15 \quad (E) 39
+
+\newpage
+
+\begin{problemconfigbox}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - Calculate a probability expressed as $m/n$ in lowest terms, then find $m+n$
+    \item \textbf{Difficulty Band}: Late-band (Problem 22 of 25, high difficulty)
+    \item \textbf{Competition Context}: AMC12 (75 minutes, 25 problems, multiple choice)
+    \item \textbf{Mathematical Domain}: Probability, Markov Chains, Discrete Random Walks, System of Linear Equations
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Square boundary with vertices at $(\pm 2, \pm 2)$
+        \item Starting position: $(0,0)$ (center of square)
+        \item Random walk: 8 equally likely moves (king's move in chess)
+        \item Each move has probability $1/8$
+        \item Process stops when particle hits square boundary
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Particle moves only to lattice points
+        \item Movement is memoryless (Markov property)
+        \item First-hitting-time problem (process stops at boundary)
+        \item Answer must be in form $m/n$ with $\gcd(m,n)=1$
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find probability of hitting corner vs. edge, express as $m/n$, compute $m+n$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Symmetry: by 8-fold rotational and reflective symmetry of the square
+        \item Only need to analyze representative positions inside the square
+        \item The problem has absorbing states (boundary points)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Small integers suggest simple fraction
+        \item Can verify by checking if answer makes intuitive sense
+        \item Answer (E) 39 = 4 + 35 suggests denominator might be 35
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Start at $(0,0)$, want probability of hitting corner before edge
+    
+    \item \textbf{Conclusion}: Find $P(\text{corner}|\text{start at }(0,0))$, express as $m/n$, compute $m+n$
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $m$ = probability of hitting corner when starting from middle $(0,0)$
+        \item Let $e$ = probability of hitting corner when starting from ``inside edge'' like $(1,0)$
+        \item Let $c$ = probability of hitting corner when starting from ``inside corner'' like $(1,1)$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item This is an absorbing Markov chain problem
+        \item Use symmetry to reduce state space
+        \item Set up system of equations based on transition probabilities
+        \item Solve for probability starting from center
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Linear algebra: matrix representation of Markov chain
+        \item Discrete mathematics: graph theory (state transition graph)
+        \item Analysis: could use harmonic functions (though overkill for competition)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is Problem 22 - expect to spend 5-8 minutes. System of equations may look intimidating but is straightforward algebra once set up correctly.
+    
+    \item \textbf{Creativity Cultivation}: Recognize the symmetry! Don't try to track all lattice points inside the square - use symmetry to identify equivalence classes of positions.
+    
+    \item \textbf{Iterative Refinement}: If the system of equations seems wrong, re-examine the transition probabilities. Count carefully: from $(0,0)$, how many of the 8 moves go to each type of position?
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Read carefully - this is a first-hitting-time problem with absorbing states at the boundary
+    
+    \item \textbf{Get Your Hands Dirty}: Draw the square and interior lattice points. Mark the different types: center, edge-adjacent, corner-adjacent
+    
+    \item \textbf{Penultimate Step}: Once we have the system of equations, solving is routine algebra
+    
+    \item \textbf{Wishful Thinking}: If only we knew the probability from each interior position type...but we can express them in terms of each other!
+    
+    \item \textbf{Make It Easier}: Use symmetry to reduce the number of states from many to just 3 (middle, inside-edge, inside-corner)
+    
+    \item \textbf{Conjecture via Small Cases}: For a $2 \times 2$ square (just the boundary), particle would immediately hit - but that's too simple
+    
+    \item \textbf{Visualization}: 
+    \begin{center}
+    \begin{tabular}{c}
+    Draw the $5 \times 5$ lattice grid from $(-2,-2)$ to $(2,2)$ \\
+    Mark boundary (absorbing states) \\
+    Classify interior points by symmetry
+    \end{tabular}
+    \end{center}
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Answer is $m+n$ where answer choices are small. If we get probability $= 4/35$, then answer is 39 (choice E)
+    
+    \item \textbf{Make It Easier}: Instead of tracking all positions, use symmetry equivalence classes
+    
+    \item \textbf{Penultimate Step}: The last step is solving a $3 \times 3$ linear system - make sure equations are set up correctly first
+    
+    \item \textbf{Wishful Thinking}: Wish we knew probabilities from key representative positions - express them recursively!
+    
+    \item \textbf{Conjecture via Small Cases}: The setup phase (identifying states and transitions) is more important than the calculation
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Set up equations based on transition probabilities, solve the linear system
+    
+    \item \textbf{Proof by Contradiction}: Not applicable here
+    
+    \item \textbf{Mathematical Induction}: Not applicable (not a sequential/recursive structure in that sense)
+    
+    \item \textbf{Stylistic Conventions}: Use WLOG (without loss of generality) to justify using symmetry to reduce state space
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential! Draw the lattice grid and mark the different position types
+    
+    \item \textbf{Recast the Problem}: Instead of ``random walk,'' think ``Markov chain with absorbing states''
+    
+    \item \textbf{Change Your Point of View}: From any interior position, the probability of eventually hitting a corner is well-defined and can be expressed in terms of probabilities from neighboring positions
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: The square has 8-fold symmetry (4 rotations $\times$ 2 reflections). Use this to identify that positions like $(1,0)$, $(0,1)$, $(-1,0)$, $(0,-1)$ are equivalent (all ``inside edge''). Similarly $(1,1)$, $(1,-1)$, $(-1,1)$, $(-1,-1)$ are equivalent (all ``inside corner'')
+    
+    \item \textbf{The Extreme Principle}: Not directly applicable, but we do consider boundary conditions (absorbing states)
+    
+    \item \textbf{The Pigeonhole Principle}: Not applicable to this problem
+    
+    \item \textbf{Invariants}: The total probability from any state must equal 1 (normalization). The Markov property means history doesn't matter - only current position
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory}: Can model as directed graph where nodes are lattice points and edges represent possible transitions with probability $1/8$
+    
+    \item \textbf{Complex Numbers}: Not helpful for this problem
+    
+    \item \textbf{Generating Functions}: Not applicable - this is not a counting or sequence problem
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+
+\textbf{Framework Note}: This problem requires recognizing it as a Markov chain with absorbing states, then using symmetry and conditional probability to set up a system of equations.
+
+\subsection*{A. High-Probability Techniques Applicable}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Algebraic Substitution}: Not primary technique
+    
+    \item \textbf{Coordinate Geometry Conversion}: Problem is already in coordinate form
+    
+    \item \textbf{Case Analysis}: \textcolor{red}{$\bigstar$ KEY TECHNIQUE} - Classify interior positions into 3 types by symmetry
+    
+    \item \textbf{Symmetry Exploitation}: \textcolor{red}{$\bigstar$ KEY TECHNIQUE} - Use 8-fold symmetry to reduce state space dramatically
+    
+    \item \textbf{Simon's Favorite Factoring Trick (SFFT)}: Not applicable
+    
+    \item \textbf{Pigeonhole Principle}: Not applicable
+    
+    \item \textbf{AM-GM Inequality}: Not applicable
+    
+    \item \textbf{Completing the Square}: Not applicable
+    
+    \item \textbf{Linearity of Expectation}: Related concept but not directly used
+    
+    \item \textbf{Bijection Principle}: Not applicable
+    
+    \item \textbf{Vieta's Formulas}: Not applicable
+    
+    \item \textbf{Geometric Probability}: Related domain but not the technique needed
+\end{enumerate}
+
+\subsection*{B. Medium-Probability Techniques Applicable}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Conditional Probability}: \textcolor{red}{$\bigstar$ CORE TECHNIQUE} - Express probability from position $A$ in terms of probabilities from neighboring positions using law of total probability
+    
+    \item \textbf{System of Linear Equations}: \textcolor{red}{$\bigstar$ ESSENTIAL} - Set up and solve $3 \times 3$ system
+\end{itemize}
+
+\subsection*{C. Advanced Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Markov Chains}: \textcolor{red}{$\bigstar$ RECOGNITION KEY} - This is an absorbing Markov chain problem. Recognizing this pattern immediately suggests the solution approach
+\end{itemize}
+
+\subsection*{D. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition Time}: 15-30 seconds for experienced solver
+    
+    \item \textbf{Key Triggers}:
+    \begin{itemize}
+        \item ``Random walk'' + ``probability'' + ``first time hits''
+        \item Symmetric geometric setup
+        \item Discrete state space with absorbing boundaries
+    \end{itemize}
+    
+    \item \textbf{Primary Technique}: Set up recursive probability equations using conditional probability and symmetry
+    
+    \item \textbf{Success Indicators}: 
+    \begin{itemize}
+        \item Correctly identify 3 equivalence classes of interior positions
+        \item Write transition probabilities accurately
+        \item Solve $3 \times 3$ linear system correctly
+    \end{itemize}
+\end{itemize}
+
+\subsection*{E. Technique Integration}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Step 1 - Symmetry}: Reduce state space using 8-fold symmetry
+    \item \textbf{Step 2 - Conditional Probability}: Write equations for $m$, $e$, $c$
+    \item \textbf{Step 3 - Linear Algebra}: Solve system of equations
+    \item \textbf{Step 4 - Answer Extraction}: Express as reduced fraction, compute $m+n$
+\end{enumerate}
+
+\end{techniquesbox}
+
+\begin{verificationbox}
+
+\subsection*{A. Verification Level Selection}
+
+\textbf{Decision Tree Analysis}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Difficulty}: Late-band (P22) $\Rightarrow$ High difficulty
+    \item \textbf{Computational Complexity}: Moderate (solve $3 \times 3$ linear system)
+    \item \textbf{Time Remaining}: Assume 6-8 minutes for this problem
+    \item \textbf{Confidence}: Medium-High (method is clear if Markov chain is recognized)
+\end{itemize}
+
+\textbf{Selected Level}: \textbf{Level 4 - Standard Competition Verification}
+
+\subsection*{B. Verification Methods}
+
+\textbf{Boundary Condition Checks}:
+\begin{itemize}[leftmargin=*]
+    \item Verify that positions on the boundary are correctly classified as absorbing states
+    \item Check that corner hits get probability 1, edge hits get probability 0
+\end{itemize}
+
+\textbf{Equation Setup Verification}:
+\begin{itemize}[leftmargin=*]
+    \item From $(0,0)$: Count transitions - 4 moves to positions like $(1,0)$ and 4 moves to positions like $(1,1)$
+    \item Verify: $m = \frac{4}{8}e + \frac{4}{8}c = \frac{1}{2}e + \frac{1}{2}c$ \checkmark
+    
+    \item From $(1,0)$: 2 to other inside-edges, 2 to inside-corners, 1 to middle, 3 to boundary-edges (probability 0)
+    \item Verify: $e = \frac{2}{8}e + \frac{2}{8}c + \frac{1}{8}m + \frac{3}{8} \cdot 0$ \checkmark
+    
+    \item From $(1,1)$: 2 to inside-edges, 1 to middle, 4 to boundary-edges (prob 0), 1 to boundary-corner (prob 1)
+    \item Verify: $c = \frac{2}{8}e + \frac{1}{8}m + \frac{4}{8} \cdot 0 + \frac{1}{8} \cdot 1 = \frac{1}{4}e + \frac{1}{8}m + \frac{1}{8}$ \checkmark
+\end{itemize}
+
+\textbf{Algebraic Solution Verification}:
+\begin{itemize}[leftmargin=*]
+    \item Solve system to get: $m = \frac{4}{35}$, $e = \frac{1}{14}$, $c = \frac{11}{70}$
+    
+    \item Check $m = \frac{1}{2}e + \frac{1}{2}c$: 
+    \[m = \frac{1}{2} \cdot \frac{1}{14} + \frac{1}{2} \cdot \frac{11}{70} = \frac{1}{28} + \frac{11}{140} = \frac{5}{140} + \frac{11}{140} = \frac{16}{140} = \frac{4}{35}\] \checkmark
+    
+    \item Check $e = \frac{1}{4}e + \frac{1}{4}c + \frac{1}{8}m$:
+    \[\frac{1}{14} = \frac{1}{4} \cdot \frac{1}{14} + \frac{1}{4} \cdot \frac{11}{70} + \frac{1}{8} \cdot \frac{4}{35}\]
+    \[\frac{1}{14} = \frac{1}{56} + \frac{11}{280} + \frac{1}{70}\]
+    \[= \frac{5}{280} + \frac{11}{280} + \frac{4}{280} = \frac{20}{280} = \frac{1}{14}\] \checkmark
+\end{itemize}
+
+\textbf{Answer Format Verification}:
+\begin{itemize}[leftmargin=*]
+    \item Probability $= \frac{4}{35}$
+    \item Check $\gcd(4, 35) = 1$ \checkmark
+    \item $m + n = 4 + 35 = 39$ \checkmark
+    \item Matches answer choice (E) \checkmark
+\end{itemize}
+
+\textbf{Sanity Checks}:
+\begin{itemize}[leftmargin=*]
+    \item Probability $\frac{4}{35} \approx 0.114$ or about 11\% - reasonable for hitting one of 4 corners vs. 12 edge points
+    \item All intermediate probabilities are between 0 and 1 \checkmark
+    \item Probability decreases from inside-corner ($c = \frac{11}{70} \approx 0.157$) to middle ($m = \frac{4}{35} \approx 0.114$) to inside-edge ($e = \frac{1}{14} \approx 0.071$) - makes intuitive sense \checkmark
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Confidence Level}: \textbf{85-90\%}
+
+\textbf{Reasoning}:
+\begin{itemize}[leftmargin=*]
+    \item Markov chain setup is standard and correct
+    \item Equation counting verified by careful case-by-case analysis
+    \item Algebraic solution verified by back-substitution
+    \item Answer matches multiple choice and passes sanity checks
+    \item Main risk: arithmetic errors in fraction manipulation (but we've verified)
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{roadmapbox}
+
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Time Budget}: 6-8 minutes total
+
+\subsubsection*{Phase 1: Setup (2 minutes)}
+
+\textbf{Step 1.1} - Draw and Classify (30 sec):
+\begin{itemize}[leftmargin=*]
+    \item Sketch the square with vertices at $(\pm 2, \pm 2)$
+    \item Mark all interior lattice points
+    \item Identify by symmetry: middle $(0,0)$, inside-edges (4 positions), inside-corners (4 positions)
+\end{itemize}
+
+\textbf{Step 1.2} - Define Variables (30 sec):
+\begin{itemize}[leftmargin=*]
+    \item $m$ = P(corner $|$ start at middle)
+    \item $e$ = P(corner $|$ start at inside-edge)
+    \item $c$ = P(corner $|$ start at inside-corner)
+\end{itemize}
+
+\textbf{Checkpoint}: Can I identify the 3 types of positions? Are boundary conditions clear?
+
+\subsubsection*{Phase 2: Write Equations (2-3 minutes)}
+
+\textbf{Step 2.1} - Equation for $m$ (45 sec):
+\begin{itemize}[leftmargin=*]
+    \item From $(0,0)$: 8 equally likely moves
+    \item 4 moves to inside-edge positions: $(1,0), (0,1), (-1,0), (0,-1)$
+    \item 4 moves to inside-corner positions: $(1,1), (1,-1), (-1,1), (-1,-1)$
+    \item Therefore: $m = \frac{4}{8}e + \frac{4}{8}c = \frac{1}{2}e + \frac{1}{2}c$
+\end{itemize}
+
+\textbf{Step 2.2} - Equation for $e$ (60 sec):
+\begin{itemize}[leftmargin=*]
+    \item From $(1,0)$ (representative inside-edge position):
+    \item 2 moves to other inside-edges: $(2,0)$ is boundary, $(0,0)$ is middle... wait, recount!
+    \item Moves: $(1,1), (1,-1)$ are inside-corners (2)
+    \item $(0,0)$ is middle (1)
+    \item $(2,0), (2,1), (2,-1)$ are boundary-edges with prob 0 (3)
+    \item $(0,1), (0,-1)$ are inside-edges (2)
+    \item Therefore: $e = \frac{2}{8}c + \frac{1}{8}m + \frac{3}{8} \cdot 0 + \frac{2}{8}e$
+    \item Simplify: $e = \frac{1}{4}e + \frac{1}{4}c + \frac{1}{8}m$
+\end{itemize}
+
+\textbf{Step 2.3} - Equation for $c$ (60 sec):
+\begin{itemize}[leftmargin=*]
+    \item From $(1,1)$ (representative inside-corner position):
+    \item Moves: $(2,2)$ is boundary-corner with prob 1 (1)
+    \item $(1,2), (2,1)$ are boundary-edges with prob 0 (2)... wait, $(1,2)$ and $(2,1)$ are at $y=2$ or $x=2$
+    \item Actually from $(1,1)$: moves to $(0,0), (0,1), (1,0), (0,2), (2,0), (1,2), (2,1), (2,2)$
+    \item $(0,0)$ is middle (1)
+    \item $(0,1), (1,0)$ are inside-edges (2)  
+    \item $(0,2), (2,0), (1,2), (2,1)$ are boundary-edges with prob 0 (4)
+    \item $(2,2)$ is boundary-corner with prob 1 (1)
+    \item Therefore: $c = \frac{1}{8}m + \frac{2}{8}e + \frac{4}{8} \cdot 0 + \frac{1}{8} \cdot 1$
+    \item Simplify: $c = \frac{1}{8}m + \frac{1}{4}e + \frac{1}{8}$
+\end{itemize}
+
+\textbf{Checkpoint}: Do equations make sense? Do probabilities sum correctly for each position?
+
+\subsubsection*{Phase 3: Solve System (2-3 minutes)}
+
+\textbf{Step 3.1} - Express $m$ in terms of $e$ and $c$ (already have):
+\[m = \frac{1}{2}e + \frac{1}{2}c\]
+
+\textbf{Step 3.2} - Substitute into equation for $e$:
+\begin{align*}
+e &= \frac{1}{4}e + \frac{1}{4}c + \frac{1}{8}m \\
+e &= \frac{1}{4}e + \frac{1}{4}c + \frac{1}{8}\left(\frac{1}{2}e + \frac{1}{2}c\right) \\
+e &= \frac{1}{4}e + \frac{1}{4}c + \frac{1}{16}e + \frac{1}{16}c \\
+e &= \frac{5}{16}e + \frac{5}{16}c \\
+\frac{11}{16}e &= \frac{5}{16}c \\
+11e &= 5c \\
+c &= \frac{11e}{5}
+\end{align*}
+
+\textbf{Step 3.3} - Substitute into equation for $c$:
+\begin{align*}
+c &= \frac{1}{8}m + \frac{1}{4}e + \frac{1}{8} \\
+\frac{11e}{5} &= \frac{1}{8}\left(\frac{1}{2}e + \frac{1}{2} \cdot \frac{11e}{5}\right) + \frac{1}{4}e + \frac{1}{8} \\
+\frac{11e}{5} &= \frac{1}{16}e + \frac{11e}{80} + \frac{1}{4}e + \frac{1}{8} \\
+\frac{11e}{5} &= \frac{5e}{80} + \frac{11e}{80} + \frac{20e}{80} + \frac{1}{8} \\
+\frac{11e}{5} &= \frac{36e}{80} + \frac{1}{8} \\
+\frac{11e}{5} &= \frac{9e}{20} + \frac{1}{8} \\
+\frac{44e}{20} - \frac{9e}{20} &= \frac{1}{8} \\
+\frac{35e}{20} &= \frac{1}{8} \\
+e &= \frac{20}{8 \cdot 35} = \frac{20}{280} = \frac{1}{14}
+\end{align*}
+
+\textbf{Step 3.4} - Back-substitute:
+\begin{align*}
+c &= \frac{11e}{5} = \frac{11}{5} \cdot \frac{1}{14} = \frac{11}{70} \\
+m &= \frac{1}{2}e + \frac{1}{2}c = \frac{1}{2} \cdot \frac{1}{14} + \frac{1}{2} \cdot \frac{11}{70} \\
+&= \frac{1}{28} + \frac{11}{140} = \frac{5}{140} + \frac{11}{140} = \frac{16}{140} = \frac{4}{35}
+\end{align*}
+
+\textbf{Checkpoint}: Verify solution in original equations (done in verification section)
+
+\subsubsection*{Phase 4: Extract Answer (30 sec)}
+
+\textbf{Step 4.1} - Express in lowest terms:
+\begin{itemize}[leftmargin=*]
+    \item Probability $= \frac{4}{35}$
+    \item Check: $\gcd(4, 35) = 1$ \checkmark
+\end{itemize}
+
+\textbf{Step 4.2} - Compute final answer:
+\begin{itemize}[leftmargin=*]
+    \item $m + n = 4 + 35 = 39$
+    \item Answer: \textbf{(E) 39}
+\end{itemize}
+
+\subsection*{Alternative Approaches}
+
+\textbf{Alternative 1 - Matrix Method}:
+\begin{itemize}[leftmargin=*]
+    \item Set up transition matrix for the Markov chain
+    \item Use linear algebra to solve for hitting probabilities
+    \item More sophisticated but same result
+    \item Time: 8-10 minutes (not recommended for competition)
+\end{itemize}
+
+\textbf{Alternative 2 - Harmonic Functions}:
+\begin{itemize}[leftmargin=*]
+    \item Use discrete harmonic function theory
+    \item Requires advanced probability knowledge
+    \item Overkill for AMC12 level
+\end{itemize}
+
+\subsection*{Pivot Indicators}
+
+\textbf{If stuck on equation setup}:
+\begin{itemize}[leftmargin=*]
+    \item Draw picture more carefully
+    \item List all 8 moves from a representative position
+    \item Check which moves go to which type of position or boundary
+\end{itemize}
+
+\textbf{If algebra becomes messy}:
+\begin{itemize}[leftmargin=*]
+    \item Work with common denominators throughout
+    \item Consider substitution in different order
+    \item Double-check arithmetic at each step
+\end{itemize}
+
+\textbf{Time management}:
+\begin{itemize}[leftmargin=*]
+    \item If >8 minutes spent: verify what you have, make educated guess, move on
+    \item If confident in setup but stuck on algebra: use calculator mode to verify values
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{keyinsightbox}
+The \textbf{key insight} is recognizing this as an absorbing Markov chain and using \textbf{symmetry} to reduce the state space from 9 interior lattice points to just 3 equivalence classes. This transforms a potentially complex problem into a straightforward system of 3 linear equations in 3 unknowns. The symmetry is the crucial time-saver!
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Common pitfalls}:
+\begin{enumerate}
+    \item \textbf{Miscounting transitions}: From position $(1,0)$, carefully check which of the 8 moves go to boundary (and whether corner or edge) vs. interior positions
+    \item \textbf{Forgetting boundary values}: Corner hits have probability 1, edge hits have probability 0
+    \item \textbf{Arithmetic errors}: When manipulating fractions with denominators like 8, 16, 70, 140 - work carefully!
+    \item \textbf{Not simplifying fraction}: Must reduce $\frac{4}{35}$ (it's already in lowest terms) before computing $m+n$
+\end{enumerate}
+\end{warningbox}
+
+\begin{protipbox}
+\textbf{Competition strategy}: This is Problem 22 of 25, so it's intentionally difficult. Most students won't solve it. If you can:
+\begin{itemize}
+    \item Recognize the Markov chain structure (15-30 sec)
+    \item Set up the equations correctly (2-3 min)
+    \item Solve the algebra accurately (2-3 min)
+\end{itemize}
+Then you're in excellent shape! This problem rewards both conceptual understanding (Markov chains, symmetry) and computational accuracy (solving linear systems). \textbf{Budget 6-8 minutes}, and if you're not making progress by minute 5, consider educated guessing based on answer choices and moving on.
+\end{protipbox}
+
+\begin{competitionbox}
+
+\subsection*{A. Time Management}
+
+\textbf{Target Time}: 6-8 minutes
+
+\textbf{Time Allocation}:
+\begin{itemize}[leftmargin=*]
+    \item Setup and equation writing: 3-4 minutes
+    \item Solving system: 2-3 minutes
+    \item Verification: 1 minute
+\end{itemize}
+
+\textbf{Comparison to Problem Band}:
+\begin{itemize}[leftmargin=*]
+    \item Problem 22 is in late-band (17-25)
+    \item Recommended time per late-band problem: 5-10 minutes
+    \item This problem is at the high end due to computational work
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+
+\textbf{When to Attempt}:
+\begin{itemize}[leftmargin=*]
+    \item After completing Problems 1-20 (secure base points)
+    \item If comfortable with probability and Markov chains
+    \item If 10+ minutes remain for Problems 21-25
+\end{itemize}
+
+\textbf{Skill Prerequisites}:
+\begin{itemize}[leftmargin=*]
+    \item Conditional probability and law of total probability
+    \item Solving systems of linear equations
+    \item Recognition of Markov chain problems
+    \item Comfort with fraction arithmetic
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Confidence Assessment}:
+\begin{itemize}[leftmargin=*]
+    \item If equations look correct and algebra checks out: HIGH confidence (85-90\%)
+    \item If equations seem off but answer matches choice: MEDIUM confidence (60-70\%)
+    \item If stuck on setup: LOW confidence (<50\%), consider strategic guess
+\end{itemize}
+
+\textbf{Guess Strategy} (if needed):
+\begin{itemize}[leftmargin=*]
+    \item Answer (E) 39 = 4 + 35 suggests denominator 35
+    \item Probability should be relatively small (corners vs. many edge points)
+    \item Eliminate obviously wrong choices: (A) 4 and (B) 5 too small
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+
+\textbf{Move On If}:
+\begin{itemize}[leftmargin=*]
+    \item >8 minutes spent without clear progress
+    \item Equations don't seem to work out (check setup!)
+    \item Other problems remain that you're more confident about
+    \item Time pressure from remaining problems
+\end{itemize}
+
+\textbf{Return Strategy}:
+\begin{itemize}[leftmargin=*]
+    \item If time permits, return to verify equation setup
+    \item Re-check transition probability counting
+    \item Try solving system again with fresh perspective
+\end{itemize}
+
+\subsection*{E. Post-Problem Actions}
+
+\textbf{If Solved Successfully}:
+\begin{itemize}[leftmargin=*]
+    \item Confidence boost for remaining problems
+    \item Similar patterns may appear in P23-25
+    \item Time check: budget for remaining problems
+\end{itemize}
+
+\textbf{If Unable to Solve}:
+\begin{itemize}[leftmargin=*]
+    \item Don't dwell on it - move to next problem
+    \item Make educated guess based on answer analysis
+    \item Remember: P22 is difficult by design, most students miss it
+\end{itemize}
+
+\end{competitionbox}
+
+\section*{Summary}
+
+This problem tests:
+\begin{itemize}
+    \item Recognition of Markov chain structure
+    \item Application of symmetry to simplify state space
+    \item Setting up and solving systems of linear equations
+    \item Accuracy in fraction arithmetic
+\end{itemize}
+
+\textbf{Key Success Factors}:
+\begin{enumerate}
+    \item Identify this as an absorbing Markov chain problem (conceptual)
+    \item Use symmetry to reduce to 3 position types (strategic)
+    \item Count transitions carefully for each type (tactical)
+    \item Solve the linear system accurately (computational)
+\end{enumerate}
+
+The problem rewards both mathematical maturity (recognizing Markov chains, using symmetry) and computational proficiency (accurate algebra with fractions). It's an excellent late-band problem that separates students who have deep probabilistic understanding from those who only know basic formulas.
+
+\end{document}

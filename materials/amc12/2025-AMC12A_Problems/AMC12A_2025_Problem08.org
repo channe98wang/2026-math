@@ -1,0 +1,22 @@
+2025 AMC 12A Problems/Problem 8
+Problem
+Pentagon $ABCDE$ is inscribed in a circle, and $\angle BEC = \angle CED = 30^\circ$ . Let line $AC$ and line $BD$ intersect at point $F$ , and suppose that $AB = 9$ and $AD = 24$ . What is $BF$ ?
+$\textbf{(A) } \frac{57}{11} \qquad\textbf{(B) } \frac{59}{11} \qquad\textbf{(C) } \frac{60}{11} \qquad\textbf{(D) } \frac{61}{11} \qquad\textbf{(E) } \frac{63}{11}$
+Solution 1
+We will scale down the diagram by a factor of $3$ so that $AB = 3$ and $AD = 8$ . Because $\angle BEC = 30$ , then $\angle BAC = \angle BDC = 30$ because they all subtend the same arc. Similarly, because $\angle CED = 30$ , $\angle CAD = \angle CBD = 30$ as well.
+Notice $\triangle ABD$ , which has $\angle BAD = 60$ . Applying Law of Cosines, we get:
+
+\[BD^2 = AB^2+AD^2-2AB\cdot AD \cdot\cos{60}\]
+
+\[BD^2 = 9 + 64 - 2 \cdot 3 \cdot 7 \cdot \frac{1}{2}\]
+
+\[BD^2 = 49.\]
+
+So, $BD = 7$ . From here, we want $BF$ . Noticing that $AF$ is the angle bisector of $\angle BAD$ , we apply the Angle Bisector Theorem:
+
+\[\frac{AB}{BF} = \frac{AD}{DF}\]
+
+\[\frac{3}{BF}=\frac{8}{7-BF}.\]
+
+Solving for $BF$ , we get $BF = \frac{21}{11}.$ Remember to scale the figure back up by a factor of $3$ , so our answer is $\frac{21}{11}\cdot 3 = \boxed{\frac{63}{11}}.$
+~lprado

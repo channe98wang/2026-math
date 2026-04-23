@@ -1,0 +1,103 @@
+2021 AMC 12A Problems/Problem 17
+Contents
+1 Problem
+2 Solution 1 (Casework)
+3 Solution 2 (Graphing)
+4 Solution 3 (Graphing)
+5 Solution 4 (Oversimplified but Risky)
+6 Solution 5 (Quick and Easy)
+7 Solution 6 (Fastest)
+8 Solution 7 (Shortest)
+9 Video Solution by OmegaLearn
+10 Video Solution
+11 Video Solution by Mathematical Dexterity
+12 Video Solution by TheBeautyofMath
+13 See Also
+Problem
+For how many ordered pairs $(b,c)$ of positive integers does neither $x^2+bx+c=0$ nor $x^2+cx+b=0$ have two distinct real solutions?
+$\textbf{(A) } 4 \qquad \textbf{(B) } 6 \qquad \textbf{(C) } 8 \qquad \textbf{(D) } 12 \qquad \textbf{(E) } 16 \qquad$
+Solution 1 (Casework)
+A quadratic equation does not have two distinct real solutions if and only if the discriminant is nonpositive. We conclude that:
+- Since $x^2+bx+c=0$ does not have real solutions, we have $b^2\leq 4c.$
+- Since $x^2+cx+b=0$ does not have real solutions, we have $c^2\leq 4b.$
+Squaring the first inequality, we get $b^4\leq 16c^2.$ Multiplying the second inequality by $16,$ we get $16c^2\leq 64b.$ Combining these results, we get
+
+\[b^4\leq 16c^2\leq 64b.\]
+
+Since $b^4\leq 64b,$ it follows that $b\leq4.$ We apply casework to the value of $b:$
+- If $b=1,$ then $1\leq 16c^2\leq 64,$ from which $c=1,2.$
+- If $b=2,$ then $16\leq 16c^2\leq 128,$ from which $c=1,2.$
+- If $b=3,$ then $81\leq 16c^2\leq 192,$ from which $c=3.$
+- If $b=4,$ then $256\leq 16c^2\leq 256,$ from which $c=4.$
+Together, there are $\boxed{\textbf{(B) } 6}$ ordered pairs $(b,c),$ namely $(1,1),(1,2),(2,1),(2,2),(3,3),$ and $(4,4).$
+~MRENTHUSIASM
+Solution 2 (Graphing)
+Similar to Solution 1, use the discriminant to get $b^2\leq 4c$ and $c^2\leq 4b$ . These can be rearranged to $c\geq \frac{1}{4}b^2$ and $b\geq \frac{1}{4}c^2$ . Now, we can roughly graph these two inequalities, letting one of them be the $x$ axis and the other be $y$ . 
+The graph of solutions should be above the parabola and under its inverse, meaning we want points on the graph or in the first area enclosed by the two graphs: 
+
+[asy] unitsize(2); Label f; f.p=fontsize(6); xaxis("$x$",0,5,Ticks(f, 1.0)); yaxis("$y$",0,5,Ticks(f, 1.0)); real f(real x) { return 0.25x^2; } real g(real x) { return 2*sqrt(x); } dot((1,1)); dot((2,1)); dot((1,2)); dot((2,2)); dot((3,3)); dot((4,4)); draw(graph(f,0,sqrt(20))); draw(graph(g,0,5)); [/asy]
+
+ We are looking for lattice points (since $b$ and $c$ are positive integers), of which we can count $\boxed{\textbf{(B) } 6}$ .
+~aop2014
+Solution 3 (Graphing)
+We need to solve the following system of inequalities:
+
+\[\left\{ \begin{array}{ll} b^2 - 4 c \leq 0 \\ c^2 - 4 b \leq 0 \end{array} \right..\]
+
+Feasible solutions are in the region formed between two parabolas $b^2 - 4 c = 0$ and $c^2 - 4 b = 0$ .
+Define $f \left( b \right) = \frac{b^2}{4}$ and $g \left( b \right) = 2 \sqrt{b}$ .
+Therefore, all feasible solutions are in the region formed between the graphs of these two functions.
+For $b = 1$ , we have $f(b) = \frac{1}{4}$ and $g(b) = 2$ .
+Hence, the feasible $c$ are $1, 2$ .
+For $b = 2$ , we have $f(b) = 1$ and $g(b) = 2 \sqrt{2}$ .
+Hence, the feasible $c$ are $1, 2$ .
+For $b = 3$ , we have $f(b) = \frac{9}{4}$ and $g(b) = 2 \sqrt{3}$ .
+Hence, the feasible $c$ is $3$ .
+For $b = 4$ , we have $f(b) = 4$ and $g(b) = 4$ .
+Hence, the feasible $c$ is $4$ .
+For $b > 4$ , we have $f(b) > g(b)$ . Hence, there is no feasible $c$ .
+Putting all cases together, the correct answer is $\boxed{\textbf{(B) } 6}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 4 (Oversimplified but Risky)
+A quadratic equation $Ax^2+Bx+C=0$ has one real solution if and only if $B^2-4AC=0.$ Similarly, it has imaginary solutions if and only if $B^2-4AC<0.$ We proceed as following:
+We want both $x^2+bx+c$ to be $1$ value or imaginary and $x^2+cx+b$ to be $1$ value or imaginary. $x^2+4x+4$ is one such case since $\sqrt {b^2-4ac}$ is $0.$ Also, $x^2+3x+3, x^2+2x+2, x^2+x+1$ are always imaginary for both $b$ and $c.$ We also have $x^2+x+2$ along with $x^2+2x+1$ since the latter has one solution, while the first one is imaginary. Therefore, we have $\boxed{\textbf{(B) } 6}$ total ordered pairs of integers.
+~Arcticturn
+Solution 5 (Quick and Easy)
+We see that $b^2 \leq 4c$ and $c^2 \leq 4b.$ WLOG, assume that $b \geq c.$ Then we have that $b^2 \leq 4c \leq 4b$ , so $b^2 \leq 4b$ and therefore $b \leq 4$ , also meaning that $c \leq 4.$ This means that we only need to try 16 cases. Now we can get rid of the assumption that $b \geq c$ , because we want ordered pairs. For $b = 1$ and $b = 2$ , $c = 1$ and $c = 2$ work. When $b = 3$ , $c$ can only be $3$ , and when $b = 4$ , only $c = 4$ works, for a total of $\boxed{\textbf{(B) } 6}$ ordered pairs of integers.
+~littlefox_amc
+Solution 6 (Fastest)
+We need both $b^2\leq 4c$ and $c^2\leq 4b$ .
+If $b=c$ then the above become $b^2\leq 4b\iff b\leq 4$ , so we have four solutions $(k,k)$ , where $k=1$ , $2$ , $3$ , $4$ .
+If $b<c$ then we only need $c^2\leq 4b$ since it implies $b^2< 4c$ . Now $c^2\leq 4b\leq 4(c-1) \implies (c-2)^2\leq 0 \implies c=2$ , so $b=1$ . We plug $b=1$ , $c=2$ back into $c^2\leq 4b$ and it works. So there is another solution $(1,2)$ .
+By symmetry, if $b>c$ then $(b,c)=(2,1)$ .
+Therefore the total number of solutions is $\boxed{\textbf{(B) } 6}$ .
+~asops
+Solution 7 (Shortest)
+Since $b^{2} - 4c \le 0$ and $c^{2} - 4b \le 0$ , adding the two together yields $b^{2} + c^{2} \le 4(c+b)$ . Obviously, this is not true if either $b$ or $c$ get too large, and they are equal when $b = c = 4$ , so the greatest pair is $(4,4)$ and both numbers must be lesser for further pairs. For there to be two distinct real solutions, we can test all these pairs where $(b,c)$ are less than 4 (except for the already valid solution) on the original quadratics, and we find the working pairs are $(1,1)$ , $(2,1)$ , $(1,2)$ , $(2,2)$ , $(3,3)$ , $(4,4)$ meaning there are $\boxed{\textbf{(B) } 6}$ pairs.
+- youtube.com/indianmathguy
+Video Solution by OmegaLearn
+https://youtu.be/zfChnbMGLVQ?t=4254
+~ pi_is_3.14
+Video Solution
+https://www.youtube.com/watch?v=ef-W3l94k00
+~MathProblemSolvingSkills.com
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=EkaKfkQgFbI
+Video Solution by TheBeautyofMath
+https://youtu.be/RPnfZKv4DVA
+~IceMatrix
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 16 Followed by 
+ Problem 18
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2021 Fall AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 19 Followed by 
+ Problem 21
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

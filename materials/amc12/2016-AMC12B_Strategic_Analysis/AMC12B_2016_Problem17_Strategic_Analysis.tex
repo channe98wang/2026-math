@@ -1,0 +1,493 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tikz}
+
+\geometry{margin=1in}
+
+% Define color boxes
+\newtcolorbox{problemconfigbox}{colback=blue!5!white, colframe=blue!75!black, title=1. PROBLEM CONFIGURATION ANALYSIS,fonttitle=\bfseries,breakable}
+\newtcolorbox{strategicbox}{colback=pink!5!white, colframe=pink!75!black, title=2. STRATEGIC FRAMEWORK APPLICATION,fonttitle=\bfseries,breakable}
+\newtcolorbox{tacticalbox}{colback=green!5!white, colframe=green!75!black, title=3. TACTICAL METHODOLOGY SELECTION,fonttitle=\bfseries,breakable}
+\newtcolorbox{conversionbox}{colback=yellow!5!white, colframe=yellow!75!black, title=4. CONVERSION TECHNIQUES APPLICATION,fonttitle=\bfseries,breakable}
+\newtcolorbox{verificationbox}{colback=red!5!white, colframe=red!75!black, title=5. VERIFICATION STRATEGY DESIGN,fonttitle=\bfseries,breakable}
+\newtcolorbox{roadmapbox}{colback=cyan!5!white, colframe=cyan!75!black, title=6. SOLUTION ROADMAP,fonttitle=\bfseries,breakable}
+\newtcolorbox{competitionbox}{colback=purple!5!white, colframe=purple!75!black, title=7. COMPETITION STRATEGY INTEGRATION,fonttitle=\bfseries,breakable}
+\newtcolorbox{keyinsightbox}{colback=orange!10!white, colframe=orange!75!black, title=KEY INSIGHT,fonttitle=\bfseries,breakable}
+\newtcolorbox{warningbox}{colback=red!10!white, colframe=red!75!black, title=WARNING,fonttitle=\bfseries,breakable}
+\newtcolorbox{tipbox}{colback=teal!10!white, colframe=teal!75!black, title=PRO TIP,fonttitle=\bfseries,breakable}
+
+\title{\textbf{Strategic Analysis: 2016 AMC 12B Problem 17}}
+\author{AMC12/COMC Problem Solving Framework}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+In $\triangle ABC$ shown in the figure, $AB=7$, $BC=8$, $CA=9$, and $\overline{AH}$ is an altitude. Points $D$ and $E$ lie on sides $\overline{AC}$ and $\overline{AB}$, respectively, so that $\overline{BD}$ and $\overline{CE}$ are angle bisectors, intersecting $\overline{AH}$ at $Q$ and $P$, respectively. What is $PQ$?
+
+\textbf{Answer Choices:} 
+$\textbf{(A)}\ 1 \qquad \textbf{(B)}\ \frac{5}{8}\sqrt{3} \qquad \textbf{(C)}\ \frac{4}{5}\sqrt{2} \qquad \textbf{(D)}\ \frac{8}{15}\sqrt{5} \qquad \textbf{(E)}\ \frac{6}{5}$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find -- specifically, find the length of segment $PQ$
+    \item \textbf{Difficulty Band}: Late-band (Problem 17 of 25)
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) -- approximately 3 minutes per problem on average, but this problem warrants 5-8 minutes
+    \item \textbf{Mathematical Domain}: Geometry (triangle properties, angle bisectors, altitudes, coordinate geometry potential)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Triangle $ABC$ with sides $AB=7$, $BC=8$, $CA=9$
+        \item $\overline{AH}$ is an altitude from $A$ to $BC$
+        \item $\overline{BD}$ is an angle bisector of $\angle ABC$ from $B$ to side $AC$
+        \item $\overline{CE}$ is an angle bisector of $\angle ACB$ from $C$ to side $AB$
+        \item $P = \overline{CE} \cap \overline{AH}$ (intersection point)
+        \item $Q = \overline{BD} \cap \overline{AH}$ (intersection point)
+    \end{itemize}
+    \item \textbf{Constraints}: Standard triangle inequality satisfied: $7+8>9$, $7+9>8$, $8+9>7$
+    \item \textbf{Objective}: Find the length $PQ$ on the altitude $\overline{AH}$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item $H$ lies on $BC$ (foot of altitude)
+        \item Points $P$ and $Q$ are distinct and ordered along $AH$
+        \item The angle bisectors actually intersect the altitude (not parallel)
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All choices contain irrational square roots, suggesting exact calculation needed
+        \item Only choice (D) contains $\sqrt{5}$, which relates to the area via Heron's formula
+        \item Numerical estimates: (A) 1, (B) $\approx 1.08$, (C) $\approx 1.13$, (D) $\approx 1.46$, (E) 1.2
+        \item Strategic insight: Since area involves $\sqrt{5}$, look for answer (D) as likely
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: We need to find positions of $P$ and $Q$ on $AH$, then compute $|AQ - AP|$ or $|AP - AQ|$
+    \item \textbf{Conclusion}: $PQ = \frac{8}{15}\sqrt{5}$
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $h = AH$ (altitude length)
+        \item Let $BH = x$, then $CH = 8-x$
+        \item Use $AP$, $PH$, $AQ$, $QH$ for segment measurements
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Find altitude length using Heron's formula and area
+        \item Find foot position $H$ on $BC$ using Pythagorean theorem
+        \item Apply angle bisector theorem to find where bisectors hit $AH$
+        \item Compute difference $|AQ - AP| = PQ$
+    \end{enumerate}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Coordinate geometry: Place $B$ at origin, $C$ at $(8,0)$
+        \item Similar triangles: Use similarity from parallel lines
+        \item Mass points: Assign masses for cevian ratios
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is a multi-step problem requiring careful calculation. Stay organized with clear notation and intermediate results. Don't panic if first approach gets messy -- there are multiple valid solution paths.
+    \item \textbf{Creativity Cultivation}: Notice the interplay between angle bisectors and altitude -- they're different types of cevians. Consider using angle bisector theorem in creative ways (on sub-triangles formed by altitude).
+    \item \textbf{Iterative Refinement}: If direct calculation becomes unwieldy, consider:
+    \begin{itemize}
+        \item Using similar triangles instead
+        \item Employing coordinates
+        \item Checking if answer choices guide the approach
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Problem 17 suggests late-band difficulty. Expect sophisticated technique combination (angle bisector + altitude + ratios). Plan for 6-8 minutes.
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{enumerate}
+        \item Calculate area using Heron's formula: $s = \frac{7+8+9}{2} = 12$
+        \item Area $= \sqrt{12 \cdot 5 \cdot 4 \cdot 3} = \sqrt{720} = 12\sqrt{5}$
+        \item Find altitude: $\frac{1}{2} \cdot 8 \cdot h = 12\sqrt{5} \Rightarrow h = 3\sqrt{5}$
+    \end{enumerate}
+    \item \textbf{Penultimate Step}: Before finding $PQ$, we need positions of $P$ and $Q$ on $AH$. This requires finding $AP$, $AQ$ (or equivalently $PH$, $QH$).
+    \item \textbf{Wishful Thinking}: "Wouldn't it be nice if the angle bisector theorem could be applied to the triangles $\triangle ABH$ and $\triangle ACH$ directly?" -- Yes! This is the key insight.
+    \item \textbf{Make It Easier}: Consider special case: What if triangle were right-angled? Or isosceles? (Not applicable here, but good to check)
+    \item \textbf{Conjecture via Small Cases}: Not directly applicable, but we can verify $BH$ and $CH$ are reasonable.
+    \item \textbf{Visualization}: Draw accurate diagram showing:
+    \begin{itemize}
+        \item Triangle with labeled sides
+        \item Altitude $AH$ perpendicular to $BC$
+        \item Angle bisectors $BD$ and $CE$ crossing $AH$
+        \item Key observation: $AH$ divides original triangle into two right triangles
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Only option (D) has $\sqrt{5}$, which appears in the altitude calculation. This is strong evidence for (D).
+    \item \textbf{Solution 3 Fast Strategy}: The problem generates rational ratios $PQ/AH$. Since $AH = 3\sqrt{5}$, only answer with $\sqrt{5}$ factor is viable. Direct selection of (D) possible with confidence if time-pressed.
+    \item \textbf{Penultimate Step Application}: Work backwards: If $PQ = \frac{8}{15}\sqrt{5}$ and $AH = 3\sqrt{5}$, then $\frac{PQ}{AH} = \frac{8}{45}$. Can we verify this ratio?
+    \item \textbf{Multiple Path Planning}: 
+    \begin{enumerate}
+        \item \textbf{Path 1 (Standard)}: Heron $\rightarrow$ altitude $\rightarrow$ foot position $\rightarrow$ angle bisector theorem
+        \item \textbf{Path 2 (Similar Triangles)}: Use incenter and similar triangles with parallel lines
+        \item \textbf{Path 3 (Coordinates)}: Set up coordinate system
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Calculate step-by-step:
+    \begin{enumerate}
+        \item Area and altitude
+        \item Position of $H$ on $BC$
+        \item Ratios $AP:PH$ and $AQ:QH$ using angle bisector theorem
+        \item Solve for $AP$ and $AQ$
+        \item Compute $PQ = |AQ - AP|$
+    \end{enumerate}
+    \item \textbf{Algebraic Construction}: Use variables for unknown positions, set up equations, solve system
+    \item \textbf{Verification Path}: Check answer against choices, verify units, confirm $0 < PQ < AH$
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}:
+    \begin{itemize}
+        \item \textbf{Heron's Formula}: Calculate area of triangle with sides $a=8$, $b=9$, $c=7$
+        $$\text{Area} = \sqrt{s(s-a)(s-b)(s-c)} = \sqrt{12 \cdot 4 \cdot 3 \cdot 5} = 12\sqrt{5}$$
+        \item \textbf{Altitude Formula}: $\text{Area} = \frac{1}{2} \cdot \text{base} \cdot \text{height}$
+        $$12\sqrt{5} = \frac{1}{2} \cdot 8 \cdot h \Rightarrow h = 3\sqrt{5}$$
+        \item \textbf{Pythagorean Theorem}: In right triangles $\triangle ABH$ and $\triangle ACH$:
+        $$AB^2 = AH^2 + BH^2 \Rightarrow 49 = 45 + BH^2 \Rightarrow BH = 2$$
+        $$AC^2 = AH^2 + CH^2 \Rightarrow 81 = 45 + CH^2 \Rightarrow CH = 6$$
+        \item \textbf{Angle Bisector Theorem}: 
+        \begin{itemize}
+            \item In $\triangle ABH$: Angle bisector from $B$ divides opposite side in ratio of adjacent sides
+            \item In $\triangle ACH$: Angle bisector from $C$ divides opposite side in ratio of adjacent sides
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Secondary Tactics}:
+    \begin{itemize}
+        \item \textbf{Similar Triangles}: If using incenter approach with parallel lines
+        \item \textbf{Coordinate Geometry}: Place $B$ at origin, $C$ at $(8,0)$, find $A$ coordinates
+        \item \textbf{Mass Points}: Assign masses to vertices for cevian ratio calculations
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Analytic Geometry Integration}: Coordinate approach viable but computational
+    \item \textbf{Trigonometry Alternative}: Could use angle calculations but unnecessarily complex
+    \item \textbf{Vector Methods}: Overkill for this problem
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. High-Probability Techniques (Recognition Index)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{T1: Pythagorean Theorem} (\textcolor{green}{APPLY}): 
+    \begin{itemize}
+        \item \textit{Recognition}: Right triangles $\triangle ABH$ and $\triangle ACH$ formed by altitude
+        \item \textit{Application}: Find $BH$ and $CH$ using $AB^2 = AH^2 + BH^2$ and $AC^2 = AH^2 + CH^2$
+    \end{itemize}
+    \item \textbf{T10: Angle Bisector Theorem} (\textcolor{green}{APPLY -- CRITICAL}):
+    \begin{itemize}
+        \item \textit{Recognition}: Problem explicitly mentions angle bisectors $BD$ and $CE$
+        \item \textit{Application}: Apply to $\triangle ACH$ and $\triangle ABH$ to find ratios
+        \item In $\triangle ACH$: $CE$ bisects $\angle ACH$, so $\frac{AP}{PH} = \frac{AC}{CH} = \frac{9}{6} = \frac{3}{2}$
+        \item In $\triangle ABH$: $BD$ bisects $\angle ABH$, so $\frac{AQ}{QH} = \frac{AB}{BH} = \frac{7}{2}$
+    \end{itemize}
+    \item \textbf{T18: Heron's Formula} (\textcolor{green}{APPLY}):
+    \begin{itemize}
+        \item \textit{Recognition}: Triangle sides given, need area to find altitude
+        \item \textit{Application}: $s = 12$, Area $= \sqrt{12 \cdot 5 \cdot 4 \cdot 3} = 12\sqrt{5}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Medium-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Similar Triangles} (\textcolor{yellow}{ALTERNATIVE}): Could use with incenter and parallel construction
+    \item \textbf{Coordinate Geometry} (\textcolor{yellow}{BACKUP}): Place triangle in coordinate system if algebraic approach fails
+    \item \textbf{Mass Points} (\textcolor{orange}{NOT NEEDED}): Useful for concurrent cevians but overkill here
+\end{itemize}
+
+\subsection*{C. Technique Integration Strategy}
+\begin{enumerate}
+    \item \textbf{Phase 1 -- Foundation}: Use Heron's formula and altitude formula to find $AH = 3\sqrt{5}$
+    \item \textbf{Phase 2 -- Foot Location}: Use Pythagorean theorem to find $BH = 2$, $CH = 6$
+    \item \textbf{Phase 3 -- Angle Bisector Application}: 
+    \begin{itemize}
+        \item Apply angle bisector theorem to $\triangle ABH$: $\frac{AQ}{QH} = \frac{7}{2}$
+        \item Apply angle bisector theorem to $\triangle ACH$: $\frac{AP}{PH} = \frac{9}{6} = \frac{3}{2}$
+    \end{itemize}
+    \item \textbf{Phase 4 -- Solve for Segments}:
+    \begin{itemize}
+        \item From $AQ + QH = 3\sqrt{5}$ and $\frac{AQ}{QH} = \frac{7}{2}$: \\
+        Let $QH = 2k$, then $AQ = 7k$ and $9k = 3\sqrt{5}$, so $k = \frac{\sqrt{5}}{3}$ \\
+        Thus $AQ = \frac{7\sqrt{5}}{3}$ and $QH = \frac{2\sqrt{5}}{3}$
+        \item From $AP + PH = 3\sqrt{5}$ and $\frac{AP}{PH} = \frac{3}{2}$: \\
+        Let $PH = 2m$, then $AP = 3m$ and $5m = 3\sqrt{5}$, so $m = \frac{3\sqrt{5}}{5}$ \\
+        Thus $AP = \frac{9\sqrt{5}}{5}$ and $PH = \frac{6\sqrt{5}}{5}$
+    \end{itemize}
+    \item \textbf{Phase 5 -- Final Calculation}:
+    $$PQ = AQ - AP = \frac{7\sqrt{5}}{3} - \frac{9\sqrt{5}}{5} = \frac{35\sqrt{5} - 27\sqrt{5}}{15} = \frac{8\sqrt{5}}{15}$$
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Potential Issue}: Confusion about which triangle to apply angle bisector theorem
+    \item \textbf{Resolution}: The altitude creates two right triangles. Apply theorem to these sub-triangles, not the original triangle
+    \item \textbf{Sign Verification}: Ensure $AQ > AP$ so that $Q$ is farther from $A$ than $P$ (verified: $\frac{7}{3} > \frac{9}{5}$)
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\textbf{Decision Tree}: Problem 17 (late-band) + geometry + multiple steps $\Rightarrow$ \textbf{Level 4: Standard Verification}
+
+\subsection*{B. Verification Methods Applied}
+\begin{enumerate}
+    \item \textbf{Dimensional Analysis}:
+    \begin{itemize}
+        \item $PQ$ has units of length $\checkmark$
+        \item Answer $\frac{8}{15}\sqrt{5} \approx 1.46$ is reasonable ($0 < PQ < AH = 3\sqrt{5} \approx 6.71$) $\checkmark$
+    \end{itemize}
+    \item \textbf{Boundary Check}:
+    \begin{itemize}
+        \item $PQ < AH$: $\frac{8}{15}\sqrt{5} < 3\sqrt{5}$ $\Rightarrow$ $\frac{8}{15} < 3$ $\checkmark$
+        \item $P$ and $Q$ are between $A$ and $H$: verified by positive values $\checkmark$
+    \end{itemize}
+    \item \textbf{Ratio Verification}:
+    \begin{itemize}
+        \item Check $AP:PH = 3:2$: $\frac{9\sqrt{5}/5}{6\sqrt{5}/5} = \frac{9}{6} = \frac{3}{2}$ $\checkmark$
+        \item Check $AQ:QH = 7:2$: $\frac{7\sqrt{5}/3}{2\sqrt{5}/3} = \frac{7}{2}$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Alternative Calculation}:
+    \begin{itemize}
+        \item Verify via $PQ = AQ - AP$:
+        $$\frac{7\sqrt{5}}{3} - \frac{9\sqrt{5}}{5} = \sqrt{5}\left(\frac{7}{3} - \frac{9}{5}\right) = \sqrt{5} \cdot \frac{35-27}{15} = \frac{8\sqrt{5}}{15}$$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Answer Choice Confirmation}:
+    \begin{itemize}
+        \item Only option (D) matches our result $\checkmark$
+        \item $\sqrt{5}$ factor consistent with area calculation $\checkmark$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (standard technique application)
+    \item \textbf{Post-Verification Confidence}: 98\% (multiple checks passed, answer matches choice (D))
+    \item \textbf{Flag for Review}: No -- high confidence, move forward
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Step 1: Calculate Triangle Area (1 minute)}
+\begin{itemize}
+    \item Use Heron's formula with $s = 12$
+    \item Compute $\text{Area} = \sqrt{12 \cdot 5 \cdot 4 \cdot 3} = 12\sqrt{5}$
+    \item \textit{Checkpoint}: Area is positive and involves $\sqrt{5}$
+\end{itemize}
+
+\textbf{Step 2: Find Altitude Length (30 seconds)}
+\begin{itemize}
+    \item Use $\text{Area} = \frac{1}{2} \cdot BC \cdot AH$
+    \item Solve: $12\sqrt{5} = 4 \cdot AH \Rightarrow AH = 3\sqrt{5}$
+    \item \textit{Checkpoint}: $AH < AB$ and $AH < AC$ (altitude shorter than legs)
+\end{itemize}
+
+\textbf{Step 3: Locate Foot of Altitude (1.5 minutes)}
+\begin{itemize}
+    \item Apply Pythagorean theorem to $\triangle ABH$: $7^2 = (3\sqrt{5})^2 + BH^2$
+    \item Solve: $49 = 45 + BH^2 \Rightarrow BH = 2$
+    \item Find $CH = BC - BH = 8 - 2 = 6$
+    \item \textit{Checkpoint}: Verify with $\triangle ACH$: $9^2 = 45 + 36 = 81$ $\checkmark$
+\end{itemize}
+
+\textbf{Step 4: Apply Angle Bisector Theorem to $\triangle ABH$ (1.5 minutes)}
+\begin{itemize}
+    \item Bisector from $B$ divides $AH$ such that $\frac{AQ}{QH} = \frac{AB}{BH} = \frac{7}{2}$
+    \item Let $QH = 2t$, then $AQ = 7t$ and $9t = 3\sqrt{5}$
+    \item Solve: $t = \frac{\sqrt{5}}{3}$, so $AQ = \frac{7\sqrt{5}}{3}$
+    \item \textit{Checkpoint}: $AQ < AH$ verified
+\end{itemize}
+
+\textbf{Step 5: Apply Angle Bisector Theorem to $\triangle ACH$ (1.5 minutes)}
+\begin{itemize}
+    \item Bisector from $C$ divides $AH$ such that $\frac{AP}{PH} = \frac{AC}{CH} = \frac{9}{6} = \frac{3}{2}$
+    \item Let $PH = 2u$, then $AP = 3u$ and $5u = 3\sqrt{5}$
+    \item Solve: $u = \frac{3\sqrt{5}}{5}$, so $AP = \frac{9\sqrt{5}}{5}$
+    \item \textit{Checkpoint}: $AP < AH$ verified
+\end{itemize}
+
+\textbf{Step 6: Calculate $PQ$ (1 minute)}
+\begin{itemize}
+    \item Compute $PQ = AQ - AP = \frac{7\sqrt{5}}{3} - \frac{9\sqrt{5}}{5}$
+    \item Find common denominator: $\frac{35\sqrt{5} - 27\sqrt{5}}{15} = \frac{8\sqrt{5}}{15}$
+    \item \textit{Checkpoint}: Result matches answer choice (D)
+\end{itemize}
+
+\textbf{Total Time Estimate}: 7 minutes
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Alternative 1: Similar Triangles with Incenter (Solution 2)}
+\begin{itemize}
+    \item Recognize $I$ = incenter at intersection of $BD$ and $CE$
+    \item Use inradius formula: $r \cdot s = \text{Area} \Rightarrow r = \sqrt{5}$
+    \item Apply similar triangles with parallel altitude and inradius
+    \item More elegant but requires recognizing incenter property
+\end{itemize}
+
+\textbf{Alternative 2: Coordinate Geometry}
+\begin{itemize}
+    \item Place $B$ at origin $(0,0)$, $C$ at $(8,0)$
+    \item Find $A$ coordinates using distance constraints
+    \item Write equations for angle bisectors
+    \item Find intersections with altitude line
+    \item More computational but systematic
+\end{itemize}
+
+\subsection*{C. Pivot Indicators}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pivot Point 1}: If Heron's formula calculation becomes messy
+    \begin{itemize}
+        \item \textit{Action}: Use $\text{Area} = \frac{1}{2}ab\sin C$ with law of cosines for angle
+    \end{itemize}
+    \item \textbf{Pivot Point 2}: If angle bisector theorem application is confusing
+    \begin{itemize}
+        \item \textit{Action}: Switch to coordinate geometry for explicit calculations
+    \end{itemize}
+    \item \textbf{Pivot Point 3}: If after 6 minutes no clear progress
+    \begin{itemize}
+        \item \textit{Action}: Use answer choice (D) based on $\sqrt{5}$ factor and move on
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Common Pitfalls and Avoidance}
+
+\begin{enumerate}
+    \item \textbf{Pitfall}: Applying angle bisector theorem to original $\triangle ABC$ instead of sub-triangles
+    \begin{itemize}
+        \item \textit{Avoidance}: Remember that $CE$ bisects $\angle ACH$ in right triangle $\triangle ACH$, not $\angle ACB$
+    \end{itemize}
+    \item \textbf{Pitfall}: Sign error in $PQ = |AQ - AP|$
+    \begin{itemize}
+        \item \textit{Avoidance}: First determine which of $P$ or $Q$ is closer to $A$ by comparing $\frac{7}{3}$ vs $\frac{9}{5}$
+    \end{itemize}
+    \item \textbf{Pitfall}: Arithmetic error in fraction subtraction
+    \begin{itemize}
+        \item \textit{Avoidance}: Find LCD carefully: $\text{LCD}(3,5) = 15$
+    \end{itemize}
+    \item \textbf{Pitfall}: Confusing $BH$ and $CH$ positions
+    \begin{itemize}
+        \item \textit{Avoidance}: Draw clear diagram, label carefully
+    \end{itemize}
+    \item \textbf{Pitfall}: Forgetting to extract $\sqrt{5}$ factor in final answer
+    \begin{itemize}
+        \item \textit{Avoidance}: Factor out $\sqrt{5}$ early: $\sqrt{5}(\frac{7}{3} - \frac{9}{5})$
+    \end{itemize}
+\end{enumerate}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 6-8 minutes (Problem 17 difficulty)
+    \item \textbf{Minimum Time}: 4 minutes (if fast with angle bisector theorem)
+    \item \textbf{Maximum Time}: 10 minutes (abandon if exceeding this)
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Problem comprehension: 30 seconds
+        \item Area/altitude calculation: 1.5 minutes
+        \item Foot location: 1.5 minutes
+        \item Angle bisector applications: 3 minutes
+        \item Final calculation: 1 minute
+        \item Verification: 30 seconds
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{When to Attempt}: 
+    \begin{itemize}
+        \item After completing problems 1-16 (easier problems first)
+        \item If strong in geometry and comfortable with angle bisector theorem
+        \item With at least 15 minutes remaining in exam
+    \end{itemize}
+    \item \textbf{Strategic Value}: 
+    \begin{itemize}
+        \item Worth 6 points (same as all AMC12 problems)
+        \item High payoff if familiar with techniques
+        \item Multiple choice provides safety net
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: Medium-high (70\%+) -- standard technique combination
+    \item \textbf{Soft Abandon Trigger}: If stuck after 5 minutes with no clear path forward
+    \item \textbf{Hard Abandon Trigger}: 
+    \begin{itemize}
+        \item After 10 minutes total
+        \item If computational errors occur repeatedly
+        \item If angle bisector theorem application remains unclear
+    \end{itemize}
+    \item \textbf{Emergency Strategy}: 
+    \begin{itemize}
+        \item Use answer choice elimination: only (D) has $\sqrt{5}$ factor
+        \item Estimate: $AH \approx 6.7$, so $PQ$ should be less than this
+        \item Make educated guess and move on
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Optimization Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Speed Technique}: Recognize $\sqrt{5}$ in area implies answer (D) most likely
+    \item \textbf{Partial Credit Not Applicable}: AMC12 is multiple choice, so either get it or don't
+    \item \textbf{Guess Strategy}: If time-pressed, choose (D) based on $\sqrt{5}$ factor
+    \item \textbf{Return Strategy}: Flag for review if uncertain, complete other problems, return if time permits
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The altitude $AH$ divides the original triangle into two right triangles $\triangle ABH$ and $\triangle ACH$. The angle bisectors from $B$ and $C$ intersect $AH$ at $Q$ and $P$ respectively, and the angle bisector theorem can be applied to these \emph{right triangles} (not the original triangle) to find the ratios $AQ:QH = AB:BH = 7:2$ and $AP:PH = AC:CH = 9:6 = 3:2$. This is the critical realization that unlocks the problem.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Do NOT apply the angle bisector theorem to the original $\triangle ABC$. The angle bisectors $BD$ and $CE$ bisect angles $\angle ABC$ and $\angle ACB$ in the original triangle, but when they intersect altitude $AH$, we analyze them within the right triangles $\triangle ABH$ and $\triangle ACH$ where they create specific ratios with the altitude segments.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: On AMC12 Problem 17, immediately check answer choices for patterns. Here, only choice (D) contains $\sqrt{5}$. Since Heron's formula gives area $12\sqrt{5}$ and altitude $3\sqrt{5}$, this strongly suggests (D) is correct. If time-pressured or stuck after initial attempts, select (D) with high confidence and move on.
+\end{tipbox}
+
+\section*{Final Answer}
+\boxed{\textbf{(D)}\ \frac{8}{15}\sqrt{5}}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 98\% -- Standard technique application, multiple verification checks passed, answer matches unique choice with $\sqrt{5}$ factor
+    \item \textbf{Verification Applied}: Dimensional analysis, boundary checks, ratio verification, alternative calculation, answer choice confirmation
+    \item \textbf{Flag for Review}: No -- extremely high confidence, solution verified multiple ways
+    \item \textbf{Time Spent}: 7 minutes (within target range for Problem 17)
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,64 @@
+2021 AMC 12A Problems/Problem 10
+Contents
+1 Problem
+2 Solution 1 (Modular Arithmetic)
+3 Solution 2 (Powers of 9)
+4 Remark
+5 Video Solution
+6 Video Solution
+7 Video Solution
+8 Video Solution by WhyMath
+9 See Also
+Problem
+The base-nine representation of the number $N$ is $27{,}006{,}000{,}052_{\text{nine}}.$ What is the remainder when $N$ is divided by $5?$
+$\textbf{(A) } 0\qquad\textbf{(B) } 1\qquad\textbf{(C) } 2\qquad\textbf{(D) } 3\qquad\textbf{(E) }4$
+Solution 1 (Modular Arithmetic)
+Recall that $9\equiv-1\pmod{5}.$ We expand $N$ by the definition of bases: 
+
+\begin{align*} N&=27{,}006{,}000{,}052_9 \\ &= 2\cdot9^{10} + 7\cdot9^9 + 6\cdot9^6 + 5\cdot9 + 2 \\ &\equiv 2\cdot(-1)^{10} + 7\cdot(-1)^9 + 6\cdot(-1)^6 + 2 &&\pmod{5} \\ &\equiv 2-7+6+2 &&\pmod{5} \\ &\equiv \boxed{\textbf{(D) } 3} &&\pmod{5}. \end{align*}
+
+ ~Aidensharp ~Kante314 ~MRENTHUSIASM ~anabel.disher
+Solution 2 (Powers of 9)
+We need to first convert $N$ into a regular base- $10$ number:
+
+\[N = 27{,}006{,}000{,}052_9 = 2\cdot9^{10} + 7\cdot9^9 + 6\cdot9^6 + 5\cdot9 + 2.\]
+Now, consider how the last digit of $9$ changes with changes of the power of $9:$ 
+
+\begin{align*} 9^0&=1, \\ 9^1&=9, \\ 9^2&=\ldots 1, \\ 9^3&=\ldots 9, \\ 9^4&=\ldots 1, \\ & \ \vdots \end{align*}
+
+ Note that if $x$ is odd, then $9^x \equiv 4\pmod{5}.$ On the other hand, if $x$ is even, then $9^x \equiv 1\pmod{5}.$
+Therefore, we have 
+
+\begin{align*} N&\equiv 2\cdot(1) + 7\cdot(4) + 6\cdot(1) + 5\cdot(4) + 2\cdot(1) &&\pmod{5} \\ &\equiv 2+28+6+20+2 &&\pmod{5} \\ &\equiv 58 &&\pmod{5} \\ &\equiv \boxed{\textbf{(D) } 3} &&\pmod{5}. \\ \end{align*}
+
+ Note that for the odd case, $9^x \equiv -1\pmod{5}$ may simplify the process further, as given by Solution 1.
+~Wilhelm Z
+Remark
+By the long division algorithm, you can work from left to right accumulating the answer, and don't need to count the digits to get the power. You only need to take the current leading digit modulo $5$ , negate it, and add it to the next digit, and repeat the process until you reach the units digit.
+~oinava
+Video Solution
+https://youtu.be/Mv38a8oanFk
+~Education, the Study of Everything
+Video Solution
+https://youtu.be/SCGzEOOICr4?t=101
+Video Solution
+https://youtu.be/zq3UPu4nwsE?t=358
+https://youtu.be/wlDlByKI7A8?t=885
+Video Solution by WhyMath
+https://youtu.be/4faUhsTmS5A
+~savannahsolver
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 9 Followed by 
+ Problem 11
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2021 Fall AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

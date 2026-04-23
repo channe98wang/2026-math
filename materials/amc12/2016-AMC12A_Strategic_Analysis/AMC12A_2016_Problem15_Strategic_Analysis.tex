@@ -1,0 +1,712 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12A 2016 Problem 15 Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12/COMC Strategic Problem Analysis\\2016 AMC 12A Problem 15}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Circles with centers $P, Q$ and $R$, having radii $1, 2$ and $3$, respectively, lie on the same side of line $l$ and are tangent to $l$ at $P', Q'$ and $R'$, respectively, with $Q'$ between $P'$ and $R'$. The circle with center $Q$ is externally tangent to each of the other two circles. What is the area of triangle $PQR$?
+
+\[\textbf{(A) } 0\qquad \textbf{(B) } \sqrt{\frac{2}{3}}\qquad\textbf{(C) } 1\qquad\textbf{(D) } \sqrt{6}-\sqrt{2}\qquad\textbf{(E) }\sqrt{\frac{3}{2}}\]
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - calculate the area of triangle $PQR$
+    \item \textbf{Difficulty Band}: Mid-band (Problem 15/25, transitioning to late-band)
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - Target time 4-5 minutes
+    \item \textbf{Mathematical Domain}: Plane Geometry with strong algebraic computation component
+    \item \textbf{Source Context}: 2016 AMC 12A Problem 15 - historically correct answer rate ~15-20\%
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Three circles with radii 1, 2, 3 centered at $P$, $Q$, $R$ respectively
+        \item All circles tangent to line $l$ from same side
+        \item Tangent points $P'$, $Q'$, $R'$ with $Q'$ between $P'$ and $R'$
+        \item Circle $Q$ externally tangent to both circles $P$ and $R$
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item External tangency implies $PQ = 1 + 2 = 3$ and $QR = 2 + 3 = 5$
+        \item Tangency to line implies heights are the radii (1, 2, 3)
+        \item Ordering constraint: $Q'$ between $P'$ and $R'$
+    \end{itemize}
+    \item \textbf{Objective}: Find area of triangle $PQR$ from answer choices
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Configuration is uniquely determined by constraints
+        \item Triangle exists (non-collinear points)
+        \item Answer involves nested radicals (based on choices)
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item (A) is trivial case - immediately eliminable (tangency conditions imply non-degeneracy)
+        \item (B), (C), (E) are relatively simple expressions
+        \item (D) $\sqrt{6} - \sqrt{2}$ is most complex - likely answer if problem is difficult
+        \item Can verify by checking if calculated area matches a choice
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The tangency conditions and external tangency determine unique configuration
+    \item \textbf{Conclusion}: Area can be computed via coordinate geometry or trapezoid decomposition
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Centers: $P$, $Q$, $R$
+        \item Radii: $r_P = 1$, $r_Q = 2$, $r_R = 3$
+        \item Tangent points: $P'$, $Q'$, $R'$ on line $l$
+        \item Distances: $PQ = 3$, $QR = 5$, $PR = ?$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: Use trapezoid decomposition method - break into manageable pieces
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Coordinate geometry: Place line $l$ as $x$-axis
+        \item Pythagorean theorem: Find horizontal distances between tangent points
+        \item Heron's formula: After finding all three side lengths
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is a mid-band problem requiring careful calculation. Multiple approaches exist - if one gets messy, switch methods.
+    \item \textbf{Creativity Cultivation}: The trapezoid decomposition approach is elegant - visualize breaking the configuration into trapezoids and triangles.
+    \item \textbf{Iterative Refinement}: If initial calculation produces messy algebra, simplify by choosing better coordinate system or decomposition strategy.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Draw accurate diagram showing three circles tangent to line with proper ordering
+    \item \textbf{Get Your Hands Dirty}: Calculate $P'Q'$ and $Q'R'$ using Pythagorean theorem on trapezoids
+    \item \textbf{Penultimate Step}: After finding all trapezoid areas, final step is simple addition/subtraction
+    \item \textbf{Wishful Thinking}: "If only we knew $PR$..." - but we can find it via Pythagorean theorem
+    \item \textbf{Make It Easier}: Instead of finding $PR$ directly, use trapezoid area method to avoid that calculation
+    \item \textbf{Conjecture via Small Cases}: Not applicable - unique configuration
+    \item \textbf{Visualization}: Critical - draw perpendiculars from centers to line to form trapezoids
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Answer (D) $\sqrt{6} - \sqrt{2}$ suggests problem involves nested radicals - consistent with Pythagorean calculations yielding $\sqrt{8}$ and $\sqrt{24}$
+    \item \textbf{Make It Easier}: Not used - problem structure is already clean
+    \item \textbf{Penultimate Step}: Final calculation is adding trapezoid areas and subtracting large trapezoid
+    \item \textbf{Wishful Thinking}: Not needed - direct approach works
+    \item \textbf{Conjecture via Small Cases}: Verify answer makes sense: area should be positive and reasonable given side lengths 3, 5
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Yes - calculate areas using trapezoid decomposition method
+    \item \textbf{Proof by Contradiction}: Not applicable
+    \item \textbf{Mathematical Induction}: Not applicable
+    \item \textbf{Stylistic Conventions}: WLOG can assume coordinate system with $l$ as $x$-axis
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential - diagram reveals trapezoid structure
+    \item \textbf{Recast the Problem}: "Find area" becomes "decompose into trapezoids and calculate"
+    \item \textbf{Change Your Point of View}: Coordinate geometry approach: Shoelace formula after finding coordinates
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Configuration has no obvious symmetry, but trapezoid method exploits structural regularity
+    \item \textbf{The Extreme Principle}: Not applicable
+    \item \textbf{The Pigeonhole Principle}: Not applicable
+    \item \textbf{Invariants}: The heights (radii) remain constant throughout calculation
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory}: Not applicable
+    \item \textbf{Complex Numbers}: Not applicable (though could represent as complex plane)
+    \item \textbf{Generating Functions}: Not applicable
+    \item \textbf{Coordinate Geometry}: Highly applicable - primary alternative approach using Shoelace theorem
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{Recognition Index Analysis}
+\textbf{Primary Recognition Triggers (1-3 seconds):}
+\begin{enumerate}
+    \item \textbf{Circles tangent to line} $\rightarrow$ Heights equal radii (perpendicular from center to tangent point)
+    \item \textbf{External tangency} $\rightarrow$ Distance between centers equals sum of radii
+    \item \textbf{Find area of triangle} $\rightarrow$ Multiple approaches: coordinate geometry, Heron's, decomposition
+    \item \textbf{Answer choices with nested radicals} $\rightarrow$ Expect Pythagorean theorem calculations
+\end{enumerate}
+
+\subsection*{A. High-Probability Techniques Selected}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Coordinate Geometry Conversion}: 
+    \begin{itemize}
+        \item Place $P'$ at origin, line $l$ as $x$-axis
+        \item Centers: $P = (0, 1)$, $Q = (P'Q', 2)$, $R = (P'Q' + Q'R', 3)$
+        \item Find $P'Q'$ and $Q'R'$ using Pythagorean theorem
+        \item Apply Shoelace formula for area
+    \end{itemize}
+    
+    \item \textbf{Pythagorean Theorem Application}:
+    \begin{itemize}
+        \item In trapezoid $PP'Q'Q$: $P'Q'^2 + (r_Q - r_P)^2 = PQ^2$
+        \item $P'Q'^2 + 1^2 = 3^2 \Rightarrow P'Q' = \sqrt{8} = 2\sqrt{2}$
+        \item In trapezoid $QQ'R'R$: $Q'R'^2 + (r_R - r_Q)^2 = QR^2$
+        \item $Q'R'^2 + 1^2 = 5^2 \Rightarrow Q'R' = \sqrt{24} = 2\sqrt{6}$
+    \end{itemize}
+    
+    \item \textbf{Trapezoid Area Decomposition}:
+    \begin{itemize}
+        \item Area of trapezoid with parallel sides $a$, $b$ and height $h$: $\frac{(a+b)h}{2}$
+        \item $[PP'Q'Q] = \frac{(r_P + r_Q) \cdot P'Q'}{2} = \frac{(1+2) \cdot 2\sqrt{2}}{2} = 3\sqrt{2}$
+        \item $[QQ'R'R] = \frac{(r_Q + r_R) \cdot Q'R'}{2} = \frac{(2+3) \cdot 2\sqrt{6}}{2} = 5\sqrt{6}$
+        \item $[PP'R'R] = \frac{(r_P + r_R) \cdot P'R'}{2} = \frac{(1+3)(2\sqrt{2}+2\sqrt{6})}{2} = 4\sqrt{2} + 4\sqrt{6}$
+    \end{itemize}
+    
+    \item \textbf{Area Addition/Subtraction}:
+    \begin{itemize}
+        \item Key equation: $[PP'Q'Q] + [QQ'R'R] = [PQR] + [PP'R'R]$
+        \item Therefore: $[PQR] = [PP'Q'Q] + [QQ'R'R] - [PP'R'R]$
+        \item $[PQR] = 3\sqrt{2} + 5\sqrt{6} - (4\sqrt{2} + 4\sqrt{6})$
+        \item $[PQR] = 3\sqrt{2} + 5\sqrt{6} - 4\sqrt{2} - 4\sqrt{6}$
+        \item $[PQR] = -\sqrt{2} + \sqrt{6} = \sqrt{6} - \sqrt{2}$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Medium-Probability Techniques}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Heron's Formula}: 
+    \begin{itemize}
+        \item Would require finding $PR$ first via Pythagorean theorem
+        \item $PR^2 = (P'R')^2 + (r_R - r_P)^2 = (2\sqrt{2}+2\sqrt{6})^2 + 4$
+        \item Leads to nested radical: $PR = 2\sqrt{9 + 4\sqrt{3}}$
+        \item More complex but verifiable approach
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{C. Technique Selection Rationale}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Method}: Trapezoid decomposition - clean, direct, avoids finding $PR$
+    \item \textbf{Alternative Method}: Coordinate geometry with Shoelace - equally clean
+    \item \textbf{Backup Method}: Heron's formula - more computation but verifies answer
+    \item \textbf{Why Chosen}: Trapezoid method is fastest and least error-prone for competition
+\end{itemize}
+
+\subsection*{D. Integration Strategy}
+\begin{itemize}[leftmargin=*]
+    \item All three methods should yield $\sqrt{6} - \sqrt{2}$
+    \item Trapezoid method integrates: Pythagorean theorem + area formula + algebraic manipulation
+    \item No conflicts between techniques - they complement each other
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+Based on decision tree for mid-band problem with computational complexity:
+
+\textbf{Selected Level: Level 4 - Standard Verification}
+\begin{itemize}[leftmargin=*]
+    \item Difficulty: Mid-band (P15)
+    \item Computation: Moderate (multiple Pythagorean calculations)
+    \item Confidence: Should be high after clean trapezoid calculation
+    \item Time available: 1-1.5 minutes for verification
+\end{itemize}
+
+\subsection*{B. Specific Verification Methods}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Dimensional Analysis}:
+    \begin{itemize}
+        \item Area should have dimension [length]$^2$
+        \item $\sqrt{6} - \sqrt{2}$ is dimensionless number, multiply by appropriate unit squared
+        \item Check: Expression is positive ($\sqrt{6} \approx 2.45 > \sqrt{2} \approx 1.41$) $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Reasonableness Check}:
+    \begin{itemize}
+        \item Triangle has sides $PQ = 3$, $QR = 5$
+        \item Rough upper bound: $\frac{1}{2} \cdot 3 \cdot 5 = 7.5$
+        \item Computed: $\sqrt{6} - \sqrt{2} \approx 2.45 - 1.41 = 1.04$
+        \item Reasonable - triangle is not very "tall" $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Matching}:
+    \begin{itemize}
+        \item Computed answer exactly matches choice (D)
+        \item No other choice is close numerically $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Algebraic Verification}:
+    \begin{itemize}
+        \item Re-check: $3\sqrt{2} + 5\sqrt{6} - 4\sqrt{2} - 4\sqrt{6}$
+        \item Group terms: $(3-4)\sqrt{2} + (5-4)\sqrt{6} = -\sqrt{2} + \sqrt{6}$ $\checkmark$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{C. Specialized Verification}
+\textbf{Geometry-Specific Checks:}
+\begin{itemize}[leftmargin=*]
+    \item Verify $P'Q' = 2\sqrt{2}$: $\sqrt{3^2 - 1^2} = \sqrt{8} = 2\sqrt{2}$ $\checkmark$
+    \item Verify $Q'R' = 2\sqrt{6}$: $\sqrt{5^2 - 1^2} = \sqrt{24} = 2\sqrt{6}$ $\checkmark$
+    \item Triangle inequality: $3 + 5 > PR$, $|5-3| < PR$ (should be satisfied)
+\end{itemize}
+
+\subsection*{D. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (clean calculation, matches answer choice)
+    \item \textbf{After Verification}: 95\% (all checks pass, answer is exact match)
+    \item \textbf{Flag for Review}: No - high confidence, move to next problem
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Complete Solution Roadmap}
+
+\textbf{Time Estimate: 4-5 minutes}
+
+\subsubsection*{Step 1: Setup and Diagram (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Draw line $l$ horizontally
+    \item Draw three circles tangent to $l$ from above
+    \item Mark radii: 1, 2, 3 for circles P, Q, R
+    \item Note ordering: $P'$, $Q'$, $R'$ left to right
+    \item Mark tangency: Q externally tangent to P and R
+\end{itemize}
+
+\textbf{Checkpoint}: Diagram should clearly show configuration, verify $PQ = 3$, $QR = 5$
+
+\subsubsection*{Step 2: Find Horizontal Distances (1.5 minutes)}
+\begin{itemize}[leftmargin=*]
+    \item For trapezoid $PP'Q'Q$:
+    \begin{itemize}
+        \item Vertical difference: $|r_Q - r_P| = |2-1| = 1$
+        \item Hypotenuse: $PQ = 3$
+        \item Horizontal: $P'Q' = \sqrt{3^2 - 1^2} = \sqrt{8} = 2\sqrt{2}$
+    \end{itemize}
+    
+    \item For trapezoid $QQ'R'R$:
+    \begin{itemize}
+        \item Vertical difference: $|r_R - r_Q| = |3-2| = 1$
+        \item Hypotenuse: $QR = 5$
+        \item Horizontal: $Q'R' = \sqrt{5^2 - 1^2} = \sqrt{24} = 2\sqrt{6}$
+    \end{itemize}
+\end{itemize}
+
+\textbf{Checkpoint}: $P'Q' = 2\sqrt{2}$, $Q'R' = 2\sqrt{6}$, therefore $P'R' = 2\sqrt{2} + 2\sqrt{6}$
+
+\subsubsection*{Step 3: Calculate Trapezoid Areas (1.5 minutes)}
+\begin{itemize}[leftmargin=*]
+    \item Area of $PP'Q'Q$:
+    \[[\text{PP'Q'Q}] = \frac{(r_P + r_Q) \cdot P'Q'}{2} = \frac{(1+2)(2\sqrt{2})}{2} = 3\sqrt{2}\]
+    
+    \item Area of $QQ'R'R$:
+    \[[\text{QQ'R'R}] = \frac{(r_Q + r_R) \cdot Q'R'}{2} = \frac{(2+3)(2\sqrt{6})}{2} = 5\sqrt{6}\]
+    
+    \item Area of $PP'R'R$:
+    \begin{align*}
+    [\text{PP'R'R}] &= \frac{(r_P + r_R) \cdot P'R'}{2}\\
+    &= \frac{(1+3)(2\sqrt{2}+2\sqrt{6})}{2}\\
+    &= \frac{4(2\sqrt{2}+2\sqrt{6})}{2}\\
+    &= 2(2\sqrt{2}+2\sqrt{6})\\
+    &= 4\sqrt{2} + 4\sqrt{6}
+    \end{align*}
+\end{itemize}
+
+\textbf{Checkpoint}: Three trapezoid areas calculated, ready for final combination
+
+\subsubsection*{Step 4: Apply Area Equation (1 minute)}
+Key relationship: $[PP'Q'Q] + [QQ'R'R] = [PQR] + [PP'R'R]$
+
+Therefore:
+\begin{align*}
+[PQR] &= [PP'Q'Q] + [QQ'R'R] - [PP'R'R]\\
+&= 3\sqrt{2} + 5\sqrt{6} - (4\sqrt{2} + 4\sqrt{6})\\
+&= 3\sqrt{2} + 5\sqrt{6} - 4\sqrt{2} - 4\sqrt{6}\\
+&= (3-4)\sqrt{2} + (5-4)\sqrt{6}\\
+&= -\sqrt{2} + \sqrt{6}\\
+&= \sqrt{6} - \sqrt{2}
+\end{align*}
+
+\textbf{Checkpoint}: Answer matches choice (D)
+
+\subsubsection*{Step 5: Verification (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Check sign: $\sqrt{6} > \sqrt{2}$, so area is positive $\checkmark$
+    \item Numerical check: $\sqrt{6} - \sqrt{2} \approx 2.45 - 1.41 = 1.04$ $\checkmark$
+    \item Answer choice match: (D) $\checkmark$
+\end{itemize}
+
+\subsection*{Alternative Approaches}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Coordinate Geometry + Shoelace}:
+    \begin{itemize}
+        \item Place $P = (0,1)$, $Q = (2\sqrt{2}, 2)$, $R = (2\sqrt{2}+2\sqrt{6}, 3)$
+        \item Apply Shoelace formula
+        \item Time: Similar to trapezoid method
+    \end{itemize}
+    
+    \item \textbf{Heron's Formula}:
+    \begin{itemize}
+        \item Find $PR = 2\sqrt{9+4\sqrt{3}}$
+        \item Apply Heron's with sides 3, 5, $2\sqrt{9+4\sqrt{3}}$
+        \item Time: 6-7 minutes (more complex)
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Pitfall Guide}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Arithmetic Error}: Miscalculating $\sqrt{8}$ or $\sqrt{24}$
+    \begin{itemize}
+        \item Prevention: Double-check simplification of radicals
+        \item Recovery: Verify with calculator if allowed
+    \end{itemize}
+    
+    \item \textbf{Area Equation Error}: Wrong combination of trapezoid areas
+    \begin{itemize}
+        \item Prevention: Draw diagram clearly showing which areas add/subtract
+        \item Recovery: Re-derive from first principles
+    \end{itemize}
+    
+    \item \textbf{Sign Error}: Getting $\sqrt{2} - \sqrt{6}$ (negative area)
+    \begin{itemize}
+        \item Prevention: Always check final answer is positive
+        \item Recovery: Review area combination equation
+    \end{itemize}
+    
+    \item \textbf{Pythagorean Theorem Application}: Using wrong sides
+    \begin{itemize}
+        \item Prevention: Label trapezoid clearly with known quantities
+        \item Recovery: Verify vertical difference is radius difference
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Time Management Checkpoints}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{1 minute}: If still setting up diagram, speed up or skip
+    \item \textbf{3 minutes}: Should have horizontal distances calculated
+    \item \textbf{5 minutes}: If not near final answer, consider flagging and moving on
+    \item \textbf{Pivot Indicator}: If algebra becomes messy with terms $>3$ radicals, switch to coordinate approach
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 4-5 minutes (appropriate for P15)
+    \item \textbf{Maximum Time}: 6 minutes (includes verification)
+    \item \textbf{Actual Breakdown}:
+    \begin{itemize}
+        \item Reading + diagram: 30 seconds
+        \item Finding distances: 1.5 minutes
+        \item Computing areas: 1.5 minutes
+        \item Final calculation: 1 minute
+        \item Verification: 30 seconds
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Accessibility}: HIGH - clear geometric setup, standard techniques
+    \item \textbf{Difficulty}: MEDIUM-HIGH (P15) - requires careful calculation
+    \item \textbf{Point Value}: 6 points (standard AMC12)
+    \item \textbf{Strategic Position}: Should attempt after securing P1-14
+    \item \textbf{Domain Comfort}: If strong in geometry, prioritize; if weak, consider skipping
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: 90\%+ after verification - submit and move on
+    \item \textbf{Medium Confidence (70-90\%)}: Flag for review if time permits
+    \item \textbf{Low Confidence (<70\%)}: Make educated guess between (C) and (D)
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\textbf{Soft Abandon Triggers (Consider switching):}
+\begin{itemize}[leftmargin=*]
+    \item After 5 minutes without clear path to answer
+    \item Computational errors accumulating (2+ mistakes)
+    \item Algebra becoming unmanageably complex
+\end{itemize}
+
+\textbf{Hard Abandon Triggers (Immediate switch):}
+\begin{itemize}[leftmargin=*]
+    \item After 6 minutes total time investment
+    \item Realized fundamental conceptual error in approach
+    \item Emotional frustration affecting clear thinking
+\end{itemize}
+
+\textbf{Recovery Strategy:}
+\begin{itemize}[leftmargin=*]
+    \item Mark answer (D) based on answer choice analysis (most complex = likely correct)
+    \item Flag for review if time permits at end
+    \item Move to next problem to maintain momentum
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The trapezoid decomposition method completely avoids finding the third side $PR$ of the triangle. By recognizing that:
+\[[PP'Q'Q] + [QQ'R'R] = [PQR] + [PP'R'R]\]
+
+we can solve for $[PQR]$ using only simple trapezoid area formulas and the Pythagorean theorem applied to height differences. This transforms a potentially complex Heron's formula calculation into straightforward arithmetic with radicals.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: The most common error is incorrectly applying the Pythagorean theorem. Students often forget that the vertical distance in the trapezoid is the \textbf{difference} of the radii (not their sum), and the hypotenuse is the distance between centers (not the sum of radii, though they happen to equal in this case due to external tangency).
+
+Example: For trapezoid $PP'Q'Q$:
+\begin{itemize}
+    \item $\times$ WRONG: $P'Q'^2 + 3^2 = 3^2$ (using sum of radii for height)
+    \item $\checkmark$ CORRECT: $P'Q'^2 + 1^2 = 3^2$ (using difference of radii)
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: Answer choice analysis provides a quick confidence check. Choice (D) $\sqrt{6} - \sqrt{2}$ is the most complex expression, suggesting the problem requires multiple radical calculations. When you see your calculation naturally producing $2\sqrt{2}$ and $2\sqrt{6}$, this confirms you're on the right track. In AMC12, more difficult problems (P13-20) often have more complex answer choices.
+
+Additionally, recognize that $\sqrt{6} - \sqrt{2} = \sqrt{2}(\sqrt{3} - 1)$, which could be useful if you need to verify the answer or if the problem asked for the answer in a different form.
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(D) } \sqrt{6}-\sqrt{2}}\]
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Clean calculation with exact answer choice match
+    \item \textbf{Verification Applied}: Level 4 Standard Verification - dimensional analysis, reasonableness check, algebraic verification all passed
+    \item \textbf{Flag for Review}: No - high confidence, all verification checks passed
+    \item \textbf{Time Spent}: Estimated 4.5 minutes (within target range)
+\end{itemize}
+
+\section*{Alternative Solution Summary}
+
+\subsection*{Method 2: Coordinate Geometry with Shoelace Formula}
+
+\textbf{Setup}: Place $P' = (0,0)$ on line $l$ (the $x$-axis)
+\begin{itemize}
+    \item $P = (0, 1)$
+    \item $Q = (2\sqrt{2}, 2)$ (since $P'Q' = 2\sqrt{2}$)
+    \item $R = (2\sqrt{2} + 2\sqrt{6}, 3)$ (since $Q'R' = 2\sqrt{6}$)
+\end{itemize}
+
+\textbf{Shoelace Formula}:
+\begin{align*}
+\text{Area} &= \frac{1}{2}|x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2)|\\
+&= \frac{1}{2}|0(2-3) + 2\sqrt{2}(3-1) + (2\sqrt{2}+2\sqrt{6})(1-2)|\\
+&= \frac{1}{2}|0 + 4\sqrt{2} - 2\sqrt{2} - 2\sqrt{6}|\\
+&= \frac{1}{2}|2\sqrt{2} - 2\sqrt{6}|\\
+&= \frac{1}{2} \cdot 2|\sqrt{2} - \sqrt{6}|\\
+&= |\sqrt{2} - \sqrt{6}|\\
+&= \sqrt{6} - \sqrt{2}
+\end{align*}
+
+This method produces the same answer with similar computational complexity.
+
+\subsection*{Method 3: Heron's Formula (More Complex)}
+
+\textbf{Step 1}: Find the third side $PR$
+\begin{align*}
+PR^2 &= (P'R')^2 + (r_R - r_P)^2\\
+&= (2\sqrt{2} + 2\sqrt{6})^2 + (3-1)^2\\
+&= (2\sqrt{2})^2 + 2 \cdot 2\sqrt{2} \cdot 2\sqrt{6} + (2\sqrt{6})^2 + 4\\
+&= 8 + 8\sqrt{12} + 24 + 4\\
+&= 36 + 8\sqrt{12}\\
+&= 36 + 16\sqrt{3}
+\end{align*}
+
+Therefore: $PR = \sqrt{36 + 16\sqrt{3}} = 2\sqrt{9 + 4\sqrt{3}}$
+
+\textbf{Step 2}: Apply Heron's formula with $a=3$, $b=5$, $c=2\sqrt{9+4\sqrt{3}}$
+
+Semi-perimeter: $s = \frac{3 + 5 + 2\sqrt{9+4\sqrt{3}}}{2} = 4 + \sqrt{9+4\sqrt{3}}$
+
+Area:
+\begin{align*}
+K &= \sqrt{s(s-a)(s-b)(s-c)}\\
+&= \sqrt{(4+a)(4+a-3)(4+a-5)(4+a-2a)} \text{ where } a = \sqrt{9+4\sqrt{3}}\\
+&= \sqrt{(4+a)(1+a)(a-1)(4-a)}\\
+&= \sqrt{[(4+a)(4-a)][(1+a)(a-1)]}\\
+&= \sqrt{(16-a^2)(a^2-1)}\\
+&= \sqrt{(16-9-4\sqrt{3})(9+4\sqrt{3}-1)}\\
+&= \sqrt{(7-4\sqrt{3})(8+4\sqrt{3})}\\
+&= \sqrt{56 + 28\sqrt{3} - 32\sqrt{3} - 48}\\
+&= \sqrt{8 - 4\sqrt{3}}
+\end{align*}
+
+\textbf{Step 3}: Simplify nested radical $\sqrt{8-4\sqrt{3}}$
+
+Assume $\sqrt{8-4\sqrt{3}} = \sqrt{a} - \sqrt{b}$ where $a > b$
+
+Then: $8 - 4\sqrt{3} = a + b - 2\sqrt{ab}$
+
+Comparing: $a + b = 8$ and $2\sqrt{ab} = 4\sqrt{3}$, so $ab = 12$
+
+Solving: $a = 6$, $b = 2$
+
+Therefore: $\sqrt{8-4\sqrt{3}} = \sqrt{6} - \sqrt{2}$ $\checkmark$
+
+This method is significantly more complex but serves as excellent verification.
+
+\section*{Learning Outcomes}
+
+\subsection*{Key Techniques Mastered}
+\begin{enumerate}
+    \item Pythagorean theorem in trapezoid configurations
+    \item Area decomposition methods for triangles
+    \item Radical simplification: $\sqrt{8} = 2\sqrt{2}$, $\sqrt{24} = 2\sqrt{6}$
+    \item Nested radical simplification: $\sqrt{8-4\sqrt{3}} = \sqrt{6} - \sqrt{2}$
+\end{enumerate}
+
+\subsection*{Strategic Lessons}
+\begin{enumerate}
+    \item Multiple approaches exist - choose the cleanest calculation
+    \item Trapezoid decomposition often cleaner than Heron's formula
+    \item Answer choice complexity provides hints about solution path
+    \item Verification is crucial for problems with multiple radical terms
+\end{enumerate}
+
+\subsection*{Competition Wisdom}
+\begin{enumerate}
+    \item P15 problems should take 4-6 minutes - budget accordingly
+    \item Clean geometric diagrams prevent calculation errors
+    \item Recognize when algebra is getting too messy - switch methods
+    \item High confidence on mid-band problems justifies moving forward
+\end{enumerate}
+
+\end{document}

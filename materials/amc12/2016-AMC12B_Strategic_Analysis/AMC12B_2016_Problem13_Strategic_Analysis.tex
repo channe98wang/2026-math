@@ -1,0 +1,531 @@
+% Strategic Analysis: 2016 AMC 12B Problem 13
+% Framework: AMC12/COMC Strategic Problem Analysis Framework (Enhanced)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+% Define colorful boxes for different sections
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{1. PROBLEM CONFIGURATION ANALYSIS},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=\textbf{2. STRATEGIC FRAMEWORK APPLICATION},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=\textbf{3. TACTICAL METHODOLOGY SELECTION},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=\textbf{4. CONVERSION TECHNIQUES APPLICATION},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=\textbf{5. VERIFICATION STRATEGY DESIGN},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=\textbf{6. SOLUTION ROADMAP},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=\textbf{7. COMPETITION STRATEGY INTEGRATION},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=\textbf{KEY INSIGHT}
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=\textbf{WARNING},
+    fonttitle=\bfseries,breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=\textbf{PRO TIP},
+    fonttitle=\bfseries,breakable
+}
+
+\title{\textbf{Strategic Analysis:\\2016 AMC 12B Problem 13}}
+\author{Framework: AMC12/COMC Strategic Problem Analysis}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+Alice and Bob live 10 miles apart. One day Alice looks due north from her house and sees an airplane. At the same time Bob looks due west from his house and sees the same airplane. The angle of elevation of the airplane is $30^\circ$ from Alice's position and $60^\circ$ from Bob's position. Which of the following is closest to the airplane's altitude, in miles?
+
+\textbf{Answer Choices}: (A) 3.5 \quad (B) 4 \quad (C) 4.5 \quad (D) 5 \quad (E) 5.5
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - numerical value (airplane altitude)
+    \item \textbf{Difficulty Band}: Mid-band (Problem 13/25)
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3 minutes allocated
+    \item \textbf{Mathematical Domain}: Geometry (3D spatial reasoning with trigonometry)
+    \item \textbf{Source Context}: Multiple-choice with answer choices that allow for estimation
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Alice and Bob are 10 miles apart
+        \item Alice looks due north and sees the plane
+        \item Bob looks due west and sees the plane
+        \item Angle of elevation from Alice: $30^\circ$
+        \item Angle of elevation from Bob: $60^\circ$
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item The viewing directions (north and west) are perpendicular
+        \item Both observers see the same airplane simultaneously
+        \item Answer must be positive (altitude)
+    \end{itemize}
+    \item \textbf{Objective}: Find the airplane's altitude (height above ground)
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Ground is flat (standard assumption)
+        \item Alice and Bob are at same ground level
+        \item Perpendicular viewing directions create a 3D right-angle configuration
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Answers range from 3.5 to 5.5 (spread of 2 miles)
+        \item Can verify using $\sqrt{30} \approx 5.48$
+        \item Choices suggest answer involves square root
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The configuration forms a 3D system with two perpendicular triangles sharing the altitude
+    \item \textbf{Conclusion}: Determine altitude $h$ such that geometric constraints are satisfied
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $h$ = altitude of airplane
+        \item $x$ = horizontal distance from Bob to point below plane
+        \item $y$ = horizontal distance from Alice to point below plane
+        \item $P$ = point directly below the airplane on ground
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: Use trigonometric relationships in both right triangles, then connect via Pythagorean theorem
+    \item \textbf{Cross-Domain Potential}: Could use vectors or coordinate geometry, but trigonometry is most direct
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 3D geometry can be disorienting - stay focused on the 2D projections
+    \item \textbf{Creativity Cultivation}: Recognize the perpendicular viewing directions create independent right triangles
+    \item \textbf{Iterative Refinement}: If first approach gets messy, try setting up coordinates differently
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Draw a diagram immediately - 3D spatial problems require visualization
+    \item \textbf{Get Your Hands Dirty}: Set up the two right triangles and write tangent relationships
+    \item \textbf{Penultimate Step}: Once we have $x$ and $y$ in terms of $h$, use $x^2 + y^2 = 100$
+    \item \textbf{Wishful Thinking}: We wish the perpendicular directions simplify to a Pythagorean relationship
+    \item \textbf{Make It Easier}: Consider each observer separately first, then combine
+    \item \textbf{Conjecture via Small Cases}: Recognize 30-60-90 special triangles
+    \item \textbf{Visualization}: Draw top-down view showing Alice, Bob, and point P forming a right triangle
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item Not applicable - this is mid-band (Problem 13)
+    \item Standard approach should work efficiently
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Set up equations from trigonometry, solve algebraically
+    \item \textbf{Proof by Contradiction}: Not applicable
+    \item \textbf{Proof by Construction}: Construct the 3D configuration and derive relationships
+    \item \textbf{Proof by Induction}: Not applicable
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Domain}: Geometry/Trigonometry
+    \item \textbf{Alternative Domains}: 
+    \begin{itemize}
+        \item Coordinate geometry (place Alice at origin, Bob on y-axis)
+        \item Vector methods (though more complex here)
+    \end{itemize}
+    \item \textbf{Domain Selection Rationale}: Trigonometry is most natural given angle information
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: The perpendicular viewing directions create symmetric structure
+    \item \textbf{Special Triangle Recognition}: 30-60-90 triangles with known ratios ($1:\sqrt{3}:2$)
+    \item \textbf{Extreme Principle}: Not applicable
+    \item \textbf{Invariant Identification}: The altitude $h$ is the shared element in both triangles
+    \item \textbf{Auxiliary Construction}: Drawing the top-down view clarifies the configuration
+    \item \textbf{Coordinate Method}: Could place observers in coordinate system
+    \item \textbf{Pigeonhole Principle}: Not applicable
+    \item \textbf{Induction}: Not applicable
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory}: Not applicable
+    \item \textbf{Complex Numbers}: Not applicable
+    \item \textbf{Generating Functions}: Not applicable
+    \item \textbf{Linear Algebra}: Could use vectors but trigonometry is simpler
+\end{itemize}
+
+\subsection*{C. Selected Tactics Justification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactic}: Trigonometric relationships in right triangles
+    \item \textbf{Rationale}: Direct connection between angles and distances
+    \item \textbf{Secondary Tactic}: Pythagorean theorem to connect the two triangles
+    \item \textbf{Rationale}: The perpendicular viewing directions mean $AB^2 = x^2 + y^2$
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. High-Probability Techniques (Recognition Index)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Variable Substitution}: 
+    \begin{itemize}
+        \item Recognition: Two unknowns ($x$, $y$) expressible in terms of one variable ($h$)
+        \item Application: From $\tan 30^\circ = \frac{h}{y}$, get $y = h\sqrt{3}$
+        \item Application: From $\tan 60^\circ = \frac{h}{x}$, get $x = \frac{h}{\sqrt{3}}$
+    \end{itemize}
+    \item \textbf{System of Equations}:
+    \begin{itemize}
+        \item Recognition: Multiple constraints (two angles, one distance)
+        \item System: $y = h\sqrt{3}$, $x = \frac{h}{\sqrt{3}}$, $x^2 + y^2 = 100$
+    \end{itemize}
+    \item \textbf{Special Angle Values}:
+    \begin{itemize}
+        \item Recognition: $30^\circ$ and $60^\circ$ are special angles
+        \item Values: $\tan 30^\circ = \frac{1}{\sqrt{3}}$, $\tan 60^\circ = \sqrt{3}$
+    \end{itemize}
+    \item \textbf{Pythagorean Theorem in 3D}:
+    \begin{itemize}
+        \item Recognition: Perpendicular viewing directions + shared altitude
+        \item Application: Distance between observers relates to horizontal distances: $x^2 + y^2 = 10^2$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Medium-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Coordinate Geometry}: Could place Alice at $(0,0)$, Bob at $(0,10)$ or $(10,0)$ depending on setup
+    \item \textbf{Similar Triangles}: The two elevation triangles share the altitude but have different bases
+\end{itemize}
+
+\subsection*{C. Technique Selection Rationale}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Variable substitution + Pythagorean theorem
+    \item \textbf{Why This Works}: Reduces problem to single-variable equation in $h$
+    \item \textbf{Alternative Avoided}: Coordinate geometry adds unnecessary complexity
+\end{itemize}
+
+\subsection*{D. Integration Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Step 1}: Express $x$ and $y$ in terms of $h$ using trigonometry
+    \item \textbf{Step 2}: Substitute into Pythagorean constraint $x^2 + y^2 = 100$
+    \item \textbf{Step 3}: Solve for $h$
+    \item \textbf{Step 4}: Simplify and match to answer choices
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+Using the decision tree:
+\begin{itemize}[leftmargin=*]
+    \item Problem 13 (mid-band) + High confidence → \textbf{Level 3: Standard Verification}
+    \item If uncertainty remains → \textbf{Level 4: Enhanced Verification}
+\end{itemize}
+
+\subsection*{B. Selected Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1 - Dimension Analysis}: 
+    \begin{itemize}
+        \item Check: $h$ has units of miles $\checkmark$
+        \item Check: $\sqrt{30}$ miles $\approx 5.48 miles$ makes physical sense $\checkmark$
+    \end{itemize}
+    \item \textbf{Method 2 - Boundary Check}:
+    \begin{itemize}
+        \item If $h \to 0$: Both angles would be $0^\circ$ (not $30^\circ$ and $60^\circ$) $\checkmark$
+        \item If $h \to \infty$: Both angles would approach $90^\circ$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Method 3 - Algebraic Back-Substitution}:
+    \begin{itemize}
+        \item With $h = \sqrt{30}$: $x = \frac{\sqrt{30}}{\sqrt{3}} = \sqrt{10}$
+        \item With $h = \sqrt{30}$: $y = \sqrt{30} \cdot \sqrt{3} = \sqrt{90} = 3\sqrt{10}$
+        \item Check: $x^2 + y^2 = 10 + 90 = 100$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Method 4 - Answer Choice Validation}:
+    \begin{itemize}
+        \item $\sqrt{30} \approx 5.477$
+        \item Closest choice: (E) 5.5 $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (standard 3D geometry problem)
+    \item \textbf{After Verification}: 95\% (all checks passed)
+    \item \textbf{Risk Assessment}: Low - algebraic steps are straightforward
+    \item \textbf{Flag for Review}: No - high confidence, verified answer
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{A. Detailed Solution Steps}
+
+\textbf{Step 1: Visualize the Configuration (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Draw top-down view: Alice (A), Bob (B), point P below plane
+    \item Alice looks north to see plane → P is north of Alice
+    \item Bob looks west to see plane → P is west of Bob
+    \item These directions are perpendicular → $\angle APB = 90^\circ$
+\end{itemize}
+
+\textbf{Step 2: Set Up Variables (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Let $h$ = altitude of airplane
+    \item Let $x$ = horizontal distance from Bob to P (Bob looks west)
+    \item Let $y$ = horizontal distance from Alice to P (Alice looks north)
+    \item Given: $|AB| = 10$ miles, and $AP \perp BP$
+\end{itemize}
+
+\textbf{Step 3: Apply Trigonometry (60 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item From Alice's perspective: $\tan 30^\circ = \frac{h}{y}$
+    \item Therefore: $y = \frac{h}{\tan 30^\circ} = \frac{h}{1/\sqrt{3}} = h\sqrt{3}$
+    \item From Bob's perspective: $\tan 60^\circ = \frac{h}{x}$
+    \item Therefore: $x = \frac{h}{\tan 60^\circ} = \frac{h}{\sqrt{3}}$
+\end{itemize}
+
+\textbf{Step 4: Apply Pythagorean Theorem (60 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Since $AP \perp BP$ and $|AB| = 10$: $x^2 + y^2 = 100$
+    \item Substitute: $\left(\frac{h}{\sqrt{3}}\right)^2 + (h\sqrt{3})^2 = 100$
+    \item Simplify: $\frac{h^2}{3} + 3h^2 = 100$
+    \item Combine: $\frac{h^2 + 9h^2}{3} = 100$
+    \item Therefore: $\frac{10h^2}{3} = 100$
+    \item Solve: $h^2 = 30$
+    \item Result: $h = \sqrt{30}$
+\end{itemize}
+
+\textbf{Step 5: Evaluate and Select Answer (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Calculate: $\sqrt{30} \approx \sqrt{25} \cdot \sqrt{1.2} \approx 5 \times 1.095 \approx 5.48$
+    \item Compare to choices: 5.5 is closest
+    \item Answer: \textbf{(E) 5.5}
+\end{itemize}
+
+\textbf{Total Time: ~3.5 minutes}
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Alternative 1: Coordinate Geometry}
+\begin{itemize}[leftmargin=*]
+    \item Place Alice at origin $(0, 0, 0)$
+    \item Bob at $(10, 0, 0)$ or $(0, 10, 0)$ depending on configuration
+    \item Plane at $(x, y, h)$ where Alice looks north: $x = 0$, Bob looks west
+    \item Leads to same system of equations
+    \item Time: 4-5 minutes (more setup)
+\end{itemize}
+
+\textbf{Alternative 2: Without Trig (30-60-90 Triangles)}
+\begin{itemize}[leftmargin=*]
+    \item Recognize 30-60-90 triangle ratios: $1:\sqrt{3}:2$
+    \item From Alice: sides in ratio $h:y:$ (hypotenuse), with $30^\circ$ angle → $h:y = 1:\sqrt{3}$
+    \item From Bob: sides in ratio $x:h:$ (hypotenuse), with $60^\circ$ angle → $x:h = 1:\sqrt{3}$
+    \item Same algebraic system emerges
+    \item Time: 3-4 minutes
+\end{itemize}
+
+\subsection*{C. Critical Checkpoints}
+\begin{itemize}[leftmargin=*]
+    \item Checkpoint 1: Correctly identify perpendicular viewing directions
+    \item Checkpoint 2: Proper tangent relationships ($\tan \theta = \frac{\text{opposite}}{\text{adjacent}}$)
+    \item Checkpoint 3: Correct Pythagorean relationship $x^2 + y^2 = 100$
+    \item Checkpoint 4: Algebraic simplification to $\frac{10h^2}{3} = 100$
+\end{itemize}
+
+\subsection*{D. Common Pitfalls}
+
+\textbf{Pitfall 1: Misinterpreting Viewing Directions}
+\begin{itemize}[leftmargin=*]
+    \item Error: Assuming Alice and Bob look at each other
+    \item Consequence: Wrong geometric configuration
+    \item Prevention: Carefully read "due north" and "due west" - these are perpendicular
+\end{itemize}
+
+\textbf{Pitfall 2: Incorrect Tangent Setup}
+\begin{itemize}[leftmargin=*]
+    \item Error: Writing $\tan 30^\circ = \frac{y}{h}$ instead of $\frac{h}{y}$
+    \item Consequence: Wrong expressions for $x$ and $y$
+    \item Prevention: Draw triangle clearly showing angle of elevation
+    \item Note: Angle of elevation is measured from horizontal up to line of sight
+\end{itemize}
+
+\textbf{Pitfall 3: Forgetting Perpendicularity}
+\begin{itemize}[leftmargin=*]
+    \item Error: Using distance formula without recognizing right angle
+    \item Consequence: More complex expression instead of $x^2 + y^2 = 100$
+    \item Prevention: Visualize top-down view where north and west are perpendicular
+\end{itemize}
+
+\textbf{Pitfall 4: Algebraic Errors}
+\begin{itemize}[leftmargin=*]
+    \item Error: $\frac{h^2}{3} + 3h^2 = \frac{4h^2}{3}$ (wrong arithmetic)
+    \item Consequence: Wrong answer
+    \item Prevention: Write out: $\frac{h^2}{3} + \frac{9h^2}{3} = \frac{10h^2}{3}$
+\end{itemize}
+
+\textbf{Pitfall 5: Variable Assignment Confusion}
+\begin{itemize}[leftmargin=*]
+    \item Error: Swapping which observer has which distance or angle
+    \item Consequence: Can still get correct answer if Pythagorean setup is right
+    \item Prevention: Clearly label diagram with all angles and distances before solving
+    \item Note: As long as one distance is $h\sqrt{3}$ and the other is $h/\sqrt{3}$, the answer works out
+\end{itemize}
+
+\subsection*{E. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Time Budget}: 3-4 minutes for Problem 13
+    \item \textbf{If Stuck at 2 Minutes}: Re-examine the perpendicularity constraint
+    \item \textbf{If Stuck at 3 Minutes}: Check if tangent relationships are correct
+    \item \textbf{Maximum Time}: 5 minutes before moving on
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 3-4 minutes (appropriate for Problem 13)
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Reading + Diagram: 30 seconds
+        \item Setup equations: 60 seconds
+        \item Solve algebra: 90 seconds
+        \item Verify answer: 30 seconds
+    \end{itemize}
+    \item \textbf{Decision Point}: If no progress after 5 minutes, mark and move on
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Priority Level}: Medium-High (Problem 13, geometric reasoning)
+    \item \textbf{Should Attempt}: Yes - straightforward 3D geometry with trig
+    \item \textbf{Confidence Threshold}: 70\%+ before committing answer
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Risk Level}: Low-Medium
+    \item \textbf{Risk Factors}:
+    \begin{itemize}
+        \item 3D visualization can be confusing
+        \item Algebraic simplification has multiple steps
+    \end{itemize}
+    \item \textbf{Mitigation}:
+    \begin{itemize}
+        \item Draw clear diagram immediately
+        \item Double-check tangent ratios
+        \item Verify final answer matches a choice
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon Trigger}: If algebra becomes messy after 5 minutes
+    \item \textbf{Hard Abandon Trigger}: If can't set up basic trigonometric relationships after 3 minutes
+    \item \textbf{Return Criteria}: If time remains and other problems are completed
+\end{itemize}
+
+\subsection*{E. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Recognition}: Answer choices suggest square root form
+    \item \textbf{Estimation}: $\sqrt{30}$ is between $\sqrt{25} = 5$ and $\sqrt{36} = 6$, closer to 5.5
+    \item \textbf{Elimination}: Can't eliminate without calculation, but estimation confirms (E)
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The perpendicular viewing directions (due north and due west) create a right angle in the top-down view, allowing us to connect Alice and Bob's distances to the point below the plane using the Pythagorean theorem: $x^2 + y^2 = 100$. This is the key relationship that bridges the two independent trigonometric equations.
+\end{keyinsightbox}
+
+\begin{warningbox}
+Don't confuse angle of elevation with the ground angle. The angle of elevation is measured from the horizontal ground up to the airplane, so $\tan(\text{elevation angle}) = \frac{\text{altitude}}{\text{horizontal distance}}$, not the other way around. Drawing a side-view triangle helps avoid this error.
+\end{warningbox}
+
+\begin{tipbox}
+When you see $30^\circ$ and $60^\circ$ angles in a problem, immediately recall the 30-60-90 triangle ratios ($1:\sqrt{3}:2$). For this problem, recognizing that $\tan 30^\circ = \frac{1}{\sqrt{3}}$ and $\tan 60^\circ = \sqrt{3}$ speeds up the setup significantly. Also, notice that these are complementary angles ($30^\circ + 60^\circ = 90^\circ$), which often indicates special structure.
+\end{tipbox}
+
+\section*{Final Answer}
+\boxed{\textbf{(E) } 5.5}
+
+The exact answer is $h = \sqrt{30} \approx 5.477$ miles, which is closest to 5.5.
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - All algebraic steps verified, answer matches expected form
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Dimension analysis (units correct)
+        \item Back-substitution ($x^2 + y^2 = 10 + 90 = 100$ $\checkmark$)
+        \item Answer choice validation ($\sqrt{30} \approx 5.48 \approx 5.5$)
+    \end{itemize}
+    \item \textbf{Flag for Review}: No - high confidence, straightforward problem
+    \item \textbf{Time Spent}: ~3.5 minutes (within target for Problem 13)
+\end{itemize}
+
+\section*{Pattern Library Entry}
+\textbf{Problem Signature}: 3D geometry with perpendicular viewing directions, trigonometric angle of elevation, connecting via Pythagorean theorem
+
+\textbf{Key Pattern}: When two observers view the same point from perpendicular directions, their horizontal distances to the point form legs of a right triangle, with the distance between observers as the hypotenuse.
+
+\textbf{Applicable Contexts}: Any problem involving multiple observers, angles of elevation/depression, and perpendicular viewing directions.
+
+\end{document}

@@ -1,0 +1,23 @@
+2004 AMC 12B Problems/Problem 16
+Contents
+1 Problem
+2 Solutions
+2.1 Solution 1
+2.2 Solution 2
+3 See also
+Problem
+A function $f$ is defined by $f(z) = i\overline{z}$ , where $i=\sqrt{-1}$ and $\overline{z}$ is the complex conjugate of $z$ . How many values of $z$ satisfy both $|z| = 5$ and $f(z) = z$ ?
+$\mathrm{(A)}\ 0 \qquad\mathrm{(B)}\ 1 \qquad\mathrm{(C)}\ 2 \qquad\mathrm{(D)}\ 4 \qquad\mathrm{(E)}\ 8$
+Solutions
+Solution 1
+Let $z = a+bi$ , so $\overline{z} = a-bi$ . By definition, $z = a+bi = f(z) = i(a-bi) = b+ai$ , which implies that all solutions to $f(z) = z$ lie on the line $y=x$ on the complex plane. The graph of $|z| = 5$ is a circle centered at the origin, and there are $2 \Rightarrow \mathrm{(C)}$ intersections.
+Solution 2
+Let $z=a+bi$ , like above. Therefore, $z = a+bi = i\overline{z} = i(a-bi) = ai+b$ . We move some terms around to get $bi-b = ai-a$ . We factor: $b(i-1) = a(i-1)$ . We divide out the common factor to see that $b = a$ . Next we put this into the definition of $|z| = a^2 + b^2 = a^2 + a^2 = 2a^2 = 25$ . Finally, $a = \pm\sqrt{\frac{25}{2}}$ , and $a$ has two solutions.
+See also
+2004 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

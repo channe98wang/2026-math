@@ -1,0 +1,31 @@
+2005 AMC 12A Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+3 Video Solution 1
+4 Video Solution 2
+5 See also
+Problem
+The equations $2x + 7 = 3$ and $bx - 10 = -2$ have the same solution $x$ . What is the value of $b$ ?
+$\textbf{(A) } -8 \qquad \textbf{(B) } -4 \qquad \textbf{(C) } -2 \qquad \textbf{(D) } 4 \qquad \textbf{(E) } 8$
+Solution
+$2x + 7 = 3 \iff x = -2$ , so we require $-2b-10 = -2 \iff -2b = 8 \iff b = \boxed{\textbf{(B) } -4}$ .
+Video Solution 1
+https://youtu.be/GmOEQzJVAn4
+Video Solution 2
+https://youtu.be/c_Zxp8iwCD4
+~Charles3829
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2005 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

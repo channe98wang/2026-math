@@ -1,0 +1,49 @@
+2000 AMC 12 Problems/Problem 18
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Video Solution by Power Solve
+5 Video Solution
+6 See also
+Problem
+In year $N$ , the $300^{\text{th}}$ day of the year is a Tuesday. In year $N+1$ , the $200^{\text{th}}$ day is also a Tuesday. On what day of the week did the $100$ day of year $N-1$ occur?
+$\text {(A)}\ \text{Thursday} \qquad \text {(B)}\ \text{Friday}\qquad \text {(C)}\ \text{Saturday}\qquad \text {(D)}\ \text{Sunday}\qquad \text {(E)}\ \text{Monday}$
+Solution 1
+There are either
+
+\[65 + 200 = 265\]
+
+or
+
+\[66 + 200 = 266\]
+
+days between the first two dates depending upon whether or not year $N+1$ is a leap year (since the February 29th of the leap year would come between the 300th day of year $N$ and 200th day of year $N + 1$ ). Since $7$ divides into $266$ but not $265$ , for both days to be a Tuesday, year $N+1$ must be a leap year.
+Hence, year $N-1$ is not a leap year, and so since there are
+
+\[265 + 300 = 565\]
+
+days between the date in years $N,\text{ }N-1$ , this leaves a remainder of $5$ upon division by $7$ . Since we are subtracting days, we count 5 days before Tuesday, which gives us $\boxed{\mathbf{(A)} \ \text{Thursday}.}$
+~ Anonymous, fixed by @johnzhou721
+Solution 2
+The $300-29\cdot 7=97^{\text{th}}$ day of year $N$ and the $200-15\cdot 7=95^{\text{th}}$ day of year $N+1$ are Tuesdays. If there were the same number of days in year $N$ and year $N-1,$ the $99^{\text{th}}$ day of year $N-1$ will be a Tuesday. But year $N$ is a leap year because $97-95 \cong 366 \pmod{7},$ so the $98^{\text{th}}$ day of year $N-1$ is a Tuesday. It follows that the $100^{\text{th}}$ day of year $N-1$ is $\boxed{\mathbf{(A)} \ \text{Thursday}.}$
+~dolphin7
+Video Solution by Power Solve
+https://www.youtube.com/watch?v=E9w6_p6EXXo
+Video Solution
+https://youtu.be/aFJtbvTAmm4
+https://www.youtube.com/watch?v=YfiUn8hLlpA ~David
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 17 Followed by 
+ Problem 19
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 24 Followed by 
+ Last Problem
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

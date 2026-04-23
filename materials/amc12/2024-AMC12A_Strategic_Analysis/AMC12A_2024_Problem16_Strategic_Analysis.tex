@@ -1,0 +1,1055 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colored boxes - all with breakable option
+\newtcolorbox{configbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategybox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticsbox}[1]{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=violet!10!white,
+    colframe=violet!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1]{
+    colback=red!15!white,
+    colframe=red!85!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}[1]{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 16:\\Comprehensive Strategic Analysis}}
+\author{Using Enhanced Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+A set of $12$ tokens — $3$ red, $2$ white, $1$ blue, and $6$ black — is to be distributed at random to $3$ game players, $4$ tokens per player. The probability that some player gets all the red tokens, another gets all the white tokens, and the remaining player gets the blue token can be written as $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. What is $m+n$?
+
+$$\textbf{(A) } 387 \qquad \textbf{(B) } 388 \qquad \textbf{(C) } 389 \qquad \textbf{(D) } 390 \qquad \textbf{(E) } 391$$
+
+\vspace{1em}
+\noindent\textit{Note: The answer is provided at the END of this document to allow you to work through the problem yourself first.}
+
+\section*{Framework-Based Analysis}
+
+\begin{configbox}{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (specific numerical value: $m+n$)
+    \item \textbf{Competition Context}: AMC 12A 2024, Problem 16
+    \item \textbf{Difficulty Band}: Mid-band (P16/25) - upper intermediate difficulty
+    \item \textbf{Mathematical Domain}: Combinatorics (probability, counting, distributions)
+    \item \textbf{Estimated Time}: 4-6 minutes depending on method chosen
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Total: 12 tokens (3 red, 2 white, 1 blue, 6 black)
+        \item 3 players, each receives exactly 4 tokens
+        \item Distribution is random
+        \item Need: probability that conditions are met
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Each player gets exactly 4 tokens
+        \item One player gets ALL 3 red tokens (+ 1 black)
+        \item Another player gets ALL 2 white tokens (+ 2 black)
+        \item The remaining player gets the 1 blue token (+ 3 black)
+        \item Players are distinguishable (``some player'', ``another'', ``remaining'')
+    \end{itemize}
+    
+    \item \textbf{Objective}: Calculate probability as $\frac{m}{n}$ in lowest terms, find $m+n$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Need to account for which player gets which colored tokens (permutation of players)
+        \item Black tokens are distributed to fill out each player's 4 tokens
+        \item Tokens of the same color are indistinguishable
+        \item Players are distinguishable (different people)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices: 387, 388, 389, 390, 391
+        \item Very close together (consecutive or near-consecutive)
+        \item Pattern: All near 390 (suggests $m+n$ is close to this)
+        \item Cannot easily eliminate without computation
+        \item Parity check: all are odd except 388 and 390
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: This is a conditional probability/counting problem
+    
+    \item \textbf{Conclusion}: Need $P(\text{desired outcome})$ using combinatorial counting
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Total ways to distribute: multinomial coefficient or sequential probability
+        \item Favorable outcomes: consider player assignments and token distributions
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Method 1: Count favorable vs total arrangements
+        \item Method 2: Sequential probability (one token at a time)
+        \item Method 3: Direct multinomial coefficient calculation
+        \item Method 4: Conditional probability with player assignment
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure combinatorics (multinomial coefficients)
+        \item Probability (sequential draws)
+        \item Algebraic manipulation (simplifying fractions)
+    \end{itemize}
+\end{itemize}
+
+\end{configbox}
+
+\begin{strategybox}{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't get overwhelmed by multiple token types - organize systematically
+    
+    \item \textbf{Creativity Cultivation}: Multiple elegant approaches exist:
+    \begin{itemize}
+        \item Multinomial coefficient ratio (most systematic)
+        \item Sequential probability (most intuitive)
+        \item Direct counting with arrangements (concrete)
+        \item Conditional probability (breaking into stages)
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: If one approach seems messy, switch methods
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: This is a probability distribution problem with constraints
+    
+    \item \textbf{Get Your Hands Dirty}: Write out the distribution explicitly:
+    \begin{itemize}
+        \item Player 1: 3 red + 1 black (or 2 white + 2 black, or 1 blue + 3 black)
+        \item Player 2: 2 white + 2 black (or 3 red + 1 black, or 1 blue + 3 black)
+        \item Player 3: 1 blue + 3 black (or 3 red + 1 black, or 2 white + 2 black)
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Calculate probability, then reduce fraction and add numerator + denominator
+    
+    \item \textbf{Wishful Thinking}: Hope that the calculation simplifies nicely (and it does!)
+    
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item First assume specific player assignments, then multiply by permutations
+        \item Treat tokens as distinguishable first, then adjust for identical tokens
+    \end{itemize}
+    
+    \item \textbf{Conjecture via Small Cases}: Could test with 3 players, 2 tokens each (simplified version)
+    
+    \item \textbf{Visualization}: Think of physically dealing tokens to players one by one
+\end{itemize}
+
+\subsection*{C. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Approach (Method 1)}: 
+    \begin{enumerate}
+        \item Count total ways to distribute 12 tokens to 3 players (4 each)
+        \item Count favorable outcomes (with player permutations)
+        \item Form ratio and simplify
+    \end{enumerate}
+    
+    \item \textbf{Sequential Probability (Method 2)}:
+    \begin{enumerate}
+        \item Calculate probability each token goes to correct player sequentially
+        \item Multiply probabilities for independent events
+        \item Account for player permutations
+    \end{enumerate}
+    
+    \item \textbf{Multinomial Approach (Method 3)}:
+    \begin{enumerate}
+        \item Use multinomial coefficients for distributions
+        \item Count arrangements of black tokens
+        \item Include factor of $3!$ for player assignments
+    \end{enumerate}
+\end{itemize}
+
+\end{strategybox}
+
+\begin{tacticsbox}{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Multinomial Coefficients}: $\binom{n}{k_1, k_2, \ldots, k_m} = \frac{n!}{k_1! k_2! \cdots k_m!}$
+    
+    \item \textbf{Combinatorial Counting}: Count arrangements with and without restrictions
+    
+    \item \textbf{Probability Formula}: $P(E) = \frac{\text{favorable outcomes}}{\text{total outcomes}}$
+    
+    \item \textbf{Sequential Probability}: $P(A \cap B) = P(A) \cdot P(B|A)$ for dependent events
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics (Combinatorics/Probability)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Distributing Distinct Objects}: 
+    \begin{itemize}
+        \item Ways to give 4 tokens each to 3 players from 12 distinct: $\binom{12}{4,4,4} = \frac{12!}{4!4!4!}$
+    \end{itemize}
+    
+    \item \textbf{Indistinguishable Objects}: 
+    \begin{itemize}
+        \item Adjust for identical tokens by dividing by $3! \cdot 2! \cdot 1! \cdot 6!$
+    \end{itemize}
+    
+    \item \textbf{Stars and Bars}: For distributing $k$ identical objects to $n$ bins
+    
+    \item \textbf{Permutation Factor}: Multiply by $3!$ when player assignments matter
+\end{itemize}
+
+\subsection*{C. Problem-Specific Insights}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Key Insight 1}: The colored tokens (red, white, blue) determine player assignments uniquely once we decide which player gets which color
+    
+    \item \textbf{Key Insight 2}: Black tokens just "fill in" the remaining slots - need to distribute 6 black tokens as (1, 2, 3) among players
+    
+    \item \textbf{Key Insight 3}: There are $3! = 6$ ways to assign the three groups of colored tokens to the three players
+    
+    \item \textbf{Key Insight 4}: Can use sequential probability for cleaner calculation
+\end{itemize}
+
+\end{tacticsbox}
+
+\begin{conversionbox}{4. Conversion Techniques Application}
+
+\subsection*{A. High-Probability Techniques}
+
+\textbf{Primary Technique}: \textbf{Multinomial Coefficient with Combinatorial Counting}
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Distributing distinct/indistinct objects to distinct recipients
+    \item Fixed allocation sizes (4 tokens each)
+    \item Conditional constraints on distribution
+\end{itemize}
+
+\textbf{Application Steps (Method 1: Multinomial Ratio)}:
+\begin{enumerate}
+    \item \textbf{Total distributions}: Treat all tokens as distinguishable initially. Ways to distribute to 3 players:
+    \[\text{Total} = \binom{12}{4,4,4} = \frac{12!}{4!4!4!}\]
+    
+    \item \textbf{Favorable outcomes}: 
+    \begin{itemize}
+        \item Choose which player gets reds, whites, blues: $3!$ ways
+        \item Player with reds: choose 1 black from 6: $\binom{6}{1}$
+        \item Player with whites: choose 2 blacks from remaining 5: $\binom{5}{2}$
+        \item Player with blue: gets remaining 3 blacks (forced)
+        \item Arrange within each player's hand: $\binom{4}{3} \cdot \binom{4}{2} \cdot \binom{4}{1} = 4 \cdot 6 \cdot 4$
+    \end{itemize}
+    
+    \item \textbf{Favorable count}:
+    \[\text{Favorable} = 3! \cdot \binom{6}{1} \cdot \binom{5}{2} \cdot \binom{4}{3} \cdot \binom{4}{2} \cdot \binom{4}{1}\]
+    \[= 6 \cdot 6 \cdot 10 \cdot 4 \cdot 6 \cdot 4 = 6 \cdot 6 \cdot 10 \cdot 96\]
+    
+    \item \textbf{Probability}:
+    \[P = \frac{6 \cdot 6 \cdot 10 \cdot 96}{\frac{12!}{4!4!4!}} = \frac{34560}{\frac{12!}{(4!)^3}}\]
+    
+    \item Calculate: $\frac{12!}{(4!)^3} = \frac{479001600}{13824} = 34650$
+    
+    \item Therefore: $P = \frac{34560}{34650}$
+    
+    \item Wait, let me recalculate more carefully...
+\end{enumerate}
+
+\textbf{Alternative: Cleaner Multinomial Approach}
+
+\begin{enumerate}
+    \item \textbf{Denominator}: Total ways when tokens are indistinguishable within colors
+    \[\text{Total arrangements} = \frac{12!}{3! \cdot 2! \cdot 1! \cdot 6!} \cdot \frac{1}{\binom{12}{4,4,4}^{-1}}\]
+    
+    Actually, let's use the cleaner direct method.
+    
+    \item \textbf{Better approach}: 
+    \begin{itemize}
+        \item Denominator: $\binom{12}{4,4,4} = \frac{12!}{4!^3}$ ways to distribute 12 distinct tokens
+        \item But tokens aren't all distinct, so this needs adjustment
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Alternative Techniques}
+
+\textbf{Method 2: Sequential Probability (Cleaner Approach)}
+
+\textbf{Application}:
+\begin{enumerate}
+    \item Assume Player 1 gets reds, Player 2 gets whites, Player 3 gets blue
+    
+    \item \textbf{Probability all reds go to Player 1}:
+    \begin{itemize}
+        \item First red: $\frac{4}{12}$ (P1 has 4 open slots of 12 total)
+        \item Second red: $\frac{3}{11}$ (P1 has 3 open slots of 11 total)
+        \item Third red: $\frac{2}{10}$ (P1 has 2 open slots of 10 total)
+        \item Product: $\frac{4}{12} \cdot \frac{3}{11} \cdot \frac{2}{10} = \frac{24}{1320} = \frac{1}{55}$
+    \end{itemize}
+    
+    \item \textbf{Probability all whites go to Player 2} (given reds to P1):
+    \begin{itemize}
+        \item First white: $\frac{4}{9}$ (P2 has 4 open slots of 9 total)
+        \item Second white: $\frac{3}{8}$ (P2 has 3 open slots of 8 total)
+        \item Product: $\frac{4}{9} \cdot \frac{3}{8} = \frac{12}{72} = \frac{1}{6}$
+    \end{itemize}
+    
+    \item \textbf{Probability blue goes to Player 3} (given above):
+    \begin{itemize}
+        \item Blue: $\frac{4}{7}$ (P3 has 4 open slots of 7 total)
+    \end{itemize}
+    
+    \item \textbf{Combined probability for specific assignment}:
+    \[P_{\text{specific}} = \frac{1}{55} \cdot \frac{1}{6} \cdot \frac{4}{7} = \frac{4}{2310} = \frac{2}{1155}\]
+    
+    \item \textbf{Account for player permutations}: $3! = 6$ ways to assign colors to players
+    \[P_{\text{total}} = 6 \cdot \frac{2}{1155} = \frac{12}{1155} = \frac{4}{385}\]
+    
+    \item \textbf{Simplify}: $\gcd(4, 385) = 1$, so $m = 4$, $n = 385$
+    
+    \item \textbf{Answer}: $m + n = 4 + 385 = 389$
+\end{enumerate}
+
+\textbf{Method 3: Direct Counting with Arrangements}
+
+\begin{enumerate}
+    \item Imagine arranging 12 tokens in a row: RRRBWWLLLLLL (R=red, W=white, B=blue, L=black)
+    
+    \item Player 1 gets positions 1-4, Player 2 gets 5-8, Player 3 gets 9-12
+    
+    \item Total arrangements (accounting for identical tokens):
+    \[\text{Total} = \frac{12!}{3! \cdot 2! \cdot 1! \cdot 6!}\]
+    
+    \item Favorable arrangements:
+    \begin{itemize}
+        \item Choose which player gets which colored set: $3!$ ways
+        \item For each assignment, count arrangements within constraints
+        \item Player with 3 reds + 1 black: $\binom{4}{3} = 4$ positions for reds
+        \item Player with 2 whites + 2 blacks: $\binom{4}{2} = 6$ positions for whites
+        \item Player with 1 blue + 3 blacks: $\binom{4}{1} = 4$ positions for blue
+        \item Ways to distribute 6 blacks as (1,2,3): $\binom{6}{1,2,3} = \frac{6!}{1!2!3!} = 60$
+    \end{itemize}
+    
+    \item Actually, this needs more care with the counting...
+\end{enumerate}
+
+\textbf{Method 4: Alternative Sequential Without Fixed Assignment}
+
+\begin{enumerate}
+    \item First token can go to any player (doesn't matter)
+    
+    \item \textbf{Red tokens}:
+    \begin{itemize}
+        \item 2nd red must match 1st: $\frac{3}{11}$ (3 open slots for that player, 11 total)
+        \item 3rd red must match: $\frac{2}{10}$
+    \end{itemize}
+    
+    \item \textbf{White tokens}:
+    \begin{itemize}
+        \item 1st white must avoid red player: $\frac{8}{9}$ (8 non-red-player slots, 9 total)
+        \item 2nd white must match 1st white: $\frac{3}{8}$
+    \end{itemize}
+    
+    \item \textbf{Blue token}:
+    \begin{itemize}
+        \item Must go to 3rd player (not red or white player): $\frac{4}{7}$
+    \end{itemize}
+    
+    \item \textbf{Probability}:
+    \[P = \frac{3}{11} \cdot \frac{2}{10} \cdot \frac{8}{9} \cdot \frac{3}{8} \cdot \frac{4}{7} = \frac{3 \cdot 2 \cdot 8 \cdot 3 \cdot 4}{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7}\]
+    \[= \frac{576}{55440} = \frac{4}{385}\]
+    
+    \item \textbf{Answer}: $m + n = 4 + 385 = 389$
+\end{enumerate}
+
+\subsection*{C. Technique Comparison}
+
+\begin{itemize}
+    \item \textbf{Method 2 (Sequential with assignment)}: Cleanest, ~4 minutes, very systematic
+    \item \textbf{Method 4 (Sequential no assignment)}: Elegant, ~4 minutes, avoids overcounting
+    \item \textbf{Method 1 (Multinomial)}: More complex setup, ~5 minutes, easier to make errors
+    \item \textbf{Method 3 (Arrangements)}: Concrete but tedious, ~5-6 minutes
+\end{itemize}
+
+\end{conversionbox}
+
+\begin{verificationbox}{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification, 30-60 seconds)
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Mid-band problem (P16) with multiple steps
+        \item Many fractions to multiply
+        \item Easy to make arithmetic errors
+        \item Should verify fraction simplification
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 45 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+
+\textbf{For Sequential Probability Method (Method 2)}:
+\begin{itemize}
+    \item \textbf{Verify red token probability}:
+    \[\frac{4}{12} \cdot \frac{3}{11} \cdot \frac{2}{10} = \frac{4 \cdot 3 \cdot 2}{12 \cdot 11 \cdot 10} = \frac{24}{1320} = \frac{1}{55}\]
+    Check: $\gcd(24, 1320) = 24$, so $\frac{24}{1320} = \frac{1}{55}$ \checkmark
+    
+    \item \textbf{Verify white token probability}:
+    \[\frac{4}{9} \cdot \frac{3}{8} = \frac{12}{72} = \frac{1}{6}\]
+    Check: $\gcd(12, 72) = 12$, so $\frac{12}{72} = \frac{1}{6}$ \checkmark
+    
+    \item \textbf{Verify blue token probability}:
+    \[\frac{4}{7}\]
+    Already simplified \checkmark
+    
+    \item \textbf{Verify combined probability}:
+    \[\frac{1}{55} \cdot \frac{1}{6} \cdot \frac{4}{7} = \frac{4}{55 \cdot 6 \cdot 7} = \frac{4}{2310}\]
+    Simplify: $\gcd(4, 2310) = 2$, so $\frac{4}{2310} = \frac{2}{1155}$ \checkmark
+    
+    \item \textbf{Verify with permutation factor}:
+    \[6 \cdot \frac{2}{1155} = \frac{12}{1155}\]
+    Simplify: $\gcd(12, 1155) = 3$, so $\frac{12}{1155} = \frac{4}{385}$ \checkmark
+    
+    \item \textbf{Verify final answer}:
+    Check $\gcd(4, 385)$: $385 = 5 \cdot 7 \cdot 11$, $4 = 2^2$, so $\gcd = 1$ \checkmark
+    
+    $m + n = 4 + 385 = 389$ \checkmark
+\end{itemize}
+
+\textbf{For Alternative Sequential Method (Method 4)}:
+\begin{itemize}
+    \item \textbf{Verify numerator}: $3 \cdot 2 \cdot 8 \cdot 3 \cdot 4 = 6 \cdot 8 \cdot 12 = 576$ \checkmark
+    
+    \item \textbf{Verify denominator}: $11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 = 110 \cdot 504 = 55440$ \checkmark
+    
+    \item \textbf{Simplify}: $\frac{576}{55440} = \frac{576}{55440}$
+    \begin{itemize}
+        \item $\gcd(576, 55440)$: $576 = 2^6 \cdot 3^2$, $55440 = 2^4 \cdot 3^2 \cdot 5 \cdot 7 \cdot 11$
+        \item $\gcd = 2^4 \cdot 3^2 = 16 \cdot 9 = 144$
+        \item $\frac{576}{55440} = \frac{576 \div 144}{55440 \div 144} = \frac{4}{385}$ \checkmark
+    \end{itemize}
+\end{itemize}
+
+\textbf{Cross-Method Verification}:
+\begin{itemize}
+    \item Both methods give $\frac{4}{385}$ \checkmark
+    \item $m + n = 389$ matches choice (C) \checkmark
+    \item Sanity check: probability is small (as expected for specific outcome) \checkmark
+\end{itemize}
+
+\subsection*{C. Common Calculation Errors to Avoid}
+\begin{itemize}[leftmargin=*]
+    \item Forgetting the $3!$ permutation factor (would give $\frac{2}{1155}$, wrong answer)
+    \item Arithmetic errors in multiplying fractions
+    \item Not fully simplifying the final fraction
+    \item Miscounting open slots at each stage
+    \item Adding $m+n$ incorrectly at the end
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{roadmapbox}{6. Solution Roadmap}
+
+\subsection*{A. Step-by-Step Solution Plan (Sequential Probability Method 2)}
+
+\textbf{Step 1: Problem Setup (30 seconds)}
+\begin{itemize}
+    \item Identify: 12 tokens total (3R, 2W, 1B, 6Black), 3 players, 4 tokens each
+    \item Goal: P(one player gets all R, another all W, remaining gets B)
+    \item Plan: Use sequential probability, then multiply by permutations
+\end{itemize}
+
+\textbf{Step 2: Assume Specific Player Assignment (15 seconds)}
+\begin{itemize}
+    \item Assume: Player 1 gets reds, Player 2 gets whites, Player 3 gets blue
+    \item Will multiply by $3! = 6$ at the end
+\end{itemize}
+
+\textbf{Step 3: Calculate Red Token Probability (45 seconds)}
+\begin{itemize}
+    \item Initially: 12 open slots total, Player 1 has 4
+    \item First red to P1: $\frac{4}{12}$
+    \item After 1st red: 11 open slots, P1 has 3
+    \item Second red to P1: $\frac{3}{11}$
+    \item After 2nd red: 10 open slots, P1 has 2
+    \item Third red to P1: $\frac{2}{10}$
+    \item Product: $\frac{4 \cdot 3 \cdot 2}{12 \cdot 11 \cdot 10} = \frac{24}{1320} = \frac{1}{55}$
+\end{itemize}
+
+\textbf{Step 4: Calculate White Token Probability (30 seconds)}
+\begin{itemize}
+    \item After reds: 9 open slots, Player 2 has 4
+    \item First white to P2: $\frac{4}{9}$
+    \item After 1st white: 8 open slots, P2 has 3
+    \item Second white to P2: $\frac{3}{8}$
+    \item Product: $\frac{4 \cdot 3}{9 \cdot 8} = \frac{12}{72} = \frac{1}{6}$
+\end{itemize}
+
+\textbf{Step 5: Calculate Blue Token Probability (15 seconds)}
+\begin{itemize}
+    \item After reds and whites: 7 open slots, Player 3 has 4
+    \item Blue to P3: $\frac{4}{7}$
+\end{itemize}
+
+\textbf{Step 6: Combine Probabilities (30 seconds)}
+\begin{itemize}
+    \item For specific assignment:
+    \[P = \frac{1}{55} \cdot \frac{1}{6} \cdot \frac{4}{7} = \frac{4}{2310} = \frac{2}{1155}\]
+\end{itemize}
+
+\textbf{Step 7: Account for Permutations (30 seconds)}
+\begin{itemize}
+    \item There are $3! = 6$ ways to assign colored tokens to players
+    \[P_{\text{total}} = 6 \cdot \frac{2}{1155} = \frac{12}{1155} = \frac{4}{385}\]
+    \item Verify: $\gcd(4, 385) = 1$ \checkmark
+\end{itemize}
+
+\textbf{Step 8: Find Answer (15 seconds)}
+\begin{itemize}
+    \item $m = 4$, $n = 385$
+    \item $m + n = 389$
+    \item Answer: (C) 389
+\end{itemize}
+
+\textbf{Step 9: Quick Verification (30 seconds)}
+\begin{itemize}
+    \item Check fraction simplification
+    \item Verify answer matches a choice
+    \item Sanity check: small probability makes sense
+\end{itemize}
+
+\subsection*{B. Alternative Approach Summary (Method 4)}
+
+\textbf{Quick outline}:
+\begin{enumerate}
+    \item Don't assume specific player assignment
+    \item First red goes anywhere (probability 1)
+    \item Other reds must go to same player: $\frac{3}{11} \cdot \frac{2}{10}$
+    \item First white must avoid red player: $\frac{8}{9}$
+    \item Second white matches first: $\frac{3}{8}$
+    \item Blue goes to third player: $\frac{4}{7}$
+    \item Product: $\frac{3 \cdot 2 \cdot 8 \cdot 3 \cdot 4}{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7} = \frac{576}{55440} = \frac{4}{385}$
+    \item Answer: $4 + 385 = 389$
+\end{enumerate}
+
+\subsection*{C. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 2}: ~4 minutes total
+    \item \textbf{Method 4}: ~4 minutes total (slightly trickier to set up correctly)
+    \item \textbf{Recommended}: Method 2 (clearer logic, easier to explain)
+    \item \textbf{Fallback}: Method 4 if you want to avoid the $3!$ permutation factor initially
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{competitionbox}{7. Competition Strategy Integration}
+
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 4-5 minutes (appropriate for P16)
+    \item \textbf{Time Checkpoints}:
+    \begin{itemize}
+        \item At 1 min: Should have set up sequential probability approach
+        \item At 3 min: Should have calculated all three token type probabilities
+        \item At 4 min: Should have multiplied by $3!$ and simplified
+        \item At 5+ min: If stuck, try alternative method or move on
+    \end{itemize}
+    \item \textbf{Priority Level}: High (P16 is accessible for students targeting 100+)
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90-95\% after verification
+    
+    \item \textbf{Error Risks}: 
+    \begin{itemize}
+        \item Forgetting to multiply by $3!$ (permutations)
+        \item Arithmetic errors in fraction multiplication
+        \item Not simplifying fraction completely
+        \item Miscounting available slots at each step
+    \end{itemize}
+    
+    \item \textbf{Mitigation}:
+    \begin{itemize}
+        \item Write out slot counts explicitly at each stage
+        \item Double-check fraction simplification
+        \item Verify with alternative method if time permits
+        \item Remember: answer needs player permutations!
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criteria}: If stuck after 6 minutes, guess middle choice (C) 389
+    
+    \item \textbf{Flag for Review}: Possibly, if unsure about simplification
+\end{itemize}
+
+\subsection*{C. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item (A) 387 = $m + n$ if off by small error
+        \item (B) 388 (even) - less likely for this type
+        \item (C) 389 ← correct answer
+        \item (D) 390 - close alternative
+        \item (E) 391 - if forgot simplification step
+    \end{itemize}
+    
+    \item \textbf{Elimination Strategy}:
+    \begin{itemize}
+        \item Very hard to eliminate without calculation
+        \item All choices are plausible
+        \item Must compute and simplify carefully
+    \end{itemize}
+    
+    \item \textbf{Reasonableness}:
+    \begin{itemize}
+        \item $\frac{4}{385}$ is a small probability (makes sense for specific outcome)
+        \item Denominator 385 = $5 \times 7 \times 11$ (product of primes, reasonable)
+        \item Sum $389$ is prime (common in AMC problems)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Accessibility}: Moderate - requires careful probability tracking
+    \item \textbf{Technique Familiarity}: 
+    \begin{itemize}
+        \item High for sequential probability
+        \item Moderate for multinomial coefficients
+    \end{itemize}
+    \item \textbf{Computational Difficulty}: Moderate - many fractions but straightforward
+    \item \textbf{Verification Ease}: Good - can check arithmetic step by step
+    \item \textbf{Guessing Strategy}: Weak - no easy way to eliminate choices
+\end{itemize}
+
+\end{competitionbox}
+
+\begin{highlightbox}{Key Insight}
+
+The most elegant solution uses \textbf{sequential probability}: imagine distributing tokens one by one, calculating the probability each goes to the correct player. The key steps are:
+\begin{enumerate}
+    \item Fix a player assignment (e.g., P1 gets reds, P2 gets whites, P3 gets blue)
+    \item Calculate probability for each colored token type sequentially
+    \item Multiply by $3! = 6$ to account for all possible player assignments
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Recognition Pattern}: When you have tokens distributed to players with constraints, sequential probability (with available slots) is usually cleaner than direct counting.
+
+\vspace{0.5em}
+\noindent\textbf{Critical Step}: Don't forget the $3!$ permutation factor! Without it, you get $\frac{2}{1155}$ instead of $\frac{4}{385}$.
+
+\end{highlightbox}
+
+\begin{warningbox}{Common Pitfalls}
+
+\textbf{Pitfall 1: Forgetting Permutation Factor}
+\begin{itemize}
+    \item \textit{Error}: Calculating only for one specific player assignment, forgetting $3!$
+    \item \textit{Result}: Getting $\frac{2}{1155}$ and answer $2 + 1155 = 1157$ (way too large)
+    \item \textit{Prevention}: Always ask "Have I accounted for which player gets which tokens?"
+\end{itemize}
+
+\textbf{Pitfall 2: Miscounting Available Slots}
+\begin{itemize}
+    \item \textit{Error}: After first red goes to P1, thinking P1 still has 4 slots (not 3)
+    \item \textit{Example}: Using $\frac{4}{11}$ instead of $\frac{3}{11}$ for second red
+    \item \textit{Prevention}: Track slots explicitly: "P1 now has 3 open of 11 total"
+\end{itemize}
+
+\textbf{Pitfall 3: Arithmetic Errors in Simplification}
+\begin{itemize}
+    \item \textit{Error}: Not fully reducing $\frac{12}{1155}$ to $\frac{4}{385}$
+    \item \textit{Result}: Getting $m + n = 12 + 1155 = 1167$
+    \item \textit{Prevention}: Always find $\gcd$ and verify fraction is in lowest terms
+\end{itemize}
+
+\textbf{Pitfall 4: Wrong Order of Operations}
+\begin{itemize}
+    \item \textit{Error}: Trying to account for black token distribution explicitly
+    \item \textit{Correct}: Black tokens automatically fill remaining slots - no need to calculate separately
+    \item \textit{Prevention}: Focus only on the constrained tokens (red, white, blue)
+\end{itemize}
+
+\textbf{Pitfall 5: Treating Players as Indistinguishable}
+\begin{itemize}
+    \item \textit{Error}: Dividing by $3!$ instead of multiplying (thinking players are identical)
+    \item \textit{Correct}: Players are distinguishable people, so we multiply by permutations
+    \item \textit{Prevention}: Problem says "some player", "another", "remaining" - they're distinct!
+\end{itemize}
+
+\end{warningbox}
+
+\begin{protipbox}{Competition Tips}
+
+\textbf{Tip 1: Sequential Probability with Slots}
+\begin{itemize}
+    \item Track "open slots" at each stage
+    \item After placing $k$ tokens, there are $12 - k$ open slots remaining
+    \item Each player starts with 4 slots; reduce as they receive tokens
+\end{itemize}
+
+\textbf{Tip 2: Permutation Factor Recognition}
+\begin{itemize}
+    \item If you calculate for ONE specific assignment, multiply by number of assignments
+    \item Here: 3 players, 3 colored groups → $3!$ permutations
+    \item Always ask: "Did I fix something that could vary?"
+\end{itemize}
+
+\textbf{Tip 3: Black Tokens are Free}
+\begin{itemize}
+    \item Black tokens just fill remaining slots - don't calculate their probability
+    \item Once colored tokens are placed, black tokens have no constraints
+    \item This simplifies the problem significantly
+\end{itemize}
+
+\textbf{Tip 4: Fraction Simplification Strategy}
+\begin{itemize}
+    \item Simplify intermediate fractions before multiplying (easier arithmetic)
+    \item Example: $\frac{4}{12} = \frac{1}{3}$, $\frac{3}{9} = \frac{1}{3}$, etc.
+    \item Always verify final fraction is fully reduced
+\end{itemize}
+
+\textbf{Tip 5: Alternative Method as Check}
+\begin{itemize}
+    \item Method 2 (with fixed assignment) and Method 4 (no fixed assignment) give same answer
+    \item If time permits, try both as verification
+    \item Both should yield $\frac{4}{385}$
+\end{itemize}
+
+\textbf{Tip 6: Reasonableness Check}
+\begin{itemize}
+    \item Probability should be small (specific outcome among many possibilities)
+    \item $\frac{4}{385} \approx 0.0104$ or about 1\% - reasonable!
+    \item If you get probability $> 0.1$, likely made an error
+\end{itemize}
+
+\end{protipbox}
+
+\section*{Complete Solution (Detailed)}
+
+\subsection*{Solution Method 1: Sequential Probability with Fixed Assignment (Recommended)}
+
+\textbf{Problem}: Find probability that when 12 tokens (3 red, 2 white, 1 blue, 6 black) are distributed randomly to 3 players (4 each), one player gets all reds, another all whites, and the third gets the blue.
+
+\textbf{Step 1: Fix player assignment}
+
+Assume (temporarily) that:
+\begin{itemize}
+    \item Player 1 gets all 3 red tokens
+    \item Player 2 gets both 2 white tokens  
+    \item Player 3 gets the 1 blue token
+\end{itemize}
+
+We'll multiply by $3!$ at the end to account for all possible assignments.
+
+\textbf{Step 2: Calculate probability all reds go to Player 1}
+
+Initially, there are 12 open slots total (4 per player).
+
+\begin{itemize}
+    \item \textbf{First red token}: Must go to Player 1
+    \[P(\text{1st red to P1}) = \frac{4}{12} = \frac{1}{3}\]
+    (Player 1 has 4 open slots out of 12 total)
+    
+    \item After first red: 11 open slots remain (P1 now has 3 open)
+    
+    \item \textbf{Second red token}: Must go to Player 1
+    \[P(\text{2nd red to P1} \mid \text{1st to P1}) = \frac{3}{11}\]
+    
+    \item After second red: 10 open slots remain (P1 now has 2 open)
+    
+    \item \textbf{Third red token}: Must go to Player 1
+    \[P(\text{3rd red to P1} \mid \text{first two to P1}) = \frac{2}{10} = \frac{1}{5}\]
+\end{itemize}
+
+Combined probability for all reds to P1:
+\[P(\text{all reds to P1}) = \frac{4}{12} \cdot \frac{3}{11} \cdot \frac{2}{10} = \frac{1}{3} \cdot \frac{3}{11} \cdot \frac{1}{5} = \frac{3}{165} = \frac{1}{55}\]
+
+\textbf{Step 3: Calculate probability all whites go to Player 2}
+
+After placing 3 reds, 9 open slots remain (P1 has 1, P2 has 4, P3 has 4).
+
+\begin{itemize}
+    \item \textbf{First white token}: Must go to Player 2
+    \[P(\text{1st white to P2}) = \frac{4}{9}\]
+    
+    \item After first white: 8 open slots remain (P2 now has 3 open)
+    
+    \item \textbf{Second white token}: Must go to Player 2
+    \[P(\text{2nd white to P2} \mid \text{1st to P2}) = \frac{3}{8}\]
+\end{itemize}
+
+Combined probability for all whites to P2:
+\[P(\text{all whites to P2}) = \frac{4}{9} \cdot \frac{3}{8} = \frac{12}{72} = \frac{1}{6}\]
+
+\textbf{Step 4: Calculate probability blue goes to Player 3}
+
+After placing 3 reds and 2 whites, 7 open slots remain (P1 has 1, P2 has 2, P3 has 4).
+
+\begin{itemize}
+    \item \textbf{Blue token}: Must go to Player 3
+    \[P(\text{blue to P3}) = \frac{4}{7}\]
+\end{itemize}
+
+\textbf{Step 5: Combine probabilities}
+
+The probability for our specific player assignment is:
+\[P_{\text{specific}} = \frac{1}{55} \cdot \frac{1}{6} \cdot \frac{4}{7} = \frac{4}{2310}\]
+
+Simplify: $\gcd(4, 2310) = 2$
+\[P_{\text{specific}} = \frac{2}{1155}\]
+
+\textbf{Step 6: Account for all player assignments}
+
+There are $3!  = 6$ ways to assign the three colored groups to the three players:
+\begin{enumerate}
+    \item P1→red, P2→white, P3→blue
+    \item P1→red, P2→blue, P3→white
+    \item P1→white, P2→red, P3→blue
+    \item P1→white, P2→blue, P3→red
+    \item P1→blue, P2→red, P3→white
+    \item P1→blue, P2→white, P3→red
+\end{enumerate}
+
+Total probability:
+\[P_{\text{total}} = 6 \cdot \frac{2}{1155} = \frac{12}{1155}\]
+
+Simplify: $\gcd(12, 1155) = 3$
+\[P_{\text{total}} = \frac{4}{385}\]
+
+\textbf{Step 7: Verify and find answer}
+
+Check that $\gcd(4, 385) = 1$:
+\begin{itemize}
+    \item $4 = 2^2$
+    \item $385 = 5 \cdot 7 \cdot 11$
+    \item No common factors, so $\gcd(4, 385) = 1$ \checkmark
+\end{itemize}
+
+Therefore $m = 4$ and $n = 385$, giving:
+\[m + n = 4 + 385 = 389\]
+
+\textbf{Answer: } $\boxed{\textbf{(C) } 389}$
+
+\subsection*{Solution Method 2: Sequential Probability Without Fixed Assignment}
+
+This method avoids fixing player assignments by carefully tracking constraints.
+
+\textbf{Key idea}: First red token can go anywhere; subsequent tokens must satisfy constraints.
+
+\textbf{Step 1: Red tokens}
+
+\begin{itemize}
+    \item First red goes to some player (call this the "red player") - probability 1
+    \item Second red must go to red player: $\frac{3}{11}$ (red player has 3 open of 11 total)
+    \item Third red must go to red player: $\frac{2}{10}$ (red player has 2 open of 10 total)
+\end{itemize}
+
+\textbf{Step 2: White tokens}
+
+After reds are placed, 9 open slots remain.
+
+\begin{itemize}
+    \item First white must NOT go to red player: $\frac{8}{9}$ (8 non-red-player slots of 9 total)
+    \item Call this the "white player"
+    \item Second white must go to white player: $\frac{3}{8}$ (white player has 3 open of 8 total)
+\end{itemize}
+
+\textbf{Step 3: Blue token}
+
+After reds and whites are placed, 7 open slots remain.
+
+\begin{itemize}
+    \item Blue must go to third player (not red or white player): $\frac{4}{7}$
+\end{itemize}
+
+\textbf{Step 4: Calculate probability}
+
+\[P = \frac{3}{11} \cdot \frac{2}{10} \cdot \frac{8}{9} \cdot \frac{3}{8} \cdot \frac{4}{7}\]
+
+\[= \frac{3 \cdot 2 \cdot 8 \cdot 3 \cdot 4}{11 \cdot 10 \cdot 9 \cdot 8 \cdot 7}\]
+
+\[= \frac{576}{55440}\]
+
+Simplify:
+\begin{itemize}
+    \item $576 = 2^6 \cdot 3^2 = 64 \cdot 9$
+    \item $55440 = 11 \cdot 10 \cdot 9 \cdot 8 \cdot 7 = 11 \cdot 5040$
+    \item Factor: $55440 = 2^4 \cdot 3^2 \cdot 5 \cdot 7 \cdot 11$
+    \item $\gcd(576, 55440) = 2^4 \cdot 3^2 = 144$
+\end{itemize}
+
+\[P = \frac{576 \div 144}{55440 \div 144} = \frac{4}{385}\]
+
+\textbf{Step 5: Find answer}
+
+$m = 4$, $n = 385$, so $m + n = 389$
+
+\textbf{Answer: } $\boxed{\textbf{(C) } 389}$
+
+\subsection*{Verification}
+
+Both methods give $\frac{4}{385}$, confirming our answer \checkmark
+
+\textbf{Sanity checks}:
+\begin{itemize}
+    \item Probability $\frac{4}{385} \approx 0.0104 \approx 1\%$ - small, as expected for specific outcome \checkmark
+    \item Fraction is fully reduced ($\gcd(4, 385) = 1$) \checkmark
+    \item Answer matches choice (C) \checkmark
+\end{itemize}
+
+\section*{Final Answer}
+
+The probability is $\frac{4}{385}$, so $m + n = 4 + 385 = 389$.
+
+$$\boxed{\textbf{(C) } 389}$$
+
+\section*{Confidence Assessment}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Two independent methods confirm answer
+    
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Method 1 (fixed assignment): $\frac{4}{385}$ \checkmark
+        \item Method 2 (no fixed assignment): $\frac{4}{385}$ \checkmark
+        \item Fraction fully reduced \checkmark
+        \item Probability magnitude reasonable \checkmark
+        \item Answer matches choice (C) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - very high confidence with double verification
+    
+    \item \textbf{Time Spent}: 4-5 minutes (optimal for P16)
+    \begin{itemize}
+        \item Setup: 30 seconds
+        \item Calculate red probability: 45 seconds
+        \item Calculate white probability: 30 seconds
+        \item Calculate blue probability: 15 seconds
+        \item Combine and simplify: 90 seconds
+        \item Verification: 45 seconds
+    \end{itemize}
+    
+    \item \textbf{Alternative Methods Available}: Yes (multinomial coefficients, arrangement counting)
+    
+    \item \textbf{Error Risk Assessment}: Low - straightforward calculation with multiple checks
+\end{itemize}
+
+\section*{Pattern Recognition}
+
+\textbf{Problem Signature}: Token distribution with constraints, sequential probability
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Objects distributed to recipients with fixed allocations
+    \item Conditional constraints (specific items to specific recipients)
+    \item Need to account for permutations/assignments
+    \item Multiple object types with different quantities
+\end{itemize}
+
+\textbf{Standard Approach}:
+\begin{enumerate}
+    \item Use sequential probability (cleaner than direct counting)
+    \item Track open slots at each stage
+    \item Either: fix assignment and multiply by permutations, OR avoid fixing and track constraints
+    \item Simplify fraction carefully
+    \item Verify with alternative method if time permits
+\end{enumerate}
+
+\textbf{Time Estimate}: 4-5 minutes for P16-level problem
+
+\textbf{Similar Problems}: Card distribution, team assignment, partition problems with constraints
+
+\end{document}
+

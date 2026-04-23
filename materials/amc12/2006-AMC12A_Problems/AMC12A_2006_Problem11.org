@@ -1,0 +1,23 @@
+2006 AMC 12A Problems/Problem 11
+Problem
+Which of the following describes the graph of the equation $(x+y)^2=x^2+y^2$ ?
+$\mathrm{(A)}\ \text{the empty set}\qquad\mathrm{(B)}\ \text{one point}\qquad\mathrm{(C)}\ \text{two lines}\qquad\mathrm{(D)}\ \text{a circle}\qquad\mathrm{(E)}\ \text{the entire plane}$
+Solution
+\begin{align*}(x+y)^2&=x^2+y^2\\ x^2 + 2xy + y^2 &= x^2 + y^2\\ 2xy &= 0\end{align*}
+
+ Either $x = 0$ or $y = 0$ . The union of them is 2 lines, and thus the answer is $\mathrm{(C)}$ .
+[asy] draw((0,-50)--(0,50));draw((-50,0)--(50,0));[/asy]
+See also
+2006 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 10 Followed by 
+ Problem 12
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2006 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 10 Followed by 
+ Problem 12
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,110 @@
+2021 AMC 12A Problems/Problem 24
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Video Solution
+6 Video Solution and Exploration by hurdler
+7 See Also
+Problem
+Convex quadrilateral $ABCD$ has $AB = 18, \angle{A} = 60^\circ,$ and $\overline{AB} \parallel \overline{CD}.$ In some order, the lengths of the four sides form an arithmetic progression, and side $\overline{AB}$ is a side of maximum length. The length of another side is $a.$ What is the sum of all possible values of $a$ ?
+$\textbf{(A) } 24 \qquad \textbf{(B) } 42 \qquad \textbf{(C) } 60 \qquad \textbf{(D) } 66 \qquad \textbf{(E) } 84$
+Solution 1
+Let $E$ be a point on $\overline{AB}$ such that $BCDE$ is a parallelogram. Suppose that $BC=ED=b, CD=BE=c,$ and $DA=d,$ so $AE=18-c,$ as shown below. 
+
+[asy] /* Made by MRENTHUSIASM */ size(250); pair A, B, C, D, E; A = (0,0); B = (18,0); D = A+9*dir(60); C = D+(7,0); E = D+(B-C); dot("$A$",A,1.5*SW,linewidth(4)); dot("$B$",B,1.5*SE,linewidth(4)); dot("$C$",C,1.5*NE,linewidth(4)); dot("$D$",D,1.5*NW,linewidth(4)); dot("$E$",E,1.5*S,linewidth(4)); draw(A--B--C--D--cycle); draw(D--E,dashed); label("$60^\circ$",A,2.5*dir(30),fontsize(10)); label("$18-c$",midpoint(A--E),1.5*S,red); label("$c$",midpoint(E--B),2.25*S,red); label("$b$",midpoint(B--C),scale(1.5)*rotate(90)*dir(midpoint(B--C)--B),red); label("$b$",midpoint(D--E),scale(1.5)*rotate(90)*dir(midpoint(E--D)--E),red); label("$c$",midpoint(C--D),1.5*N,red); label("$d$",midpoint(D--A),scale(1.5)*rotate(90)*dir(midpoint(D--A)--D),red); [/asy]
+
+ We apply the Law of Cosines to $\triangle ADE:$ 
+
+\begin{align*} AD^2 + AE^2 - 2\cdot AD\cdot AE\cdot\cos 60^\circ &= DE^2 \\ d^2 + (18-c)^2 - d(18-c) &= b^2 \\ (18-c)^2 - d(18-c) &= b^2 - d^2 \\ (18-c)(18-c-d) &= (b+d)(b-d). \hspace{15mm}(\bigstar) \end{align*}
+
+ Let $k$ be the common difference of the arithmetic progression of the side-lengths. It follows that $b,c,$ and $d$ are $18-k, 18-2k,$ and $18-3k,$ in some order. It is clear that $0\leq k<6.$
+If $k=0,$ then $ABCD$ is a rhombus with side-length $18,$ which is valid.
+If $k\neq0,$ then we have six cases:
+- $(b,c,d)=(18-k,18-2k,18-3k)$
+- $(b,c,d)=(18-k,18-3k,18-2k)$
+- $(b,c,d)=(18-2k,18-k,18-3k)$
+- $(b,c,d)=(18-2k,18-3k,18-k)$
+- $(b,c,d)=(18-3k,18-k,18-2k)$
+- $(b,c,d)=(18-3k,18-2k,18-k)$
+Together, the sum of all possible values of $a$ is $18+(13+3+8)+(14+12+16)=\boxed{\textbf{(E) } 84}.$
+~MRENTHUSIASM
+Solution 2
+Let $b, c$ , and $d$ denote the sides $BC, CD$ , and $AD$ respectively. 
+
+[asy] size(250); pair A, B, C, D, E; A = (0,0); B = (18,0); D = A+9*dir(60); C = D+(7,0); E = D+(B-C); pen pdot=linewidth(3)+fontsize(12); dot("$A$",A,SW,pdot); dot("$B$",B,SE,pdot); dot("$C$",C,NE,pdot); dot("$D$",D,NW,pdot); draw(A--B--C--D--cycle); label("$60^\circ$",A,5*dir(30),fontsize(10)); label("$\theta$", B, 5*dir(155),fontsize(10)); pen plabel=red+fontsize(12); label("$18$",midpoint(A--B),1.5*S,plabel); label("$b$", midpoint(B--C), scale(1.5)*rotate(90)* dir((B+C)/2--B), plabel); label("$c$", (C+D)/2,1.5*N, plabel); label("$d$",(D+A)/2, scale(1.5)*rotate(90)*dir((D+A)/2--D), plabel); [/asy]
+
+ Since $AB\parallel CD$ , we get
+
+\[\tfrac{\sqrt 3}{2}\ d = b\sin\theta \quad \textrm{and}\quad \tfrac 12 d + c + b\cos\theta = 18.\]
+
+Using $b^2\sin^2\theta + b^2\cos^2\theta = b^2$ , we eliminate $\theta$ from above to get $(36-2c-d)^2+3d^2=4b^2$ , which rearranges to $(36-2c-d)^2-d^2=4(b^2-d^2)$ , and, upon factoring, yields 
+
+\begin{align} (18-c)(18-c-d)=(b+d)(b-d). \end{align}
+
+ We divide into two cases, depending on whether $c$ is the smallest side.
+If $c$ is not the smallest side then $18-c=\pm (b-d)$ . If $c=18$ , we get a rhombus of side $18$ , so one possible value is $a=18$ . Otherwise, we can cancel the common factor from $(1)$ . After rearranging we get
+
+\[18-c=-b \quad \textrm{or}\quad 18-c=b+2d.\]
+
+The first condition is false because $-b< 0 <18-c$ ; the second condition is false because $b+2d > |b-d| = 18-c$ .
+If $c$ is the smallest side, then $18-c = \pm 3(b-d)$ . Assuming $c<18$ we can cancel common factors in $(1)$ to get
+
+\[8b=13d \quad \textrm{or}\quad 8b=7d.\]
+
+The first condition yields the solution $(c,d,b)=(3,8,13)$ and the second condition yields the solution $(c,b,d)=(12,14,16)$ .
+Together, the sum of all possible values of $a$ is $18+(3+8+13)+(12+14+16)=\boxed{\textbf{(E) } 84}.$
+Solution 3
+Denote $x = AD$ , $\theta = \angle B$ .
+Hence, $BC = \frac{\sqrt{3}}{2} \cdot \frac{x}{\sin \theta}$ , $DC = 18 - \frac{x}{2} - \frac{\sqrt{3}}{2} x \cot \theta$ .
+$\textbf{Case 1}$ : $DC = AD = BC = AB$ .
+This is a rhombus. So each side has length $18$ .
+For the following cases, we consider four sides that have distinct lengths.
+To make their lengths an arithmetic sequence, we must have $\theta \neq 120^\circ$ .
+Therefore, in the subsequent analysis, we exclude the solution $\theta = 120^\circ$ .
+$\textbf{Case 2}$ : $DC < AD < BC < AB$ .
+Because the lengths of these sides form an arithmetic sequence, we have the following system of equations:
+
+\[AB - BC = BC - AD = AD - DC .\]
+Hence, 
+
+\begin{eqnarray*} & 18 - \frac{\sqrt{3}}{2}\cdot\frac{x}{\sin \theta} = \frac{\sqrt{3}}{2}\cdot\frac{x}{\sin \theta} - x = x - \left( 18 - \frac{x}{2} - \frac{\sqrt{3}}{2} x \cot \theta \right) . & \end{eqnarray*}
+By solving this system of equations, we get $\left( \cos \theta , \sin \theta , x\right) = \left( \frac{11}{13} , \frac{4 \sqrt{3}}{13} , 8 \right)$ .
+Thus, in this case, $DC = 3$ , $AD = 8$ , $BC = 13$ .
+$\textbf{Case 3}$ : $DC < BC < AD < AB$ .
+Because the lengths of these sides form an arithmetic sequence, we have the following system of equations:
+
+\[AB - AD = AD - BC = BC - DC .\]
+Hence, 
+
+\begin{eqnarray*} & 18 - x = x - \frac{\sqrt{3}}{2}\cdot\frac{x}{\sin \theta} = \frac{\sqrt{3}}{2}\cdot\frac{x}{\sin \theta} - \left( 18 - \frac{x}{2} - \frac{\sqrt{3}}{2} x \cot \theta \right) . & \end{eqnarray*}
+By solving this system of equations, we get $\left( \cos \theta , \sin \theta , x\right) = \left( - \frac{1}{7} , \frac{4 \sqrt{3}}{7} , 16 \right)$ .
+Thus, in this case, $DC = 12$ , $AD = 16$ , $BC = 14$ .
+$\textbf{Case 4}$ : $BC < CD < AD < AB$ .
+By doing the similar analysis, we can show there is no solution in this case.
+$\textbf{Case 5}$ : $BC < AD < CD < AB$ .
+By doing the similar analysis, we can show there is no solution in this case.
+$\textbf{Case 6}$ : $AD < CD < BC < AB$ .
+By doing the similar analysis, we can show there is no solution in this case.
+$\textbf{Case 7}$ : $AD < BC < CD < AB$ .
+By doing the similar analysis, we can show there is no solution in this case.
+Therefore, the sum of all possible values of $a$ is 
+
+\begin{align*} 18 + \left( 3 + 8 + 13 \right) + \left( 12 + 14 + 16 \right) & = 84 . \end{align*}
+Therefore, the answer is $\boxed{\textbf{(E) } 84}$ .
+~Steven Chen (www.professorchenedu.com)
+Video Solution
+https://youtu.be/CMpnQ6I8AXc
+~MathProblemSolvingSkills.com
+Video Solution and Exploration by hurdler
+Video exploration and motivated solution
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

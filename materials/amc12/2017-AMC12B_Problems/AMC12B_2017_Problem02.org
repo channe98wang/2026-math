@@ -1,0 +1,39 @@
+2017 AMC 12B Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 Video Solution by TheBeautyofMath
+5 See Also
+Problem
+Real numbers $x$ , $y$ , and $z$ satisfy the inequalities $0<x<1$ , $-1<y<0$ , and $1<z<2$ .
+Which of the following numbers is necessarily positive?
+$\textbf{(A)}\ y+x^2\qquad\textbf{(B)}\ y+xz\qquad\textbf{(C)}\ y+y^2\qquad\textbf{(D)}\ y+2y^2\qquad\textbf{(E)}\ y+z$
+Solution
+Notice that $y+z$ must be positive because $|z|>|y|$ . Therefore the answer is $\boxed{\textbf{(E) } y+z}$ .
+The other choices:
+$\textbf{(A)}$ As $x$ grows closer to $0$ , $x^2$ decreases and thus becomes less than $y$ .
+$\textbf{(B)}$ $x$ can be as small as possible ( $x>0$ ), so $xz$ grows close to $0$ as $x$ approaches $0$ .
+$\textbf{(C)}$ For all $-1<y<0$ , $|y|>|y^2|$ , and thus it is always negative.
+$\textbf{(D)}$ The same logic as above, but when $-\frac{1}{2}<y<0$ this time.
+Video Solution
+https://youtu.be/BnkFy36V_WE
+~savannahsolver
+Video Solution by TheBeautyofMath
+https://youtu.be/zTGuz6EoBWY?t=525
+~IceMatrix
+See Also
+2017 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2017 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions .
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions.

@@ -1,0 +1,620 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% AMC 12B 2023 Problem 13 Strategic Analysis
+% Structure your analysis results using this template with colorful boxes
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12 Strategic Problem Analysis\\2023 AMC 12B Problem 13}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+A rectangular box $\mathcal{P}$ has distinct edge lengths $a$, $b$, and $c$. The sum of the lengths of all $12$ edges of $\mathcal{P}$ is $13$, the sum of the areas of all $6$ faces of $\mathcal{P}$ is $\frac{11}{2}$, and the volume of $\mathcal{P}$ is $\frac{1}{2}$. What is the length of the longest interior diagonal connecting two vertices of $\mathcal{P}$?
+
+$$\textbf{(A)}~2\qquad\textbf{(B)}~\frac{3}{8}\qquad\textbf{(C)}~\frac{9}{8}\qquad\textbf{(D)}~\frac{9}{4}\qquad\textbf{(E)}~\frac{3}{2}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (compute the length of the longest diagonal)
+    \item \textbf{Competition Context}: AMC12 2023B Problem 13
+    \item \textbf{Difficulty Band}: Mid-band (P13/25) - requires symmetric functions and algebraic manipulation
+    \item \textbf{Mathematical Domain}: 3D Geometry / Algebra (Symmetric Functions)
+    \item \textbf{Estimated Time}: 4-5 minutes for mid-band problem with multiple approaches
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Rectangular box with dimensions $a \times b \times c$ (distinct)
+        \item Sum of 12 edges: $4(a+b+c) = 13$
+        \item Sum of 6 face areas: $2(ab+ac+bc) = \frac{11}{2}$
+        \item Volume: $abc = \frac{1}{2}$
+        \item Multiple choice answers available
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Edge lengths are distinct: $a \neq b \neq c$
+        \item All edges are positive real numbers
+        \item The box has 12 edges: 4 of length $a$, 4 of length $b$, 4 of length $c$
+        \item The box has 6 faces: 2 with area $ab$, 2 with area $ac$, 2 with area $bc$
+    \end{itemize}
+    \item \textbf{Objective}: Find the length of the longest interior diagonal $\sqrt{a^2+b^2+c^2}$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The longest diagonal connects opposite vertices through the interior
+        \item We need to find $a^2+b^2+c^2$, not the individual values of $a$, $b$, $c$
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: Answers range from $\frac{3}{8}$ to $2$. The answer $\frac{9}{4} = 2.25$ is slightly larger than 2, suggesting this might be the correct value. Notice $\frac{9}{4} = \sqrt{\frac{81}{16}}$.
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The three given conditions relate to symmetric functions of $a$, $b$, $c$
+    \item \textbf{Conclusion}: Determine the diagonal length $d = \sqrt{a^2 + b^2 + c^2}$
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $s_1 = a + b + c = \frac{13}{4}$ (sum)
+        \item $s_2 = ab + ac + bc = \frac{11}{4}$ (pairwise products)
+        \item $s_3 = abc = \frac{1}{2}$ (product)
+        \item Target: $\sqrt{a^2 + b^2 + c^2}$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Translate geometric constraints into algebraic equations
+        \item Recognize symmetric functions pattern (Vieta's formulas)
+        \item Use identity $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)$ to find $a^2+b^2+c^2$
+        \item Take square root to get diagonal length
+    \end{enumerate}
+    \item \textbf{Cross-Domain Potential}: This 3D geometry problem transforms into a symmetric functions / algebra problem. Could also use Vieta's formulas to find actual values of $a$, $b$, $c$.
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't be intimidated by 3D geometry - the problem elegantly reduces to algebra. Trust the pattern recognition.
+    \item \textbf{Creativity Cultivation}: Recognize that we don't need to find $a$, $b$, $c$ individually - we only need $a^2+b^2+c^2$. The algebraic identity provides a shortcut.
+    \item \textbf{Iterative Refinement}: If direct computation seems complex, consider the Vieta's formulas approach to find the actual dimensions, then verify.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately translate geometric descriptions into algebraic equations. Count edges and faces carefully.
+    \item \textbf{Get Your Hands Dirty}: Write out the three equations and look for patterns. The symmetric function structure should become apparent.
+    \item \textbf{Penultimate Step}: Once we have $a^2+b^2+c^2$, the final step is taking the square root.
+    \item \textbf{Wishful Thinking}: "I wish I knew $a^2+b^2+c^2$..." leads to the identity $(a+b+c)^2 - 2(ab+ac+bc)$.
+    \item \textbf{Conjecture via Small Cases}: For a unit cube ($1 \times 1 \times 1$), the diagonal is $\sqrt{3} \approx 1.73$. Our box has sum $\frac{13}{4} = 3.25$, so diagonal should be larger.
+    \item \textbf{Visualization}: Picture a rectangular box with a diagonal cutting through from one corner to the opposite corner through the interior.
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proof Method}: Direct algebraic computation using symmetric functions
+    \item \textbf{Key Lemmas}: 
+    \begin{enumerate}
+        \item Box with dimensions $a \times b \times c$ has 12 edges totaling $4(a+b+c)$
+        \item Box has 6 faces with total area $2(ab+ac+bc)$
+        \item Interior diagonal length is $\sqrt{a^2+b^2+c^2}$ (3D Pythagorean theorem)
+        \item Identity: $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)$
+    \end{enumerate}
+    \item \textbf{Logical Structure}: Geometric setup $\to$ algebraic equations $\to$ symmetric functions $\to$ algebraic identity $\to$ answer
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \emph{Symmetric Functions}: Recognize $a+b+c$, $ab+ac+bc$, $abc$ pattern
+        \item \emph{Algebraic Identities}: Use $(a+b+c)^2$ expansion
+        \item \emph{Change of Variables}: Transform geometry problem into algebra
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics (3D Geometry)}: 
+    \begin{itemize}
+        \item Count edges: rectangular box has 4 edges each of lengths $a$, $b$, $c$
+        \item Count faces: rectangular box has 2 faces each of areas $ab$, $ac$, $bc$
+        \item Interior diagonal formula: $d = \sqrt{a^2+b^2+c^2}$
+    \end{itemize}
+    \item \textbf{Crossover Tactics}: This problem beautifully bridges 3D geometry with polynomial algebra via Vieta's formulas.
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Vieta's Formulas (H16)} and \textbf{Algebraic Identities}
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Three unknowns with three constraints
+        \item Constraints involve sum, pairwise products, and triple product
+        \item This is the classic symmetric functions pattern
+        \item Target requires $a^2+b^2+c^2$, not individual values
+    \end{itemize}
+    \item \textbf{Application - Method 1 (Algebraic Identity)}: 
+    \begin{enumerate}
+        \item From edge sum: $4(a+b+c) = 13 \Rightarrow a+b+c = \frac{13}{4}$
+        \item From face areas: $2(ab+ac+bc) = \frac{11}{2} \Rightarrow ab+ac+bc = \frac{11}{4}$
+        \item From volume: $abc = \frac{1}{2}$
+        \item Use identity: $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)$
+        \item Solve: $a^2+b^2+c^2 = \left(\frac{13}{4}\right)^2 - 2 \cdot \frac{11}{4} = \frac{169}{16} - \frac{22}{4} = \frac{169-88}{16} = \frac{81}{16}$
+        \item Answer: $\sqrt{\frac{81}{16}} = \frac{9}{4}$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Backup Techniques - Method 2 (Vieta's Formulas)}: 
+    \begin{itemize}
+        \item Recognize that $a$, $b$, $c$ are roots of polynomial: $t^3 - \frac{13}{4}t^2 + \frac{11}{4}t - \frac{1}{2} = 0$
+        \item Multiply by 4: $4t^3 - 13t^2 + 11t - 2 = 0$
+        \item Notice coefficients sum to 0: $4-13+11-2=0$, so $t=1$ is a root
+        \item Factor: $(t-1)(4t^2-9t+2) = (t-1)(4t-1)(t-2) = 0$
+        \item Roots are $a=\frac{1}{4}$, $b=1$, $c=2$ (in some order)
+        \item Compute: $a^2+b^2+c^2 = \frac{1}{16} + 1 + 4 = \frac{81}{16}$
+        \item Answer: $\sqrt{\frac{81}{16}} = \frac{9}{4}$
+    \end{itemize}
+    \item \textbf{Method 3 (Newton's Sums)}: 
+    \begin{itemize}
+        \item Apply Newton's sums formula to find power sums directly
+        \item Less intuitive but more systematic for higher powers
+    \end{itemize}
+    \item \textbf{Method 4 (Bounds/Estimation)}: 
+    \begin{itemize}
+        \item Unit cube has diagonal $\sqrt{3} \approx 1.73$
+        \item Our box has $a+b+c = 3.25 > 3$, so diagonal $> \sqrt{3}$
+        \item Eliminates options (B) and (C)
+        \item Not sufficient alone but helps narrow choices
+    \end{itemize}
+    \item \textbf{Technique Integration}: Method 1 (algebraic identity) is fastest and most elegant. Method 2 (Vieta's) provides verification and actual dimensions.
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 5 (Thorough Verification, 1-2 minutes)
+    \item \textbf{Justification}: Mid-band problem (P13) with multiple steps and fraction arithmetic. Thorough verification catches computational errors in multi-step calculations.
+    \item \textbf{Time Budget}: 90 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Computational Accuracy}: 
+    \begin{itemize}
+        \item Verify: $\left(\frac{13}{4}\right)^2 = \frac{169}{16}$
+        \item Verify: $2 \cdot \frac{11}{4} = \frac{22}{4} = \frac{88}{16}$
+        \item Verify: $\frac{169-88}{16} = \frac{81}{16}$
+        \item Verify: $\sqrt{\frac{81}{16}} = \frac{9}{4}$
+    \end{itemize}
+    \item \textbf{Alternative Method}: Use Vieta's formulas to find actual dimensions and verify
+    \item \textbf{Edge Cases}: Check that the three given conditions are satisfied by the dimensions
+    \item \textbf{Answer Choice Check}: Verify answer matches option (D)
+    \item \textbf{Reasonableness}: Diagonal should be larger than any single dimension and larger than $\sqrt{3}$
+\end{itemize}
+
+\subsection*{C. Detailed Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1: Verify Arithmetic}
+    
+    \begin{align*}
+        (a+b+c)^2 &= \left(\frac{13}{4}\right)^2 = \frac{169}{16}\\
+        2(ab+ac+bc) &= 2 \cdot \frac{11}{4} = \frac{22}{4} = \frac{88}{16}\\
+        a^2+b^2+c^2 &= \frac{169}{16} - \frac{88}{16} = \frac{81}{16}\\
+        \sqrt{\frac{81}{16}} &= \frac{\sqrt{81}}{\sqrt{16}} = \frac{9}{4}
+    \end{align*}
+    
+    \item \textbf{Method 2: Verify with Actual Dimensions}
+    
+    Using Vieta's formulas, we find $a=\frac{1}{4}$, $b=1$, $c=2$.
+    
+    Check original conditions:
+    \begin{align*}
+        4(a+b+c) &= 4\left(\frac{1}{4}+1+2\right) = 4 \cdot \frac{13}{4} = 13 \checkmark\\
+        2(ab+ac+bc) &= 2\left(\frac{1}{4} \cdot 1 + \frac{1}{4} \cdot 2 + 1 \cdot 2\right)\\
+        &= 2\left(\frac{1}{4} + \frac{1}{2} + 2\right) = 2 \cdot \frac{11}{4} = \frac{11}{2} \checkmark\\
+        abc &= \frac{1}{4} \cdot 1 \cdot 2 = \frac{1}{2} \checkmark
+    \end{align*}
+    
+    Compute diagonal:
+    \begin{align*}
+        a^2+b^2+c^2 &= \left(\frac{1}{4}\right)^2 + 1^2 + 2^2\\
+        &= \frac{1}{16} + 1 + 4 = \frac{1+16+64}{16} = \frac{81}{16}\\
+        d &= \sqrt{\frac{81}{16}} = \frac{9}{4} \checkmark
+    \end{align*}
+    
+    \item \textbf{Method 3: Reasonableness Check}
+    
+    \begin{itemize}
+        \item Largest dimension is $c=2$
+        \item Diagonal $\frac{9}{4} = 2.25 > 2$ $\checkmark$ (should be larger than any dimension)
+        \item For unit cube: diagonal $= \sqrt{3} \approx 1.73$
+        \item Our diagonal $2.25 > 1.73$ $\checkmark$ (reasonable since sum of dimensions is larger)
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution (Method 1: Algebraic Identity)}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Translate geometric constraints (45 seconds)}
+    
+    A rectangular box with dimensions $a \times b \times c$ has:
+    \begin{itemize}
+        \item 12 edges: 4 of length $a$, 4 of length $b$, 4 of length $c$
+        \item Total edge length: $4a + 4b + 4c = 4(a+b+c) = 13$
+        \item Therefore: $a+b+c = \frac{13}{4}$
+    \end{itemize}
+    
+    \begin{itemize}
+        \item 6 faces: 2 with area $ab$, 2 with area $ac$, 2 with area $bc$
+        \item Total surface area: $2ab + 2ac + 2bc = 2(ab+ac+bc) = \frac{11}{2}$
+        \item Therefore: $ab+ac+bc = \frac{11}{4}$
+    \end{itemize}
+    
+    \begin{itemize}
+        \item Volume: $abc = \frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Identify target quantity (15 seconds)}
+    
+    The longest interior diagonal connects opposite vertices through the box interior.
+    
+    By the 3D Pythagorean theorem: $d = \sqrt{a^2 + b^2 + c^2}$
+    
+    \item \textbf{Apply algebraic identity (45 seconds)}
+    
+    Use the identity:
+    $$(a+b+c)^2 = a^2 + b^2 + c^2 + 2(ab + ac + bc)$$
+    
+    Rearranging:
+    $$a^2 + b^2 + c^2 = (a+b+c)^2 - 2(ab + ac + bc)$$
+    
+    \item \textbf{Substitute known values (45 seconds)}
+    
+    \begin{align*}
+        a^2 + b^2 + c^2 &= \left(\frac{13}{4}\right)^2 - 2\left(\frac{11}{4}\right)\\
+        &= \frac{169}{16} - \frac{22}{4}\\
+        &= \frac{169}{16} - \frac{88}{16}\\
+        &= \frac{81}{16}
+    \end{align*}
+    
+    \item \textbf{Compute diagonal length (30 seconds)}
+    
+    \begin{align*}
+        d &= \sqrt{a^2 + b^2 + c^2}\\
+        &= \sqrt{\frac{81}{16}}\\
+        &= \frac{\sqrt{81}}{\sqrt{16}}\\
+        &= \frac{9}{4}
+    \end{align*}
+\end{enumerate}
+
+\subsection*{B. Alternative Solution (Method 2: Vieta's Formulas)}
+
+\textbf{Step 1: Recognize symmetric functions}
+
+The three equations give us:
+\begin{itemize}
+    \item $a+b+c = \frac{13}{4}$
+    \item $ab+ac+bc = \frac{11}{4}$
+    \item $abc = \frac{1}{2}$
+\end{itemize}
+
+These are exactly the coefficients of a cubic polynomial with roots $a$, $b$, $c$!
+
+\textbf{Step 2: Construct the polynomial}
+
+By Vieta's formulas, $a$, $b$, $c$ are roots of:
+$$t^3 - \frac{13}{4}t^2 + \frac{11}{4}t - \frac{1}{2} = 0$$
+
+Multiply by 4 to clear fractions:
+$$4t^3 - 13t^2 + 11t - 2 = 0$$
+
+\textbf{Step 3: Find roots}
+
+Notice that the coefficients sum to zero: $4 - 13 + 11 - 2 = 0$
+
+This means $t = 1$ is a root! (Rational Root Theorem check)
+
+Using synthetic division or factoring:
+$$4t^3 - 13t^2 + 11t - 2 = (t-1)(4t^2-9t+2)$$
+
+Factor the quadratic:
+$$4t^2 - 9t + 2 = (4t-1)(t-2)$$
+
+Therefore:
+$$4t^3 - 13t^2 + 11t - 2 = (t-1)(4t-1)(t-2)$$
+
+The roots are: $t = 1, \frac{1}{4}, 2$
+
+So $(a,b,c) = \left(\frac{1}{4}, 1, 2\right)$ in some order.
+
+\textbf{Step 4: Compute diagonal}
+
+\begin{align*}
+    a^2 + b^2 + c^2 &= \left(\frac{1}{4}\right)^2 + 1^2 + 2^2\\
+    &= \frac{1}{16} + 1 + 4\\
+    &= \frac{1 + 16 + 64}{16}\\
+    &= \frac{81}{16}\\
+    d &= \sqrt{\frac{81}{16}} = \frac{9}{4}
+\end{align*}
+
+\subsection*{C. Quick Method (Pattern Recognition)}
+
+Once you recognize the symmetric functions pattern and know the identity $(a+b+c)^2 = a^2+b^2+c^2+2(ab+ac+bc)$, you can solve this in under 2 minutes:
+
+\begin{enumerate}
+    \item Extract: $a+b+c = \frac{13}{4}$, $ab+ac+bc = \frac{11}{4}$
+    \item Apply: $a^2+b^2+c^2 = \left(\frac{13}{4}\right)^2 - 2\left(\frac{11}{4}\right) = \frac{169-88}{16} = \frac{81}{16}$
+    \item Compute: $d = \frac{9}{4}$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 4-5 minutes total
+    \begin{itemize}
+        \item Method 1 (Algebraic Identity): 2.5-3 minutes + 90 seconds verification
+        \item Method 2 (Vieta's Formulas): 4-5 minutes + 90 seconds verification
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 minute: Should have all three equations written
+        \item At 2 minutes: Should recognize symmetric functions or be computing $(a+b+c)^2$
+        \item At 3.5 minutes: Should have computed $a^2+b^2+c^2 = \frac{81}{16}$
+        \item If stuck at 3 minutes: Try Vieta's approach or estimation to narrow answer choices
+    \end{itemize}
+    \item \textbf{Priority Level}: High - Mid-band problem that tests important algebraic techniques
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90-95\% after thorough verification
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If unable to set up equations after 2 minutes, review problem statement
+        \item If arithmetic becomes problematic, use decimal approximations then verify
+    \end{itemize}
+    \item \textbf{Flag for Review}: Only if uncertain about fraction arithmetic. Otherwise proceed confidently.
+\end{itemize}
+
+\subsection*{C. Competition Context}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem 13/25 Strategy}: Solid mid-band problem. This should be completed by students targeting 100+ scores.
+    \item \textbf{Point Value}: 6 points (standard AMC12), with 1.5 points for leaving blank
+    \item \textbf{Difficulty Assessment}: Classic mid-band problem. Tests:
+    \begin{itemize}
+        \item 3D geometry visualization
+        \item Symmetric functions recognition
+        \item Algebraic identity knowledge
+        \item Careful fraction arithmetic
+        \item Connection between geometry and algebra (Vieta's formulas)
+    \end{itemize}
+    \item \textbf{Strategic Value}: This problem type appears frequently in AMC competitions. Mastering symmetric functions and Vieta's formulas is high-yield.
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: This problem is a beautiful example of symmetric functions in disguise. The three geometric constraints (edge sum, surface area, volume) directly correspond to the three elementary symmetric functions of $a$, $b$, $c$:
+\begin{itemize}
+    \item $e_1 = a+b+c$ (first symmetric function)
+    \item $e_2 = ab+ac+bc$ (second symmetric function)  
+    \item $e_3 = abc$ (third symmetric function)
+\end{itemize}
+
+The crucial insight is that we don't need to find $a$, $b$, $c$ individually. The algebraic identity $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)$ lets us find $a^2+b^2+c^2$ directly from $e_1$ and $e_2$.
+
+This is a powerful technique: when you see symmetric functions (especially all three), think about power sums and algebraic identities before trying to solve for individual values.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Common Pitfalls to Avoid
+
+\begin{itemize}
+    \item \textbf{Miscount edges/faces}: A rectangular box has 12 edges (not 6) and 6 faces (not 12). Make sure you count correctly: 4 edges of each length, 2 faces of each area.
+    
+    \item \textbf{Forget the factor of 2 or 4}: The edge sum is $4(a+b+c)$, not $a+b+c$. The surface area is $2(ab+ac+bc)$, not $ab+ac+bc$. Don't forget these multipliers.
+    
+    \item \textbf{Fraction arithmetic errors}: When computing $\left(\frac{13}{4}\right)^2 - 2\left(\frac{11}{4}\right)$, convert to common denominators: $\frac{169}{16} - \frac{88}{16}$. Be careful with the arithmetic.
+    
+    \item \textbf{Wrong diagonal}: The problem asks for the \emph{interior} diagonal (corner to opposite corner through the box), not a face diagonal. Face diagonals have length $\sqrt{a^2+b^2}$, $\sqrt{a^2+c^2}$, or $\sqrt{b^2+c^2}$.
+    
+    \item \textbf{Square root errors}: $\sqrt{\frac{81}{16}} = \frac{9}{4}$, not $\frac{81}{16}$ or $\frac{9}{16}$.
+    
+    \item \textbf{Vieta's sign errors}: When using Vieta's formulas, remember the alternating signs: $t^3 - (a+b+c)t^2 + (ab+ac+bc)t - abc = 0$.
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: Competition Strategy
+
+\begin{itemize}
+    \item \textbf{Pattern recognition is key}: When you see three conditions involving sum, pairwise products, and triple product, immediately think "symmetric functions" and "Vieta's formulas."
+    
+    \item \textbf{Know your identities}: The identity $(a+b+c)^2 = a^2+b^2+c^2 + 2(ab+ac+bc)$ is extremely useful. Also remember:
+    \begin{itemize}
+        \item $(a+b+c)^3 = a^3+b^3+c^3 + 3(a+b+c)(ab+ac+bc) - 3abc$
+        \item $a^2+b^2+c^2 = (a+b+c)^2 - 2(ab+ac+bc)$
+    \end{itemize}
+    
+    \item \textbf{Choose the right method}: Method 1 (algebraic identity) is faster if you know the identity. Method 2 (Vieta's) is more systematic and gives you the actual dimensions, which is useful for verification.
+    
+    \item \textbf{Coefficient sum trick}: When solving cubic equations in AMC, always check if the coefficients sum to zero. If so, $t=1$ is a root, making factorization much easier.
+    
+    \item \textbf{Use answer choices}: If you're struggling with algebra, you can work backwards from answer choices. If $d = \frac{9}{4}$, then $a^2+b^2+c^2 = \frac{81}{16}$, and you can verify this is consistent with the constraints.
+    
+    \item \textbf{Practice 3D geometry}: Problems involving rectangular boxes with diagonal calculations appear regularly on AMC. The interior diagonal formula $\sqrt{a^2+b^2+c^2}$ should be automatic.
+\end{itemize}
+\end{tipbox}
+
+\section*{Final Answer}
+
+The length of the longest interior diagonal is:
+$$\boxed{\textbf{(D) } \frac{9}{4}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - The solution uses well-known techniques (symmetric functions, algebraic identities) and has been verified through multiple methods including finding actual dimensions.
+    \item \textbf{Verification Applied}: Level 5 (Thorough Verification) - Checked by both algebraic identity method and Vieta's formulas method, plus verified all original constraints
+    \item \textbf{Flag for Review}: No - Solution is complete and cross-verified
+    \item \textbf{Time Spent}: Estimated 4-5 minutes (optimal for P13)
+\end{itemize}
+
+\section*{Summary of Solution Path}
+
+\textbf{Quick Solution (2-3 minutes):}
+\begin{enumerate}
+    \item Translate constraints: $a+b+c = \frac{13}{4}$, $ab+ac+bc = \frac{11}{4}$, $abc = \frac{1}{2}$
+    \item Apply identity: $a^2+b^2+c^2 = (a+b+c)^2 - 2(ab+ac+bc)$
+    \item Compute: $a^2+b^2+c^2 = \frac{169}{16} - \frac{88}{16} = \frac{81}{16}$
+    \item Answer: $d = \sqrt{\frac{81}{16}} = \frac{9}{4}$
+\end{enumerate}
+
+\textbf{Alternative (4-5 minutes):}
+\begin{enumerate}
+    \item Form polynomial: $4t^3 - 13t^2 + 11t - 2 = 0$
+    \item Factor using $t=1$ root: $(t-1)(4t-1)(t-2) = 0$
+    \item Roots: $a=\frac{1}{4}, b=1, c=2$
+    \item Compute: $d = \sqrt{\frac{1}{16}+1+4} = \sqrt{\frac{81}{16}} = \frac{9}{4}$
+\end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,563 @@
+% LaTeX Document: Strategic Analysis of 2018 AMC 12A Problem 10
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12/COMC Strategic Problem Analysis\\2018 AMC 12A Problem 10}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+How many ordered pairs $(x,y)$ of real numbers satisfy the following system of equations?
+\begin{align*}
+x + 3y &= 3 \\
+\left| |x| - |y| \right| &= 1
+\end{align*}
+
+$\textbf{(A) } 1 \qquad \textbf{(B) } 2 \qquad \textbf{(C) } 3 \qquad \textbf{(D) } 4 \qquad \textbf{(E) } 8$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (counting ordered pairs)
+    \item \textbf{Difficulty Band}: Early-to-Mid-band (Problem 10 on AMC 12A)
+    \item \textbf{Competition Context}: AMC12 (multiple choice, 6 points)
+    \item \textbf{Mathematical Domain}: Algebra (systems of equations with absolute values)
+    \item \textbf{Estimated Time}: 3-5 minutes for mid-band problem
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Linear constraint: $x + 3y = 3$
+        \item Nested absolute value constraint: $||x| - |y|| = 1$
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Real numbers (continuous domain)
+        \item Must satisfy both equations simultaneously
+        \item Absolute value structure creates case-based analysis
+    \end{itemize}
+    \item \textbf{Objective}: Count the number of ordered pairs $(x,y)$ satisfying both equations
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Nested absolute values require careful case analysis
+        \item Sign considerations for $x$ and $y$
+        \item Some cases may yield duplicate solutions
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Small integer answers (1-8) suggest complete enumeration is feasible
+        \item Answer (E) 8 suggests $2^3$ structure (3 binary choices)
+        \item Answer (C) 3 is "middle ground" - often correct in AMC12
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Given $x + 3y = 3$ and $||x| - |y|| = 1$
+    \item \textbf{Conclusion}: Find the count of ordered pairs $(x,y)$
+    \item \textbf{Notation}: Use $(x,y)$ for ordered pairs; consider signs separately
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Use first equation to express $x = 3 - 3y$
+        \item Substitute into second equation
+        \item Break into cases based on absolute value signs
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Geometric interpretation: intersection of line with absolute value curves
+        \item Visualization could provide insight into solution count
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Absolute value problems require patience with casework - commit to systematic approach rather than getting overwhelmed
+    \item \textbf{Creativity Cultivation}: Consider both algebraic substitution and geometric visualization
+    \item \textbf{Iterative Refinement}: After finding solutions, verify they truly satisfy both original equations (not just simplified forms)
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as an absolute value casework problem - prepare to handle multiple cases systematically
+    \item \textbf{Get Your Hands Dirty}: Substitute $x = 3-3y$ immediately to reduce to one variable
+    \item \textbf{Penultimate Step}: After finding all $(x,y)$ values, the final step is counting distinct ordered pairs
+    \item \textbf{Wishful Thinking}: "What if the nested absolute value simplifies nicely?" - This guides us to consider when $|x|-|y|$ is positive vs negative
+    \item \textbf{Make It Easier}: Work with the substituted single-variable equation first
+    \item \textbf{Conjecture via Small Cases}: After substitution, we get $||3-3y| - |y|| = 1$ - test specific values like $y=0, 1, -1$ to understand behavior
+    \item \textbf{Visualization}: The line $x+3y=3$ intersects curves defined by $||x|-|y||=1$ - imagining this helps predict solution count
+\end{itemize}
+
+\subsection*{C. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Use algebraic case analysis to enumerate all solutions
+    \item \textbf{Exhaustive Casework}: Break problem into cases:
+    \begin{enumerate}
+        \item Outer absolute value: $|x| - |y| = 1$ or $|x| - |y| = -1$
+        \item For each, consider signs: $x \geq 0$ or $x < 0$, and $y \geq 0$ or $y < 0$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{D. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic Approach}: Substitute and solve cases systematically
+    \item \textbf{Geometric Visualization}: Plot the line and absolute value curves to see intersection points
+    \item \textbf{Primary Method}: Algebraic (more reliable for exact counting)
+    \item \textbf{Secondary Check}: Geometric intuition for sanity check
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactic}: \textit{Substitution} - Reduce two-variable system to single variable
+    \item \textbf{Secondary Tactic}: \textit{Case Analysis} - Handle absolute value conditions systematically
+    \item \textbf{Supporting Tactics}:
+    \begin{itemize}
+        \item Algebraic manipulation (solving linear/quadratic equations)
+        \item Sign analysis (determining when expressions are positive/negative)
+        \item Solution verification (checking each candidate against original equations)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Domain-Specific Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Absolute Value Handling}:
+    \begin{itemize}
+        \item $|A| = B$ means $A = B$ or $A = -B$
+        \item Nested absolute values require careful ordering: work from inside out
+        \item Track sign conditions throughout
+    \end{itemize}
+    \item \textbf{System Solving}:
+    \begin{itemize}
+        \item Linear equation allows direct substitution
+        \item Convert to single-variable problem
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic $\leftrightarrow$ Geometric}: Line-curve intersection interpretation
+    \item \textbf{Numeric $\leftrightarrow$ Symbolic}: Test specific values to guide case analysis
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+\textbf{Signature Pattern Identified}: System with linear equation + nested absolute value equation
+
+\textbf{High-Probability Techniques}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Substitution Method} (90\% applicability): Linear equation immediately suggests expressing one variable in terms of the other
+    \item \textbf{Casework Analysis} (95\% applicability): Nested absolute values mandate case-by-case breakdown
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\textbf{Selected Approach}: Substitution followed by nested absolute value casework
+
+\textbf{Justification}:
+\begin{itemize}[leftmargin=*]
+    \item Linear equation is "free" - trivial to solve for $x$ in terms of $y$
+    \item Reduces two-variable problem to one-variable problem
+    \item Absolute value structure requires cases anyway
+    \item Alternative (solving for $y$ first) would work but is messier due to coefficient 3
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+\textbf{Step-by-step synthesis}:
+\begin{enumerate}
+    \item Substitute $x = 3-3y$ from first equation into second equation
+    \item Obtain $||3-3y| - |y|| = 1$
+    \item Apply outer absolute value: two cases
+    \begin{itemize}
+        \item Case A: $|3-3y| - |y| = 1$
+        \item Case B: $|3-3y| - |y| = -1$
+    \end{itemize}
+    \item For each case, apply inner absolute values based on sign of $3-3y$ and $y$
+    \item Solve resulting linear equations for $y$
+    \item Compute corresponding $x$ values
+    \item Verify and count distinct solutions
+\end{enumerate}
+
+\subsection*{D. Potential Conflicts and Resolutions}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Conflict}: Multiple case paths might yield same solution
+    \item \textbf{Resolution}: Track all solutions, then count distinct ordered pairs at end
+    \item \textbf{Conflict}: Sign conditions might be inconsistent with derived values
+    \item \textbf{Resolution}: Verify each solution satisfies its case conditions before accepting
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\textbf{Selected Level}: Level 4 (Moderate-High)
+
+\textbf{Decision Tree Justification}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Difficulty}: Mid-band (P10) - not trivial, deserves careful checking
+    \item \textbf{Computation Complexity}: Multiple cases with potential for sign errors
+    \item \textbf{Answer Impact}: Counting problem - off by one error is common
+    \item \textbf{Time Available}: 3-5 minute problem allows 30-60 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{enumerate}
+    \item \textbf{Direct Substitution}: Plug each $(x,y)$ candidate into both original equations
+    \item \textbf{Case Consistency Check}: Verify sign assumptions hold for each solution
+    \item \textbf{Graphical Sanity Check}: Mentally visualize if solution count makes geometric sense
+    \item \textbf{Answer Choice Validation}: Does final count match one of the given options?
+\end{enumerate}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Confidence}: 90-95\% (appropriate for mid-band problem)
+    \item \textbf{Confidence Indicators}:
+    \begin{itemize}
+        \item All solutions satisfy both original equations upon substitution
+        \item No duplicate solutions found
+        \item Sign conditions consistent with derived values
+        \item Final count matches an answer choice
+    \end{itemize}
+    \item \textbf{Red Flags}:
+    \begin{itemize}
+        \item Solutions that violate their case assumptions
+        \item Suspiciously high solution count (suggests overcounting)
+        \item Arithmetic errors in solving linear equations
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Initial Setup (30 seconds)}
+From $x + 3y = 3$, express:
+\[x = 3 - 3y\]
+
+Substitute into second equation:
+\[\left| |3-3y| - |y| \right| = 1\]
+
+\subsection*{B. Case Analysis (3 minutes)}
+
+\textbf{Outer Absolute Value}: Two primary cases
+
+\textbf{Case A}: $|3-3y| - |y| = 1$
+
+\quad \textbf{Subcase A1}: $3-3y \geq 0$ (i.e., $y \leq 1$) and $y \geq 0$
+\begin{align*}
+(3-3y) - y &= 1\\
+3 - 4y &= 1\\
+y &= \frac{1}{2}
+\end{align*}
+Check: $y = \frac{1}{2} \in [0,1]$ \checkmark
+
+Then $x = 3 - 3(\frac{1}{2}) = \frac{3}{2}$
+
+\textbf{Solution 1}: $\left(\frac{3}{2}, \frac{1}{2}\right)$
+
+\quad \textbf{Subcase A2}: $3-3y \geq 0$ and $y < 0$
+\begin{align*}
+(3-3y) - (-y) &= 1\\
+3 - 3y + y &= 1\\
+3 - 2y &= 1\\
+y &= 1
+\end{align*}
+Check: $y = 1 \not< 0$ \texttimes \quad (Contradiction - discard)
+
+\quad \textbf{Subcase A3}: $3-3y < 0$ (i.e., $y > 1$) and $y \geq 0$
+\begin{align*}
+-(3-3y) - y &= 1\\
+-3 + 3y - y &= 1\\
+2y &= 4\\
+y &= 2
+\end{align*}
+Check: $y = 2 > 1$ \checkmark
+
+Then $x = 3 - 3(2) = -3$
+
+\textbf{Solution 2}: $(-3, 2)$
+
+\quad \textbf{Subcase A4}: $3-3y < 0$ and $y < 0$
+\begin{align*}
+-(3-3y) - (-y) &= 1\\
+-3 + 3y + y &= 1\\
+4y &= 4\\
+y &= 1
+\end{align*}
+Check: $y = 1 \not< 0$ and $y = 1 \not> 1$ \texttimes \quad (Contradiction - discard)
+
+\textbf{Case B}: $|3-3y| - |y| = -1$
+
+\quad \textbf{Subcase B1}: $3-3y \geq 0$ and $y \geq 0$
+\begin{align*}
+(3-3y) - y &= -1\\
+3 - 4y &= -1\\
+y &= 1
+\end{align*}
+Check: $y = 1 \in [0,1]$ \checkmark
+
+Then $x = 3 - 3(1) = 0$
+
+\textbf{Solution 3}: $(0, 1)$
+
+\quad \textbf{Subcase B2}: $3-3y \geq 0$ and $y < 0$
+\begin{align*}
+(3-3y) + y &= -1\\
+3 - 2y &= -1\\
+y &= 2
+\end{align*}
+Check: $y = 2 \not< 0$ \texttimes \quad (Contradiction - discard)
+
+\quad \textbf{Subcase B3}: $3-3y < 0$ and $y \geq 0$
+\begin{align*}
+-(3-3y) - y &= -1\\
+-3 + 3y - y &= -1\\
+2y &= 2\\
+y &= 1
+\end{align*}
+Check: $y = 1 \not> 1$ \texttimes \quad (Boundary case from A1 - already counted)
+
+\quad \textbf{Subcase B4}: $3-3y < 0$ and $y < 0$
+\begin{align*}
+-(3-3y) + y &= -1\\
+-3 + 3y + y &= -1\\
+4y &= 2\\
+y &= \frac{1}{2}
+\end{align*}
+Check: $y = \frac{1}{2} \not< 0$ and $y = \frac{1}{2} \not> 1$ \texttimes \quad (Contradiction - discard)
+
+\subsection*{C. Solution Summary (30 seconds)}
+\textbf{Valid ordered pairs}:
+\begin{enumerate}
+    \item $\left(\frac{3}{2}, \frac{1}{2}\right)$ from Subcase A1
+    \item $(-3, 2)$ from Subcase A3
+    \item $(0, 1)$ from Subcase B1
+\end{enumerate}
+
+\subsection*{D. Verification (1 minute)}
+\textbf{Check each solution in both original equations}:
+
+\textbf{Solution 1}: $\left(\frac{3}{2}, \frac{1}{2}\right)$
+\begin{itemize}
+    \item $x + 3y = \frac{3}{2} + 3 \cdot \frac{1}{2} = \frac{3}{2} + \frac{3}{2} = 3$ \checkmark
+    \item $||x| - |y|| = \left|\frac{3}{2} - \frac{1}{2}\right| = |1| = 1$ \checkmark
+\end{itemize}
+
+\textbf{Solution 2}: $(-3, 2)$
+\begin{itemize}
+    \item $x + 3y = -3 + 3 \cdot 2 = -3 + 6 = 3$ \checkmark
+    \item $||x| - |y|| = |3 - 2| = |1| = 1$ \checkmark
+\end{itemize}
+
+\textbf{Solution 3}: $(0, 1)$
+\begin{itemize}
+    \item $x + 3y = 0 + 3 \cdot 1 = 3$ \checkmark
+    \item $||x| - |y|| = |0 - 1| = |-1| = 1$ \checkmark
+\end{itemize}
+
+All three solutions are valid!
+
+\subsection*{E. Pitfall Prevention}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pitfall 1}: Forgetting to check if solutions satisfy case conditions
+    \item \textbf{Mitigation}: Explicitly verified each $y$ value against its case assumptions
+    \item \textbf{Pitfall 2}: Double-counting solutions that arise from multiple cases
+    \item \textbf{Mitigation}: Listed distinct solutions and verified each only once
+    \item \textbf{Pitfall 3}: Sign errors in absolute value expansion
+    \item \textbf{Mitigation}: Carefully tracked signs in each subcase
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 4-5 minutes
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Setup and substitution: 30 seconds
+        \item Case analysis: 3 minutes
+        \item Solution counting: 30 seconds
+        \item Verification: 1 minute
+    \end{itemize}
+    \item \textbf{Actual Pace}: On target for Problem 10 (mid-band)
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Accessibility}: Medium - requires systematic casework but no advanced techniques
+    \item \textbf{When to Attempt}: During first pass of mid-band problems (P9-16)
+    \item \textbf{Skip Conditions}: If uncomfortable with absolute values, mark and return later
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - All solutions verified against original equations
+    \item \textbf{Flag for Review}: No - high confidence with complete verification
+    \item \textbf{Guessing Strategy (if needed)}: Answer (C) is often correct for AMC12; geometric intuition suggests 3-4 intersection points
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}: If exceeding 7 minutes total
+    \item \textbf{Hard Abandon}: If making repeated algebraic errors or case confusion
+    \item \textbf{Partial Credit Strategy}: N/A (AMC12 has no partial credit)
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: After substitution, the nested absolute value equation reduces to a manageable number of cases (8 subcases total, but many yield contradictions). The linear equation makes substitution trivial, converting the problem to single-variable absolute value cases. The answer is \textbf{exactly 3 solutions}.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: The most common pitfall is \textbf{failing to verify that solutions satisfy their case conditions}. For example, Subcase A2 gives $y=1$, but we assumed $y < 0$, so this must be discarded. Always check sign assumptions after solving!
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: When dealing with nested absolute values, work systematically through all cases even if some seem unlikely. Use a clear notation system (like "A1, A2, ..." for subcases) to avoid confusion. This organizational strategy prevents missing solutions or double-counting.
+\end{tipbox}
+
+\section*{Final Answer}
+\boxed{\textbf{(C) } 3}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - All three solutions independently verified
+    \item \textbf{Verification Applied}: Level 4 (Direct substitution + case consistency)
+    \item \textbf{Flag for Review}: No - complete case analysis with no contradictions
+    \item \textbf{Time Spent}: Approximately 4-5 minutes (optimal for Problem 10)
+\end{itemize}
+
+\end{document}

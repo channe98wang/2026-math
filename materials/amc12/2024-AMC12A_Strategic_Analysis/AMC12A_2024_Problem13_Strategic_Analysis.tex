@@ -1,0 +1,778 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colored boxes - all with breakable option
+\newtcolorbox{configbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategybox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticsbox}[1]{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=violet!10!white,
+    colframe=violet!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1]{
+    colback=red!15!white,
+    colframe=red!85!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}[1]{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 13:\\Comprehensive Strategic Analysis}}
+\author{Using Enhanced Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+The graph of $y=e^{x+1}+e^{-x}-2$ has an axis of symmetry. What is the reflection of the point $\left(-1,\frac{1}{2}\right)$ over this axis?
+
+$$\textbf{(A) }\left(-1,-\frac{3}{2}\right)\qquad\textbf{(B) }(-1,0)\qquad\textbf{(C) }\left(-1,\frac{1}{2}\right)\qquad\textbf{(D) }\left(0,\frac{1}{2}\right)\qquad\textbf{(E) }\left(3,\frac{1}{2}\right)$$
+
+\vspace{1em}
+\noindent\textit{Note: The answer is provided at the END of this document to allow you to work through the problem yourself first.}
+
+\section*{Framework-Based Analysis}
+
+\begin{configbox}{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (specific point coordinates)
+    \item \textbf{Competition Context}: AMC 12A 2024, Problem 13
+    \item \textbf{Difficulty Band}: Mid-band (P13/25) - intermediate difficulty
+    \item \textbf{Mathematical Domain}: Algebra/Precalculus (exponential functions, symmetry, transformations)
+    \item \textbf{Estimated Time}: 3-4 minutes for complete solution and verification
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Function: $f(x) = e^{x+1}+e^{-x}-2$
+        \item The function has an axis of symmetry
+        \item Point to reflect: $(-1, \frac{1}{2})$
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Must work with exponential functions
+        \item Axis of symmetry exists (need to find it)
+        \item Reflection must preserve distance from axis
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find the coordinates of the reflected point over the axis of symmetry
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The axis of symmetry is likely vertical (form $x = a$) since the function is $y = f(x)$
+        \item We need to first determine the axis of symmetry before reflecting
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices (A), (B), (C) have same x-coordinate $(-1)$ as original point
+        \item Choices (D), (E) have different x-coordinates
+        \item This suggests either horizontal or vertical reflection
+        \item Since function has form $y = f(x)$, vertical symmetry ($x = a$) is more likely
+        \item Can eliminate (A), (B), (C) if axis is vertical and not at $x = -1$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The function $f(x) = e^{x+1}+e^{-x}-2$ has a vertical axis of symmetry at $x = a$ for some value $a$
+    
+    \item \textbf{Conclusion}: Need to find the axis location $x = a$, then reflect $(-1, \frac{1}{2})$ across this line
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $f(x) = e^{x+1}+e^{-x}-2$
+        \item Axis of symmetry: $x = a$
+        \item Original point: $P_1 = (-1, \frac{1}{2})$
+        \item Reflected point: $P_2 = (x_2, y_2)$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item For vertical symmetry at $x = a$: $f(a-t) = f(a+t)$ for all $t$
+        \item Can use derivative test: at axis of symmetry, $f'(a) = 0$ (critical point)
+        \item Or use answer choices to guide our search
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Purely algebraic approach (symmetry condition)
+        \item Calculus approach (finding critical points via derivatives)
+        \item Numerical/graphical approach (testing specific values)
+    \end{itemize}
+\end{itemize}
+
+\end{configbox}
+
+\begin{strategybox}{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is a mid-band problem requiring careful algebraic manipulation with exponentials. Stay focused on the symmetry condition and don't get discouraged by the exponential terms.
+    
+    \item \textbf{Creativity Cultivation}: Consider multiple approaches:
+    \begin{itemize}
+        \item Direct algebraic approach using $f(a-t) = f(a+t)$
+        \item Calculus approach using $f'(x) = 0$
+        \item Testing specific values to find pattern
+        \item Using answer choices to verify axis location
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: If algebraic manipulation becomes messy, step back and try a different method (calculus or testing values)
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as a symmetry problem involving exponential functions. First task is to find the axis of symmetry.
+    
+    \item \textbf{Get Your Hands Dirty}: Test some simple values to understand function behavior:
+    \begin{itemize}
+        \item $f(0) = e^1 + e^0 - 2 = e + 1 - 2 = e - 1$
+        \item $f(-1) = e^0 + e^1 - 2 = 1 + e - 2 = e - 1$
+        \item Notice: $f(0) = f(-1)$! This suggests axis at $x = -\frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Once we know the axis is at $x = a$, the reflection of $(-1, \frac{1}{2})$ is $(2a - (-1), \frac{1}{2}) = (2a + 1, \frac{1}{2})$
+    
+    \item \textbf{Wishful Thinking}: We hope the axis is at a nice rational number (which it turns out to be: $x = -\frac{1}{2}$)
+    
+    \item \textbf{Make It Easier}: Instead of solving the general symmetry condition, test specific pairs of points to find the axis
+    
+    \item \textbf{Conjecture via Small Cases}: The discovery that $f(0) = f(-1)$ immediately suggests the axis is at the midpoint: $x = \frac{0 + (-1)}{2} = -\frac{1}{2}$
+    
+    \item \textbf{Visualization}: Sketch or imagine the graph of $y = e^{x+1} + e^{-x} - 2$, noting it's the sum of an increasing exponential and decreasing exponential
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item Eliminate (A), (B) which have different y-coordinates but same x-coordinate
+        \item If axis is vertical, y-coordinate should be preserved in reflection
+        \item This leaves (C), (D), (E) as primary candidates
+        \item (C) is the original point (no reflection), so likely wrong unless point is on axis
+    \end{itemize}
+    
+    \item \textbf{Make It Easier}: Instead of solving full symmetry equation, test specific values like $x = 0, -1$ to find pattern
+    
+    \item \textbf{Conjecture via Small Cases}: As noted, testing $f(0)$ and $f(-1)$ immediately reveals they're equal
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Approach}: 
+    \begin{enumerate}
+        \item Find axis of symmetry by solving $f(a-t) = f(a+t)$ or $f'(a) = 0$
+        \item Apply reflection formula to find image of $(-1, \frac{1}{2})$
+        \item Verify answer matches one of the choices
+    \end{enumerate}
+\end{itemize}
+
+\end{strategybox}
+
+\begin{tacticsbox}{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: The central tactic - use the definition of symmetry to find the axis
+    
+    \item \textbf{Substitution}: Let $u = e^x$ to potentially simplify exponential equations (though not strictly necessary here)
+    
+    \item \textbf{Critical Point Analysis}: If using calculus, find where $f'(x) = 0$
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics (Algebra/Precalculus)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Exponential Properties}:
+    \begin{itemize}
+        \item $e^{a+b} = e^a \cdot e^b$
+        \item $e^{-x} = \frac{1}{e^x}$
+        \item These help in manipulating the symmetry equation
+    \end{itemize}
+    
+    \item \textbf{Function Symmetry Condition}: For vertical axis at $x = a$: $f(a-t) = f(a+t)$
+    
+    \item \textbf{Reflection Formula}: Point $(x, y)$ reflected over vertical line $x = a$ gives $(2a - x, y)$
+    
+    \item \textbf{Derivative Test}: For smooth functions, vertical axis of symmetry occurs at critical points where $f'(x) = 0$
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic-Geometric}: Understanding symmetry both algebraically (equation) and geometrically (reflection)
+    
+    \item \textbf{Analytical (Calculus)}: Using derivatives to find critical points which correspond to symmetry axes
+\end{itemize}
+
+\end{tacticsbox}
+
+\begin{conversionbox}{4. Conversion Techniques Application}
+
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Symmetry Exploitation (H4)} - directly use the symmetry condition
+    
+    \item \textbf{Recognition Cues}:
+    \begin{itemize}
+        \item Problem explicitly mentions "axis of symmetry"
+        \item Function involves both $e^{x+1}$ and $e^{-x}$ (increasing and decreasing exponentials)
+        \item Need to find reflection of a point
+    \end{itemize}
+    
+    \item \textbf{Application}:
+    \begin{enumerate}
+        \item Test simple values: $f(0) = e - 1$ and $f(-1) = e - 1$
+        \item Since $f(0) = f(-1)$, the axis must be at midpoint: $x = \frac{0 + (-1)}{2} = -\frac{1}{2}$
+        \item Verify: $f(-\frac{1}{2} - t) = f(-\frac{1}{2} + t)$ for all $t$
+        \item Reflect $(-1, \frac{1}{2})$ over $x = -\frac{1}{2}$: new x-coordinate is $2(-\frac{1}{2}) - (-1) = -1 + 1 = 0$
+        \item Answer: $(0, \frac{1}{2})$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Calculus Approach}: Derivative method
+    \begin{itemize}
+        \item Compute $f'(x) = e^{x+1} - e^{-x}$
+        \item Set $f'(x) = 0$: $e^{x+1} = e^{-x}$
+        \item Taking natural log: $x + 1 = -x$
+        \item Solve: $2x = -1$, so $x = -\frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Algebraic Approach}: Symmetry equation
+    \begin{itemize}
+        \item For axis at $x = a$, require $f(a-t) = f(a+t)$ for all $t$
+        \item Substitute: $e^{(a-t)+1} + e^{-(a-t)} - 2 = e^{(a+t)+1} + e^{-(a+t)} - 2$
+        \item Simplify: $e^{a-t+1} + e^{t-a} = e^{a+t+1} + e^{-a-t}$
+        \item Rearrange and factor to find $a = -\frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Testing}:
+    \begin{itemize}
+        \item If axis is at $x = -\frac{1}{2}$, then $(-1, \frac{1}{2})$ reflects to $(0, \frac{1}{2})$
+        \item If axis is at $x = 1$, then $(-1, \frac{1}{2})$ reflects to $(3, \frac{1}{2})$
+        \item Test which gives actual symmetry
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Combined Approach}:
+    \begin{enumerate}
+        \item Use testing values method to conjecture axis location ($x = -\frac{1}{2}$)
+        \item Use derivative method to confirm
+        \item Apply geometric reflection formula
+        \item Verify with answer choices
+    \end{enumerate}
+\end{itemize}
+
+\end{conversionbox}
+
+\begin{verificationbox}{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification, 30-60 seconds)
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Mid-band problem (P13) warrants careful checking
+        \item Exponential manipulation can lead to errors
+        \item Confidence should be high (85-90\%) after solution, but verification worthwhile
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 45 seconds for complete verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Verify Axis of Symmetry}:
+    \begin{itemize}
+        \item Check: $f(-\frac{1}{2} - t) = f(-\frac{1}{2} + t)$ for sample values
+        \item Test $t = \frac{1}{2}$: $f(-1) = f(0)$
+        \item $f(-1) = e^0 + e^1 - 2 = 1 + e - 2 = e - 1$ $\checkmark$
+        \item $f(0) = e^1 + e^0 - 2 = e + 1 - 2 = e - 1$ $\checkmark$
+        \item Axis confirmed at $x = -\frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Verify Reflection Formula}:
+    \begin{itemize}
+        \item Original point: $(-1, \frac{1}{2})$
+        \item Distance from axis: $|-1 - (-\frac{1}{2})| = \frac{1}{2}$
+        \item Reflected point should be $\frac{1}{2}$ units on other side of axis
+        \item New x-coordinate: $-\frac{1}{2} + \frac{1}{2} = 0$ $\checkmark$
+        \item y-coordinate unchanged: $\frac{1}{2}$ $\checkmark$
+        \item Reflected point: $(0, \frac{1}{2})$ $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Verification}:
+    \begin{itemize}
+        \item Our answer $(0, \frac{1}{2})$ matches choice (D) $\checkmark$
+        \item Check reasonableness: x-coordinate changed from $-1$ to $0$, which is correct for reflection over $x = -\frac{1}{2}$
+    \end{itemize}
+    
+    \item \textbf{Alternative Method Check (Calculus)}:
+    \begin{itemize}
+        \item $f'(x) = e^{x+1} - e^{-x}$
+        \item At $x = -\frac{1}{2}$: $f'(-\frac{1}{2}) = e^{1/2} - e^{1/2} = 0$ $\checkmark$
+        \item Confirms critical point at $x = -\frac{1}{2}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Domain-Specific Verification (Algebra)}
+\begin{itemize}[leftmargin=*]
+    \item Check exponential calculations carefully
+    \item Verify sign changes in exponents
+    \item Confirm reflection preserves y-coordinate for vertical axis
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{roadmapbox}{6. Solution Roadmap}
+
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Step 1: Initial Setup (30 seconds)}
+\begin{itemize}
+    \item Identify: Need to find axis of symmetry, then reflect point
+    \item Notation: $f(x) = e^{x+1} + e^{-x} - 2$, point $P = (-1, \frac{1}{2})$
+    \item Observation: For function $y = f(x)$, axis likely vertical (form $x = a$)
+\end{itemize}
+
+\textbf{Step 2: Find Axis of Symmetry (1.5-2 minutes)}
+
+\textit{Method 1: Testing Values (Fastest)}
+\begin{itemize}
+    \item Compute $f(0) = e^1 + e^0 - 2 = e + 1 - 2 = e - 1$
+    \item Compute $f(-1) = e^0 + e^1 - 2 = 1 + e - 2 = e - 1$
+    \item Since $f(0) = f(-1)$, the points $(0, f(0))$ and $(-1, f(-1))$ are symmetric
+    \item Therefore, axis is at midpoint: $x = \frac{0 + (-1)}{2} = -\frac{1}{2}$
+\end{itemize}
+
+\textit{Method 2: Calculus (Alternative)}
+\begin{itemize}
+    \item Compute derivative: $f'(x) = e^{x+1} - e^{-x}$
+    \item Set $f'(x) = 0$: $e^{x+1} = e^{-x}$
+    \item Taking ln of both sides: $x + 1 = -x$
+    \item Solve: $2x = -1$, so $x = -\frac{1}{2}$
+    \item Check second derivative to confirm it's a minimum (axis of symmetry)
+\end{itemize}
+
+\textit{Method 3: Algebraic (Most Rigorous)}
+\begin{itemize}
+    \item For axis at $x = a$, require: $f(a - t) = f(a + t)$ for all $t$
+    \item This gives: $e^{(a-t)+1} + e^{-(a-t)} = e^{(a+t)+1} + e^{-(a+t)}$
+    \item Simplify: $e^{a+1-t} + e^{t-a} = e^{a+1+t} + e^{-a-t}$
+    \item Rearrange: $e^{a+1-t} - e^{-a-t} = e^{a+1+t} - e^{t-a}$
+    \item Factor: $e^{-t}(e^{a+1} - e^{-a}) = e^t(e^{a+1} - e^{-a})$
+    \item For this to hold for all $t$, need $e^{a+1} - e^{-a} = 0$
+    \item So $e^{a+1} = e^{-a}$, giving $a + 1 = -a$, thus $a = -\frac{1}{2}$
+\end{itemize}
+
+\textbf{Step 3: Apply Reflection Formula (30 seconds)}
+\begin{itemize}
+    \item Axis of symmetry: $x = -\frac{1}{2}$
+    \item Original point: $(-1, \frac{1}{2})$
+    \item For vertical line reflection, y-coordinate stays same: $y = \frac{1}{2}$
+    \item Distance from point to axis: $|-1 - (-\frac{1}{2})| = |-\frac{1}{2}| = \frac{1}{2}$
+    \item Reflected point is same distance on other side:
+    \item New x-coordinate: $-\frac{1}{2} + \frac{1}{2} = 0$
+    \item Or using formula: $x' = 2a - x = 2(-\frac{1}{2}) - (-1) = -1 + 1 = 0$
+    \item Reflected point: $(0, \frac{1}{2})$
+\end{itemize}
+
+\textbf{Step 4: Verification (45 seconds)}
+\begin{itemize}
+    \item Check axis by testing another pair: $f(1) = e^2 + e^{-1} - 2$ and $f(-2) = e^{-1} + e^2 - 2$
+    \item Indeed $f(1) = f(-2)$, confirming axis at $x = \frac{1 + (-2)}{2} = -\frac{1}{2}$ $\checkmark$
+    \item Reflection formula check: distance preserved $\checkmark$
+    \item Answer matches choice (D) $\checkmark$
+\end{itemize}
+
+\textbf{Step 5: Final Answer (10 seconds)}
+\begin{itemize}
+    \item The reflection of $(-1, \frac{1}{2})$ over the axis $x = -\frac{1}{2}$ is $(0, \frac{1}{2})$
+    \item Answer: \textbf{(D)}
+\end{itemize}
+
+\subsection*{B. Alternative Approaches Summary}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Approach 1 (Fastest)}: Test simple values $f(0)$ and $f(-1)$ to find axis, then reflect
+    \item \textbf{Approach 2 (Calculus)}: Use $f'(x) = 0$ to find critical point (axis location)
+    \item \textbf{Approach 3 (Algebraic)}: Solve full symmetry condition $f(a-t) = f(a+t)$
+    \item \textbf{Approach 4 (Answer Choices)}: Work backwards from answer choices to verify which axis works
+\end{itemize}
+
+\subsection*{C. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item Total time: 3-4 minutes (appropriate for P13)
+    \item Breakdown: 30s setup + 2min finding axis + 30s reflection + 45s verification
+    \item If stuck after 3 minutes, move on and return later
+\end{itemize}
+
+\subsection*{D. Pivot Indicators}
+\begin{itemize}[leftmargin=*]
+    \item If algebraic approach gets messy, switch to testing values or calculus
+    \item If calculus seems complicated, try simple evaluation at $x = 0, \pm 1$
+    \item Answer choices suggest vertical reflection (y-coordinate preserved), use this insight
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{competitionbox}{7. Competition Strategy Integration}
+
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-4 minutes (within target for P13)
+    \item \textbf{Time Checkpoints}:
+    \begin{itemize}
+        \item At 2 min: Should have identified axis location
+        \item At 3 min: Should have reflected point and selected answer
+        \item At 4 min: If no answer, flag and move on
+    \end{itemize}
+    \item \textbf{Priority Level}: Medium-High (P13 should be accessible for target score 90+)
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90-95\% after verification
+    \item \textbf{Error Risk}: 
+    \begin{itemize}
+        \item Low risk: Problem is straightforward once axis is found
+        \item Main risk: Arithmetic error in computing $f(0)$ or $f(-1)$
+        \item Minor risk: Reflection formula error
+    \end{itemize}
+    \item \textbf{Abandonment Criteria}: If after 4 minutes axis still not found, make educated guess and move on
+    \item \textbf{Flag for Review}: No (unless made arithmetic error)
+\end{itemize}
+
+\subsection*{C. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Elimination}:
+    \begin{itemize}
+        \item (A) and (B) have same x-coord but different y-coord: unlikely for vertical axis reflection
+        \item (C) is original point: only possible if point is on axis (check: $-1 \neq -\frac{1}{2}$, so no)
+        \item Down to (D) or (E)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Testing}:
+    \begin{itemize}
+        \item If answer is (D), axis is at $x = \frac{-1+0}{2} = -\frac{1}{2}$
+        \item If answer is (E), axis is at $x = \frac{-1+3}{2} = 1$
+        \item Test which axis works: $f(-\frac{1}{2}-t) = f(-\frac{1}{2}+t)$ vs $f(1-t) = f(1+t)$
+        \item Quick check: $f(0) = f(-1)$ confirms axis at $x = -\frac{1}{2}$, so (D)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Accessibility}: High - exponential functions are standard precalculus
+    \item \textbf{Technique Familiarity}: High - symmetry and reflection are core concepts
+    \item \textbf{Computational Difficulty}: Low - mostly conceptual once axis is found
+    \item \textbf{Verification Ease}: High - multiple independent methods available
+\end{itemize}
+
+\end{competitionbox}
+
+\begin{highlightbox}{Key Insight}
+
+The fastest approach is to test simple integer values to find equal function values. Since $f(0) = f(-1) = e - 1$, the axis of symmetry must be at their midpoint: $x = -\frac{1}{2}$. This avoids tedious algebraic manipulation.
+
+\vspace{0.5em}
+\noindent\textbf{Recognition Pattern}: When a function involves both $e^{x+a}$ and $e^{-x}$ terms, look for symmetry by testing pairs of points that are equidistant from candidate axis locations. The sum of such terms often creates symmetric functions.
+
+\end{highlightbox}
+
+\begin{warningbox}{Common Pitfalls}
+
+\textbf{Pitfall 1: Assuming Horizontal Reflection}
+\begin{itemize}
+    \item \textit{Error}: Thinking the axis is horizontal ($y = k$) instead of vertical
+    \item \textit{Why it's wrong}: For a function $y = f(x)$, horizontal line of symmetry would require $f(x)$ to take the same value twice for different x, which doesn't match "axis of symmetry" in typical context
+    \item \textit{Prevention}: Note that answer choices (D) and (E) preserve y-coordinate, suggesting vertical axis
+\end{itemize}
+
+\textbf{Pitfall 2: Reflection Formula Error}
+\begin{itemize}
+    \item \textit{Error}: Computing reflected x-coordinate as $a - x$ instead of $2a - x$
+    \item \textit{Example}: If axis is at $x = -\frac{1}{2}$ and point is at $x = -1$, reflection is NOT at $-\frac{1}{2} - (-1) = \frac{1}{2}$ but rather at $2(-\frac{1}{2}) - (-1) = 0$
+    \item \textit{Prevention}: Remember: distance from point to axis equals distance from axis to reflection
+\end{itemize}
+
+\textbf{Pitfall 3: Arithmetic Errors with Exponentials}
+\begin{itemize}
+    \item \textit{Error}: Computing $e^{-x}$ incorrectly or confusing $e^0 = 1$ with $e^1 = e$
+    \item \textit{Prevention}: Write out each step carefully: $f(-1) = e^{(-1)+1} + e^{-(-1)} - 2 = e^0 + e^1 - 2 = 1 + e - 2$
+\end{itemize}
+
+\textbf{Pitfall 4: Not Verifying the Axis}
+\begin{itemize}
+    \item \textit{Error}: Assuming axis location without checking
+    \item \textit{Prevention}: Always verify with at least one pair of symmetric points
+\end{itemize}
+
+\end{warningbox}
+
+\begin{protipbox}{Competition Tips}
+
+\textbf{Tip 1: Test Simple Values First}
+\begin{itemize}
+    \item Before diving into complex algebra, test $x = 0, \pm 1, \pm 2$ to look for patterns
+    \item In this problem, immediately testing $f(0)$ and $f(-1)$ reveals the symmetry
+    \item This saves 1-2 minutes compared to full algebraic approach
+\end{itemize}
+
+\textbf{Tip 2: Use Answer Choices as Guide}
+\begin{itemize}
+    \item The preserved y-coordinates in choices (D) and (E) tell you the axis is vertical
+    \item Working backwards: if (D) is correct, axis must be at $x = -\frac{1}{2}$; if (E), at $x = 1$
+    \item Quick check of which axis actually works for the function
+\end{itemize}
+
+\textbf{Tip 3: Recognize Symmetric Function Forms}
+\begin{itemize}
+    \item Functions of form $ae^{x+c} + be^{-x} + d$ often have vertical symmetry
+    \item The symmetry axis occurs where the increasing and decreasing exponentials "balance"
+    \item This is where the derivative equals zero: $ae^{x+c} = be^{-x}$
+\end{itemize}
+
+\textbf{Tip 4: Geometric vs Algebraic Reflection}
+\begin{itemize}
+    \item \textit{Geometric}: Visualize the axis, measure distance, count same distance on other side
+    \item \textit{Algebraic}: Use formula $x' = 2a - x$ for vertical line $x = a$
+    \item Both should give same answer - use whichever you're more comfortable with
+\end{itemize}
+
+\textbf{Tip 5: Quick Verification Method}
+\begin{itemize}
+    \item After finding axis at $x = -\frac{1}{2}$, verify with one more pair:
+    \item Test $f(\frac{1}{2})$ and $f(-\frac{3}{2})$ - they should be equal
+    \item Or use calculus: $f'(-\frac{1}{2})$ should equal zero
+\end{itemize}
+
+\end{protipbox}
+
+\section*{Complete Solution (Detailed)}
+
+\subsection*{Finding the Axis of Symmetry}
+
+The function is $f(x) = e^{x+1} + e^{-x} - 2$.
+
+\textbf{Method 1: Testing Values (Recommended)}
+
+Let's compute $f(x)$ at a few simple values:
+
+\begin{align*}
+f(0) &= e^{0+1} + e^{-0} - 2 = e^1 + 1 - 2 = e - 1\\
+f(-1) &= e^{-1+1} + e^{-(-1)} - 2 = e^0 + e^1 - 2 = 1 + e - 2 = e - 1
+\end{align*}
+
+Since $f(0) = f(-1)$, the points $(0, e-1)$ and $(-1, e-1)$ are symmetric about some vertical line. This line must be the perpendicular bisector of the segment connecting these points, which is:
+$$x = \frac{0 + (-1)}{2} = -\frac{1}{2}$$
+
+Let's verify with another pair:
+\begin{align*}
+f(1) &= e^{1+1} + e^{-1} - 2 = e^2 + e^{-1} - 2\\
+f(-2) &= e^{-2+1} + e^{-(-2)} - 2 = e^{-1} + e^2 - 2
+\end{align*}
+
+Indeed, $f(1) = f(-2)$, and their midpoint is $\frac{1 + (-2)}{2} = -\frac{1}{2}$. $\checkmark$
+
+\textbf{Method 2: Calculus Verification}
+
+The axis of symmetry for a smooth function occurs at a critical point. Let's find where $f'(x) = 0$:
+
+\begin{align*}
+f'(x) &= \frac{d}{dx}\left[e^{x+1} + e^{-x} - 2\right]\\
+&= e^{x+1} + (-1)e^{-x}\\
+&= e^{x+1} - e^{-x}
+\end{align*}
+
+Setting $f'(x) = 0$:
+\begin{align*}
+e^{x+1} - e^{-x} &= 0\\
+e^{x+1} &= e^{-x}\\
+x + 1 &= -x \quad \text{(taking natural log of both sides)}\\
+2x &= -1\\
+x &= -\frac{1}{2}
+\end{align*}
+
+This confirms the axis of symmetry is at $x = -\frac{1}{2}$.
+
+\subsection*{Reflecting the Point}
+
+Now we need to reflect the point $P = \left(-1, \frac{1}{2}\right)$ over the vertical line $x = -\frac{1}{2}$.
+
+For a vertical line reflection:
+\begin{itemize}
+    \item The y-coordinate remains unchanged
+    \item The x-coordinate is reflected using the formula: $x' = 2a - x$ where $a$ is the axis location
+\end{itemize}
+
+Applying the formula:
+\begin{align*}
+x' &= 2\left(-\frac{1}{2}\right) - (-1) = -1 + 1 = 0\\
+y' &= \frac{1}{2} \quad \text{(unchanged)}
+\end{align*}
+
+Therefore, the reflected point is $\boxed{\left(0, \frac{1}{2}\right)}$.
+
+\textbf{Geometric Verification:}
+\begin{itemize}
+    \item Distance from $(-1, \frac{1}{2})$ to axis $x = -\frac{1}{2}$ is: $\left|-1 - \left(-\frac{1}{2}\right)\right| = \frac{1}{2}$
+    \item Reflected point should be $\frac{1}{2}$ units on the other side of the axis
+    \item Location: $-\frac{1}{2} + \frac{1}{2} = 0$ $\checkmark$
+    \item Final point: $\left(0, \frac{1}{2}\right)$ $\checkmark$
+\end{itemize}
+
+\section*{Summary of Methods}
+
+\begin{enumerate}
+    \item \textbf{Testing Values}: Quickest method - evaluate $f$ at simple integers to find symmetric pairs
+    \item \textbf{Derivative Method}: Use calculus to find critical point where $f'(x) = 0$
+    \item \textbf{Algebraic Symmetry}: Solve $f(a-t) = f(a+t)$ for all $t$ (most rigorous but time-consuming)
+    \item \textbf{Answer Choice Analysis}: Use answer choices to deduce axis location, then verify
+\end{enumerate}
+
+For competition purposes, \textbf{Method 1} (testing values) is recommended as it's fastest and least error-prone.
+
+\section*{Final Answer}
+
+The reflection of the point $\left(-1, \frac{1}{2}\right)$ over the axis of symmetry $x = -\frac{1}{2}$ is:
+
+$$\boxed{\textbf{(D) } \left(0, \frac{1}{2}\right)}$$
+
+\section*{Confidence Assessment}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Problem is straightforward once axis is identified, and we verified using multiple methods
+    
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Tested multiple symmetric pairs: $(0, -1)$ and $(1, -2)$
+        \item Confirmed with derivative method: $f'(-\frac{1}{2}) = 0$
+        \item Verified reflection formula geometrically and algebraically
+        \item Answer matches choice (D)
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - high confidence, multiple verification methods confirm answer
+    
+    \item \textbf{Time Spent}: 3-4 minutes (target for P13)
+    \begin{itemize}
+        \item Setup: 30 seconds
+        \item Finding axis: 1.5 minutes (testing values method)
+        \item Reflection: 30 seconds
+        \item Verification: 45 seconds
+    \end{itemize}
+    
+    \item \textbf{Alternative Methods Available}: Yes (calculus, full algebraic symmetry equation, answer choice testing)
+    
+    \item \textbf{Error Risk Assessment}: Low - straightforward computation, multiple checkpoints
+\end{itemize}
+
+\section*{Pattern Recognition}
+
+\textbf{Problem Signature}: Exponential function symmetry and point reflection
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Function involves both increasing ($e^{x+a}$) and decreasing ($e^{-x}$) exponentials
+    \item Problem asks about axis of symmetry
+    \item Need to reflect a point over the axis
+\end{itemize}
+
+\textbf{Standard Approach}:
+\begin{enumerate}
+    \item Find axis by testing symmetric pairs or using $f'(x) = 0$
+    \item Apply reflection formula for vertical line
+    \item Verify with answer choices
+\end{enumerate}
+
+\textbf{Time Estimate}: 3-4 minutes for P13-level problem
+
+\textbf{Similar Problems}: AMC 12 problems involving function transformations, symmetry, and reflections
+
+\end{document}
+

@@ -1,0 +1,894 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12B 2024 Problem 17 - Strategic Analysis
+% Framework Version: 2.1 (Enhanced for COMC)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2024 AMC 12B Problem 17}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=KEY INSIGHT,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=WARNING: COMMON PITFALL,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=PRO TIP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2024 Problem 17\\Strategic Problem Analysis}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Integers $a$ and $b$ are randomly chosen without replacement from the set of integers with absolute value not exceeding $10$. What is the probability that the polynomial $x^3 + ax^2 + bx + 6$ has $3$ distinct integer roots?
+
+$$\textbf{(A) } \frac{1}{240} \qquad \textbf{(B) } \frac{1}{221} \qquad \textbf{(C) } \frac{1}{105} \qquad \textbf{(D) } \frac{1}{84} \qquad \textbf{(E) } \frac{1}{63}$$
+
+\vspace{0.3cm}
+\noindent\textit{Note: The answer is not revealed here to allow students to work through the problem. See the Final Answer section at the end.}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (probability value)
+    \item \textbf{Competition Context}: AMC12B 2024, Problem 17
+    \item \textbf{Difficulty Band}: Late-band (P17) - Requires integration of Vieta's formulas, factorization, and probability
+    \item \textbf{Mathematical Domain}: Algebra (Vieta's formulas), Number Theory (integer factorization), Probability (counting)
+    \item \textbf{Estimated Time}: 5-6 minutes (late-band problem requiring systematic case analysis)
+    \item \textbf{Point Value}: 6 points (standard AMC12 scoring)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Polynomial: $x^3 + ax^2 + bx + 6$ with integer coefficients
+        \item Parameters $a, b$ are integers with $|a|, |b| \leq 10$
+        \item $a$ and $b$ chosen \textbf{without replacement} from $\{-10, -9, \ldots, 9, 10\}$
+        \item Looking for probability that polynomial has 3 distinct integer roots
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $a \neq b$ (without replacement)
+        \item Roots must be distinct integers
+        \item $|a|, |b| \leq 10$
+        \item The constant term is fixed at 6
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find the probability = $\frac{\text{\# favorable outcomes}}{\text{\# total outcomes}}$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item By Vieta's formulas, if roots are $r, s, t$, then $rst = -6$ (note the sign!)
+        \item We need to find all factorizations of $-6$ into three distinct integers
+        \item Then check which factorizations yield valid $(a,b)$ pairs
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All denominators are related to $420 = 21 \times 20$ (total ordered pairs)
+        \item Answer (C) $\frac{1}{105} = \frac{4}{420}$ suggests 4 favorable outcomes
+        \item Answer (D) $\frac{1}{84} = \frac{5}{420}$ suggests 5 favorable outcomes
+    \end{itemize}
+    
+    \item \textbf{Proof Requirements}: N/A (computational problem)
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Use Vieta's formulas to relate roots to coefficients, enumerate factorizations of $-6$, check validity
+    
+    \item \textbf{Conclusion}: Need to find probability as a fraction
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let roots be $r, s, t$ (distinct integers)
+        \item By Vieta: $r + s + t = -a$, $rs + rt + st = b$, $rst = -6$
+        \item Total outcomes: $21 \times 20 = 420$ (ordered pairs without replacement)
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Find all ways to factor $-6$ into three distinct integers
+        \item For each factorization, compute corresponding $a$ and $b$
+        \item Check if $|a|, |b| \leq 10$ and $a \neq b$
+        \item Count favorable outcomes and compute probability
+    \end{enumerate}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item This integrates algebra (polynomials, Vieta)
+        \item Number theory (factorization)
+        \item Probability (counting)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is a late-band problem requiring careful enumeration. Stay organized and systematic.
+    
+    \item \textbf{Creativity Cultivation}: The key insight is recognizing that $rst = -6$ (not $+6$) by Vieta's formulas. This determines which factorizations to consider.
+    
+    \item \textbf{Iterative Refinement}: If initial factorization attempts are messy, organize by considering the sign pattern (odd vs. even number of negative factors).
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately recognize this requires Vieta's formulas. Write them down first.
+    
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item List all factorizations of $-6$ into three distinct integers
+        \item Compute $a$ and $b$ for each factorization
+        \item Check validity constraints
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: The penultimate step is counting valid factorizations. The final step is computing the probability.
+    
+    \item \textbf{Make It Easier}: Focus on the constraint $rst = -6$ first. The number of factorizations is limited, making this tractable.
+    
+    \item \textbf{Conjecture via Small Cases}: Try simple factorizations like $(-1)(1)(6)$ to understand the pattern.
+    
+    \item \textbf{Visualization}: Organize factorizations by the number of negative factors (1 or 3 for product to be negative).
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: The denominator 420 appears in several answer choices. Use this to verify your total count.
+    
+    \item \textbf{Make It Easier}: Instead of considering all $(a,b)$ pairs, work backwards from factorizations of $-6$.
+    
+    \item \textbf{Systematic Enumeration}: List all factorizations systematically to avoid missing cases.
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Exhaustive Case Analysis}: Enumerate all factorizations of $-6$ into three distinct integers
+    
+    \item \textbf{Verification Method}: Check each case against the constraints $|a|, |b| \leq 10$ and $a \neq b$
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebra to Number Theory}: Vieta's formulas translate the polynomial problem into a factorization problem
+    
+    \item \textbf{Number Theory to Probability}: Once factorizations are enumerated, we count favorable outcomes for probability
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \textbf{Vieta's Formulas}: Relate roots to coefficients
+        \item \textbf{Factorization}: Find all ways to express $-6$ as a product of three distinct integers
+        \item \textbf{Exhaustive Enumeration}: Systematically list all cases
+    \end{itemize}
+    
+    \item \textbf{Domain-Specific Tactics}:
+    \begin{itemize}
+        \item \textbf{Vieta's Formulas} for polynomial $x^3 + ax^2 + bx + c$ with roots $r, s, t$:
+        \begin{align*}
+            r + s + t &= -a \\
+            rs + rt + st &= b \\
+            rst &= -c
+        \end{align*}
+        
+        \item \textbf{Integer Factorization}: Divisors of 6 are $\pm 1, \pm 2, \pm 3, \pm 6$
+        
+        \item \textbf{Sign Analysis}: For $rst = -6 < 0$, need odd number of negative factors (1 or 3)
+        
+        \item \textbf{Probability}: $P = \frac{\text{favorable outcomes}}{\text{total outcomes}}$
+    \end{itemize}
+    
+    \item \textbf{Crossover Tactics}: This problem requires algebra, number theory, and probability together
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Vieta's Formulas (H16)} + \textbf{Exhaustive Case Analysis}
+    
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item "polynomial has integer roots" $\Rightarrow$ Vieta's formulas
+        \item "distinct integer roots" $\Rightarrow$ Factorization
+        \item "probability" $\Rightarrow$ Count favorable vs. total outcomes
+        \item Fixed constant term $\Rightarrow$ Product of roots is determined
+    \end{itemize}
+    
+    \item \textbf{Application}:
+    \begin{enumerate}
+        \item Apply Vieta's formulas to express $a, b$ in terms of roots
+        \item Find all factorizations of $-6$ into three distinct integers
+        \item For each factorization, compute $a$ and $b$
+        \item Check if $|a|, |b| \leq 10$ and $a \neq b$
+        \item Count valid cases and compute probability
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Backup Approach}: \textbf{Brute Force Enumeration}
+    \begin{itemize}
+        \item For each $(a,b)$ pair with $|a|, |b| \leq 10$ and $a \neq b$
+        \item Check if $x^3 + ax^2 + bx + 6$ has three distinct integer roots
+        \item This is computationally intensive and not recommended
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Elimination}:
+    \begin{itemize}
+        \item Total outcomes = $21 \times 20 = 420$
+        \item Denominators that divide 420: 84, 105, 240 (all answer choices do!)
+        \item Estimate: factorizations of $-6$ are rare, so expect small numerator
+    \end{itemize}
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 5 (Thorough Verification) - 1.5-2 minutes
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Problem 17 is late-band, requiring careful enumeration
+        \item Easy to miss a factorization or make sign errors
+        \item Need to verify each case satisfies all constraints
+        \item Multiple steps where errors can creep in
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 1.5-2 minutes for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Factorization Completeness}:
+    \begin{itemize}
+        \item Did I find all factorizations of $-6$ into three distinct integers?
+        \item Check: Are the roots actually distinct in each case?
+        \item Check: Does the product equal $-6$ (not $+6$)?
+    \end{itemize}
+    
+    \item \textbf{Vieta's Formula Application}:
+    \begin{itemize}
+        \item For each factorization, verify $a = -(r+s+t)$ and $b = rs + rt + st$
+        \item Check arithmetic carefully (sign errors are common)
+    \end{itemize}
+    
+    \item \textbf{Constraint Verification}:
+    \begin{itemize}
+        \item Check: $|a| \leq 10$? 
+        \item Check: $|b| \leq 10$?
+        \item Check: $a \neq b$?
+    \end{itemize}
+    
+    \item \textbf{Counting Verification}:
+    \begin{itemize}
+        \item Total outcomes: $21 \times 20 = 420$ \checkmark
+        \item Favorable outcomes: Count valid factorizations
+        \item Probability simplification: Reduce fraction to lowest terms
+    \end{itemize}
+    
+    \item \textbf{Answer Format}:
+    \begin{itemize}
+        \item Ensure answer matches one of the five given choices
+        \item Verify fraction is fully simplified
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Domain-Specific Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebra Verification}:
+    \begin{itemize}
+        \item Verify Vieta's sign conventions (easy to get signs wrong)
+        \item Double-check: $rst = -c$ where $c = 6$, so $rst = -6$
+    \end{itemize}
+    
+    \item \textbf{Number Theory Verification}:
+    \begin{itemize}
+        \item Verify each factorization: multiply the three integers to confirm product is $-6$
+        \item Check that all integers in each factorization are distinct
+    \end{itemize}
+    
+    \item \textbf{Probability Verification}:
+    \begin{itemize}
+        \item Verify denominator: 21 choices for first integer, 20 for second = 420
+        \item Verify numerator: careful count of valid cases
+        \item Simplify: $\gcd(4, 420) = 4$, so $\frac{4}{420} = \frac{1}{105}$
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{keyinsightbox}
+\textbf{The Critical Insights}:
+
+\begin{enumerate}
+    \item \textbf{Vieta's formulas with sign}: For $x^3 + ax^2 + bx + 6 = 0$ with roots $r, s, t$:
+    $$rst = -6 \quad \text{(not } +6\text{)}$$
+    This is crucial! The sign comes from $(-1)^3 \times \frac{\text{constant term}}{\text{leading coefficient}}$.
+    
+    \item \textbf{Limited factorizations}: Since $-6$ is small, there are only a few ways to factor it into three distinct integers. This makes exhaustive enumeration feasible.
+    
+    \item \textbf{Sign pattern for negative product}: For $rst = -6 < 0$, we need either:
+    \begin{itemize}
+        \item Exactly 1 negative factor (e.g., $(-1)(2)(3)$)
+        \item Exactly 3 negative factors (e.g., $(-1)(-2)(-3)$)
+    \end{itemize}
+    
+    \item \textbf{Systematic enumeration}: Organize factorizations by considering:
+    \begin{itemize}
+        \item Divisors of 6: $1, 2, 3, 6$
+        \item Assign signs to get product $-6$
+        \item Ensure all three factors are distinct
+    \end{itemize}
+\end{enumerate}
+\end{keyinsightbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution}
+
+\textbf{Step 1: Apply Vieta's Formulas}
+
+For the polynomial $x^3 + ax^2 + bx + 6$ with three distinct integer roots $r, s, t$, Vieta's formulas give:
+\begin{align*}
+    r + s + t &= -a \\
+    rs + rt + st &= b \\
+    rst &= -6
+\end{align*}
+
+The key constraint is $rst = -6$.
+
+\textbf{Checkpoint}: Note the negative sign! This is $-6$, not $+6$.
+
+\vspace{0.3cm}
+
+\textbf{Step 2: Count Total Outcomes}
+
+We choose $a$ and $b$ without replacement from $\{-10, -9, \ldots, 9, 10\}$.
+\begin{itemize}
+    \item 21 choices for $a$
+    \item 20 choices for $b$ (since $b \neq a$)
+    \item Total ordered pairs: $21 \times 20 = 420$
+\end{itemize}
+
+\textbf{Checkpoint}: The denominator of our probability will be 420.
+
+\vspace{0.3cm}
+
+\textbf{Step 3: Enumerate Factorizations of $-6$ into Three Distinct Integers}
+
+The divisors of 6 are: $1, 2, 3, 6$ (and their negatives).
+
+For $rst = -6 < 0$, we need an odd number of negative factors (1 or 3).
+
+Let's systematically list all possibilities:
+
+\textbf{Case 1: One negative factor}
+
+\begin{itemize}
+    \item $\{-1, 1, 6\}$: Product = $(-1)(1)(6) = -6$ \checkmark
+    \item $\{-1, 2, 3\}$: Product = $(-1)(2)(3) = -6$ \checkmark
+    \item $\{1, -2, 3\}$: Product = $(1)(-2)(3) = -6$ \checkmark
+    \item $\{1, 2, -3\}$: Product = $(1)(2)(-3) = -6$ \checkmark
+    \item $\{-1, 1, 6\}$ and $\{1, -1, 6\}$ are the same set
+    \item $\{-2, 1, 3\}$: Same as $\{1, -2, 3\}$
+    \item $\{-3, 1, 2\}$: Same as $\{1, 2, -3\}$
+    \item $\{-6, 1, 1\}$: Not distinct
+\end{itemize}
+
+\textbf{Case 2: Three negative factors}
+
+\begin{itemize}
+    \item $\{-1, -2, -3\}$: Product = $(-1)(-2)(-3) = -6$ \checkmark
+    \item $\{-1, -1, -6\}$: Not distinct
+\end{itemize}
+
+So we have the following distinct factorizations:
+\begin{enumerate}
+    \item $\{-1, 1, 6\}$
+    \item $\{-1, 2, 3\}$
+    \item $\{1, -2, 3\}$
+    \item $\{1, 2, -3\}$
+    \item $\{-1, -2, -3\}$
+\end{enumerate}
+
+\textbf{Checkpoint}: We have 5 factorizations to check.
+
+\vspace{0.3cm}
+
+\textbf{Step 4: Compute $a$ and $b$ for Each Factorization}
+
+\textbf{Factorization 1: $\{r, s, t\} = \{-1, 1, 6\}$}
+\begin{align*}
+    a &= -(r + s + t) = -((-1) + 1 + 6) = -6 \\
+    b &= rs + rt + st = (-1)(1) + (-1)(6) + (1)(6) \\
+      &= -1 - 6 + 6 = -1
+\end{align*}
+Check: $|a| = 6 \leq 10$ \checkmark, $|b| = 1 \leq 10$ \checkmark, $a \neq b$ ($-6 \neq -1$) \checkmark
+
+\textbf{Valid!}
+
+\vspace{0.2cm}
+
+\textbf{Factorization 2: $\{r, s, t\} = \{-1, 2, 3\}$}
+\begin{align*}
+    a &= -(r + s + t) = -((-1) + 2 + 3) = -4 \\
+    b &= rs + rt + st = (-1)(2) + (-1)(3) + (2)(3) \\
+      &= -2 - 3 + 6 = 1
+\end{align*}
+Check: $|a| = 4 \leq 10$ \checkmark, $|b| = 1 \leq 10$ \checkmark, $a \neq b$ ($-4 \neq 1$) \checkmark
+
+\textbf{Valid!}
+
+\vspace{0.2cm}
+
+\textbf{Factorization 3: $\{r, s, t\} = \{1, -2, 3\}$}
+\begin{align*}
+    a &= -(r + s + t) = -(1 + (-2) + 3) = -2 \\
+    b &= rs + rt + st = (1)(-2) + (1)(3) + (-2)(3) \\
+      &= -2 + 3 - 6 = -5
+\end{align*}
+Check: $|a| = 2 \leq 10$ \checkmark, $|b| = 5 \leq 10$ \checkmark, $a \neq b$ ($-2 \neq -5$) \checkmark
+
+\textbf{Valid!}
+
+\vspace{0.2cm}
+
+\textbf{Factorization 4: $\{r, s, t\} = \{1, 2, -3\}$}
+\begin{align*}
+    a &= -(r + s + t) = -(1 + 2 + (-3)) = 0 \\
+    b &= rs + rt + st = (1)(2) + (1)(-3) + (2)(-3) \\
+      &= 2 - 3 - 6 = -7
+\end{align*}
+Check: $|a| = 0 \leq 10$ \checkmark, $|b| = 7 \leq 10$ \checkmark, $a \neq b$ ($0 \neq -7$) \checkmark
+
+\textbf{Valid!}
+
+\vspace{0.2cm}
+
+\textbf{Factorization 5: $\{r, s, t\} = \{-1, -2, -3\}$}
+\begin{align*}
+    a &= -(r + s + t) = -((-1) + (-2) + (-3)) = 6 \\
+    b &= rs + rt + st = (-1)(-2) + (-1)(-3) + (-2)(-3) \\
+      &= 2 + 3 + 6 = 11
+\end{align*}
+Check: $|a| = 6 \leq 10$ \checkmark, $|b| = 11 > 10$ \texttimes
+
+\textbf{Invalid!} (because $|b| = 11 > 10$)
+
+\vspace{0.3cm}
+
+\textbf{Step 5: Count Favorable Outcomes}
+
+Valid factorizations: 4 (factorizations 1, 2, 3, 4)
+
+Each factorization corresponds to exactly one ordered pair $(a, b)$.
+
+Favorable outcomes: 4
+
+\vspace{0.3cm}
+
+\textbf{Step 6: Calculate Probability}
+
+$$P = \frac{\text{Favorable outcomes}}{\text{Total outcomes}} = \frac{4}{420} = \frac{1}{105}$$
+
+\textbf{Final Answer}: $\frac{1}{105}$, which is choice \textbf{(C)}.
+
+\subsection*{B. Verification of Solution}
+
+\textbf{Verification 1: Double-Check Factorizations}
+
+\begin{itemize}
+    \item Factorization 1: $(-1)(1)(6) = -6$ \checkmark
+    \item Factorization 2: $(-1)(2)(3) = -6$ \checkmark
+    \item Factorization 3: $(1)(-2)(3) = -6$ \checkmark
+    \item Factorization 4: $(1)(2)(-3) = -6$ \checkmark
+    \item Factorization 5: $(-1)(-2)(-3) = -6$ \checkmark
+\end{itemize}
+
+\textbf{Verification 2: Recompute $(a,b)$ for Valid Cases}
+
+\begin{enumerate}
+    \item $\{-1, 1, 6\}$: $a = -6$, $b = -1$ $\Rightarrow$ $(a,b) = (-6, -1)$ \checkmark
+    \item $\{-1, 2, 3\}$: $a = -4$, $b = 1$ $\Rightarrow$ $(a,b) = (-4, 1)$ \checkmark
+    \item $\{1, -2, 3\}$: $a = -2$, $b = -5$ $\Rightarrow$ $(a,b) = (-2, -5)$ \checkmark
+    \item $\{1, 2, -3\}$: $a = 0$, $b = -7$ $\Rightarrow$ $(a,b) = (0, -7)$ \checkmark
+\end{enumerate}
+
+All satisfy $|a|, |b| \leq 10$ and $a \neq b$ \checkmark
+
+\textbf{Verification 3: Probability Simplification}
+
+$$\frac{4}{420} = \frac{4}{420} = \frac{1}{105}$$ 
+
+Check: $\gcd(4, 420) = 4$, so $\frac{4}{420} = \frac{4 \div 4}{420 \div 4} = \frac{1}{105}$ \checkmark
+
+\textbf{Verification 4: Answer Match}
+
+$\frac{1}{105}$ matches choice \textbf{(C)} \checkmark
+
+\subsection*{C. Alternative Verification: Polynomial Check}
+
+We can verify one case by expanding the polynomial with the computed roots.
+
+For factorization 4: roots $\{1, 2, -3\}$, we have $a = 0$, $b = -7$.
+
+Polynomial: $x^3 + 0 \cdot x^2 + (-7)x + 6 = x^3 - 7x + 6$
+
+Check by factoring:
+\begin{align*}
+    (x - 1)(x - 2)(x + 3) &= (x - 1)[(x - 2)(x + 3)] \\
+    &= (x - 1)[x^2 + 3x - 2x - 6] \\
+    &= (x - 1)[x^2 + x - 6] \\
+    &= x^3 + x^2 - 6x - x^2 - x + 6 \\
+    &= x^3 - 7x + 6
+\end{align*}
+
+Matches! \checkmark
+
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 5-6 minutes total
+    \begin{itemize}
+        \item Problem comprehension and Vieta setup: 45 seconds
+        \item Enumerate factorizations: 1.5 minutes
+        \item Compute $a, b$ for each case: 2 minutes
+        \item Check constraints: 1 minute
+        \item Calculate probability: 30 seconds
+        \item Verification: 45 seconds
+    \end{itemize}
+    
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 minute: Should have Vieta's formulas written and understand $rst = -6$
+        \item At 2.5 minutes: Should have all factorizations enumerated
+        \item At 4.5 minutes: Should have checked all constraints
+        \item At 6 minutes: Should be done with verification
+    \end{itemize}
+    
+    \item \textbf{Priority Level}: \textbf{High-Medium} - This is P17 (late-band), but it's accessible with systematic work. Worth attempting if you know Vieta's formulas.
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 85-90\% after verification
+    \begin{itemize}
+        \item The approach is systematic and straightforward
+        \item Vieta's formulas are standard
+        \item All factorizations can be verified by multiplication
+        \item Answer matches an answer choice
+    \end{itemize}
+    
+    \item \textbf{Common Error Sources}:
+    \begin{itemize}
+        \item Sign error: Using $rst = +6$ instead of $rst = -6$
+        \item Missing a factorization during enumeration
+        \item Arithmetic errors in computing $b = rs + rt + st$
+        \item Forgetting to check $a \neq b$ constraint
+        \item Forgetting to check $|b| \leq 10$ (factorization 5 fails this!)
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If you don't know Vieta's formulas $\Rightarrow$ skip this problem
+        \item If enumeration takes > 4 minutes $\Rightarrow$ make educated guess and move on
+        \item If calculation becomes very messy $\Rightarrow$ flag for review
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: Yes if time permits - verify you didn't miss any factorizations
+\end{itemize}
+
+\subsection*{C. Strategic Context}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Positioning}: P17 is solidly late-band. It requires multiple concepts but is approachable with systematic work.
+    
+    \item \textbf{Score Impact}: Worth 6 points. Getting this demonstrates strong algebra and number theory skills.
+    
+    \item \textbf{Time Budget Implications}: 5-6 minutes is reasonable for a P17. Don't spend more than 7 minutes.
+    
+    \item \textbf{Technique Practice}: This problem tests:
+    \begin{itemize}
+        \item Vieta's formulas
+        \item Integer factorization
+        \item Systematic case enumeration
+        \item Constraint verification
+        \item Probability calculation
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{warningbox}
+\textbf{Common Pitfalls to Avoid}:
+
+\begin{enumerate}
+    \item \textbf{Sign error in Vieta's formulas}: The most common mistake! For $x^3 + ax^2 + bx + 6$, the product of roots is $-6$, NOT $+6$. This comes from $(-1)^3 \cdot \frac{6}{1} = -6$.
+    
+    \item \textbf{Non-distinct roots}: Some factorizations like $\{-1, -1, 6\}$ have repeated roots. These must be excluded.
+    
+    \item \textbf{Missing factorizations}: It's easy to miss cases. Systematically consider:
+    \begin{itemize}
+        \item One negative factor: $\{-1, 2, 3\}$, $\{1, -2, 3\}$, $\{1, 2, -3\}$, $\{-1, 1, 6\}$, etc.
+        \item Three negative factors: $\{-1, -2, -3\}$, etc.
+    \end{itemize}
+    
+    \item \textbf{Forgetting constraint checks}: After computing $(a, b)$, verify:
+    \begin{itemize}
+        \item $|a| \leq 10$?
+        \item $|b| \leq 10$?
+        \item $a \neq b$?
+    \end{itemize}
+    Factorization 5 fails because $b = 11 > 10$.
+    
+    \item \textbf{Arithmetic errors in $b = rs + rt + st$}: This has three terms with different signs. Easy to make arithmetic mistakes. Double-check each calculation.
+    
+    \item \textbf{Total outcomes}: Remember it's $21 \times 20 = 420$ (without replacement), not $21 \times 21 = 441$ (with replacement).
+    
+    \item \textbf{Not simplifying the probability}: $\frac{4}{420}$ must be simplified to $\frac{1}{105}$ to match the answer choices.
+\end{enumerate}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Tips}:
+
+\begin{enumerate}
+    \item \textbf{Know Vieta's formulas cold}: For $x^3 + ax^2 + bx + c$ with roots $r, s, t$:
+    \begin{align*}
+        r + s + t &= -a \\
+        rs + rt + st &= b \\
+        rst &= -c
+    \end{align*}
+    
+    \item \textbf{Sign pattern mnemonic}: For the product of roots, the sign is $(-1)^n \cdot \frac{\text{constant term}}{\text{leading coefficient}}$ where $n$ is the degree.
+    
+    \item \textbf{Systematic factorization}: To find factorizations of $-6$:
+    \begin{itemize}
+        \item List divisors of 6: $1, 2, 3, 6$
+        \item For negative product, use 1 or 3 negative factors
+        \item Ensure all three factors are distinct
+    \end{itemize}
+    
+    \item \textbf{Organize your work}: Create a table with columns for:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    Roots & $a = -(r+s+t)$ & $b = rs+rt+st$ & Constraints & Valid? \\
+    \hline
+    \end{tabular}
+    \end{center}
+    This prevents missing cases and keeps work organized.
+    
+    \item \textbf{Answer choice elimination}: The denominator 420 = $21 \times 20$ confirms the total count. The numerator should be small (only a few factorizations of $-6$ exist).
+    
+    \item \textbf{Quick verification}: For each case, multiply the three roots to verify the product is $-6$. This catches sign errors immediately.
+    
+    \item \textbf{Calculator use}: If allowed, use calculator to verify $b = rs + rt + st$ calculations. These are error-prone.
+\end{enumerate}
+\end{tipbox}
+
+\section*{Final Answer}
+
+Total ordered pairs $(a,b)$: $21 \times 20 = 420$
+
+Factorizations of $-6$ into three distinct integers:
+\begin{enumerate}
+    \item $\{-1, 1, 6\}$ $\Rightarrow$ $(a,b) = (-6, -1)$ \checkmark
+    \item $\{-1, 2, 3\}$ $\Rightarrow$ $(a,b) = (-4, 1)$ \checkmark
+    \item $\{1, -2, 3\}$ $\Rightarrow$ $(a,b) = (-2, -5)$ \checkmark
+    \item $\{1, 2, -3\}$ $\Rightarrow$ $(a,b) = (0, -7)$ \checkmark
+    \item $\{-1, -2, -3\}$ $\Rightarrow$ $(a,b) = (6, 11)$ \texttimes ($|b| > 10$)
+\end{enumerate}
+
+Favorable outcomes: 4
+
+Probability: $\displaystyle \frac{4}{420} = \frac{1}{105}$
+
+$$\boxed{\textbf{(C) } \frac{1}{105}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\%
+    \begin{itemize}
+        \item Systematic enumeration of all factorizations
+        \item All Vieta calculations double-checked
+        \item All constraints verified for each case
+        \item Answer matches an answer choice
+        \item Polynomial verification confirms one case
+    \end{itemize}
+    
+    \item \textbf{Verification Applied}: Level 5 (Thorough Verification)
+    \begin{itemize}
+        \item Verified all factorizations multiply to $-6$
+        \item Rechecked all $(a,b)$ calculations
+        \item Confirmed all constraints for valid cases
+        \item Verified invalid case (factorization 5)
+        \item Expanded polynomial for one case to confirm
+        \item Simplified fraction correctly
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - high confidence with thorough verification
+    
+    \item \textbf{Time Spent}: Approximately 5.5 minutes (within target range)
+    \begin{itemize}
+        \item 45 seconds: Vieta's formulas setup
+        \item 1.5 minutes: Enumerating factorizations
+        \item 2 minutes: Computing $a, b$ for each case
+        \item 1 minute: Checking constraints
+        \item 15 seconds: Computing probability
+    \end{itemize}
+\end{itemize}
+
+\section*{Learning Points}
+
+\textbf{Key Takeaways from This Problem}:
+
+\begin{enumerate}
+    \item \textbf{Vieta's Formulas Mastery}: Essential for relating polynomial roots to coefficients. The sign in $rst = -c$ (for $x^3 + ax^2 + bx + c$) catches many students.
+    
+    \item \textbf{Systematic Enumeration}: When the search space is small (factorizations of $-6$), exhaustive enumeration is feasible and reliable.
+    
+    \item \textbf{Constraint Checking}: Always verify all constraints. Factorization 5 looked valid until we checked $|b| \leq 10$.
+    
+    \item \textbf{Sign Analysis}: For a negative product, you need an odd number of negative factors. This constrains the factorizations significantly.
+    
+    \item \textbf{Without Replacement}: The phrase "without replacement" means $a \neq b$, giving $21 \times 20 = 420$ total pairs, not $21^2 = 441$.
+    
+    \item \textbf{Organization Prevents Errors}: Keeping systematic records of each case (factorization, $a$, $b$, constraints) prevents missing cases and arithmetic errors.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Related Problems to Practice}:
+\begin{itemize}
+    \item Other AMC12 problems involving Vieta's formulas
+    \item Problems requiring factorization enumeration
+    \item Probability problems with constraint checking
+    \item Polynomial root problems with integer coefficients
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Formula to Remember}:
+
+\textbf{Vieta's Formulas for cubic} $x^3 + ax^2 + bx + c = 0$ with roots $r, s, t$:
+\begin{align*}
+    r + s + t &= -a \\
+    rs + rt + st &= b \\
+    rst &= -c
+\end{align*}
+
+Note the signs carefully, especially the negative in $rst = -c$!
+
+\end{document}
+

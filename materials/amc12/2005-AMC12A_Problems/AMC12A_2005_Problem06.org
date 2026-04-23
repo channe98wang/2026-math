@@ -1,0 +1,14 @@
+2005 AMC 12A Problems/Problem 6
+Problem
+Josh and Mike live $13$ miles apart. Yesterday Josh started to ride his bicycle toward Mike's house. A little later Mike started to ride his bicycle toward Josh's house. When they met, Josh had ridden for twice the length of time as Mike and at four-fifths of Mike's rate. How many miles had Mike ridden when they met?
+$(\mathrm {A}) \ 4 \qquad (\mathrm {B}) \ 5 \qquad (\mathrm {C})\ 6 \qquad (\mathrm {D}) \ 7 \qquad (\mathrm {E})\ 8$
+Solution
+Let $D_J, D_M$ be the distances traveled by Josh and Mike, respectively, and let $r,t$ be the time and rate of Mike. Using $d = rt$ , we have that $D_M = rt$ and $D_J = \left(\frac{4}{5}r\right)\left(2t\right) = \frac 85rt$ . Then $13 = D_M + D_J = rt + \frac{8}{5}rt = \frac{13}{5}rt$ $\Longrightarrow rt = D_M = 5\ \mathrm{(B)}$ .
+See also
+2005 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

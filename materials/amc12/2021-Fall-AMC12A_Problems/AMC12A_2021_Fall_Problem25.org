@@ -1,0 +1,174 @@
+2021 AMC 12A Problems/Problem 25
+Contents
+1 Problem
+2 Solution 1 (Complete Residue System)
+3 Solution 2 (Symmetric Congruent Numbers and Interpolation)
+4 Solution 3
+5 Solution 4
+6 Solution 5 (Principle of Inclusion-Exclusion)
+7 Video Solution
+8 See Also
+Problem
+Let $m\ge 5$ be an odd integer, and let $D(m)$ denote the number of quadruples $(a_1, a_2, a_3, a_4)$ of distinct integers with $1\le a_i \le m$ for all $i$ such that $m$ divides $a_1+a_2+a_3+a_4$ . There is a polynomial
+
+\[q(x) = c_3x^3+c_2x^2+c_1x+c_0\]
+
+such that $D(m) = q(m)$ for all odd integers $m\ge 5$ . What is $c_1?$
+$\textbf{(A)}\ {-}6\qquad\textbf{(B)}\ {-}1\qquad\textbf{(C)}\ 4\qquad\textbf{(D)}\ 6\qquad\textbf{(E)}\ 11$
+Solution 1 (Complete Residue System)
+For a fixed value of $m,$ there is a total of $m(m-1)(m-2)(m-3)$ possible ordered quadruples $(a_1, a_2, a_3, a_4).$
+Let $S=a_1+a_2+a_3+a_4.$ We claim that exactly $\frac1m$ of these $m(m-1)(m-2)(m-3)$ ordered quadruples satisfy that $m$ divides $S:$
+Since $\gcd(m,4)=1,$ we conclude that
+
+\[\{k+4(0),k+4(1),k+4(2),\ldots,k+4(m-1)\}\]
+
+is the complete residue system modulo $m$ for all integers $k.$
+Given any ordered quadruple $(a'_1, a'_2, a'_3, a'_4)$ in modulo $m,$ it follows that exactly one of these $m$ ordered quadruples has sum $0$ modulo $m:$
+
+\[\begin{array}{c|c} & \\ [-2.5ex] \textbf{Ordered Quadruple} & \textbf{Sum Modulo }\boldsymbol{m} \\ [0.5ex] \hline & \\ [-2ex] (a'_1, a'_2, a'_3, a'_4) & S'+4(0) \\ [0.5ex] (a'_1+1, a'_2+1, a'_3+1, a'_4+1) & S'+4(1) \\ [0.5ex] (a'_1+2, a'_2+2, a'_3+2, a'_4+2) & S'+4(2) \\ [0.5ex] \cdots & \cdots \\ [0.5ex] (a'_1+m-1, a'_2+m-1, a'_3+m-1, a'_4+m-1) & S'+4(m-1) \\ [0.5ex] \end{array}\]
+
+We conclude that $D(m)=\frac1m\cdot[m(m-1)(m-2)(m-3)]=(m-1)(m-2)(m-3),$ so
+
+\[q(x)=(x-1)(x-2)(x-3)=c_3x^3+c_2x^2+c_1x+c_0.\]
+
+By Vieta's Formulas, we get $c_1=1\cdot2+1\cdot3+2\cdot3=\boxed{\textbf{(E)}\ 11}.$
+~MRENTHUSIASM
+Solution 2 (Symmetric Congruent Numbers and Interpolation)
+Define
+
+\[b_i = \left\{ \begin{array}{ll} a_i & \mbox{ if } 1 \leq a_i \leq \frac{m-1}{2} \\ a_i - m & \mbox{ if } \frac{m-1}{2} + 1 \leq a_i \leq m - 1 \\ 0 & \mbox{ if } a_i = m \end{array} \right..\]
+Hence, $b_i$ is a one-to-one and onto function of $a_i$ , and the range of $b_i$ is $\left\{- \frac{m-1}{2} , \cdots , \frac{m-1}{2} \right\}$ .
+Therefore, to solve this problem, it is equivalent for us to count the number of tuples $\left( b_1 , b_2 , b_3 , b_4 \right)$ that are all distinct and satisfy $m | b_1 + b_2 + b_3 + b_4$ .
+Denote by $d \left( m \right)$ the number of such tuples that are also subject to the constraint $b_1 < b_2 < b_3 < b_4$ .
+Hence, $D \left( m \right) = 4! d \left( m \right) = 24 d \left( m \right)$ .
+We do the following casework analysis to compute $d \left( m \right)$ .
+$\textbf{Case 1}$ : There is one $0$ in $\left( b_1 , b_2 , b_3 , b_4 \right)$ .
+Denote by $d_{1i} \left( m \right)$ the number of tuples with $b_i = 0$ .
+By symmetry, $d_{11} \left( m \right)= d_{14} \left( m \right)$ and $d_{12} \left( m \right)= d_{13} \left( m \right)$ .
+$\textbf{Case 2}$ : There is no $0$ in $\left( b_1 , b_2 , b_3 , b_4 \right)$ .
+Denote by $d_{2i} \left( m \right)$ the number of tuples with $i$ positive entries.
+By symmetry, $d_{20} \left( m \right) = d_{24} \left( m \right)$ and $d_{21} \left( m \right) = d_{23} \left( m \right)$ .
+Therefore, 
+
+\begin{align*} D \left( m \right) & = 24 d \left( m \right) \\ & = 24 \left( \sum_{i=1}^4 d_{1i} \left( m \right) + \sum_{i=0}^4 d_{2i} \left( m \right) \right) \\ & = 24 \left( 2 d_{11} \left( m \right) + 2 d_{12} \left( m \right) + 2 d_{24} \left( m \right) + 2 d_{23} \left( m \right) + d_{22} \left( m \right) \right) . \end{align*}
+Now, we compute $D \left( m \right)$ for $m = 5 , 7 , 9 , 11$ .
+$\underline{\textbf{SCENARIO}}$ $m = 5$ .
+We have $b_i \in \left\{ - 2 , \cdots , 2 \right\}$ .
+$\textbf{Case 1}$
+$\textbf{Case 1.1}$ : $b_1 = 0$
+We cannot have $3$ distinct positive integers. So $d_{11} \left( 5 \right) = 0$ .
+$\textbf{Case 1.2}$ : $b_2 = 0$
+Because there are $2$ positive integers, we must have $b_3 = 1$ , $b_4 = 2$ .
+Hence, $b_1 = - 3$ . However, this is out of the range of $b_i$ .
+Thus, $d_{12} \left( 5 \right) = 0$ .
+$\textbf{Case 2}$
+$\textbf{Case 2.1}$ : $b_1 > 0$
+We cannot have $4$ distinct positive integers. So $d_{24} \left( 5 \right) = 0$ .
+$\textbf{Case 2.2}$ : $b_1 < 0 < b_2$
+We cannot have $3$ distinct positive integers. So $d_{23} \left( 5 \right) = 0$ .
+$\textbf{Case 2.3}$ : $b_2 < 0 < b_3$
+The only solution is $\left( b_1 , b_2 , b_3 , b_4 \right) = \left( - 2 , - 1 , 1 , 2 \right)$ . So $d_{22} \left( 5 \right) = 1$ .
+Therefore, $D \left( 5 \right) = 24$ .
+$\underline{\textbf{SCENARIO}}$ $m = 7$ .
+We have $b_i \in \left\{ - 3 , \cdots , 3 \right\}$ .
+$\textbf{Case 1}$
+$\textbf{Case 1.1}$ : $b_1 = 0$
+We have no feasible solution. Thus, $d_{11} \left( 7 \right) = 0$ .
+$\textbf{Case 1.2}$ : $b_2 = 0$
+The only solution is $\left( b_1 , b_3 , b_4 \right) = \left( - 3 , 1 , 2 \right)$ .
+Thus, $d_{12} \left( 7 \right) = 1$ .
+$\textbf{Case 2}$
+$\textbf{Case 2.1}$ : $b_1 > 0$
+We cannot have $4$ distinct positive integers. So $d_{24} \left( 7 \right) = 0$ .
+$\textbf{Case 2.2}$ : $b_1 < 0 < b_2$
+To get $3$ distinct positive integers, we have $\left( b_2 , b_3 , b_4 \right) = \left( 1 , 2 , 3 \right)$ . This implies $b_1 = - 6$ . However, this is out of the range of $b_1$ . So $d_{23} \left( 6 \right) = 0$ .
+$\textbf{Case 2.3}$ : $b_2 < 0 < b_3$
+We have $d_{22} \left( 7 \right) = \binom{3}{2} = 3$ .
+Therefore, $D \left( 7 \right) = 24 \cdot 5$ .
+$\underline{\textbf{SCENARIO}}$ $m = 9$ .
+We have $b_i \in \left\{ - 4 , \cdots , 4 \right\}$ .
+$\textbf{Case 1}$
+$\textbf{Case 1.1}$ : $b_1 = 0$
+The only solution is $\left( b_2 , b_3 , b_4 \right) = \left( 2, 3, 4 \right)$ .
+Thus, $d_{11} \left( 9 \right) = 1$ .
+$\textbf{Case 1.2}$ : $b_2 = 0$
+The feasible solutions are $\left( b_1 , b_3 , b_4 \right) = \left( - 3 , 1 , 2 \right)$ , $\left( - 4 , 1 , 3 \right)$ .
+Thus, $d_{12} \left( 9 \right) = 2$ .
+$\textbf{Case 2}$
+$\textbf{Case 2.1}$ : $b_1 > 0$
+There is no feasible solution. So $d_{24} \left( 9 \right) = 0$ .
+$\textbf{Case 2.2}$ : $b_1 < 0 < b_2$
+To get $3$ distinct positive integers, we have $b_2 + b_3 + b_4 \geq 1 + 2 + 3 = 6$ . This implies $b_1 = - 6$ . However, this is out of the range of $b_1$ . So $d_{23} \left( 9 \right) = 0$ .
+$\textbf{Case 2.3}$ : $b_2 < 0 < b_3$
+We have $d_{22} \left( 9 \right) = 8$ .
+Therefore, $D \left( 9 \right) = 24 \cdot 14$ .
+$\underline{\textbf{SCENARIO}}$ $m = 11$ .
+We have $b_i \in \left\{ - 5 , \cdots , 5 \right\}$ .
+$\textbf{Case 1}$
+$\textbf{Case 1.1}$ : $b_1 = 0$
+The only solution is $\left( b_2 , b_3 , b_4 \right) = \left( 2, 4, 5 \right)$ .
+Thus, $d_{11} \left( 11 \right) = 1$ .
+$\textbf{Case 1.2}$ : $b_2 = 0$
+The feasible solutions are $\left( b_1 , b_3 , b_4 \right) = \left( - 3 , 1 , 2 \right)$ , $\left( - 4 , 1 , 3 \right)$ , $\left( - 5 , 1 , 4 \right)$ , $\left( - 5 , 2 , 3 \right)$ .
+Thus, $d_{12} \left( 11 \right) = 4$ .
+$\textbf{Case 2}$
+$\textbf{Case 2.1}$ : $b_1 > 0$
+The only feasible solution is $\left( b_1 , b_2 , b_3 , b_4 \right) = \left( 1 , 2, 3, 5 \right)$ . So $d_{24} \left( 11 \right) = 1$ .
+$\textbf{Case 2.2}$ : $b_1 < 0 < b_2$
+The only feasible solution is $\left( b_1 , b_2 , b_3 , b_4 \right) = \left( -1 , 3, 4, 5 \right)$ . So $d_{23} \left( 11 \right) = 1$ .
+$\textbf{Case 2.3}$ : $b_2 < 0 < b_3$
+We have $d_{22} \left( 11 \right) = 16$ .
+Therefore, $D \left( 11 \right) = 24 \cdot 30$ .
+We know that $q \left( m \right) = D \left( m \right)$ for odd $m \geq 5$ .
+Plugging $m = 5, 7, 9, 11$ into this equation, we get 
+
+\begin{align*} c_3 5^3 + c_2 5^2 + c_1 5 + c_0 & = 24 \cdot 1 && (1.1) \\ c_3 7^3 + c_2 7^2 + c_1 7 + c_0 & = 24 \cdot 5 && (1.2) \\ c_3 9^3 + c_2 9^2 + c_1 9 + c_0 & = 24 \cdot 14 && (1.3) \\ c_3 11^3 + c_2 11^2 + c_1 11 + c_0 & = 24 \cdot 30 && (1.4) \end{align*}
+Now, we solve this system of equations.
+Taking $\frac{(1.2)-(1.1)}{2}$ , $\frac{(1.3)-(1.2)}{2}$ , $\frac{(1.4)-(1.2)}{2}$ , we get 
+
+\begin{align*} c_3 109 + c_2 12 + c_1 & = 48 && (2.1) \\ c_3 193 + c_2 16 + c_1 & = 108 && (2.2) \\ c_3 301 + c_2 20 + c_1 & = 192 && (2.3) \end{align*}
+Taking $\frac{(2.2)-(2.1)}{4}$ , $\frac{(2.3)-(2.2)}{4}$ , we get 
+
+\begin{align*} c_3 21 + c_2 & = 15 && (3.1) \\ c_3 27 + c_2 & = 21 && (3.2) \end{align*}
+Taking $\frac{(3.2)-(3.1)}{6}$ , we get $c_3 = 1$ .
+Plugging $c_3$ into Equation (3.1), we get $c_2 = - 6$ .
+Plugging $c_2$ and $c_3$ into Equation (2.1), we get $c_1 = 11$ .
+Therefore, the answer is $\boxed{\textbf{(E) }11}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 3
+As before, note that we have $m(m-1)(m-2)$ numbers we can choose as $a,b,c.$ From here, there is exactly one possible value of $1 \leq d \leq m$ that could make $S=a+b+c+d$ divisible by $m.$ However, there is a $\frac{3}{m}$ chance that this value of $d$ has already been chosen as $a,b$ or $c$ . Thus our polynomial is $m(m-1)(m-2)\left(1-\frac{3}{m}\right)=m(m-1)(m-2)\left(\frac{m-3}{m}\right)=(m-1)(m-2)(m-3)$ . By Vieta's, $c_1 = 2+3+6=\boxed{\textbf{(E) } 11}$ .
+~Dhillonr25
+Solution 4
+We can solve this by directly counting quadruples and deriving a closed formula for $D(m)$ .
+For an odd integer $m \geq 5$ , we need to count ordered quadruples $(a_1,a_2,a_3,a_4)$ of distinct integers where $1 \leq a_i \leq m$ and $m$ divides their sum.
+Consider how many total ordered quadruples of distinct integers exist in the range $[1,m]$ :
+- We choose 4 distinct numbers from $m$ possible values: $\binom{m}{4}$ - We arrange these 4 numbers in order: $4!$
+Therefore, total quadruples = $\binom{m}{4} \cdot 4! = \frac{m!}{(m-4)!}$
+Now, these quadruples can be partitioned into $m$ groups based on the remainder of their sum when divided by $m$ . By symmetry, these remainders are uniformly distributed modulo $m$ .
+Therefore, exactly $\frac{1}{m}$ of all quadruples have a sum divisible by $m$ :
+\[D(m) = \frac{1}{m} \cdot \frac{m!}{(m-4)!} = \frac{m(m-1)(m-2)(m-3)}{m} = (m-1)(m-2)(m-3)\]
+Expanding this expression:
+
+\[(m-1)(m-2)(m-3) = m^3 - 6m^2 + 11m - 6\]
+Comparing with $q(x) = c_3x^3 + c_2x^2 + c_1x + c_0$ , we identify: $c_3 = 1$ , $c_2 = -6$ , $c_1 = 11$ , $c_0 = -6$
+Therefore, $c_1 = 11$ , and the answer is $\boxed{(E) 11}$ .
+~ brandonyee
+Solution 5 (Principle of Inclusion-Exclusion)
+If we do not have to worry about whether or not the numbers are distinct, then there would be $m^3$ possible quadruples. This is because the first $3$ numbers can be anything, and then the last number is uniquely chosen so that the sum is a multiple of $m$ .
+Now, we must subtract the quadruples with at least two of the same number. There are $\binom{4}{2}$ ways to choose the positions for the two identical numbers, $m$ ways to choose the number for these two positions, and $m$ ways to choose a number for another position. The last position is uniquely determined as before. Thus, our expression becomes $m^3-\binom{4}{2}\cdot m\cdot m = m^3 - 6m^2$ .
+However, we have subtracted the cases in which there are three identical numbers too many times. Each such case was subtracted $\binom{3}{2}=3$ times, and there are $\binom{4}{3}\cdot m=4m$ such cases. Thus, we need to add back $8m$ .
+We also subtracted the cases in which there are two pairs of two identical numbers too many times. There are $\frac{\binom{4}{2}m}{2}=3m$ such cases. This is because we first choose the two positions for the first two identical numbers, then multiply by $m$ to determine which number goes in these positions. The last two positions can be determined uniquely because $m$ is odd. We divide by $2$ because we counted each case twice. In our original counting, we subtracted each such case twice, so we add back $3m$ . In total, our expression is now $m^3-6m^2+8m+3m=m^3-6m^2+11m$ .
+We can stop here, because we know that the number of times $(5,5,5,5)$ was overcounted is just a constant. Thus, the answer is $\boxed{(E) 11}$ .
+~ndv1tt
+Video Solution
+https://youtu.be/YExRIOt819Y
+~MathProblemSolvingSkills.com
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 24 Followed by 
+ Last Problem
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

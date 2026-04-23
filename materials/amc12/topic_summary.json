@@ -1,0 +1,632 @@
+{
+  "per_exam": {
+    "2016-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 8,
+        "Number Theory": 1,
+        "Geometry": 5,
+        "Combinatorics": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Number Theory",
+        "6": "Algebra",
+        "7": "Geometry",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Algebra",
+        "12": "Geometry",
+        "13": "Combinatorics",
+        "14": "Algebra",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.5333333333333333,
+        "Geometry": 0.3333333333333333,
+        "Combinatorics": 0.06666666666666667,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2016-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 10,
+        "Geometry": 5
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Geometry",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.6666666666666666,
+        "Geometry": 0.3333333333333333
+      }
+    },
+    "2017-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 8,
+        "Geometry": 7
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Geometry",
+        "4": "Geometry",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Geometry",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.5333333333333333,
+        "Geometry": 0.4666666666666667
+      }
+    },
+    "2017-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 6,
+        "Geometry": 8,
+        "Number Theory": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Geometry",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Number Theory",
+        "12": "Geometry",
+        "13": "Geometry",
+        "14": "Geometry",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.4,
+        "Geometry": 0.5333333333333333,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2018-AMC12A_Problems": {
+      "counts": {
+        "Combinatorics": 2,
+        "Algebra": 7,
+        "Number Theory": 2,
+        "Geometry": 4
+      },
+      "problems": {
+        "1": "Combinatorics",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Combinatorics",
+        "5": "Algebra",
+        "6": "Number Theory",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Number Theory",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.4666666666666667,
+        "Geometry": 0.26666666666666666,
+        "Combinatorics": 0.13333333333333333,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2018-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 7,
+        "Geometry": 6,
+        "Number Theory": 2
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Geometry",
+        "4": "Geometry",
+        "5": "Algebra",
+        "6": "Algebra",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Algebra",
+        "10": "Algebra",
+        "11": "Geometry",
+        "12": "Geometry",
+        "13": "Geometry",
+        "14": "Number Theory",
+        "15": "Number Theory"
+      },
+      "shares": {
+        "Algebra": 0.4666666666666667,
+        "Geometry": 0.4,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2019-AMC12A_Problems": {
+      "counts": {
+        "Geometry": 5,
+        "Algebra": 7,
+        "Combinatorics": 2,
+        "Number Theory": 1
+      },
+      "problems": {
+        "1": "Geometry",
+        "2": "Algebra",
+        "3": "Combinatorics",
+        "4": "Algebra",
+        "5": "Geometry",
+        "6": "Geometry",
+        "7": "Combinatorics",
+        "8": "Algebra",
+        "9": "Number Theory",
+        "10": "Geometry",
+        "11": "Algebra",
+        "12": "Algebra",
+        "13": "Geometry",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.4666666666666667,
+        "Geometry": 0.3333333333333333,
+        "Combinatorics": 0.13333333333333333,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2019-AMC12B_Problems": {
+      "counts": {
+        "Geometry": 7,
+        "Combinatorics": 2,
+        "Number Theory": 1,
+        "Algebra": 5
+      },
+      "problems": {
+        "1": "Geometry",
+        "2": "Combinatorics",
+        "3": "Geometry",
+        "4": "Number Theory",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Algebra",
+        "8": "Algebra",
+        "9": "Geometry",
+        "10": "Geometry",
+        "11": "Algebra",
+        "12": "Geometry",
+        "13": "Combinatorics",
+        "14": "Algebra",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.3333333333333333,
+        "Geometry": 0.4666666666666667,
+        "Combinatorics": 0.13333333333333333,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2020-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 5,
+        "Geometry": 8,
+        "Number Theory": 2
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Geometry",
+        "3": "Algebra",
+        "4": "Number Theory",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Geometry",
+        "8": "Algebra",
+        "9": "Algebra",
+        "10": "Number Theory",
+        "11": "Geometry",
+        "12": "Geometry",
+        "13": "Geometry",
+        "14": "Geometry",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.3333333333333333,
+        "Geometry": 0.5333333333333333,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2020-AMC12B_Problems": {
+      "counts": {
+        "Geometry": 8,
+        "Algebra": 5,
+        "Number Theory": 1,
+        "Combinatorics": 1
+      },
+      "problems": {
+        "1": "Geometry",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Number Theory",
+        "7": "Geometry",
+        "8": "Algebra",
+        "9": "Geometry",
+        "10": "Geometry",
+        "11": "Geometry",
+        "12": "Geometry",
+        "13": "Geometry",
+        "14": "Combinatorics",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.3333333333333333,
+        "Geometry": 0.5333333333333333,
+        "Combinatorics": 0.06666666666666667,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2021-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 9,
+        "Combinatorics": 2,
+        "Number Theory": 2,
+        "Geometry": 2
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Combinatorics",
+        "3": "Number Theory",
+        "4": "Algebra",
+        "5": "Number Theory",
+        "6": "Combinatorics",
+        "7": "Algebra",
+        "8": "Algebra",
+        "9": "Algebra",
+        "10": "Geometry",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.6,
+        "Geometry": 0.13333333333333333,
+        "Combinatorics": 0.13333333333333333,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2021-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 10,
+        "Geometry": 5
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Geometry",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Algebra",
+        "10": "Algebra",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Geometry",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.6666666666666666,
+        "Geometry": 0.3333333333333333
+      }
+    },
+    "2021-Fall-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 5,
+        "Geometry": 7,
+        "Number Theory": 3
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Geometry",
+        "3": "Algebra",
+        "4": "Number Theory",
+        "5": "Geometry",
+        "6": "Geometry",
+        "7": "Algebra",
+        "8": "Number Theory",
+        "9": "Geometry",
+        "10": "Number Theory",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Geometry",
+        "14": "Geometry",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.3333333333333333,
+        "Geometry": 0.4666666666666667,
+        "Number Theory": 0.2
+      }
+    },
+    "2021-Fall-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 7,
+        "Geometry": 5,
+        "Number Theory": 2,
+        "Combinatorics": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Geometry",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Number Theory",
+        "6": "Number Theory",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Geometry",
+        "11": "Combinatorics",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.4666666666666667,
+        "Geometry": 0.3333333333333333,
+        "Combinatorics": 0.06666666666666667,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2022-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 8,
+        "Geometry": 6,
+        "Number Theory": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Geometry",
+        "4": "Number Theory",
+        "5": "Geometry",
+        "6": "Algebra",
+        "7": "Geometry",
+        "8": "Geometry",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Algebra",
+        "12": "Geometry",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.5333333333333333,
+        "Geometry": 0.4,
+        "Number Theory": 0.06666666666666667
+      }
+    },
+    "2022-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 9,
+        "Geometry": 5,
+        "Combinatorics": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Geometry",
+        "3": "Algebra",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Algebra",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Algebra",
+        "10": "Geometry",
+        "11": "Algebra",
+        "12": "Combinatorics",
+        "13": "Geometry",
+        "14": "Geometry",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.6,
+        "Geometry": 0.3333333333333333,
+        "Combinatorics": 0.06666666666666667
+      }
+    },
+    "2023-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 9,
+        "Number Theory": 2,
+        "Combinatorics": 1,
+        "Geometry": 3
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Number Theory",
+        "4": "Algebra",
+        "5": "Combinatorics",
+        "6": "Geometry",
+        "7": "Number Theory",
+        "8": "Algebra",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Algebra",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.6,
+        "Geometry": 0.2,
+        "Combinatorics": 0.06666666666666667,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2023-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 9,
+        "Geometry": 5,
+        "Combinatorics": 1
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Geometry",
+        "4": "Algebra",
+        "5": "Algebra",
+        "6": "Algebra",
+        "7": "Algebra",
+        "8": "Algebra",
+        "9": "Geometry",
+        "10": "Geometry",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Combinatorics",
+        "14": "Algebra",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.6,
+        "Geometry": 0.3333333333333333,
+        "Combinatorics": 0.06666666666666667
+      }
+    },
+    "2024-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 8,
+        "Number Theory": 5,
+        "Geometry": 2
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Number Theory",
+        "4": "Number Theory",
+        "5": "Algebra",
+        "6": "Number Theory",
+        "7": "Geometry",
+        "8": "Algebra",
+        "9": "Number Theory",
+        "10": "Geometry",
+        "11": "Number Theory",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Algebra",
+        "15": "Algebra"
+      },
+      "shares": {
+        "Algebra": 0.5333333333333333,
+        "Geometry": 0.13333333333333333,
+        "Number Theory": 0.3333333333333333
+      }
+    },
+    "2024-AMC12B_Problems": {
+      "counts": {
+        "Algebra": 9,
+        "Combinatorics": 1,
+        "Number Theory": 2,
+        "Geometry": 3
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Combinatorics",
+        "5": "Algebra",
+        "6": "Number Theory",
+        "7": "Geometry",
+        "8": "Algebra",
+        "9": "Geometry",
+        "10": "Algebra",
+        "11": "Algebra",
+        "12": "Algebra",
+        "13": "Algebra",
+        "14": "Number Theory",
+        "15": "Geometry"
+      },
+      "shares": {
+        "Algebra": 0.6,
+        "Geometry": 0.2,
+        "Combinatorics": 0.06666666666666667,
+        "Number Theory": 0.13333333333333333
+      }
+    },
+    "2025-AMC12A_Problems": {
+      "counts": {
+        "Algebra": 7,
+        "Combinatorics": 4,
+        "Geometry": 4
+      },
+      "problems": {
+        "1": "Algebra",
+        "2": "Algebra",
+        "3": "Algebra",
+        "4": "Combinatorics",
+        "5": "Algebra",
+        "6": "Combinatorics",
+        "7": "Algebra",
+        "8": "Geometry",
+        "9": "Algebra",
+        "10": "Geometry",
+        "11": "Geometry",
+        "12": "Algebra",
+        "13": "Combinatorics",
+        "14": "Geometry",
+        "15": "Combinatorics"
+      },
+      "shares": {
+        "Algebra": 0.4666666666666667,
+        "Geometry": 0.26666666666666666,
+        "Combinatorics": 0.26666666666666666
+      }
+    }
+  },
+  "overall_counts": {
+    "Algebra": 158,
+    "Number Theory": 28,
+    "Geometry": 110,
+    "Combinatorics": 19
+  },
+  "total_problems": 315
+}

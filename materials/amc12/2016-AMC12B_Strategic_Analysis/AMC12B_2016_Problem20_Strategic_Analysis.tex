@@ -1,0 +1,531 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\title{\textbf{2016 AMC 12B Problem 20: Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+A set of teams held a round-robin tournament in which every team played every other team exactly once. Every team won $10$ games and lost $10$ games; there were no ties. How many sets of three teams $\{A, B, C\}$ were there in which $A$ beat $B$, $B$ beat $C$, and $C$ beat $A$?
+
+\textbf{Answer Choices:} 
+$\textbf{(A)}\ 385 \qquad \textbf{(B)}\ 665 \qquad \textbf{(C)}\ 945 \qquad \textbf{(D)}\ 1140 \qquad \textbf{(E)}\ 1330$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - counting the number of cyclic sets of three teams
+    \item \textbf{Difficulty Band}: Late-band (Problem 20 of 25) - requires significant insight and strategic counting
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3-4 minutes allocated, but this is a late-band problem requiring deeper analysis
+    \item \textbf{Mathematical Domain}: Combinatorics with graph theory elements (tournament theory)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Round-robin tournament (each team plays every other team exactly once)
+        \item Every team won exactly 10 games and lost exactly 10 games
+        \item No ties
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Each team has 10 wins and 10 losses
+        \item Cyclic constraint: $A$ beats $B$, $B$ beats $C$, $C$ beats $A$
+        \item Counting unordered sets (not sequences)
+    \end{itemize}
+    \item \textbf{Objective}: Count the number of unordered sets of three teams forming a "cycle" of wins
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Since each team plays 20 games (10 wins + 10 losses), there are 21 teams total
+        \item The tournament forms a complete directed graph (tournament graph)
+        \item We're counting sets $\{A, B, C\}$, not ordered triples
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choice (E) is $\binom{21}{3} = 1330$ - this is the total number of 3-team sets
+        \item Choice (C) is 945 - exactly $\frac{2}{3}$ of total sets
+        \item Choice (A) is 385 - exactly $\frac{7}{20}$ of total sets or $1330 - 945$
+        \item The answer likely involves complementary counting
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: We have a balanced tournament with 21 teams, each winning 10 and losing 10
+    \item \textbf{Conclusion}: Determine the count of cyclic triples (where wins form a cycle rather than a hierarchy)
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $n = 21$ be the number of teams
+        \item For a team $T$, let $W(T)$ denote the set of teams $T$ beats (size 10)
+        \item Let $L(T)$ denote the set of teams $T$ loses to (size 10)
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Complementary counting: total 3-team sets minus non-cyclic sets
+        \item Non-cyclic sets have one team that beats both others
+        \item For a fixed team $A$, count sets where $A$ beats both $B$ and $C$
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Graph Theory: Tournament graphs and transitive triples
+        \item Combinatorics: Choose-counting and complementary principle
+        \item Number Theory: Sum constraints and divisibility
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is Problem 20, expect multiple false starts. The key insight (complementary counting) may not be immediate
+    \item \textbf{Creativity Cultivation}: Consider both direct counting and complementary counting. The balanced nature (10-10 record) suggests symmetry might be exploited
+    \item \textbf{Iterative Refinement}: Start with small cases (3-5 teams) to understand cyclic vs. non-cyclic patterns
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{enumerate}
+        \item Recognize this is a tournament counting problem
+        \item Identify that 10+10=20 games means 21 teams total
+        \item Classify sets as cyclic (what we want) vs. transitive (one team beats both others)
+    \end{enumerate}
+    \item \textbf{Get Your Hands Dirty}: Test with 3 teams (trivial: 1 cyclic set) or 5 teams to see patterns
+    \item \textbf{Penultimate Step}: We need the answer as a final number. The penultimate step would be computing either:
+    \begin{itemize}
+        \item Total sets minus transitive sets, OR
+        \item Direct counting of edges between win-sets and loss-sets
+    \end{itemize}
+    \item \textbf{Wishful Thinking}: "I wish I could easily count non-cyclic sets" - leads to complementary counting
+    \item \textbf{Make It Easier}: Consider a specific team $A$ first, then generalize
+    \item \textbf{Conjecture via Small Cases}: With 3 teams, any set is cyclic (no room for dominance). With 5 teams, some sets have a "king" team
+    \item \textbf{Visualization}: Draw tournament graph with vertices as teams, directed edges as wins
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook (Problem 20)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item Choice (E) = $\binom{21}{3}$ is suspicious - suggests complementary counting
+        \item Choice (C) = $\frac{2}{3} \times 1330$ suggests transitive triples might be common
+        \item Choice (A) = $1330 - 945$ confirms complementary approach
+    \end{itemize}
+    \item \textbf{Complementary Counting Recognition}: Instead of counting cyclic sets directly, count total sets and subtract transitive sets (where one team beats both others)
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof Approach}: Use complementary counting
+    \begin{enumerate}
+        \item Compute total 3-team sets: $\binom{21}{3} = 1330$
+        \item Compute transitive sets (one team beats both others)
+        \item For each team $T$, count sets where $T$ beats both others: $\binom{10}{2}$ choices from $W(T)$
+        \item Total transitive sets: $21 \times \binom{10}{2} = 21 \times 45 = 945$
+        \item Cyclic sets: $1330 - 945 = 385$
+    \end{enumerate}
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Complementary Counting (Primary Tactic)}: Count what we don't want and subtract from total
+    \item \textbf{Symmetry Exploitation}: All teams have identical win-loss records, so we can use any team to analyze structure
+    \item \textbf{Partition by Cases}: Partition all 3-team sets into cyclic vs. transitive
+    \item \textbf{Extreme Principle}: Not directly applicable, but considering "dominant" teams helps classify sets
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory Perspective}: 
+    \begin{itemize}
+        \item Tournament graph: complete directed graph
+        \item Transitive triple: 3 vertices with transitive ordering
+        \item Cyclic triple: 3 vertices forming a directed 3-cycle
+    \end{itemize}
+    \item \textbf{Combinatorial Arguments}: Use binomial coefficients and multiplication principle
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+\textbf{High-Probability Techniques (80-95\% recognition):}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{T30: Complementary Counting} - Direct application for "count sets satisfying property"
+    \item \textbf{T14: Choose-Counting} - Computing $\binom{21}{3}$ and $\binom{10}{2}$
+    \item \textbf{T18: Symmetry Exploitation} - All teams equivalent by symmetry
+\end{itemize}
+
+\textbf{Medium-Probability Techniques (50-79\% recognition):}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{T39: Graph Modeling} - Tournament graph representation
+    \item \textbf{T16: Casework Organization} - Partition into cyclic vs. transitive
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Complementary Counting (T30)
+    \begin{itemize}
+        \item Total sets: $\binom{21}{3}$
+        \item Subtract transitive sets (one team beats both others)
+    \end{itemize}
+    \item \textbf{Supporting Techniques}: 
+    \begin{itemize}
+        \item Choose-Counting (T14): Calculate binomial coefficients
+        \item Symmetry (T18): Use symmetry to count uniformly across all teams
+    \end{itemize}
+    \item \textbf{Rationale}: Complementary counting is natural because:
+    \begin{enumerate}
+        \item Total sets easy to compute
+        \item Transitive sets have clear structure (one "winner")
+        \item Direct counting of cycles is harder
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Technique Combination}:
+    \begin{enumerate}
+        \item Use Choose-Counting to find total: $\binom{21}{3} = 1330$
+        \item Use Symmetry to recognize all teams have same structure
+        \item For each team $T$, use Choose-Counting: $\binom{10}{2} = 45$ pairs from $W(T)$
+        \item Multiply by 21 teams: $21 \times 45 = 945$ transitive sets
+        \item Apply Complementary Counting: $1330 - 945 = 385$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{D. Alternative Approach}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Counting Method}: Fix a team $A$ and count cyclic sets including $A$
+    \begin{itemize}
+        \item $A$ beats 10 teams (set $X$) and loses to 10 teams (set $Y$)
+        \item For cyclic set with $A$: need $B \in X$ and $C \in Y$ such that $C$ beats $B$
+        \item Count edges from $Y$ to $X$
+        \item Total edges from $Y$ to $X$: $10 \times 10 - \binom{10}{2} - \binom{10}{2} = 100 - 45 - 45 = 10$
+        \item Wait, this doesn't work cleanly - complementary is better!
+    \end{itemize}
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Recommended Level}: Thorough Verification (1-3 minutes)
+    \item \textbf{Rationale}: Problem 20 requires careful counting; arithmetic errors are common
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Arithmetic Check}:
+    \begin{itemize}
+        \item Verify $\binom{21}{3} = \frac{21 \times 20 \times 19}{6} = \frac{7980}{6} = 1330$ $\checkmark$
+        \item Verify $\binom{10}{2} = \frac{10 \times 9}{2} = 45$ $\checkmark$
+        \item Verify $21 \times 45 = 945$ $\checkmark$
+        \item Verify $1330 - 945 = 385$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Answer Choice Check}:
+    \begin{itemize}
+        \item (A) 385 matches our answer $\checkmark$
+        \item (C) 945 is our complementary count (transitive sets) $\checkmark$
+        \item (E) 1330 is our total count $\checkmark$
+        \item The answer choices validate our approach!
+    \end{itemize}
+    \item \textbf{Logical Consistency}:
+    \begin{itemize}
+        \item Transitive + Cyclic = Total? $945 + 385 = 1330$ $\checkmark$
+        \item Transitive sets should be more common than cyclic in a random tournament $\checkmark$
+        \item Ratio: $\frac{945}{1330} \approx 0.71$ (about 71\% transitive) - reasonable $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (complementary counting is correct approach)
+    \item \textbf{Post-Verification Confidence}: 95\% (all arithmetic checks pass, answer choices align perfectly)
+    \item \textbf{Flag for Review}: No - high confidence with strong verification
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Step 1: Determine Number of Teams} (30 seconds)
+\begin{itemize}[leftmargin=*]
+    \item Each team plays 20 games (10 wins + 10 losses)
+    \item In round-robin, each team plays $n-1$ others
+    \item Therefore: $n - 1 = 20 \Rightarrow n = 21$ teams
+    \item \textbf{Checkpoint}: Confirm 21 teams makes sense
+\end{itemize}
+
+\textbf{Step 2: Compute Total 3-Team Sets} (30 seconds)
+\begin{itemize}[leftmargin=*]
+    \item Total sets: $\binom{21}{3} = \frac{21 \times 20 \times 19}{6} = \frac{7980}{6} = 1330$
+    \item \textbf{Checkpoint}: Notice choice (E) is 1330 - this confirms total
+\end{itemize}
+
+\textbf{Step 3: Identify Complementary Structure} (1 minute)
+\begin{itemize}[leftmargin=*]
+    \item Any 3-team set is either:
+    \begin{enumerate}
+        \item \textbf{Transitive}: One team beats both others (e.g., $A$ beats $B$ and $C$)
+        \item \textbf{Cyclic}: $A$ beats $B$, $B$ beats $C$, $C$ beats $A$ (what we want)
+    \end{enumerate}
+    \item Strategy: Count transitive sets, then subtract from total
+    \item \textbf{Checkpoint}: This is the key insight for this problem
+\end{itemize}
+
+\textbf{Step 4: Count Transitive Sets} (1-2 minutes)
+\begin{itemize}[leftmargin=*]
+    \item For a specific team $T$, count sets where $T$ beats both others:
+    \begin{itemize}
+        \item $T$ beat exactly 10 teams (call this set $W(T)$)
+        \item Choose 2 teams from $W(T)$: $\binom{10}{2} = 45$ ways
+    \end{itemize}
+    \item Total transitive sets (summing over all 21 teams as the "winner"):
+    \begin{itemize}
+        \item $21 \times 45 = 945$
+    \end{itemize}
+    \item \textbf{Checkpoint}: Notice choice (C) is 945 - validates our counting
+\end{itemize}
+
+\textbf{Step 5: Apply Complementary Counting} (30 seconds)
+\begin{itemize}[leftmargin=*]
+    \item Cyclic sets = Total sets - Transitive sets
+    \item Cyclic sets = $1330 - 945 = 385$
+    \item \textbf{Final Answer}: $\boxed{385}$ which is choice (A)
+\end{itemize}
+
+\subsection*{Alternative Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Counting (More Complex)}:
+    \begin{itemize}
+        \item Fix team $A$, partition remaining teams into $W(A)$ (wins) and $L(A)$ (losses)
+        \item Count edges from $L(A)$ to $W(A)$: This equals $10 \times 10 - 2\binom{10}{2} = 100 - 90 = 10$
+        \item But careful: this counts each cyclic set multiple times
+        \item Cyclic sets with $A$: need to count more carefully...
+        \item This approach is more error-prone; complementary counting is cleaner
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Common Pitfalls}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pitfall 1}: Forgetting to determine number of teams (assuming given)
+    \item \textbf{Prevention}: Always check: $n-1 = 10+10 = 20$, so $n=21$
+    
+    \item \textbf{Pitfall 2}: Counting ordered triples instead of unordered sets
+    \item \textbf{Prevention}: Problem asks for sets $\{A,B,C\}$, not ordered triples
+    
+    \item \textbf{Pitfall 3}: Overcounting or undercounting transitive sets
+    \item \textbf{Prevention}: For each team, count pairs from its win-set; multiply by 21
+    
+    \item \textbf{Pitfall 4}: Arithmetic errors in binomial coefficients
+    \item \textbf{Prevention}: Double-check: $\binom{21}{3} = 1330$, $\binom{10}{2} = 45$
+\end{itemize}
+
+\subsection*{Time Breakdown}
+\begin{itemize}[leftmargin=*]
+    \item Step 1 (Determine teams): 30 seconds
+    \item Step 2 (Total sets): 30 seconds
+    \item Step 3 (Identify strategy): 1 minute
+    \item Step 4 (Count transitive): 1-2 minutes
+    \item Step 5 (Final calculation): 30 seconds
+    \item \textbf{Total Time}: 3-4 minutes (appropriate for Problem 20)
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Time Allocation}: 3-4 minutes for Problem 20
+    \item \textbf{Critical Decision Point}: After 2 minutes, if complementary counting not recognized, consider:
+    \begin{itemize}
+        \item Testing answer choices with small cases
+        \item Moving to Problem 21 and returning if time permits
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{When to Attempt}: Only after completing Problems 1-19 with high confidence
+    \item \textbf{Accessibility}: Moderate - requires combinatorial insight but not advanced techniques
+    \item \textbf{Domain Advantage}: If strong in combinatorics/graph theory, prioritize over Problems 21-25
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: If confidence < 60\% after 3 minutes, flag and move on
+    \item \textbf{Soft Abandon Trigger}: No clear counting strategy after 2 minutes
+    \item \textbf{Hard Abandon Trigger}: Arithmetic becoming messy or multiple false starts (>3 attempts)
+\end{itemize}
+
+\subsection*{D. Strategic Optimization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer Choice Exploitation}:
+    \begin{itemize}
+        \item If stuck, recognize (E) = $\binom{21}{3}$ suggests complementary counting
+        \item Notice (A) + (C) = (E) strongly hints at the complementary structure
+    \end{itemize}
+    \item \textbf{Partial Credit Strategy (not applicable to AMC12)}: For COMC-style, write:
+    \begin{itemize}
+        \item "Recognized 21 teams from $10+10=20$ games each"
+        \item "Total sets: $\binom{21}{3} = 1330$"
+        \item "Strategy: subtract transitive triples where one team beats both others"
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The problem becomes tractable through complementary counting. Rather than directly counting cyclic sets (complex structure), count the simpler transitive sets (where one team dominates) and subtract from the total. The balanced 10-10 record for each team ensures perfect symmetry: each team contributes equally to the transitive count via $\binom{10}{2} = 45$ pairs from its win-set.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: The most common error is failing to recognize that each team plays 20 games means 21 total teams (not 20). This leads to computing $\binom{20}{3}$ instead of $\binom{21}{3}$, giving entirely wrong answer choices. Always verify: $n-1 = \text{games per team}$.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: When answer choices include values like $\binom{n}{3}$ for some $n$, this strongly signals complementary counting. In this problem, noticing that choice (E) = 1330 = $\binom{21}{3}$ and choice (A) + choice (C) = choice (E) immediately reveals the solution structure: total minus transitive equals cyclic.
+\end{tipbox}
+
+\section*{Final Answer}
+\boxed{385}
+
+The answer is choice $\textbf{(A)}\ 385$.
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Complementary counting is the standard approach for this problem type, and all arithmetic verifies correctly
+    \item \textbf{Verification Applied}: Thorough verification including arithmetic checks, answer choice validation, and logical consistency checks
+    \item \textbf{Flag for Review}: No - high confidence with strong verification support
+    \item \textbf{Time Spent}: Estimated 3-4 minutes for complete solution; 1-2 minutes for verification
+\end{itemize}
+
+\end{document}

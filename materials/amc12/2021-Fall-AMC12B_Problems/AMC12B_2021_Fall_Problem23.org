@@ -1,0 +1,175 @@
+2021 AMC 12B Problems/Problem 23
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3 (casework bash)
+5 Solution 4
+6 Solution 5
+7 Solution 6
+8 Video Solution by OmegaLearn
+9 Video Solution
+10 Video Solution by The Power Of Logic
+11 See Also
+Problem
+What is the average number of pairs of consecutive integers in a randomly selected subset of $5$ distinct integers chosen from the set $\{ 1, 2, 3, …, 30\}$ ? (For example the set $\{1, 17, 18, 19, 30\}$ has $2$ pairs of consecutive integers.)
+$\textbf{(A)}\ \frac{2}{3} \qquad\textbf{(B)}\ \frac{29}{36} \qquad\textbf{(C)}\ \frac{5}{6} \qquad\textbf{(D)}\ \frac{29}{30} \qquad\textbf{(E)}\ 1$
+Solution 1
+There are $29$ possible pairs of consecutive integers, namely $p_1=\{1,2\}, \cdots, p_{29}=\{29,30\}$ . 
+Define a random variable $X_i$ , with $X_i=1$ , if $p_i$ is part of the 5-element subset, and $0$ otherwise. 
+Then the number of pairs of consecutive integers in a $5$ -element selection is given by the sum $X_1+\cdots + X_{29}$ . By linearity of expectation, the expected value is equal to the sum of the $\mathbb{E}[X_i]$ :
+
+\[\mathbb{E}[X_1+\cdots +X_{29}]=\mathbb{E}[X_1]+\cdots + \mathbb{E}[X_{29}]\]
+
+To compute $\mathbb{E}[X_i]$ , note that $X_i=1$ for a total of $_{28}C_3$ out of $_{30}C_5$ possible selections. Thus
+
+\[\mathbb{E}[X_i]=\frac{\binom{28}{3}}{\binom{30}{5}}= \frac 1{29}\cdot \frac 23, \quad \textrm{which implies} \quad \mathbb{E}[X_1+\cdots +X_{29}]= \boxed{\textbf{(A)}\ \frac{2}{3}}.\]
+
+~kingofpineapplz
+Solution 2
+Alternatively, using linearity of expectation on the chosen subset: there are ${5 \choose 2}$ pairs of integers. There are 29 pairs of consecutive integers out of ${30 \choose 2}$ possible pairs, thus the probability that any given pair is consecutive is $\frac{29}{{30 \choose 2}}$ . By linearity of expectation, there are $\frac{{5 \choose 2}29}{{30 \choose 2}} = \frac{10 \cdot 29}{\frac{30 \cdot 29}{2}} = \boxed{\textbf{(A)}\ \frac{2}{3}}$ such pairs on average.
+~MT
+Solution 3 (casework bash)
+We will proceed with some casework. 
+Let $n$ be the number of sets of consecutive numbers in the subset.
+Note that the maximum possible value of $n$ is $4.$ Case $1$ : $n = 4$ There is only one way to arrange the distribution of the number of elements in each block here. There are $\dbinom{26}{1} = 26$ ways to arrange where that block of $5$ numbers will go, so a total of $1 \cdot 26 = 26$ ways for this case.
+Case $2$ : $n = 3$ There are $4$ ways to arrange the distribution of the number of elements in each block here. (4-1, 3-2, 2-3, 1-4). There are $\dbinom{26}{2}$ ways to arrange where those two blocks of numbers go among the other numbers such that no two of those blocks are adjacent to each other. Total for this case: $4 \cdot 325 = 1300.$ Case $3$ : $n = 2$ By Stars and Bars, there are $\dbinom{4}{2} = 6$ ways to arrange the distribution of the number of elements in each block here. There are $\dbinom{26}{3}$ ways to arrange where those three blocks of numbers go among the other numbers such that no two of those blocks are adjacent to each other. Total for this case: $6 \cdot 2600 = 15600.$ Case $4$ : $n = 1$ By Stars and Bars, there are $\dbinom{4}{3} = 4$ ways to arrange the distribution of the number of elements in each block here. There are $\dbinom{26}{4}$ ways to arrange where those four blocks of numbers go among the other numbers such that no two of those blocks are adjacent to each other. Total for this case: $4 \cdot 14950 = 59800.$ Since the last case $n=0$ doesn't contribute to the expected value sum, we can ignore it. 
+Using the expected value formula, our desired value is
+
+\[\frac{4 \cdot 26 + 3 \cdot 1300 + 2 \cdot 15600 + 1 \cdot 59800}{\tbinom{30}{5}} = \frac{95004}{142506} = \boxed{\frac{2}{3}}.\]
+-fidgetboss_4000
+Solution 4
+We define an outcome as $\left( a_1 ,\cdots, a_5 \right)$ with $1 \leq a_1 < a_2 < a_3 < a_4 < a_5 \leq 30$ .
+We denote by $\Omega$ the sample space. Hence. $| \Omega | = \binom{30}{5}$ .
+$\textbf{Case 1}$ : There is only 1 pair of consecutive integers.
+$\textbf{Case 1.1}$ : $\left( a_1 , a_2 \right)$ is the single pair of consecutive integers.
+We denote by $E_{11}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{11} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_3 \geq a_1 + 3 \\ a_4 \geq a_3 + 2 \\ a_5 \geq a_4 + 2 \\ a_5 \leq 30 \\ a_1, a_3, a_4, a_5 \in \Bbb N \end{array} \right..\]
+Denote $b_1 = a_1 - 1$ , $b_2 = a_3 - a_1 - 3$ , $b_3 = a_4 - a_3 - 2$ , $b_4 = a_5 - a_4 - 2$ , $b_5 = 30 - a_5$ .
+Hence, $| E_{11} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} b_1 + b_2 + b_3 + b_4 + b_5 = 22 \\ b_1, b_2 , b_3, b_4, b_5 \mbox{ are non-negative integers } \end{array} \right..\]
+Therefore, $| E_{11} | = \binom{22 + 5 - 1}{5 - 1} = \binom{26}{4}$ .
+$\textbf{Case 1.2}$ : $\left( a_2 , a_3 \right)$ is the single pair of consecutive integers.
+We denote by $E_{12}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{12} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_4 \geq a_2 + 3 \\ a_5 \geq a_4 + 2 \\ a_5 \leq 30 \\ a_1, a_2, a_4, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{12} | = \binom{22 + 5 - 1}{5 - 1} = \binom{26}{4}$ .
+$\textbf{Case 1.3}$ : $\left( a_3 , a_4 \right)$ is the single pair of consecutive integers.
+We denote by $E_{13}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{13} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_3 \geq a_2 + 2 \\ a_5 \geq a_3 + 3 \\ a_5 \leq 30 \\ a_1, a_2, a_3, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{13} | = \binom{22 + 5 - 1}{5 - 1} = \binom{26}{4}$ .
+$\textbf{Case 1.4}$ : $\left( a_4 , a_5 \right)$ is the single pair of consecutive integers.
+We denote by $E_{14}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{14} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_3 \geq a_2 + 2 \\ a_4 \geq a_3 + 2 \\ a_4 \leq 29 \\ a_1, a_2, a_3, a_4 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{14} | = \binom{22 + 5 - 1}{5 - 1} = \binom{26}{4}$ .
+$\textbf{Case 2}$ : There are 2 pairs of consecutive integers.
+$\textbf{Case 2.1}$ : $\left( a_1 , a_2 \right)$ and $\left( a_2 , a_3 \right)$ are two pairs of consecutive integers.
+We denote by $E_{21}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{21} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_4 \geq a_1 + 4 \\ a_5 \geq a_4 + 2 \\ a_5 \leq 30 \\ a_1, a_4, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{21} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 2.2}$ : $\left( a_1 , a_2 \right)$ and $\left( a_3 , a_4 \right)$ are two pairs of consecutive integers.
+We denote by $E_{22}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{22} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_3 \geq a_1 + 3 \\ a_5 \geq a_3 + 3 \\ a_5 \leq 30 \\ a_1, a_3, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{22} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 2.3}$ : $\left( a_1 , a_2 \right)$ and $\left( a_4 , a_5 \right)$ are two pairs of consecutive integers.
+We denote by $E_{23}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{23} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_3 \geq a_1 + 3 \\ a_4 \geq a_3 + 2 \\ a_4 \leq 29 \\ a_1, a_3, a_4 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{23} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 2.4}$ : $\left( a_2 , a_3 \right)$ and $\left( a_3 , a_4 \right)$ are two pairs of consecutive integers.
+We denote by $E_{24}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{24} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_5 \geq a_2 + 4 \\ a_5 \leq 30 \\ a_1, a_2, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{24} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 2.5}$ : $\left( a_2 , a_3 \right)$ and $\left( a_4 , a_5 \right)$ are two pairs of consecutive integers.
+We denote by $E_{25}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{25} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_4 \geq a_2 + 3 \\ a_4 \leq 29 \\ a_1, a_2, a_4 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{25} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 2.6}$ : $\left( a_3 , a_4 \right)$ and $\left( a_4 , a_5 \right)$ are two pairs of consecutive integers.
+We denote by $E_{26}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{26} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_3 \geq a_2 + 2 \\ a_3 \leq 28 \\ a_1, a_2, a_3 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{26} | = \binom{23 + 4 - 1}{4 - 1} = \binom{26}{3}$ .
+$\textbf{Case 3}$ : There are 3 pairs of consecutive integers.
+$\textbf{Case 3.1}$ : $\left( a_1 , a_2 \right)$ , $\left( a_2 , a_3 \right)$ and $\left( a_3 , a_4 \right)$ are three pairs of consecutive integers.
+We denote by $E_{31}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{31} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_5 \geq a_1 + 5 \\ a_5 \leq 30 \\ a_1, a_5 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{31} | = \binom{24 + 3 - 1}{3 - 1} = \binom{26}{2}$ .
+$\textbf{Case 3.2}$ : $\left( a_1 , a_2 \right)$ , $\left( a_2 , a_3 \right)$ and $\left( a_4 , a_5 \right)$ are three pairs of consecutive integers.
+We denote by $E_{32}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{32} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_4 \geq a_1 + 4 \\ a_4 \leq 29 \\ a_1, a_4 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{32} | = \binom{24 + 3 - 1}{3 - 1} = \binom{26}{2}$ .
+$\textbf{Case 3.3}$ : $\left( a_1 , a_2 \right)$ , $\left( a_3 , a_4 \right)$ and $\left( a_4 , a_5 \right)$ are three pairs of consecutive integers.
+We denote by $E_{33}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{33} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_3 \geq a_1 + 3 \\ a_3 \leq 28 \\ a_1, a_3 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{33} | = \binom{24 + 3 - 1}{3 - 1} = \binom{26}{2}$ .
+$\textbf{Case 3.4}$ : $\left( a_2 , a_3 \right)$ , $\left( a_3 , a_4 \right)$ and $\left( a_4 , a_5 \right)$ are three pairs of consecutive integers.
+We denote by $E_{34}$ the collection of outcomes satisfying this condition.
+Hence, $| E_{34} |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_2 \geq a_1 + 2 \\ a_2 \leq 27 \\ a_1, a_2 \in \Bbb N \end{array} \right..\]
+Similar to our analysis for Case 1.1, $| E_{34} | = \binom{24 + 3 - 1}{3 - 1} = \binom{26}{2}$ .
+$\textbf{Case 4}$ : There are 4 pairs of consecutive integers.
+In this case, $\left( a_1, a_2 , a_3 , a_4 , a_5 \right)$ are consecutive integers.
+We denote by $E_4$ the collection of outcomes satisfying this condition.
+Hence, $| E_4 |$ is the number of outcomes satisfying
+
+\[\left\{ \begin{array}{l} a_1 \geq 1 \\ a_1 \leq 27 \\ a_1 \in \Bbb N \end{array} \right..\]
+Hence, $| E_4 | = 26$ .
+Therefore, the average number of pairs of consecutive integers is 
+
+\begin{align*} & \frac{1}{| \Omega|} \left( 1 \cdot \sum_{i=1}^4 | E_{1i} | + 2 \cdot \sum_{i=1}^6 | E_{2i} | + 3 \cdot \sum_{i=1}^4 | E_{3i} | + 4 \cdot | E_4 | \right) \\ & = \frac{1}{\binom{30}{5}} \left( 4 \binom{26}{4} + 12 \binom{26}{3} + 12 \binom{26}{2} + 4 \cdot 26 \right) \\ & = \frac{2}{3} . \end{align*}
+Therefore, the answer is $\boxed{\textbf{(A) }\frac{2}{3}}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 5
+Let $a_1, a_2, a_3, a_4, a_5$ be the five numbers chosen. Then, we can consider the first number and the four differences, $a_1, a_2-a_1, a_3-a_2, a_4-a_3, a_5-a_4$ . Now, each must be positive integers and the sum is less than or equal to $30$ , which there are $\binom{30}{5}$ by Hockey-Stick Identity. Now, we can use the Linearity of Expectation on $a_2-a_1, a_3-a_2, a_4-a_3, a_5-a_4$ since each of them being $1$ represents a pair of consecutive integer. For each of them, we have $\binom{28}{3}+\binom{27}{3}+...+1=\binom{29}{4}$ . Now, we have four such numbers to consider, and by Linearity of Expectation, its $4\cdot \binom{29}{4}$ . Now, we divide by $\binom{30}{5}$ to get the answer of $\boxed{\textbf{(A)} ~\frac{2}{3}}$ .
+~Hayabusa1
+Solution 6
+We will first list out the possible pairs:
+
+\[(1,2), (2,3), (3,4), (4,5), \ldots (29,30)\]
+
+. Now, we can find the probability of each one and multiply it by $29$ because of Linearity of Expectation. So, we have:
+
+\[29 \cdot \dfrac{\binom{28}{3}}{\binom{30}{5}} = \boxed{\textbf{(A)} ~\frac{2}{3}}\]
+~jb2015007
+Video Solution by OmegaLearn
+https://youtu.be/EE-TtptBHeI?t=541
+~ pi_is_3.14
+Video Solution
+https://youtu.be/OH5H-ic8Pgw
+~MathProblemSolvingSkills.com
+Video Solution by The Power Of Logic
+https://youtu.be/hgsPW2sM1GQ
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 22 Followed by 
+ Problem 24
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

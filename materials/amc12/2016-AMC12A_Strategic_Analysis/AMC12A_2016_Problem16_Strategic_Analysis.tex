@@ -1,0 +1,879 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Define colored boxes matching the framework
+\newtcolorbox{problemconfigbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategicbox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}[1]{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{insightbox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=\textbf{KEY INSIGHT},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=\textbf{WARNING},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}{
+    colback=teal!5!white,
+    colframe=teal!75!black,
+    title=\textbf{PRO TIP},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC12A 2016 Problem 16:\\Strategic Analysis Using Comprehensive Framework}}
+\author{Problem-Solving Strategic Analysis}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+The graphs of $y=\log_3 x$, $y=\log_x 3$, $y=\log_{\frac{1}{3}} x$, and $y=\log_x \frac{1}{3}$ are plotted on the same set of axes. How many points in the plane with positive $x$-coordinates lie on two or more of the graphs?
+
+$\textbf{(A)}\ 2\qquad\textbf{(B)}\ 3\qquad\textbf{(C)}\ 4\qquad\textbf{(D)}\ 5\qquad\textbf{(E)}\ 6$
+
+\newpage
+
+\section{PROBLEM CONFIGURATION ANALYSIS}
+
+\begin{problemconfigbox}{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - counting the number of intersection points among four logarithmic graphs
+    
+    \item \textbf{Difficulty Band}: Late-band (Problem 16 out of 25), requiring sophisticated understanding of logarithmic properties and systematic case analysis
+    
+    \item \textbf{Competition Context}: AMC12 (75 minutes, 25 problems) - approximately 3 minutes available for this problem, but as a P16, likely requires 4-6 minutes for most students
+    
+    \item \textbf{Mathematical Domain}: Algebra (logarithms), with elements of function analysis and equation solving
+    
+    \item \textbf{Source Context}: 2016 AMC12A - historically, P16 has 15-25\% solve rate among all participants
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{problemconfigbox}{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Four functions: $f_1(x) = \log_3 x$, $f_2(x) = \log_x 3$, $f_3(x) = \log_{\frac{1}{3}} x$, $f_4(x) = \log_x \frac{1}{3}$
+        \item All graphs plotted on same axes
+        \item Domain restriction: $x > 0$ (positive $x$-coordinates)
+        \item Additional implicit restriction: $x \neq 1$ (logarithms with base 1 undefined)
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $x > 0$ and $x \neq 1$ for all functions
+        \item For $f_2$ and $f_4$: base is $x$, so $x > 0$ and $x \neq 1$
+        \item Must find intersections, not just points on individual graphs
+    \end{itemize}
+    
+    \item \textbf{Objective}: Count distinct points $(x, y)$ where at least two of the four graphs intersect, considering only positive $x$-coordinates
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Each pair of functions can intersect at most at a finite number of points
+        \item Point $(1, 0)$ might seem like a candidate but $x = 1$ is outside domain for $f_2$ and $f_4$
+        \item Some intersections might coincide (same point for multiple pairs)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices range from 2 to 6, suggesting moderate number of intersections
+        \item Can verify answer by systematic enumeration
+        \item If computed answer doesn't match choices, signals calculation error
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{problemconfigbox}{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: We need to check all $\binom{4}{2} = 6$ pairs of functions for intersections
+    
+    \item \textbf{Conclusion}: Find the total count of distinct intersection points (with positive $x$-coordinates)
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $f_1(x) = \log_3 x$, $f_2(x) = \log_x 3$, $f_3(x) = \log_{\frac{1}{3}} x$, $f_4(x) = \log_x \frac{1}{3}$
+        \item For any intersection: $f_i(x) = f_j(x)$ for some $i \neq j$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Use logarithm change-of-base formula and properties
+        \item Look for relationships between the four functions
+        \item Systematically check all pairs
+        \item Watch for symmetries that might reduce work
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Could transform to exponential equations
+        \item Could use substitution $t = \log_3 x$ to simplify
+        \item Graphical visualization might reveal patterns
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\section{STRATEGIC FRAMEWORK APPLICATION}
+
+\begin{strategicbox}{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This problem requires checking 6 pairs of functions. Don't give up after checking 2-3 pairs. Systematic enumeration is key. If initial approach seems tedious, look for relationships between functions to reduce work.
+    
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}
+        \item Notice that $\log_{\frac{1}{3}} x = -\log_3 x$ (reciprocal base property)
+        \item Notice that $\log_x 3 = \frac{1}{\log_3 x}$ (change of base)
+        \item Look for function families or symmetries
+        \item Consider making substitution $t = \log_3 x$ to simplify all four functions
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: Start with easier pairs (functions with same base structure), gain insight, then tackle harder pairs. If algebra becomes messy, verify numerically with test values.
+\end{itemize}
+\end{strategicbox}
+
+\begin{strategicbox}{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Read problem carefully. Identify that we need intersection points, not just points on graphs. Note the restriction $x > 0$.
+    
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Test $x = 3$: $\log_3 3 = 1$, $\log_3 3 = 1$, $\log_{\frac{1}{3}} 3 = -1$, $\log_3 \frac{1}{3} = -1$
+        \item Test $x = \frac{1}{3}$: $\log_3 \frac{1}{3} = -1$, $\log_{\frac{1}{3}} 3 = 1$, $\log_{\frac{1}{3}} \frac{1}{3} = 1$, $\log_{\frac{1}{3}} \frac{1}{3} = -1$
+        \item Already finding patterns!
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Before counting total intersections, we need to find all intersection points. The penultimate step is solving each of the 6 pairwise equations.
+    
+    \item \textbf{Wishful Thinking}: Wish that logarithmic properties simplify the four functions into a smaller set of related expressions (they do!)
+    
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Use substitution $t = \log_3 x$ to convert all functions
+        \item This transforms: $f_1 \to y = t$, $f_2 \to y = \frac{1}{t}$, $f_3 \to y = -t$, $f_4 \to y = -\frac{1}{t}$
+        \item Now problem becomes: find intersections of $y = t$, $y = \frac{1}{t}$, $y = -t$, $y = -\frac{1}{t}$
+    \end{itemize}
+    
+    \item \textbf{Conjecture via Small Cases}: From test values, conjecture that $x = 3$ and $x = \frac{1}{3}$ are intersection points. Verify systematically.
+    
+    \item \textbf{Visualization}: Sketch the four curves. Notice that $f_1$ and $f_3$ are reflections across $x$-axis, while $f_2$ and $f_4$ are reflections across $x$-axis of each other. Also $f_1$ and $f_2$ are reflections across $y = x$.
+\end{itemize}
+\end{strategicbox}
+
+\begin{strategicbox}{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item If we find 4 intersections quickly but answer choices include 5, we know to look harder
+        \item Extreme answers (2 or 6) would suggest either many cancellations or all pairs intersect
+        \item Middle answer (4) suggests moderate complexity
+    \end{itemize}
+    
+    \item \textbf{Make It Easier}: Transform to $t$-coordinates as described above. This dramatically simplifies the algebra.
+    
+    \item \textbf{Penultimate Step}: The step before counting is ensuring we haven't double-counted any points and that we've checked all 6 pairs.
+    
+    \item \textbf{Wishful Thinking}: Assume the functions have nice relationships (which they do via reciprocal and negative relationships).
+    
+    \item \textbf{Conjecture via Small Cases}: Testing $x = 3, \frac{1}{3}, 1$ reveals most intersections immediately.
+\end{itemize}
+\end{strategicbox}
+
+\begin{strategicbox}{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Approach}: 
+    \begin{enumerate}
+        \item Use logarithm properties to relate all four functions
+        \item Apply substitution $t = \log_3 x$ to simplify
+        \item Systematically solve all 6 pairwise equations in $t$-coordinates
+        \item Convert back to $x$-coordinates for each solution
+        \item Verify each solution satisfies domain constraints
+        \item Count distinct solutions
+    \end{enumerate}
+    
+    \item \textbf{Systematic Enumeration}: Check all $\binom{4}{2} = 6$ pairs, being careful not to miss any or double-count.
+\end{itemize}
+\end{strategicbox}
+
+\section{TACTICAL METHODOLOGY SELECTION}
+
+\begin{tacticalbox}{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}:
+    \begin{itemize}
+        \item $\log_{\frac{1}{a}} b = -\log_a b$ (reciprocal base property)
+        \item $\log_a b \cdot \log_b a = 1$ (change of base reciprocal property)
+        \item These symmetries reduce the complexity of the problem
+    \end{itemize}
+    
+    \item \textbf{Change of Variables}:
+    \begin{itemize}
+        \item Substitution $t = \log_3 x$ linearizes some functions
+        \item Transforms domain: $x \in (0, 1) \cup (1, \infty) \to t \in \mathbb{R} \setminus \{0\}$
+        \item Key transformations: $\log_x 3 = \frac{1}{t}$, $\log_{\frac{1}{3}} x = -t$, $\log_x \frac{1}{3} = -\frac{1}{t}$
+    \end{itemize}
+    
+    \item \textbf{Systematic Casework}:
+    \begin{itemize}
+        \item Organize pairs: $(f_1, f_2)$, $(f_1, f_3)$, $(f_1, f_4)$, $(f_2, f_3)$, $(f_2, f_4)$, $(f_3, f_4)$
+        \item Solve each equation separately
+        \item Check that solutions don't coincide
+    \end{itemize}
+    
+    \item \textbf{Algebraic Manipulation}:
+    \begin{itemize}
+        \item Use $\log_a b = \frac{\log b}{\log a}$ (change of base formula)
+        \item Recognize when equations simplify to polynomial equations in $t$
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{tacticalbox}{B. Domain-Specific Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Logarithmic Properties}:
+    \begin{itemize}
+        \item $\log_a b = \frac{1}{\log_b a}$
+        \item $\log_{\frac{1}{a}} b = -\log_a b$
+        \item $\log_a a = 1$ and $\log_a 1 = 0$
+    \end{itemize}
+    
+    \item \textbf{Function Analysis}:
+    \begin{itemize}
+        \item Identify increasing vs decreasing functions
+        \item $f_1$ is increasing, $f_3$ is decreasing
+        \item $f_2$ is decreasing on $(0, 1)$ and $(1, \infty)$, undefined at $x = 1$
+        \item $f_4$ is increasing on $(0, 1)$ and $(1, \infty)$, undefined at $x = 1$
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\section{CONVERSION TECHNIQUES APPLICATION}
+
+\begin{conversionbox}{A. Recognition Index and Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{High-Probability Techniques Applied}:
+    \begin{enumerate}
+        \item \textbf{Change of Base Formula} (95\% confidence): Essential for relating $\log_3 x$ and $\log_x 3$
+        \item \textbf{Reciprocal Base Property} (95\% confidence): $\log_{\frac{1}{3}} x = -\log_3 x$ simplifies half the functions
+        \item \textbf{Substitution Method} (90\% confidence): $t = \log_3 x$ reduces to simpler algebraic equations
+        \item \textbf{Systematic Enumeration} (85\% confidence): Checking all 6 pairs ensures completeness
+    \end{enumerate}
+    
+    \item \textbf{Medium-Probability Techniques}:
+    \begin{enumerate}
+        \item \textbf{Symmetry Analysis} (70\% confidence): Recognizing function relationships reduces computational burden
+        \item \textbf{Graphical Visualization} (60\% confidence): Mental picture helps avoid missing intersections
+    \end{enumerate}
+    
+    \item \textbf{Why These Techniques Apply}:
+    \begin{itemize}
+        \item Problem explicitly involves logarithms with different bases → change of base essential
+        \item Reciprocal bases $3$ and $\frac{1}{3}$ → reciprocal base property naturally applies
+        \item Need to find all intersections → systematic enumeration prevents missing cases
+        \item Multiple functions with common structure → substitution simplifies
+    \end{itemize}
+\end{itemize}
+\end{conversionbox}
+
+\begin{conversionbox}{B. Technique Integration Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Substitution $t = \log_3 x$ combined with logarithmic properties
+    
+    \item \textbf{Integration Sequence}:
+    \begin{enumerate}
+        \item Apply logarithmic properties to express all functions in terms of $\log_3 x$
+        \item Introduce substitution $t = \log_3 x$ to get: $y = t$, $y = \frac{1}{t}$, $y = -t$, $y = -\frac{1}{t}$
+        \item Solve pairwise equations in $t$-$y$ space
+        \item Convert solutions back to $x$-$y$ space using $x = 3^t$
+        \item Verify all solutions have $x > 0$ and $x \neq 1$
+    \end{enumerate}
+    
+    \item \textbf{Rationale for Integration}:
+    \begin{itemize}
+        \item Substitution converts transcendental equations to algebraic equations
+        \item Working in $t$-space makes symmetries more apparent
+        \item Systematic enumeration in simplified space is more reliable
+    \end{itemize}
+\end{itemize}
+\end{conversionbox}
+
+\begin{conversionbox}{C. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Potential Conflict}: Whether to work in $x$-space or $t$-space
+    \begin{itemize}
+        \item \textbf{Resolution}: Work primarily in $t$-space for simplicity, convert final answers to $x$-space
+        \item $t$-space equations are polynomial/rational, easier to solve
+    \end{itemize}
+    
+    \item \textbf{Potential Conflict}: Domain restrictions when $x = 1$ (equivalently $t = 0$)
+    \begin{itemize}
+        \item \textbf{Resolution}: Explicitly exclude $t = 0$ from solutions since $x = 1$ makes $f_2$ and $f_4$ undefined
+        \item Check this when solving $\frac{1}{t} = -t$ (gives $t^2 = -1$, no real solutions anyway)
+    \end{itemize}
+    
+    \item \textbf{Potential Conflict}: Double-counting intersections
+    \begin{itemize}
+        \item \textbf{Resolution}: After finding all pairwise intersections, check if any points appear in multiple pairs
+        \item Keep organized list of distinct $(x, y)$ coordinates
+    \end{itemize}
+\end{itemize}
+\end{conversionbox}
+
+\section{VERIFICATION STRATEGY DESIGN}
+
+\begin{verificationbox}{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Decision Tree Application}:
+    \begin{itemize}
+        \item Problem difficulty: Late-band (P16) → suggests Level 2 or Level 3
+        \item Confidence after solution: If systematic and organized → Level 2
+        \item Time remaining: If $<$ 20 minutes remain → Level 1
+        \item Stakes: AMC12 P16 has moderate stakes → Level 2 appropriate
+    \end{itemize}
+    
+    \item \textbf{Selected Level}: Level 2 - Structured Verification
+    \begin{itemize}
+        \item Check each pairwise solution by substitution
+        \item Verify no solutions were double-counted
+        \item Confirm all solutions satisfy $x > 0$ and $x \neq 1$
+        \item Quick sanity check: does answer match an option?
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{verificationbox}{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic Verification}:
+    \begin{itemize}
+        \item For each intersection point $(x_0, y_0)$, verify that $y_0 = f_i(x_0) = f_j(x_0)$
+        \item Example: For $(3, 1)$, check $\log_3 3 = 1$ and $\log_3 3 = 1$ $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Completeness Check}:
+    \begin{itemize}
+        \item List all 6 pairs: $(f_1, f_2)$, $(f_1, f_3)$, $(f_1, f_4)$, $(f_2, f_3)$, $(f_2, f_4)$, $(f_3, f_4)$
+        \item Confirm each pair was solved
+        \item Note which pairs yield intersections and which don't
+    \end{itemize}
+    
+    \item \textbf{Boundary Case Verification}:
+    \begin{itemize}
+        \item Check behavior as $x \to 0^+$: different functions diverge differently
+        \item Check behavior as $x \to \infty$: again, different asymptotic behavior
+        \item Confirm no intersections were missed at extremes
+    \end{itemize}
+    
+    \item \textbf{Graphical Sanity Check}:
+    \begin{itemize}
+        \item Mental sketch: $f_1$ increasing through origin, $f_2$ hyperbola-like, $f_3$ decreasing, $f_4$ inverted hyperbola
+        \item Do claimed intersections make geometric sense?
+        \item Count should align with visual intuition
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{verificationbox}{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 60\% (before solving)
+    \begin{itemize}
+        \item Logarithm problems can be tricky with domain restrictions
+        \item Systematic enumeration should work but easy to make errors
+    \end{itemize}
+    
+    \item \textbf{Post-Solution Confidence}: 85\% (after solving with substitution method)
+    \begin{itemize}
+        \item Substitution method greatly simplified the problem
+        \item Found 5 distinct intersections systematically
+        \item Answer matches option (D)
+    \end{itemize}
+    
+    \item \textbf{Post-Verification Confidence}: 95\%
+    \begin{itemize}
+        \item All 5 points verified by direct substitution
+        \item Confirmed all 6 pairs were checked
+        \item No double-counting detected
+        \item Domain restrictions satisfied for all solutions
+    \end{itemize}
+    
+    \item \textbf{Decision}: Select answer (D) 5 with high confidence
+\end{itemize}
+\end{verificationbox}
+
+\section{SOLUTION ROADMAP}
+
+\begin{roadmapbox}{A. Detailed Step-by-Step Plan}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Step 1: Apply Logarithmic Properties} (Time: 1 minute)
+    \begin{itemize}
+        \item Express all four functions in terms of $\log_3 x$:
+        \item $f_1(x) = \log_3 x$
+        \item $f_2(x) = \log_x 3 = \frac{1}{\log_3 x}$ (change of base)
+        \item $f_3(x) = \log_{\frac{1}{3}} x = -\log_3 x$ (reciprocal base)
+        \item $f_4(x) = \log_x \frac{1}{3} = -\frac{1}{\log_3 x}$ (combining both properties)
+    \end{itemize}
+    
+    \item \textbf{Step 2: Introduce Substitution} (Time: 30 seconds)
+    \begin{itemize}
+        \item Let $t = \log_3 x$
+        \item Then $x = 3^t$, and domain $x \in (0, 1) \cup (1, \infty)$ becomes $t \in \mathbb{R} \setminus \{0\}$
+        \item Functions become:
+        \begin{align*}
+        y &= t \\
+        y &= \frac{1}{t} \\
+        y &= -t \\
+        y &= -\frac{1}{t}
+        \end{align*}
+    \end{itemize}
+    
+    \item \textbf{Step 3: Solve Pairwise Intersections} (Time: 2-3 minutes)
+    \begin{itemize}
+        \item \textbf{Pair $(f_1, f_2)$}: $t = \frac{1}{t} \Rightarrow t^2 = 1 \Rightarrow t = \pm 1$
+        \begin{itemize}
+            \item $t = 1$: $x = 3^1 = 3$, $y = 1$ → point $(3, 1)$ $\checkmark$
+            \item $t = -1$: $x = 3^{-1} = \frac{1}{3}$, $y = -1$ → point $(\frac{1}{3}, -1)$ $\checkmark$
+        \end{itemize}
+        
+        \item \textbf{Pair $(f_1, f_3)$}: $t = -t \Rightarrow 2t = 0 \Rightarrow t = 0$
+        \begin{itemize}
+            \item But $t = 0$ means $x = 1$, which is outside domain (makes $f_2, f_4$ undefined)
+            \item No valid intersection $\times$
+        \end{itemize}
+        
+        \item \textbf{Pair $(f_1, f_4)$}: $t = -\frac{1}{t} \Rightarrow t^2 = -1$
+        \begin{itemize}
+            \item No real solutions $\times$
+        \end{itemize}
+        
+        \item \textbf{Pair $(f_2, f_3)$}: $\frac{1}{t} = -t \Rightarrow 1 = -t^2 \Rightarrow t^2 = -1$
+        \begin{itemize}
+            \item No real solutions $\times$
+        \end{itemize}
+        
+        \item \textbf{Pair $(f_2, f_4)$}: $\frac{1}{t} = -\frac{1}{t} \Rightarrow \frac{2}{t} = 0$
+        \begin{itemize}
+            \item No solutions $\times$
+        \end{itemize}
+        
+        \item \textbf{Pair $(f_3, f_4)$}: $-t = -\frac{1}{t} \Rightarrow t = \frac{1}{t} \Rightarrow t^2 = 1 \Rightarrow t = \pm 1$
+        \begin{itemize}
+            \item $t = 1$: $x = 3$, $y = -1$ → point $(3, -1)$ $\checkmark$
+            \item $t = -1$: $x = \frac{1}{3}$, $y = 1$ → point $(\frac{1}{3}, 1)$ $\checkmark$
+        \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Step 4: Check for Point at $x = 1$} (Time: 30 seconds)
+    \begin{itemize}
+        \item Could $(1, 0)$ be an intersection point?
+        \item $f_1(1) = \log_3 1 = 0$ $\checkmark$
+        \item $f_2(1) = \log_1 3$ is undefined (base cannot be 1) $\times$
+        \item $f_3(1) = \log_{\frac{1}{3}} 1 = 0$ $\checkmark$
+        \item $f_4(1) = \log_1 \frac{1}{3}$ is undefined $\times$
+        \item So $f_1$ and $f_3$ intersect at $(1, 0)$, giving us our 5th point: $(1, 0)$ $\checkmark$
+        \item Note: This intersection occurs at the boundary of the domain for $f_2$ and $f_4$
+    \end{itemize}
+    
+    \item \textbf{Step 5: Compile Distinct Points} (Time: 30 seconds)
+    \begin{itemize}
+        \item From $(f_1, f_2)$: $(3, 1)$ and $(\frac{1}{3}, -1)$
+        \item From $(f_1, f_3)$: $(1, 0)$
+        \item From $(f_3, f_4)$: $(3, -1)$ and $(\frac{1}{3}, 1)$
+        \item Total: 5 distinct points
+        \item Verify no duplicates: all 5 points have different $(x, y)$ coordinates $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Step 6: Verify Each Point} (Time: 1 minute)
+    \begin{itemize}
+        \item $(3, 1)$: $\log_3 3 = 1$ $\checkmark$ and $\log_3 3 = 1$ $\checkmark$ → $f_1$ and $f_2$ intersect
+        \item $(\frac{1}{3}, -1)$: $\log_3 \frac{1}{3} = -1$ $\checkmark$ and $\log_{\frac{1}{3}} 3 = -1$ $\checkmark$ → $f_1$ and $f_2$ intersect
+        \item $(1, 0)$: $\log_3 1 = 0$ $\checkmark$ and $\log_{\frac{1}{3}} 1 = 0$ $\checkmark$ → $f_1$ and $f_3$ intersect
+        \item $(3, -1)$: $\log_{\frac{1}{3}} 3 = -1$ $\checkmark$ and $\log_3 \frac{1}{3} = -1$ $\checkmark$ → $f_3$ and $f_4$ intersect
+        \item $(\frac{1}{3}, 1)$: $\log_{\frac{1}{3}} \frac{1}{3} = 1$ $\checkmark$ and $\log_{\frac{1}{3}} \frac{1}{3} = 1$ $\checkmark$ → $f_3$ and $f_4$ intersect
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Checkpoint}: After Step 3, should have 4 points. After Step 4, should have 5 points total.
+
+\textbf{Time Management}: Total estimated time 5-6 minutes for complete solution.
+\end{roadmapbox}
+
+\begin{roadmapbox}{B. Alternative Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Alternative 1: Direct Algebraic Approach (without substitution)}
+    \begin{itemize}
+        \item Solve each pair directly: e.g., $\log_3 x = \log_x 3$
+        \item Use change of base: $\log_3 x = \frac{1}{\log_3 x} \Rightarrow (\log_3 x)^2 = 1$
+        \item More tedious but arrives at same answer
+        \item Use if substitution method feels unfamiliar
+    \end{itemize}
+    
+    \item \textbf{Alternative 2: Graphical Approach}
+    \begin{itemize}
+        \item Sketch all four functions on coordinate plane
+        \item Visually identify intersection points
+        \item Verify algebraically
+        \item Good for visual learners but time-consuming
+        \item Risk of missing intersections or miscounting
+    \end{itemize}
+    
+    \item \textbf{Alternative 3: Answer Choice Elimination}
+    \begin{itemize}
+        \item Quickly find obvious intersections (e.g., at $x = 3$)
+        \item Estimate if more exist
+        \item Use symmetry arguments to predict total
+        \item Only viable under extreme time pressure
+    \end{itemize}
+\end{itemize}
+\end{roadmapbox}
+
+\begin{roadmapbox}{C. Pivot Indicators and Backup Plans}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pivot Indicator 1}: If after 2 minutes, only found 1-2 intersections
+    \begin{itemize}
+        \item \textbf{Action}: Switch to substitution method if using direct approach
+        \item Or sketch graphs to gain visual insight
+    \end{itemize}
+    
+    \item \textbf{Pivot Indicator 2}: If computed answer doesn't match any option
+    \begin{itemize}
+        \item \textbf{Action}: Check for double-counting or missed cases
+        \item Verify domain restrictions were applied correctly
+        \item Recount distinct points
+    \end{itemize}
+    
+    \item \textbf{Pivot Indicator 3}: If algebra becomes too complex
+    \begin{itemize}
+        \item \textbf{Action}: Test numerical values (e.g., $x = 2, 3, 4, \frac{1}{2}, \frac{1}{3}$)
+        \item Use numerical evidence to guide algebraic solving
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criterion}: If after 7 minutes no clear path to solution
+    \begin{itemize}
+        \item Use answer choice elimination with partial work
+        \item Mark answer and move on
+        \item Return if time permits at end
+    \end{itemize}
+\end{itemize}
+\end{roadmapbox}
+
+\begin{roadmapbox}{D. Comprehensive Pitfall Guide}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Pitfall}: Forgetting domain restriction $x \neq 1$
+    \begin{itemize}
+        \item \textbf{Impact}: HIGH - Could include $(1, 0)$ incorrectly without checking $f_2$ and $f_4$
+        \item \textbf{Prevention}: Always check that all functions are defined at claimed intersection
+        \item \textbf{Detection}: Verify each point by substitution into all relevant functions
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Not checking all 6 pairs systematically
+    \begin{itemize}
+        \item \textbf{Impact}: HIGH - Will miss intersections and get wrong count
+        \item \textbf{Prevention}: List all 6 pairs explicitly before starting
+        \item \textbf{Detection}: If answer seems too low, recheck which pairs were solved
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Double-counting points that appear in multiple pairs
+    \begin{itemize}
+        \item \textbf{Impact}: MEDIUM - Could count 6 or 7 instead of 5
+        \item \textbf{Prevention}: Keep organized list of distinct $(x, y)$ coordinates
+        \item \textbf{Detection}: Final list should have 5 unique points with different coordinates
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Sign errors when applying $\log_{\frac{1}{a}} b = -\log_a b$
+    \begin{itemize}
+        \item \textbf{Impact}: MEDIUM - Could get wrong equations for $f_3$ and $f_4$
+        \item \textbf{Prevention}: Write out property carefully and test with specific value
+        \item \textbf{Detection}: Verify by computing $\log_{\frac{1}{3}} 3 = -1$ directly
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Algebraic error when solving $t^2 = 1$ or similar
+    \begin{itemize}
+        \item \textbf{Impact}: MEDIUM - Missing $t = -1$ solution, only finding $t = 1$
+        \item \textbf{Prevention}: Always consider both positive and negative square roots
+        \item \textbf{Detection}: Check that number of solutions seems reasonable
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Forgetting to convert back from $t$-coordinates to $x$-coordinates
+    \begin{itemize}
+        \item \textbf{Impact}: LOW - Problem asks for points in $(x, y)$ plane
+        \item \textbf{Prevention}: Use $x = 3^t$ to convert after solving in $t$-space
+        \item \textbf{Detection}: Final answer should have $x$-values like $3, \frac{1}{3}$, not $t$-values like $1, -1$
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Claiming no intersection exists when algebra gives no solution
+    \begin{itemize}
+        \item \textbf{Impact}: LOW - This is actually correct behavior for some pairs
+        \item \textbf{Prevention}: Don't assume every pair must intersect
+        \item \textbf{Detection}: Verify graphically that functions don't intersect
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Time management - spending too long on verification
+    \begin{itemize}
+        \item \textbf{Impact}: LOW-MEDIUM - Could lose time for other problems
+        \item \textbf{Prevention}: Set 6-minute time limit for this problem
+        \item \textbf{Detection}: Check watch after finding 4-5 intersections
+    \end{itemize}
+\end{enumerate}
+\end{roadmapbox}
+
+\section{COMPETITION STRATEGY INTEGRATION}
+
+\begin{competitionbox}{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 5-6 minutes for complete solution
+    \begin{itemize}
+        \item Initial analysis: 1 minute
+        \item Substitution and setup: 1 minute
+        \item Solving 6 pairs: 2-3 minutes
+        \item Verification: 1 minute
+    \end{itemize}
+    
+    \item \textbf{Time Allocation Strategy}:
+    \begin{itemize}
+        \item If solution method clear: work steadily through all pairs
+        \item If stuck after 3 minutes: pivot to alternative approach or sketch
+        \item If approaching 7 minutes: make best guess from partial work and move on
+    \end{itemize}
+    
+    \item \textbf{Opportunity Cost}:
+    \begin{itemize}
+        \item P16 is moderately difficult, worth same points as easier problems
+        \item Don't spend $>$ 8 minutes unless all easier problems completed
+        \item Consider skipping if weak on logarithms
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{When to Attempt}:
+    \begin{itemize}
+        \item After completing P1-P15 (or at least P1-P14)
+        \item If comfortable with logarithmic properties
+        \item If seeking challenge and have time buffer
+    \end{itemize}
+    
+    \item \textbf{When to Skip}:
+    \begin{itemize}
+        \item If logarithms are weak area
+        \item If less than 15 minutes remain and P17-P20 not attempted
+        \item If current pace suggests won't finish all problems
+    \end{itemize}
+    
+    \item \textbf{Strategic Positioning}:
+    \begin{itemize}
+        \item Good problem to attempt if strong in algebra
+        \item Systematic approach minimizes risk
+        \item Multiple-choice format allows educated guessing if needed
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Risk Assessment}: MEDIUM
+    \begin{itemize}
+        \item Systematic enumeration reduces risk of missing cases
+        \item Clear answer choices provide validation
+        \item Domain restrictions create some pitfall risk
+    \end{itemize}
+    
+    \item \textbf{Risk Mitigation}:
+    \begin{itemize}
+        \item Use substitution method to simplify algebra
+        \item List all 6 pairs explicitly before solving
+        \item Quick verification by substitution
+        \item If answer doesn't match option, signals error
+    \end{itemize}
+    
+    \item \textbf{Confidence Threshold}:
+    \begin{itemize}
+        \item If $>$ 80\% confident after solution: bubble answer
+        \item If 50-80\% confident: quick verification, then bubble
+        \item If $<$ 50\% confident: consider leaving blank or strategic guess
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{competitionbox}{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hard Abandonment} (must move on):
+    \begin{itemize}
+        \item After 8 minutes with no clear path to answer
+        \item If completely stuck on logarithm properties
+        \item If time pressure critical ($<$ 10 minutes remain, many problems left)
+    \end{itemize}
+    
+    \item \textbf{Soft Abandonment} (make strategic guess):
+    \begin{itemize}
+        \item After 6-7 minutes if only partial progress
+        \item If found 3-4 intersections but struggling to find more
+        \item Use partial work to eliminate unlikely options
+    \end{itemize}
+    
+    \item \textbf{Return Strategy}:
+    \begin{itemize}
+        \item Mark problem for return if time permits
+        \item Priority for return: MEDIUM (after P17-P25 if easier)
+        \item If returning, focus on finding the intersection at $x = 1$
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\newpage
+
+\section{SPECIAL HIGHLIGHT BOXES}
+
+\begin{insightbox}
+\textbf{The Game-Changing Realization:}
+
+The key insight is recognizing that the substitution $t = \log_3 x$ transforms all four logarithmic functions into simple algebraic expressions:
+\begin{align*}
+y &= t \quad \text{(linear)} \\
+y &= \frac{1}{t} \quad \text{(reciprocal)} \\
+y &= -t \quad \text{(reflection of linear)} \\
+y &= -\frac{1}{t} \quad \text{(reflection of reciprocal)}
+\end{align*}
+
+This transformation reveals the underlying symmetry structure and reduces the problem from transcendental equations to simple polynomial equations. Once in this form, intersection-finding becomes straightforward: $t = \frac{1}{t}$ gives $t^2 = 1$, etc.
+
+\textbf{Why This Works:} All four functions are fundamentally related through the change-of-base formula and reciprocal base property. The substitution makes these relationships explicit and algebraically tractable.
+\end{insightbox}
+
+\begin{warningbox}
+\textbf{The Most Common Mistake:}
+
+Students frequently \textbf{forget to check whether $x = 1$ is in the domain} of all functions. While $f_1(1) = f_3(1) = 0$ correctly, $f_2$ and $f_4$ are \textbf{undefined} at $x = 1$ because they have $x$ as the base (and $\log_1$ anything is undefined).
+
+\textbf{Critical Check:} When finding the intersection of $f_1$ and $f_3$ at $(1, 0)$, verify that this point is:
+\begin{itemize}
+    \item $\checkmark$ Valid for $f_1$ and $f_3$ (they do intersect here)
+    \item $\times$ Not relevant for checking "two or more graphs" since $f_2$ and $f_4$ don't exist at $x = 1$
+\end{itemize}
+
+However, the problem asks for points on "two or more of the graphs," so $(1, 0)$ \textbf{does count} as it's on exactly two graphs ($f_1$ and $f_3$), even though $f_2$ and $f_4$ aren't defined there.
+
+\textbf{Second Warning:} Don't double-count! The point $(3, 1)$ appears when solving $(f_1, f_2)$, but make sure you're not counting it again elsewhere.
+\end{warningbox}
+
+\begin{protipbox}
+\textbf{Competition Time-Saver:}
+
+\textbf{Technique:} Before solving all 6 pairs algebraically, use \textbf{quick symmetry observations}:
+\begin{itemize}
+    \item $f_1$ and $f_2$ are mutual reflections across $y = x$
+    \item $f_3$ and $f_4$ are also mutual reflections across $y = x$
+    \item $f_1$ and $f_3$ are reflections across the $x$-axis (negatives)
+    \item $f_2$ and $f_4$ are reflections across the $x$-axis (negatives)
+\end{itemize}
+
+\textbf{Implication:} Pairs that are pure negatives of each other ($f_1$ vs $f_3$, $f_2$ vs $f_4$) can only intersect where $y = 0$ or where both are undefined. This immediately tells you:
+\begin{itemize}
+    \item $(f_1, f_3)$ intersection: only at $x = 1$ where $y = 0$
+    \item $(f_2, f_4)$ intersection: only where $\frac{1}{t} = -\frac{1}{t}$, which has no solution
+\end{itemize}
+
+This reduces your workload from 6 pairs to focusing on $(f_1, f_2)$, $(f_1, f_4)$, $(f_2, f_3)$, and $(f_3, f_4)$ for non-trivial intersections.
+
+\textbf{Time Saved:} 1-2 minutes by using symmetry to predict which pairs will/won't intersect.
+\end{protipbox}
+
+\section{COMPLETE SOLUTION SUMMARY}
+
+\begin{tcolorbox}[colback=gray!10!white, colframe=black, title=Final Answer with Justification]
+\textbf{Answer: (D) 5 points}
+
+\textbf{The five intersection points are:}
+\begin{enumerate}
+    \item $(3, 1)$ - intersection of $f_1$ and $f_2$
+    \item $(\frac{1}{3}, -1)$ - intersection of $f_1$ and $f_2$
+    \item $(1, 0)$ - intersection of $f_1$ and $f_3$
+    \item $(3, -1)$ - intersection of $f_3$ and $f_4$
+    \item $(\frac{1}{3}, 1)$ - intersection of $f_3$ and $f_4$
+\end{enumerate}
+
+\textbf{Key Solution Steps:}
+\begin{itemize}
+    \item Applied logarithmic properties to express all functions in terms of $\log_3 x$
+    \item Used substitution $t = \log_3 x$ to transform to algebraic equations
+    \item Systematically solved all 6 pairwise intersection equations
+    \item Verified domain restrictions and eliminated invalid solutions
+    \item Confirmed no double-counting of intersection points
+\end{itemize}
+
+\textbf{Verification:} Each point verified by direct substitution. All 6 pairs checked. Answer matches option (D).
+
+\textbf{Confidence Level:} 95\%
+\end{tcolorbox}
+
+\end{document}

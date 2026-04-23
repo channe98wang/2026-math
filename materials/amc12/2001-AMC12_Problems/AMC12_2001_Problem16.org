@@ -1,0 +1,36 @@
+2001 AMC 12 Problems/Problem 16
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3 (bash using bounding)
+5 Solution 4
+6 Video Solution
+7 See Also
+Problem
+A spider has one sock and one shoe for each of its eight legs. In how many different orders can the spider put on its socks and shoes, assuming that, on each leg, the sock must be put on before the shoe?
+$\text{(A) }8! \qquad \text{(B) }2^8 \cdot 8! \qquad \text{(C) }(8!)^2 \qquad \text{(D) }\frac {16!}{2^8} \qquad \text{(E) }16!$
+Solution 1
+Suppose the spider tries to put on all $2 \cdot 8 = 16$ items in a random order, so that each of the $16!$ possible permutations is equally probable. This means that for any fixed leg, the probability that it will first put on the sock, and only then the shoe, is clearly $\frac{1}{2}$ . Hence the probability that it will put on the shoe and sock in the correct order for all its legs is $\left(\frac{1}{2}\right)^8 = \frac{1}{2^{8}}$ . Therefore the number of possible permutations is $\boxed{\text{(D) }\frac {16!}{2^8}}$ .
+Solution 2
+Each possible order in which the spider puts on its socks and shoes can be uniquely described as a sequence containing two $1$ s, two $2$ s, ..., and two $8$ s, where the first occurrence of number $x$ means that the spider puts the sock onto leg $x$ , and the second occurrence means it puts the shoe onto leg $x$ (as it must put on the sock for each leg before the corresponding shoe).
+Since there are a total of $2 \cdot 8 = 16$ numbers, if they were all unique, the answer would be $16!$ . However, since each of the $8$ numbers actually appear twice, there are $2! = 2$ orders for each number that are actually indistinguishable, and so the overcount is by a total factor of $2^8$ . This means the answer is $\boxed{\text{(D) }\frac {16!}{2^8}}$ .
+Solution 3 (bash using bounding)
+The spider could put on all $8$ socks first, in $8!$ possible ways, and then all $8$ shoes on next, giving $8!$ more possible ways. Of course, this is not the only possibility, so $8! \cdot 8! = (8!)^2$ is a lower bound for the correct answer: the spider could instead, for example, put on $3$ socks and then $1$ , $2$ , or $3$ shoes, before proceeding to put on more socks.
+In principle, it could put on all $2 \cdot 8 = 16$ items in a random order, but some of these orders would violate the rule that on each leg, the sock must be put on before the shoe, so $16!$ is an upper bound. In other words, answer choices $\text{(C)}$ and $\text{(E)}$ are lower and upper bounds, so the correct answer must lie in between them. Recalling that answer choices on the AMC appear in increasing order, we can deduce, without having to actually calculate it, that the correct answer must be $\boxed{\text{(D) }\frac {16!}{2^8}}$ .
+Solution 4
+Name the sock for e.g. leg $1$ as $a1$ and the corresponding shoe as $b1$ , and similarly for all the other legs. Then, as the sock for each leg must be put on before the shoe, we observe that the pairs $(a1,b1)$ and $(b1,a1)$ must both correspond to the order $a1$ , then $b1$ .
+We can now consider constructing an overall order of length $2 \cdot 8 = 16$ , starting with $16$ positions that each need to be filled with $ax$ or $bx$ for some integer $x$ between $1$ and $8$ . For each of the $8$ legs, we effectively need to choose $2$ of the possible remaining positions, without regard to the order in which they are chosen (since only $1$ order is actually possible, as explained above).
+In other words, we must choose $2$ unordered positions from $16$ , then from the remaining $16-2 = 14$ , and so on, so the total number of possible orders is
+
+\[\binom{16}{2}\binom{14}{2}\dotsm\binom{2}{2} = \frac{16 \cdot 15 \dotsm 2}{2 \cdot 2 \dotsm 2} = \boxed{\text{(D) }\frac {16!}{2^8}}.\]
+Video Solution
+https://youtu.be/D1n-qEPdm6g
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

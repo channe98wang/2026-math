@@ -1,0 +1,22 @@
+2025 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Video Solution 1 by SpreadTheMathLove
+4 See Also
+Problem
+What is the value of $i(i-1)(i-2)(i-3)$ , where $i = \sqrt{-1}$ ?
+$\textbf{(A)}~6-5i \qquad \textbf{(B)}~-10i \qquad \textbf{(C)}~10i \qquad \textbf{(D)}~-10 \qquad \textbf{(E)}~10$
+Solution
+We find that $i(i-3)=-1-3i$ and $(i-1)(i-2)=-1-3i+2=1-3i$ , so
+~ eevee9406
+Video Solution 1 by SpreadTheMathLove
+https://www.youtube.com/watch?v=7AKIqbFWF-w
+See Also
+2025 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

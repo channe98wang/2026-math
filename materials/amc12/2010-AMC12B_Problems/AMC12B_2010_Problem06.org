@@ -1,0 +1,28 @@
+2010 AMC 12B Problems/Problem 6
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 See also
+Problem
+At the beginning of the school year, $50\%$ of all students in Mr. Well's class answered "Yes" to the question "Do you love math", and $50\%$ answered "No." At the end of the school year, $70\%$ answered "Yes" and $30\%$ answered "No." Altogether, $x\%$ of the students gave a different answer at the beginning and end of the school year. What is the difference between the maximum and the minimum possible values of $x$ ?
+$\textbf{(A)}\ 0 \qquad \textbf{(B)}\ 20 \qquad \textbf{(C)}\ 40 \qquad \textbf{(D)}\ 60 \qquad \textbf{(E)}\ 80$
+Solution
+The minimum possible value would be $70 - 50 = 20\%$ . The maximum possible value would be $30 + 50 = 80\%$ . The difference is $80 - 20 = \boxed{\textbf{(D) }60}$ .
+Video Solution
+https://youtu.be/vYXz4wStBUU?t=160
+~IceMatrix
+See also
+2010 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2010 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

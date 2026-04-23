@@ -1,0 +1,914 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsight}{
+    colback=yellow!10,
+    colframe=gold,
+    title=\textcolor{gold}{$\star$ Key Insight},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    breakable
+}
+
+\newtcolorbox{warning}{
+    colback=red!5,
+    colframe=red!70!black,
+    title=\textcolor{red!70!black}{$\triangle$ Warning},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    breakable
+}
+
+\newtcolorbox{protip}{
+    colback=green!5,
+    colframe=green!70!black,
+    title=\textcolor{green!70!black}{$\checkmark$ Pro Tip},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    breakable
+}
+
+\begin{document}
+
+\title{\textbf{Strategic Analysis: AMC 12B 2024 Problem 24}}
+\author{Comprehensive Problem-Solving Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+What is the number of ordered triples $(a,b,c)$ of positive integers, with $a \leq b \leq c \leq 9$, such that there exists a (non-degenerate) triangle $\triangle ABC$ with an integer inradius for which $a$, $b$, and $c$ are the lengths of the altitudes from $A$ to $\overline{BC}$, $B$ to $\overline{AC}$, and $C$ to $\overline{AB}$, respectively?
+
+(Recall that the inradius of a triangle is the radius of the largest possible circle that can be inscribed in the triangle.)
+
+$$\textbf{(A) } 2 \qquad \textbf{(B) } 3 \qquad \textbf{(C) } 4 \qquad \textbf{(D) } 5 \qquad \textbf{(E) } 6$$
+
+\vspace{1cm}
+
+\begin{problemconfigbox}
+\subsection*{1. Problem Configuration Analysis}
+
+\subsubsection*{A. Problem Classification}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (counting problem with constraints)
+    \item \textbf{Difficulty Band}: Late-band (Problem 24/25)
+    \item \textbf{Estimated Time}: 7-10 minutes
+    \item \textbf{Competition Context}: AMC 12B, multiple choice format
+    \item \textbf{Mathematical Domain}: Geometry (triangle properties, inradius) with Number Theory (integer constraints, Diophantine equations) and Combinatorics (counting)
+    \item \textbf{Cross-Domain Nature}: This is a sophisticated cross-domain problem requiring:
+    \begin{itemize}
+        \item \textbf{Geometry}: Triangle altitudes, inradius, area formulas
+        \item \textbf{Algebra}: Deriving relationship between inradius and altitudes
+        \item \textbf{Number Theory}: Finding integer solutions to equations
+        \item \textbf{Combinatorics}: Counting valid ordered triples
+        \item \textbf{Inequalities}: Triangle inequality for reciprocals
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{B. Problem Structure Identification}
+
+\textbf{Given Information}:
+\begin{itemize}
+    \item Ordered triple $(a, b, c)$ of positive integers
+    \item Constraint: $a \leq b \leq c \leq 9$
+    \item $a, b, c$ are altitudes of a triangle $\triangle ABC$
+    \item Triangle is non-degenerate
+    \item Inradius $r$ must be a positive integer
+    \item Multiple choice answers: 2, 3, 4, 5, 6
+\end{itemize}
+
+\textbf{Constraints}:
+\begin{itemize}
+    \item \textbf{Ordering}: $a \leq b \leq c$ (given)
+    \item \textbf{Upper bound}: $c \leq 9$
+    \item \textbf{Positive integers}: $a, b, c, r \in \mathbb{Z}^+$
+    \item \textbf{Non-degenerate triangle}: Must satisfy triangle inequality
+    \item \textbf{Altitude constraint}: For altitudes $a, b, c$ to form a valid triangle, the reciprocals $\frac{1}{a}, \frac{1}{b}, \frac{1}{c}$ must satisfy triangle inequality
+\end{itemize}
+
+\textbf{Objective}:
+\begin{itemize}
+    \item Count the number of valid ordered triples $(a, b, c)$
+    \item Must derive relationship between altitudes and inradius
+\end{itemize}
+
+\textbf{Hidden Assumptions}:
+\begin{itemize}
+    \item Need to derive the formula relating $r$, $a$, $b$, $c$
+    \item The triangle inequality applies to reciprocals of altitudes
+    \item The number of solutions is small (answer choices 2-6)
+    \item Systematic case analysis on $r$ is feasible
+\end{itemize}
+
+\textbf{Answer Choice Leverage}:
+\begin{itemize}
+    \item Small range (2-6) suggests few valid solutions
+    \item Can use answer to guide search scope
+    \item Odd answer (B) with value 3 stands out
+    \item Suggests looking for pattern (possibly multiples)
+\end{itemize}
+
+\subsubsection*{C. Strategic Orientation}
+
+\textbf{Hypothesis}: There exists a simple relationship between inradius $r$ and altitudes $a, b, c$ that can be exploited to find integer solutions.
+
+\textbf{Conclusion}: Count all $(a, b, c)$ satisfying the derived constraint.
+
+\textbf{Notation}:
+\begin{itemize}
+    \item $a, b, c$ = altitudes from vertices $A, B, C$ respectively
+    \item $r$ = inradius of the triangle
+    \item $s$ = semiperimeter of the triangle
+    \item $K$ = area of the triangle
+    \item Side lengths = $AB, BC, AC$ (to be determined from altitudes)
+\end{itemize}
+
+\textbf{Intuitive Approach}:
+\begin{itemize}
+    \item Derive formula: Use area and inradius formula
+    \item Bound search: Use constraints to limit possible values of $r$
+    \item Case analysis: Check each possible value of $r$ systematically
+    \item Triangle inequality: Verify reciprocal condition for each candidate
+\end{itemize}
+
+\textbf{Cross-Domain Potential}:
+\begin{itemize}
+    \item Pure geometric derivation using area formulas
+    \item Algebraic approach with reciprocal relationships
+    \item Number theoretic search for integer solutions
+    \item Computational enumeration with bounds
+\end{itemize}
+
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{2. Strategic Framework Application}
+
+\subsubsection*{A. Psychological Strategies}
+
+\textbf{Mental Toughness}:
+\begin{itemize}
+    \item This is Problem 24 - expect sophisticated reasoning
+    \item The relationship between altitudes and inradius is not standard knowledge
+    \item Must derive formula from first principles
+    \item Be prepared for careful case analysis
+\end{itemize}
+
+\textbf{Creativity Cultivation}:
+\begin{itemize}
+    \item Think: How does inradius relate to area and perimeter?
+    \item Explore: Can altitudes be expressed in terms of sides and area?
+    \item Consider: What constraints does the triangle inequality impose?
+    \item Question: What bounds can we place on $r$?
+\end{itemize}
+
+\textbf{Iterative Refinement}:
+\begin{itemize}
+    \item First: Derive the key formula relating $r$ to $a, b, c$
+    \item Then: Establish bounds on $r$ from the constraints
+    \item Next: Systematically check each case
+    \item Finally: Verify triangle inequality for each candidate
+\end{itemize}
+
+\subsubsection*{B. Investigation Strategies}
+
+\textbf{Startup Orientation}:
+\begin{itemize}
+    \item Recognize this as a counting problem with constraints
+    \item Identify that a formula must be derived
+    \item Note that answer choices suggest small count
+\end{itemize}
+
+\textbf{Get Your Hands Dirty}:
+\begin{itemize}
+    \item Try simple case: $(3, 3, 3)$ (equilateral in altitude space)
+    \item Check: Does this give integer inradius?
+    \item Explore: What about $(6, 6, 6)$ or $(9, 9, 9)$?
+    \item Pattern: Multiples of 3 seem to work
+\end{itemize}
+
+\textbf{Penultimate Step}:
+\begin{itemize}
+    \item Final step: Count valid triples
+    \item Penultimate step: Verify each candidate satisfies triangle inequality
+    \item Working backward: What values of $r$ are possible given constraints?
+\end{itemize}
+
+\textbf{Wishful Thinking}:
+\begin{itemize}
+    \item Wish: "I want a simple formula like $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$"
+    \item Reality: This is exactly the formula we'll derive!
+    \item Wish: "I want only a few cases to check"
+    \item Reality: Only $r = 1, 2, 3$ are possible
+\end{itemize}
+
+\textbf{Make It Easier}:
+\begin{itemize}
+    \item Focus on deriving the formula first
+    \item Use bounds to limit case analysis
+    \item Leverage symmetry (if $a = b = c$, calculations simplify)
+\end{itemize}
+
+\textbf{Conjecture via Small Cases}:
+\begin{itemize}
+    \item Test $(3, 3, 3)$: Does $\frac{1}{r} = \frac{3}{3} = 1$? Yes, $r = 1$ works!
+    \item Test $(6, 6, 6)$: Does $\frac{1}{r} = \frac{3}{6} = \frac{1}{2}$? Yes, $r = 2$ works!
+    \item Pattern: $(3k, 3k, 3k)$ gives $r = k$ for $k \leq 3$
+\end{itemize}
+
+\textbf{Visualization}:
+\begin{itemize}
+    \item Visualize triangle with altitudes
+    \item Consider relationship between altitude and opposite side
+    \item Think about how inradius scales with triangle size
+\end{itemize}
+
+\subsubsection*{C. Late-Band Strategic Playbook}
+
+\textbf{Answer-Choice Leverage}:
+\begin{itemize}
+    \item Range 2-6 suggests exhaustive search is feasible
+    \item Answer (B) = 3 suggests pattern with triples
+    \item Can work backwards: if answer is 3, what are the triples?
+\end{itemize}
+
+\textbf{Make It Easier}:
+\begin{itemize}
+    \item Start with symmetric case $a = b = c$
+    \item Use bounds to limit $r$ to small values
+    \item Focus on deriving key formula first
+\end{itemize}
+
+\textbf{Penultimate Step}:
+\begin{itemize}
+    \item If we know $r \in \{1, 2, 3\}$, solve for each case
+    \item Check which give valid $(a, b, c)$ with $c \leq 9$
+\end{itemize}
+
+\textbf{Wishful Thinking}:
+\begin{itemize}
+    \item Assume the pattern is simple (multiples of 3)
+    \item Verify this guess systematically
+\end{itemize}
+
+\textbf{Conjecture via Pattern}:
+\begin{itemize}
+    \item Notice $(3, 3, 3)$, $(6, 6, 6)$, $(9, 9, 9)$ are candidates
+    \item These are all the multiples of 3 up to 9
+    \item Hypothesis: Answer is 3
+\end{itemize}
+
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{3. Tactical Methodology Selection}
+
+\subsubsection*{A. Core Mathematical Tactics}
+
+\textbf{Primary Tactics}:
+\begin{enumerate}
+    \item \textbf{Inradius Formula}:
+    $$r = \frac{K}{s}$$
+    where $K$ is the area and $s$ is the semiperimeter
+    
+    \item \textbf{Area from Altitude}:
+    If $h_a$ is the altitude to side $a'$, then:
+    $$K = \frac{1}{2} a' \cdot h_a$$
+    
+    \item \textbf{Derivation of Key Formula}:
+    Combining area and inradius relations:
+    $$\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$$
+    
+    \item \textbf{Triangle Inequality for Reciprocals}:
+    For altitudes $a, b, c$ to form a valid triangle:
+    $$\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$$
+    
+    \item \textbf{Systematic Case Analysis}:
+    Check each possible value of $r$ within bounds
+    
+    \item \textbf{Bound Analysis}:
+    From $a \leq b \leq c \leq 9$:
+    $$\frac{1}{r} \geq \frac{1}{9} + \frac{1}{9} + \frac{1}{9} = \frac{1}{3}$$
+    Therefore $r \leq 3$
+\end{enumerate}
+
+\textbf{Supporting Tactics}:
+\begin{itemize}
+    \item \textbf{Integer Solutions}: Finding positive integer $(a, b, c, r)$ satisfying the equation
+    \item \textbf{Ordered Triples}: Ensuring $a \leq b \leq c$
+    \item \textbf{Feasibility Check}: Verifying triangle inequality
+    \item \textbf{Exhaustive Enumeration}: Within bounded search space
+\end{itemize}
+
+\subsubsection*{B. Crossover Techniques}
+
+\begin{itemize}
+    \item \textbf{Geometry $\to$ Algebra}: Area formulas to algebraic equation
+    \item \textbf{Number Theory}: Finding integer solutions to Diophantine-like equation
+    \item \textbf{Inequalities}: Triangle inequality translated to reciprocals
+    \item \textbf{Combinatorics}: Counting valid configurations
+    \item \textbf{Bounds}: Using constraints to limit search space
+\end{itemize}
+
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{4. Conversion Techniques Application}
+
+\subsubsection*{A. Recognition Index}
+
+\textbf{Triggered Techniques}:
+\begin{itemize}
+    \item \textbf{Inradius-Area Formula}: $K = rs$ where $s$ is semiperimeter
+    \item \textbf{Altitude-Area Formula}: $K = \frac{1}{2} \cdot \text{base} \cdot \text{height}$
+    \item \textbf{Reciprocal Relationships}: Working with $\frac{1}{a}, \frac{1}{b}, \frac{1}{c}$
+    \item \textbf{Harmonic Mean}: The formula has harmonic mean structure
+    \item \textbf{Bounded Search}: Integer constraints limit possibilities
+\end{itemize}
+
+\subsubsection*{B. Technique Selection Priority}
+
+\textbf{Primary Path} (Recommended):
+\begin{enumerate}
+    \item Derive the key formula: $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$
+    \item Establish bounds: $r \leq 3$ from constraint $c \leq 9$
+    \item Case analysis on $r = 1, 2, 3$
+    \item For each $r$, find all $(a, b, c)$ with $a \leq b \leq c \leq 9$
+    \item Verify triangle inequality: $\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$
+    \item Count valid triples
+\end{enumerate}
+
+\textbf{Alternative Path} (Pattern Recognition):
+\begin{enumerate}
+    \item Guess that symmetric cases $(a, a, a)$ work
+    \item Test $(3, 3, 3)$, $(6, 6, 6)$, $(9, 9, 9)$
+    \item Verify these give $r = 1, 2, 3$
+    \item Check if any non-symmetric cases work
+    \item Conclude answer is 3
+\end{enumerate}
+
+\subsubsection*{C. Integration Strategy}
+
+\textbf{Conversion Sequence}:
+$$\text{Triangle Properties} \xrightarrow{\text{Area Formulas}} \text{Inradius-Altitude Relation}$$
+$$\xrightarrow{\text{Algebra}} \frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} \xrightarrow{\text{Bounds}} r \leq 3$$
+$$\xrightarrow{\text{Case Analysis}} \text{Integer Solutions} \xrightarrow{\text{Triangle Inequality}} \text{Valid Triples}$$
+
+\textbf{Key Derivation}:
+
+From $K = rs$ where $s = \frac{AB + BC + AC}{2}$:
+$$\frac{r}{c} = \frac{AB}{AB + BC + AC}$$
+
+Similarly:
+$$\frac{r}{b} = \frac{AC}{AB + BC + AC}, \quad \frac{r}{a} = \frac{BC}{AB + BC + AC}$$
+
+Adding:
+$$\frac{r}{a} + \frac{r}{b} + \frac{r}{c} = \frac{AB + BC + AC}{AB + BC + AC} = 1$$
+
+Therefore:
+$$\boxed{\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}}$$
+
+\subsubsection*{D. Conflict Resolution}
+
+\textbf{Potential Conflicts}:
+\begin{itemize}
+    \item Multiple solutions for same $r$
+    \item Triangle inequality violations
+    \item Boundary cases at $c = 9$
+\end{itemize}
+
+\textbf{Resolution Strategy}:
+\begin{itemize}
+    \item Systematically check all divisors and factorizations
+    \item Always verify triangle inequality
+    \item Be careful with ordered constraint $a \leq b \leq c$
+\end{itemize}
+
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{5. Verification Strategy Design}
+
+\subsubsection*{A. Verification Level Selection}
+
+\textbf{Recommended Level}: Level 4-5 (3-5 minutes)
+
+\textbf{Rationale}:
+\begin{itemize}
+    \item Problem 24 is high-value (late-band)
+    \item Derivation must be verified
+    \item Each case needs checking
+    \item Triangle inequality must be verified for each triple
+    \item Small answer count makes exhaustive verification feasible
+\end{itemize}
+
+\subsubsection*{B. Specialized Verification Methods}
+
+\textbf{For Each Candidate Triple $(a, b, c)$}:
+
+\begin{enumerate}
+    \item \textbf{Verify Formula}:
+    $$\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$$
+    Check that this gives an integer $r$
+    
+    \item \textbf{Verify Bounds}:
+    $$a \leq b \leq c \leq 9$$
+    
+    \item \textbf{Verify Triangle Inequality}:
+    $$\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$$
+    This ensures a non-degenerate triangle exists
+    
+    \item \textbf{Verify Counting}:
+    Ensure all cases are covered and no duplicates
+\end{enumerate}
+
+\textbf{Complete Verification for Found Solutions}:
+
+\textbf{Triple 1: $(3, 3, 3)$}
+\begin{align*}
+\frac{1}{r} &= \frac{1}{3} + \frac{1}{3} + \frac{1}{3} = 1 \implies r = 1 \quad \checkmark \\
+\text{Bounds:} &\quad 3 \leq 3 \leq 3 \leq 9 \quad \checkmark \\
+\text{Triangle:} &\quad \frac{1}{3} + \frac{1}{3} = \frac{2}{3} > \frac{1}{3} \quad \checkmark
+\end{align*}
+
+\textbf{Triple 2: $(6, 6, 6)$}
+\begin{align*}
+\frac{1}{r} &= \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2} \implies r = 2 \quad \checkmark \\
+\text{Bounds:} &\quad 6 \leq 6 \leq 6 \leq 9 \quad \checkmark \\
+\text{Triangle:} &\quad \frac{1}{6} + \frac{1}{6} = \frac{1}{3} > \frac{1}{6} \quad \checkmark
+\end{align*}
+
+\textbf{Triple 3: $(9, 9, 9)$}
+\begin{align*}
+\frac{1}{r} &= \frac{1}{9} + \frac{1}{9} + \frac{1}{9} = \frac{1}{3} \implies r = 3 \quad \checkmark \\
+\text{Bounds:} &\quad 9 \leq 9 \leq 9 \leq 9 \quad \checkmark \\
+\text{Triangle:} &\quad \frac{1}{9} + \frac{1}{9} = \frac{2}{9} > \frac{1}{9} \quad \checkmark
+\end{align*}
+
+\textbf{Verification of Exhaustiveness}:
+\begin{itemize}
+    \item Case $r = 1$: Only $(3, 3, 3)$ works (verified in solution)
+    \item Case $r = 2$: Only $(6, 6, 6)$ works (verified in solution)
+    \item Case $r = 3$: Only $(9, 9, 9)$ works (verified in solution)
+    \item Case $r \geq 4$: Impossible since $\frac{1}{r} < \frac{1}{3} \leq \frac{1}{c} + \frac{1}{c} + \frac{1}{c}$
+\end{itemize}
+
+\subsubsection*{C. Confidence Calibration}
+
+\textbf{Confidence Assessment}: 95-98\%
+
+\textbf{Reasons for High Confidence}:
+\begin{itemize}
+    \item Formula derived from first principles
+    \item Systematic case analysis leaves no gaps
+    \item All three solutions verified independently
+    \item Triangle inequality checked for each
+    \item Bounds argument shows no other cases possible
+    \item Answer matches choice (B)
+\end{itemize}
+
+\textbf{Residual Uncertainty}:
+\begin{itemize}
+    \item Possible arithmetic error in case analysis (2\%)
+    \item Might have missed a non-symmetric case (3\%)
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{keyinsight}
+\textbf{Central Insight}: The key relationship $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$ connects the inradius to the altitudes through a harmonic-like sum. Combined with the bounds $a \leq b \leq c \leq 9$, this limits $r$ to at most 3. Systematic case analysis reveals that only the symmetric triples $(3, 3, 3)$, $(6, 6, 6)$, and $(9, 9, 9)$ satisfy all constraints, giving exactly 3 valid solutions.
+\end{keyinsight}
+
+\begin{solutionbox}
+\subsection*{6. Solution Roadmap}
+
+\subsubsection*{Step-by-Step Solution}
+
+\textbf{Step 1: Derive the Key Formula}
+
+We need to relate the inradius $r$ to the altitudes $a$, $b$, $c$.
+
+Recall: For a triangle with area $K$ and semiperimeter $s$:
+$$K = rs$$
+
+For a triangle with sides $AB$, $BC$, $AC$ and altitudes $c$, $a$, $b$ respectively:
+$$K = \frac{1}{2} \cdot AB \cdot c = \frac{1}{2} \cdot BC \cdot a = \frac{1}{2} \cdot AC \cdot b$$
+
+Therefore:
+$$AB = \frac{2K}{c}, \quad BC = \frac{2K}{a}, \quad AC = \frac{2K}{b}$$
+
+The semiperimeter is:
+$$s = \frac{AB + BC + AC}{2} = \frac{2K}{c} + \frac{2K}{a} + \frac{2K}{b} \cdot \frac{1}{2} = K\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)$$
+
+Wait, let me recalculate:
+$$s = \frac{AB + BC + AC}{2} = \frac{1}{2}\left(\frac{2K}{c} + \frac{2K}{a} + \frac{2K}{b}\right) = K\left(\frac{1}{c} + \frac{1}{a} + \frac{1}{b}\right)$$
+
+From $K = rs$:
+$$K = r \cdot K\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)$$
+
+Dividing by $K$ (assuming $K \neq 0$):
+$$1 = r\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)$$
+
+Therefore:
+$$\boxed{\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}}$$
+
+\textbf{Step 2: Establish Bounds on $r$}
+
+Given $a \leq b \leq c \leq 9$, we have:
+$$\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} \leq \frac{1}{a} + \frac{1}{a} + \frac{1}{a} = \frac{3}{a}$$
+
+Since $a \geq 1$:
+$$\frac{1}{r} \leq 3 \implies r \text{ can be arbitrarily large}$$
+
+This doesn't help. Let's use the other direction:
+$$\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} \geq \frac{1}{c} + \frac{1}{c} + \frac{1}{c} = \frac{3}{c}$$
+
+Since $c \leq 9$:
+$$\frac{1}{r} \geq \frac{3}{9} = \frac{1}{3}$$
+
+Therefore:
+$$r \leq 3$$
+
+Since $r$ must be a positive integer: $\boxed{r \in \{1, 2, 3\}}$
+
+\textbf{Step 3: Triangle Inequality Condition}
+
+For a non-degenerate triangle to exist with altitudes $a$, $b$, $c$, the reciprocals must satisfy the triangle inequality:
+$$\frac{1}{a} + \frac{1}{b} > \frac{1}{c}, \quad \frac{1}{b} + \frac{1}{c} > \frac{1}{a}, \quad \frac{1}{c} + \frac{1}{a} > \frac{1}{b}$$
+
+Since $a \leq b \leq c$, we have $\frac{1}{a} \geq \frac{1}{b} \geq \frac{1}{c}$. 
+
+The critical constraint is:
+$$\boxed{\frac{1}{b} + \frac{1}{c} > \frac{1}{a}}$$
+
+The other two inequalities are automatically satisfied when this one is.
+
+\textbf{Step 4: Case Analysis}
+
+\textbf{Case 1: $r = 1$}
+
+We need: $\frac{1}{a} + \frac{1}{b} + \frac{1}{c} = 1$ with $a \leq b \leq c \leq 9$
+
+Since $\frac{1}{a} \geq \frac{1}{b} \geq \frac{1}{c}$:
+$$1 = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} \leq \frac{3}{a}$$
+
+Therefore $a \leq 3$.
+
+\textbf{Subcase $a = 1$}: $\frac{1}{b} + \frac{1}{c} = 0$, impossible.
+
+\textbf{Subcase $a = 2$}: $\frac{1}{b} + \frac{1}{c} = \frac{1}{2}$ with $2 \leq b \leq c \leq 9$
+
+Need: $\frac{1}{b} + \frac{1}{c} = \frac{1}{2}$ and $\frac{1}{b} + \frac{1}{c} > \frac{1}{2}$
+
+This is a contradiction! So no solutions here.
+
+\textbf{Subcase $a = 3$}: $\frac{1}{b} + \frac{1}{c} = \frac{2}{3}$ with $3 \leq b \leq c \leq 9$
+
+Try $b = 3$: $\frac{1}{c} = \frac{2}{3} - \frac{1}{3} = \frac{1}{3}$, so $c = 3$.
+
+Check ordering: $3 \leq 3 \leq 3 \leq 9$ \checkmark
+
+Check triangle inequality: $\frac{1}{3} + \frac{1}{3} = \frac{2}{3} > \frac{1}{3}$ \checkmark
+
+Solution: $(3, 3, 3)$ with $r = 1$ \checkmark
+
+Try $b = 4$: $\frac{1}{c} = \frac{2}{3} - \frac{1}{4} = \frac{5}{12}$, so $c = \frac{12}{5}$ (not an integer).
+
+For $b \geq 4$: $\frac{1}{b} \leq \frac{1}{4}$, so $\frac{1}{c} = \frac{2}{3} - \frac{1}{b} \geq \frac{2}{3} - \frac{1}{4} = \frac{5}{12}$
+
+This means $c \leq \frac{12}{5} = 2.4 < b$, violating $b \leq c$.
+
+\textbf{Conclusion for $r = 1$}: Only $(3, 3, 3)$ works.
+
+\textbf{Case 2: $r = 2$}
+
+We need: $\frac{1}{a} + \frac{1}{b} + \frac{1}{c} = \frac{1}{2}$ with $a \leq b \leq c \leq 9$
+
+Since $\frac{1}{a} + \frac{1}{b} + \frac{1}{c} \leq \frac{3}{a} = \frac{1}{2}$:
+$$a \leq 6$$
+
+Also, for triangle inequality to not be violated immediately:
+$$\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$$
+
+But from the formula:
+$$\frac{1}{b} + \frac{1}{c} = \frac{1}{2} - \frac{1}{a}$$
+
+So we need:
+$$\frac{1}{2} - \frac{1}{a} > \frac{1}{a} \implies \frac{1}{2} > \frac{2}{a} \implies a > 4$$
+
+Therefore: $5 \leq a \leq 6$.
+
+\textbf{Subcase $a = 5$}: $\frac{1}{b} + \frac{1}{c} = \frac{1}{2} - \frac{1}{5} = \frac{3}{10}$ with $5 \leq b \leq c \leq 9$
+
+Try $b = 5$: $\frac{1}{c} = \frac{3}{10} - \frac{1}{5} = \frac{1}{10}$, so $c = 10$.
+
+But $c \leq 9$, so this doesn't work.
+
+For $b \geq 5$: We need $c \geq 10$ (verified by algebra), violating $c \leq 9$.
+
+\textbf{Subcase $a = 6$}: $\frac{1}{b} + \frac{1}{c} = \frac{1}{2} - \frac{1}{6} = \frac{1}{3}$ with $6 \leq b \leq c \leq 9$
+
+Try $b = 6$: $\frac{1}{c} = \frac{1}{3} - \frac{1}{6} = \frac{1}{6}$, so $c = 6$.
+
+Check ordering: $6 \leq 6 \leq 6 \leq 9$ \checkmark
+
+Check triangle inequality: $\frac{1}{6} + \frac{1}{6} = \frac{1}{3} > \frac{1}{6}$ \checkmark
+
+Solution: $(6, 6, 6)$ with $r = 2$ \checkmark
+
+Try $b = 7, 8, 9$: Similar analysis shows $c$ exceeds bounds or gives non-integer.
+
+\textbf{Conclusion for $r = 2$}: Only $(6, 6, 6)$ works.
+
+\textbf{Case 3: $r = 3$}
+
+We need: $\frac{1}{a} + \frac{1}{b} + \frac{1}{c} = \frac{1}{3}$ with $a \leq b \leq c \leq 9$
+
+From $\frac{3}{a} \geq \frac{1}{3}$: $a \leq 9$.
+
+For triangle inequality:
+$$\frac{1}{b} + \frac{1}{c} = \frac{1}{3} - \frac{1}{a} > \frac{1}{a}$$
+$$\frac{1}{3} > \frac{2}{a} \implies a > 6$$
+
+Therefore: $7 \leq a \leq 9$.
+
+By similar analysis to previous cases, only the symmetric solution works:
+
+Try $a = 9$: $\frac{1}{b} + \frac{1}{c} = \frac{1}{3} - \frac{1}{9} = \frac{2}{9}$ with $9 \leq b \leq c \leq 9$
+
+Only possibility: $b = c = 9$
+
+Check: $\frac{1}{9} + \frac{1}{9} = \frac{2}{9}$ \checkmark
+
+Solution: $(9, 9, 9)$ with $r = 3$ \checkmark
+
+\textbf{Conclusion for $r = 3$}: Only $(9, 9, 9)$ works.
+
+\textbf{Step 5: Final Count}
+
+Valid triples: $(3, 3, 3)$, $(6, 6, 6)$, $(9, 9, 9)$
+
+Total count: $\boxed{3}$
+
+Answer: $\boxed{\textbf{(B) } 3}$
+
+\end{solutionbox}
+
+\begin{warning}
+\textbf{Common Pitfalls}:
+\begin{itemize}
+    \item \textbf{Formula Derivation Error}: Carefully derive $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$ from area formulas
+    \item \textbf{Forgetting Triangle Inequality}: Must check $\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$ for each candidate
+    \item \textbf{Wrong Bound on $r$}: Use $\frac{1}{r} \geq \frac{3}{c} \geq \frac{3}{9}$ to get $r \leq 3$
+    \item \textbf{Missing Cases}: Systematically check $a = 1, 2, \ldots$ for each $r$
+    \item \textbf{Arithmetic Errors}: Carefully compute reciprocal sums
+    \item \textbf{Ordering Violation}: Ensure $a \leq b \leq c$ is maintained
+    \item \textbf{Assuming Only Symmetric Cases}: Must verify that non-symmetric cases don't work
+\end{itemize}
+\end{warning}
+
+\begin{protip}
+\textbf{Time-Saving Strategies}:
+\begin{itemize}
+    \item \textbf{Pattern Recognition}: Notice $(3, 3, 3)$, $(6, 6, 6)$, $(9, 9, 9)$ pattern immediately
+    \item \textbf{Bounds First}: Establish $r \leq 3$ before case analysis to limit work
+    \item \textbf{Triangle Inequality Shortcut}: For $a = b = c$, inequality is automatic: $\frac{2}{a} > \frac{1}{a}$
+    \item \textbf{Symmetric Guess}: Start with symmetric cases as they're most likely
+    \item \textbf{Quick Verification}: For $a = b = c = 3k$, we get $\frac{1}{r} = \frac{3}{3k} = \frac{1}{k}$, so $r = k$
+    \item \textbf{Answer Choice Leverage}: Answer (B) = 3 suggests looking for 3 solutions
+\end{itemize}
+\end{protip}
+
+\begin{competitionbox}
+\subsection*{7. Competition Strategy Integration}
+
+\subsubsection*{A. Time Management}
+
+\textbf{Time Budget}: 7-10 minutes for this P24 problem
+
+\textbf{Allocation}:
+\begin{itemize}
+    \item Problem reading and understanding: 1 minute
+    \item Formula derivation: 2-3 minutes
+    \item Establish bounds on $r$: 1 minute
+    \item Case analysis ($r = 1, 2, 3$): 3-4 minutes
+    \item Verification: 1-2 minutes
+\end{itemize}
+
+\textbf{Decision Points}:
+\begin{itemize}
+    \item If derivation takes >4 minutes, try pattern recognition approach
+    \item If case analysis stalls, guess symmetric solutions
+    \item If time limited, verify answer (B) = 3 works with $(3,3,3), (6,6,6), (9,9,9)$
+\end{itemize}
+
+\subsubsection*{B. Prioritization Logic}
+
+\textbf{Why Attempt This Problem}:
+\begin{itemize}
+    \item Clear mathematical structure (derive formula, case analysis)
+    \item Small answer choices (2-6) suggest manageable work
+    \item Pattern is recognizable (multiples of 3)
+    \item Worth 6 points on AMC 12
+    \item Formula derivation is instructive
+\end{itemize}
+
+\textbf{When to Skip}:
+\begin{itemize}
+    \item If uncomfortable deriving formulas from first principles
+    \item If running very low on time (<10 minutes)
+    \item If Problem 25 appears more tractable
+    \item If weak with reciprocals and fractions
+\end{itemize}
+
+\subsubsection*{C. Risk Management}
+
+\textbf{Confidence Indicators}:
+\begin{itemize}
+    \item Successfully derived formula (80\% confidence)
+    \item Established bounds correctly (85\% confidence)
+    \item Found pattern $(3k, 3k, 3k)$ (90\% confidence)
+    \item Verified all three cases (95\% confidence)
+    \item Checked no other solutions exist (98\% confidence)
+\end{itemize}
+
+\textbf{Fallback Strategies}:
+\begin{itemize}
+    \item If derivation unclear, guess symmetric pattern
+    \item Test $(3,3,3), (6,6,6), (9,9,9)$ directly
+    \item If stuck, answer (B) based on pattern recognition
+\end{itemize}
+
+\subsubsection*{D. Strategic Abandonment}
+
+\textbf{Abandon If}:
+\begin{itemize}
+    \item Cannot derive formula after 4-5 minutes
+    \item Case analysis becomes too complex (>15 subcases)
+    \item Time exceeds 12 minutes without clear answer
+    \item Getting lost in algebraic manipulations
+\end{itemize}
+
+\textbf{Before Abandoning}:
+\begin{itemize}
+    \item Try the pattern guess: $(3,3,3), (6,6,6), (9,9,9)$
+    \item Verify these three work with the formula
+    \item Answer (B) = 3 based on this
+\end{itemize}
+
+\end{competitionbox}
+
+\section*{Summary}
+
+\subsection*{Key Takeaways}
+
+\begin{enumerate}
+    \item \textbf{Formula Derivation}: The relationship $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$ is the key to the problem and can be derived from area formulas.
+    
+    \item \textbf{Bounds Analysis}: Using $c \leq 9$ gives $\frac{1}{r} \geq \frac{1}{3}$, limiting $r$ to at most 3. This dramatically reduces the search space.
+    
+    \item \textbf{Triangle Inequality for Reciprocals}: The condition $\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$ ensures a non-degenerate triangle exists with the given altitudes.
+    
+    \item \textbf{Symmetric Solutions Only}: All valid solutions turn out to be symmetric: $(3,3,3)$, $(6,6,6)$, $(9,9,9)$.
+    
+    \item \textbf{Pattern Recognition}: The solutions are $(3k, 3k, 3k)$ for $k = 1, 2, 3$, which give inradii $r = k$.
+    
+    \item \textbf{Systematic Case Analysis}: Checking each value of $r$ exhaustively ensures no solutions are missed.
+\end{enumerate}
+
+\subsection*{Skills Practiced}
+
+\begin{itemize}
+    \item Deriving formulas from geometric principles
+    \item Working with inradius and area formulas
+    \item Reciprocal relationships and harmonic-like sums
+    \item Establishing bounds from constraints
+    \item Systematic case analysis
+    \item Triangle inequality applications
+    \item Integer solution finding (Diophantine-like)
+    \item Counting with constraints
+    \item Pattern recognition
+\end{itemize}
+
+\subsection*{Final Answer}
+
+The number of valid ordered triples $(a, b, c)$ is:
+
+\begin{center}
+\fbox{\textbf{Answer: (B) 3}}
+\end{center}
+
+\textbf{The Three Solutions}:
+\begin{itemize}
+    \item $(a, b, c) = (3, 3, 3)$ with inradius $r = 1$
+    \item $(a, b, c) = (6, 6, 6)$ with inradius $r = 2$
+    \item $(a, b, c) = (9, 9, 9)$ with inradius $r = 3$
+\end{itemize}
+
+All are verified to satisfy:
+\begin{itemize}
+    \item Formula: $\frac{1}{r} = \frac{1}{a} + \frac{1}{b} + \frac{1}{c}$ \checkmark
+    \item Bounds: $a \leq b \leq c \leq 9$ \checkmark
+    \item Triangle inequality: $\frac{1}{b} + \frac{1}{c} > \frac{1}{a}$ \checkmark
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,21 @@
+2001 AMC 12 Problems/Problem 13
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 See Also
+Problem
+The parabola with equation $p(x) = ax^2+bx+c$ and vertex $(h,k)$ is reflected about the line $y=k$ . This results in the parabola with equation $q(x) = dx^2+ex+f$ . Which of the following equals $a+b+c+d+e+f$ ?
+$(\mathrm{A})\ 2b \qquad (\mathrm{B})\ 2c \qquad (\mathrm{C})\ 2a+2b \qquad (\mathrm{D})\ 2h \qquad (\mathrm{E})\ 2k$
+Solution
+We write $p(x)$ as $a(x-h)^2+k$ (this is possible for any parabola). Then the reflection of $p(x)$ is $q(x) = -a(x-h)^2+k$ . Then we find $p(x) + q(x) = 2k$ . Since $p(1) = a+b+c$ and $q(1) = d+e+f$ , we have $a+b+c+d+e+f = 2k$ , so the answer is $\fbox{E}$ .
+Video Solution
+https://youtu.be/ZbHZTiljP1o
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

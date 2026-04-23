@@ -1,0 +1,18 @@
+2003 AMC 12B Problems/Problem 13
+Problem
+An ice cream cone consists of a sphere of vanilla ice cream and a right circular cone that has the same diameter as the sphere. If the ice cream melts, it will exactly fill the cone. Assume that the melted ice cream occupies $75\%$ of the volume of the frozen ice cream. What is the ratio of the cone’s height to its radius ?
+$\mathrm{(A)}\ 2:1 \qquad\mathrm{(B)}\ 3:1 \qquad\mathrm{(C)}\ 4:1 \qquad\mathrm{(D)}\ 16:3 \qquad\mathrm{(E)}\ 6:1$
+Solution
+Let $r$ be the common radius of the sphere and the cone, and $h$ be the cone’s height. Then
+
+\[75\% \cdot \left(\frac 43 \pi r^3\right) = \frac 13 \pi r^2 h \Longrightarrow h = 3r\]
+
+Thus $h:r = 3:1$ and the answer is $\boxed{B}$ .
+See also
+2003 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,40 @@
+2019 AMC 12B Problems/Problem 7
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 Video Solution
+5 See Also
+Problem
+What is the sum of all real numbers $x$ for which the median of the numbers $4,6,8,17,$ and $x$ is equal to the mean of those five numbers?
+$\textbf{(A) } -5 \qquad\textbf{(B) } 0 \qquad\textbf{(C) } 5 \qquad\textbf{(D) } \frac{15}{4} \qquad\textbf{(E) } \frac{35}{4}$
+Solution
+The mean is $\frac{4+6+8+17+x}{5}=\frac{35+x}{5}$ .
+There are three possibilities for the median: it is either $6$ , $8$ , or $x$ .
+Let's start with $6$ .
+$\frac{35+x}{5}=6$ has solution $x=-5$ , and the sequence is $-5, 4, 6, 8, 17$ , which does have median $6$ , so this is a valid solution.
+Now let the median be $8$ .
+$\frac{35+x}{5}=8$ gives $x=5$ , so the sequence is $4, 5, 6, 8, 17$ , which has median $6$ , so this is not valid.
+Finally we let the median be $x$ .
+$\frac{35+x}{5}=x \implies 35+x=5x \implies x=\frac{35}{4}=8.75$ , and the sequence is $4, 6, 8, 8.75, 17$ , which has median $8$ . This case is therefore again not valid.
+Hence the only possible value of $x$ is $\boxed{\textbf{(A) }-5}.$
+Video Solution
+https://youtu.be/eHdp481w9I0
+~Education, the Study of Everything
+Video Solution
+https://youtu.be/IziHKOubUI8?t=600
+See Also
+2019 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2019 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

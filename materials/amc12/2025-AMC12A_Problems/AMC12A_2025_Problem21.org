@@ -1,0 +1,15 @@
+2025 AMC 12A Problems/Problem 21
+The numerator can be written as 2^2a +2^(2a+2k)+...+2^(2a+2mk), which is actually a sum of geometric series. This can be expressed as 2^(2a) times (1-(2^2k)^(m+1))/(1-2^2k)). The denominator in the same way can be expressed as 2^a(1-(2^K)^(m+1))/(1-2^k).
+Doing some algebra on the top and bottom we get:
+2^a times (1+(2^k)^(m+1))/(1+2^K) = 964
+The prime factorization of 964 is 241 x 2^2.
+Equating 2^a = 2^2 we get a = 2
+Next since 241 is a prime number we equate the latter half of the product to 241.
+(1+(2^k)^(m+1))/(1+2^K) = 241
+Doing some algebra we get, that 2^K(2^km-241) = 240
+The closest power of 2 to 241 is 256 which is 2^8. So setting km = 8, we get 2^8-241 = 15
+2^k(15) = 240, 2^k = 16, k = 4.
+This we know that if k = 4, then 4m = 8, so m = 2.
+Finally, we conclude that a = 2, m = 2, and k = 4.
+4+2+2 = 8, so the answer is A
+~MATHEMATICIAN635

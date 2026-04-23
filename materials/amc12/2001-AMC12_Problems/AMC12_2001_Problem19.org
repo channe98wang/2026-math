@@ -1,0 +1,25 @@
+2001 AMC 12 Problems/Problem 19
+Contents
+1 Problem
+2 Solution
+3 Video Solution by OmegaLearn
+4 Video Solution
+5 See Also
+Problem
+The polynomial $p(x) = x^3+ax^2+bx+c$ has the property that the average of its zeros, the product of its zeros, and the sum of its coefficients are all equal. The $y$ -intercept of the graph of $y=p(x)$ is 2. What is $b$ ?
+$(\mathrm{A})\ -11 \qquad (\mathrm{B})\ -10 \qquad (\mathrm{C})\ -9 \qquad (\mathrm{D})\ 1 \qquad (\mathrm{E})\ 5$
+Solution
+We are given $c=2$ . So the product of the roots is $-c = -2$ by Vieta's formulas . These also tell us that $\frac{-a}{3}$ is the average of the zeros, so $\frac{-a}3=-2 \implies a = 6$ . We are also given that the sum of the coefficients is $-2$ , so $1+6+b+2 = -2 \implies b=-11$ . So the answer is $\fbox{A}$ .
+Video Solution by OmegaLearn
+https://youtu.be/czk6OsfrbxQ?t=678
+~ pi_is_3.14
+Video Solution
+https://www.youtube.com/watch?v=qtlXAxj4y2Y
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 18 Followed by 
+ Problem 20
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,561 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12A 2017 Problem 15}
+\lhead{Strategic Analysis}
+\cfoot{\thepage}
+
+% Define colored boxes
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5,
+    colframe=blue!50,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!10,
+    colframe=pink!50,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=yellow!10,
+    colframe=orange!50,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!10,
+    colframe=cyan!50,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!10,
+    colframe=purple!50,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=KEY INSIGHT,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=WARNING: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=PRO TIP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{\textbf{AMC12A 2017 Problem 15\\Strategic Analysis}}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Let $f(x) = \sin{x} + 2\cos{x} + 3\tan{x}$, using radian measure for the variable $x$. In what interval does the smallest positive value of $x$ for which $f(x) = 0$ lie?
+
+\vspace{0.5em}
+\textbf{Answer Choices:}\\
+$\textbf{(A)}\ (0,1) \qquad \textbf{(B)}\ (1, 2) \qquad\textbf{(C)}\ (2, 3) \qquad\textbf{(D)}\ (3, 4) \qquad\textbf{(E)}\ (4,5)$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - determine an interval containing a root
+    \item \textbf{Difficulty Band}: Mid-band (Problem 15 of 25) - requires understanding of trig functions, intermediate value theorem, and careful analysis
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3 minutes allocated
+    \item \textbf{Mathematical Domain}: Calculus/Analysis (transcendental functions, root-finding, IVT)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Function: $f(x) = \sin{x} + 2\cos{x} + 3\tan{x}$
+        \item Using radian measure
+        \item Need to find smallest positive root
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $x > 0$ (smallest positive value)
+        \item $x \neq \frac{\pi}{2} + n\pi$ for integer $n$ (tangent undefined)
+        \item Must identify correct interval from 5 choices
+    \end{itemize}
+    \item \textbf{Objective}: Determine which of 5 intervals contains the smallest positive zero of $f(x)$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Root exists in one of the given intervals
+        \item Intervals are non-overlapping consecutive unit intervals
+        \item Understanding of $\pi \approx 3.14159$ helpful for evaluation
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Only need to locate interval, not exact root
+        \item Can use Intermediate Value Theorem to test intervals
+        \item Can evaluate at interval endpoints and special points
+        \item Process of elimination possible
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Need to find where $\sin{x} + 2\cos{x} + 3\tan{x} = 0$
+    \item \textbf{Conclusion}: Target is to identify correct interval from choices (A) through (E)
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $f(x) = \sin{x} + 2\cos{x} + 3\tan{x}$
+        \item Key values: $\pi \approx 3.14$, $\frac{\pi}{2} \approx 1.57$, $\frac{5\pi}{4} \approx 3.93$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item For small positive $x$, all terms positive, so $f(x) > 0$
+        \item Near $x = \frac{\pi}{2}$, $\tan{x} \to +\infty$, so $f(x) > 0$
+        \item For $x$ slightly larger than $\frac{\pi}{2}$, $\tan{x} \to -\infty$, so $f(x) < 0$
+        \item Need to find where function returns to 0
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Calculus: Use derivative to find monotonicity
+        \item Numerical: Evaluate at specific test points
+        \item Graphical: Sketch behavior of each component
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 
+    \begin{itemize}
+        \item Don't panic if exact evaluation seems difficult
+        \item Trust in systematic interval testing approach
+        \item Persistence in checking multiple intervals may be needed
+    \end{itemize}
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}
+        \item Consider using derivative to understand monotonicity
+        \item Evaluate at strategic points (like $\frac{5\pi}{4}$) not just endpoints
+        \item Approximate trigonometric values intelligently
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: 
+    \begin{itemize}
+        \item Start with rough behavior analysis
+        \item Refine to specific interval testing
+        \item Verify using Intermediate Value Theorem
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Transcendental equation root-finding problem
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Evaluate $f(0) = 0 + 2 + 0 = 2 > 0$
+        \item Check behavior near discontinuity at $\frac{\pi}{2}$
+        \item Test values in each interval
+    \end{itemize}
+    \item \textbf{Penultimate Step}: Once interval identified with sign change, can conclude by IVT
+    \item \textbf{Wishful Thinking}: Would be easier if we knew monotonicity of $f$
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Consider each trig component separately
+        \item Use known values at special angles
+        \item Leverage multiple choice structure
+    \end{itemize}
+    \item \textbf{Conjecture via Small Cases}: Test at $x = 1, 2, 3, 4$ and special points
+    \item \textbf{Visualization}: Sketch rough graph showing discontinuity and sign changes
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Only need interval, not exact root - significant simplification
+    \item \textbf{Make It Easier}: Focus on sign changes, not exact values
+    \item \textbf{Penultimate Step}: IVT guarantees root once sign change found
+    \item \textbf{Conjecture via Small Cases}: Systematic interval testing will reveal answer
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof via IVT}: Show $f$ continuous on interval with sign change
+    \item \textbf{Method}: 
+    \begin{enumerate}
+        \item Show $f$ is continuous except at $x = \frac{\pi}{2} + n\pi$
+        \item Evaluate $f$ at strategic points in each interval
+        \item Identify interval where $f$ changes from negative to positive (or vice versa)
+        \item Apply IVT to conclude root exists in that interval
+    \end{enumerate}
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Not directly applicable (function lacks obvious symmetry)
+    \item \textbf{The Extreme Principle}: Consider limits as $x \to \frac{\pi}{2}^{\pm}$
+    \item \textbf{Monotonicity Analysis}: Check if $f'(x) > 0$ to understand behavior
+    \item \textbf{Intermediate Value Theorem}: Primary tool for root location
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Calculus Methods}: 
+    \begin{itemize}
+        \item Derivative: $f'(x) = \cos{x} - 2\sin{x} + 3\sec^2{x}$
+        \item Can show $f'(x) > 0$ on intervals where $\tan{x}$ defined
+        \item Implies $f$ strictly increasing on each continuous piece
+    \end{itemize}
+    \item \textbf{Numerical Approximation}: Evaluate at test points using known trig values
+    \item \textbf{Graphical Analysis}: Sketch rough behavior to guide investigation
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques Applied}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Interval Analysis with IVT}: 
+    \begin{itemize}
+        \item Core technique for this problem
+        \item Test function at interval boundaries
+        \item Sign change + continuity $\Rightarrow$ root exists
+    \end{itemize}
+    
+    \item \textbf{Derivative Analysis for Monotonicity}:
+    \begin{itemize}
+        \item $f'(x) = \cos{x} - 2\sin{x} + 3\sec^2{x}$
+        \item Can express as $f'(x) = \sqrt{5}\cos(x + \phi) + 3\sec^2{x}$ where $\tan\phi = 2$
+        \item Since $-\sqrt{5} \leq \sqrt{5}\cos(x + \phi) \leq \sqrt{5}$ and $3\sec^2{x} \geq 3$
+        \item We have $f'(x) \geq 3 - \sqrt{5} > 0$ on intervals where defined
+        \item Therefore $f$ strictly increasing on each continuous piece
+    \end{itemize}
+    
+    \item \textbf{Strategic Point Evaluation}:
+    \begin{itemize}
+        \item $f(0) = 0 + 2 + 0 = 2 > 0$
+        \item $f(\pi) = 0 - 2 + 0 = -2 < 0$
+        \item $f(\frac{5\pi}{4}) = -\frac{\sqrt{2}}{2} + 2(-\frac{\sqrt{2}}{2}) + 3(1) = 3 - \frac{3\sqrt{2}}{2} \approx 3 - 2.12 > 0$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Recognition Index Matching}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Signature}: Root-finding + transcendental function + interval identification
+    \item \textbf{Technique Match}: IVT (95\% confidence) + Monotonicity (85\% confidence)
+    \item \textbf{Time Estimate}: 3-4 minutes with systematic approach
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary}: Interval testing with IVT
+    \item \textbf{Supporting}: Monotonicity analysis to reduce search space
+    \item \textbf{Verification}: Multiple interval checks confirm answer
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 4 (Substantial) - 2-3 minutes
+    \item \textbf{Rationale}:
+    \begin{itemize}
+        \item Mid-band problem with computational elements
+        \item Sign evaluation requires care
+        \item Moderate consequence if wrong (lose 6-7.5 points)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Check}: 
+    \begin{itemize}
+        \item Verify sign of $f(\pi) < 0$
+        \item Verify sign of $f(\frac{5\pi}{4}) > 0$
+        \item Confirm $\pi < 3 < 4 < \frac{5\pi}{4} < \frac{3\pi}{2}$
+    \end{itemize}
+    
+    \item \textbf{Limiting Cases}:
+    \begin{itemize}
+        \item Check behavior as $x \to \frac{\pi}{2}^+$: $f(x) \to -\infty$
+        \item Check behavior as $x \to \frac{3\pi}{2}^-$: $f(x) \to +\infty$
+    \end{itemize}
+    
+    \item \textbf{Monotonicity Verification}:
+    \begin{itemize}
+        \item Confirm $f$ strictly increasing on $(\pi, \frac{3\pi}{2})$
+        \item Therefore exactly one root in this interval
+        \item Root must be in $(3, 4)$ since $f(\pi) < 0$ and $f(\frac{5\pi}{4}) > 0$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Sanity Check}:
+    \begin{itemize}
+        \item $(0,1)$: Too early, $f(0) > 0$ and $f(1) > 0$
+        \item $(1,2)$: Contains $\frac{\pi}{2}$, discontinuity issues
+        \item $(2,3)$: $f$ still negative here
+        \item $(3,4)$: Sign change from $f(\pi) < 0$ to $f(\frac{5\pi}{4}) > 0$ $\checkmark$
+        \item $(4,5)$: Beyond where sign change occurs
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 90\%
+    \item \textbf{After Verification}: 95\%
+    \item \textbf{Flag for Review}: No - high confidence with multiple verification methods
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Step 1: Understand Function Behavior (30 seconds)}
+\begin{itemize}
+    \item Identify discontinuities: $x = \frac{\pi}{2}, \frac{3\pi}{2}, \ldots$
+    \item Note that $f$ is sum of continuous functions on intervals between discontinuities
+\end{itemize}
+
+\textbf{Step 2: Analyze Monotonicity (45 seconds)}
+\begin{itemize}
+    \item Compute $f'(x) = \cos{x} - 2\sin{x} + 3\sec^2{x}$
+    \item Observe $f'(x) = \sqrt{5}\cos(x+\phi) + 3\sec^2{x}$ where $\tan\phi = 2$
+    \item Since $-\sqrt{5} \leq \sqrt{5}\cos(x+\phi) \leq \sqrt{5} < 3 \leq 3\sec^2{x}$
+    \item Conclude $f'(x) > 0$ wherever defined
+    \item Therefore $f$ strictly increasing on each continuous interval
+\end{itemize}
+
+\textbf{Step 3: Test Early Intervals (30 seconds)}
+\begin{itemize}
+    \item $x \in (0, \frac{\pi}{2})$: $f(0) = 2 > 0$, $f$ increasing, $f(x) > 0$ throughout
+    \item No root in $(0, \frac{\pi}{2})$ which includes intervals (A) and (B)
+\end{itemize}
+
+\textbf{Step 4: Analyze Discontinuity Behavior (30 seconds)}
+\begin{itemize}
+    \item As $x \to \frac{\pi}{2}^-$: $\tan{x} \to +\infty$, so $f(x) \to +\infty$
+    \item As $x \to \frac{\pi}{2}^+$: $\tan{x} \to -\infty$, so $f(x) \to -\infty$
+    \item Function jumps from $+\infty$ to $-\infty$ at $x = \frac{\pi}{2}$
+\end{itemize}
+
+\textbf{Step 5: Test Interval $(\frac{\pi}{2}, \frac{3\pi}{2})$ (60 seconds)}
+\begin{itemize}
+    \item Evaluate $f(\pi) = \sin\pi + 2\cos\pi + 3\tan\pi = 0 + 2(-1) + 0 = -2 < 0$
+    \item Since $\pi \approx 3.14$, this is in interval $(3,4)$ region
+    \item Need to find where $f$ becomes positive
+    \item Try $x = \frac{5\pi}{4} \approx 3.93$ (in interval $(3,4)$):
+    \begin{align*}
+        f(\frac{5\pi}{4}) &= \sin(\frac{5\pi}{4}) + 2\cos(\frac{5\pi}{4}) + 3\tan(\frac{5\pi}{4}) \\
+        &= -\frac{\sqrt{2}}{2} + 2(-\frac{\sqrt{2}}{2}) + 3(1) \\
+        &= -\frac{\sqrt{2}}{2} - \sqrt{2} + 3 \\
+        &= 3 - \frac{3\sqrt{2}}{2} \\
+        &\approx 3 - 2.12 = 0.88 > 0
+    \end{align*}
+\end{itemize}
+
+\textbf{Step 6: Apply IVT (15 seconds)}
+\begin{itemize}
+    \item $f$ continuous on $[\pi, \frac{5\pi}{4}] \subset (\frac{\pi}{2}, \frac{3\pi}{2})$
+    \item $f(\pi) = -2 < 0$ and $f(\frac{5\pi}{4}) \approx 0.88 > 0$
+    \item By IVT, $\exists c \in (\pi, \frac{5\pi}{4})$ such that $f(c) = 0$
+    \item Since $3 < \pi < c < \frac{5\pi}{4} < 4$, we have $c \in (3,4)$
+\end{itemize}
+
+\textbf{Step 7: Verification (30 seconds)}
+\begin{itemize}
+    \item Confirm $\pi \approx 3.14 > 3$ $\checkmark$
+    \item Confirm $\frac{5\pi}{4} \approx 3.93 < 4$ $\checkmark$
+    \item Confirm sign change from negative to positive $\checkmark$
+    \item Confirm this is the first positive root (no earlier sign change found) $\checkmark$
+\end{itemize}
+
+\subsection*{Alternative Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Alternative 1}: Systematic interval testing at integer boundaries
+    \item \textbf{Alternative 2}: Graphical sketch of all three components
+    \item \textbf{Alternative 3}: Numerical approximation methods
+\end{itemize}
+
+\subsection*{Comprehensive Pitfall Guide}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pitfall 1}: Forgetting tangent has discontinuities at odd multiples of $\frac{\pi}{2}$
+    \item \textbf{Prevention}: Always check domain before applying IVT
+    
+    \item \textbf{Pitfall 2}: Approximating $\pi \approx 3$ too roughly
+    \item \textbf{Prevention}: Remember $\pi > 3.1$ to correctly place in interval
+    
+    \item \textbf{Pitfall 3}: Sign errors in evaluating trig functions
+    \item \textbf{Prevention}: Double-check quadrants and reference angles
+    
+    \item \textbf{Pitfall 4}: Missing that $\tan(\frac{5\pi}{4}) = 1$ (not -1)
+    \item \textbf{Prevention}: $\frac{5\pi}{4}$ is in third quadrant where tangent is positive
+    
+    \item \textbf{Pitfall 5}: Not verifying this is the FIRST positive root
+    \item \textbf{Prevention}: Check behavior on $(0, \pi)$ before concluding
+\end{itemize}
+
+\subsection*{Checkpoints and Time Estimates}
+\begin{itemize}[leftmargin=*]
+    \item Checkpoint 1 (30s): Function behavior understood
+    \item Checkpoint 2 (1m 15s): Monotonicity established
+    \item Checkpoint 3 (2m 15s): Key evaluations completed
+    \item Checkpoint 4 (2m 45s): Root interval identified
+    \item Checkpoint 5 (3m 15s): Answer verified
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Allocated Time}: 3 minutes (Problem 15 of 25)
+    \item \textbf{Actual Time Needed}: 3-4 minutes with verification
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Understanding + setup: 30 seconds
+        \item Monotonicity analysis: 45 seconds
+        \item Interval testing: 90 seconds
+        \item Verification: 30 seconds
+        \item Buffer: 15 seconds
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Priority Level}: Medium-High (accessible mid-band problem)
+    \item \textbf{Rationale}: 
+    \begin{itemize}
+        \item Standard calculus techniques
+        \item Multiple-choice format helps
+        \item Clear verification path
+    \end{itemize}
+    \item \textbf{Strategy}: Solve on first pass through mid-band problems
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: 90\%+ - submit and move on
+    \item \textbf{Error Recovery}: If evaluation errors occur, re-check trig values carefully
+    \item \textbf{Abandonment Criteria}: If unable to evaluate $f(\frac{5\pi}{4})$ after 4 minutes, make educated guess based on partial analysis
+\end{itemize}
+
+\subsection*{D. Strategic Abandonment Guidelines}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}: If no clear answer after 4 minutes, guess (D) based on $\pi \approx 3.14$ being in $(3,4)$ and move on
+    \item \textbf{Hard Abandon}: Not applicable - problem is accessible with systematic approach
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The function $f(x)$ is strictly increasing on each interval between discontinuities (since $f'(x) > 0$), which means at most one root per continuous piece. The jump from $+\infty$ to $-\infty$ at $x = \frac{\pi}{2}$ forces the function negative, and the monotonicity guarantees a unique root where it returns to zero. Strategic evaluation at $x = \pi$ and $x = \frac{5\pi}{4}$ (both easily computable special angles) brackets this root in interval $(3,4)$.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: The most common error is incorrectly evaluating $\tan(\frac{5\pi}{4})$. Remember that $\frac{5\pi}{4}$ is in the third quadrant where $\tan$ is positive (both sine and cosine are negative, so their ratio is positive). Thus $\tan(\frac{5\pi}{4}) = +1$, not $-1$. Also, be careful to note that $\pi > 3$, not $\pi \approx 3$, which is crucial for correctly placing the interval.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: For transcendental root-finding problems on AMC12, you rarely need exact values. Instead, focus on:
+\begin{enumerate}
+    \item Understanding monotonicity (via derivative)
+    \item Evaluating at strategic special angles ($0, \frac{\pi}{4}, \frac{\pi}{2}, \pi, \frac{5\pi}{4}$, etc.)
+    \item Applying IVT once sign change is found
+\end{enumerate}
+The multiple-choice structure means you only need to locate the interval, which is much easier than finding the exact root. This problem is designed to reward systematic interval analysis rather than numerical root-finding algorithms.
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(D)}\ (3,4)}\]
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Multiple independent verifications all point to same answer
+    \item \textbf{Verification Applied}: Level 4 (Substantial) - monotonicity analysis, IVT application, multiple point evaluation, answer choice elimination
+    \item \textbf{Flag for Review}: No - high confidence with rigorous verification
+    \item \textbf{Time Spent}: Approximately 3.5 minutes (within target for Problem 15)
+\end{itemize}
+
+\section*{Summary of Solution}
+The function $f(x) = \sin x + 2\cos x + 3\tan x$ is strictly increasing on each interval where it's continuous (proven via derivative analysis). Starting from $f(0) = 2 > 0$, the function remains positive until the discontinuity at $x = \frac{\pi}{2}$ where it jumps to $-\infty$. Then on $(\frac{\pi}{2}, \frac{3\pi}{2})$, the function increases from $-\infty$. We find $f(\pi) = -2 < 0$ and $f(\frac{5\pi}{4}) = 3 - \frac{3\sqrt{2}}{2} > 0$, creating a sign change. Since $3 < \pi < \frac{5\pi}{4} < 4$, the Intermediate Value Theorem guarantees a root in the interval $(3, 4)$.
+
+\end{document}

@@ -1,0 +1,604 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12A 2018 Problem 15 - Complete Strategic Analysis
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{asymptote}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12A 2018 Problem 15: Strategic Problem Analysis}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+A scanning code consists of a $7 \times 7$ grid of squares, with some of its squares colored black and the rest colored white. There must be at least one square of each color in this grid of $49$ squares. A scanning code is called \textit{symmetric} if its look does not change when the entire square is rotated by a multiple of $90^{\circ}$ counterclockwise around its center, nor when it is reflected across a line joining opposite corners or a line joining midpoints of opposite sides. What is the total number of possible symmetric scanning codes?
+
+$$\textbf{(A) } 510 \qquad \textbf{(B) } 1022 \qquad \textbf{(C) } 8190 \qquad \textbf{(D) } 8192 \qquad \textbf{(E) } 65,534$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - count the number of distinct symmetric colorings
+    \item \textbf{Difficulty Band}: Mid-band (Problem 15 of 25) - requires symmetry analysis and counting technique, but not advanced olympiad methods
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3 minutes allocated; also appears as AMC 10A Problem 19
+    \item \textbf{Mathematical Domain}: Combinatorics (counting with symmetry constraints), with connections to group theory (Burnside's Lemma) and geometry (dihedral symmetry)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item $7 \times 7$ grid of squares (49 squares total)
+        \item Each square colored black or white
+        \item Symmetry group: dihedral group $D_4$ (4 rotations + 4 reflections)
+        \item Rotational symmetry: invariant under $90^{\circ}$, $180^{\circ}$, $270^{\circ}$ rotations
+        \item Reflectional symmetry: invariant under 2 diagonal reflections and 2 axis reflections
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Must have at least one black square AND at least one white square
+        \item Coloring must be invariant under all 8 symmetries of the square
+    \end{itemize}
+    \item \textbf{Objective}: Count the total number of valid symmetric colorings
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The symmetry constraints drastically reduce the number of independent choices
+        \item Many squares' colors are determined by symmetry once a few are chosen
+        \item The center square is fixed by all symmetries
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Options follow the pattern: $510 = 2^9 - 2$, $1022 = 2^{10} - 2$, $8190 = 2^{13} - 2$, $8192 = 2^{13}$, $65534 = 2^{16} - 2$
+        \item The pattern $2^n - 2$ suggests we're counting binary choices minus two monochromatic cases
+        \item This tells us to find the number of independent color choices
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The 8-fold symmetry divides the grid into equivalence classes
+    \item \textbf{Conclusion}: Find the number of "fundamental domains" (independent positions), compute $2^n$ for $n$ independent choices, then subtract 2
+    \item \textbf{Notation}: Label squares by their symmetry class (positions that map to each other under the symmetry group)
+    \item \textbf{Intuitive Approach}: Visualize folding the grid along symmetry axes
+    \item \textbf{Cross-Domain Potential}: Group Theory (Burnside's Lemma), Fundamental Domain Analysis
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't be intimidated by the $7 \times 7$ grid - symmetry simplifies dramatically
+    \item \textbf{Creativity Cultivation}: Try the simpler $3 \times 3$ case first to see the pattern
+    \item \textbf{Iterative Refinement}: If first labeling is confusing, try a different scheme
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Get Your Hands Dirty}: Draw the $7 \times 7$ grid and mark symmetry lines
+    \item \textbf{Penultimate Step}: Answer will be $2^n - 2$ where $n$ is the number of independent regions
+    \item \textbf{Wishful Thinking}: "I wish I only had to color 10 squares and the rest would be determined"
+    \item \textbf{Make It Easier}: Try $3 \times 3$ grid: center (1), corner class (1), edge class (1) $\Rightarrow$ $2^3 - 2 = 6$
+    \item \textbf{Visualization}: Systematically label squares from center outward
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Pattern $2^{10} - 2 = 1022$ suggests $n = 10$ independent regions
+    \item \textbf{Penultimate Step}: Work backwards - if answer is $2^{10} - 2$, there must be exactly 10 independent squares
+\end{itemize}
+
+\subsection*{D. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential - draw grid and mark symmetries
+    \item \textbf{Recast the Problem}: "Count colorings" becomes "count independent binary choices"
+    \item \textbf{Change Your Point of View}: View grid as concentric layers from center
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry (PRIMARY TACTIC)}: 
+    \begin{itemize}
+        \item Dihedral group $D_4$ has 8 elements: identity + 3 rotations + 4 reflections
+        \item These partition the 49 squares into equivalence classes
+        \item All squares in same class must have same color
+        \item Count equivalence classes = count independent choices
+    \end{itemize}
+    \item \textbf{Fundamental Domain}: Identify minimal region that generates all squares
+    \item \textbf{Binary Choice Counting}: $n$ independent regions $\Rightarrow$ $2^n$ total combinations
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Combinatorics}: Multiplication principle ($2^n$) and subtraction principle ($-2$)
+    \item \textbf{Symmetry Analysis}:
+    \begin{itemize}
+        \item Center square: fixed by all symmetries (1 independent position)
+        \item Squares on axes: have 2-fold or 4-fold constraint
+        \item General squares: form 8-element orbits
+    \end{itemize}
+    \item \textbf{Systematic Labeling}: Label from center outward using letters A, B, C, ...
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Group Theory}: Apply Burnside's Lemma for rigorous counting
+    \item \textbf{Geometry}: Visualize 8 symmetries of a square
+    \item \textbf{Algebraic Coding}: Map colorings to binary strings of length $n$
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Fundamental Domain Analysis (100\% applicable)}
+    \begin{itemize}
+        \item \textbf{Recognition}: Symmetries partition the domain
+        \item \textbf{Why It Works}: Once colors chosen in fundamental domain, symmetry determines rest
+        \item \textbf{Application}:
+        \begin{enumerate}
+            \item Draw $7 \times 7$ grid
+            \item Mark 4 symmetry lines (2 diagonals, 2 axes)
+            \item Label squares within one sector
+            \item Count distinct labels = independent choices
+        \end{enumerate}
+    \end{itemize}
+    
+    \item \textbf{Burnside's Lemma / P\'olya Counting (TM2 - 95\% applicable)}
+    \begin{itemize}
+        \item \textbf{Recognition}: Count colorings with rotational/reflectional symmetry
+        \item \textbf{Why It Works}: Dihedral group $D_4$ acts on 49 squares
+        \item \textbf{Application}: For each symmetry, count fixed colorings and average
+        \item \textbf{Note}: Theoretically rigorous but slower for competition
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Technique Integration}
+
+\textbf{Primary Technique}: Fundamental Domain with Systematic Labeling
+
+\textbf{Why This Works Best}:
+\begin{enumerate}
+    \item Speed: 2-3 minutes with practice
+    \item Accuracy: Visual and systematic
+    \item Competition-Friendly: No advanced group theory needed
+    \item Verification-Ready: Can check multiple ways
+\end{enumerate}
+
+\textbf{Integration Strategy}:
+\begin{enumerate}
+    \item Draw $7 \times 7$ grid (15 sec)
+    \item Mark 4 symmetry lines (10 sec)
+    \item Label from center outward (60 sec)
+    \item Verify symmetry (30 sec)
+    \item Count letters: 10 (15 sec)
+    \item Compute: $2^{10} - 2 = 1022$ (15 sec)
+    \item Match answer (5 sec)
+\end{enumerate}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Selected Level}: \textbf{Level 4 Enhanced} (standard with alternative method)
+
+\textbf{Rationale}: Mid-band problem (P15), high confidence expected, 30-45 seconds available
+
+\subsection*{B. Verification Methods}
+
+\textbf{Primary (20 seconds)}:
+\begin{enumerate}[nosep]
+    \item Sanity check: 1022 reasonable? (49 squares $\rightarrow$ huge without symmetry, 1000 with 8-fold symmetry seems right)
+    \item Pattern check: $1022 = 2^{10} - 2$ confirms 10 independent regions
+    \item Small case: $3 \times 3$ gives $2^3 - 2 = 6$ (mental check)
+\end{enumerate}
+
+\textbf{Alternative Method (25 seconds)}:
+\begin{enumerate}[nosep]
+    \item Folding visualization: fold along 4 lines, count non-overlapping squares
+    \item Layer count: center (1) + layer 1 (3 types) + layer 2 (3 types) + outer (3 types) = 10
+\end{enumerate}
+
+\textbf{Boundary Cases (10 seconds)}:
+\begin{itemize}[nosep]
+    \item All black: 1 config (excluded)
+    \item All white: 1 config (excluded)
+    \item One black at center: 1 config (included)
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\begin{itemize}[leftmargin=*]
+    \item Initial: 90\% (careful labeling)
+    \item After primary: 95\% (pattern matches)
+    \item After alternative: 98\% (two methods agree)
+    \item \textbf{Final: 98\%} - Very high, proceed
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution}
+
+\textbf{Step 1: Understand Symmetries (30 sec)}
+
+The code must be invariant under:
+\begin{itemize}[nosep]
+    \item 4 rotations: $0^{\circ}, 90^{\circ}, 180^{\circ}, 270^{\circ}$
+    \item 4 reflections: 2 diagonals + 2 midpoint axes
+\end{itemize}
+
+\textbf{Step 2: Label the Grid (90 sec)}
+
+$$\begin{array}{|c|c|c|c|c|c|c|}
+\hline
+K & J & H & G & H & J & K \\
+\hline
+J & F & E & D & E & F & J \\
+\hline
+H & E & C & B & C & E & H \\
+\hline
+G & D & B & A & B & D & G \\
+\hline
+H & E & C & B & C & E & H \\
+\hline
+J & F & E & D & E & F & J \\
+\hline
+K & J & H & G & H & J & K \\
+\hline
+\end{array}$$
+
+\textbf{Note}: Letter I skipped to avoid confusion with number 1
+
+\textbf{Step 3: Count Labels (15 sec)}
+
+Letters used: A, B, C, D, E, F, G, H, J, K = \textbf{10 distinct labels}
+
+\textbf{Step 4: Apply Formula (15 sec)}
+
+$$\text{Total} = 2^{10} = 1024$$
+$$\text{Valid} = 2^{10} - 2 = 1022$$
+
+\textbf{Step 5: Match Answer (5 sec)}
+
+$$\boxed{\textbf{(B) } 1022}$$
+
+\subsection*{B. Alternative: Folding Method}
+
+\begin{asy}
+size(100pt);
+draw((1,0)--(8,0),linewidth(0.5));
+draw((1,2)--(6,2),linewidth(0.5));
+draw((1,4)--(4,4),linewidth(0.5));
+draw((1,6)--(2,6),linewidth(0.5));
+draw((2,6)--(2,0),linewidth(0.5));
+draw((4,4)--(4,0),linewidth(0.5));
+draw((6,2)--(6,0),linewidth(0.5));
+draw((1,0)--(1,7),dashed+linewidth(0.5));
+draw((1,7)--(8,0),dashed+linewidth(0.5));
+\end{asy}
+
+Fold grid along all 4 symmetry lines. Non-overlapping squares = 10 independent regions.
+
+Therefore: $2^{10} - 2 = 1022$
+
+\subsection*{C. Alternative: Corner Squares + Stripes}
+
+Divide the $7 \times 7$ grid into:
+\begin{itemize}[nosep]
+    \item Four $3 \times 3$ corner squares
+    \item Horizontal and vertical stripes through middle
+\end{itemize}
+
+For one $3 \times 3$ corner:
+$$\begin{array}{|c|c|c|}
+\hline
+A & B & C \\
+\hline
+B & D & E \\
+\hline
+C & E & F \\
+\hline
+\end{array}$$
+
+6 letters $\Rightarrow$ $2^6 = 64$ colorings
+
+For stripes: 4 distinct positions $\Rightarrow$ $2^4 = 16$ colorings
+
+Total: $64 \times 16 = 1024$
+
+Subtract monochromatic: $1024 - 2 = 1022$
+
+\subsection*{D. Time Management}
+
+\begin{itemize}[leftmargin=*]
+    \item Reading and setup: 30 sec
+    \item Labeling: 90 sec
+    \item Counting and calculation: 30 sec
+    \item Verification: 30 sec
+    \item \textbf{Total: 3 minutes}
+\end{itemize}
+
+\subsection*{E. Pivot Indicators}
+
+\textbf{Switch if}:
+\begin{itemize}[nosep]
+    \item Labeling confusing after 1 min $\Rightarrow$ try folding
+    \item Can't see 10 regions $\Rightarrow$ try layer-by-layer
+    \item Arithmetic wrong $\Rightarrow$ check $2^n - 2$ pattern
+\end{itemize}
+
+\textbf{Abandon if}:
+\begin{itemize}[nosep]
+    \item No progress after 4 minutes
+    \item Getting 13 or 16 regions (wrong counting)
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Allocated}: 3 minutes (mid-band)
+
+\textbf{Time-Saving}:
+\begin{itemize}[nosep]
+    \item Rough sketch sufficient (don't draw neatly)
+    \item Use folding if comfortable (saves 30-60 sec)
+    \item Recognize $2^n - 2$ pattern immediately
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+
+\textbf{Attempt if}:
+\begin{itemize}[nosep]
+    \item Comfortable with symmetry problems
+    \item Aiming for 15+ correct
+    \item Secured easier problems (P1-14)
+\end{itemize}
+
+\textbf{Skip if}:
+\begin{itemize}[nosep]
+    \item Struggling with P10-14
+    \item Running low on time
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Confidence Thresholds}:
+\begin{itemize}[leftmargin=*]
+    \item \textbf{High (90\%+)}: Submit confidently
+    \item \textbf{Medium (70-90\%)}: Verify with folding, then submit
+    \item \textbf{Low (50-70\%)}: Check if count matches answer pattern
+    \item \textbf{Very Low (<50\%)}: Educated guess
+\end{itemize}
+
+\textbf{Error Recovery}:
+\begin{itemize}[nosep]
+    \item 13 regions: didn't account for all symmetries
+    \item 16 regions: counted dependent squares as independent
+    \item 9 regions: merged distinct classes incorrectly
+\end{itemize}
+
+\textbf{Answer Analysis}:
+\begin{itemize}[nosep]
+    \item (A) $510 = 2^9 - 2$: 9 regions
+    \item (B) $1022 = 2^{10} - 2$: 10 regions $\checkmark$
+    \item (C) $8190 = 2^{13} - 2$: 13 regions
+    \item (D) $8192 = 2^{13}$: forgot to subtract 2
+    \item (E) $65534 = 2^{16} - 2$: 16 regions (too many)
+\end{itemize}
+
+\subsection*{D. Optimization}
+
+\textbf{Expected Value}: $0.75 \times 6 = 4.5$ pts vs 1.5 for blank
+
+\textbf{Strategic Guessing}: If must guess, eliminate (D) and (E), choose (B) as middle option
+
+\subsection*{E. Pattern Recognition}
+
+\textbf{Similar Problems}: 1996 AIME \#7
+
+\textbf{Pattern}: Colorings with symmetry $\Rightarrow$ fundamental domain $\Rightarrow$ $2^n - k$
+
+\textbf{Abandonment}:
+\begin{itemize}[nosep]
+    \item Soft: No progress after 5 min (may return)
+    \item Hard: Confusion about symmetries after 2 min
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The 8 symmetries of dihedral group $D_4$ partition the $7 \times 7$ grid into exactly \textbf{10 equivalence classes}. By systematically labeling from the center outward (A, B, C, D, E, F, G, H, J, K), we identify these 10 independent color choices. Since each can be black or white: $2^{10} = 1024$ total, minus 2 monochromatic cases = $\boxed{1022}$ valid codes.
+
+The answer pattern $2^n - 2$ immediately signals to find $n$ independent binary choices!
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Most Common Errors}:
+
+\begin{enumerate}
+    \item \textbf{Forgetting subtraction}: Getting $1024$ and selecting (D) $8192 = 2^{13}$ by misreading
+    \item \textbf{Miscounting classes}: Getting 13 (not recognizing all symmetries) or 9 (merging incorrectly)
+    \item \textbf{Symmetry confusion}: Misunderstanding diagonal reflections
+    \item \textbf{Arithmetic errors}: Miscalculating $2^{10}$ or forgetting $-2$
+\end{enumerate}
+
+\textbf{Prevention}: Always verify labeling satisfies at least one $90^{\circ}$ rotation and one reflection!
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Strategy}: When you see "symmetric under rotations and reflections":
+\begin{enumerate}[nosep]
+    \item Draw symmetry lines
+    \item Look for $2^n - k$ pattern in choices
+    \item Count independent regions = $n$
+    \item Verify $n$ gives an answer choice
+\end{enumerate}
+
+\textbf{Quick Check}: For $7 \times 7$ with 8-fold symmetry, 10 independent regions is reasonable: center (1) + 3 layers $\times$ 3 types each $\approx$ 10
+
+\textbf{Time-Saver}: Folding visualization solves in under 2 minutes with practice!
+
+\textbf{Related}: 1996 AIME \#7, 2015 AMC 10A \#20 (similar symmetry-counting)
+\end{tipbox}
+
+\section*{Final Answer}
+$$\boxed{\textbf{(B) } 1022}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence}: 98\%
+    \item \textbf{Verification}: Level 4 Enhanced (multiple methods)
+    \item \textbf{Flag for Review}: No
+    \item \textbf{Time Spent}: 3 minutes (on target)
+\end{itemize}
+
+\section*{Solution Summary}
+
+\textbf{Strategy}: Fundamental domain identification via systematic symmetry-based labeling
+
+\textbf{Key Steps}:
+\begin{enumerate}
+    \item Recognize dihedral group $D_4$ (8 symmetries)
+    \item Draw grid and mark 4 symmetry lines
+    \item Label squares ensuring symmetry preservation
+    \item Identify 10 distinct equivalence classes (A-K, skipping I)
+    \item Apply: $2^{10} - 2 = 1022$
+    \item Verify and match answer (B)
+\end{enumerate}
+
+\textbf{Why This Works}: Symmetry forces squares in same equivalence class to have same color. We have 10 independent binary choices, giving $2^{10} = 1024$ total colorings. Excluding all-black and all-white gives $\boxed{1022}$ valid symmetric scanning codes.
+
+\end{document}

@@ -1,0 +1,59 @@
+2001 AMC 12 Problems/Problem 23
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Solution 3
+5 Solution 4 (answer choices)
+6 Solution 5
+7 See Also
+Problem
+A polynomial of degree four with leading coefficient 1 and integer coefficients has two zeros, both of which are integers. Which of the following can also be a zero of the polynomial?
+$\text{(A) }\frac {1 + i \sqrt {11}}{2} \qquad \text{(B) }\frac {1 + i}{2} \qquad \text{(C) }\frac {1}{2} + i \qquad \text{(D) }1 + \frac {i}{2} \qquad \text{(E) }\frac {1 + i \sqrt {13}}{2}$
+Solution
+Let the polynomial be $P$ and let the two integer zeros be $z_1$ and $z_2$ . We can then write $P(x)=(x-z_1)(x-z_2)(x^2+ax+b)$ for some integers $a$ and $b$ .
+If a complex number $p+qi$ with $q\not=0$ is a root of $P$ , it must be the root of $x^2+ax+b$ , and the other root of $x^2+ax+b$ must be $p-qi$ .
+We can then write $x^2+ax+b = (x-p-qi)(x-p+qi) = (x-p)^2 - (qi)^2 = x^2 - 2px + p^2 + q^2$ .
+We can now examine each of the five given complex numbers, and find the one for which the values $-2p$ and $p^2+q^2$ are integers. This is $\boxed{\frac {1 + i \sqrt {11}}{2}}$ , for which we have $-2p = -2\cdot\frac 12 = -1$ and $p^2+q^2 = \left( \frac 12 \right)^2 + \left( \frac {\sqrt{11}}2 \right)^2 = \frac 14 + \frac {11}4 = \frac {12}4 = 3$ .
+(As an example, the polynomial $x^4 - 2x^3 + 4x^2 - 3x$ has zeroes $0$ , $1$ , and $\frac {1 \pm i \sqrt {11}}{2}$ .)
+Solution 2
+By Vieta, we know that the product of all four zeros of the polynomial equals the constant at the end of the polynomial.
+We also know that the two imaginary roots are a conjugate pair (I.E if one is a+bi, the other is a-bi). 
+So the two imaginary roots must multiply to give you an integer.
+Taking the 5 answers into hand, we find that $\boxed{\frac {1 + i \sqrt {11}}{2}}$ is our only integer giving solution.
+Note: I think this solution is not correct. the products of the roots are integers do not mean the product of the two complex roots are integers.
+Note: I believe this solution is correct. We know that the two real solutions are integers and that the final product is an integer. The product of the real solutions multiplied by the product of the complex solutions equals the final product, so we know that the product of the two complex solutions must be integers. We know the two complex solutions are conjugates, so we can test all the answer choices and find that A is the answer. ~A1597412
+Note: No, the solution is not correct. Here's a counterexample: the product of the two integer roots is 4 and the product of the two complex roots is $1/2$ . The product of all four roots is $2$ , which is clearly an integer.
+FINAL CLARIFICATION: The note above is accurate. This solution is not fully complete in writing, but is valid nonetheless. If the 2 complex roots multiply to a non-integer, the sum of all 4 roots MAY STILL produce an integer. However, if the 2 complex roots multiply to an integer, all 4 roots MUST produce an integer. So we know that $\boxed{ A) \frac {1 + i \sqrt {11}}{2}}$ MUST be the solution.
+There is a simple fix: The complex roots must be algebraic integers, so the product of the root and its conjugate must be an integer.
+Solution 3
+After dividing the polynomial out by $(x-p)$ and $(x-q)$ , where p and q are the real roots of the polynomial, we will obtain a quadratic with two complex roots. We can then use the quadratic formula to solve for these complex roots.
+Let's start by using synthetic division to divide $x^4+ax^3+bx^2+cx+d$ by $(x-p)$ . Using this method, the quotient becomes $1x^3+(a-p)x^2+(b-pa+p^2)x+(c-bp+ap^2-p^3)+\frac{d-pc+bp^2-ap^3+p^4}{x-q}$ . However, we know that there should be no remainder because $(x-p)$ is a factor of the polynomial, so $\frac{d-pc+bp^2-ap^3+p^4}{x-q}$ must equal 0, so $d=-pc+bp^2-ap^3+p^4$ . When we divide the expression on the left by -p, we get $c-bp+ap^2-p^3$ , so we can replace it in our original synthetic division equation with $\frac {d}{-k}$ .
+We then want to synthetically divide $x^3+(a-p)x^2+(b-pa+p^2)x+\frac {d}{-k}$ by the next factor, $(x-q)$ . Using the same method as before, we can simplify the quotient to $x^2+(a-p-q)x+\frac{d}{pq}$ . Now for the easy part!
+Use the quadratic formula to determine the form of the complex roots.
+$\frac{p+q-a\pm\sqrt{(a-p-q)^2-\frac{4d}{pq}}}{2}$
+Now this is starting to look a lot like answers A and E. Noticing that the real part in each answer choice is $\frac{1}{2}$ , $(k+n-a)=1$ and $(a-k-n)^2=1$ , and the imaginary part is positive. Furthermore, by Vieta's Formulas, we know that d must be a multiple of p and q, so $\frac{4d}{pq}$ is a multiple of 4. Rearranging the expression, we get:
+$\frac{1+i\sqrt{\frac{4d}{pq}-1}}{2}$
+The radicand therefore must be one less than a multiple of four, which is only the case in $\frac {1 + i \sqrt {11}}{2}$ or $\boxed{A}$ .
+Solution 4 (answer choices)
+According to the Complex Conjugate Root Theorem , if $a+bi$ is a root then so is $a-bi$ . Then the quadratic $(x-(a+bi))(x-(a-bi))$ is also a polynomial factor of the quartic in question. Let's check what that expanded quadratic looks like for each answer choice:
+\[\begin{array}{|c|c|} \hline \textbf{Answer Choice} & \textbf{Quadratic Expression} \\ \hline \text{A} & \left(x - \frac{1 + \sqrt{-11}}{2}\right)\left(x - \frac{1 - \sqrt{-11}}{2}\right) = x^2 - x + 3 \\ \text{B} & \left(x - \frac{1 + \sqrt{-1}}{2}\right)\left(x - \frac{1 - \sqrt{-1}}{2}\right) = x^2 - x + \frac{1}{2} \\ \text{C} & \left(x - \frac{1 + 2\sqrt{-1}}{2}\right)\left(x - \frac{1 - 2\sqrt{-1}}{2}\right) = x^2 - x + \frac{5}{4} \\ \text{D} & \left(x - \frac{2 + \sqrt{-1}}{2}\right)\left(x - \frac{2 - \sqrt{-1}}{2}\right) = x^2 - 2x + \frac{5}{4} \\ \text{E} & \left(x - \frac{1 + \sqrt{-13}}{2}\right)\left(x - \frac{1 - \sqrt{-13}}{2}\right) = x^2 - x + \frac{7}{2} \\ \hline \end{array}\]
+Noting that only choice $\textbf{(A)}$ has all integer coefficients, we can clearly see that for the two other integer roots $p$ , and $q$ , $(x-p)(x-q)(x^2 - x + 3)$ will always give us a polynomial of degree four with leading coefficient 1 and integer coefficients. Thus the answer must be $\boxed{\textbf{(A)} = \frac {1 + i \sqrt {11}}{2}}$ .
+~proloto
+Solution 5
+Suppose $P(x) = (x-z_1)(x-z_2)(x^2+ax+b)$
+Expand P(x): $P(x) = x^4 + ((z_1+z_2)+a)x^3+(-(z_1+z_2)a+b+z_1z_2)x^2+(-(z_1+z_2)+az_1z_2)x$ .
+Notice that the coefficients of $P(x)$ are integers. Comparing the coefficients, we can know that $a$ and $b$ are integers
+Suppose $p+qi$ and $p-qi$ are the two complex roots of p(x).
+Using $z\overline{z} =$ |z| $^ 2$ and $b = (p+qi)(p-qi)$ (using Vieta only on $x^2+ax+b=0$ )
+so $p^2+q^2$ is an integer
+select (A)
+~JiYang
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 22 Followed by 
+ Problem 24
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

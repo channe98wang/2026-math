@@ -1,0 +1,33 @@
+2018 AMC 12B Problems/Problem 12
+Contents
+1 Problem
+2 Solution
+3 Video Solution (HOW TO THINK CRITICALLY!!!)
+4 See Also
+Problem
+Side $\overline{AB}$ of $\triangle ABC$ has length $10$ . The bisector of angle $A$ meets $\overline{BC}$ at $D$ , and $CD = 3$ . The set of all possible values of $AC$ is an open interval $(m,n)$ . What is $m+n$ ?
+$\textbf{(A) }16 \qquad \textbf{(B) }17 \qquad \textbf{(C) }18 \qquad \textbf{(D) }19 \qquad \textbf{(E) }20 \qquad$
+Solution
+Let $AC=x.$ By Angle Bisector Theorem, we have $\frac{AB}{AC}=\frac{BD}{CD},$ from which $BD=CD\cdot\frac{AB}{AC}=\frac{30}{x}.$
+Recall that $x>0.$ We apply the Triangle Inequality to $\triangle ABC:$
+- $AC+BC>AB \iff x+\left(\frac{30}{x}+3\right)>10$
+- $AB+BC>AC \iff 10+\left(\frac{30}{x}+3\right)>x$
+- $AB+AC>BC \iff 10+x>\frac{30}{x}+3$
+Taking the intersection of the solutions gives
+
+\[(m,n)=(0,\infty)\cap(0,15)\cap(3,\infty)=(3,15),\]
+
+so the answer is $m+n=\boxed{\textbf{(C) }18}.$
+~quinnanyc ~MRENTHUSIASM
+Video Solution (HOW TO THINK CRITICALLY!!!)
+https://youtu.be/OfnHE-KxZJI
+~Education, the Study of Everything
+See Also
+2018 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

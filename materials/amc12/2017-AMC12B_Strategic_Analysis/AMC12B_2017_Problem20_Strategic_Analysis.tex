@@ -1,0 +1,617 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% Define color boxes for different framework sections
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig, colframe=blue!40!black, title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic, colframe=pink!40!black, title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical, colframe=green!40!black, title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques, colframe=orange!40!black, title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification, colframe=red!40!black, title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution, colframe=cyan!40!black, title=SOLUTION ROADMAP,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition, colframe=purple!40!black, title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries, breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20, colframe=gold, title=KEY INSIGHT,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10, colframe=red!50, title=WARNING: Common Pitfall,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10, colframe=green!50, title=PRO TIP,
+    fonttitle=\bfseries, arc=3pt, boxrule=2pt, leftrule=5pt
+}
+
+\title{\textbf{2017 AMC 12B Problem 20: Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+Real numbers $x$ and $y$ are chosen independently and uniformly at random from the interval $(0,1)$. What is the probability that $\lfloor\log_2x\rfloor=\lfloor\log_2y\rfloor$?
+
+\textbf{Answer Choices:}\\
+$\textbf{(A)}\ \frac{1}{8}\qquad\textbf{(B)}\ \frac{1}{6}\qquad\textbf{(C)}\ \frac{1}{4}\qquad\textbf{(D)}\ \frac{1}{3}\qquad\textbf{(E)}\ \frac{1}{2}$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find -- determine a probability value
+    \item \textbf{Difficulty Band}: Late-band (Problem 20 of 25) -- requires understanding of logarithms, floor functions, and geometric series
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) -- approximately 3-4 minutes allocated for late-band problems
+    \item \textbf{Mathematical Domain}: Probability with strong connections to logarithms, floor functions, and infinite series
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item $x, y$ chosen independently and uniformly from $(0,1)$
+        \item Need probability that $\lfloor\log_2 x\rfloor = \lfloor\log_2 y\rfloor$
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Open interval $(0,1)$ means $0 < x, y < 1$
+        \item For $0 < x < 1$: $\log_2 x < 0$ (always negative)
+        \item Floor function creates discrete integer values from continuous logarithms
+        \item Independence: joint probability is product of marginal probabilities
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find $P(\lfloor\log_2 x\rfloor = \lfloor\log_2 y\rfloor)$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The interval $(0,1)$ partitions naturally based on floor values
+        \item Each floor value corresponds to a dyadic interval: $[\frac{1}{2^{n+1}}, \frac{1}{2^n})$
+        \item These intervals have lengths that form a geometric sequence
+        \item The probability involves an infinite series
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All choices are unit fractions with small denominators
+        \item $\frac{1}{2}$ would be too high (requires strong correlation)
+        \item $\frac{1}{8}$ seems too low (there's overlap)
+        \item $\frac{1}{3}$ and $\frac{1}{4}$ are geometric series sums ($\frac{1}{1-r}$ pattern)
+        \item Can eliminate extreme values and test middle options
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Let $X, Y \sim \text{Uniform}(0,1)$ be independent
+    
+    \item \textbf{Conclusion}: Determine $P(\lfloor\log_2 X\rfloor = \lfloor\log_2 Y\rfloor)$
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $X, Y$: random variables uniformly distributed on $(0,1)$
+        \item $\lfloor \cdot \rfloor$: floor function (greatest integer function)
+        \item $\log_2$: logarithm base 2
+        \item For $x \in (0,1)$: $\lfloor\log_2 x\rfloor \in \{-1, -2, -3, \ldots\}$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Partition $(0,1)$ by floor values of $\log_2$
+        \item $\lfloor\log_2 x\rfloor = -1$ when $x \in [\frac{1}{2}, 1)$ (length $\frac{1}{2}$)
+        \item $\lfloor\log_2 x\rfloor = -2$ when $x \in [\frac{1}{4}, \frac{1}{2})$ (length $\frac{1}{4}$)
+        \item Pattern: each interval has length $\frac{1}{2^n}$
+        \item Sum probabilities that both fall in same interval
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item \textbf{Geometric}: Visualize as areas in coordinate plane
+        \item \textbf{Algebraic}: Use series summation formulas
+        \item \textbf{Analysis}: Understand interval structure through logarithm properties
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't be intimidated by the nested functions (floor of logarithm); break down step-by-step
+    
+    \item \textbf{Creativity Cultivation}: Recognize that floor function creates discrete regions from continuous domain; visualize interval partitioning
+    
+    \item \textbf{Iterative Refinement}: Start with small cases ($n=-1, -2$), identify pattern, then generalize to infinite series
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize compound function structure: probability $\rightarrow$ floor function $\rightarrow$ logarithm
+    
+    \item \textbf{Get Your Hands Dirty}: Test specific values to understand floor behavior
+    \begin{itemize}
+        \item $x = 0.75 \in [\frac{1}{2}, 1)$: $\log_2(0.75) \approx -0.415$, so $\lfloor\log_2(0.75)\rfloor = -1$
+        \item $x = 0.3 \in [\frac{1}{4}, \frac{1}{2})$: $\log_2(0.3) \approx -1.737$, so $\lfloor\log_2(0.3)\rfloor = -2$
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Once we identify the geometric series pattern, the final step is applying the formula $\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}$
+    
+    \item \textbf{Wishful Thinking}: We wish for a simple pattern in interval lengths -- and indeed, powers of $\frac{1}{2}$ emerge!
+    
+    \item \textbf{Make It Easier}: Instead of thinking about logarithms, think about powers of 2: $2^{-1} = \frac{1}{2}$, $2^{-2} = \frac{1}{4}$, etc.
+    
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item Case $n=-1$: $P(\text{both in } [\frac{1}{2},1)) = (\frac{1}{2})^2 = \frac{1}{4}$
+        \item Case $n=-2$: $P(\text{both in } [\frac{1}{4},\frac{1}{2})) = (\frac{1}{4})^2 = \frac{1}{16}$
+        \item Pattern: probabilities are $\frac{1}{4}, \frac{1}{16}, \frac{1}{64}, \ldots$ (geometric with ratio $\frac{1}{4}$)
+    \end{itemize}
+    
+    \item \textbf{Visualization}: Draw number line $(0,1)$ partitioned at $\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \ldots$; or draw unit square $(0,1) \times (0,1)$ with diagonal stripes for matching floor values
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Recognize $\frac{1}{3}$ suggests geometric series with $r = \frac{1}{4}$ (since $\frac{a}{1-r} = \frac{1/4}{1-1/4} = \frac{1/4}{3/4} = \frac{1}{3}$)
+    
+    \item \textbf{Make It Easier}: Convert logarithm problem to interval problem; convert continuous to discrete (via floor)
+    
+    \item \textbf{Penultimate Step}: Identify that answer is $\sum_{n=1}^{\infty} (\frac{1}{2^n})^2 = \sum_{n=1}^{\infty} \frac{1}{4^n}$
+    
+    \item \textbf{Wishful Thinking}: Hope for geometric series -- and it appears!
+    
+    \item \textbf{Conjecture via Small Cases}: Compute first few terms, recognize pattern, apply formula
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: 
+    \begin{enumerate}
+        \item Partition $(0,1)$ by floor values
+        \item Compute probability for each case
+        \item Sum using geometric series formula
+    \end{enumerate}
+    
+    \item \textbf{Proof by Contradiction}: Not applicable
+    
+    \item \textbf{Mathematical Induction}: Could verify pattern, but direct summation is cleaner
+    
+    \item \textbf{Stylistic Conventions}: Use case analysis; leverage independence and uniform distribution
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Unit square with diagonal stripes (regions where floor values match)
+    
+    \item \textbf{Recast the Problem}: ``Interval matching'' problem rather than ``floor of logarithm'' problem
+    
+    \item \textbf{Change Your Point of View}: Think in terms of powers of 2 rather than logarithms
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Independence and identical distributions create symmetry
+    
+    \item \textbf{Extreme Principle}: Not directly applicable
+    
+    \item \textbf{Invariants}: Floor value partitions are invariant under the problem structure
+    
+    \item \textbf{Monovariants}: Not applicable
+    
+    \item \textbf{Parity}: Not applicable
+    
+    \item \textbf{Graph Theory}: Not applicable
+    
+    \item \textbf{Generating Functions}: Not primary, though series summation is related
+    
+    \item \textbf{Pattern Recognition}: Identify geometric sequence in interval lengths and probabilities
+\end{itemize}
+
+\subsection*{B. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic-Probabilistic}: Convert probability question to series summation
+    
+    \item \textbf{Geometric-Probabilistic}: Use geometric interpretation via unit square regions
+    
+    \item \textbf{Analytic-Discrete}: Floor function converts continuous logarithm to discrete integer values
+\end{itemize}
+
+\subsection*{C. Domain-Specific Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Probability}: Independence, uniform distribution, total probability (sum over disjoint cases)
+    
+    \item \textbf{Analysis}: Logarithm properties, floor function behavior, interval decomposition
+    
+    \item \textbf{Algebra}: Geometric series summation
+    
+    \item \textbf{Geometry}: Unit square representation (optional but helpful for visualization)
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Technique Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{T17-GeoProb}: Geometric Probability -- applicable for unit square visualization
+    \item \textbf{Series Summation}: Geometric series formula -- PRIMARY technique
+    \item \textbf{Case Analysis}: Partition by floor values -- essential structure
+    \item \textbf{Logarithm Properties}: Understanding $\log_2 x$ for $x \in (0,1)$
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\textbf{Primary Technique: Case Analysis + Geometric Series}
+
+\textbf{Why it applies}:
+\begin{itemize}
+    \item Floor function naturally partitions $(0,1)$ into countably many intervals
+    \item Each interval corresponds to one floor value
+    \item Interval lengths form geometric sequence: $\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \ldots$
+    \item Probabilities form geometric sequence: $\frac{1}{4}, \frac{1}{16}, \frac{1}{64}, \ldots$
+\end{itemize}
+
+\textbf{Configuration cues}: Floor of logarithm with uniform random variables
+
+\textbf{Objective cues}: Finding probability of equality
+
+\textbf{Supporting Technique: Geometric Series Formula}
+
+For $|r| < 1$: $\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}$
+
+In our case: $a = \frac{1}{4}$, $r = \frac{1}{4}$, giving $\frac{1/4}{1-1/4} = \frac{1/4}{3/4} = \frac{1}{3}$
+
+\subsection*{C. Technique Integration}
+\begin{enumerate}
+    \item \textbf{Understand domain}: For $x \in (0,1)$, $\log_2 x$ ranges from $-\infty$ to $0$
+    \item \textbf{Identify intervals}: $\lfloor\log_2 x\rfloor = n$ when $x \in [2^n, 2^{n+1})$ for $n \in \{\ldots, -3, -2, -1\}$
+    \item \textbf{For our interval}: 
+    \begin{itemize}
+        \item $\lfloor\log_2 x\rfloor = -1$ when $x \in [\frac{1}{2}, 1)$ (length $\frac{1}{2}$)
+        \item $\lfloor\log_2 x\rfloor = -2$ when $x \in [\frac{1}{4}, \frac{1}{2})$ (length $\frac{1}{4}$)
+        \item $\lfloor\log_2 x\rfloor = -k$ when $x \in [\frac{1}{2^k}, \frac{1}{2^{k-1}})$ (length $\frac{1}{2^k}$)
+    \end{itemize}
+    \item \textbf{Compute probability}: For both $x$ and $y$ in same interval with length $\ell$: $P = \ell \cdot \ell = \ell^2$
+    \item \textbf{Sum over all cases}: $\sum_{k=1}^{\infty} (\frac{1}{2^k})^2 = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1-1/4} = \frac{1}{3}$
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+No conflicts arise. The approach is:
+\begin{itemize}[leftmargin=*]
+    \item Cases are mutually exclusive (disjoint intervals)
+    \item Cases are exhaustive (cover all of $(0,1)$)
+    \item Probabilities properly computed via independence
+    \item Series converges (geometric with $|r| = \frac{1}{4} < 1$)
+\end{itemize}
+\end{techniquesbox}
+
+\begin{keyinsightbox}
+\textbf{The Deep Insight}:
+
+The key insight is recognizing that the floor function partitions $(0,1)$ into dyadic intervals (powers of 1/2):
+$[\frac{1}{2}, 1), [\frac{1}{4}, \frac{1}{2}), [\frac{1}{8}, \frac{1}{4}), \ldots$
+
+Each interval has length $\frac{1}{2^k}$ for $k = 1, 2, 3, \ldots$
+
+The probability that both $x$ and $y$ fall in the same interval is:
+$P = \sum_{k=1}^{\infty} \left(\frac{1}{2^k}\right)^2 = \sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1-1/4} = \frac{1}{3}$
+
+This is a geometric series with first term $\frac{1}{4}$ and common ratio $\frac{1}{4}$.
+
+\textbf{Why This is Elegant}:
+
+This problem beautifully connects three mathematical concepts:
+\begin{itemize}
+    \item \textbf{Logarithms}: Map multiplicative structure (powers of 2) to additive structure (integers)
+    \item \textbf{Floor function}: Discretizes continuous range into countable cases
+    \item \textbf{Geometric series}: The dyadic structure naturally produces a geometric sequence
+\end{itemize}
+
+The base-2 logarithm is particularly natural here because it reveals the binary structure of $(0,1)$, where each ``bit position'' corresponds to one dyadic interval.
+\end{keyinsightbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+This is Problem 20 (late-band), so use \textbf{Level 3: Comprehensive Verification}
+
+\textbf{Decision criteria}:
+\begin{itemize}
+    \item High difficulty (P20/25)
+    \item Multiple conceptual steps (logarithms, floor, probability, series)
+    \item Requires correct understanding of interval structure
+    \item Series summation must be accurate
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Interval Check}:
+    \begin{itemize}
+        \item Verify $\lfloor\log_2(\frac{1}{2})\rfloor = \lfloor -1 \rfloor = -1$ \checkmark
+        \item Verify $\lfloor\log_2(\frac{1}{4})\rfloor = \lfloor -2 \rfloor = -2$ \checkmark
+        \item Verify intervals partition $(0,1)$: $\sum_{k=1}^{\infty} \frac{1}{2^k} = 1$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Series Computation}:
+    \begin{itemize}
+        \item First term: $(\frac{1}{2})^2 = \frac{1}{4}$ \checkmark
+        \item Common ratio: $\frac{1}{16} \div \frac{1}{4} = \frac{1}{4}$ \checkmark
+        \item Sum: $\frac{1/4}{1-1/4} = \frac{1/4}{3/4} = \frac{1}{3}$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Boundary Cases}:
+    \begin{itemize}
+        \item What if both in $[\frac{1}{2}, 1)$? Probability $= \frac{1}{4}$ (first term) \checkmark
+        \item As $k \to \infty$, terms $\to 0$ (series converges) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Verification}:
+    \begin{itemize}
+        \item Check answer $\frac{1}{3}$: This equals geometric series with $a = \frac{1}{4}$, $r = \frac{1}{4}$ \checkmark
+        \item Sanity check: $0 < \frac{1}{3} < \frac{1}{2}$ (probability is positive and less than $\frac{1}{2}$) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Alternative Verification via Geometric Probability}:
+    \begin{itemize}
+        \item Draw unit square $(0,1) \times (0,1)$
+        \item Favorable region: union of squares $[\frac{1}{2^{k+1}}, \frac{1}{2^k}) \times [\frac{1}{2^{k+1}}, \frac{1}{2^k})$
+        \item Total area: $\sum_{k=1}^{\infty} (\frac{1}{2^k})^2 = \frac{1}{3}$ \checkmark
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\textbf{Confidence Level}: 95\% (High)
+
+\textbf{Reasoning}:
+\begin{itemize}
+    \item Interval structure is correct (verified with specific values)
+    \item Series computation is standard and reliable
+    \item Answer matches expected form (unit fraction from geometric series)
+    \item Multiple verification methods agree
+\end{itemize}
+
+\textbf{Potential concerns}: None significant; approach is sound and well-verified
+\end{verificationbox}
+
+\begin{warningbox}
+\textbf{Common Pitfall \#1}: Forgetting that $\log_2 x < 0$ for $x \in (0,1)$. Students may incorrectly think floor values are positive.
+
+\textbf{Common Pitfall \#2}: Misidentifying interval boundaries. Remember:
+\begin{itemize}
+    \item $\lfloor\log_2 x\rfloor = -1$ for $x \in [\frac{1}{2}, 1)$, NOT $[\frac{1}{2}, 1]$
+    \item Interval is half-open: $[2^{-k}, 2^{-k+1})$
+\end{itemize}
+
+\textbf{Common Pitfall \#3}: Incorrect geometric series formula. Be careful with indexing:
+\begin{itemize}
+    \item $\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}$ (starting from $n=0$)
+    \item $\sum_{n=1}^{\infty} ar^n = \frac{ar}{1-r}$ (starting from $n=1$)
+\end{itemize}
+
+In our problem: $\sum_{k=1}^{\infty} \frac{1}{4^k}$ can be computed as:
+\begin{itemize}
+    \item Method 1: $\sum_{k=1}^{\infty} 1 \cdot (\frac{1}{4})^k = \frac{1 \cdot \frac{1}{4}}{1-\frac{1}{4}} = \frac{1/4}{3/4} = \frac{1}{3}$ $\checkmark$
+    \item Method 2: $\sum_{k=0}^{\infty} (\frac{1}{4})^k - (\frac{1}{4})^0 = \frac{1}{1-\frac{1}{4}} - 1 = \frac{4}{3} - 1 = \frac{1}{3}$ $\checkmark$
+\end{itemize}
+
+\textbf{Common Pitfall \#4}: Thinking the problem asks for $P(x = y)$ (probability of exact equality). The floor function makes this a discrete matching problem, not a continuous one.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip \#1}: When you see floor of logarithm, immediately think about interval partitioning by powers of the base.
+
+\textbf{Pro Tip \#2}: For $x \in (0,1)$, $\log_b x$ is always negative. The floor values are $-1, -2, -3, \ldots$
+
+\textbf{Pro Tip \#3}: Dyadic intervals (powers of 2) are natural for base-2 logarithms. This creates geometric sequences in both interval lengths and probabilities.
+
+\textbf{Pro Tip \#4}: Geometric series with ratio $r = \frac{1}{4}$ gives sum $\frac{a}{3/4} = \frac{4a}{3}$. If first term is $\frac{1}{4}$, sum is $\frac{1}{3}$.
+
+\textbf{Pro Tip \#5}: Visualize this problem as a unit square $[0,1] \times [0,1]$ in the $(x,y)$ plane. The favorable region consists of small squares along the ``diagonal'' where floor values match:
+\begin{itemize}
+    \item Square 1: $[\frac{1}{2}, 1) \times [\frac{1}{2}, 1)$ with area $\frac{1}{4}$
+    \item Square 2: $[\frac{1}{4}, \frac{1}{2}) \times [\frac{1}{4}, \frac{1}{2})$ with area $\frac{1}{16}$
+    \item Square 3: $[\frac{1}{8}, \frac{1}{4}) \times [\frac{1}{8}, \frac{1}{4})$ with area $\frac{1}{64}$
+    \item And so on...
+\end{itemize}
+Total favorable area = $\frac{1}{4} + \frac{1}{16} + \frac{1}{64} + \cdots = \frac{1}{3}$
+\end{tipbox}
+
+\begin{solutionbox}
+\subsection*{Solution Roadmap}
+
+\textbf{Step 1: Understand the Floor Function Behavior}
+\begin{itemize}
+    \item For $x \in (0,1)$: $\log_2 x < 0$ (negative)
+    \item $\lfloor\log_2 x\rfloor$ takes values $\ldots, -3, -2, -1$
+    \item $\lfloor\log_2 x\rfloor = n \iff n \leq \log_2 x < n+1 \iff 2^n \leq x < 2^{n+1}$
+\end{itemize}
+
+\textbf{Step 2: Partition $(0,1)$ by Floor Values}
+
+\textit{Key Understanding}: $\lfloor\log_2 x\rfloor = n$ means $n \leq \log_2 x < n+1$, which is equivalent to $2^n \leq x < 2^{n+1}$
+
+\begin{itemize}
+    \item $\lfloor\log_2 x\rfloor = -1$ when $x \in [\frac{1}{2}, 1)$ 
+    \begin{itemize}
+        \item Derivation: $-1 \leq \log_2 x < 0 \iff 2^{-1} \leq x < 2^0 \iff \frac{1}{2} \leq x < 1$
+        \item Check: $\log_2(1/2) = -1$, $\log_2(1) = 0$ $\checkmark$
+        \item Interval length: $1 - \frac{1}{2} = \frac{1}{2}$
+        \item Probability: $P(x \in [\frac{1}{2}, 1)) = \frac{1}{2}$
+    \end{itemize}
+    
+    \item $\lfloor\log_2 x\rfloor = -2$ when $x \in [\frac{1}{4}, \frac{1}{2})$
+    \begin{itemize}
+        \item Derivation: $-2 \leq \log_2 x < -1 \iff 2^{-2} \leq x < 2^{-1} \iff \frac{1}{4} \leq x < \frac{1}{2}$
+        \item Check: $\log_2(1/4) = -2$, $\log_2(1/2) = -1$ $\checkmark$
+        \item Interval length: $\frac{1}{2} - \frac{1}{4} = \frac{1}{4}$
+        \item Probability: $P(x \in [\frac{1}{4}, \frac{1}{2})) = \frac{1}{4}$
+    \end{itemize}
+    
+    \item \textbf{General Pattern}: $\lfloor\log_2 x\rfloor = -k$ when $x \in [\frac{1}{2^k}, \frac{1}{2^{k-1}})$ 
+    \begin{itemize}
+        \item Interval length: $\frac{1}{2^{k-1}} - \frac{1}{2^k} = \frac{2 - 1}{2^k} = \frac{1}{2^k}$
+        \item Probability: $P(x \in [\frac{1}{2^k}, \frac{1}{2^{k-1}})) = \frac{1}{2^k}$
+    \end{itemize}
+    
+    \item \textbf{Coverage Check}: These intervals partition $(0,1)$ completely:
+    \begin{align*}
+    \sum_{k=1}^{\infty} \frac{1}{2^k} &= \frac{1/2}{1-1/2} = \frac{1/2}{1/2} = 1 \checkmark
+    \end{align*}
+\end{itemize}
+
+\textbf{Step 3: Compute Probability for Each Case}
+\begin{itemize}
+    \item Since $x$ and $y$ are independent and uniform on $(0,1)$:
+    \item $P(\lfloor\log_2 x\rfloor = \lfloor\log_2 y\rfloor = -k)$
+    \item $= P(x \in [\frac{1}{2^k}, \frac{1}{2^{k-1}})) \cdot P(y \in [\frac{1}{2^k}, \frac{1}{2^{k-1}}))$
+    \item $= \frac{1}{2^k} \cdot \frac{1}{2^k} = \frac{1}{4^k}$
+\end{itemize}
+
+\textbf{Specific Cases:}
+\begin{itemize}
+    \item $k=1$: $P(\text{both in } [\frac{1}{2}, 1)) = (\frac{1}{2})^2 = \frac{1}{4}$
+    \item $k=2$: $P(\text{both in } [\frac{1}{4}, \frac{1}{2})) = (\frac{1}{4})^2 = \frac{1}{16}$
+    \item $k=3$: $P(\text{both in } [\frac{1}{8}, \frac{1}{4})) = (\frac{1}{8})^2 = \frac{1}{64}$
+\end{itemize}
+
+\textbf{Step 4: Sum Over All Cases}
+\begin{itemize}
+    \item By law of total probability (cases are disjoint):
+    \begin{align*}
+    P(\lfloor\log_2 x\rfloor = \lfloor\log_2 y\rfloor) &= \sum_{k=1}^{\infty} P(\text{both have floor value } -k)\\
+    &= \sum_{k=1}^{\infty} \frac{1}{4^k}\\
+    &= \frac{1}{4} + \frac{1}{16} + \frac{1}{64} + \cdots\\
+    &= \frac{1}{4}(1 + \frac{1}{4} + \frac{1}{16} + \cdots)\\
+    &= \frac{1}{4} \cdot \frac{1}{1-\frac{1}{4}}\\
+    &= \frac{1}{4} \cdot \frac{4}{3}\\
+    &= \frac{1}{3}
+    \end{align*}
+\end{itemize}
+
+\textbf{Step 5: Verify}
+\begin{itemize}
+    \item Check: Geometric series with $a = \frac{1}{4}$, $r = \frac{1}{4}$
+    \item Sum: $\frac{a}{1-r} = \frac{1/4}{3/4} = \frac{1}{3}$ \checkmark
+    \item Answer: $\boxed{\textbf{(D)}\ \frac{1}{3}}$
+\end{itemize}
+
+\subsection*{Alternative Approach: Geometric Probability}
+\textbf{Visualization Method:}
+\begin{itemize}
+    \item Draw unit square $[0,1] \times [0,1]$ representing $(x,y)$ pairs
+    \item Favorable region: union of squares where floor values match
+    \item Each square: $[\frac{1}{2^{k+1}}, \frac{1}{2^k}) \times [\frac{1}{2^{k+1}}, \frac{1}{2^k})$ with area $\frac{1}{4^k}$
+    \item Total favorable area: $\sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1}{3}$
+    \item Probability: $\frac{\text{favorable area}}{\text{total area}} = \frac{1/3}{1} = \frac{1}{3}$
+\end{itemize}
+
+\subsection*{Comprehensive Pitfall Guide}
+\begin{enumerate}
+    \item \textbf{Sign Error}: Remember $\log_2 x < 0$ for $x \in (0,1)$. The floor values are negative: $-1, -2, -3, \ldots$
+    
+    \item \textbf{Interval Boundaries}: Use $[2^{-k}, 2^{-k+1})$ (left-closed, right-open), not $(2^{-k}, 2^{-k+1}]$. The floor function makes the left endpoint inclusive.
+    
+    \item \textbf{Series Indexing}: Our series starts from $k=1$, not $k=0$, because the first interval is $[\frac{1}{2}, 1)$ (corresponding to $k=1$)
+    
+    \item \textbf{Independence}: Since $x$ and $y$ are independent, we must square probabilities: $P(\text{both in interval}) = P(x \text{ in interval}) \times P(y \text{ in interval}) = \ell^2$ where $\ell$ is the interval length
+    
+    \item \textbf{Geometric Series Formula}: For $\sum_{k=1}^{\infty} \frac{1}{4^k}$, apply the formula for series starting at $k=1$:
+    $\sum_{k=1}^{\infty} \frac{1}{4^k} = \frac{1/4}{1-1/4} = \frac{1}{3}$
+    Don't use $\frac{1}{1-1/4} = \frac{4}{3}$ (that's for starting at $k=0$)
+    
+    \item \textbf{Interval Length Calculation}: The length of $[\frac{1}{2^k}, \frac{1}{2^{k-1}})$ is $\frac{1}{2^{k-1}} - \frac{1}{2^k} = \frac{1}{2^k}$, not $\frac{1}{2^{k-1}}$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-4 minutes for late-band problem
+    \item \textbf{Breakdown}:
+    \begin{itemize}
+        \item Understanding floor and logarithm behavior: 45 seconds
+        \item Identifying interval structure: 60 seconds
+        \item Computing first few probabilities: 45 seconds
+        \item Recognizing geometric series and summing: 45 seconds
+        \item Verification: 15 seconds
+    \end{itemize}
+    \item \textbf{If stuck}: Move to next problem after 4 minutes; return if time remains
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item This is a probability problem with logarithms -- prioritize if you're strong in both areas
+    \item Requires comfort with floor functions and geometric series
+    \item If you don't immediately see the interval partition, this problem can be time-consuming
+    \item Skip if you're uncomfortable with logarithms or series; return later
+\end{itemize}
+
+\subsection*{C. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Risk Level}: Medium-High
+    \item \textbf{Confidence needed}: Must understand floor function behavior and geometric series
+    \item \textbf{Abandonment criterion}: If you don't see interval partition pattern within 90 seconds, move on
+\end{itemize}
+
+\subsection*{D. Strategic Notes}
+\begin{itemize}[leftmargin=*]
+    \item This problem rewards pattern recognition (dyadic intervals, geometric series)
+    \item The compound function (floor of logarithm) is deliberately complex -- don't panic
+    \item Testing small cases ($k=1, 2, 3$) quickly reveals the pattern
+    \item Once you identify geometric series with $r = \frac{1}{4}$, the answer is immediate
+\end{itemize}
+\end{competitionbox}
+
+\section*{Summary}
+
+This problem exemplifies late-band AMC12 probability: it combines multiple concepts (uniform distributions, logarithms, floor functions, infinite series) in a non-obvious way. The key insights are:
+\begin{enumerate}
+    \item The floor function partitions $(0,1)$ into dyadic intervals
+    \item Each interval has length $\frac{1}{2^k}$ for $k = 1, 2, 3, \ldots$
+    \item Probabilities form a geometric series: $\frac{1}{4}, \frac{1}{16}, \frac{1}{64}, \ldots$
+    \item The sum is $\frac{1/4}{1-1/4} = \frac{1}{3}$
+\end{enumerate}
+
+With practice recognizing floor-of-logarithm patterns and geometric series, problems like this become accessible in 3-4 minutes.
+
+\end{document}

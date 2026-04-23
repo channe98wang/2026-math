@@ -1,0 +1,870 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12B 2024 Problem 13 - Strategic Analysis
+% Framework Version: 2.1 (Enhanced for COMC)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2024 AMC 12B Problem 13}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+% Special highlight boxes
+\newtcolorbox{keyinsightbox}{
+    colback=gold!20,
+    colframe=gold,
+    title=\textbf{KEY INSIGHT},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!80!black,
+    title=\textbf{WARNING},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,breakable
+}
+
+\newtcolorbox{protipbox}{
+    colback=green!10,
+    colframe=green!80!black,
+    title=\textbf{PRO TIP},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt
+}
+
+\title{\textbf{2024 AMC 12B Problem 13:\\Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+There are real numbers $x, y, h$ and $k$ that satisfy the system of equations
+
+\[x^2 + y^2 - 6x - 8y = h\]
+\[x^2 + y^2 - 10x + 4y = k\]
+
+What is the minimum possible value of $h+k$?
+
+\[
+\textbf{(A) } -54 \qquad 
+\textbf{(B) } -46 \qquad 
+\textbf{(C) } -34 \qquad 
+\textbf{(D) } -16 \qquad 
+\textbf{(E) } 16
+\]
+
+\vspace{1em}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type:} To Find -- determine the minimum value of an expression
+    \item \textbf{Difficulty Band:} Mid-band (Problem 13 of 25)
+    \begin{itemize}
+        \item Expected time: 3-4 minutes
+        \item Requires algebraic manipulation or geometric insight
+        \item Tests completing the square and optimization
+    \end{itemize}
+    \item \textbf{Competition Context:} AMC 12 (75 minutes, 25 problems, multiple choice)
+    \item \textbf{Mathematical Domain:} Algebra with Optimization (potential Geometry connection)
+    \item \textbf{Source Context:} 2024 AMC 12B -- recent contest problem
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+
+\textbf{Given Information:}
+\begin{itemize}
+    \item Two equations involving $x, y, h, k$
+    \item First equation: $x^2 + y^2 - 6x - 8y = h$
+    \item Second equation: $x^2 + y^2 - 10x + 4y = k$
+    \item All variables are real numbers
+    \item We need to find points $(x, y)$ that satisfy both equations for some $(h, k)$
+\end{itemize}
+
+\textbf{Constraints:}
+\begin{itemize}
+    \item $x, y, h, k \in \mathbb{R}$
+    \item The system must be consistent (solutions must exist)
+    \item We want to minimize $h + k$
+\end{itemize}
+
+\textbf{Objective:}
+\begin{itemize}
+    \item Find $\min(h + k)$
+    \item Must match one of five given answer choices
+    \item All choices are negative except (E)
+\end{itemize}
+
+\textbf{Hidden Assumptions \& Key Observations:}
+\begin{itemize}
+    \item These equations can be rewritten as circles in standard form
+    \item Completing the square will reveal circle centers and radii
+    \item Both equations share the $x^2 + y^2$ terms
+    \item Adding the equations will eliminate some complexity
+    \item The question asks for minimum, suggesting optimization problem
+    \item For any $(x, y)$, there exist corresponding $(h, k)$ values
+\end{itemize}
+
+\textbf{Answer Choice Leverage:}
+\begin{itemize}
+    \item Four negative choices, one positive
+    \item Magnitude increases from (C) to (A): $-34, -46, -54$
+    \item Choice (C) $-34$ is in the middle range
+    \item Can verify answer by finding $(x, y)$ that achieves the minimum
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+
+\textbf{Hypothesis:} 
+We need to express $h + k$ as a function of $x$ and $y$, then find the values of $x$ and $y$ that minimize this expression.
+
+\textbf{Conclusion Goal:}
+Find the specific value of $\min(h + k)$ and match to answer choices.
+
+\textbf{Notation:}
+\begin{itemize}
+    \item Let $f(x, y) = h + k$ be the objective function
+    \item Circle 1: $(x - 3)^2 + (y - 4)^2 = h + 25$ (after completing square)
+    \item Circle 2: $(x - 5)^2 + (y + 2)^2 = k + 29$ (after completing square)
+\end{itemize}
+
+\textbf{Key Approaches:}
+\begin{enumerate}
+    \item \textbf{Direct Algebraic:} Add equations, complete the square, minimize
+    \item \textbf{Geometric Interpretation:} View as circles, use geometric properties
+\end{enumerate}
+\end{problemconfigbox}
+
+\vspace{1em}
+
+\begin{keyinsightbox}
+\textbf{Central Insight:} When we add the two equations, we get $h + k = 2x^2 + 2y^2 - 16x - 4y$. This is a quadratic expression in $x$ and $y$ that can be minimized by completing the square. The minimum occurs when both squared terms equal zero, giving us the optimal point $(x, y) = (4, 1)$.
+\end{keyinsightbox}
+
+\vspace{1em}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+
+\textbf{Mental Toughness:}
+\begin{itemize}
+    \item System of equations can look intimidating at first
+    \item Trust that there's a clean approach (this is mid-band)
+    \item Don't overthink -- sometimes the direct algebraic approach is best
+\end{itemize}
+
+\textbf{Creativity Cultivation:}
+\begin{itemize}
+    \item Consider: what happens if we add the two equations?
+    \item Recognize the structure: $x^2 + y^2$ terms suggest circles
+    \item Think about optimization: minimum of sum of squares occurs at zero
+\end{itemize}
+
+\subsection*{B. Investigation Methods}
+
+\textbf{Get Your Hands Dirty -- Try Adding:}
+\begin{itemize}
+    \item Add equation 1 and equation 2:
+    \item $(x^2 + y^2 - 6x - 8y) + (x^2 + y^2 - 10x + 4y) = h + k$
+    \item Simplify: $2x^2 + 2y^2 - 16x - 4y = h + k$
+    \item Factor: $2(x^2 - 8x) + 2(y^2 - 2y) = h + k$
+\end{itemize}
+
+\textbf{Complete the Square:}
+\begin{itemize}
+    \item For $x$ terms: $x^2 - 8x = (x - 4)^2 - 16$
+    \item For $y$ terms: $y^2 - 2y = (y - 1)^2 - 1$
+    \item Substitute back
+\end{itemize}
+
+\textbf{Recognize Minimum Structure:}
+\begin{itemize}
+    \item Expression becomes: $h + k = 2(x-4)^2 + 2(y-1)^2 - 34$
+    \item Sum of squares is minimized when both squares equal zero
+    \item Minimum value: $0 + 0 - 34 = -34$
+    \item Occurs at $(x, y) = (4, 1)$
+\end{itemize}
+
+\subsection*{C. Alternative Approach: Geometric Interpretation}
+
+\textbf{Recognize Circle Equations:}
+\begin{itemize}
+    \item Rewrite first equation: $(x - 3)^2 + (y - 4)^2 = h + 25$
+    \item Rewrite second equation: $(x - 5)^2 + (y + 2)^2 = k + 29$
+    \item These are circles with centers $C_1 = (3, 4)$ and $C_2 = (5, -2)$
+    \item Radii: $r_1 = \sqrt{h + 25}$ and $r_2 = \sqrt{k + 29}$ (must be non-negative)
+\end{itemize}
+
+\textbf{Geometric Constraint:}
+\begin{itemize}
+    \item Distance between centers: $d = \sqrt{(5-3)^2 + (-2-4)^2} = \sqrt{4 + 36} = \sqrt{40} = 2\sqrt{10}$
+    \item For circles to intersect (share a point): $r_1 + r_2 \geq d$
+    \item Therefore: $\sqrt{h + 25} + \sqrt{k + 29} \geq 2\sqrt{10}$
+\end{itemize}
+
+\textbf{Optimization via AM-GM:}
+This approach is more advanced and less direct for competition use.
+
+\subsection*{D. Argument Construction}
+
+\textbf{Proof Framework (Direct Algebraic):}
+\begin{enumerate}
+    \item Add the two given equations
+    \item Simplify to express $h + k$ in terms of $x$ and $y$
+    \item Complete the square for both $x$ and $y$
+    \item Recognize that sum of squares $\geq 0$ with equality when squares are zero
+    \item Identify the point $(x, y)$ that achieves the minimum
+    \item Calculate $\min(h + k)$
+\end{enumerate}
+\end{strategicbox}
+
+\vspace{1em}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+
+\textbf{Primary Tactic: Completing the Square}
+\begin{itemize}
+    \item \textbf{Purpose:} Transform quadratic expressions into perfect squares
+    \item \textbf{Formula:} $x^2 + bx = (x + \frac{b}{2})^2 - \frac{b^2}{4}$
+    \item \textbf{Application:} Makes optimization problems tractable
+\end{itemize}
+
+\textbf{Secondary Tactic: Sum of Non-negative Terms}
+\begin{itemize}
+    \item \textbf{Principle:} $a^2 + b^2 \geq 0$ with equality iff $a = b = 0$
+    \item \textbf{Extension:} $c_1(x - a)^2 + c_2(y - b)^2 + k$ has minimum $k$ when $x = a, y = b$
+    \item \textbf{Competition Utility:} Immediately identifies optimal point
+\end{itemize}
+
+\textbf{Tertiary Tactic: Equation Manipulation}
+\begin{itemize}
+    \item \textbf{Addition:} Combine equations to create new relationships
+    \item \textbf{Subtraction:} Eliminate variables or simplify structure
+    \item \textbf{Linear Combination:} Strategic weighting of equations
+\end{itemize}
+
+\subsection*{B. Cross-Domain Techniques}
+
+\textbf{Algebra $\leftrightarrow$ Geometry:}
+\begin{itemize}
+    \item Algebraic equations of form $(x - h)^2 + (y - k)^2 = r^2$ represent circles
+    \item Optimization in algebra corresponds to geometric properties (distance, tangency)
+    \item Can solve purely algebraically or with geometric insight
+\end{itemize}
+
+\textbf{Calculus Connection (Not Needed Here):}
+\begin{itemize}
+    \item Could use partial derivatives: $\frac{\partial}{\partial x}(h+k) = 0$ and $\frac{\partial}{\partial y}(h+k) = 0$
+    \item But completing the square is faster and more elegant for this problem
+\end{itemize}
+
+\textbf{Optimization Strategy:}
+\begin{itemize}
+    \item Transform problem into standard form where minimum is obvious
+    \item Leverage structure (sum of squares) rather than brute force calculation
+\end{itemize}
+\end{tacticalbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Competition Hack:} When you see a system of equations where you need to minimize (or maximize) a sum or combination of variables, try adding or subtracting the equations first! This often simplifies the problem dramatically and reveals the structure you need.
+\end{protipbox}
+
+\vspace{1em}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+
+\textbf{Pattern Signature:} System of quadratic equations, minimize sum of parameters
+
+\textbf{Trigger Recognition:}
+\begin{itemize}
+    \item \textbf{``$x^2 + y^2 + \ldots$''} $\to$ Think circles or completing the square
+    \item \textbf{``minimize $h + k$''} $\to$ Look for way to express $h + k$ in terms of $x, y$
+    \item \textbf{Two similar equations} $\to$ Try adding/subtracting
+    \item \textbf{Quadratic in two variables} $\to$ Complete the square for optimization
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+
+\textbf{Approach 1: Direct Algebraic Addition + Completing Square (Recommended)}
+\begin{itemize}
+    \item \textbf{Why:} Most direct, requires only algebra
+    \item \textbf{Setup:} Add equations to get $h + k = 2x^2 + 2y^2 - 16x - 4y$
+    \item \textbf{Method:} Complete square for $x$ and $y$, identify minimum
+    \item \textbf{Result:} Clean answer $-34$ in under 3 minutes
+    \item \textbf{Time:} $\sim$2-3 minutes
+\end{itemize}
+
+\textbf{Approach 2: Geometric (Circle) Interpretation}
+\begin{itemize}
+    \item \textbf{Why:} Provides deeper understanding, connects to geometry
+    \item \textbf{Setup:} Rewrite as circles $(x - 3)^2 + (y - 4)^2 = h + 25$, etc.
+    \item \textbf{Method:} Use distance between centers and triangle inequality
+    \item \textbf{Result:} Same answer but more conceptual steps
+    \item \textbf{Time:} $\sim$4-5 minutes
+\end{itemize}
+
+\textbf{Approach 3: Calculus (Overkill)}
+\begin{itemize}
+    \item \textbf{Why:} Would work but unnecessary complexity
+    \item \textbf{Method:} Take partial derivatives, set to zero
+    \item \textbf{Verdict:} Not recommended for competition setting
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Recommended Path for Competition:}
+\begin{enumerate}
+    \item Read problem, identify need to find $\min(h + k)$ (15 sec)
+    \item Recognize both equations have $x^2 + y^2$ terms (10 sec)
+    \item Add the two equations (30 sec)
+    \item Factor out 2 and complete the square (1 min)
+    \item Identify minimum when squares equal zero (15 sec)
+    \item Calculate $-34$ and select answer (C) (15 sec)
+    \item Quick verification (30 sec)
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{Algebraic vs. Geometric:}
+\begin{itemize}
+    \item Algebraic approach is faster and more direct
+    \item Geometric approach provides insight but takes longer
+    \item \textbf{Decision:} Use algebraic unless you immediately see geometric structure
+\end{itemize}
+
+\textbf{When to Use Each:}
+\begin{itemize}
+    \item \textbf{Algebraic:} When time is limited, when you want certainty
+    \item \textbf{Geometric:} When you want to understand why, for verification
+\end{itemize}
+\end{techniquesbox}
+
+\vspace{1em}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Recommended Level: 3 (Unit Test)}
+
+\textbf{Justification:}
+\begin{itemize}
+    \item Mid-band problem with straightforward computation
+    \item Completing the square is mechanical but can have errors
+    \item Answer choices are well-separated
+    \item Time budget: approximately 30 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+
+\textbf{Primary Verification: Plug in Optimal Point}
+\begin{itemize}
+    \item We claim minimum occurs at $(x, y) = (4, 1)$
+    \item Calculate $h$ at this point: $h = 16 + 1 - 24 - 8 = -15$
+    \item Calculate $k$ at this point: $k = 16 + 1 - 40 + 4 = -19$
+    \item Sum: $h + k = -15 + (-19) = -34$ $\checkmark$
+\end{itemize}
+
+\textbf{Secondary Verification: Completing Square Check}
+\begin{itemize}
+    \item Verify: $2(x^2 - 8x + 16) = 2(x - 4)^2$ $\checkmark$
+    \item Verify: $2(y^2 - 2y + 1) = 2(y - 1)^2$ $\checkmark$
+    \item Constant terms: $-2(16) - 2(1) = -32 - 2 = -34$ $\checkmark$
+\end{itemize}
+
+\textbf{Tertiary Verification: Reasonableness Check}
+\begin{itemize}
+    \item Original equations involve squares and linear terms
+    \item After completing square, we get expression with negative constant
+    \item Minimum should be negative (sum of squares is non-negative, constant is negative)
+    \item $-34$ is reasonable given the structure
+    \item Matches answer choice (C) exactly $\checkmark$
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Confidence Level: Very High (98\%)}
+
+\textbf{Reasoning:}
+\begin{itemize}
+    \item Completing the square is algorithmic and verifiable
+    \item Arithmetic is straightforward
+    \item Optimal point $(4, 1)$ can be verified by substitution
+    \item Multiple verification methods all agree
+    \item Answer matches one choice exactly
+\end{itemize}
+
+\textbf{Risk Assessment:}
+\begin{itemize}
+    \item Very low risk of conceptual error (standard technique)
+    \item Low risk of arithmetic error (simple fractions and integers)
+    \item Very low risk of missing the minimum (squared terms structure is clear)
+\end{itemize}
+\end{verificationbox}
+
+\vspace{1em}
+
+\begin{warningbox}
+\textbf{Common Mistake:} Students might forget to account for the constant terms when completing the square. Remember: $x^2 - 8x = (x - 4)^2 - 16$, not just $(x - 4)^2$. You must subtract the $(\frac{b}{2})^2$ term! This is where arithmetic errors commonly occur.
+\end{warningbox}
+
+\vspace{1em}
+
+\begin{solutionbox}
+\subsection*{Solution Roadmap -- Primary Approach (Direct Algebraic)}
+
+\textbf{Step 1: Add the Two Equations (30 seconds)}
+
+Given:
+\begin{align*}
+x^2 + y^2 - 6x - 8y &= h \quad \text{(Equation 1)}\\
+x^2 + y^2 - 10x + 4y &= k \quad \text{(Equation 2)}
+\end{align*}
+
+Add them:
+\begin{align*}
+(x^2 + y^2 - 6x - 8y) + (x^2 + y^2 - 10x + 4y) &= h + k\\
+2x^2 + 2y^2 - 16x - 4y &= h + k
+\end{align*}
+
+\textbf{Step 2: Factor Out Common Terms (15 seconds)}
+\begin{align*}
+h + k &= 2x^2 + 2y^2 - 16x - 4y\\
+&= 2(x^2 - 8x) + 2(y^2 - 2y)
+\end{align*}
+
+\textbf{Step 3: Complete the Square for $x$ (30 seconds)}
+
+For $x^2 - 8x$:
+\begin{itemize}
+    \item Take half of $-8$: $\frac{-8}{2} = -4$
+    \item Square it: $(-4)^2 = 16$
+    \item Rewrite: $x^2 - 8x = (x - 4)^2 - 16$
+\end{itemize}
+
+Therefore:
+\[2(x^2 - 8x) = 2[(x - 4)^2 - 16] = 2(x - 4)^2 - 32\]
+
+\textbf{Step 4: Complete the Square for $y$ (30 seconds)}
+
+For $y^2 - 2y$:
+\begin{itemize}
+    \item Take half of $-2$: $\frac{-2}{2} = -1$
+    \item Square it: $(-1)^2 = 1$
+    \item Rewrite: $y^2 - 2y = (y - 1)^2 - 1$
+\end{itemize}
+
+Therefore:
+\[2(y^2 - 2y) = 2[(y - 1)^2 - 1] = 2(y - 1)^2 - 2\]
+
+\textbf{Step 5: Combine Results (30 seconds)}
+\begin{align*}
+h + k &= 2(x - 4)^2 - 32 + 2(y - 1)^2 - 2\\
+&= 2(x - 4)^2 + 2(y - 1)^2 - 34
+\end{align*}
+
+\textbf{Step 6: Identify Minimum (15 seconds)}
+
+The expression $h + k = 2(x - 4)^2 + 2(y - 1)^2 - 34$ is a sum of:
+\begin{itemize}
+    \item $2(x - 4)^2 \geq 0$ (equality when $x = 4$)
+    \item $2(y - 1)^2 \geq 0$ (equality when $y = 1$)
+    \item Constant term: $-34$
+\end{itemize}
+
+Minimum value occurs when both squared terms equal zero:
+\begin{itemize}
+    \item $(x - 4)^2 = 0 \Rightarrow x = 4$
+    \item $(y - 1)^2 = 0 \Rightarrow y = 1$
+\end{itemize}
+
+At $(x, y) = (4, 1)$:
+\[\min(h + k) = 2(0) + 2(0) - 34 = -34\]
+
+\textbf{Step 7: Match to Answer Choice (5 seconds)}
+\begin{itemize}
+    \item Our result: $-34$
+    \item This is answer choice \textbf{(C)}
+\end{itemize}
+
+\subsection*{Time Checkpoint}
+
+\textbf{Total Time: Approximately 2.5-3 minutes}
+\begin{itemize}
+    \item Adding equations: 30 sec
+    \item Factoring: 15 sec
+    \item Completing square for $x$: 30 sec
+    \item Completing square for $y$: 30 sec
+    \item Combining: 30 sec
+    \item Finding minimum: 15 sec
+    \item Verification: 30 sec
+\end{itemize}
+
+This is faster than expected for a Problem 13, indicating an elegant solution approach!
+
+\subsection*{Verification of Answer}
+
+Let's verify by substituting $(x, y) = (4, 1)$ back into the original equations:
+
+\textbf{For $h$:}
+\begin{align*}
+h &= x^2 + y^2 - 6x - 8y\\
+&= 16 + 1 - 24 - 8\\
+&= -15
+\end{align*}
+
+\textbf{For $k$:}
+\begin{align*}
+k &= x^2 + y^2 - 10x + 4y\\
+&= 16 + 1 - 40 + 4\\
+&= -19
+\end{align*}
+
+\textbf{Sum:}
+\[h + k = -15 + (-19) = -34 \quad \checkmark\]
+
+Perfect match!
+
+\subsection*{Alternative Approach: Geometric Interpretation}
+
+\textbf{Rewrite as Circles:}
+
+Complete the square in each equation separately:
+
+\textbf{Equation 1:}
+\begin{align*}
+x^2 + y^2 - 6x - 8y &= h\\
+(x^2 - 6x) + (y^2 - 8y) &= h\\
+(x^2 - 6x + 9) + (y^2 - 8y + 16) &= h + 9 + 16\\
+(x - 3)^2 + (y - 4)^2 &= h + 25
+\end{align*}
+
+This represents a circle with center $C_1 = (3, 4)$ and radius $r_1 = \sqrt{h + 25}$ (assuming $h \geq -25$).
+
+\textbf{Equation 2:}
+\begin{align*}
+x^2 + y^2 - 10x + 4y &= k\\
+(x^2 - 10x) + (y^2 + 4y) &= k\\
+(x^2 - 10x + 25) + (y^2 + 4y + 4) &= k + 25 + 4\\
+(x - 5)^2 + (y + 2)^2 &= k + 29
+\end{align*}
+
+This represents a circle with center $C_2 = (5, -2)$ and radius $r_2 = \sqrt{k + 29}$ (assuming $k \geq -29$).
+
+\textbf{Distance Between Centers:}
+\begin{align*}
+d &= \sqrt{(5 - 3)^2 + (-2 - 4)^2}\\
+&= \sqrt{4 + 36}\\
+&= \sqrt{40}\\
+&= 2\sqrt{10}
+\end{align*}
+
+\textbf{Geometric Constraint:}
+
+For the system to have a solution (i.e., for there to exist a point $(x, y)$ on both circles), the circles must intersect. By the triangle inequality:
+\[r_1 + r_2 \geq d\]
+\[\sqrt{h + 25} + \sqrt{k + 29} \geq 2\sqrt{10}\]
+
+The minimum of $h + k$ occurs when this inequality is tight (circles are tangent).
+
+\textbf{Optimization:} Using techniques like AM-GM or Lagrange multipliers (beyond typical competition scope), one can show that:
+\[h + k \geq -34\]
+
+with equality at $(x, y) = (4, 1)$.
+
+\textbf{Finding the Tangent Point:}
+
+The point $(4, 1)$ lies on the line segment connecting $C_1 = (3, 4)$ and $C_2 = (5, -2)$:
+\begin{itemize}
+    \item Parametric line: $(x, y) = (3, 4) + t(2, -6)$ for $t \in [0, 1]$
+    \item At $t = \frac{1}{2}$: $(x, y) = (3, 4) + \frac{1}{2}(2, -6) = (4, 1)$ $\checkmark$
+\end{itemize}
+
+This confirms that $(4, 1)$ is the midpoint of the line segment joining the two centers, which makes geometric sense for the tangency condition.
+
+\textbf{Complexity Assessment:} The geometric approach provides beautiful insight but requires more steps than the direct algebraic method. It's excellent for understanding the problem deeply but less efficient for competition.
+\end{solutionbox}
+
+\vspace{1em}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Time Allocation for Problem 13:}
+\begin{itemize}
+    \item Target time: 2.5-3 minutes
+    \item Maximum time: 4 minutes
+    \item This problem is faster than its position suggests
+\end{itemize}
+
+\textbf{Decision Point:}
+\begin{itemize}
+    \item If you see the "add equations" approach immediately: proceed (2.5 min)
+    \item If you think about geometry: it works but takes longer (4-5 min)
+    \item If stuck after 1 minute: try adding the equations as a heuristic
+\end{itemize}
+
+\subsection*{B. Answer Format Requirements}
+
+\textbf{AMC 12 Multiple Choice:}
+\begin{itemize}
+    \item Select one answer: \textbf{(C)} $-34$
+    \item No partial credit
+    \item Guessing penalty: None (score 0 for wrong/blank)
+\end{itemize}
+
+\subsection*{C. Strategic Context}
+
+\textbf{Problem 13 Position Strategy:}
+\begin{itemize}
+    \item This is early-to-mid mid-band territory
+    \item Most students with algebra proficiency should attempt
+    \item Correct approach yields answer very quickly (2-3 minutes)
+    \item Worth 6 points (standard for all AMC problems)
+    \item Tests fundamental skill: completing the square
+\end{itemize}
+
+\textbf{Skills Tested:}
+\begin{itemize}
+    \item Algebraic manipulation (adding equations)
+    \item Completing the square (fundamental technique)
+    \item Optimization (recognizing minimum of sum of squares)
+    \item Verification (checking answer makes sense)
+\end{itemize}
+
+\subsection*{D. Risk Assessment}
+
+\textbf{Risk Level: Low}
+
+\textbf{Factors:}
+\begin{itemize}
+    \item \textbf{Low Risk:} Standard technique with mechanical steps
+    \item \textbf{Pitfall:} Arithmetic errors in completing the square
+    \item \textbf{Mitigation:} Double-check constant terms
+\end{itemize}
+
+\textbf{When to Skip:}
+\begin{itemize}
+    \item If completing the square is unfamiliar (review needed)
+    \item If already severely behind on time
+    \item Very rare case for Problem 13 position
+\end{itemize}
+
+\textbf{When to Commit:}
+\begin{itemize}
+    \item If you're comfortable with completing the square
+    \item If you have 3+ minutes available
+    \item If you need a confidence boost (this problem is very doable)
+\end{itemize}
+
+\subsection*{E. Pattern Recognition for Similar Problems}
+
+\textbf{This Problem Type Appears When:}
+\begin{itemize}
+    \item System of equations with quadratic terms
+    \item Asked to optimize (minimize or maximize) a combination
+    \item Completing the square is the key technique
+\end{itemize}
+
+\textbf{General Strategy:}
+\begin{enumerate}
+    \item Try adding/subtracting equations
+    \item Look for common terms to eliminate
+    \item Complete the square to find optimal points
+    \item Use non-negativity of squared terms
+\end{enumerate}
+\end{competitionbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Post-Exam Learning:} This problem exemplifies a key AMC strategy: when you have a system of similar equations and need to optimize a combination of variables, manipulating the equations (adding, subtracting, etc.) often reveals structure that makes the problem trivial. Always ask: ``What happens if I add/subtract these?''
+\end{protipbox}
+
+\newpage
+
+\section*{Complete Solution Summary}
+
+\subsection*{Key Steps:}
+
+\begin{enumerate}
+    \item \textbf{Add the Equations:} 
+    
+    Sum the two given equations to express $h + k$:
+    \[h + k = 2x^2 + 2y^2 - 16x - 4y\]
+    
+    \item \textbf{Factor and Prepare for Completing Square:}
+    \[h + k = 2(x^2 - 8x) + 2(y^2 - 2y)\]
+    
+    \item \textbf{Complete the Square for $x$:}
+    \[2(x^2 - 8x) = 2(x - 4)^2 - 32\]
+    
+    \item \textbf{Complete the Square for $y$:}
+    \[2(y^2 - 2y) = 2(y - 1)^2 - 2\]
+    
+    \item \textbf{Combine:}
+    \[h + k = 2(x - 4)^2 + 2(y - 1)^2 - 34\]
+    
+    \item \textbf{Identify Minimum:}
+    
+    The minimum occurs when both squared terms equal zero:
+    \begin{itemize}
+        \item $x = 4$
+        \item $y = 1$
+    \end{itemize}
+    
+    \item \textbf{Calculate Minimum Value:}
+    \[\min(h + k) = 0 + 0 - 34 = -34\]
+\end{enumerate}
+
+\subsection*{Final Answer:}
+
+\begin{center}
+\fbox{\Large \textbf{(C) } $\displaystyle -34$}
+\end{center}
+
+\vspace{1em}
+
+\subsection*{Verification:}
+\begin{itemize}
+    \item At $(x, y) = (4, 1)$: $h = 16 + 1 - 24 - 8 = -15$ $\checkmark$
+    \item At $(x, y) = (4, 1)$: $k = 16 + 1 - 40 + 4 = -19$ $\checkmark$
+    \item Sum: $h + k = -15 + (-19) = -34$ $\checkmark$
+    \item Completing square arithmetic verified $\checkmark$
+    \item Matches answer choice (C) exactly $\checkmark$
+\end{itemize}
+
+\subsection*{Key Takeaways:}
+
+\begin{enumerate}
+    \item \textbf{Equation Manipulation:} When dealing with systems of equations and optimization, try combining equations (adding, subtracting) to reveal structure.
+    
+    \item \textbf{Completing the Square:} This is a fundamental technique for optimization problems. Remember to account for constant terms: $x^2 + bx = (x + \frac{b}{2})^2 - \frac{b^2}{4}$.
+    
+    \item \textbf{Sum of Squares Optimization:} Expressions of the form $a(x - h)^2 + b(y - k)^2 + c$ (with $a, b > 0$) have minimum value $c$ at $(x, y) = (h, k)$.
+    
+    \item \textbf{Geometric Interpretation:} While the algebraic approach is faster, recognizing that the equations represent circles provides geometric insight and an alternative verification method.
+    
+    \item \textbf{Verification by Substitution:} Always check your answer by substituting the optimal point back into the original equations.
+    
+    \item \textbf{Speed vs. Insight:} Sometimes the fastest method (algebraic) and the most insightful method (geometric) differ. In competition, prioritize speed; in study, explore both.
+\end{enumerate}
+
+\vspace{2em}
+
+\hrule
+
+\vspace{1em}
+
+\begin{center}
+\textit{Analysis completed using AMC12/COMC Strategic Problem-Solving Framework v2.1}
+
+\textit{Framework emphasizes: Algebraic Manipulation • Optimization Techniques • Multiple Perspectives}
+\end{center}
+
+\end{document}

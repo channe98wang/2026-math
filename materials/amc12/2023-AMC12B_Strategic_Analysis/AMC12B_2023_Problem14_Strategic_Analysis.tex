@@ -1,0 +1,654 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% AMC 12B 2023 Problem 14 Strategic Analysis
+% Structure your analysis results using this template with colorful boxes
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12 Strategic Problem Analysis\\2023 AMC 12B Problem 14}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+For how many ordered pairs $(a,b)$ of integers does the polynomial $x^3+ax^2+bx+6$ have $3$ distinct integer roots?
+
+$$\textbf{(A)}\ 5 \qquad\textbf{(B)}\ 6 \qquad\textbf{(C)}\ 8 \qquad\textbf{(D)}\ 7 \qquad\textbf{(E)}\ 4$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (count ordered pairs satisfying conditions)
+    \item \textbf{Competition Context}: AMC12 2023B Problem 14
+    \item \textbf{Difficulty Band}: Mid-band (P14/25) - requires Vieta's formulas and systematic counting
+    \item \textbf{Mathematical Domain}: Algebra (Polynomials) / Number Theory (Integer Factorization) / Combinatorics (Counting)
+    \item \textbf{Estimated Time}: 3-4 minutes for systematic enumeration
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Cubic polynomial: $x^3 + ax^2 + bx + 6$
+        \item The polynomial has 3 distinct integer roots
+        \item Need to count ordered pairs $(a,b)$ of integers
+        \item Multiple choice answers available (4-8 pairs)
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Roots must be integers
+        \item Roots must be distinct (no repeated roots)
+        \item $a$ and $b$ must be integers (follows from Vieta's formulas)
+        \item Leading coefficient is 1, constant term is 6
+    \end{itemize}
+    \item \textbf{Objective}: Count the number of valid ordered pairs $(a,b)$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item By Vieta's formulas, if roots are $r_1, r_2, r_3$, then $r_1 r_2 r_3 = -6$
+        \item Different root sets may give the same $(a,b)$ if they're permutations
+        \item We need to find all ordered triples $(r_1, r_2, r_3)$ with product $-6$
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: Small range (4-8) suggests exhaustive enumeration is feasible. The answer choices are close together, so careful counting is essential.
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The number of valid $(a,b)$ pairs equals the number of distinct unordered sets of three integers whose product is $-6$
+    \item \textbf{Conclusion}: Count all such sets systematically
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Roots: $r_1, r_2, r_3$ (distinct integers)
+        \item By Vieta's: $r_1 r_2 r_3 = -6$ (product of roots)
+        \item By Vieta's: $r_1 + r_2 + r_3 = -a$ (sum of roots)
+        \item By Vieta's: $r_1 r_2 + r_1 r_3 + r_2 r_3 = b$ (pairwise products)
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Use Vieta's formulas to connect roots to coefficients
+        \item Find all factorizations of $-6$ into three distinct integer factors
+        \item Group by sign patterns (all negative, two positive + one negative, etc.)
+        \item For each valid root set, compute $(a,b)$ using Vieta's formulas
+        \item Count distinct $(a,b)$ pairs
+    \end{enumerate}
+    \item \textbf{Cross-Domain Potential}: This combines polynomial algebra (Vieta's), number theory (factorization), and combinatorics (systematic counting).
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Systematic enumeration can be tedious. Stay organized and methodical to avoid missing cases or double-counting.
+    \item \textbf{Creativity Cultivation}: Recognize that the constraint $r_1 r_2 r_3 = -6$ severely limits possibilities. Use sign analysis to organize cases.
+    \item \textbf{Iterative Refinement}: If your count doesn't match an answer choice, review your factorizations systematically. Check for missed cases or duplicate counting.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately recognize Vieta's formulas connection. The product of roots is $-6$ (constant term with sign change).
+    \item \textbf{Get Your Hands Dirty}: List all factorizations of $-6$ into three factors. Start with positive factorizations of 6, then adjust signs.
+    \item \textbf{Penultimate Step}: Once all valid root sets are found, the final step is counting them (or checking no duplicates exist).
+    \item \textbf{Make It Easier}: Organize by sign patterns:
+    \begin{itemize}
+        \item All three negative: $(-)(-)(-) = -6$
+        \item Two negative, one positive: $(-)(-)(+) = +6$ (doesn't work!)
+        \item One negative, two positive: $(-)(+)(+) = -6$ $\checkmark$
+        \item All three positive: $(+)(+)(+) = +6$ (doesn't work!)
+    \end{itemize}
+    \item \textbf{Conjecture via Small Cases}: For small numbers like 6, exhaustive enumeration is practical.
+    \item \textbf{Visualization}: Think of factorizations as ways to write $6 = |r_1| \cdot |r_2| \cdot |r_3|$, then adjust signs.
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proof Method}: Exhaustive case analysis by sign pattern
+    \item \textbf{Key Lemmas}: 
+    \begin{enumerate}
+        \item Vieta's formula: For $x^3+ax^2+bx+c$ with roots $r_1, r_2, r_3$:
+        \begin{itemize}
+            \item $r_1 + r_2 + r_3 = -a$
+            \item $r_1 r_2 + r_1 r_3 + r_2 r_3 = b$
+            \item $r_1 r_2 r_3 = -c$
+        \end{itemize}
+        \item For our polynomial: $r_1 r_2 r_3 = -6$
+        \item Product $-6$ requires odd number of negative factors
+        \item Roots must be distinct integers
+    \end{enumerate}
+    \item \textbf{Logical Structure}: Identify constraint $\to$ organize by signs $\to$ enumerate factorizations $\to$ verify distinctness $\to$ count
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \emph{Case Analysis}: Organize by sign patterns to ensure complete coverage
+        \item \emph{Systematic Enumeration}: List all factorizations methodically
+        \item \emph{Vieta's Formulas}: Connect roots to coefficients
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics (Number Theory)}: 
+    \begin{itemize}
+        \item Integer factorization of 6: $6 = 1 \cdot 6 = 2 \cdot 3 = 1 \cdot 2 \cdot 3$
+        \item Three-factor decompositions: $6 = 1 \cdot 1 \cdot 6 = 1 \cdot 2 \cdot 3$
+        \item But $1 \cdot 1 \cdot 6$ has repeated factor, so only $1 \cdot 2 \cdot 3$ works initially
+        \item Also consider: $6 = 1 \cdot 1 \cdot 6$ (repeated), $2 \cdot 1 \cdot 3$, $3 \cdot 2 \cdot 1$ (same set)
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics (Combinatorics)}: 
+    \begin{itemize}
+        \item Count unordered sets of roots, not ordered tuples
+        \item Each root set corresponds to exactly one $(a,b)$ pair
+        \item Avoid double-counting permutations
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Vieta's Formulas (H16)} combined with \textbf{Case Analysis}
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Polynomial with integer coefficients and integer roots
+        \item Need to count possibilities based on constraints
+        \item Constant term provides product constraint
+        \item Small numbers allow exhaustive enumeration
+    \end{itemize}
+    \item \textbf{Application}: 
+    \begin{enumerate}
+        \item From Vieta's: $r_1 r_2 r_3 = -6$
+        \item Factor 6 with three distinct factors: Need $|r_1| \cdot |r_2| \cdot |r_3| = 6$
+        \item Possible absolute value combinations:
+        \begin{itemize}
+            \item $1 \cdot 1 \cdot 6$ (not distinct!)
+            \item $1 \cdot 2 \cdot 3$ $\checkmark$
+            \item $2 \cdot 1 \cdot 3$ (same as above)
+            \item $6 \cdot 1 \cdot 1$ (not distinct!)
+        \end{itemize}
+        \item For distinct factors: Only $\{1, 2, 3\}$ and $\{1, 1, 6\}$ (but latter not distinct)
+        \item Wait - also consider $\{6, 1, 1\}$, $\{2, 3, 1\}$ as ordered, but we want unordered sets
+        \item Actually need: $\{1, 2, 3\}$ and $\{1, 6, -note\}$ - let me reconsider...
+        \item Better: List all ways to write $6$ as product of three positive integers:
+        \begin{itemize}
+            \item $6 = 1 \cdot 1 \cdot 6$ (not all distinct)
+            \item $6 = 1 \cdot 2 \cdot 3$ $\checkmark$ (all distinct)
+        \end{itemize}
+        \item Now assign signs to get product $-6$:
+        \begin{itemize}
+            \item Need odd number of negative signs
+            \item Case 1: All three negative
+            \item Case 2: Exactly one negative, two positive
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Backup Techniques}: 
+    \begin{itemize}
+        \item \textbf{Divisor Listing}: List all divisors of 6: $\pm 1, \pm 2, \pm 3, \pm 6$
+        \item \textbf{Systematic Triple Generation}: For each choice of three distinct divisors, check if product is $-6$
+        \item \textbf{Answer Choice Testing}: If count is close to an answer, verify by checking if a case was missed
+    \end{itemize}
+    \item \textbf{Technique Integration}: Vieta's formulas provide the constraint, case analysis ensures completeness, systematic enumeration provides the count.
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification, 45-60 seconds)
+    \item \textbf{Justification}: Counting problem where it's easy to miss cases or double-count. Standard verification ensures all cases are found and no duplicates exist.
+    \item \textbf{Time Budget}: 45-60 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Completeness Check}: Have all sign patterns been considered?
+    \begin{itemize}
+        \item Three negative? $\checkmark$
+        \item One negative, two positive? $\checkmark$
+        \item Other patterns give wrong product $\checkmark$
+    \end{itemize}
+    \item \textbf{Distinctness Check}: Are all roots in each set distinct?
+    \item \textbf{Product Verification}: Does each root set satisfy $r_1 r_2 r_3 = -6$?
+    \item \textbf{No Duplicates}: Are any root sets essentially the same (permutations)?
+    \item \textbf{Answer Choice Check}: Does count match one of the options?
+\end{itemize}
+
+\subsection*{C. Detailed Verification}
+For each root set found, verify:
+\begin{enumerate}
+    \item \textbf{Product check}: $r_1 \cdot r_2 \cdot r_3 = -6$
+    \item \textbf{Distinctness check}: $r_1 \neq r_2 \neq r_3$
+    \item \textbf{Uniqueness check}: Not a permutation of a previous set
+\end{enumerate}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Apply Vieta's Formulas (30 seconds)}
+    
+    For polynomial $x^3 + ax^2 + bx + 6$ with roots $r_1, r_2, r_3$:
+    \begin{align*}
+        r_1 + r_2 + r_3 &= -a\\
+        r_1 r_2 + r_1 r_3 + r_2 r_3 &= b\\
+        r_1 r_2 r_3 &= -6
+    \end{align*}
+    
+    Key constraint: $r_1 r_2 r_3 = -6$
+    
+    \item \textbf{Analyze sign patterns (30 seconds)}
+    
+    Product is negative, so need odd number of negative factors:
+    \begin{itemize}
+        \item \textbf{Case 1}: All three roots negative: $(-)(-)(-) = -$
+        \item \textbf{Case 2}: One negative, two positive: $(-)(+)(+) = -$
+    \end{itemize}
+    
+    Other patterns don't work:
+    \begin{itemize}
+        \item Two negative, one positive: $(-)(-)(+) = +$ (wrong sign!)
+        \item All positive: $(+)(+)(+) = +$ (wrong sign!)
+    \end{itemize}
+    
+    \item \textbf{Find factorizations with distinct factors (60 seconds)}
+    
+    Need $|r_1| \cdot |r_2| \cdot |r_3| = 6$ with distinct values.
+    
+    Factorizations of 6 into three positive integers:
+    \begin{itemize}
+        \item $6 = 1 \cdot 1 \cdot 6$ (NOT distinct - two 1's)
+        \item $6 = 1 \cdot 2 \cdot 3$ (distinct $\checkmark$)
+    \end{itemize}
+    
+    \item \textbf{Case 1: All three negative (15 seconds)}
+    
+    Root set: $\{-3, -2, -1\}$
+    
+    Check: $(-3)(-2)(-1) = -6$ $\checkmark$
+    
+    Distinct: Yes $\checkmark$
+    
+    \textbf{Count: 1 set}
+    
+    \item \textbf{Case 2: One negative, two positive (90 seconds)}
+    
+    Use factors $\{1, 2, 3\}$ with one negative sign.
+    
+    Possible root sets:
+    \begin{itemize}
+        \item $\{-1, 2, 3\}$: Product $= (-1)(2)(3) = -6$ $\checkmark$
+        \item $\{-2, 1, 3\}$: Product $= (-2)(1)(3) = -6$ $\checkmark$
+        \item $\{-3, 1, 2\}$: Product $= (-3)(1)(2) = -6$ $\checkmark$
+    \end{itemize}
+    
+    But wait - need to check if $\{1, 6\}$ or other combinations work!
+    
+    Actually, we also need to consider factorizations like:
+    \begin{itemize}
+        \item $6 = 6 \cdot 1 \cdot 1$ (not distinct)
+        \item $6 = 2 \cdot 3 \cdot 1$ (same as $1 \cdot 2 \cdot 3$)
+    \end{itemize}
+    
+    Hmm, what about $\{-1, 1, 6\}$? Check: $(-1)(1)(6) = -6$ $\checkmark$
+    
+    But is this distinct? $-1 \neq 1 \neq 6$ $\checkmark$
+    
+    So we also have:
+    \begin{itemize}
+        \item $\{-1, 1, 6\}$: Product $= (-1)(1)(6) = -6$ $\checkmark$, distinct $\checkmark$
+        \item $\{1, -1, 6\}$ (same as above, just permutation)
+        \item $\{-6, 1, 1\}$: NOT distinct (two 1's) $\times$
+    \end{itemize}
+    
+    \textbf{Case 2 Count: 4 sets}
+    \begin{itemize}
+        \item $\{-3, 1, 2\}$
+        \item $\{-2, 1, 3\}$
+        \item $\{-1, 2, 3\}$
+        \item $\{-1, 1, 6\}$
+    \end{itemize}
+    
+    \item \textbf{Total count (10 seconds)}
+    
+    Total = Case 1 + Case 2 = 1 + 4 = \textbf{5 root sets}
+    
+    Since each root set determines a unique ordered pair $(a,b)$ via Vieta's formulas, the answer is \textbf{5}.
+\end{enumerate}
+
+\subsection*{B. Verification of Each Root Set}
+
+Let's verify each of the 5 root sets:
+
+\begin{enumerate}
+    \item \textbf{$\{-3, -2, -1\}$}:
+    \begin{itemize}
+        \item Product: $(-3)(-2)(-1) = -6$ $\checkmark$
+        \item Distinct: Yes $\checkmark$
+        \item $(a,b) = (-(-3-2-1), (-3)(-2)+(-3)(-1)+(-2)(-1)) = (6, 11)$
+    \end{itemize}
+    
+    \item \textbf{$\{-3, 1, 2\}$}:
+    \begin{itemize}
+        \item Product: $(-3)(1)(2) = -6$ $\checkmark$
+        \item Distinct: Yes $\checkmark$
+        \item $(a,b) = (-(-3+1+2), (-3)(1)+(-3)(2)+1 \cdot 2) = (0, -7)$
+    \end{itemize}
+    
+    \item \textbf{$\{-2, 1, 3\}$}:
+    \begin{itemize}
+        \item Product: $(-2)(1)(3) = -6$ $\checkmark$
+        \item Distinct: Yes $\checkmark$
+        \item $(a,b) = (-(-2+1+3), (-2)(1)+(-2)(3)+1 \cdot 3) = (-2, -5)$
+    \end{itemize}
+    
+    \item \textbf{$\{-1, 2, 3\}$}:
+    \begin{itemize}
+        \item Product: $(-1)(2)(3) = -6$ $\checkmark$
+        \item Distinct: Yes $\checkmark$
+        \item $(a,b) = (-(-1+2+3), (-1)(2)+(-1)(3)+2 \cdot 3) = (-4, 1)$
+    \end{itemize}
+    
+    \item \textbf{$\{-1, 1, 6\}$}:
+    \begin{itemize}
+        \item Product: $(-1)(1)(6) = -6$ $\checkmark$
+        \item Distinct: $-1 \neq 1 \neq 6$ $\checkmark$
+        \item $(a,b) = (-(-1+1+6), (-1)(1)+(-1)(6)+1 \cdot 6) = (-6, -1)$
+    \end{itemize}
+\end{enumerate}
+
+All five $(a,b)$ pairs are distinct:
+$$(6, 11), (0, -7), (-2, -5), (-4, 1), (-6, -1)$$
+
+\subsection*{C. Why Not More?}
+
+Could there be other factorizations?
+
+\begin{itemize}
+    \item $\{-6, 1, 1\}$: NOT distinct (repeated 1) $\times$
+    \item $\{-2, -3, 1\}$: Same as $\{-3, -2, 1\}$? No wait - Product: $(-2)(-3)(1) = 6 \neq -6$ $\times$
+    \item $\{-2, 2, \frac{3}{2}\}$: Not all integers $\times$
+    \item Any with $|r| > 6$: Would need other factors $< 1$, giving non-integers $\times$
+\end{itemize}
+
+The enumeration is complete.
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-4 minutes total
+    \begin{itemize}
+        \item Setup and Vieta's: 30 seconds
+        \item Sign analysis: 30 seconds
+        \item Case enumeration: 90-120 seconds
+        \item Verification: 45-60 seconds
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 minute: Should have identified $r_1 r_2 r_3 = -6$ constraint
+        \item At 2 minutes: Should have found main factorization $\{1, 2, 3\}$ and be enumerating cases
+        \item At 3 minutes: Should have found all 5 root sets
+        \item If stuck: Focus on small divisors of 6, systematically try sign combinations
+    \end{itemize}
+    \item \textbf{Priority Level}: High - Standard mid-band problem testing important techniques
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 85-90\% after verification
+    \item \textbf{Common Errors}:
+    \begin{itemize}
+        \item Missing the $\{-1, 1, 6\}$ case (most commonly missed!)
+        \item Forgetting distinctness requirement
+        \item Double-counting permutations
+        \item Wrong sign on Vieta's formula (forgetting the negative)
+    \end{itemize}
+    \item \textbf{Abandonment Criteria}: If spending more than 5 minutes, make educated guess and flag for review
+    \item \textbf{Flag for Review}: If count doesn't match an answer choice, definitely flag for review
+\end{itemize}
+
+\subsection*{C. Competition Context}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem 14/25 Strategy}: Mid-band problem combining multiple techniques. Should be completed by students targeting 100+ scores.
+    \item \textbf{Point Value}: 6 points (standard AMC12), with 1.5 points for leaving blank
+    \item \textbf{Difficulty Assessment}: Moderate mid-band. Tests:
+    \begin{itemize}
+        \item Vieta's formulas knowledge
+        \item Integer factorization skills
+        \item Systematic case analysis
+        \item Attention to distinctness constraint
+        \item Careful counting without duplicates
+    \end{itemize}
+    \item \textbf{Strategic Value}: Vieta's formulas and systematic enumeration are high-yield AMC techniques
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The product constraint $r_1 r_2 r_3 = -6$ severely limits possibilities. The key steps are:
+
+\begin{enumerate}
+    \item Recognize that the product being negative requires an odd number of negative roots
+    \item Find all ways to factor 6 into three \emph{distinct} positive integers: only $1 \cdot 2 \cdot 3 = 6$
+    \item But also consider $1 \cdot 1 \cdot 6 = 6$ - wait, not distinct!
+    \item And $(-1) \cdot 1 \cdot 6 = -6$ - this works because $-1 \neq 1 \neq 6$ (distinct!)
+    \item Systematically assign negative signs to get product $-6$
+\end{enumerate}
+
+The \textbf{easily missed case} is $\{-1, 1, 6\}$ because students often only consider factorizations of the form $\{a, b, c\}$ where $|a|, |b|, |c|$ are all different, forgetting that $-1$ and $1$ are distinct integers even though they have the same absolute value!
+
+This is the most common error that leads to getting 4 instead of 5.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Common Pitfalls to Avoid
+
+\begin{itemize}
+    \item \textbf{Missing $\{-1, 1, 6\}$}: This is the MOST commonly missed case! Students often think "I need three different absolute values" but forget that $-1$ and $1$ are distinct integers. Don't miss this!
+    
+    \item \textbf{Wrong Vieta's sign}: For $x^3 + ax^2 + bx + c$, the product of roots is $-c$, NOT $c$. Our polynomial has constant term $+6$, so $r_1 r_2 r_3 = -6$.
+    
+    \item \textbf{Forgetting distinctness}: The problem says "3 distinct integer roots." Sets like $\{-6, 1, 1\}$ or $\{-2, -3, -1\}$ won't work. Wait - check $\{-2, -3, -1\}$: Product $= (-2)(-3)(-1) = -6$? NO! $(-2)(-3) = 6$, then $6 \cdot (-1) = -6$. Hmm, actually that works! But wait, that's only 3 numbers... Let me recount.
+    
+    Actually $\{-2, -3, -1\}$ is NOT the same as $\{-3, -2, -1\}$. Oh wait, it IS the same unordered set! We're counting unordered sets. So $\{-3, -2, -1\}$ is the only "all negative" case.
+    
+    \item \textbf{Double-counting permutations}: $\{-3, 1, 2\}$ and $\{1, -3, 2\}$ are the same unordered set, giving the same $(a,b)$. Count each set only once.
+    
+    \item \textbf{Arithmetic errors}: When checking products, be careful with signs. $(-1)(2)(3) = -6$ $\checkmark$, but $(- 2)(-3)(1) = 6$ $\times$.
+    
+    \item \textbf{Incomplete enumeration}: Make sure you've considered all divisors of 6: $\pm 1, \pm 2, \pm 3, \pm 6$. All valid three-element subsets with product $-6$ must be found.
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: Competition Strategy
+
+\begin{itemize}
+    \item \textbf{Organize by cases}: Sign patterns help organize the search systematically. List all sign patterns first, eliminate impossible ones, then enumerate within each valid pattern.
+    
+    \item \textbf{Check small cases first}: Start with the most obvious factorizations ($1 \cdot 2 \cdot 3$) before looking for less obvious ones ($-1 \cdot 1 \cdot 6$).
+    
+    \item \textbf{Remember $\pm 1$}: The numbers $-1$ and $1$ often create additional cases because they're multiplicative identities but still distinct.
+    
+    \item \textbf{Vieta's formulas shortcut}: You don't actually need to compute $(a,b)$ for each root set - just count the root sets! Each gives a unique $(a,b)$.
+    
+    \item \textbf{Verification technique}: If you get 4 or 6 (close to the answer), carefully review your cases. The difference is likely one missed or one duplicate case.
+    
+    \item \textbf{List divisors systematically}: Write out all divisors of 6: $\{\pm 1, \pm 2, \pm 3, \pm 6\}$. This helps ensure you don't miss any factorizations.
+    
+    \item \textbf{Answer choice elimination}: The answer is small (4-8), confirming that exhaustive enumeration is the right approach rather than trying to find a formula.
+\end{itemize}
+\end{tipbox}
+
+\section*{Final Answer}
+
+The number of ordered pairs $(a,b)$ is:
+$$\boxed{\textbf{(A) } 5}$$
+
+The five root sets are:
+\begin{enumerate}
+    \item $\{-3, -2, -1\}$ $\to$ $(a,b) = (6, 11)$
+    \item $\{-3, 1, 2\}$ $\to$ $(a,b) = (0, -7)$
+    \item $\{-2, 1, 3\}$ $\to$ $(a,b) = (-2, -5)$
+    \item $\{-1, 2, 3\}$ $\to$ $(a,b) = (-4, 1)$
+    \item $\{-1, 1, 6\}$ $\to$ $(a,b) = (-6, -1)$
+\end{enumerate}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% - Systematic enumeration with verification of each case. The most commonly missed case ($\{-1, 1, 6\}$) has been found.
+    \item \textbf{Verification Applied}: Level 4 (Standard Verification) - Checked each root set for product $= -6$, distinctness, and uniqueness
+    \item \textbf{Flag for Review}: No - All five cases found and verified
+    \item \textbf{Time Spent}: Estimated 3.5-4 minutes (optimal for P14)
+\end{itemize}
+
+\section*{Summary of Solution Path}
+
+\begin{enumerate}
+    \item Apply Vieta's: $r_1 r_2 r_3 = -6$
+    \item Analyze signs: Need odd number of negatives
+    \item Case 1 (all negative): $\{-3, -2, -1\}$ (1 set)
+    \item Case 2 (one negative, two positive):
+    \begin{itemize}
+        \item Using $\{1, 2, 3\}$: $\{-3, 1, 2\}$, $\{-2, 1, 3\}$, $\{-1, 2, 3\}$ (3 sets)
+        \item Using $\{1, 1, 6\}$: $\{-1, 1, 6\}$ (1 set, note $-1 \neq 1$!)
+    \end{itemize}
+    \item Total: 1 + 4 = 5 ordered pairs
+\end{enumerate}
+
+\end{document}
+

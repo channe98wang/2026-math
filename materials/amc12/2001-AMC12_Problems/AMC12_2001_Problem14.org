@@ -1,0 +1,21 @@
+2001 AMC 12 Problems/Problem 14
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 See Also
+Problem
+Given the nine-sided regular polygon $A_1 A_2 A_3 A_4 A_5 A_6 A_7 A_8 A_9$ , how many distinct equilateral triangles in the plane of the polygon have at least two vertices in the set $\{A_1,A_2,\dots,A_9\}$ ?
+$\text{(A) }30 \qquad \text{(B) }36 \qquad \text{(C) }63 \qquad \text{(D) }66 \qquad \text{(E) }72$
+Solution
+Each of the $\binom{9}{2} = 36$ pairs of vertices determines $2$ equilateral triangles — one facing towards the center, and one outwards — for a total of $2 \cdot 36 = 72$ triangles. However, the $3$ triangles $A_1A_4A_7$ , $A_2A_5A_8$ , and $A_3A_6A_9$ are each counted $3$ times (once for each of the $\binom{3}{2} = 3$ possible pairs of vertices, all of which are vertices of the $9$ -gon), whereas they should of course only be counted once, resulting in an overcount of $(3-1) \cdot 3 = 6$ . Thus, there are $72-6 = \boxed{\text{(D) }66}$ distinct equilateral triangles.
+Video Solution
+https://youtu.be/gMWJisI9Ulk
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

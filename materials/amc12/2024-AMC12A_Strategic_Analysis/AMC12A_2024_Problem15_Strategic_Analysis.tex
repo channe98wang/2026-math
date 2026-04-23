@@ -1,0 +1,989 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colored boxes - all with breakable option
+\newtcolorbox{configbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategybox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticsbox}[1]{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=violet!10!white,
+    colframe=violet!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1]{
+    colback=red!15!white,
+    colframe=red!85!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}[1]{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 15:\\Comprehensive Strategic Analysis}}
+\author{Using Enhanced Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+The roots of $x^3 + 2x^2 - x + 3$ are $p, q,$ and $r.$ What is the value of
+\[(p^2 + 4)(q^2 + 4)(r^2 + 4)?\]
+
+$$\textbf{(A) } 64 \qquad \textbf{(B) } 75 \qquad \textbf{(C) } 100 \qquad \textbf{(D) } 125 \qquad \textbf{(E) } 144$$
+
+\vspace{1em}
+\noindent\textit{Note: The answer is provided at the END of this document to allow you to work through the problem yourself first.}
+
+\section*{Framework-Based Analysis}
+
+\begin{configbox}{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (specific numerical value)
+    \item \textbf{Competition Context}: AMC 12A 2024, Problem 15
+    \item \textbf{Difficulty Band}: Mid-band (P15/25) - upper intermediate difficulty
+    \item \textbf{Mathematical Domain}: Algebra (polynomials, Vieta's formulas, complex numbers)
+    \item \textbf{Estimated Time}: 3-5 minutes depending on method chosen
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Polynomial: $f(x) = x^3 + 2x^2 - x + 3$
+        \item Roots: $p, q, r$ (not given explicitly)
+        \item Need to find: $(p^2 + 4)(q^2 + 4)(r^2 + 4)$
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Roots satisfy $f(p) = f(q) = f(r) = 0$
+        \item The polynomial is cubic with real coefficients
+        \item Answer must be one of the given choices
+    \end{itemize}
+    
+    \item \textbf{Objective}: Calculate product involving squared roots plus 4
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item We don't need to find the actual roots $p, q, r$
+        \item Vieta's formulas relate roots to coefficients
+        \item The expression has special structure that can be exploited
+        \item Complex numbers may be useful ($p^2 + 4 = (p + 2i)(p - 2i)$)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices: 64, 75, 100, 125, 144
+        \item Pattern: $64 = 4^3$, $100 = 10^2$, $125 = 5^3$, $144 = 12^2$
+        \item $125 = 5^3$ stands out as it relates to factoring
+        \item Can use modular arithmetic for quick check
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The problem can be solved without finding explicit roots
+    
+    \item \textbf{Conclusion}: Need $(p^2 + 4)(q^2 + 4)(r^2 + 4)$ using relationships from the polynomial
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $f(x) = x^3 + 2x^2 - x + 3 = (x - p)(x - q)(x - r)$
+        \item By Vieta's: $p + q + r = -2$, $pq + pr + qr = -1$, $pqr = -3$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Recognize $p^2 + 4 = (p + 2i)(p - 2i)$ (difference of squares with complex numbers)
+        \item Product becomes $f(2i) \cdot f(-2i)$
+        \item Or: expand and use Vieta's formulas
+        \item Or: use reduction of power technique
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Complex numbers (elegant factorization)
+        \item Pure algebra (Vieta's formulas with expansion)
+        \item Clever substitution (reduction of power)
+    \end{itemize}
+\end{itemize}
+
+\end{configbox}
+
+\begin{strategybox}{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't panic if you can't find the roots explicitly - you're not supposed to! Trust that symmetric functions and Vieta's formulas will work.
+    
+    \item \textbf{Creativity Cultivation}: Multiple elegant approaches exist:
+    \begin{itemize}
+        \item Complex number factorization (most elegant)
+        \item Direct expansion with Vieta's (most straightforward)
+        \item Reduction of power (very clever)
+        \item Modular arithmetic check (quick elimination)
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: If direct expansion seems messy, try the complex number approach
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: This is a symmetric function problem. The key insight is recognizing special structure.
+    
+    \item \textbf{Get Your Hands Dirty}: Extract Vieta's formulas immediately:
+    \begin{itemize}
+        \item $p + q + r = -2$ (negative of $x^2$ coefficient)
+        \item $pq + pr + qr = -1$ (coefficient of $x$)
+        \item $pqr = -3$ (negative of constant term)
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Once we recognize $(p^2 + 4) = (p + 2i)(p - 2i)$, we just need to evaluate $f(2i)$ and $f(-2i)$
+    
+    \item \textbf{Wishful Thinking}: Hope that the product simplifies nicely (and it does to 125!)
+    
+    \item \textbf{Make It Easier}: Use complex numbers to factor $p^2 + 4$ rather than expanding everything
+    
+    \item \textbf{Conjecture via Small Cases}: Not applicable here (no natural small cases)
+    
+    \item \textbf{Visualization}: Think of the polynomial $f(x) = (x - p)(x - q)(x - r)$ and what happens when we evaluate at $x = 2i$ and $x = -2i$
+\end{itemize}
+
+\subsection*{C. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Approach (Method 1)}: 
+    \begin{enumerate}
+        \item Factor using complex numbers: $(p^2 + 4) = (p + 2i)(p - 2i)$
+        \item Recognize product as $f(2i) \cdot f(-2i)$
+        \item Evaluate both and multiply
+    \end{enumerate}
+    
+    \item \textbf{Algebraic Approach (Method 2)}:
+    \begin{enumerate}
+        \item Expand $(p^2 + 4)(q^2 + 4)(r^2 + 4)$
+        \item Express in terms of symmetric functions
+        \item Apply Vieta's formulas
+        \item Compute the value
+    \end{enumerate}
+\end{itemize}
+
+\end{strategybox}
+
+\begin{tacticsbox}{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Vieta's Formulas}: Relate roots to coefficients without solving
+    
+    \item \textbf{Symmetric Functions}: Recognize expressions involving all roots symmetrically
+    
+    \item \textbf{Complex Number Factorization}: Use $a^2 + b^2 = (a + bi)(a - bi)$
+    
+    \item \textbf{Polynomial Evaluation}: For $f(x) = (x - p)(x - q)(x - r)$, we have $f(c) = (c - p)(c - q)(c - r)$
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics (Algebra/Polynomials)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Vieta's Formulas for Cubic $x^3 + ax^2 + bx + c = 0$}:
+    \begin{itemize}
+        \item Sum of roots: $p + q + r = -a$
+        \item Sum of products of pairs: $pq + pr + qr = b$
+        \item Product of roots: $pqr = -c$
+    \end{itemize}
+    
+    \item \textbf{Newton's Sums}: For power sums $S_k = p^k + q^k + r^k$
+    \begin{itemize}
+        \item $S_1 = p + q + r$
+        \item $S_2 = (p + q + r)^2 - 2(pq + pr + qr)$
+    \end{itemize}
+    
+    \item \textbf{Difference of Squares in $\mathbb{C}$}: $x^2 + 4 = x^2 - (2i)^2 = (x + 2i)(x - 2i)$
+    
+    \item \textbf{Polynomial Root Properties}: If $p$ is a root, then $f(p) = 0$
+\end{itemize}
+
+\subsection*{C. Problem-Specific Insights}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Key Insight 1}: $(p^2 + 4)(q^2 + 4)(r^2 + 4) = (p + 2i)(p - 2i)(q + 2i)(q - 2i)(r + 2i)(r - 2i)$
+    
+    \item \textbf{Key Insight 2}: This product can be rearranged as $[(p + 2i)(q + 2i)(r + 2i)][(p - 2i)(q - 2i)(r - 2i)]$
+    
+    \item \textbf{Key Insight 3}: $(p - x)(q - x)(r - x) = -f(x)$ where $f$ is the polynomial
+    
+    \item \textbf{Key Insight 4}: Therefore the product equals $f(2i) \cdot f(-2i)$
+\end{itemize}
+
+\end{tacticsbox}
+
+\begin{conversionbox}{4. Conversion Techniques Application}
+
+\subsection*{A. High-Probability Techniques}
+
+\textbf{Primary Technique}: \textbf{Complex Number Factorization + Polynomial Evaluation (H18)}
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Expression involves $p^2 + 4$ (sum of squares)
+    \item Roots of polynomial are involved
+    \item Product of similar terms
+    \item Answer choices suggest clean result
+\end{itemize}
+
+\textbf{Application Steps}:
+\begin{enumerate}
+    \item Recognize $p^2 + 4 = (p + 2i)(p - 2i)$ using $i^2 = -1$
+    \item Product becomes: $(p + 2i)(p - 2i)(q + 2i)(q - 2i)(r + 2i)(r - 2i)$
+    \item Rearrange: $[(p + 2i)(q + 2i)(r + 2i)][(p - 2i)(q - 2i)(r - 2i)]$
+    \item Note: $(p - x)(q - x)(r - x) = -f(x)$ where $f(x) = x^3 + 2x^2 - x + 3$
+    \item With $x = -2i$: $(p + 2i)(q + 2i)(r + 2i) = -f(-2i)$
+    \item With $x = 2i$: $(p - 2i)(q - 2i)(r - 2i) = -f(2i)$
+    \item Product: $[-f(-2i)][-f(2i)] = f(2i) \cdot f(-2i)$
+    \item Evaluate: $f(2i) = (2i)^3 + 2(2i)^2 - 2i + 3 = -8i - 8 - 2i + 3 = -10i - 5$
+    \item Evaluate: $f(-2i) = (-2i)^3 + 2(-2i)^2 + 2i + 3 = 8i - 8 + 2i + 3 = 10i - 5$
+    \item Multiply: $(-10i - 5)(10i - 5) = (-5 - 10i)(-5 + 10i) = 25 - (10i)^2 = 25 + 100 = 125$
+\end{enumerate}
+
+\subsection*{B. Alternative Techniques}
+
+\textbf{Method 2: Direct Expansion with Vieta's Formulas (H16)}
+
+\textbf{Application}:
+\begin{enumerate}
+    \item Expand $(p^2 + 4)(q^2 + 4)(r^2 + 4)$:
+    \[= p^2q^2r^2 + 4(p^2q^2 + p^2r^2 + q^2r^2) + 16(p^2 + q^2 + r^2) + 64\]
+    
+    \item From Vieta's: $pqr = -3$, so $p^2q^2r^2 = 9$
+    
+    \item Find $p^2 + q^2 + r^2$:
+    \[p^2 + q^2 + r^2 = (p + q + r)^2 - 2(pq + pr + qr) = (-2)^2 - 2(-1) = 4 + 2 = 6\]
+    
+    \item Find $p^2q^2 + p^2r^2 + q^2r^2$:
+    \begin{align*}
+    (pq + pr + qr)^2 &= p^2q^2 + p^2r^2 + q^2r^2 + 2pqr(p + q + r)\\
+    (-1)^2 &= p^2q^2 + p^2r^2 + q^2r^2 + 2(-3)(-2)\\
+    1 &= p^2q^2 + p^2r^2 + q^2r^2 - 12\\
+    p^2q^2 + p^2r^2 + q^2r^2 &= -11
+    \end{align*}
+    
+    \item Substitute:
+    \[9 + 4(-11) + 16(6) + 64 = 9 - 44 + 96 + 64 = 125\]
+\end{enumerate}
+
+\textbf{Method 3: Reduction of Power (Advanced)}
+
+\textbf{Key idea}: Since $p$ is a root, $p^3 + 2p^2 - p + 3 = 0$, so $p^3 = -2p^2 + p - 3$
+
+\textbf{Application}:
+\begin{enumerate}
+    \item From $p^3 + 2p^2 - p + 3 = 0$:
+    \[p^2(p + 2) = p - 3\]
+    \[p^2 = \frac{p - 3}{p + 2}\]
+    
+    \item Therefore:
+    \[p^2 + 4 = \frac{p - 3}{p + 2} + 4 = \frac{p - 3 + 4(p + 2)}{p + 2} = \frac{5p + 5}{p + 2} = 5 \cdot \frac{p + 1}{p + 2}\]
+    
+    \item Same for $q$ and $r$:
+    \[(p^2 + 4)(q^2 + 4)(r^2 + 4) = 125 \cdot \frac{(p + 1)(q + 1)(r + 1)}{(p + 2)(q + 2)(r + 2)}\]
+    
+    \item Using $(p + c)(q + c)(r + c) = -f(-c)$:
+    \[= 125 \cdot \frac{-f(-1)}{-f(-2)} = 125 \cdot \frac{f(-1)}{f(-2)}\]
+    
+    \item Evaluate:
+    \begin{align*}
+    f(-1) &= (-1)^3 + 2(-1)^2 - (-1) + 3 = -1 + 2 + 1 + 3 = 5\\
+    f(-2) &= (-2)^3 + 2(-2)^2 - (-2) + 3 = -8 + 8 + 2 + 3 = 5
+    \end{align*}
+    
+    \item Result: $125 \cdot \frac{5}{5} = 125$
+\end{enumerate}
+
+\textbf{Method 4: Modular Arithmetic Check (Quick Verification)}
+
+From expansion: $(pqr)^2 + 4(\text{stuff}) + 16(\text{stuff}) + 64$
+
+Since $(pqr)^2 = 9$ and all other terms are multiples of 4:
+\[\text{Answer} \equiv 9 \equiv 1 \pmod{4}\]
+
+Only choice (D) 125 satisfies $125 \equiv 1 \pmod{4}$ $\checkmark$
+
+\subsection*{C. Technique Comparison}
+
+\begin{itemize}
+    \item \textbf{Method 1 (Complex)}: Most elegant, ~3 minutes, requires comfort with complex numbers
+    \item \textbf{Method 2 (Vieta's)}: Most reliable, ~4 minutes, pure algebra
+    \item \textbf{Method 3 (Reduction)}: Very clever, ~4 minutes, requires advanced insight
+    \item \textbf{Method 4 (Modular)}: Quick check only, ~30 seconds, doesn't solve but verifies
+\end{itemize}
+
+\end{conversionbox}
+
+\begin{verificationbox}{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification, 30-60 seconds)
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Mid-band problem (P15) with multiple approaches
+        \item Complex arithmetic involved (especially with $i$)
+        \item Multiple terms to track in algebraic expansion
+        \item Should verify computation of $f(2i)$ and $f(-2i)$
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 45 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+
+\textbf{For Complex Number Method}:
+\begin{itemize}
+    \item \textbf{Verify $f(2i)$ calculation}:
+    \begin{align*}
+    f(2i) &= (2i)^3 + 2(2i)^2 - 2i + 3\\
+    &= 8i^3 + 2 \cdot 4i^2 - 2i + 3\\
+    &= 8(-i) + 8(-1) - 2i + 3\\
+    &= -8i - 8 - 2i + 3\\
+    &= -10i - 5 \quad \checkmark
+    \end{align*}
+    
+    \item \textbf{Verify $f(-2i)$ calculation}:
+    \begin{align*}
+    f(-2i) &= (-2i)^3 + 2(-2i)^2 - (-2i) + 3\\
+    &= -8i^3 + 2 \cdot 4i^2 + 2i + 3\\
+    &= -8(-i) + 8(-1) + 2i + 3\\
+    &= 8i - 8 + 2i + 3\\
+    &= 10i - 5 \quad \checkmark
+    \end{align*}
+    
+    \item \textbf{Verify product}:
+    \begin{align*}
+    f(2i) \cdot f(-2i) &= (-10i - 5)(10i - 5)\\
+    &= (-5 - 10i)(-5 + 10i)\\
+    &= (-5)^2 - (10i)^2\\
+    &= 25 - 100i^2\\
+    &= 25 - 100(-1)\\
+    &= 25 + 100 = 125 \quad \checkmark
+    \end{align*}
+\end{itemize}
+
+\textbf{For Algebraic Method}:
+\begin{itemize}
+    \item \textbf{Verify Vieta's formulas}:
+    \begin{itemize}
+        \item $p + q + r = -2$ (negative of coefficient of $x^2$) $\checkmark$
+        \item $pq + pr + qr = -1$ (coefficient of $x$) $\checkmark$
+        \item $pqr = -3$ (negative of constant divided by leading coefficient) $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Verify $p^2 + q^2 + r^2 = 6$}:
+    \[(p + q + r)^2 - 2(pq + pr + qr) = 4 - 2(-1) = 6 \quad \checkmark\]
+    
+    \item \textbf{Verify $p^2q^2 + p^2r^2 + q^2r^2 = -11$}:
+    \[(pq + pr + qr)^2 - 2pqr(p + q + r) = 1 - 2(-3)(-2) = 1 - 12 = -11 \quad \checkmark\]
+    
+    \item \textbf{Verify final sum}: $9 - 44 + 96 + 64 = 125$ $\checkmark$
+\end{itemize}
+
+\textbf{Cross-Method Verification}:
+\begin{itemize}
+    \item Both methods should give 125 $\checkmark$
+    \item Modular arithmetic check: $125 \equiv 1 \pmod{4}$ $\checkmark$
+    \item Answer matches choice (D) $\checkmark$
+\end{itemize}
+
+\subsection*{C. Common Calculation Errors to Avoid}
+\begin{itemize}[leftmargin=*]
+    \item $i^2 = -1$ (not $+1$)
+    \item $i^3 = i^2 \cdot i = -i$ (not $+i$)
+    \item $(a + bi)(a - bi) = a^2 + b^2$ (not $a^2 - b^2$)
+    \item Sign errors in Vieta's formulas
+    \item Arithmetic errors in final sum
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{roadmapbox}{6. Solution Roadmap}
+
+\subsection*{A. Step-by-Step Solution Plan (Complex Number Method)}
+
+\textbf{Step 1: Initial Setup (30 seconds)}
+\begin{itemize}
+    \item Identify polynomial: $f(x) = x^3 + 2x^2 - x + 3$ with roots $p, q, r$
+    \item Recognize pattern: $p^2 + 4$ suggests complex factorization
+    \item Plan: Use $p^2 + 4 = (p + 2i)(p - 2i)$
+\end{itemize}
+
+\textbf{Step 2: Complex Factorization (30 seconds)}
+\begin{itemize}
+    \item Factor each term:
+    \[p^2 + 4 = (p + 2i)(p - 2i)\]
+    \[q^2 + 4 = (q + 2i)(q - 2i)\]
+    \[r^2 + 4 = (r + 2i)(r - 2i)\]
+    
+    \item Product becomes:
+    \[(p + 2i)(p - 2i)(q + 2i)(q - 2i)(r + 2i)(r - 2i)\]
+    
+    \item Rearrange:
+    \[= [(p + 2i)(q + 2i)(r + 2i)][(p - 2i)(q - 2i)(r - 2i)]\]
+\end{itemize}
+
+\textbf{Step 3: Recognize Polynomial Evaluation (30 seconds)}
+\begin{itemize}
+    \item Key fact: $f(x) = (x - p)(x - q)(x - r)$
+    \item Therefore: $(p - x)(q - x)(r - x) = -f(x)$
+    \item With $x = -2i$: $(p + 2i)(q + 2i)(r + 2i) = -f(-2i)$
+    \item With $x = 2i$: $(p - 2i)(q - 2i)(r - 2i) = -f(2i)$
+    \item Product: $[-f(-2i)][-f(2i)] = f(2i) \cdot f(-2i)$
+\end{itemize}
+
+\textbf{Step 4: Evaluate $f(2i)$ (1 minute)}
+\begin{align*}
+f(2i) &= (2i)^3 + 2(2i)^2 - 2i + 3\\
+&= 8i^3 + 2(4i^2) - 2i + 3\\
+&= 8(-i) + 8(-1) - 2i + 3\\
+&= -8i - 8 - 2i + 3\\
+&= -10i - 5
+\end{align*}
+
+\textbf{Step 5: Evaluate $f(-2i)$ (1 minute)}
+\begin{align*}
+f(-2i) &= (-2i)^3 + 2(-2i)^2 - (-2i) + 3\\
+&= -8i^3 + 2(4i^2) + 2i + 3\\
+&= -8(-i) + 8(-1) + 2i + 3\\
+&= 8i - 8 + 2i + 3\\
+&= 10i - 5
+\end{align*}
+
+\textbf{Step 6: Multiply (45 seconds)}
+\begin{align*}
+f(2i) \cdot f(-2i) &= (-10i - 5)(10i - 5)\\
+&= (-5 - 10i)(-5 + 10i)\\
+&= (-5)^2 - (10i)^2 \quad \text{(difference of squares)}\\
+&= 25 - 100i^2\\
+&= 25 - 100(-1)\\
+&= 25 + 100\\
+&= 125
+\end{align*}
+
+\textbf{Step 7: Verification (30 seconds)}
+\begin{itemize}
+    \item Check: $125 \equiv 1 \pmod{4}$ $\checkmark$
+    \item Answer matches (D) $\checkmark$
+    \item Result is reasonable (middle of answer choices)
+\end{itemize}
+
+\subsection*{B. Alternative Approach Summary (Vieta's Method)}
+
+\textbf{Quick outline}:
+\begin{enumerate}
+    \item Extract Vieta's: $p + q + r = -2$, $pq + pr + qr = -1$, $pqr = -3$
+    \item Expand $(p^2 + 4)(q^2 + 4)(r^2 + 4) = p^2q^2r^2 + 4(\ldots) + 16(\ldots) + 64$
+    \item Compute: $p^2q^2r^2 = 9$, $p^2 + q^2 + r^2 = 6$, $p^2q^2 + p^2r^2 + q^2r^2 = -11$
+    \item Result: $9 + 4(-11) + 16(6) + 64 = 125$
+\end{enumerate}
+
+\subsection*{C. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Complex method}: ~3-4 minutes total
+    \item \textbf{Vieta's method}: ~4-5 minutes total
+    \item \textbf{Recommended}: Complex method for speed if comfortable with $i$
+    \item \textbf{Fallback}: Vieta's method is more mechanical and reliable
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{competitionbox}{7. Competition Strategy Integration}
+
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-5 minutes (appropriate for P15)
+    \item \textbf{Time Checkpoints}:
+    \begin{itemize}
+        \item At 1 min: Should have recognized complex factorization or set up Vieta's
+        \item At 2.5 min: Should have evaluated $f(2i)$ and $f(-2i)$ or computed symmetric functions
+        \item At 4 min: Should have answer computed
+        \item At 5+ min: If no progress, use modular arithmetic to eliminate choices and guess
+    \end{itemize}
+    \item \textbf{Priority Level}: High (P15 is accessible for students targeting 110+)
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90-95\% after verification
+    
+    \item \textbf{Error Risks}: 
+    \begin{itemize}
+        \item Sign errors with $i^2 = -1$
+        \item Arithmetic mistakes in complex multiplication
+        \item Errors in Vieta's formulas (wrong signs)
+        \item Calculation errors in symmetric function expressions
+    \end{itemize}
+    
+    \item \textbf{Mitigation}:
+    \begin{itemize}
+        \item Double-check $i^2 = -1$ and $i^3 = -i$
+        \item Use difference of squares formula carefully
+        \item Verify Vieta's formulas from polynomial coefficients
+        \item Use modular arithmetic as quick sanity check
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criteria}: If stuck after 5 minutes on computation, guess (D) 125 based on $5^3$ pattern
+    
+    \item \textbf{Flag for Review}: Possibly, if unsure about complex arithmetic
+\end{itemize}
+
+\subsection*{C. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item (A) $64 = 4^3 = 2^6$
+        \item (B) $75 = 3 \times 25$
+        \item (C) $100 = 10^2 = 4 \times 25$
+        \item (D) $125 = 5^3$ ← stands out as perfect cube
+        \item (E) $144 = 12^2$
+    \end{itemize}
+    
+    \item \textbf{Modular Arithmetic Elimination}:
+    \begin{itemize}
+        \item Answer $\equiv 1 \pmod{4}$ (since $(pqr)^2 = 9 \equiv 1 \pmod{4}$)
+        \item Check: $64 \equiv 0$, $75 \equiv 3$, $100 \equiv 0$, $125 \equiv 1$ $\checkmark$, $144 \equiv 0$
+        \item Only (D) 125 works!
+    \end{itemize}
+    
+    \item \textbf{Reasonableness}:
+    \begin{itemize}
+        \item The $5^3 = 125$ suggests factorization of 5 appears (as in Method 3)
+        \item Middle value among choices - not extreme
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Accessibility}: Moderate - requires either complex numbers or careful algebra
+    \item \textbf{Technique Familiarity}: 
+    \begin{itemize}
+        \item High for Vieta's formulas
+        \item Medium for complex factorization (not all students comfortable)
+    \end{itemize}
+    \item \textbf{Computational Difficulty}: Moderate - careful arithmetic needed
+    \item \textbf{Verification Ease}: Good - multiple methods available
+    \item \textbf{Guessing Strategy}: Strong - modular arithmetic eliminates 4 of 5 choices!
+\end{itemize}
+
+\end{competitionbox}
+
+\begin{highlightbox}{Key Insight}
+
+The most elegant solution uses the factorization $p^2 + 4 = (p + 2i)(p - 2i)$ to transform the product into $f(2i) \cdot f(-2i)$, where $f$ is the given polynomial. This avoids messy algebraic expansion entirely!
+
+\vspace{0.5em}
+\noindent\textbf{Recognition Pattern}: When you see $p^2 + c^2$ where $p$ is a root of a polynomial, think of complex factorization $(p + ci)(p - ci)$ and evaluate the polynomial at $\pm ci$.
+
+\vspace{0.5em}
+\noindent\textbf{Emergency Strategy}: If completely stuck, use modular arithmetic: the answer must be $\equiv 1 \pmod{4}$, which eliminates all choices except (D) 125!
+
+\end{highlightbox}
+
+\begin{warningbox}{Common Pitfalls}
+
+\textbf{Pitfall 1: Complex Number Sign Errors}
+\begin{itemize}
+    \item \textit{Error}: Computing $i^2 = +1$ instead of $-1$
+    \item \textit{Example}: $(10i)^2 = 100i^2 = -100$ (not $+100$)
+    \item \textit{Prevention}: Write out $i^2 = -1$ explicitly at each step
+\end{itemize}
+
+\textbf{Pitfall 2: Wrong Power of $i$}
+\begin{itemize}
+    \item \textit{Error}: $(2i)^3 = 8i^3 = 8i$ (wrong!)
+    \item \textit{Correct}: $i^3 = i^2 \cdot i = (-1) \cdot i = -i$, so $(2i)^3 = 8i^3 = -8i$
+    \item \textit{Prevention}: Remember cycle: $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$
+\end{itemize}
+
+\textbf{Pitfall 3: Vieta's Formula Sign Errors}
+\begin{itemize}
+    \item \textit{Error}: For $x^3 + 2x^2 - x + 3$, thinking $p + q + r = 2$ (wrong!)
+    \item \textit{Correct}: $p + q + r = -2$ (negative of $x^2$ coefficient)
+    \item \textit{Prevention}: Standard form is $x^3 - (p+q+r)x^2 + \ldots$, so sum $= -(\text{coeff of }x^2)$
+\end{itemize}
+
+\textbf{Pitfall 4: Difference of Squares Error}
+\begin{itemize}
+    \item \textit{Error}: $(a + bi)(a - bi) = a^2 - b^2$ (missing the sign)
+    \item \textit{Correct}: $(a + bi)(a - bi) = a^2 - (bi)^2 = a^2 - b^2i^2 = a^2 + b^2$
+    \item \textit{Example}: $(-5 - 10i)(-5 + 10i) = 25 + 100 = 125$
+    \item \textit{Prevention}: Always write $(bi)^2 = b^2i^2 = -b^2$
+\end{itemize}
+
+\textbf{Pitfall 5: Algebraic Expansion Arithmetic}
+\begin{itemize}
+    \item \textit{Error}: When expanding, missing terms or combining incorrectly
+    \item \textit{Prevention}: Write out each symmetric function calculation separately and verify
+\end{itemize}
+
+\textbf{Pitfall 6: Forgetting to Square in $p^2q^2r^2$}
+\begin{itemize}
+    \item \textit{Error}: Computing $(pqr)^2 = -3$ instead of $9$
+    \item \textit{Correct}: $pqr = -3$, so $(pqr)^2 = (-3)^2 = 9$
+    \item \textit{Prevention}: Square the entire product, including sign
+\end{itemize}
+
+\end{warningbox}
+
+\begin{protipbox}{Competition Tips}
+
+\textbf{Tip 1: Recognize Complex Factorization Opportunity}
+\begin{itemize}
+    \item When you see $p^2 + \text{constant}$, think complex numbers
+    \item $a^2 + b^2 = (a + bi)(a - bi)$ is extremely powerful
+    \item In this problem: $p^2 + 4 = (p + 2i)(p - 2i)$
+\end{itemize}
+
+\textbf{Tip 2: Polynomial Evaluation Shortcut}
+\begin{itemize}
+    \item For polynomial $f(x) = (x - p)(x - q)(x - r)$:
+    \item $(p - c)(q - c)(r - c) = -f(c)$ for any constant $c$
+    \item This transforms products of roots into simple polynomial evaluation
+\end{itemize}
+
+\textbf{Tip 3: Use Modular Arithmetic for Quick Check}
+\begin{itemize}
+    \item The expansion has form: $(pqr)^2 + 4(\ldots)$
+    \item Since $(pqr)^2 = 9 \equiv 1 \pmod{4}$ and other terms are multiples of 4
+    \item Answer must be $\equiv 1 \pmod{4}$
+    \item This immediately eliminates 4 of 5 choices! Only 125 remains.
+    \item Takes ~30 seconds and gives high confidence even without full solution
+\end{itemize}
+
+\textbf{Tip 4: Master Vieta's Formulas}
+\begin{itemize}
+    \item For cubic $x^3 + ax^2 + bx + c$:
+    \item Sum: $-a$, Pairwise sum: $b$, Product: $-c$
+    \item In this problem: $-2, -1, -3$ respectively
+    \item Memorize these for instant recall
+\end{itemize}
+
+\textbf{Tip 5: Symmetric Functions Building Blocks}
+\begin{itemize}
+    \item $p^2 + q^2 + r^2 = (p+q+r)^2 - 2(pq+pr+qr)$
+    \item $(pq + pr + qr)^2 = p^2q^2 + p^2r^2 + q^2r^2 + 2pqr(p+q+r)$
+    \item These formulas are worth memorizing for competition
+\end{itemize}
+
+\textbf{Tip 6: Choose Method Based on Comfort}
+\begin{itemize}
+    \item Comfortable with complex numbers? → Use Method 1 (fastest)
+    \item Prefer pure algebra? → Use Method 2 (most reliable)
+    \item Short on time? → Use modular arithmetic to eliminate and guess
+\end{itemize}
+
+\end{protipbox}
+
+\section*{Complete Solution (Detailed)}
+
+\subsection*{Solution Method 1: Complex Number Factorization (Recommended)}
+
+Given polynomial: $f(x) = x^3 + 2x^2 - x + 3$ with roots $p, q, r$.
+
+Find: $(p^2 + 4)(q^2 + 4)(r^2 + 4)$
+
+\textbf{Step 1: Factor using complex numbers}
+
+Recognize that $p^2 + 4 = p^2 - (-4) = p^2 - (2i)^2$ since $i^2 = -1$.
+
+By difference of squares:
+\[p^2 + 4 = (p + 2i)(p - 2i)\]
+
+Similarly for $q$ and $r$:
+\[q^2 + 4 = (q + 2i)(q - 2i)\]
+\[r^2 + 4 = (r + 2i)(r - 2i)\]
+
+\textbf{Step 2: Rewrite the product}
+
+\begin{align*}
+(p^2 + 4)(q^2 + 4)(r^2 + 4) &= (p + 2i)(p - 2i)(q + 2i)(q - 2i)(r + 2i)(r - 2i)\\
+&= [(p + 2i)(q + 2i)(r + 2i)][(p - 2i)(q - 2i)(r - 2i)]
+\end{align*}
+
+\textbf{Step 3: Recognize polynomial evaluation}
+
+Since $f(x) = x^3 + 2x^2 - x + 3$ and $p, q, r$ are its roots:
+\[f(x) = (x - p)(x - q)(x - r)\]
+
+Therefore:
+\[(p - x)(q - x)(r - x) = (-1)^3(x - p)(x - q)(x - r) = -f(x)\]
+
+With $x = -2i$:
+\[(p - (-2i))(q - (-2i))(r - (-2i)) = -f(-2i)\]
+\[(p + 2i)(q + 2i)(r + 2i) = -f(-2i)\]
+
+With $x = 2i$:
+\[(p - 2i)(q - 2i)(r - 2i) = -f(2i)\]
+
+So our product becomes:
+\[[-f(-2i)][-f(2i)] = f(-2i) \cdot f(2i)\]
+
+\textbf{Step 4: Evaluate $f(2i)$}
+
+\begin{align*}
+f(2i) &= (2i)^3 + 2(2i)^2 - 2i + 3\\
+&= 8i^3 + 2 \cdot 4i^2 - 2i + 3
+\end{align*}
+
+Recall: $i^2 = -1$ and $i^3 = i^2 \cdot i = -i$
+
+\begin{align*}
+f(2i) &= 8(-i) + 8(-1) - 2i + 3\\
+&= -8i - 8 - 2i + 3\\
+&= -10i - 5
+\end{align*}
+
+\textbf{Step 5: Evaluate $f(-2i)$}
+
+\begin{align*}
+f(-2i) &= (-2i)^3 + 2(-2i)^2 - (-2i) + 3\\
+&= -8i^3 + 2 \cdot 4i^2 + 2i + 3\\
+&= -8(-i) + 8(-1) + 2i + 3\\
+&= 8i - 8 + 2i + 3\\
+&= 10i - 5
+\end{align*}
+
+\textbf{Step 6: Compute the product}
+
+\begin{align*}
+f(2i) \cdot f(-2i) &= (-10i - 5)(10i - 5)\\
+&= (-5 - 10i)(-5 + 10i)
+\end{align*}
+
+This is a difference of squares: $(a - b)(a + b) = a^2 - b^2$ with $a = -5$ and $b = 10i$:
+
+\begin{align*}
+&= (-5)^2 - (10i)^2\\
+&= 25 - 100i^2\\
+&= 25 - 100(-1)\\
+&= 25 + 100\\
+&= 125
+\end{align*}
+
+\textbf{Answer: $\boxed{125}$}
+
+\subsection*{Solution Method 2: Vieta's Formulas (Alternative)}
+
+Given: $f(x) = x^3 + 2x^2 - x + 3$ with roots $p, q, r$
+
+\textbf{Step 1: Extract Vieta's formulas}
+
+For $x^3 + ax^2 + bx + c = 0$ with roots $p, q, r$:
+\begin{itemize}
+    \item $p + q + r = -a = -2$
+    \item $pq + pr + qr = b = -1$
+    \item $pqr = -c = -3$
+\end{itemize}
+
+\textbf{Step 2: Expand the expression}
+
+\begin{align*}
+&(p^2 + 4)(q^2 + 4)(r^2 + 4)\\
+&= p^2q^2r^2 + 4(p^2q^2 + p^2r^2 + q^2r^2) + 16(p^2 + q^2 + r^2) + 64
+\end{align*}
+
+\textbf{Step 3: Compute $p^2q^2r^2$}
+
+\[p^2q^2r^2 = (pqr)^2 = (-3)^2 = 9\]
+
+\textbf{Step 4: Compute $p^2 + q^2 + r^2$}
+
+\begin{align*}
+p^2 + q^2 + r^2 &= (p + q + r)^2 - 2(pq + pr + qr)\\
+&= (-2)^2 - 2(-1)\\
+&= 4 + 2\\
+&= 6
+\end{align*}
+
+\textbf{Step 5: Compute $p^2q^2 + p^2r^2 + q^2r^2$}
+
+Square both sides of $pq + pr + qr = -1$:
+\begin{align*}
+(pq + pr + qr)^2 &= p^2q^2 + p^2r^2 + q^2r^2 + 2(p^2qr + pq^2r + pqr^2)\\
+&= p^2q^2 + p^2r^2 + q^2r^2 + 2pqr(p + q + r)
+\end{align*}
+
+Substitute known values:
+\begin{align*}
+(-1)^2 &= p^2q^2 + p^2r^2 + q^2r^2 + 2(-3)(-2)\\
+1 &= p^2q^2 + p^2r^2 + q^2r^2 - 12\\
+p^2q^2 + p^2r^2 + q^2r^2 &= -11
+\end{align*}
+
+\textbf{Step 6: Substitute into expansion}
+
+\begin{align*}
+&p^2q^2r^2 + 4(p^2q^2 + p^2r^2 + q^2r^2) + 16(p^2 + q^2 + r^2) + 64\\
+&= 9 + 4(-11) + 16(6) + 64\\
+&= 9 - 44 + 96 + 64\\
+&= 125
+\end{align*}
+
+\textbf{Answer: $\boxed{125}$}
+
+\subsection*{Verification: Modular Arithmetic Check}
+
+From the expansion, we have:
+\[(p^2 + 4)(q^2 + 4)(r^2 + 4) = (pqr)^2 + 4(\text{terms}) + 16(\text{terms}) + 64\]
+
+Since $(pqr)^2 = 9$ and all other terms are multiples of 4:
+\[\text{Answer} \equiv 9 \equiv 1 \pmod{4}\]
+
+Checking answer choices modulo 4:
+\begin{itemize}
+    \item (A) $64 \equiv 0 \pmod{4}$ $\times$
+    \item (B) $75 \equiv 3 \pmod{4}$ $\times$
+    \item (C) $100 \equiv 0 \pmod{4}$ $\times$
+    \item (D) $125 \equiv 1 \pmod{4}$ $\checkmark$
+    \item (E) $144 \equiv 0 \pmod{4}$ $\times$
+\end{itemize}
+
+Only (D) 125 satisfies the modular constraint!
+
+\section*{Final Answer}
+
+The value of $(p^2 + 4)(q^2 + 4)(r^2 + 4)$ is:
+
+$$\boxed{\textbf{(D) } 125}$$
+
+\section*{Confidence Assessment}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Two independent methods confirm, plus modular arithmetic verification
+    
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Complex method: Verified $f(2i) = -10i - 5$ and $f(-2i) = 10i - 5$ $\checkmark$
+        \item Product: $(-10i-5)(10i-5) = 125$ verified using difference of squares $\checkmark$
+        \item Vieta's method: All symmetric function calculations verified $\checkmark$
+        \item Modular arithmetic: $125 \equiv 1 \pmod{4}$ is only valid choice $\checkmark$
+        \item Answer matches choice (D) $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - very high confidence with triple verification
+    
+    \item \textbf{Time Spent}: 3-4 minutes (optimal for P15)
+    \begin{itemize}
+        \item Setup and recognition: 30 seconds
+        \item Complex factorization: 30 seconds
+        \item Evaluating $f(2i)$ and $f(-2i)$: 2 minutes
+        \item Multiplication: 45 seconds
+        \item Verification: 30 seconds
+    \end{itemize}
+    
+    \item \textbf{Alternative Methods Available}: Yes (Vieta's expansion, reduction of power, modular check)
+    
+    \item \textbf{Error Risk Assessment}: Low - multiple independent confirmations
+\end{itemize}
+
+\section*{Pattern Recognition}
+
+\textbf{Problem Signature}: Product of expressions involving squared roots plus constant, Vieta's formulas
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Expression involves roots of polynomial squared
+    \item Sum of squares form ($p^2 + c^2$)
+    \item Product of similar terms for all roots
+    \item Don't need explicit root values
+\end{itemize}
+
+\textbf{Standard Approach}:
+\begin{enumerate}
+    \item Recognize sum of squares $\to$ complex factorization opportunity
+    \item Factor: $p^2 + 4 = (p + 2i)(p - 2i)$
+    \item Rearrange product as $f(2i) \cdot f(-2i)$
+    \item Evaluate polynomial at complex values
+    \item Compute product
+    \item Verify with modular arithmetic
+\end{enumerate}
+
+\textbf{Time Estimate}: 3-4 minutes for P15-level problem (complex method)
+
+\textbf{Similar Problems}: Symmetric function problems, Vieta's formula applications, polynomial root relationships
+
+\end{document}
+

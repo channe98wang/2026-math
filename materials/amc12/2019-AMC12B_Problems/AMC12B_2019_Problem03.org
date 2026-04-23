@@ -1,0 +1,32 @@
+2019 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 Video Solution 1
+5 See Also
+Problem
+Which of the following rigid transformations (isometries) maps the line segment $\overline{AB}$ onto the line segment $\overline{A'B'}$ so that the image of $A(-2, 1)$ is $A'(2, -1)$ and the image of $B(-1, 4)$ is $B'(1, -4)$ ?
+$\textbf{(A) }$ reflection in the $y$ -axis
+$\textbf{(B) }$ counterclockwise rotation around the origin by $90^{\circ}$
+$\textbf{(C) }$ translation by 3 units to the right and 5 units down
+$\textbf{(D) }$ reflection in the $x$ -axis
+$\textbf{(E) }$ clockwise rotation about the origin by $180^{\circ}$
+Solution
+We can simply graph the points, or use coordinate geometry, to realize that both $A'$ and $B'$ are, respectively, obtained by rotating $A$ and $B$ by $180^{\circ}$ about the origin. Hence the rotation by $180^{\circ}$ about the origin maps the line segment $\overline{AB}$ to the line segment $\overline{A'B'}$ , so the answer is $\boxed{(\text{E})}$ .
+~Dodgers66
+Solution 2
+Notice that the transformation is obtained by reflecting points across the origin. Only $B$ and $C$ involve the origin, and since obviously reflection across the origin is $180^\circ$ , the answer is $\boxed{(\text{E})}$ .
+~Technodoggo
+Video Solution 1
+https://youtu.be/b-htQISQ7Oo
+~Education, the Study of Everything
+See Also
+2019 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,28 @@
+2007 AMC 12B Problems/Problem 12
+Contents
+1 Problem
+2 Solution
+3 Solution 2
+4 See Also
+Problem
+A teacher gave a test to a class in which $10\%$ of the students are juniors and $90\%$ are seniors. The average score on the test was $84.$ The juniors all received the same score, and the average score of the seniors was $83.$ What score did each of the juniors receive on the test?
+$\textbf{(A) } 85 \qquad\textbf{(B) } 88 \qquad\textbf{(C) } 93 \qquad\textbf{(D) } 94 \qquad\textbf{(E) } 98$
+Solution
+We can assume there are $10$ people in the class. Then there will be $1$ junior and $9$ seniors. The sum of everyone's scores is $10 \cdot 84 = 840$ . Since the average score of the seniors was $83$ , the sum of all the senior's scores is $9 \cdot 83 = 747$ . The only score that has not been added to that is the junior's score, which is $840 - 747 = \boxed{\textbf{(C) } 93}$
+Solution 2
+Let the average score of the juniors be $j$ . The problem states the average score of the seniors is $83$ . The equation for the average score of the class (juniors and seniors combined) is $\frac{j}{10} + \frac{83 \cdot 9}{10} = 84$ . Simplifying this equation yields $j = \boxed{\textbf{(C) } 93}$
+~mobius247
+See Also
+2007 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2007 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,8 @@
+2025 AMC 12A Problems/Problem 11
+Problem
+The orthocenter of a triangle is the concurrent intersection of the three (possibly extended) altitudes. What is the sum of the coordinates of the orthocenter of the triangle whose vertices are $A(2,31), B(8,27),$ and $C(18,27)$ ?
+$\textbf{(A)}~5\qquad\textbf{(B)}~17\qquad\textbf{(C)}~10+4\sqrt{17} +2\sqrt{13}\qquad\textbf{(D)}~\frac{113}{3}\qquad\textbf{(E)}~54$
+Solution 1
+Altitudes are perpendicular to sides and pass through a vertex. We have the coordinates of the vertices and the slope of the sides can be found, meaning we have all the information needed to find the equations of the altitudes. Then, we only need to find the intersections of the lines
+Since $B$ and $C$ form a horizontal line, the altitude to $BC$ from $A$ is a vertical line, so its equation must be $x=2$ . Then, we need to find the equation of one more altitude to solve a system of equations, giving us the coordinates. Suppose we choose the second altitude to be the one from $C$ to segment $AB$ . The slope of segment $AB$ is $-\frac{2}{3}$ , so the slope of the altitude, which is perpendicular to $AB$ , is $\frac{3}{2}$ . Since the altitude passes through $C$ , by point-slope form, we have the equation of the altitude to be $y-27=\frac{3}{2}(x-18)$ . Solving the two equations gives the coordinates of the orthocenter to be $(2, 3)$ . The answer is therefore $2+3=\boxed{\text{(A) }5}$ .
+~ dg6665 (edits for motivation by ~Logibyte)

@@ -1,0 +1,40 @@
+2000 AMC 12 Problems/Problem 16
+Contents
+1 Problem
+2 Solution
+3 Video Solution by Power Solve
+4 Video Solution
+5 See also
+Problem
+A checkerboard of $13$ rows and $17$ columns has a number written in each square, beginning in the upper left corner, so that the first row is numbered $1,2,\ldots,17$ , the second row $18,19,\ldots,34$ , and so on down the board. If the board is renumbered so that the left column, top to bottom, is $1,2,\ldots,13,$ , the second column $14,15,\ldots,26$ and so on across the board, some squares have the same numbers in both numbering systems. Find the sum of the numbers in these squares (under either system).
+$\text {(A)}\ 222 \qquad \text {(B)}\ 333\qquad \text {(C)}\ 444 \qquad \text {(D)}\ 555 \qquad \text {(E)}\ 666$
+Solution
+Index the rows with $i = 1, 2, 3, ..., 13$ Index the columns with $j = 1, 2, 3, ..., 17$
+For the first row number the cells $1, 2, 3, ..., 17$ For the second, $18, 19, ..., 34$ and so on
+So the number in row = $i$ and column = $j$ is $f(i, j) = 17(i-1) + j = 17i + j - 17$
+Similarly, numbering the same cells columnwise we
+find the number in row = $i$ and column = $j$ is $g(i, j) = i + 13j - 13$
+So we need to solve
+$f(i, j) = g(i, j)$
+$17i + j - 17 = i + 13j - 13$
+$16i = 4 + 12j$
+$4i = 1 + 3j$
+$i = (1 + 3j)/4$
+We get $(i, j) = (1, 1), f(i, j) = g(i, j) = 1$
+$(i, j) = (4, 5), f(i, j) = g(i, j) = 56$
+$(i, j) = (7, 9), f(i, j) = g(i, j) = 111$
+$(i, j) = (10, 13), f(i, j) = g(i, j) = 166$
+$(i, j) = (13, 17), f(i, j) = g(i, j) = 221$
+$\boxed{D}$ $555$
+Video Solution by Power Solve
+https://www.youtube.com/watch?v=gvbk8fyRfJ8
+Video Solution
+https://youtu.be/qCkyf2XVJcg
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

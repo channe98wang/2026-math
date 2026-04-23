@@ -1,0 +1,70 @@
+2021 AMC 12B Problems/Problem 2
+Contents
+1 Problem
+2 Solution 1 (Area Addition)
+3 Solution 2 (Area Subtraction)
+4 Solution 3 (Shoelace Theorem)
+5 Solution 4 (Pick's Theorem)
+6 Video Solution by Interstigation
+7 Video Solution
+8 Video Solution by WhyMath
+9 Video Solution by TheBeautyofMath
+10 See Also
+Problem
+What is the area of the shaded figure shown below? 
+
+[asy] size(200); defaultpen(linewidth(0.4)+fontsize(12)); pen s = linewidth(0.8)+fontsize(8); pair O,X,Y; O = origin; X = (6,0); Y = (0,5); fill((1,0)--(3,5)--(5,0)--(3,2)--cycle, palegray+opacity(0.2)); for (int i=1; i<7; ++i) { draw((i,0)--(i,5), gray+dashed); label("${"+string(i)+"}$", (i,0), 2*S); if (i<6) { draw((0,i)--(6,i), gray+dashed); label("${"+string(i)+"}$", (0,i), 2*W); } } label("$0$", O, 2*SW); draw(O--X+(0.35,0), black+1.5, EndArrow(10)); draw(O--Y+(0,0.35), black+1.5, EndArrow(10)); draw((1,0)--(3,5)--(5,0)--(3,2)--(1,0), black+1.5); [/asy]
+$\textbf{(A)}\: 4\qquad\textbf{(B)} \: 6\qquad\textbf{(C)} \: 8\qquad\textbf{(D)} \: 10\qquad\textbf{(E)} \: 12$
+Solution 1 (Area Addition)
+The line of symmetry divides the shaded figure into two congruent triangles, each with base $3$ and height $2.$
+Therefore, the area of the shaded figure is
+
+\[2\cdot\left(\frac12\cdot3\cdot2\right)=2\cdot3=\boxed{\textbf{(B)} \: 6}.\]
+
+~MRENTHUSIASM ~Wilhelm Z
+Solution 2 (Area Subtraction)
+To find the area of the shaded figure, we subtract the area of the smaller triangle (base $4$ and height $2$ ) from the area of the larger triangle (base $4$ and height $5$ ):
+
+\[\frac12\cdot4\cdot5-\frac12\cdot4\cdot2=10-4=\boxed{\textbf{(B)} \: 6}.\]
+
+~MRENTHUSIASM ~Steven Chen (www.professorchenedu.com)
+Solution 3 (Shoelace Theorem)
+The consecutive vertices of the shaded figure are $(1,0),(3,2),(5,0),$ and $(3,5).$ By the Shoelace Theorem , the area is
+
+\[\frac12\cdot|(1\cdot2+3\cdot0+5\cdot5+3\cdot0)-(0\cdot3+2\cdot5+0\cdot3+5\cdot1)|=\frac12\cdot12=\boxed{\textbf{(B)} \: 6}.\]
+
+~Taco12 ~I-AM-DA-KING
+Solution 4 (Pick's Theorem)
+We have $4$ lattice points in the interior and $6$ lattice points on the boundary. By Pick's Theorem , the area of the shaded figure is
+
+\[4+\frac{6}{2}-1 = 4+3-1 = \boxed{\textbf{(B)} \: 6}.\]
+
+~danprathab
+Video Solution by Interstigation
+https://youtu.be/p9_RH4s-kBA?t=110
+~Interstigation
+Video Solution
+https://youtu.be/ZV-cQm5p7Pc
+~Education, the Study of Everything
+Video Solution by WhyMath
+https://youtu.be/1sAevgxImQM
+~savannahsolver
+Video Solution by TheBeautyofMath
+For AMC 10: https://youtu.be/lC7naDZ1Eu4?t=512
+For AMC 12: https://youtu.be/yaE5aAmeesc?t=512
+~IceMatrix
+See Also
+2021 Fall AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,52 @@
+2004 AMC 12A Problems/Problem 17
+Contents
+1 Problem
+2 Solution 1 (Forward)
+3 Solution 2 (Backward)
+4 Video Solution
+5 See also
+Problem
+Let $f$ be a function with the following properties:
+(i) $f(1) = 1$ , and
+(ii) $f(2n) = n \cdot f(n)$ for any positive integer $n$ .
+What is the value of $f(2^{100})$ ?
+$\textbf {(A)}\ 1 \qquad \textbf {(B)}\ 2^{99} \qquad \textbf {(C)}\ 2^{100} \qquad \textbf {(D)}\ 2^{4950} \qquad \textbf {(E)}\ 2^{9999}$
+Solution 1 (Forward)
+From (ii), note that 
+
+\begin{alignat*}{8} f(2) &= 1\cdot f(1) &&= 1, \\ f\left(2^2\right) &= 2\cdot f(2) &&= 2, \\ f\left(2^3\right) &= 2^2\cdot f\left(2^2\right) &&= 2^{2+1}, \\ f\left(2^4\right) &= 2^3\cdot f\left(2^3\right) &&= 2^{3+2+1}, \end{alignat*}
+
+ and so on.
+In general, we have
+
+\[f\left(2^n\right)=2^{(n-1)+(n-2)+(n-3)+\cdots+3+2+1}\]
+
+for any positive integer $n.$
+Therefore, the answer is 
+
+\begin{align*} f\left(2^{100}\right)&=2^{99+98+97+\cdots+3+2+1} \\ &=2^{99\cdot100/2} \\ &= \boxed{\textbf {(D)}\ 2^{4950}}. \end{align*}
+
+ ~MRENTHUSIASM
+Solution 2 (Backward)
+Applying (ii) repeatedly, we have 
+
+\begin{align*} f\left(2^{100}\right) &= 2^{99} \cdot f\left(2^{99}\right) \\ &= 2^{99} \cdot 2^{98} \cdot f\left(2^{98}\right) \\ &= 2^{99} \cdot 2^{98} \cdot 2^{97} \cdot f\left(2^{97}\right) \\ &= \cdots \\ &= 2^{99} \cdot 2^{98} \cdot 2^{97} \cdots 2^{3} \cdot 2^{2} \cdot 2^{1} \cdot 1 \cdot f(1) \\ &= 2^{99} \cdot 2^{98} \cdot 2^{97} \cdots 2^{3} \cdot 2^{2} \cdot 2^{1} \cdot 1 \cdot 1 \\ &=2^{99 + 98 + 97 + \cdots + 3 + 2 + 1} \\ &=2^{99\cdot100/2} \\ &= \boxed{\textbf {(D)}\ 2^{4950}}. \end{align*}
+
+ ~Azjps (Fundamental Logic)
+~MRENTHUSIASM (Reconstruction)
+Video Solution
+https://youtu.be/qj5hBxYWalI
+See also
+2004 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 16 Followed by 
+ Problem 18
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2004 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

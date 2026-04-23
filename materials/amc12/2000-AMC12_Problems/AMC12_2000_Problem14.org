@@ -1,0 +1,61 @@
+2000 AMC 12 Problems/Problem 14
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Video Solution by Power Solve
+5 Video Solution by OmegaLearn
+6 Video Solution
+7 See also
+Problem
+When the mean , median , and mode of the list
+\[10,2,5,2,4,2,x\]
+are arranged in increasing order, they form a non-constant arithmetic progression . What is the sum of all possible real values of $x$ ?
+$\text {(A)}\ 3 \qquad \text {(B)}\ 6 \qquad \text {(C)}\ 9 \qquad \text {(D)}\ 17 \qquad \text {(E)}\ 20$
+Solution 1
+- The mean is $\frac{10+2+5+2+4+2+x}{7} = \frac{25+x}{7}$ .
+- Arranged in increasing order, the list is $2,2,2,4,5,10$ , so the median is either $2,4$ or $x$ depending upon the value of $x$ .
+- The mode is $2$ , since it appears three times.
+We apply casework upon the median:
+- If the median is $2$ ( $x \le 2$ ), then the arithmetic progression must be constant.
+- If the median is $4$ ( $x \ge 4$ ), because the mode is $2$ , the mean can either be $0,3,6$ to form an arithmetic progression. Solving for $x$ yields $-25,-4,17$ respectively, of which only $17$ works because it is larger than $4$ .
+- If the median is $x$ ( $2 \le x \le 4$ ), we must have the arithmetic progression $2, x, \frac{25+x}{7}$ . Thus, we find that $2x=2+\frac{25+x}{7}$ so $x=3$ .
+The answer is $3 + 17 = \boxed{20\ \mathrm{(E)}}$ .
+-Error fixed(BIGFOOT09) Changes Copyrighted©
+Solution 2
+The mode will always be 2, as there are already 3 of them. 
+The median will be 2,3, or 4, as only 1` new number is added.
+The mean will be all the numbers added together divided by 7.
+However:
+The median can't actually be 2, as that makes it no longer an arithmetic progression.
+Therefore, the median has to be 3 or 4.
+When the median is three, x has to equal 3 as well, as it becomes the median.
+Therefore, the mean has to be 4, which also happens to work when x=3
+When the median is 4, x has to be greater than 3, as well as allowing the mean to equal 6. 
+As the current values added together equal 25, we need a number that will allow us to make the mean equal 6x7 = 42.
+As 42-25=17,
+x=17.
+The question asks for the sum of all solutions for x, so the answer is $3 + 17 = \boxed{20\ \mathrm{(E)}}$ .
+~Particle Physics
+Video Solution by Power Solve
+https://youtu.be/G4c2oCtupTg?si=9qvUkai-YU9sDwY-&t=627
+Video Solution by OmegaLearn
+https://youtu.be/IziHKOubUI8?t=933
+~ pi_is_3.14
+Video Solution
+https://youtu.be/OpgSamhXPTg
+https://www.youtube.com/watch?v=fjOc_c7rpy0 ~David
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 22 Followed by 
+ Problem 24
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

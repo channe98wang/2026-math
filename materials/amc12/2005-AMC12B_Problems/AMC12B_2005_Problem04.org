@@ -1,0 +1,21 @@
+2005 AMC 12B Problems/Problem 4
+Problem
+At the beginning of the school year, Lisa's goal was to earn an $A$ on at least $80\%$ of her $50$ quizzes for the year. She earned an $A$ on $22$ of the first $30$ quizzes. If she is to achieve her goal, on at most how many of the remaining quizzes can she earn a grade lower than an $A$ ?
+$\textbf{(A) }\ 1 \qquad \textbf{(B) }\ 2 \qquad \textbf{(C) }\ 3 \qquad \textbf{(D) }\ 4 \qquad \textbf{(E) }\ 5$
+Solution
+Lisa's goal was to get an $A$ on $80\% \cdot 50 = 40$ quizzes. She already has $A$ 's on $22$ quizzes, so she needs to get $A$ 's on $40-22=18$ more. There are $50-30=20$ quizzes left, so she can afford to get less than an $A$ on $20-18=\boxed{\textbf{(B) }2}$ of them.
+Here, only the $A$ 's matter... No complicated stuff!
+See also
+2005 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2005 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 3 Followed by 
+ Problem 5
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

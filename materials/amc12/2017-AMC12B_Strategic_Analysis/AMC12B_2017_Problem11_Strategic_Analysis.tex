@@ -1,0 +1,601 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12B 2017 Problem 11 Analysis}
+\lhead{\today}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2017 Problem 11: Strategic Analysis\\Monotonous Integers}
+\author{Comprehensive Framework Application}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Call a positive integer \textbf{monotonous} if it is a one-digit number or its digits, when read from left to right, form either a strictly increasing or a strictly decreasing sequence. For example, $3$, $23578$, and $987620$ are monotonous, but $88$, $7434$, and $23557$ are not. How many monotonous positive integers are there?
+
+\begin{center}
+$\textbf{(A)}\ 1024 \qquad \textbf{(B)}\ 1524 \qquad \textbf{(C)}\ 1533 \qquad \textbf{(D)}\ 1536 \qquad \textbf{(E)}\ 2048$
+\end{center}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (counting problem)
+    \item \textbf{Difficulty Band}: Mid-band (Problem 11 out of 25)
+    \item \textbf{Competition Context}: AMC12B 2017, also appeared as AMC10B 2017 Problem 17
+    \item \textbf{Mathematical Domain}: Combinatorics (counting, subset selection, bijections)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Definition: monotonous = one-digit OR strictly increasing OR strictly decreasing
+        \item Examples provided: $3$, $23578$ (increasing), $987620$ (decreasing) are monotonous
+        \item Non-examples: $88$ (repeated), $7434$ (neither), $23557$ (repeated) are not monotonous
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Must be positive integers (no leading zeros)
+        \item Digits must be \emph{strictly} increasing or \emph{strictly} decreasing (no repeats)
+        \item Single-digit numbers count as monotonous
+    \end{itemize}
+    
+    \item \textbf{Objective}: Count total number of monotonous positive integers
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Ascending numbers cannot start with 0 (not positive)
+        \item Descending numbers can end with 0
+        \item Single-digit numbers satisfy definition trivially
+        \item Numbers can have any length (1 to 10 digits maximum)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Powers of 2 appear: 1024 = $2^{10}$, 2048 = $2^{11}$
+        \item This suggests combinatorial subset counting
+        \item 1524 = 511 + 1022 - 9 (actual answer structure)
+        \item Can eliminate obviously wrong answers after rough estimation
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Count can be split into ascending and descending cases
+    \item \textbf{Conclusion}: Total count of monotonous positive integers
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Digits available: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        \item $A$ = set of ascending monotonous numbers
+        \item $D$ = set of descending monotonous numbers
+        \item $S$ = single-digit numbers (overlap between $A$ and $D$)
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: Use subset selection bijection - each monotonous number corresponds to choosing a subset of digits
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Bijection/correspondence principle (combinatorics)
+        \item Generating functions (advanced)
+        \item Stars and bars (not applicable here)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 
+    \begin{itemize}
+        \item Initial approach may seem daunting (count all numbers?)
+        \item Trust the bijection principle - each subset maps to unique number
+        \item Stay calm if casework becomes complex - organize systematically
+    \end{itemize}
+    
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}
+        \item Recognize the elegance: choosing digits determines the number completely
+        \item Consider why ascending and descending are separate cases
+        \item Look for symmetries and patterns in small cases
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: 
+    \begin{itemize}
+        \item First pass: rough count by cases
+        \item Second pass: identify overlap (single-digit numbers)
+        \item Third pass: verify edge cases (0, leading zeros)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: This is a counting problem with clear structure - identify bijection
+    
+    \item \textbf{Get Your Hands Dirty}: List small examples
+    \begin{itemize}
+        \item 1-digit: 1, 2, 3, 4, 5, 6, 7, 8, 9 (9 numbers)
+        \item 2-digit ascending: 12, 13, ..., 89 (how many?)
+        \item 2-digit descending: 10, 20, 21, 30, 31, 32, ..., 98, 97, 96, ..., 91, 90
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Final answer = ascending + descending - overlap
+    
+    \item \textbf{Wishful Thinking}: ``I wish each monotonous number corresponded to exactly one choice of digits''
+    
+    \item \textbf{Make It Easier}: Consider only ascending first, then descending separately
+    
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item Ascending from $\{1,2,3\}$: none, 1, 2, 3, 12, 13, 23, 123 (7 = $2^3 - 1$)
+        \item Pattern suggests $2^n - 1$ for $n$ available digits
+    \end{itemize}
+    
+    \item \textbf{Visualization}: Think of digit selection as choosing nodes on a number line
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Powers of 2 suggest subset counting formula
+    \item \textbf{Make It Easier}: Count ascending and descending separately first
+    \item \textbf{Penultimate Step}: Must account for double-counting single digits
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Establish bijection between subsets and monotonous numbers
+    \item \textbf{Casework}: Split into ascending and descending cases
+    \item \textbf{Inclusion-Exclusion}: Add cases, subtract overlap
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Recast the Problem}: ``How many subsets of digits produce valid numbers?''
+    \item \textbf{Change Your Point of View}: Think of monotonous numbers as encoded subsets
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Bijection Principle}: Primary tactic - each subset $\leftrightarrow$ one monotonous number
+    \item \textbf{Casework}: Split into ascending/descending cases
+    \item \textbf{Complementary Counting}: Count subsets, then adjust for constraints
+    \item \textbf{Inclusion-Exclusion}: Account for single-digit overlap
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Subset Counting}: Use $2^n$ for $n$ elements, subtract invalid cases
+    \item \textbf{1-1 Correspondence}: Key insight that ordering is determined by choice
+    \item \textbf{Symmetry Breaking}: Handle ascending and descending separately
+\end{itemize}
+
+\subsection*{C. Problem-Solving Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Systematic Casework}:
+    \begin{enumerate}
+        \item Case 1: Strictly ascending (digits 1-9, no leading 0)
+        \item Case 2: Strictly descending (digits 0-9, but exclude 0 alone)
+        \item Overlap: Single-digit numbers 1-9 counted twice
+    \end{enumerate}
+    
+    \item \textbf{Edge Case Management}:
+    \begin{itemize}
+        \item Ascending: Cannot use 0 (would be leading zero)
+        \item Descending: Can use 0 at end, but 0 alone is not positive
+        \item Empty set produces no valid number in either case
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Signature}: Counting with ordering constraint
+    \item \textbf{Key Phrase}: ``strictly increasing or strictly decreasing''
+    \item \textbf{Pattern Recognition}: Subset selection determines sequence uniquely
+    \item \textbf{Answer Choice Pattern}: Powers of 2 hint at exponential formula
+\end{itemize}
+
+\subsection*{B. High-Probability Conversion Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Bijection Establishment}: 
+    \begin{itemize}
+        \item Ascending: Each subset $S \subseteq \{1,2,...,9\}$ maps to unique ascending number
+        \item Example: $\{1,4,7\} \rightarrow 147$
+        \item Total: $2^9 = 512$ subsets, minus empty set = 511
+    \end{itemize}
+    
+    \item \textbf{Descending Case}: 
+    \begin{itemize}
+        \item Each non-empty subset $S \subseteq \{0,1,2,...,9\}$ maps to descending number
+        \item Example: $\{2,5,9,0\} \rightarrow 9520$
+        \item Total: $2^{10} = 1024$ subsets, minus empty set and $\{0\}$ = 1022
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary}: Bijection principle
+    \item \textbf{Secondary}: Inclusion-exclusion for overlap
+    \item \textbf{Verification}: Alternative counting methods confirm answer
+\end{itemize}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Issue}: Single-digit numbers are both ascending and descending
+    \item \textbf{Resolution}: Count both cases, then subtract 9 for double-counting
+    \item \textbf{Validation}: $511 + 1022 - 9 = 1524$
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 4 (Comprehensive) - Medium confidence problem
+    \item \textbf{Time Investment}: 2-3 minutes
+    \item \textbf{Justification}: Mid-band problem requiring careful case analysis
+\end{itemize}
+
+\subsection*{B. Primary Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Boundary Verification}:
+    \begin{itemize}
+        \item Single digits: 1-9 (9 numbers) \checkmark
+        \item Longest ascending: 123456789 (1 number) \checkmark
+        \item Longest descending: 9876543210 (1 number) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Small Case Check}:
+    \begin{itemize}
+        \item 2-digit ascending: Choose 2 from $\{1,...,9\}$ = $\binom{9}{2} = 36$
+        \item Manual count: 12, 13, ..., 89 confirms 36 \checkmark
+    \end{itemize}
+    
+    \item \textbf{Alternative Method}:
+    \begin{itemize}
+        \item Ascending: $\sum_{k=1}^{9} \binom{9}{k} = 2^9 - 1 = 511$ \checkmark
+        \item Descending: $\sum_{k=1}^{10} \binom{10}{k} - 1 = 2^{10} - 2 = 1022$ \checkmark
+        \item Overlap: 9 single digits \checkmark
+        \item Total: $511 + 1022 - 9 = 1524$ \checkmark
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Specialized Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Edge Case Testing}:
+    \begin{itemize}
+        \item Is 0 counted? No (not positive) \checkmark
+        \item Are repeated digits excluded? Yes (not strictly increasing/decreasing) \checkmark
+        \item Leading zeros prevented? Yes (ascending uses digits 1-9 only) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Validation}:
+    \begin{itemize}
+        \item 1524 is between $2^{10}$ and $2^{11}$ \checkmark
+        \item Not a perfect power of 2 (accounts for overlap) \checkmark
+        \item Close to $511 + 1022 = 1533$ but adjusted for double-counting \checkmark
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% after first solution
+    \item \textbf{Post-Verification}: 95\% after alternative method confirmation
+    \item \textbf{Decision}: Submit answer with high confidence
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Solution Roadmap}
+
+\textbf{Step 1: Understand the Bijection (2 minutes)}
+\begin{itemize}
+    \item Key insight: Choosing a set of digits uniquely determines a monotonous number
+    \item For ascending: arrange chosen digits in increasing order
+    \item For descending: arrange chosen digits in decreasing order
+\end{itemize}
+
+\textbf{Step 2: Count Ascending Numbers (2 minutes)}
+\begin{itemize}
+    \item Available digits: 1, 2, 3, 4, 5, 6, 7, 8, 9 (no 0, to avoid leading zero)
+    \item Each non-empty subset produces one ascending number
+    \item Total subsets: $2^9 = 512$
+    \item Valid numbers: $512 - 1 = 511$ (exclude empty set)
+\end{itemize}
+
+\textbf{Checkpoint}: Does $\{2,5,7\}$ give 257? Yes \checkmark
+
+\textbf{Step 3: Count Descending Numbers (2 minutes)}
+\begin{itemize}
+    \item Available digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 (0 allowed at end)
+    \item Each non-empty subset (except $\{0\}$) produces one descending number
+    \item Total subsets: $2^{10} = 1024$
+    \item Exclude: empty set (no number) and $\{0\}$ (not positive)
+    \item Valid numbers: $1024 - 2 = 1022$
+\end{itemize}
+
+\textbf{Checkpoint}: Does $\{9,3,0\}$ give 930? Yes \checkmark
+
+\textbf{Step 4: Handle Overlap (1 minute)}
+\begin{itemize}
+    \item Single-digit numbers 1-9 are counted in both ascending and descending
+    \item These 9 numbers were counted twice
+    \item Must subtract 9 from total
+\end{itemize}
+
+\textbf{Step 5: Calculate Final Answer (1 minute)}
+\begin{itemize}
+    \item Total = Ascending + Descending - Overlap
+    \item Total = $511 + 1022 - 9 = 1524$
+\end{itemize}
+
+\subsection*{B. Alternative Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 2}: Direct formula using binomial coefficients
+    \begin{align*}
+    \text{Ascending} &= \sum_{k=1}^{9} \binom{9}{k} = 2^9 - 1 = 511\\
+    \text{Descending} &= \sum_{k=1}^{10} \binom{10}{k} - 1 = 2^{10} - 2 = 1022\\
+    \text{Total} &= 511 + 1022 - 9 = 1524
+    \end{align*}
+    
+    \item \textbf{Method 3}: Casework by number of digits (more tedious but valid)
+\end{itemize}
+
+\subsection*{C. Pitfall Guide}
+\begin{enumerate}
+    \item \textbf{Pitfall}: Forgetting that 0 cannot be used in ascending numbers
+    \begin{itemize}
+        \item \textit{Why it happens}: 0 is a digit, seems like it should be included
+        \item \textit{How to avoid}: Remember positive integers cannot have leading zeros
+        \item \textit{Recovery}: If counted with 0, recalculate: would give wrong answer
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Not subtracting overlap of single-digit numbers
+    \begin{itemize}
+        \item \textit{Why it happens}: Easy to forget both cases include 1-9
+        \item \textit{How to avoid}: Explicitly list what's in each case
+        \item \textit{Recovery}: $511 + 1022 = 1533$, which is answer choice (C), but wrong!
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Counting 0 as a valid monotonous number
+    \begin{itemize}
+        \item \textit{Why it happens}: 0 is a single digit
+        \item \textit{How to avoid}: Problem specifies \emph{positive} integers
+        \item \textit{Recovery}: Ensure descending case excludes $\{0\}$
+    \end{itemize}
+    
+    \item \textbf{Pitfall}: Including the empty set
+    \begin{itemize}
+        \item \textit{Why it happens}: Forgetting empty set doesn't produce a number
+        \item \textit{How to avoid}: Explicitly state ``non-empty subsets''
+        \item \textit{Recovery}: Subtract 1 from each case if included
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{D. Time Estimates}
+\begin{itemize}[leftmargin=*]
+    \item Reading and understanding: 1 minute
+    \item Developing strategy: 1 minute
+    \item Executing solution: 4 minutes
+    \item Verification: 2 minutes
+    \item \textbf{Total}: 8 minutes (appropriate for Problem 11)
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 6-8 minutes for Problem 11
+    \item \textbf{Warning Threshold}: If not making progress after 4 minutes, flag for review
+    \item \textbf{Opportunity Cost}: Could attempt 2-3 early-band problems instead
+\end{itemize}
+
+\subsection*{B. Prioritization Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{When to Attempt}: After completing Problems 1-10 confidently
+    \item \textbf{Relative Value}: Standard mid-band problem, attempt if comfortable with combinatorics
+    \item \textbf{Skip Conditions}: If combinatorics is weak area, save for end
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Common Errors}: 
+    \begin{itemize}
+        \item Getting 1533 (forgetting to subtract overlap) - tempting wrong answer (C)
+        \item Getting 1022 (only counting descending)
+        \item Getting 511 (only counting ascending)
+    \end{itemize}
+    
+    \item \textbf{Confidence Check}: If answer is 1533, recheck overlap; if 1024 or 2048, review bijection
+    
+    \item \textbf{Answer Elimination}: 
+    \begin{itemize}
+        \item 1024 = $2^{10}$: Too clean, ignores overlap structure
+        \item 2048 = $2^{11}$: Too large, double-counts everything
+        \item 1536 = $512 + 1024$: Doesn't account for any adjustments
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}: After 8 minutes with no clear path
+    \item \textbf{Hard Abandon}: If casework becomes unmanageably complex
+    \item \textbf{Guessing Strategy}: If abandoning, guess (B) 1524 based on structure $511 + 1022 - 9$
+\end{itemize}
+
+\subsection*{E. Competition-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{AMC12}: Standard mid-band problem, attempt if time permits
+    \item \textbf{Answer Format}: Multiple choice, bubble carefully
+    \item \textbf{Partial Credit}: N/A for AMC12, but COMC would award partial credit for valid approach
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The key insight is the \textbf{bijection principle}: choosing a non-empty subset of digits uniquely determines a monotonous number, because the ordering is completely determined by whether we arrange in ascending or descending order. This reduces a complex counting problem to simple subset enumeration using the formula $2^n - 1$ for non-empty subsets.
+\end{keyinsightbox}
+
+\begin{warningbox}
+The most common pitfall is forgetting to subtract the overlap of single-digit numbers (1-9), which are counted in both the ascending and descending cases. Getting 1533 instead of 1524 means you forgot this crucial step. The answer choice (C) 1533 is strategically placed to catch this error!
+\end{warningbox}
+
+\begin{tipbox}
+When you see answer choices that are close to powers of 2 (like 1024 = $2^{10}$ and 2048 = $2^{11}$), immediately think ``subset counting.'' The deviation from perfect powers (1524 vs 1536 or 1024) suggests there are edge cases or overlap adjustments to consider. This pattern recognition can save valuable time!
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(B) } 1524}\]
+
+\subsection*{Calculation Summary}
+\begin{align*}
+\text{Ascending numbers:} &\quad 2^9 - 1 = 511\\
+\text{Descending numbers:} &\quad 2^{10} - 2 = 1022\\
+\text{Overlap (single digits):} &\quad 9\\
+\text{Total:} &\quad 511 + 1022 - 9 = \boxed{1524}
+\end{align*}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% (very high)
+    \item \textbf{Verification Applied}: Level 4 Comprehensive - boundary cases, alternative method, small case verification
+    \item \textbf{Flag for Review}: No - answer confirmed by multiple methods
+    \item \textbf{Time Spent}: Approximately 8 minutes (on target for Problem 11)
+\end{itemize}
+
+\section*{Key Takeaways}
+\begin{enumerate}
+    \item \textbf{Pattern Recognition}: Subset selection problems often yield $2^n$ formulas
+    \item \textbf{Edge Cases Matter}: Remember to handle 0, empty set, and overlap carefully
+    \item \textbf{Bijection Principle}: When ordering is determined by selection, counting becomes much simpler
+    \item \textbf{Answer Choice Psychology}: Wrong answers are strategically placed to catch common errors (1533 for forgetting overlap)
+\end{enumerate}
+
+\end{document}

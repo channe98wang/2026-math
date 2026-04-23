@@ -1,0 +1,10 @@
+2025 AMC 12A Problems/Problem 13
+Problem 13
+Let $C = \{1, 2, 3, \dots, 13\}$ . Let $N$ be the greatest integer such that there exists a subset of $C$ with $N$ elements that does not contain five consecutive integers. Suppose $N$ integers are chosen at random from $C$ without replacement. What is the probability that the chosen elements do not include five consecutive integers?
+$\textbf{(A)}~\frac{3}{130} \qquad \textbf{(B)}~\frac{3}{143} \qquad \textbf{(C)}~\frac{5}{143} \qquad \textbf{(D)}~\frac{1}{26} \qquad \textbf{(E)}~\frac{5}{78}$
+Solution 1
+We first find what N is by figuring out how much numbers we need to take out of the set so that the set does not contain 5 consecutive integers. Taking two numbers out works. Consider taking out 5 and 10. You are left with ${1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13}$ , which does not have a string of 5 consecutive integers.
+There are only 3 ways to take out two integers such that the resulting set meets our condition (5 and 10, 5 and 9, or 4 and 9). Therefore, the probability is $\frac{1}{26}$ .
+~Kevin Wang
+Solution 2
+Trying to find a subset that satisfies the condition, we get $\{1,2,3,4,6,7,8,9,11,12,13\}$ , which has $N=11$ elements. The subsets $\{1,2,3,5,6,7,8,10,11,12,13\}$ and $\{1,2,3,4,6,7,8,10,11,12,13\}$ also work. In total, we have $3$ subsets and $\binom{13}{11}$ ways to choose $11$ elements from $C$ , so the probability is $\dfrac{3}{\binom{13}{11}} = \dfrac{1}{26}$ . Thus, the answer is $\boxed{\textbf{(D)}}$ -anzhuPro

@@ -1,0 +1,38 @@
+2000 AMC 12 Problems/Problem 5
+Contents
+1 Problem
+2 Solution
+3 Solution 2 (guess and check/desperation)
+4 Video Solution by Power Solve
+5 Video Solution by Daily Dose of Math
+6 See also
+Problem
+If $|x - 2| = p$ , where $x < 2$ , then $x - p =$
+$\textbf{(A)} \ -2 \qquad \textbf{(B)} \ 2 \qquad \textbf{(C)} \ 2-2p \qquad \textbf{(D)} \ 2p-2 \qquad \textbf{(E)} \ |2p-2|$
+Solution
+When $x < 2,$ $x-2$ is negative so $|x - 2| = 2-x = p$ and $x = 2-p$ .
+Thus $x-p = (2-p)-p = 2-2p$ . $\boxed{\mathbf{(C)}\ \ensuremath{2-2p}}$
+Solution 2 (guess and check/desperation)
+If you did not find that slick Solution 1, all hope is not lost. We could still guess and check our way to the right answer.
+We first plug in $x=1$ , and get that $p=1$ too. Hence $x-p=0$ , eliminating choices $A$ and $B$ .
+We then plug in $x=0$ , and get $p=2$ . Therefore, $x-p=-2$ . The answer is negative, eliminating $E$ . Furthermore, $2p-2=2(2)-2=4-2=2\neq-2$ , so choice $D$ is false. Hence, the answer must be $C$ , which upon checking indeed still holds true.
+-Monkey_King
+Video Solution by Power Solve
+https://www.youtube.com/watch?v=p3bwMuK1RUM
+Video Solution by Daily Dose of Math
+https://youtu.be/albUhCOwv3Y?si=4XcusOEp70EA6XKr
+~Thesmartgreekmathdude
+See also
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 8 Followed by 
+ Problem 10
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

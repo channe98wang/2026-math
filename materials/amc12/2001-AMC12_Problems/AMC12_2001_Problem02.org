@@ -1,0 +1,22 @@
+2001 AMC 12 Problems/Problem 2
+Problem
+Let $P(n)$ and $S(n)$ denote the product and the sum, respectively, of the digits
+of the integer $n$ . For example, $P(23) = 6$ and $S(23) = 5$ . Suppose $N$ is a
+two-digit number such that $N = P(N)+S(N)$ . What is the units digit of $N$ ?
+$\text{(A)}\ 2\qquad \text{(B)}\ 3\qquad \text{(C)}\ 6\qquad \text{(D)}\ 8\qquad \text{(E)}\ 9$
+Solution 1
+Denote $a$ and $b$ as the tens and units digit of $N$ , respectively. Then $N = 10a+b$ . It follows that $10a+b=ab+a+b$ , which implies that $9a=ab$ . Since $a\neq0$ , $b=9$ . So the units digit of $N$ is $\boxed{\textbf{(E) }9}$ .
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2001 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

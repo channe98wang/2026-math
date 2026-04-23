@@ -1,0 +1,67 @@
+2021 AMC 12A Problems/Problem 18
+Contents
+1 Problem
+2 Solution 1 (Multinomial Coefficients)
+3 Solution 2
+4 Solution 3 (Binomial Coefficients)
+5 Solution 4 (Set Theory / Graph Theory)
+6 Video Solution by OmegaLearn
+7 Video Solution by Mathematical Dexterity
+8 Video Solution by TheBeautyofMath
+9 See Also
+Problem
+Each of the $20$ balls is tossed independently and at random into one of the $5$ bins. Let $p$ be the probability that some bin ends up with $3$ balls, another with $5$ balls, and the other three with $4$ balls each. Let $q$ be the probability that every bin ends up with $4$ balls. What is $\frac{p}{q}$ ?
+$\textbf{(A)}\ 1 \qquad\textbf{(B)}\ 4 \qquad\textbf{(C)}\ 8 \qquad\textbf{(D)}\ 12 \qquad\textbf{(E)}\ 16$
+Solution 1 (Multinomial Coefficients)
+For simplicity purposes, we assume that the balls and the bins are both distinguishable.
+Recall that there are $5^{20}$ ways to distribute $20$ balls into $5$ bins. For $p,$ we choose one of the $5$ bins to have $3$ balls and another one of the $4$ bins to have $5$ balls. We get
+
+\[p=\frac{5\cdot4\cdot\binom{20}{3,5,4,4,4}}{5^{20}} \text{ and } q=\frac{\binom{20}{4,4,4,4,4}}{5^{20}}.\]
+
+Therefore, the answer is
+
+\[\frac pq=\frac{5\cdot4\cdot\binom{20}{3,5,4,4,4}}{\binom{20}{4,4,4,4,4}}=\frac{5\cdot4\cdot\frac{20!}{3!\cdot5!\cdot4!\cdot4!\cdot4!}}{\frac{20!}{4!\cdot4!\cdot4!\cdot4!\cdot4!}}=\frac{5\cdot4\cdot(4!\cdot4!\cdot4!\cdot4!\cdot4!)}{3!\cdot5!\cdot4!\cdot4!\cdot4!}=\frac{5\cdot4\cdot4}{5}=\boxed{\textbf{(E)}\ 16}.\]
+
+~MRENTHUSIASM ~Jesshuang ~mathboy282
+Solution 2
+For simplicity purposes, we assume that the balls and the bins are both distinguishable.
+Let $q=\frac{x}{a},$ where $a$ is the total number of combinations and $x$ is the number of cases where every bin ends up with $4$ balls.
+We can take $1$ ball from one bin and place it in another bin so that some bin ends up with $3$ balls, another with $5$ balls, and the other three with $4$ balls each. Note that one configuration of $4{-}4{-}4{-}4{-}4$ corresponds to $5\cdot4\cdot4=80$ configurations of $3{-}5{-}4{-}4{-}4.$ On the other hand, one configuration of $3{-}5{-}4{-}4{-}4$ corresponds to $5$ configurations of $4{-}4{-}4{-}4{-}4.$
+Therefore, we have
+
+\[p = \frac{80}{5}\cdot\frac{x}{a} = 16\cdot\frac{x}{a},\]
+
+from which $\frac{p}{q} = \boxed{\textbf{(E)}\ 16}.$
+~Hoju
+Solution 3 (Binomial Coefficients)
+Since both of the cases will have $3$ bins with $4$ balls in them, we can leave those out. There are $2 \cdot \binom {5}{2} = 20$ ways to choose where to place the $3$ and the $5$ . After that, there are $\binom {8}{3} = 56$ ways to put the $3$ and $5$ balls being put into the bins. For the $4,4,4,4,4$ case, after we canceled the $4,4,4$ out, we have $\binom {8}{4} = 70$ ways to put the $4$ balls inside the bins. Therefore, we have $\frac {56\cdot 20}{70}$ which is equal to $8 \cdot 2 = \boxed{\textbf{(E)}\ 16}$ .
+~Arcticturn
+Solution 4 (Set Theory / Graph Theory)
+Construct the set $A$ consisting of all possible $3{-}5{-}4{-}4{-}4$ bin configurations, and construct set $B$ consisting of all possible $4{-}4{-}4{-}4{-}4$ configurations. If we let $N$ be the total number of configurations possible, it's clear we want to solve for $\frac{p}{q} = \frac{\frac{|A|}{N}}{\frac{|B|}{N}} = \frac{|A|}{|B|}$ .
+Consider drawing an edge between an element in $A$ and an element in $B$ if it is possible to reach one configuration from the other by moving a single ball (Note this process is reversible.). Let us consider the total number of edges drawn.
+For any element in $A$ , we may choose one of the $5$ balls in the $5$ -bin and move it to the $3$ -bin to get a valid element in $B$ . This implies the number of edges is $5|A|$ .
+On the other hand, for any element in $B$ , we may choose one of the $20$ balls and move it to one of the other $4$ -bins to get a valid element in $A$ . This implies the number of edges is $80|B|$ .
+We equate the expressions to get $5|A| = 80|B|$ , from which $\frac{|A|}{|B|} = \frac{80}{5} = \boxed{\textbf{(E)}\ 16}$ .
+Video Solution by OmegaLearn
+https://youtu.be/mIJ8VMuuVvA?t=220
+~ pi_is_3.14
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=Lu6eSvY6RHE
+Video Solution by TheBeautyofMath
+https://youtu.be/TOSHQPb7vaM
+~IceMatrix
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 17 Followed by 
+ Problem 19
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2021 Fall AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 20 Followed by 
+ Problem 22
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

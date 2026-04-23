@@ -1,0 +1,21 @@
+2007 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Alternative Solution
+4 See Also
+Problem
+The point $O$ is the center of the circle circumscribed about triangle $ABC$ , with $\angle BOC = 120^{\circ}$ and $\angle AOB = 140^{\circ}$ , as shown. What is the degree measure of $\angle ABC$ ?
+$\mathrm {(A)} 35 \qquad \mathrm {(B)} 40 \qquad \mathrm {(C)} 45 \qquad \mathrm {(D)} 50 \qquad \mathrm {(E)} 60$
+Solution
+Since triangles $ABO$ and $BOC$ are isosceles, $\angle ABO=20^o$ and $\angle OBC=30^o$ . Therefore, $\angle ABC=50^o$ , or $\mathrm{(D)}$ .
+Alternative Solution
+$\angle AOC = 100^{\circ} \implies \angle ABC =\frac{\angle AOC}{2} =50^{ \circ},$ or $\mathrm{(D)}.$
+See Also
+2007 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

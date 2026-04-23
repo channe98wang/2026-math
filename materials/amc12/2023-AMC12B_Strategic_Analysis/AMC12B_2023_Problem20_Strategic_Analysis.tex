@@ -1,0 +1,729 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% Strategic Analysis of AMC12B 2023 Problem 20
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12B 2023 Problem 20 Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{proofbox}{
+    colback=proofwriting,
+    colframe=violet,
+    title=Proof Structure and Justification (COMC Part C),
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12B 2023 Problem 20\\Strategic Analysis}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Cyrus the frog jumps $2$ units in a direction, then $2$ more in another direction. What is the probability that he lands less than $1$ unit away from his starting position?
+
+$$\textbf{(A)}~\frac{1}{6}\qquad\textbf{(B)}~\frac{1}{5}\qquad\textbf{(C)}~\frac{\sqrt{3}}{8}\qquad\textbf{(D)}~\frac{\arctan \frac{1}{2}}{\pi}\qquad\textbf{(E)}~\frac{2\arcsin \frac{1}{4}}{\pi}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (probability of geometric constraint)
+    \item \textbf{Competition Context}: AMC 12B 2023, Problem 20
+    \item \textbf{Difficulty Band}: Late-band (P20) - Upper late-band problem
+    \item \textbf{Mathematical Domain}: Geometric Probability with Trigonometry
+    \item \textbf{Estimated Time}: 6-8 minutes (requires visualization and Law of Cosines)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Frog starts at origin
+        \item First jump: 2 units in any direction
+        \item Second jump: 2 units in any direction
+        \item Want: probability of ending less than 1 unit from start
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Both jumps are exactly 2 units
+        \item Directions are uniformly random
+        \item Final distance from origin must be $< 1$
+    \end{itemize}
+    \item \textbf{Objective}: 
+    \begin{itemize}
+        \item Find probability that final position is within unit circle
+        \item Answer involves inverse trig functions
+    \end{itemize}
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item By symmetry, can fix first jump direction (WLOG)
+        \item After first jump, frog is 2 units from origin
+        \item Second jump direction is uniformly distributed over $[0, 2\pi]$
+        \item Need to find what range of angles keeps final distance $< 1$
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices (D) and (E) involve inverse trig functions
+        \item Choices (A), (B), (C) are simpler fractions
+        \item The presence of $\arcsin \frac{1}{4}$ in (E) is suspicious
+        \item Note: $\frac{1}{4}$ appears in the problem as half of the distance ratio: $\frac{1}{2 \cdot 2} = \frac{1}{4}$
+    \end{itemize}
+    \item \textbf{Proof Requirements}: Not a proof problem; geometric calculation
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: This is a geometric probability problem involving circles and Law of Cosines
+    \item \textbf{Conclusion}: Find angle range where final distance $< 1$, divide by $2\pi$
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $S$ = starting position
+        \item Let $A$ = position after first jump (distance 2 from $S$)
+        \item Let $B$ = position after second jump (distance 2 from $A$)
+        \item Let $\theta$ = angle at $A$ between the two jumps
+        \item Want: $|SB| < 1$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Use Law of Cosines to relate $|SB|$ to $\theta$
+        \item Find critical angle where $|SB| = 1$
+        \item Probability is favorable angle range divided by $2\pi$
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Geometric: circles, distance formula
+        \item Trigonometric: Law of Cosines, inverse trig
+        \item Coordinate geometry: place problem on axes
+        \item Complex numbers: represent jumps as vectors in $\mathbb{C}$
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This problem requires visualization and comfort with inverse trig. Stay calm and draw a diagram.
+    \item \textbf{Creativity Cultivation}: Multiple approaches:
+    \begin{itemize}
+        \item Geometric: circles and arcs
+        \item Algebraic: Law of Cosines
+        \item Coordinate: solve system of circle equations
+        \item Complex: vector addition in $\mathbb{C}$
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: Start with diagram, then choose computational approach
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{itemize}
+        \item Draw a picture immediately!
+        \item Place starting point $S$ at origin
+        \item WLOG, place first landing point $A$ at $(2, 0)$
+        \item Second jump traces circle of radius 2 centered at $A$
+    \end{itemize}
+    \item \textbf{Visualization}: 
+    \begin{itemize}
+        \item Circle 1: radius 1 centered at origin (target region)
+        \item Circle 2: radius 2 centered at $(2, 0)$ (possible final positions)
+        \item Intersection: two points where circles meet
+        \item Need angle subtended by arc of Circle 2 that lies inside Circle 1
+    \end{itemize}
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Find intersection points of the two circles
+        \item Or use Law of Cosines to find critical angle
+    \end{itemize}
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Use WLOG to fix first jump direction
+        \item This reduces to 1D angle problem
+    \end{itemize}
+    \item \textbf{Penultimate Step}: Once critical angle found, probability is $\frac{2\theta}{2\pi} = \frac{\theta}{\pi}$
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item (E) has $\arcsin \frac{1}{4}$ where $\frac{1}{4}$ relates to geometry ($\frac{1}{4} = \frac{1/2}{2}$)
+        \item Test if this makes geometric sense
+    \end{itemize}
+    \item \textbf{Visualization}: Drawing is essential for this problem
+    \item \textbf{Make It Easier}: WLOG assumption simplifies to 1D problem
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Geometric Approach}: 
+    \begin{enumerate}
+        \item WLOG, fix first jump to $(2, 0)$
+        \item Use Law of Cosines to find angle $\theta$ where final distance = 1
+        \item Recognize that frog can land on either side, so favorable angle is $2\theta$
+        \item Probability = $\frac{2\theta}{2\pi} = \frac{\theta}{\pi}$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential for this problem
+    \item \textbf{Recast the Problem}: Find intersection of two circles
+    \item \textbf{Change Your Point of View}: Use complex numbers for vector addition
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: WLOG fix first jump direction
+    \item \textbf{Visualization}: Draw circles to see geometric structure
+    \item \textbf{Law of Cosines}: Central tool for relating angles to distances
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+
+\textbf{Geometry:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Circle Intersection}: Find where circles meet
+    \item \textbf{Law of Cosines}: $c^2 = a^2 + b^2 - 2ab\cos C$
+    \item \textbf{Arc Length}: Favorable arc divided by total circumference
+\end{itemize}
+
+\textbf{Trigonometry:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Inverse Trig Functions}: $\arcsin$, $\arccos$
+    \item \textbf{Double Angle Formula}: $\cos(2\alpha) = 1 - 2\sin^2(\alpha)$
+    \item \textbf{Complementary Identity}: $\arcsin(x) + \arccos(x) = \frac{\pi}{2}$
+\end{itemize}
+
+\textbf{Probability:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometric Probability}: Favorable region / Total region
+    \item \textbf{Uniform Distribution}: Angle uniformly distributed on $[0, 2\pi]$
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometric-Probabilistic}: Arc measure determines probability
+    \item \textbf{Algebraic-Geometric}: Law of Cosines connects algebra to geometry
+    \item \textbf{Complex Numbers-Geometry}: Vector addition in $\mathbb{C}$
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Law of Cosines + Geometric Probability
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Problem involves distances and angles
+        \item Two jumps of fixed length
+        \item Need probability of geometric constraint
+        \item Answer choices involve inverse trig functions
+    \end{itemize}
+    \item \textbf{Application - Law of Cosines Approach}: 
+    \begin{enumerate}
+        \item WLOG, place start at origin $S = (0,0)$ and first landing at $A = (2, 0)$
+        \item Second jump from $A$ to some point $B$ where $|AB| = 2$
+        \item Let $\theta$ = angle at $A$ between direction back to $S$ and direction to $B$
+        \item By Law of Cosines: $|SB|^2 = |SA|^2 + |AB|^2 - 2|SA||AB|\cos\theta$
+        \item $|SB|^2 = 4 + 4 - 2(2)(2)\cos\theta = 8 - 8\cos\theta$
+        \item Want $|SB| < 1$, so $8 - 8\cos\theta < 1$
+        \item $\cos\theta > \frac{7}{8}$
+        \item Critical angle: $\theta_0 = \arccos\frac{7}{8}$
+        \item Favorable angles: $\theta \in (-\theta_0, \theta_0)$ (frog can jump on either side)
+        \item Probability: $\frac{2\theta_0}{2\pi} = \frac{\theta_0}{\pi}$
+        \item Express using $\arcsin$: $\cos\theta_0 = \frac{7}{8} = 1 - 2\sin^2(\theta_0/2)$
+        \item So $\sin^2(\theta_0/2) = \frac{1}{16}$, thus $\sin(\theta_0/2) = \frac{1}{4}$
+        \item Therefore $\theta_0 = 2\arcsin\frac{1}{4}$
+        \item Probability: $\frac{2\arcsin\frac{1}{4}}{\pi}$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Circle Intersection (Coordinate Geometry)}:
+    \begin{itemize}
+        \item Circle 1 (target): $x^2 + y^2 = 1$
+        \item Circle 2 (possible positions): $(x-2)^2 + y^2 = 4$
+        \item Solve system: subtract equations to get $x = \frac{1}{4}$
+        \item Substitute: $y^2 = 1 - \frac{1}{16} = \frac{15}{16}$, so $y = \pm\frac{\sqrt{15}}{4}$
+        \item Intersection points: $\left(\frac{1}{4}, \pm\frac{\sqrt{15}}{4}\right)$
+        \item Angle from $A = (2,0)$ to intersection: $\tan\alpha = \frac{\sqrt{15}/4}{2 - 1/4} = \frac{\sqrt{15}/4}{7/4} = \frac{\sqrt{15}}{7}$
+        \item Or use: $\sin\alpha = \frac{\sqrt{15}/4}{2} = \frac{\sqrt{15}}{8}$ (distance from $A$ to intersection is 2)
+        \item Using double angle: $\sin\alpha = 2\sin(\alpha/2)\cos(\alpha/2) = 2\sin(\alpha/2)\sqrt{1-\sin^2(\alpha/2)}$
+        \item Can show $\alpha = 2\arcsin\frac{1}{4}$
+    \end{itemize}
+    \item \textbf{Complex Numbers}:
+    \begin{itemize}
+        \item First jump: $z_1 = 2e^{i\theta_1}$
+        \item Second jump: $z_2 = 2e^{i\theta_2}$
+        \item Final position: $z = z_1 + z_2$
+        \item Want $|z_1 + z_2| < 1$
+        \item WLOG set $\theta_1 = 0$, so $z_1 = 2$
+        \item Then $|2 + 2e^{i\theta_2}| < 1$
+        \item Square: $|2 + 2e^{i\theta_2}|^2 = 4 + 4\cos\theta_2 + 4 = 8 + 8\cos\theta_2 < 1$
+        \item Wait, this doesn't work. Let me recalculate...
+        \item Actually: $|2 + 2e^{i\theta}|^2 = (2 + 2\cos\theta)^2 + (2\sin\theta)^2 = 4 + 8\cos\theta + 4\cos^2\theta + 4\sin^2\theta$
+        \item $= 4 + 8\cos\theta + 4 = 8 + 8\cos\theta$
+        \item So $8 + 8\cos\theta < 1$ gives $\cos\theta < -\frac{7}{8}$
+        \item This is the angle in standard position. Need to relate to angle between jumps.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Selection Justification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Why Law of Cosines}: 
+    \begin{itemize}
+        \item Most direct approach
+        \item Clearly relates angle to distance
+        \item Leads naturally to answer form
+    \end{itemize}
+    \item \textbf{Computational Simplicity}: Straightforward application of Law of Cosines
+    \item \textbf{Time Efficiency}: 5-6 minutes with clear diagram
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 - Standard Verification (30-60 seconds)
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Late-band problem (P20)
+        \item Involves trigonometric manipulation
+        \item Can verify double angle formula
+        \item Can check limiting cases
+        \item Target confidence: 85-90\%
+    \end{itemize}
+    \item \textbf{Time Budget}: 45-60 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Verify Law of Cosines calculation}:
+    \begin{itemize}
+        \item $|SB|^2 = 4 + 4 - 8\cos\theta$ \checkmark
+        \item Want $|SB| = 1$: $1 = 8 - 8\cos\theta$, so $\cos\theta = \frac{7}{8}$ \checkmark
+    \end{itemize}
+    \item \textbf{Verify double angle formula}:
+    \begin{itemize}
+        \item $\cos\theta = 1 - 2\sin^2(\theta/2)$
+        \item $\frac{7}{8} = 1 - 2\sin^2(\theta/2)$
+        \item $2\sin^2(\theta/2) = \frac{1}{8}$
+        \item $\sin^2(\theta/2) = \frac{1}{16}$
+        \item $\sin(\theta/2) = \frac{1}{4}$ \checkmark
+        \item So $\theta = 2\arcsin\frac{1}{4}$ \checkmark
+    \end{itemize}
+    \item \textbf{Verify probability calculation}:
+    \begin{itemize}
+        \item Favorable angle range: $2\theta$ (both sides)
+        \item Total angle range: $2\pi$
+        \item Probability: $\frac{2\theta}{2\pi} = \frac{\theta}{\pi} = \frac{2\arcsin\frac{1}{4}}{\pi}$ \checkmark
+    \end{itemize}
+    \item \textbf{Check answer choice}: (E) $\frac{2\arcsin\frac{1}{4}}{\pi}$ \checkmark
+    \item \textbf{Limiting cases}:
+    \begin{itemize}
+        \item If target radius were 0: probability 0 (makes sense)
+        \item If target radius were 4: probability 1 (makes sense, always within)
+        \item If target radius is 1: intermediate probability (makes sense)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1}: Numerical check
+    \begin{itemize}
+        \item $\arcsin\frac{1}{4} \approx 0.2527$ radians $\approx 14.48^\circ$
+        \item $2\arcsin\frac{1}{4} \approx 0.5054$ radians $\approx 28.96^\circ$
+        \item Probability: $\frac{0.5054}{\pi} \approx \frac{0.5054}{3.14159} \approx 0.161$ or about 16\%
+        \item This seems reasonable for landing within distance 1 from two jumps of length 2
+    \end{itemize}
+    \item \textbf{Method 2}: Verify using coordinate intersection
+    \begin{itemize}
+        \item Intersection at $x = \frac{1}{4}$, $y = \pm\frac{\sqrt{15}}{4}$
+        \item Check: $\left(\frac{1}{4}\right)^2 + \left(\frac{\sqrt{15}}{4}\right)^2 = \frac{1}{16} + \frac{15}{16} = 1$ \checkmark (on circle 1)
+        \item Check: $\left(\frac{1}{4} - 2\right)^2 + \left(\frac{\sqrt{15}}{4}\right)^2 = \left(\frac{-7}{4}\right)^2 + \frac{15}{16} = \frac{49}{16} + \frac{15}{16} = \frac{64}{16} = 4$ \checkmark (on circle 2)
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution (Law of Cosines)}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Set Up the Problem}: 
+    \begin{itemize}
+        \item Let $S$ = starting position (origin)
+        \item Frog jumps 2 units to position $A$
+        \item Then jumps 2 units from $A$ to final position $B$
+        \item Want: probability that $|SB| < 1$
+    \end{itemize}
+    
+    \item \textbf{Apply WLOG Symmetry}: 
+    \begin{itemize}
+        \item By symmetry (first jump direction doesn't matter), WLOG place $A$ at $(2, 0)$
+        \item Second jump direction is uniformly distributed over $[0, 2\pi]$
+        \item Need to find what fraction of angles result in $|SB| < 1$
+    \end{itemize}
+    
+    \item \textbf{Visualize the Geometry}: 
+    \begin{itemize}
+        \item From $A = (2, 0)$, frog can reach any point on circle of radius 2 centered at $A$
+        \item Target region: circle of radius 1 centered at $S = (0, 0)$
+        \item Need arc of the larger circle that lies inside smaller circle
+    \end{itemize}
+    
+    \item \textbf{Apply Law of Cosines}: 
+    \begin{itemize}
+        \item Let $\theta$ = angle at $A$ between direction toward $S$ and direction to $B$
+        \item Triangle $SAB$ has sides: $|SA| = 2$, $|AB| = 2$, $|SB| = ?$
+        \item By Law of Cosines:
+        \[|SB|^2 = |SA|^2 + |AB|^2 - 2|SA||AB|\cos\theta\]
+        \[|SB|^2 = 4 + 4 - 2(2)(2)\cos\theta = 8 - 8\cos\theta\]
+    \end{itemize}
+    
+    \item \textbf{Find Critical Angle}: 
+    \begin{itemize}
+        \item We want $|SB| < 1$, so $|SB|^2 < 1$
+        \item $8 - 8\cos\theta < 1$
+        \item $8\cos\theta > 7$
+        \item $\cos\theta > \frac{7}{8}$
+        \item Critical angle (where $|SB| = 1$ exactly):
+        \[\theta_0 = \arccos\frac{7}{8}\]
+        \item Favorable range: $\theta \in (-\theta_0, \theta_0)$ (frog can jump on either side of line $SA$)
+    \end{itemize}
+    
+    \item \textbf{Convert to $\arcsin$ Form Using Double Angle}: 
+    \begin{itemize}
+        \item We have $\cos\theta_0 = \frac{7}{8}$
+        \item Using double angle formula: $\cos\theta = 1 - 2\sin^2(\theta/2)$
+        \item $\frac{7}{8} = 1 - 2\sin^2(\theta_0/2)$
+        \item $2\sin^2(\theta_0/2) = 1 - \frac{7}{8} = \frac{1}{8}$
+        \item $\sin^2(\theta_0/2) = \frac{1}{16}$
+        \item $\sin(\theta_0/2) = \frac{1}{4}$ (taking positive root)
+        \item Therefore: $\theta_0/2 = \arcsin\frac{1}{4}$
+        \item So: $\theta_0 = 2\arcsin\frac{1}{4}$
+    \end{itemize}
+    
+    \item \textbf{Calculate Probability}: 
+    \begin{itemize}
+        \item Favorable angle range: $2\theta_0$ (from $-\theta_0$ to $+\theta_0$)
+        \item Total possible angles: $2\pi$
+        \item Probability:
+        \[P = \frac{2\theta_0}{2\pi} = \frac{\theta_0}{\pi} = \frac{2\arcsin\frac{1}{4}}{\pi}\]
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Method 2: Coordinate Geometry (Circle Intersection)}
+
+\begin{enumerate}
+    \item \textbf{Set up circles}:
+    \begin{itemize}
+        \item Target circle: $x^2 + y^2 = 1$
+        \item Possible positions: $(x-2)^2 + y^2 = 4$
+    \end{itemize}
+    
+    \item \textbf{Find intersection points}:
+    \begin{itemize}
+        \item Expand second equation: $x^2 - 4x + 4 + y^2 = 4$
+        \item So: $x^2 + y^2 - 4x = 0$
+        \item From first equation: $x^2 + y^2 = 1$
+        \item Substitute: $1 - 4x = 0$, so $x = \frac{1}{4}$
+        \item From first equation: $y^2 = 1 - \frac{1}{16} = \frac{15}{16}$
+        \item Therefore: $y = \pm\frac{\sqrt{15}}{4}$
+        \item Intersection points: $\left(\frac{1}{4}, \pm\frac{\sqrt{15}}{4}\right)$
+    \end{itemize}
+    
+    \item \textbf{Find angle}:
+    \begin{itemize}
+        \item From $A = (2, 0)$ to intersection point $\left(\frac{1}{4}, \frac{\sqrt{15}}{4}\right)$
+        \item Vector: $\left(\frac{1}{4} - 2, \frac{\sqrt{15}}{4}\right) = \left(-\frac{7}{4}, \frac{\sqrt{15}}{4}\right)$
+        \item This vector has length 2 (as required)
+        \item The angle this makes with negative $x$-axis: call it $\alpha$
+        \item From triangle: $\sin\alpha = \frac{\sqrt{15}/4}{2} = \frac{\sqrt{15}}{8}$
+        \item $\cos\alpha = \frac{7/4}{2} = \frac{7}{8}$
+        \item So $\alpha = \arccos\frac{7}{8} = \arcsin\frac{\sqrt{15}}{8}$
+    \end{itemize}
+    
+    \item \textbf{Convert using double angle}:
+    \begin{itemize}
+        \item We have $\cos\alpha = \frac{7}{8}$
+        \item By double angle: $\cos\alpha = 1 - 2\sin^2(\alpha/2) = \frac{7}{8}$
+        \item So $\sin(\alpha/2) = \frac{1}{4}$ and $\alpha = 2\arcsin\frac{1}{4}$
+        \item Probability: $\frac{2\alpha}{2\pi} = \frac{\alpha}{\pi} = \frac{2\arcsin\frac{1}{4}}{\pi}$
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Method 3: Direct Geometric Argument}
+
+After first jump, frog is at distance 2 from origin. The second jump traces a circle of radius 2. The favorable arc is the portion of this circle that lies within the unit circle centered at origin. By symmetry, need to find the angle subtended by this arc at the center of the second circle, then divide by $2\pi$ for probability.
+
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 6-8 minutes total
+    \begin{itemize}
+        \item Problem understanding and diagram: 1-1.5 minutes
+        \item WLOG setup: 30 seconds
+        \item Law of Cosines application: 1.5 minutes
+        \item Solve for critical angle: 1-1.5 minutes
+        \item Convert to $\arcsin$ form: 2-2.5 minutes
+        \item Calculate probability: 30 seconds
+        \item Verification: 45-60 seconds
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 2 minutes: Should have diagram and WLOG setup
+        \item At 4 minutes: Should have $\cos\theta = 7/8$
+        \item At 6 minutes: Should have converted to $\arcsin$ form
+        \item At 7-8 minutes: Should have answer selected
+    \end{itemize}
+    \item \textbf{Priority Level}: Medium-High
+    \begin{itemize}
+        \item P20 is upper late-band
+        \item Requires geometric visualization and trig comfort
+        \item Doable with clear diagram and Law of Cosines knowledge
+        \item Worth attempting if comfortable with geometry/trig
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 85-90\% after verification
+    \begin{itemize}
+        \item Law of Cosines correctly applied
+        \item Double angle conversion verified
+        \item Answer matches choice (E)
+        \item Numerical check gives reasonable probability
+    \end{itemize}
+    \item \textbf{Abandonment Criteria}: 
+    \begin{itemize}
+        \item If after 3 minutes no clear diagram or approach, consider skipping
+        \item If stuck on double angle formula, could try numerical approximation
+        \item If comfortable with geometry, this is very doable
+    \end{itemize}
+    \item \textbf{Flag for Review}: 
+    \begin{itemize}
+        \item Yes, if uncertain about double angle conversion
+        \item No, if verified with coordinate method or numerical check
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Answer Format}
+\begin{itemize}[leftmargin=*]
+    \item Multiple choice: Select (E) $\frac{2\arcsin \frac{1}{4}}{\pi}$
+    \item Double-check: $\theta_0 = 2\arcsin\frac{1}{4}$, probability = $\frac{\theta_0}{\pi}$ \checkmark
+    \item Bubble carefully on answer sheet
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: This is a geometric probability problem where the key is to use WLOG to fix the first jump direction, reducing the problem to finding what fraction of second-jump angles result in landing within the target circle. The Law of Cosines relates the angle $\theta$ between jumps to the final distance: $|SB|^2 = 8 - 8\cos\theta$. Setting $|SB| = 1$ gives $\cos\theta = \frac{7}{8}$. The elegant part is converting this to $\arcsin$ form using the double angle formula: $\cos\theta = 1 - 2\sin^2(\theta/2) = \frac{7}{8}$ gives $\sin(\theta/2) = \frac{1}{4}$, so $\theta = 2\arcsin\frac{1}{4}$. The probability is the favorable angle range ($2\theta$) divided by the total ($2\pi$), giving $\frac{2\arcsin\frac{1}{4}}{\pi}$.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Don't forget the factor of 2 in the numerator! The frog can jump on either side of the line connecting start to first landing, so the favorable angle range is $2\theta$ (from $-\theta$ to $+\theta$), not just $\theta$. Also, be careful with the double angle formula: $\cos(2\alpha) = 1 - 2\sin^2(\alpha)$, which means if $\cos\theta = \frac{7}{8}$ and we write $\theta = 2\alpha$, then $\frac{7}{8} = 1 - 2\sin^2\alpha$, giving $\sin\alpha = \frac{1}{4}$. Another common error is confusing the angle at vertex $A$ (in the triangle) with the angle in standard position from $A$.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: For geometric probability problems:
+\begin{enumerate}
+    \item \textbf{Draw immediately}: A clear diagram is worth 3 minutes of algebra
+    \item \textbf{Use WLOG}: Exploit symmetry to reduce dimensions
+    \item \textbf{Identify the favorable region}: What angles/positions satisfy the constraint?
+    \item \textbf{Law of Cosines}: For triangle problems with distances and angles
+    \item \textbf{Double angle formulas}: Know these cold for trig manipulations
+\end{enumerate}
+
+For this problem, the WLOG step is crucial—it reduces a 2D problem (two random jump directions) to a 1D problem (one fixed direction, one random). The Law of Cosines then gives a clean relationship between angle and distance.
+
+The trickiest part is recognizing that $\frac{7}{8} = 1 - 2\left(\frac{1}{4}\right)^2$, which is the double angle formula in disguise. If you know $\cos(2\alpha) = 1 - 2\sin^2\alpha$, you can immediately see that $\cos\theta = \frac{7}{8}$ means $\theta = 2\arcsin\frac{1}{4}$.
+
+Finally, for P20-25 problems, don't hesitate to spend 7-8 minutes if making steady progress. These problems are meant to be challenging, and a correct answer is worth the time investment.
+\end{tipbox}
+
+\section*{Final Answer}
+
+Using the Law of Cosines with WLOG first jump to $(2,0)$, the final distance squared is $8 - 8\cos\theta$. Setting this less than 1 gives $\cos\theta > \frac{7}{8}$. The critical angle where equality holds is:
+
+$$\theta_0 = \arccos\frac{7}{8} = 2\arcsin\frac{1}{4}$$
+
+(using the double angle formula $\cos\theta = 1 - 2\sin^2(\theta/2)$).
+
+The favorable angle range is $2\theta_0$ (frog can jump on either side), so the probability is:
+
+$$P = \frac{2\theta_0}{2\pi} = \frac{\theta_0}{\pi} = \frac{2\arcsin\frac{1}{4}}{\pi}$$
+
+$$\boxed{\textbf{(E)}~\frac{2\arcsin \frac{1}{4}}{\pi}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% 
+    \begin{itemize}
+        \item Law of Cosines correctly applied: $|SB|^2 = 8 - 8\cos\theta$
+        \item Critical angle calculation verified: $\cos\theta = \frac{7}{8}$
+        \item Double angle conversion confirmed: $\theta = 2\arcsin\frac{1}{4}$
+        \item Probability calculation correct: $\frac{2\theta}{2\pi} = \frac{\theta}{\pi}$
+        \item Coordinate method confirms intersection points
+        \item Numerical check gives reasonable probability (~16\%)
+    \end{itemize}
+    \item \textbf{Verification Applied}: Level 4 - Standard Verification
+    \begin{itemize}
+        \item Primary method: Law of Cosines with double angle formula
+        \item Alternative verification: Coordinate geometry intersection
+        \item Cross-check: Numerical approximation
+        \item Limiting cases make sense
+    \end{itemize}
+    \item \textbf{Flag for Review}: No
+    \begin{itemize}
+        \item High confidence after multiple verification methods
+        \item Elegant mathematical solution
+        \item Answer form matches geometric structure of problem
+    \end{itemize}
+    \item \textbf{Time Spent}: 
+    \begin{itemize}
+        \item Estimated: 6-7 minutes for complete solution
+        \item This is appropriate for a P20 problem
+        \item Geometric visualization was key time-saver
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

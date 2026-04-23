@@ -1,0 +1,14 @@
+2007 AMC 12B Problems/Problem 6
+Problem
+Triangle $ABC$ has side lengths $AB = 5$ , $BC = 6$ , and $AC = 7$ . Two bugs start simultaneously from $A$ and crawl along the sides of the triangle in opposite directions at the same speed. They meet at point $D$ . What is $BD$ ?
+$\mathrm {(A)}\ 1 \qquad \mathrm {(B)}\ 2 \qquad \mathrm {(C)}\ 3 \qquad \mathrm {(D)}\ 4 \qquad \mathrm {(E)}\ 5$
+Solution
+One bug goes to $B$ . The path that he takes is $\dfrac{5+6+7}{2}=9$ units long. The length of $BD$ is $9-AB=9-5=4 \Rightarrow \mathrm {(D)}$
+See also
+2007 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

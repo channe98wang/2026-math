@@ -1,0 +1,22 @@
+2006 AMC 12A Problems/Problem 16
+Problem
+Circles with centers $A$ and $B$ have radius 3 and 8, respectively. A common internal tangent intersects the circles at $C$ and $D$ , respectively. Lines $AB$ and $CD$ intersect at $E$ , and $AE=5$ . What is $CD$ ?
+[asy] unitsize(2.5mm); defaultpen(fontsize(10pt)+linewidth(.8pt)); dotfactor=3; pair A=(0,0), Ep=(5,0), B=(5+40/3,0); pair M=midpoint(A--Ep); pair C=intersectionpoints(Circle(M,2.5),Circle(A,3))[1]; pair D=B+8*dir(180+degrees(C)); dot(A); dot(C); dot(B); dot(D); draw(C--D); draw(A--B); draw(Circle(A,3)); draw(Circle(B,8)); label("$A$",A,W); label("$B$",B,E); label("$C$",C,SE); label("$E$",Ep,SSE); label("$D$",D,NW); [/asy]
+$\textbf{(A) } 13\qquad\textbf{(B) } \frac{44}{3}\qquad\textbf{(C) } \sqrt{221}\qquad\textbf{(D) } \sqrt{255}\qquad\textbf{(E) } \frac{55}{3}\qquad$
+Solution
+$\angle AED$ and $\angle BEC$ are vertical angles so they are congruent, as are angles $\angle ADE$ and $\angle BCE$ (both are right angles because the radius and tangent line at a point on a circle are always perpendicular). Thus, $\triangle ACE \sim \triangle BDE$ .
+By the Pythagorean Theorem , line segment $DE = 4$ . The sides are proportional, so $\frac{DE}{AD} = \frac{CE}{BC} \Rightarrow \frac{4}{3} = \frac{CE}{8}$ . This makes $CE = \frac{32}{3}$ and $CD = CE + DE = 4 + \frac{32}{3} = \boxed{\textbf{(B) }\frac{44}{3}}$ .
+See also
+2006 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 15 Followed by 
+ Problem 17
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2006 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 22 Followed by 
+ Problem 24
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

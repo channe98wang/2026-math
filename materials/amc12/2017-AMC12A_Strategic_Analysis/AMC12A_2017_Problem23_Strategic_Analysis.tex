@@ -1,0 +1,687 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12/COMC Problem Analysis}
+\lhead{2017 AMC 12A Problem 23}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12 Strategic Problem Analysis\\2017 AMC 12A Problem 23}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+For certain real numbers $a$, $b$, and $c$, the polynomial
+\[g(x) = x^3 + ax^2 + x + 10\]
+has three distinct roots, and each root of $g(x)$ is also a root of the polynomial
+\[f(x) = x^4 + x^3 + bx^2 + 100x + c.\]
+What is $f(1)$?
+
+\textbf{Answer Choices:} 
+\begin{itemize}
+    \item (A) $-9009$
+    \item (B) $-8008$
+    \item (C) $-7007$
+    \item (D) $-6006$
+    \item (E) $-5005$
+\end{itemize}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (computing a specific value $f(1)$)
+    \item \textbf{Difficulty Band}: Late-band (Problem 23 of 25)
+    \item \textbf{Competition Context}: AMC12 multiple choice with 5 options
+    \item \textbf{Mathematical Domain}: Algebra (Polynomials, Vieta's Formulas, Factorization)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Cubic polynomial $g(x) = x^3 + ax^2 + x + 10$ with three distinct roots
+        \item Quartic polynomial $f(x) = x^4 + x^3 + bx^2 + 100x + c$
+        \item All three roots of $g(x)$ are also roots of $f(x)$
+        \item Parameters $a, b, c$ are real numbers (to be determined)
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $g(x)$ has exactly 3 distinct roots
+        \item These 3 roots must also satisfy $f(x) = 0$
+        \item Leading coefficients are 1 (monic polynomials)
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find the specific numerical value of $f(1)$
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Since $f(x)$ is degree 4 and shares exactly 3 roots with $g(x)$, there must be exactly one additional root
+        \item $f(x)$ must factor as $f(x) = g(x) \cdot (x - r)$ for some value $r$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All answers are negative multiples of 1001: $-1001k$ where $k \in \{5,6,7,8,9\}$
+        \item Pattern: $1001 = 7 \times 11 \times 13$, suggesting factorization structure
+        \item Answer (C) $-7007 = -7 \times 1001 = -7 \times 7 \times 11 \times 13 = -91 \times 77$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: $f(x)$ can be factored as $f(x) = g(x) \cdot (x-r)$ for some fourth root $r$
+    
+    \item \textbf{Conclusion}: Need to find $a$, then evaluate $f(1) = g(1) \cdot (1-r)$
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $r_1, r_2, r_3$ be the three roots of $g(x)$
+        \item Let $r_4$ be the fourth root of $f(x)$
+        \item Use Vieta's formulas for coefficient relationships
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: Use factorization $f(x) = g(x)(x-r_4)$ and expand to match coefficients
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure algebraic manipulation (primary approach)
+        \item Vieta's formulas connecting roots and coefficients
+        \item Could use polynomial division, but factorization is cleaner
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Problem 23 requires algebraic persistence; expect 2-3 attempts to align coefficients correctly
+    \item \textbf{Creativity Cultivation}: The key creative insight is recognizing that $f(x) = g(x)(x-r_4)$ must hold, allowing us to avoid computing actual roots
+    \item \textbf{Iterative Refinement}: If direct expansion becomes messy, switch to Vieta's approach; both paths lead to same answer
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as a polynomial relationship problem requiring factorization insight
+    
+    \item \textbf{Get Your Hands Dirty}: Immediately write $f(x) = g(x) \cdot q(x)$ where $q(x)$ is linear: $q(x) = x - r_4$
+    
+    \item \textbf{Penultimate Step}: Once we find $a$ and $r_4$, the final calculation is straightforward: $f(1) = (1-r_4) \cdot g(1)$
+    
+    \item \textbf{Wishful Thinking}: We wish we could find $r_4$ and $a$ without finding the actual roots $r_1, r_2, r_3$
+    
+    \item \textbf{Make It Easier}: Focus on coefficients, not roots; use coefficient matching instead of root computation
+    
+    \item \textbf{Conjecture via Small Cases}: The pattern in answer choices suggests $f(1)$ should factor nicely
+    
+    \item \textbf{Visualization}: Not applicable for this algebraic problem
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: All answers follow pattern $-7k \times 1001$ where $1001 = 7 \times 11 \times 13$; suggests we should get $91 \times 77 = 7007$
+    
+    \item \textbf{Make It Easier}: Instead of finding roots explicitly, work entirely with coefficients
+    
+    \item \textbf{Penultimate Step}: Before computing $f(1)$, we must find $a$ and $r_4$; the coefficient equations will give these directly
+    
+    \item \textbf{Wishful Thinking}: Assume $f(x) = (x-r_4)g(x)$ holds exactly, then verify consistency
+    
+    \item \textbf{Conjecture via Small Cases}: Not needed; algebraic approach is direct
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: 
+    \begin{enumerate}
+        \item Assert $f(x) = (x-r_4)g(x)$ by polynomial division theorem
+        \item Expand and match coefficients
+        \item Solve for unknowns $a, r_4, b, c$
+        \item Compute $f(1)$ directly
+    \end{enumerate}
+    
+    \item \textbf{Proof by Contradiction}: Not applicable
+    
+    \item \textbf{Mathematical Induction}: Not applicable
+    
+    \item \textbf{Stylistic Conventions}: WLOG, we can assume leading coefficient is 1 (already given)
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Not helpful for this problem
+    
+    \item \textbf{Recast the Problem}: 
+    \begin{itemize}
+        \item Algebraic formulation: Find coefficients via expansion
+        \item Vieta's formulation: Use sum/product relationships of roots
+        \item Both approaches work; Vieta's is slightly more elegant
+    \end{itemize}
+    
+    \item \textbf{Change Your Point of View}: Instead of ``find $f(1)$'', think ``find the relationship between $g(1)$ and $f(1)$''
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Not directly applicable
+    
+    \item \textbf{Extreme Principle}: Not applicable
+    
+    \item \textbf{Invariance}: The factorization $f(x) = g(x)(x-r_4)$ is invariant across all values of $x$
+    
+    \item \textbf{Monovariants}: Not applicable
+    
+    \item \textbf{Coloring}: Not applicable
+    
+    \item \textbf{Parity}: Not applicable
+    
+    \item \textbf{Pigeonhole Principle}: Not applicable
+    
+    \item \textbf{Vieta's Formulas}: \textbf{PRIMARY TACTIC}
+    \begin{itemize}
+        \item For $g(x) = x^3 + ax^2 + x + 10$: 
+        \begin{align*}
+            r_1 + r_2 + r_3 &= -a \\
+            r_1r_2 + r_2r_3 + r_3r_1 &= 1 \\
+            r_1r_2r_3 &= -10
+        \end{align*}
+        
+        \item For $f(x) = x^4 + x^3 + bx^2 + 100x + c$:
+        \begin{align*}
+            r_1 + r_2 + r_3 + r_4 &= -1 \\
+            r_1r_2r_3 + r_2r_3r_4 + r_3r_4r_1 + r_4r_1r_2 &= -100
+        \end{align*}
+    \end{itemize}
+    
+    \item \textbf{Generating Functions}: Not applicable
+    
+    \item \textbf{Coordinate Systems}: Not applicable
+\end{itemize}
+
+\subsection*{B. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic to Combinatorial}: Not applicable
+    
+    \item \textbf{Geometric to Algebraic}: Not applicable
+    
+    \item \textbf{Probabilistic Method}: Not applicable
+    
+    \item \textbf{Algebraic Manipulation}: \textbf{PRIMARY TECHNIQUE}
+    \begin{itemize}
+        \item Polynomial factorization: $f(x) = g(x)(x-r_4)$
+        \item Coefficient matching after expansion
+        \item Simplification of resulting equations
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+
+\textbf{Problem Signature:} Polynomial with shared roots $\Rightarrow$ Factorization relationship
+
+\textbf{Trigger Patterns:}
+\begin{itemize}[leftmargin=*]
+    \item ``each root of $g(x)$ is also a root of $f(x)$'' $\Rightarrow$ $g(x)$ divides $f(x)$
+    \item Degree difference of 1 $\Rightarrow$ $f(x) = g(x) \cdot (\text{linear factor})$
+    \item Both polynomials are monic $\Rightarrow$ No scaling factor needed
+\end{itemize}
+
+\subsection*{B. High-Probability Conversion Techniques}
+
+\textbf{Primary Technique: Polynomial Division \& Factorization}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Recognition}: $\deg(f) = \deg(g) + 1$ and roots shared
+    \item \textbf{Application}: Write $f(x) = g(x)(x - r_4)$ where $r_4$ is the fourth root
+    \item \textbf{Expansion}: 
+    \begin{align*}
+        f(x) &= (x^3 + ax^2 + x + 10)(x - r_4) \\
+        &= x^4 - r_4x^3 + ax^3 - ar_4x^2 + x^2 - r_4x + 10x - 10r_4 \\
+        &= x^4 + (a-r_4)x^3 + (1-ar_4)x^2 + (10-r_4)x - 10r_4
+    \end{align*}
+    \item \textbf{Coefficient Matching}:
+    \begin{align*}
+        a - r_4 &= 1 \\
+        1 - ar_4 &= b \\
+        10 - r_4 &= 100 \\
+        -10r_4 &= c
+    \end{align*}
+\end{enumerate}
+
+\textbf{Secondary Technique: Vieta's Formulas}
+\begin{enumerate}[leftmargin=*]
+    \item From $r_1 + r_2 + r_3 = -a$ and $r_1 + r_2 + r_3 + r_4 = -1$:
+    \[r_4 = -1 - (-a) = a - 1\]
+    
+    \item From linear coefficient relation:
+    \begin{align*}
+        r_1r_2r_3 + r_4(r_1r_2 + r_2r_3 + r_3r_1) &= -100 \\
+        -10 + r_4 \cdot 1 &= -100 \\
+        r_4 &= -90
+    \end{align*}
+    
+    \item Therefore: $a - 1 = -90 \Rightarrow a = -89$
+\end{enumerate}
+
+\subsection*{C. Technique Integration}
+
+\textbf{Optimal Solution Path:}
+\begin{enumerate}[leftmargin=*]
+    \item Use coefficient matching to find $r_4$: from $10 - r_4 = 100$, get $r_4 = -90$
+    \item Use first equation to find $a$: from $a - r_4 = 1$, get $a = r_4 + 1 = -89$
+    \item Compute target: $f(1) = (1 - r_4) \cdot g(1) = (1-(-90)) \cdot g(1) = 91 \cdot g(1)$
+    \item Evaluate $g(1)$: $g(1) = 1 + a + 1 + 10 = 12 + a = 12 - 89 = -77$
+    \item Final answer: $f(1) = 91 \times (-77) = -7007$
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{Potential Approach Conflicts:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct root finding vs. Coefficient matching}: Coefficient matching is far more efficient
+    \item \textbf{Polynomial long division vs. Factorization}: Factorization insight is cleaner
+    \item \textbf{Computing all coefficients vs. Just $a$}: We only need $a$ and $r_4$ to find $f(1)$
+\end{itemize}
+
+\textbf{Resolution Strategy:} Use coefficient matching from $f(x) = g(x)(x-r_4)$ to find $a$ and $r_4$, then compute $f(1)$ directly without finding $b$ and $c$.
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Decision Tree:}
+\begin{itemize}[leftmargin=*]
+    \item Problem 23/25 $\Rightarrow$ Late-band $\Rightarrow$ Use Level 4-5 verification
+    \item Algebraic computation with multiple steps $\Rightarrow$ Check intermediate values
+    \item Time permitting: 4-5 minutes for solution + 1-2 minutes for verification
+\end{itemize}
+
+\textbf{Selected Level: Level 5 (Thorough Verification)}
+
+\subsection*{B. Specialized Verification Methods}
+
+\textbf{For Polynomial Problems:}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Coefficient Consistency Check}:
+    \begin{itemize}
+        \item Verify: $a - r_4 = -89 - (-90) = 1$ \checkmark
+        \item Verify: $10 - r_4 = 10 - (-90) = 100$ \checkmark
+        \item Verify: $-10r_4 = -10(-90) = 900 = c$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Alternative Computation Path}:
+    \begin{itemize}
+        \item Method 1: $f(1) = 91 \cdot g(1) = 91 \cdot (-77)$
+        \item Method 2: $f(1) = 1 + 1 + b + 100 + c$
+        \begin{align*}
+            b &= 1 - ar_4 = 1 - (-89)(-90) = 1 - 8010 = -8009 \\
+            c &= 900 \\
+            f(1) &= 1 + 1 - 8009 + 100 + 900 = -7007 \text{ \checkmark}
+        \end{align*}
+    \end{itemize}
+    
+    \item \textbf{Arithmetic Verification}:
+    \begin{itemize}
+        \item $91 \times 77 = 91 \times (80-3) = 7280 - 273 = 7007$
+        \item $f(1) = -7007$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Validation}:
+    \begin{itemize}
+        \item (C) $-7007 = -7 \times 1001 = -7 \times 7 \times 11 \times 13 = -49 \times 143 = -91 \times 77$ \checkmark
+        \item Pattern matches our computation
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Confidence Indicators:}
+\begin{itemize}[leftmargin=*]
+    \item \textcolor{green!70!black}{\textbf{Positive:}} Two independent methods give same answer
+    \item \textcolor{green!70!black}{\textbf{Positive:}} All coefficient equations are consistent
+    \item \textcolor{green!70!black}{\textbf{Positive:}} Answer matches expected pattern from choices
+    \item \textcolor{green!70!black}{\textbf{Positive:}} Arithmetic checks out ($91 \times 77 = 7007$)
+\end{itemize}
+
+\textbf{Final Confidence Level: 98\%} (High confidence, verified multiple ways)
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Complete Solution Roadmap}
+
+\subsubsection*{Step 1: Establish Factorization (30 seconds)}
+
+Since $g(x)$ has degree 3 with three distinct roots, and $f(x)$ has degree 4 with the same three roots, we can write:
+\[f(x) = g(x) \cdot (x - r_4)\]
+where $r_4$ is the fourth root of $f(x)$ (not a root of $g(x)$).
+
+\textbf{Checkpoint:} Confirmed that $f$ and $g$ are both monic (leading coefficient 1).
+
+\subsubsection*{Step 2: Expand Factorization (1 minute)}
+
+\begin{align*}
+f(x) &= (x^3 + ax^2 + x + 10)(x - r_4) \\
+&= x^4 - r_4x^3 + ax^3 - ar_4x^2 + x^2 - r_4x + 10x - 10r_4 \\
+&= x^4 + (a-r_4)x^3 + (1-ar_4)x^2 + (10-r_4)x - 10r_4
+\end{align*}
+
+\textbf{Checkpoint:} Expansion complete, ready to match with $f(x) = x^4 + x^3 + bx^2 + 100x + c$.
+
+\subsubsection*{Step 3: Match Coefficients (1 minute)}
+
+Comparing coefficients of $f(x) = x^4 + x^3 + bx^2 + 100x + c$:
+
+\begin{align}
+x^3: \quad a - r_4 &= 1 \tag{1} \\
+x^2: \quad 1 - ar_4 &= b \tag{2} \\
+x^1: \quad 10 - r_4 &= 100 \tag{3} \\
+x^0: \quad -10r_4 &= c \tag{4}
+\end{align}
+
+\textbf{Checkpoint:} Four equations in four unknowns $(a, r_4, b, c)$.
+
+\subsubsection*{Step 4: Solve for $r_4$ and $a$ (1 minute)}
+
+From equation (3):
+\[10 - r_4 = 100 \implies r_4 = -90\]
+
+From equation (1):
+\[a - r_4 = 1 \implies a - (-90) = 1 \implies a = -89\]
+
+\textbf{Checkpoint:} Found $r_4 = -90$ and $a = -89$. Can now compute $f(1)$.
+
+\textbf{Alternative Path:} Could solve for $b$ and $c$ as well:
+\begin{align*}
+b &= 1 - ar_4 = 1 - (-89)(-90) = 1 - 8010 = -8009 \\
+c &= -10r_4 = -10(-90) = 900
+\end{align*}
+But we don't need these for computing $f(1)$ via factorization.
+
+\subsubsection*{Step 5: Compute $f(1)$ (1.5 minutes)}
+
+Using the factorization $f(x) = g(x)(x - r_4)$:
+\[f(1) = g(1) \cdot (1 - r_4) = g(1) \cdot (1 - (-90)) = g(1) \cdot 91\]
+
+Evaluate $g(1)$:
+\begin{align*}
+g(1) &= 1^3 + a \cdot 1^2 + 1 + 10 \\
+&= 1 + a + 1 + 10 \\
+&= 12 + a \\
+&= 12 + (-89) \\
+&= -77
+\end{align*}
+
+Therefore:
+\[f(1) = 91 \times (-77) = -7007\]
+
+\textbf{Checkpoint:} Final answer is $\boxed{-7007}$, which is choice \textbf{(C)}.
+
+\subsubsection*{Common Pitfalls to Avoid}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Sign errors}: Carefully track negative signs when $r_4 = -90$ and $a = -89$
+    \item \textbf{Expansion errors}: When expanding $(x-r_4)g(x)$, remember $-r_4 \cdot x = -r_4x$
+    \item \textbf{Arithmetic errors}: $91 \times 77 = 7007$, not $7070$ or $7700$
+    \item \textbf{Premature calculation}: Don't try to find actual roots $r_1, r_2, r_3$; work with coefficients only
+    \item \textbf{Forgetting to find $a$}: Must find $a$ before computing $g(1)$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Target Time Allocation:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem 23/25}: Allocate 4-6 minutes
+    \item \textbf{Actual solution}: 4-5 minutes if executed cleanly
+    \item \textbf{Verification}: 1-2 minutes
+    \item \textbf{Total}: 5-7 minutes is reasonable
+\end{itemize}
+
+\textbf{Time-Saving Strategies:}
+\begin{enumerate}[leftmargin=*]
+    \item Recognize factorization immediately (saves 2 minutes vs. polynomial long division)
+    \item Use only equations (1) and (3) to find $a$ and $r_4$ (don't compute $b$ and $c$ unless needed)
+    \item Compute $f(1) = 91 \cdot g(1)$ directly rather than finding all coefficients
+\end{enumerate}
+
+\subsection*{B. Prioritization Strategy}
+
+\textbf{Problem Characteristics:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Difficulty}: Hard (Problem 23)
+    \item \textbf{Solve Rate}: Approximately 15-25\% of students
+    \item \textbf{Value}: 6 points (if on AIME scale)
+    \item \textbf{Time vs. Reward}: High value if you recognize the technique
+\end{itemize}
+
+\textbf{Decision Points:}
+\begin{itemize}[leftmargin=*]
+    \item If factorization insight doesn't come in 1 minute: mark and move on
+    \item If algebra becomes messy after 3 minutes: consider switching to Vieta's approach or move on
+    \item If you solve problems 1-22 with time remaining: definitely attempt this
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Soft Abandon Triggers:}
+\begin{itemize}[leftmargin=*]
+    \item After 5 minutes without clear progress
+    \item If sign errors keep appearing (>2 arithmetic mistakes)
+    \item If you're uncertain whether $f(x) = g(x)(x-r_4)$ or $f(x) = (x-r_4)g(x)$ matters (it doesn't, but confusion is a red flag)
+\end{itemize}
+
+\textbf{Hard Abandon Triggers:}
+\begin{itemize}[leftmargin=*]
+    \item Algebra becoming unmanageable (5+ terms per equation)
+    \item Made same sign error 3+ times
+    \item Cannot remember Vieta's formulas and coefficient relationships
+\end{itemize}
+
+\subsection*{D. Answer Format Management}
+
+\textbf{AMC12 Multiple Choice Strategy:}
+\begin{itemize}[leftmargin=*]
+    \item Answer is \textbf{(C) $-7007$}
+    \item Check: $-7007 = -91 \times 77$ matches pattern
+    \item If unsure between answers, note that $7007 = 7 \times 1001$ has nice factorization
+    \item Pattern of answers suggests looking for products like $91 \times 77$, $101 \times 89$, etc.
+\end{itemize}
+
+\textbf{Confidence Check Before Bubbling:}
+\begin{itemize}[leftmargin=*]
+    \item Verified: $r_4 = -90$, $a = -89$
+    \item Verified: $g(1) = -77$
+    \item Verified: $91 \times 77 = 7007$
+    \item Confidence: 98\% $\Rightarrow$ \textbf{Bubble answer (C)}
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: 
+
+The critical realization is that since $g(x)$ has degree 3 and $f(x)$ has degree 4, and all roots of $g(x)$ are roots of $f(x)$, we must have:
+\[f(x) = g(x) \cdot (x - r_4)\]
+
+This allows us to find $f(1)$ without ever computing the actual roots $r_1, r_2, r_3$. We only need:
+\[f(1) = g(1) \cdot (1 - r_4)\]
+
+Once we find $r_4 = -90$ (from the $x^1$ coefficient) and $a = -89$ (from the $x^3$ coefficient), the calculation becomes straightforward.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning: Common Pitfall}
+
+\textbf{DO NOT} attempt to find the actual roots $r_1, r_2, r_3$ of $g(x)$!
+
+The cubic $g(x) = x^3 - 89x^2 + x + 10$ does not factor nicely, and trying to solve it will waste valuable time. The problem is designed so that you work with coefficients and Vieta's formulas, not with explicit root values.
+
+\textbf{Also watch out for:}
+\begin{itemize}
+    \item Sign errors: $r_4 = -90$ (negative), $a = -89$ (negative)
+    \item Order of operations: $f(1) = 91 \times (-77)$, not $-91 \times 77$
+    \item Arithmetic: $91 \times 77 = 7007$, verify this calculation
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip: Answer Choice Reconnaissance}
+
+Before diving into algebra, look at the answer choices:
+\begin{itemize}
+    \item All answers: $-1001k$ for $k \in \{5,6,7,8,9\}$
+    \item Factor: $1001 = 7 \times 11 \times 13$
+    \item Answer (C): $-7007 = -7^2 \times 11 \times 13 = -91 \times 77$
+\end{itemize}
+
+This pattern suggests we should expect $f(1)$ to factor as a product of two 2-digit numbers. When we get $f(1) = 91 \times (-77)$, this confirms we're on the right track!
+
+\textbf{Competition Strategy:} 
+\begin{itemize}
+    \item If you're running out of time and have computed $g(1) = -77$, you can guess that $f(1) = 91 \times (-77) = -7007$ by recognizing that $91 = 7 \times 13$ and $77 = 7 \times 11$ both fit the pattern.
+    \item This is a \textbf{high-probability educated guess} that could save 2-3 minutes on verification.
+\end{itemize}
+\end{tipbox}
+
+\section*{Final Answer}
+
+\[\boxed{f(1) = -7007 \quad \text{Answer: (C)}}\]
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 98\% (verified with multiple methods)
+    \item \textbf{Verification Applied}: Level 5 Thorough (coefficient consistency, alternative computation, arithmetic check, answer pattern validation)
+    \item \textbf{Flag for Review}: No (high confidence, clean solution)
+    \item \textbf{Time Spent}: 5-6 minutes (solution + verification)
+    \item \textbf{Estimated Time}: 4-6 minutes for Problem 23 (on target)
+\end{itemize}
+
+\end{document}

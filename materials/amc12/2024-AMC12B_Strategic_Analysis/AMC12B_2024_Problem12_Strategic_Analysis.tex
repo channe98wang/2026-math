@@ -1,0 +1,832 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12B 2024 Problem 12 - Strategic Analysis
+% Framework Version: 2.1 (Enhanced for COMC)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2024 AMC 12B Problem 12}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+% Special highlight boxes
+\newtcolorbox{keyinsightbox}{
+    colback=gold!20,
+    colframe=gold,
+    title=\textbf{KEY INSIGHT},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!80!black,
+    title=\textbf{WARNING},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    breakable
+}
+
+\newtcolorbox{protipbox}{
+    colback=green!10,
+    colframe=green!80!black,
+    title=\textbf{PRO TIP},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt
+}
+
+\title{\textbf{2024 AMC 12B Problem 12:\\Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+Suppose $z$ is a complex number with positive imaginary part, with real part greater than $1$, and with $|z| = 2$. In the complex plane, the four points $0$, $z$, $z^2$, and $z^3$ are the vertices of a quadrilateral with area $15$. What is the imaginary part of $z$?
+
+\[
+\textbf{(A) } \frac{3}{4} \qquad 
+\textbf{(B) } 1 \qquad 
+\textbf{(C) } \frac{4}{3} \qquad 
+\textbf{(D) } \frac{3}{2} \qquad 
+\textbf{(E) } \frac{5}{3}
+\]
+
+\vspace{1em}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type:} To Find -- determine the imaginary part of a complex number
+    \item \textbf{Difficulty Band:} Mid-band (Problem 12 of 25)
+    \begin{itemize}
+        \item Expected time: 3-5 minutes
+        \item Requires complex number geometry and area calculations
+        \item Tests understanding of complex plane and geometric relationships
+    \end{itemize}
+    \item \textbf{Competition Context:} AMC 12 (75 minutes, 25 problems, multiple choice)
+    \item \textbf{Mathematical Domain:} Complex Numbers with Geometry (cross-domain)
+    \item \textbf{Source Context:} 2024 AMC 12B -- recent contest problem
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+
+\textbf{Given Information:}
+\begin{itemize}
+    \item $z$ is a complex number
+    \item $\text{Im}(z) > 0$ (positive imaginary part)
+    \item $\text{Re}(z) > 1$ (real part greater than 1)
+    \item $|z| = 2$ (modulus is 2)
+    \item Points $0, z, z^2, z^3$ form a quadrilateral
+    \item Area of quadrilateral = 15
+\end{itemize}
+
+\textbf{Constraints:}
+\begin{itemize}
+    \item Modulus constraint: $|z| = 2$ restricts $z$ to a circle of radius 2
+    \item Positivity constraints: $\text{Im}(z) > 0$ and $\text{Re}(z) > 1$ restrict to first quadrant, right half
+    \item Combined: $z$ is in the arc of the circle $|z| = 2$ where both conditions hold
+\end{itemize}
+
+\textbf{Objective:}
+\begin{itemize}
+    \item Find $\text{Im}(z)$ (the imaginary part of $z$)
+    \item Must match one of five given answer choices
+    \item All choices are rational numbers between $\frac{3}{4}$ and $\frac{5}{3}$
+\end{itemize}
+
+\textbf{Hidden Assumptions \& Key Observations:}
+\begin{itemize}
+    \item Powers of $z$ create geometric progression in the complex plane
+    \item If $z = re^{i\theta}$, then $z^n = r^n e^{in\theta}$ (rotation and scaling)
+    \item Since $|z| = 2$: $|z^2| = 4$ and $|z^3| = 8$
+    \item The angle argument is preserved multiplicatively: $\arg(z^n) = n \cdot \arg(z)$
+    \item Area can be computed via triangulation or Shoelace formula
+\end{itemize}
+
+\textbf{Answer Choice Leverage:}
+\begin{itemize}
+    \item All choices are "nice" fractions
+    \item Choice (D) $\frac{3}{2}$ is particularly clean
+    \item Can verify answer quickly: if $\text{Im}(z) = \frac{3}{2}$ and $|z| = 2$, then $\text{Re}(z) = \sqrt{4 - \frac{9}{4}} = \frac{\sqrt{7}}{2} \approx 1.32 > 1$ $\checkmark$
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+
+\textbf{Hypothesis:} 
+We need to express the area of the quadrilateral $0, z, z^2, z^3$ in terms of the components (or argument) of $z$, then solve for $\text{Im}(z)$.
+
+\textbf{Conclusion Goal:}
+Express $\text{Im}(z)$ explicitly and match to answer choices.
+
+\textbf{Notation:}
+\begin{itemize}
+    \item Polar form: $z = 2e^{i\theta} = 2(\cos\theta + i\sin\theta)$
+    \item Rectangular form: $z = a + bi$ where $a^2 + b^2 = 4$
+    \item Target: Find $b = \text{Im}(z)$
+\end{itemize}
+
+\textbf{Key Bridge:}
+The constraint $|z| = 2$ combined with the area constraint creates a system that determines $\theta$ (or equivalently, the imaginary part).
+\end{problemconfigbox}
+
+\vspace{1em}
+
+\begin{keyinsightbox}
+\textbf{Central Insight:} Powers of a complex number $z = re^{i\theta}$ create points at distances $r, r^2, r^3, \ldots$ from the origin, all rotated by equal angular increments of $\theta$. This geometric structure allows us to compute the quadrilateral area by decomposing it into triangles with a common vertex at the origin.
+\end{keyinsightbox}
+
+\vspace{1em}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+
+\textbf{Mental Toughness:}
+\begin{itemize}
+    \item Complex numbers can be intimidating -- stay calm and translate to geometry
+    \item This is mid-band, so there should be an elegant approach
+    \item Don't get bogged down in algebraic expansion unless necessary
+\end{itemize}
+
+\textbf{Creativity Cultivation:}
+\begin{itemize}
+    \item Visualize the complex plane with the four points
+    \item Recognize that powers of $z$ create a "fan" or "spiral" pattern
+    \item Consider both polar (trigonometric) and rectangular representations
+\end{itemize}
+
+\subsection*{B. Investigation Methods}
+
+\textbf{Get Your Hands Dirty -- Sketch the Situation:}
+\begin{itemize}
+    \item Origin is at $(0, 0)$
+    \item $z$ is at distance 2 from origin, in first quadrant (right half)
+    \item $z^2$ is at distance 4, rotated by angle $\theta$ from $z$
+    \item $z^3$ is at distance 8, rotated by angle $2\theta$ from $z$
+    \item The quadrilateral vertices are $O, z, z^2, z^3$ (not necessarily in that order for perimeter)
+\end{itemize}
+
+\textbf{Simplify the Configuration:}
+\begin{itemize}
+    \item Use polar form: $z = 2e^{i\theta}$, so $z^n = 2^n e^{in\theta}$
+    \item Distances: $|z| = 2$, $|z^2| = 4$, $|z^3| = 8$
+    \item Angles from positive real axis: $\theta, 2\theta, 3\theta$
+\end{itemize}
+
+\textbf{Pattern Recognition -- Area Decomposition:}
+\begin{itemize}
+    \item The quadrilateral $O - z - z^2 - z^3$ can be split into triangles
+    \item Natural split: $\triangle Ozz^2$ and $\triangle Oz^2z^3$
+    \item Both triangles share vertex $O$
+    \item Triangle area formula: $\frac{1}{2}|OA| \cdot |OB| \cdot \sin(\angle AOB)$
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+
+\textbf{Proof Framework (Geometric Approach):}
+\begin{enumerate}
+    \item Express $z$ in polar form: $z = 2e^{i\theta}$
+    \item Identify distances: $OZ_1 = 2$, $OZ_2 = 4$, $OZ_3 = 8$ (where $Z_k$ represents $z^k$)
+    \item Recognize equal angles: $\angle Z_1OZ_2 = \angle Z_2OZ_3 = \theta$
+    \item Compute triangle areas:
+    \begin{itemize}
+        \item $[OZ_1Z_2] = \frac{1}{2}(2)(4)\sin\theta = 4\sin\theta$
+        \item $[OZ_2Z_3] = \frac{1}{2}(4)(8)\sin\theta = 16\sin\theta$
+    \end{itemize}
+    \item Total area: $4\sin\theta + 16\sin\theta = 20\sin\theta = 15$
+    \item Solve: $\sin\theta = \frac{3}{4}$
+    \item Find imaginary part: $\text{Im}(z) = |z|\sin\theta = 2 \cdot \frac{3}{4} = \frac{3}{2}$
+\end{enumerate}
+
+\textbf{Alternative Framework (Algebraic/Shoelace):}
+\begin{enumerate}
+    \item Express $z = a + bi$ with $a^2 + b^2 = 4$
+    \item Compute $z^2$ and $z^3$ algebraically
+    \item Apply Shoelace formula to vertices $(0,0), (a,b), (a^2-b^2, 2ab), (a^3-3ab^2, 3a^2b-b^3)$
+    \item Simplify using $a^2 = 4 - b^2$
+    \item Obtain $|10b| = 15$, hence $b = \frac{3}{2}$
+\end{enumerate}
+\end{strategicbox}
+
+\vspace{1em}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+
+\textbf{Primary Tactic: Geometric Decomposition}
+\begin{itemize}
+    \item \textbf{Triangulation:} Split complex polygon into triangles with common vertex
+    \item \textbf{Origin as Pivot:} Using origin as common vertex simplifies distance calculations
+    \item \textbf{Polar Representation:} Leverages the natural structure of complex number powers
+\end{itemize}
+
+\textbf{Secondary Tactic: Complex Number Geometry}
+\begin{itemize}
+    \item \textbf{Modulus Property:} $|z^n| = |z|^n$ (powers scale distances)
+    \item \textbf{Argument Property:} $\arg(z^n) = n \cdot \arg(z)$ (powers rotate angles)
+    \item \textbf{Polar Form:} $z = re^{i\theta}$ naturally encodes both properties
+\end{itemize}
+
+\textbf{Tertiary Tactic: Area Computation Methods}
+\begin{itemize}
+    \item \textbf{Triangle Formula:} Area $= \frac{1}{2}ab\sin C$ for sides $a, b$ with included angle $C$
+    \item \textbf{Shoelace Formula:} For polygon with vertices $(x_1, y_1), \ldots, (x_n, y_n)$
+    \item \textbf{Cross Product:} Area $= \frac{1}{2}|\vec{OA} \times \vec{OB}|$ for triangle
+\end{itemize}
+
+\subsection*{B. Cross-Domain Techniques}
+
+\textbf{Complex Numbers $\leftrightarrow$ Geometry:}
+\begin{itemize}
+    \item Complex plane as 2D Euclidean space
+    \item Multiplication by $z$ as rotation + scaling transformation
+    \item Modulus as distance from origin
+    \item Argument as angle from positive real axis
+\end{itemize}
+
+\textbf{Algebra $\leftrightarrow$ Trigonometry:}
+\begin{itemize}
+    \item Can work purely algebraically with $z = a + bi$
+    \item Or use trigonometric form $z = r(\cos\theta + i\sin\theta)$
+    \item Each has advantages depending on the problem structure
+\end{itemize}
+
+\textbf{Coordinate Geometry:}
+\begin{itemize}
+    \item Treating complex numbers as coordinate points
+    \item Using geometric formulas (distance, area) in coordinate form
+    \item Shoelace theorem bridges algebra and geometry
+\end{itemize}
+\end{tacticalbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Competition Hack:} When dealing with powers of complex numbers and geometric configurations, polar form is almost always the way to go! The multiplicative structure of arguments and moduli makes everything cleaner. Save algebraic expansion as a backup method.
+\end{protipbox}
+
+\vspace{1em}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+
+\textbf{Pattern Signature:} Complex number with constrained modulus, powers forming geometric figure, area computation
+
+\textbf{Trigger Recognition:}
+\begin{itemize}
+    \item \textbf{``$|z| = 2$''} $\to$ Think polar form, $z = 2e^{i\theta}$
+    \item \textbf{``$z, z^2, z^3$''} $\to$ Geometric progression, equal angle increments
+    \item \textbf{``quadrilateral with area''} $\to$ Need area formula (triangulation or Shoelace)
+    \item \textbf{``imaginary part of $z$''} $\to$ Target is $\text{Im}(z) = |z|\sin(\arg(z))$
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+
+\textbf{Approach 1: Polar + Triangulation (Recommended)}
+\begin{itemize}
+    \item \textbf{Why:} Most elegant, exploits structure of complex powers
+    \item \textbf{Setup:} $z = 2e^{i\theta}$, so $z^k = 2^k e^{ik\theta}$
+    \item \textbf{Method:} Split quadrilateral into two triangles, compute using $\frac{1}{2}ab\sin C$
+    \item \textbf{Result:} Clean equation $20\sin\theta = 15$
+    \item \textbf{Time:} $\sim$3 minutes
+\end{itemize}
+
+\textbf{Approach 2: Rectangular + Shoelace}
+\begin{itemize}
+    \item \textbf{Why:} More computational but avoids trigonometry
+    \item \textbf{Setup:} $z = a + bi$ with $a^2 + b^2 = 4$
+    \item \textbf{Method:} Expand $z^2, z^3$ algebraically, apply Shoelace
+    \item \textbf{Result:} Many terms, but clever cancellation yields $|10b| = 15$
+    \item \textbf{Time:} $\sim$5-6 minutes (more algebraic manipulation)
+\end{itemize}
+
+\textbf{Approach 3: Polar + Shoelace (Hybrid)}
+\begin{itemize}
+    \item \textbf{Why:} Combines structure of polar form with systematic Shoelace
+    \item \textbf{Setup:} Express vertices as $(2\cos\theta, 2\sin\theta), (4\cos 2\theta, 4\sin 2\theta), \ldots$
+    \item \textbf{Method:} Apply Shoelace, use angle subtraction formulas
+    \item \textbf{Result:} $20|\sin\theta| = 15$
+    \item \textbf{Time:} $\sim$4 minutes
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Recommended Path for Competition:}
+\begin{enumerate}
+    \item Quickly sketch the configuration (30 sec)
+    \item Recognize polar form is natural (10 sec)
+    \item Set up triangulation: two triangles with origin as common vertex (30 sec)
+    \item Apply area formula to each triangle (1 min)
+    \item Solve for $\sin\theta$ (30 sec)
+    \item Compute $\text{Im}(z) = 2\sin\theta$ (30 sec)
+    \item Verify answer makes sense (30 sec)
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{Polar vs. Algebraic:}
+\begin{itemize}
+    \item Polar form is cleaner for this problem
+    \item Algebraic approach works but requires more computation
+    \item If uncomfortable with polar form, algebraic is valid backup
+    \item \textbf{Decision:} Use polar unless specifically avoiding trigonometry
+\end{itemize}
+\end{techniquesbox}
+
+\vspace{1em}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Recommended Level: 4 (Integration Test)}
+
+\textbf{Justification:}
+\begin{itemize}
+    \item Mid-band problem with moderate-high stakes
+    \item Multiple computational steps to verify
+    \item Answer needs to satisfy all constraints
+    \item Time budget: approximately 45 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+
+\textbf{Primary Verification: Constraint Satisfaction}
+\begin{itemize}
+    \item Check $|z| = 2$: If $\text{Im}(z) = \frac{3}{2}$, then $\text{Re}(z) = \sqrt{4 - \frac{9}{4}} = \frac{\sqrt{7}}{2}$
+    \item Verify $\text{Re}(z) > 1$: $\frac{\sqrt{7}}{2} \approx 1.32 > 1$ $\checkmark$
+    \item Verify $\text{Im}(z) > 0$: $\frac{3}{2} > 0$ $\checkmark$
+    \item All constraints satisfied $\checkmark$
+\end{itemize}
+
+\textbf{Secondary Verification: Arithmetic Check}
+\begin{itemize}
+    \item If $\sin\theta = \frac{3}{4}$, then $\text{Im}(z) = 2 \cdot \frac{3}{4} = \frac{3}{2}$ $\checkmark$
+    \item Area calculation: $20\sin\theta = 20 \cdot \frac{3}{4} = 15$ $\checkmark$
+    \item Triangle areas: $4 \cdot \frac{3}{4} + 16 \cdot \frac{3}{4} = 3 + 12 = 15$ $\checkmark$
+\end{itemize}
+
+\textbf{Tertiary Verification: Answer Choice Reasonableness}
+\begin{itemize}
+    \item For $|z| = 2$, imaginary part can range from 0 to 2
+    \item $\frac{3}{2} = 1.5$ is well within this range
+    \item Given $\text{Re}(z) > 1$, imaginary part must be $< \sqrt{3} \approx 1.73$
+    \item $\frac{3}{2} < \sqrt{3}$ $\checkmark$
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Confidence Level: Very High (95\%)}
+
+\textbf{Reasoning:}
+\begin{itemize}
+    \item Geometric approach is standard and well-understood
+    \item Arithmetic is straightforward
+    \item All constraints verified
+    \item Answer has appropriate magnitude
+    \item Multiple solution paths converge to same answer
+\end{itemize}
+
+\textbf{Risk Assessment:}
+\begin{itemize}
+    \item Low risk of conceptual error (standard polar representation)
+    \item Low risk of arithmetic error (simple fractions)
+    \item Very low risk of constraint violation (all checks pass)
+\end{itemize}
+\end{verificationbox}
+
+\vspace{1em}
+
+\begin{warningbox}
+\textbf{Common Mistake:} Students might forget that when computing areas of triangles using the formula $\frac{1}{2}ab\sin C$, the angle $C$ must be the \textit{included angle} between sides $a$ and $b$. In this problem, all angles are equal to $\theta$ because of the multiplicative structure of complex powers, but this needs to be recognized explicitly!
+\end{warningbox}
+
+\vspace{1em}
+
+\begin{solutionbox}
+\subsection*{Solution Roadmap -- Primary Approach (Polar + Triangulation)}
+
+\textbf{Step 1: Set Up Polar Representation (30 seconds)}
+\begin{itemize}
+    \item Given $|z| = 2$, write $z = 2e^{i\theta}$ where $\theta = \arg(z)$
+    \item Equivalently: $z = 2(\cos\theta + i\sin\theta)$
+    \item Then: $z^2 = 4e^{2i\theta}$ and $z^3 = 8e^{3i\theta}$
+\end{itemize}
+
+\textbf{Step 2: Identify Geometric Configuration (30 seconds)}
+\begin{itemize}
+    \item Plot points: $O$ at origin, $Z_1$ at $z$, $Z_2$ at $z^2$, $Z_3$ at $z^3$
+    \item Distances from origin:
+    \begin{itemize}
+        \item $OZ_1 = |z| = 2$
+        \item $OZ_2 = |z^2| = 4$
+        \item $OZ_3 = |z^3| = 8$
+    \end{itemize}
+    \item Angles from positive real axis: $\theta, 2\theta, 3\theta$
+    \item Key observation: $\angle Z_1OZ_2 = 2\theta - \theta = \theta$
+    \item Similarly: $\angle Z_2OZ_3 = 3\theta - 2\theta = \theta$
+\end{itemize}
+
+\textbf{Step 3: Decompose Quadrilateral into Triangles (15 seconds)}
+\begin{itemize}
+    \item Quadrilateral $OZ_1Z_2Z_3$ = $\triangle OZ_1Z_2$ + $\triangle OZ_2Z_3$
+    \item Both triangles share vertex $O$
+\end{itemize}
+
+\textbf{Step 4: Calculate Triangle Areas (1 minute)}
+
+For $\triangle OZ_1Z_2$:
+\begin{align*}
+[\triangle OZ_1Z_2] &= \frac{1}{2} \cdot OZ_1 \cdot OZ_2 \cdot \sin(\angle Z_1OZ_2) \\
+&= \frac{1}{2} \cdot 2 \cdot 4 \cdot \sin\theta \\
+&= 4\sin\theta
+\end{align*}
+
+For $\triangle OZ_2Z_3$:
+\begin{align*}
+[\triangle OZ_2Z_3] &= \frac{1}{2} \cdot OZ_2 \cdot OZ_3 \cdot \sin(\angle Z_2OZ_3) \\
+&= \frac{1}{2} \cdot 4 \cdot 8 \cdot \sin\theta \\
+&= 16\sin\theta
+\end{align*}
+
+\textbf{Step 5: Sum Areas and Set Equal to 15 (30 seconds)}
+\begin{align*}
+[OZ_1Z_2Z_3] &= [\triangle OZ_1Z_2] + [\triangle OZ_2Z_3] \\
+&= 4\sin\theta + 16\sin\theta \\
+&= 20\sin\theta
+\end{align*}
+
+Given that the area is 15:
+\begin{align*}
+20\sin\theta &= 15 \\
+\sin\theta &= \frac{15}{20} = \frac{3}{4}
+\end{align*}
+
+\textbf{Step 6: Find Imaginary Part (30 seconds)}
+\begin{align*}
+\text{Im}(z) &= |z| \cdot \sin(\arg(z)) \\
+&= 2 \cdot \sin\theta \\
+&= 2 \cdot \frac{3}{4} \\
+&= \frac{3}{2}
+\end{align*}
+
+\textbf{Step 7: Match to Answer Choice (5 seconds)}
+\begin{itemize}
+    \item Our result: $\frac{3}{2}$
+    \item This is answer choice \textbf{(D)}
+\end{itemize}
+
+\subsection*{Time Checkpoint}
+
+\textbf{Total Time: Approximately 3-4 minutes}
+\begin{itemize}
+    \item Setup and visualization: 1 min
+    \item Triangle decomposition: 15 sec
+    \item Area calculations: 1 min
+    \item Solving for $\sin\theta$: 30 sec
+    \item Finding imaginary part: 30 sec
+    \item Verification: 30 sec
+\end{itemize}
+
+This matches the expected time for a mid-band problem (Problem 12).
+
+\subsection*{Alternative Approach 1: Rectangular Coordinates + Shoelace}
+
+\textbf{Setup:} Let $z = a + bi$ with $a^2 + b^2 = 4$ (from $|z| = 2$)
+
+\textbf{Compute Powers:}
+\begin{itemize}
+    \item $z^2 = (a + bi)^2 = a^2 - b^2 + 2abi$
+    \item $z^3 = z \cdot z^2 = (a+bi)(a^2-b^2+2abi) = a^3 - 3ab^2 + (3a^2b - b^3)i$
+\end{itemize}
+
+\textbf{Vertices in Cartesian Coordinates:}
+\begin{itemize}
+    \item $P_0: (0, 0)$
+    \item $P_1: (a, b)$
+    \item $P_2: (a^2 - b^2, 2ab)$
+    \item $P_3: (a^3 - 3ab^2, 3a^2b - b^3)$
+\end{itemize}
+
+\textbf{Apply Shoelace Formula:}
+\begin{align*}
+\text{Area} &= \frac{1}{2}|x_1y_2 - x_2y_1 + x_2y_3 - x_3y_2 + x_3y_4 - x_4y_3 + x_4y_1 - x_1y_4| \\
+&= \frac{1}{2}|a(2ab) - (a^2-b^2)b + (a^2-b^2)(3a^2b-b^3) - (a^3-3ab^2)(2ab)| \\
+&\quad + \text{(more terms)} \\
+\end{align*}
+
+After extensive algebraic simplification (using $a^2 = 4 - b^2$):
+\begin{align*}
+\text{Area} &= \frac{1}{2}|20b| = 10|b| = 15
+\end{align*}
+
+Therefore:
+\begin{align*}
+|b| = \frac{15}{10} = \frac{3}{2}
+\end{align*}
+
+Since $b = \text{Im}(z) > 0$ (given), we have $b = \frac{3}{2}$.
+
+\textbf{Complexity Assessment:} This approach requires significant algebraic manipulation but avoids trigonometry. The key insight is that most terms cancel when $a^2 + b^2 = 4$ is substituted.
+
+\subsection*{Alternative Approach 2: Polar + Shoelace (Hybrid)}
+
+\textbf{Setup:} Express vertices in polar form:
+\begin{itemize}
+    \item $P_0: (0, 0)$
+    \item $P_1: (2\cos\theta, 2\sin\theta)$
+    \item $P_2: (4\cos 2\theta, 4\sin 2\theta)$
+    \item $P_3: (8\cos 3\theta, 8\sin 3\theta)$
+\end{itemize}
+
+\textbf{Apply Shoelace:}
+Using the cross-term structure and angle subtraction formulas:
+\begin{align*}
+\text{Area} &= \frac{1}{2}|8\sin(2\theta - \theta) + 32\sin(3\theta - 2\theta)| \\
+&= \frac{1}{2}|8\sin\theta + 32\sin\theta| \\
+&= \frac{1}{2}|40\sin\theta| \\
+&= 20|\sin\theta|
+\end{align*}
+
+Since $\theta$ corresponds to a complex number with positive imaginary part, $\sin\theta > 0$:
+\begin{align*}
+20\sin\theta &= 15 \\
+\sin\theta &= \frac{3}{4}
+\end{align*}
+
+Therefore:
+\begin{align*}
+\text{Im}(z) = 2\sin\theta = \frac{3}{2}
+\end{align*}
+
+\textbf{Elegance:} This combines the structure of polar form with the systematic approach of Shoelace.
+\end{solutionbox}
+
+\vspace{1em}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Time Allocation for Problem 12:}
+\begin{itemize}
+    \item Target time: 3-4 minutes
+    \item Maximum time: 5 minutes
+    \item Quick recognition of polar form: critical for efficiency
+\end{itemize}
+
+\textbf{Decision Point:}
+\begin{itemize}
+    \item If polar form and triangulation insight come quickly: proceed confidently (3 min)
+    \item If stuck on visualization: try algebraic Shoelace approach (5 min)
+    \item If still stuck after 4 minutes: make educated guess and move on
+\end{itemize}
+
+\subsection*{B. Answer Format Requirements}
+
+\textbf{AMC 12 Multiple Choice:}
+\begin{itemize}
+    \item Select one answer: \textbf{(D)} $\frac{3}{2}$
+    \item No partial credit
+    \item Guessing penalty: None (score 0 for wrong/blank)
+\end{itemize}
+
+\subsection*{C. Strategic Context}
+
+\textbf{Problem 12 Position Strategy:}
+\begin{itemize}
+    \item This is mid-band -- students with solid complex number background should attempt
+    \item Correct approach yields answer in 3-4 minutes
+    \item Worth 6 points (standard for all AMC problems)
+    \item Tests cross-domain thinking (complex numbers + geometry)
+\end{itemize}
+
+\textbf{Skills Tested:}
+\begin{itemize}
+    \item Complex number geometry (polar form)
+    \item Area calculation (triangulation or Shoelace)
+    \item Algebraic manipulation (if using rectangular form)
+    \item Constraint satisfaction
+\end{itemize}
+
+\subsection*{D. Risk Assessment}
+
+\textbf{Risk Level: Medium}
+
+\textbf{Factors:}
+\begin{itemize}
+    \item \textbf{Medium Risk:} Requires comfort with complex numbers and geometric interpretation
+    \item \textbf{Pitfall:} Might incorrectly compute angles or miss the equal-angle structure
+    \item \textbf{Mitigation:} Careful diagram and explicit angle calculations
+\end{itemize}
+
+\textbf{When to Skip:}
+\begin{itemize}
+    \item If complex numbers are a major weakness
+    \item If already behind on time and need easier problems
+    \item If no insight comes within 90 seconds of reading
+\end{itemize}
+
+\textbf{When to Commit:}
+\begin{itemize}
+    \item If you immediately see the polar form structure
+    \item If you're comfortable with area of triangles
+    \item If you have 4+ minutes available
+\end{itemize}
+\end{competitionbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Post-Exam Learning:} This problem beautifully illustrates the power of polar form for complex numbers. The multiplicative structure of arguments (angles add when you multiply) is a fundamental property that appears in many competition problems. Build your intuition by visualizing powers of complex numbers as rotations combined with scaling!
+\end{protipbox}
+
+\newpage
+
+\section*{Complete Solution Summary}
+
+\subsection*{Key Steps (Primary Method):}
+
+\begin{enumerate}
+    \item \textbf{Polar Representation:} 
+    
+    Express $z = 2e^{i\theta}$ (or $z = 2\cos\theta + 2i\sin\theta$)
+    
+    Then $z^2 = 4e^{2i\theta}$ and $z^3 = 8e^{3i\theta}$
+    
+    \item \textbf{Identify Distances:}
+    
+    $|z| = 2$, $|z^2| = 4$, $|z^3| = 8$
+    
+    \item \textbf{Recognize Equal Angles:}
+    
+    $\angle(z, z^2) = \angle(z^2, z^3) = \theta$ (angle increment between consecutive powers)
+    
+    \item \textbf{Decompose into Triangles:}
+    
+    Quadrilateral $O - z - z^2 - z^3$ splits into:
+    \begin{itemize}
+        \item $\triangle Ozz^2$ with area $\frac{1}{2}(2)(4)\sin\theta = 4\sin\theta$
+        \item $\triangle Oz^2z^3$ with area $\frac{1}{2}(4)(8)\sin\theta = 16\sin\theta$
+    \end{itemize}
+    
+    \item \textbf{Sum Areas:}
+    \[
+    \text{Total Area} = 4\sin\theta + 16\sin\theta = 20\sin\theta = 15
+    \]
+    
+    \item \textbf{Solve for $\sin\theta$:}
+    \[
+    \sin\theta = \frac{15}{20} = \frac{3}{4}
+    \]
+    
+    \item \textbf{Find Imaginary Part:}
+    \[
+    \text{Im}(z) = |z|\sin\theta = 2 \cdot \frac{3}{4} = \frac{3}{2}
+    \]
+\end{enumerate}
+
+\subsection*{Final Answer:}
+
+\begin{center}
+\fbox{\Large \textbf{(D) } $\displaystyle \frac{3}{2}$}
+\end{center}
+
+\vspace{1em}
+
+\subsection*{Verification:}
+\begin{itemize}
+    \item Check modulus: If $\text{Im}(z) = \frac{3}{2}$, then $\text{Re}(z) = \sqrt{4 - \frac{9}{4}} = \frac{\sqrt{7}}{2} \approx 1.32$ $\checkmark$
+    \item Constraint $\text{Re}(z) > 1$: $\frac{\sqrt{7}}{2} > 1$ $\checkmark$
+    \item Constraint $\text{Im}(z) > 0$: $\frac{3}{2} > 0$ $\checkmark$
+    \item Area check: $20 \cdot \frac{3}{4} = 15$ $\checkmark$
+    \item Matches answer choice (D) $\checkmark$
+\end{itemize}
+
+\subsection*{Key Takeaways:}
+
+\begin{enumerate}
+    \item \textbf{Polar Form for Powers:} When dealing with powers of complex numbers in geometric contexts, polar form $z = re^{i\theta}$ is almost always the cleanest approach.
+    
+    \item \textbf{Multiplicative Structure:} Powers of $z$ create a geometric progression: $|z|, |z|^2, |z|^3, \ldots$ for distances and $\theta, 2\theta, 3\theta, \ldots$ for angles.
+    
+    \item \textbf{Triangulation Strategy:} Complex polygons in the plane can often be decomposed into triangles sharing a common vertex (typically the origin).
+    
+    \item \textbf{Area Formula:} For a triangle with two sides of length $a$ and $b$ and included angle $C$, the area is $\frac{1}{2}ab\sin C$.
+    
+    \item \textbf{Multiple Approaches:} Both geometric (polar/triangulation) and algebraic (rectangular/Shoelace) methods work, but geometric is more elegant for this problem.
+    
+    \item \textbf{Imaginary Part Formula:} For $z = r(\cos\theta + i\sin\theta)$, we have $\text{Im}(z) = r\sin\theta$.
+\end{enumerate}
+
+\vspace{2em}
+
+\hrule
+
+\vspace{1em}
+
+\begin{center}
+\textit{Analysis completed using AMC12/COMC Strategic Problem-Solving Framework v2.1}
+
+\textit{Framework emphasizes: Cross-Domain Translation • Geometric Visualization • Multiple Solution Paths}
+\end{center}
+
+\end{document}

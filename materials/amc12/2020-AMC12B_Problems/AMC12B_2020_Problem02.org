@@ -1,0 +1,31 @@
+2020 AMC 12B Problems/Problem 2
+Contents
+1 Problem
+2 Solution
+3 Video Solution (HOW TO CREATIVELY THINK!!!)
+4 Video Solution
+5 See Also
+Problem
+What is the value of the following expression?
+\[\frac{100^2-7^2}{70^2-11^2} \cdot \frac{(70-11)(70+11)}{(100-7)(100+7)}\]
+$\textbf{(A) } 1 \qquad \textbf{(B) } \frac{9951}{9950} \qquad \textbf{(C) } \frac{4780}{4779} \qquad \textbf{(D) } \frac{108}{107} \qquad \textbf{(E) } \frac{81}{80}$
+Solution
+Using difference of squares to factor the left term, we get
+
+\[\frac{100^2-7^2}{70^2-11^2} \cdot \frac{(70-11)(70+11)}{(100-7)(100+7)} = \frac{(100-7)(100+7)}{(70-11)(70+11)} \cdot \frac{(70-11)(70+11)}{(100-7)(100+7)}.\]
+
+Cancelling all the terms, we get $\boxed{\textbf{(A) } 1}$ as the answer.
+Video Solution (HOW TO CREATIVELY THINK!!!)
+https://youtu.be/2z8MaCeqIKs
+~Education, the Study of Everything
+Video Solution
+https://youtu.be/WfTty8Fe5Fo
+See Also
+2020 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 1 Followed by 
+ Problem 3
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

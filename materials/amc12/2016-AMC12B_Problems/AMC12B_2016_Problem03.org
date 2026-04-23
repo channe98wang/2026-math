@@ -1,0 +1,36 @@
+2016 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 See Also
+Problem
+Let $x=-2016$ . What is the value of $\bigg|$ $||x|-x|-|x|$ $\bigg|$ $-x$ ?
+$\textbf{(A)}\ -2016\qquad\textbf{(B)}\ 0\qquad\textbf{(C)}\ 2016\qquad\textbf{(D)}\ 4032\qquad\textbf{(E)}\ 6048$
+Solution 1
+By: dragonfly
+First of all, lets plug in all of the $x$ 's into the equation.
+$\bigg|$ $||-2016|-(-2016)|-|-2016|$ $\bigg|$ $-(-2016)$
+Then we simplify to get
+$\bigg|$ $|2016+2016|-2016$ $\bigg|$ $+2016$
+which simplifies into
+$\bigg|$ $2016$ $\bigg|$ $+2016$
+and finally we get $\boxed{\textbf{(D)}\ 4032}$
+Solution 2
+Consider $x$ is negative.
+We replace all instances of $x$ with $|x|$ :
+$\bigg|$ $||x|+|x||-|x|$ $\bigg|$ $+|x|$
+$=$ $\bigg|$ $|2x|-|x|$ $\bigg|$ $+|x|$
+$=$ $|x|$ $+|x|$
+$=|2x|$
+$=4032 \implies \boxed{\textbf{(D)}}$
+omerselim1
+See Also
+2016 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions .
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions.

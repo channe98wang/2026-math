@@ -1,0 +1,732 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\geometry{margin=1in}
+
+% Define custom colored boxes
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title={\large\textbf{1. PROBLEM CONFIGURATION ANALYSIS}}
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title={\large\textbf{2. STRATEGIC FRAMEWORK APPLICATION}}
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title={\large\textbf{3. TACTICAL METHODOLOGY SELECTION}}
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!5!white,
+    colframe=orange!75!black,
+    title={\large\textbf{4. CONVERSION TECHNIQUES APPLICATION}}
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title={\large\textbf{5. VERIFICATION STRATEGY DESIGN}}
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title={\large\textbf{6. SOLUTION ROADMAP}}
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title={\large\textbf{7. COMPETITION STRATEGY INTEGRATION}}
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!10!white,
+    colframe=orange!75!black,
+    title={\textbf{Key Insight}}
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title={\textbf{Warning}}
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title={\textbf{Pro Tip}}
+}
+
+\title{\textbf{Strategic Analysis: 2017 AMC 12A Problem 13}\\\large Rate-Time-Distance with Variable Speed}
+\author{Comprehensive Framework Application}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+Driving at a constant speed, Sharon usually takes $180$ minutes to drive from her house to her mother's house. One day Sharon begins the drive at her usual speed, but after driving $\frac{1}{3}$ of the way, she hits a bad snowstorm and reduces her speed by $20$ miles per hour. This time the trip takes her a total of $276$ minutes. How many miles is the drive from Sharon's house to her mother's house?
+
+\[\textbf{(A)}\ 132 \qquad\textbf{(B)}\ 135 \qquad\textbf{(C)}\ 138 \qquad\textbf{(D)}\ 141 \qquad\textbf{(E)}\ 144\]
+
+\vspace{0.3cm}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - the total distance of Sharon's trip in miles
+    \item \textbf{Difficulty Band}: Mid-band (Problem 13 of 25), estimated 3-5 minutes for skilled students
+    \item \textbf{Competition Context}: AMC 12A 2017, 75-minute exam, 25 problems, multiple choice format
+    \item \textbf{Mathematical Domain}: Algebra (rate-time-distance problems) with arithmetic computation
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}[leftmargin=*]
+        \item Normal trip: 180 minutes at constant speed
+        \item Modified trip: First $\frac{1}{3}$ of distance at usual speed
+        \item Remaining $\frac{2}{3}$ of distance at reduced speed (20 mph slower)
+        \item Total time for modified trip: 276 minutes
+        \item Answer choices: 132, 135, 138, 141, 144 miles
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}[leftmargin=*]
+        \item Speed must remain positive throughout journey
+        \item Speed reduction is exactly 20 mph (not 20 mph/min - unit conversion required)
+        \item Distance traveled is the same in both scenarios
+        \item Time is measured in minutes, speed in mph (mixed units!)
+    \end{itemize}
+    
+    \item \textbf{Objective}: Find the total distance $D$ in miles from Sharon's house to her mother's house
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}[leftmargin=*]
+        \item Speed remains constant within each segment (no acceleration/deceleration time)
+        \item The transition point at $\frac{1}{3}$ distance is instantaneous
+        \item Units must be carefully managed (minutes vs hours for rate calculations)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}[leftmargin=*]
+        \item All choices are multiples of 3 (132=44×3, 135=45×3, 138=46×3, 141=47×3, 144=48×3)
+        \item This suggests the distance might factor nicely with $\frac{1}{3}$ and $\frac{2}{3}$ divisions
+        \item Middle answer (C) 138 is typical "trap" - can verify by back-substitution
+        \item Spread of answers (132-144) spans 12 miles, about 9\% range - requires precision
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Let $D$ = total distance (miles), $v$ = usual speed (mph)
+    
+    \item \textbf{Conclusion}: Determine the value of $D$ by establishing relationships between speed, time, and distance for both scenarios
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}[leftmargin=*]
+        \item $D$ = total distance in miles
+        \item $v$ = usual speed in miles per hour
+        \item $v - 20$ = reduced speed in snowstorm (mph)
+        \item Time conversions: 180 min = 3 hours, 276 min = 4.6 hours
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}[leftmargin=*]
+        \item This is a classic two-equation, two-unknown system
+        \item First equation from normal trip: $D = v \cdot 3$ (distance = rate × time)
+        \item Second equation from modified trip: time for first segment + time for second segment = 4.6 hours
+        \item The speed reduction of 20 mph causes a time increase of 96 minutes (276-180)
+        \item Expect algebraic solution, possibly with rational answer
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}[leftmargin=*]
+        \item Pure algebraic approach (primary)
+        \item Could use dimensional analysis to ensure unit consistency
+        \item Answer verification through back-substitution
+        \item Could potentially use answer choices to work backwards (less elegant but faster)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 
+    \begin{itemize}[leftmargin=*]
+        \item If algebra becomes messy, don't panic - this is a standard problem type
+        \item Keep track of units carefully (minutes vs hours) - write them explicitly
+        \item If first approach fails, try alternative: use minutes throughout instead of converting to hours
+        \item Expected solve time: 4-6 minutes including verification
+    \end{itemize}
+    
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}[leftmargin=*]
+        \item Consider using speed in miles per minute instead of mph to avoid conversion
+        \item Could set up equation directly in terms of $D$ only (eliminating $v$ early)
+        \item Alternative: use answer choices to test which distance satisfies both time constraints
+        \item Graphical thinking: the extra 96 minutes comes from going slower on $\frac{2}{3}$ of trip
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: 
+    \begin{itemize}[leftmargin=*]
+        \item If solution doesn't match answer choices, check unit conversion immediately
+        \item Common error: forgetting to convert 20 mph to miles per minute
+        \item Verify that $v > 20$ mph (otherwise snowstorm speed would be negative/zero)
+        \item Use dimensional analysis to catch unit errors before solving
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{itemize}[leftmargin=*]
+        \item Read problem twice: first for overall understanding, second to extract data
+        \item Identify this as a rate-time-distance problem with variable speed
+        \item Note the unit mismatch immediately: time in minutes, speed in mph
+        \item Recognize this as a standard algebraic setup (not trick question)
+    \end{itemize}
+    
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}[leftmargin=*]
+        \item Test answer (C) 138: Does $v = 46$ mph work?
+        \item Normal trip: $138 = v \cdot 3$ gives $v = 46$ mph
+        \item Modified trip: first $46$ miles at $46$ mph = 60 min, last $92$ miles at $26$ mph = about 212 min
+        \item Total: $60 + 212 = 272$ min $\neq 276$ min, so (C) is wrong
+        \item This test reveals we're close - try (B) 135 next
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: 
+    \begin{itemize}[leftmargin=*]
+        \item Before finding final answer, we need: expression for $D$ in terms of itself via time equation
+        \item Key step: simplify the time equation to isolate $D$
+        \item Final arithmetic will involve solving a linear equation
+        \item Last calculation: verify the answer satisfies both time constraints
+    \end{itemize}
+    
+    \item \textbf{Wishful Thinking}: 
+    \begin{itemize}[leftmargin=*]
+        \item Wish: could work entirely in minutes to avoid hour conversion
+        \item Reality: yes! Convert speed to miles per minute: $v$ mph = $\frac{v}{60}$ miles per minute
+        \item Wish: could eliminate one variable quickly
+        \item Reality: yes! From first equation $v = \frac{D}{3}$ hours = $\frac{D}{180}$ miles per minute
+    \end{itemize}
+    
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}[leftmargin=*]
+        \item Simplified version: What if Sharon traveled entire distance at usual speed?
+        \item Simplified version: What if speed reduction was 0 mph?
+        \item Simplified version: What if she hit storm immediately ($\frac{0}{3}$ of way)?
+        \item Pattern: Time increase of 96 min is due to slower speed on $\frac{2}{3}$ of distance
+    \end{itemize}
+    
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}[leftmargin=*]
+        \item If $D = 180$ miles: usual speed = 60 mph, storm speed = 40 mph
+        \item First segment: $60$ miles at $60$ mph = 60 min
+        \item Second segment: $120$ miles at $40$ mph = 180 min
+        \item Total: $240$ min $<$ 276 min, so actual distance is less than 180 miles
+        \item This confirms answer must be in range 132-144 miles
+    \end{itemize}
+    
+    \item \textbf{Visualization}: 
+    \begin{itemize}[leftmargin=*]
+        \item Draw timeline: [0 min: start] $\rightarrow$ [60 min: $\frac{1}{3}$ point, storm hits] $\rightarrow$ [276 min: arrive]
+        \item Distance diagram: [0] $\xrightarrow{\frac{D}{3} \text{ at } v}$ [$\frac{D}{3}$] $\xrightarrow{\frac{2D}{3} \text{ at } v-20}$ [$D$]
+        \item Speed comparison: Normal trip is one rectangle (area = $D$), modified trip is two rectangles
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Late-Band Playbook (If Applicable)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Position}: Mid-band (P13), not late-band
+    \item \textbf{Expected Difficulty}: Moderate - should be solvable with standard algebraic techniques
+    \item \textbf{Strategic Implications}: 
+    \begin{itemize}[leftmargin=*]
+        \item Don't overthink - this is a straightforward problem
+        \item Allocate 4-6 minutes maximum
+        \item If stuck after 3 minutes, use answer choice testing
+        \item High success rate expected - most students should get this with careful algebra
+    \end{itemize}
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactic}: Algebraic Equation Setup
+    \begin{itemize}[leftmargin=*]
+        \item Fundamental relationship: Distance = Rate × Time
+        \item Two-variable system reducible to one-variable equation
+        \item Standard substitution technique
+    \end{itemize}
+    
+    \item \textbf{Supporting Tactics}:
+    \begin{itemize}[leftmargin=*]
+        \item Unit conversion and dimensional analysis
+        \item Equation simplification and fraction manipulation
+        \item Linear equation solving
+        \item Back-substitution for verification
+    \end{itemize}
+    
+    \item \textbf{Domain-Specific Techniques}:
+    \begin{itemize}[leftmargin=*]
+        \item Rate-Time-Distance formula: $D = rt$
+        \item Additive time principle: Total time = Sum of segment times
+        \item Inverse relationship: $t = \frac{D}{r}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Crossover Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Technique 1}: Working with Ratios
+    \begin{itemize}[leftmargin=*]
+        \item Distance ratio: $\frac{1}{3} : \frac{2}{3}$
+        \item Speed ratio: $v : (v-20)$
+        \item Time relationship emerges from cross-multiplication
+    \end{itemize}
+    
+    \item \textbf{Technique 2}: Answer Choice Elimination
+    \begin{itemize}[leftmargin=*]
+        \item Can test each answer choice by back-substitution
+        \item Efficient for mid-band problems if algebra is uncertain
+        \item Reveals answer structure and reasonableness
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Logical Flow}:
+    \begin{enumerate}[leftmargin=*]
+        \item Establish variables: $D$ = distance, $v$ = usual speed
+        \item Normal trip equation: $D = 3v$ (or $D = 180 \cdot \frac{v}{60}$ in minutes)
+        \item Modified trip equation: $\frac{D/3}{v} + \frac{2D/3}{v-20} = 4.6$ hours
+        \item Substitute $v$ from first equation into second
+        \item Solve for $D$
+        \item Verify solution
+    \end{enumerate}
+    
+    \item \textbf{Key Transitions}:
+    \begin{itemize}[leftmargin=*]
+        \item From two variables to one: substitution $v = \frac{D}{180}$ miles per minute
+        \item From time in minutes to consistency: use minutes throughout, or convert all to hours
+        \item From complicated fraction to simplified form: common denominator technique
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Signature}: Rate problem with variable speed and segment-based time calculation
+    \item \textbf{Key Patterns Recognized}:
+    \begin{itemize}[leftmargin=*]
+        \item Rate-Time-Distance triangle: $D = rt$, $r = \frac{D}{t}$, $t = \frac{D}{r}$
+        \item Two-stage journey with speed change
+        \item Unit mismatch requiring conversion (minutes vs hours)
+        \item System of equations solvable by substitution
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{High-Probability Conversion}: Direct Algebraic Setup
+    \begin{itemize}[leftmargin=*]
+        \item Confidence: 95\% - this is the standard approach for this problem type
+        \item Method: Express both scenarios as equations, solve system
+        \item Advantage: Systematic, complete, verifiable
+        \item Drawback: Requires careful algebra and unit management
+    \end{itemize}
+    
+    \item \textbf{Medium-Probability Conversion}: Answer Choice Testing
+    \begin{itemize}[leftmargin=*]
+        \item Confidence: 80\% - works but less elegant
+        \item Method: Test each answer choice to see which satisfies both time constraints
+        \item Advantage: Faster if stuck on algebra, provides immediate verification
+        \item Drawback: Can be time-consuming if unlucky with choice order
+    \end{itemize}
+    
+    \item \textbf{Alternative Conversion}: Units in Minutes Throughout
+    \begin{itemize}[leftmargin=*]
+        \item Confidence: 90\% - cleaner unit management
+        \item Method: Express speed as miles per minute: $v$ mph = $\frac{v}{60}$ mi/min
+        \item Advantage: Avoids hour-minute conversion errors
+        \item Drawback: Speed reduction is $\frac{20}{60} = \frac{1}{3}$ mi/min - fractional arithmetic
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Approach}: Use algebraic setup with speed in miles per minute
+    \begin{itemize}[leftmargin=*]
+        \item From normal trip: $v = \frac{D}{180}$ mi/min
+        \item Speed reduction: $\frac{20 \text{ mph}}{60} = \frac{1}{3}$ mi/min
+        \item Time equation: $\frac{D/3}{D/180} + \frac{2D/3}{D/180 - 1/3} = 276$ minutes
+    \end{itemize}
+    
+    \item \textbf{Secondary Verification}: Back-substitute answer into original constraints
+    
+    \item \textbf{Tertiary Check}: Ensure answer matches one of the given choices exactly
+\end{itemize}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Potential Conflict}: Unit confusion (mph vs mi/min)
+    \begin{itemize}[leftmargin=*]
+        \item Resolution: Commit to one unit system early and stick to it
+        \item Write units explicitly next to every number
+    \end{itemize}
+    
+    \item \textbf{Potential Conflict}: Complicated fraction algebra
+    \begin{itemize}[leftmargin=*]
+        \item Resolution: Multiply through by common denominator immediately
+        \item Simplify before expanding
+    \end{itemize}
+    
+    \item \textbf{Potential Conflict}: Answer doesn't match choices
+    \begin{itemize}[leftmargin=*]
+        \item Resolution: Check unit conversion first, then re-examine algebra
+        \item Use dimensional analysis to identify error location
+    \end{itemize}
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Recommended Level}: Level 4 - Standard Comprehensive
+    
+    \item \textbf{Justification}:
+    \begin{itemize}[leftmargin=*]
+        \item Mid-band problem with moderate difficulty
+        \item Multiple opportunities for unit errors
+        \item Answer must be verified against both time constraints
+        \item Time budget allows 1-2 minutes for thorough verification
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Verification}: Back-Substitution
+    \begin{itemize}[leftmargin=*]
+        \item Test: Does distance $D$ give exactly 180 min at constant speed?
+        \item Test: Does distance $D$ give exactly 276 min with speed reduction?
+        \item Both must be satisfied simultaneously
+    \end{itemize}
+    
+    \item \textbf{Secondary Verification}: Unit Consistency Check
+    \begin{itemize}[leftmargin=*]
+        \item Verify: All times are in minutes (or all in hours)
+        \item Verify: Speed reduction is 20 mph (not mi/min)
+        \item Verify: Final answer is in miles
+    \end{itemize}
+    
+    \item \textbf{Tertiary Verification}: Reasonableness Check
+    \begin{itemize}[leftmargin=*]
+        \item Speed should be reasonable: 30-60 mph is typical driving speed
+        \item Distance should match answer choices
+        \item Time increase (96 min) should correspond to speed decrease on $\frac{2}{3}$ of distance
+    \end{itemize}
+    
+    \item \textbf{Sanity Check}: Sign and Magnitude
+    \begin{itemize}[leftmargin=*]
+        \item Distance must be positive
+        \item Usual speed must be greater than 20 mph (so storm speed is positive)
+        \item Modified trip time (276 min) > normal trip time (180 min) $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Specialized Domain Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Rate-Time-Distance Specific Checks}:
+    \begin{itemize}[leftmargin=*]
+        \item Verify dimensional consistency: $[\text{miles}] = [\text{mph}] \times [\text{hours}]$
+        \item Check that time formula is reciprocal: $t = \frac{D}{r}$, not $t = D \cdot r$
+        \item Confirm additive time principle: sum of segment times equals total time
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 75\% after algebraic solution
+    \item \textbf{Post-Verification Confidence}: 95\% after back-substitution confirms both time constraints
+    \item \textbf{Flag for Review?}: No, unless verification reveals discrepancy
+    \item \textbf{Confidence Indicators}:
+    \begin{itemize}[leftmargin=*]
+        \item High: Answer matches one of the given choices exactly
+        \item High: Both time constraints satisfied within rounding tolerance
+        \item Medium: Algebra was messy but final answer is clean
+        \item Low: Answer doesn't match choices or times don't add up
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Step 1: Set Up Variables and First Equation (1 minute)}
+\begin{itemize}[leftmargin=*]
+    \item Let $D$ = total distance in miles
+    \item Let $v$ = usual speed in miles per minute
+    \item Normal trip: $D = v \cdot 180$ (distance = rate × time)
+    \item Therefore: $v = \frac{D}{180}$ miles per minute
+    \item \textbf{Checkpoint}: Units are consistent (miles per minute × minutes = miles)
+\end{itemize}
+
+\textbf{Step 2: Set Up Second Equation for Modified Trip (1.5 minutes)}
+\begin{itemize}[leftmargin=*]
+    \item First segment: distance $\frac{D}{3}$, speed $v$, time $t_1 = \frac{D/3}{v} = \frac{D}{3v}$
+    \item Speed reduction: 20 mph = $\frac{20}{60} = \frac{1}{3}$ miles per minute
+    \item Storm speed: $v - \frac{1}{3}$ miles per minute
+    \item Second segment: distance $\frac{2D}{3}$, speed $v - \frac{1}{3}$, time $t_2 = \frac{2D/3}{v - 1/3} = \frac{2D}{3v - 1}$
+    \item Total time: $t_1 + t_2 = 276$ minutes
+    \item \textbf{Checkpoint}: Time equation is $\frac{D}{3v} + \frac{2D}{3v-1} = 276$
+\end{itemize}
+
+\textbf{Step 3: Substitute and Simplify (1.5 minutes)}
+\begin{itemize}[leftmargin=*]
+    \item Substitute $v = \frac{D}{180}$ into time equation:
+    \[\frac{D}{3 \cdot \frac{D}{180}} + \frac{2D}{3 \cdot \frac{D}{180} - 1} = 276\]
+    
+    \item Simplify first term: $\frac{D}{\frac{3D}{180}} = \frac{180D}{3D} = 60$
+    
+    \item Simplify second term: $\frac{2D}{\frac{3D}{180} - 1} = \frac{2D}{\frac{3D - 180}{180}} = \frac{360D}{3D - 180}$
+    
+    \item Time equation becomes: $60 + \frac{360D}{3D - 180} = 276$
+    
+    \item \textbf{Checkpoint}: First segment takes exactly 60 minutes (makes sense: $\frac{1}{3}$ of 180 min)
+\end{itemize}
+
+\textbf{Step 4: Solve for D (1.5 minutes)}
+\begin{itemize}[leftmargin=*]
+    \item Isolate fraction: $\frac{360D}{3D - 180} = 216$
+    
+    \item Cross-multiply: $360D = 216(3D - 180)$
+    
+    \item Expand: $360D = 648D - 38880$
+    
+    \item Rearrange: $360D - 648D = -38880$
+    
+    \item Simplify: $-288D = -38880$
+    
+    \item Solve: $D = \frac{38880}{288} = 135$ miles
+    
+    \item \textbf{Checkpoint}: Answer is 135, which matches choice (B)
+\end{itemize}
+
+\textbf{Step 5: Verify Solution (1 minute)}
+\begin{itemize}[leftmargin=*]
+    \item Check normal trip: $v = \frac{135}{180} = \frac{3}{4}$ mi/min = 45 mph
+    \item Time: $\frac{135 \text{ miles}}{45 \text{ mph}} = 3$ hours = 180 minutes $\checkmark$
+    
+    \item Check modified trip:
+    \begin{itemize}[leftmargin=*]
+        \item First $45$ miles at 45 mph: $\frac{45}{45} = 1$ hour = 60 min $\checkmark$
+        \item Storm speed: $45 - 20 = 25$ mph
+        \item Last $90$ miles at 25 mph: $\frac{90}{25} = 3.6$ hours = 216 min $\checkmark$
+        \item Total: $60 + 216 = 276$ minutes $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Checkpoint}: All conditions satisfied $\checkmark$
+\end{itemize}
+
+\subsection*{B. Alternative Approaches}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Alternative 1}: Work Entirely in Hours
+    \begin{itemize}[leftmargin=*]
+        \item Convert times: 180 min = 3 hr, 276 min = 4.6 hr
+        \item Normal trip: $D = 3v$ where $v$ is in mph
+        \item Modified trip: $\frac{D/3}{v} + \frac{2D/3}{v-20} = 4.6$ hours
+        \item Substitute $v = \frac{D}{3}$ and solve
+        \item Advantage: Stays in standard units (mph)
+        \item Drawback: Decimal arithmetic with 4.6 hours
+    \end{itemize}
+    
+    \item \textbf{Alternative 2}: Answer Choice Testing
+    \begin{itemize}[leftmargin=*]
+        \item Test (B) 135: $v = 45$ mph
+        \item First segment: 45 miles at 45 mph = 60 min
+        \item Second segment: 90 miles at 25 mph = 216 min
+        \item Total: 276 min $\checkmark$ matches!
+        \item Advantage: Quick if lucky with choice selection
+        \item Drawback: May need to test multiple choices
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Common Pitfalls and Avoidance}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pitfall 1}: Forgetting to convert 20 mph to miles per minute
+    \begin{itemize}[leftmargin=*]
+        \item \textit{Error}: Using $v - 20$ when $v$ is in mi/min
+        \item \textit{Consequence}: Wrong answer, won't match choices
+        \item \textit{Prevention}: Always write units explicitly; convert 20 mph $\rightarrow \frac{1}{3}$ mi/min
+    \end{itemize}
+    
+    \item \textbf{Pitfall 2}: Using $t = D \cdot r$ instead of $t = \frac{D}{r}$
+    \begin{itemize}[leftmargin=*]
+        \item \textit{Error}: Multiplying distance by speed to get time
+        \item \textit{Consequence}: Nonsensical equation
+        \item \textit{Prevention}: Remember: time = distance ÷ rate (goes up when speed goes down)
+    \end{itemize}
+    
+    \item \textbf{Pitfall 3}: Arithmetic errors in cross-multiplication
+    \begin{itemize}[leftmargin=*]
+        \item \textit{Error}: $360D = 648D - 38880$ simplifies incorrectly
+        \item \textit{Consequence}: Wrong value of $D$
+        \item \textit{Prevention}: Double-check sign when moving terms; verify final answer by back-substitution
+    \end{itemize}
+    
+    \item \textbf{Pitfall 4}: Misinterpreting "reduces speed by 20 mph"
+    \begin{itemize}[leftmargin=*]
+        \item \textit{Error}: Thinking speed becomes 20 mph (instead of reduced by 20)
+        \item \textit{Consequence}: Using speed of 20 mph for storm segment
+        \item \textit{Prevention}: Read carefully: "reduces...by" means subtract 20 from usual speed
+    \end{itemize}
+    
+    \item \textbf{Pitfall 5}: Calculating time for wrong distance fractions
+    \begin{itemize}[leftmargin=*]
+        \item \textit{Error}: Swapping $\frac{1}{3}$ and $\frac{2}{3}$ distances
+        \item \textit{Consequence}: Time equation is backwards
+        \item \textit{Prevention}: Draw diagram showing which segment is at which speed
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Time Allocation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Total Estimated Time}: 5-6 minutes
+    \begin{itemize}[leftmargin=*]
+        \item Problem reading and setup: 1 min
+        \item Equation formulation: 1.5 min
+        \item Algebraic solution: 1.5 min
+        \item Verification: 1 min
+        \item Buffer for corrections: 0.5 min
+    \end{itemize}
+    
+    \item \textbf{Time Checkpoints}:
+    \begin{itemize}[leftmargin=*]
+        \item If no equations set up after 1.5 min → re-read problem
+        \item If algebra not simplifying after 3 min → try answer choice testing
+        \item If answer doesn't match choices after 4 min → check unit conversion
+        \item If stuck after 5 min → flag for review, move to next problem
+    \end{itemize}
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 4-5 minutes (faster than average for mid-band)
+    \item \textbf{Maximum Time}: 6 minutes before considering abandonment
+    \item \textbf{Rationale}: This is a straightforward problem with standard techniques; spending more than 6 minutes suggests a fundamental misunderstanding
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Solve Immediately}: Yes - mid-band problems should be attempted before late-band
+    \item \textbf{Accessibility}: High - requires only algebra and careful unit management
+    \item \textbf{Return Priority}: If skipped, return with high priority (easier than most remaining problems)
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: Aim for 90\%+ confidence before moving on
+    \item \textbf{Verification Investment}: Spend 60 seconds on back-substitution
+    \item \textbf{Soft Abandon Trigger}: If algebra is not simplifying after 4 minutes
+    \item \textbf{Hard Abandon Trigger}: If made same algebraic error twice
+\end{itemize}
+
+\subsection*{D. Answer Format Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Multiple Choice Advantage}: Can eliminate obviously wrong answers
+    \begin{itemize}[leftmargin=*]
+        \item If $D = 132$ miles: $v = 44$ mph, storm speed = 24 mph
+        \item If $D = 144$ miles: $v = 48$ mph, storm speed = 28 mph
+        \item Middle answer (C) 138 is common "trap" from typical errors
+    \end{itemize}
+    
+    \item \textbf{Bubbling Strategy}: 
+    \begin{itemize}[leftmargin=*]
+        \item Mark answer immediately after verification
+        \item Double-check problem number (13) matches answer sheet
+        \item If time remains, re-verify calculation mentally
+    \end{itemize}
+\end{itemize}
+
+\subsection*{E. Strategic Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon} (flag and return):
+    \begin{itemize}[leftmargin=*]
+        \item Algebra becoming messy with fractions (>4 minutes elapsed)
+        \item Unsure about unit conversion (write down progress, try later)
+        \item Answer doesn't match choices after first attempt
+    \end{itemize}
+    
+    \item \textbf{Hard Abandon} (guess and move on):
+    \begin{itemize}[leftmargin=*]
+        \item Made computational error twice on same step
+        \item Cannot set up initial equations after 2 minutes
+        \item Emotional frustration setting in
+    \end{itemize}
+    
+    \item \textbf{Guessing Strategy}: 
+    \begin{itemize}[leftmargin=*]
+        \item If must guess: eliminate extreme values (A) and (E)
+        \item Middle values (B), (C), (D) are more likely
+        \item Answer (B) 135 is most "natural" (45 mph speed, factors nicely)
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The key insight is recognizing that the extra 96 minutes (276 - 180) comes entirely from traveling $\frac{2}{3}$ of the distance at a reduced speed. Setting up the time equation by segments and using the relationship $v = \frac{D}{180}$ allows us to solve for $D$ directly. The first $\frac{1}{3}$ of the trip takes exactly $\frac{180}{3} = 60$ minutes regardless of the speed, which provides a crucial checkpoint.
+\end{keyinsightbox}
+
+\begin{warningbox}
+The most common error is forgetting to convert the speed reduction from 20 mph to $\frac{1}{3}$ miles per minute when working in minutes. Always write units explicitly throughout your solution, and verify dimensional consistency at each step. Another frequent mistake is using $t = D \times r$ instead of $t = \frac{D}{r}$ - remember that time goes UP when speed goes DOWN.
+\end{warningbox}
+
+\begin{tipbox}
+For competition efficiency: (1) Work entirely in miles per minute to avoid hour-minute conversion, (2) Notice that the first segment always takes $\frac{180}{3} = 60$ minutes, simplifying the equation, (3) If stuck on algebra, test answer choices starting with (B) or (C) - back-substitution takes only 30 seconds per choice, and (4) Use dimensional analysis as you go: if units don't work out, you've made an error.
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(B)}\ 135}\]
+
+The total distance from Sharon's house to her mother's house is \boxed{135} miles.
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - Solution verified through back-substitution confirming both time constraints are satisfied
+    
+    \item \textbf{Verification Applied}: Level 4 Standard Comprehensive
+    \begin{itemize}[leftmargin=*]
+        \item Back-substitution confirms $D = 135$ gives 180 min for normal trip
+        \item Back-substitution confirms $D = 135$ gives 276 min for modified trip
+        \item Unit consistency verified throughout
+        \item Answer matches choice (B) exactly
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - high confidence, complete verification, answer matches choices
+    
+    \item \textbf{Time Spent}: Estimated 5-6 minutes total
+    \begin{itemize}[leftmargin=*]
+        \item Actual problem-solving: 4 minutes
+        \item Verification: 1 minute
+        \item Documentation of solution: 1 minute
+    \end{itemize}
+\end{itemize}
+
+\end{document}

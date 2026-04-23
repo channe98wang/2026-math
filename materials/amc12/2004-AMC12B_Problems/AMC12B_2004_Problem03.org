@@ -1,0 +1,22 @@
+2004 AMC 12B Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Video Solution 1
+4 See Also
+Problem
+If $x$ and $y$ are positive integers for which $2^x3^y=1296$ , what is the value of $x+y$ ?
+$(\mathrm {A})\ 8 \qquad (\mathrm {B})\ 9 \qquad (\mathrm {C})\ 10 \qquad (\mathrm {D})\ 11 \qquad (\mathrm {E})\ 12$
+Solution
+$1296 = 2^4 3^4$ and $4+4=\boxed{8} \Longrightarrow \mathrm{(A)}$ .
+Video Solution 1
+https://youtu.be/So54Ar_fxdE
+~Education, the Study of Everything
+See Also
+2004 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,94 @@
+2000 AMC 12 Problems/Problem 13
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2 (less rigorous)
+4 Solution 3
+5 Solution 4
+6 Solution 5
+7 Solution 6 (Constraints)
+8 Solution 7 (Guess and check)
+9 Video Solution 0 by Power Solve
+10 Video Solution 1 (Fast and Easy) ~ Pi Academy
+11 Video Solution 2
+12 Sidenote
+13 See also
+Problem
+One morning each member of Angela's family drank an 8-ounce mixture of coffee with milk. The amounts of coffee and milk varied from cup to cup, but were never zero. Angela drank a quarter of the total amount of milk and a sixth of the total amount of coffee. How many people are in the family?
+$\text {(A)}\ 3 \qquad \text {(B)}\ 4 \qquad \text {(C)}\ 5 \qquad \text {(D)}\ 6 \qquad \text {(E)}\ 7$
+Solution 1
+Let $c$ be the total amount of coffee, $m$ of milk, and $p$ the number of people in the family. Then each person drinks the same total amount of coffee and milk (8 ounces), so
+
+\[\left(\frac{c}{6} + \frac{m}{4}\right)p = c + m\]
+
+Regrouping, we get $2c(6-p)=3m(p-4)$ . Since both $c,m$ are positive, it follows that $6-p$ and $p-4$ are also positive, which is only possible when $p = 5\ \mathrm{(C)}$ .
+Solution 2 (less rigorous)
+One could notice that (since there are only two components to the mixture) Angela must have more than her "fair share" of milk and less than her "fair share" of coffee in order to ensure that everyone has $8$ ounces. The "fair share" is $1/p.$ So,
+\[\frac{1}{6} < \frac{1}{p}<\frac{1}{4}\]
+Which requires that $p$ be $p = 5\ \mathrm{(C)},$ since $p$ is a whole number.
+Solution 3
+Again, let $c,$ $m,$ and $p$ be the total amount of coffee, total amount of milk, and number of people in the family, respectively. Then the total amount that is drunk is $8p,$ and also $c+m.$ Thus, $c+m = 8p,$ so $m = 8p-c$ and $c = 8p-m.$
+We also know that the amount Angela drank, which is $\frac{c}{6} + \frac{m}{4},$ is equal to $8$ ounces, thus $\frac{c}{6} + \frac{m}{4} = 8.$ Rearranging gives
+
+\[24p - c = 96.\]
+
+Now notice that $c > 0$ (by the problem statement). In addition, $m > 0,$ so $c = 8p-m < 8p.$ Therefore, $0 < c < 8p,$ and so $24p > 24p-c > 16p.$ We know that $24p-c = 96,$ so
+
+\[24p > 96 > 16p.\]
+
+From the leftmost inequality, we get $p > 4,$ and from the rightmost inequality, we get $p < 6.$ The only possible value of $p$ is $p = 5\ \mathrm{(C)}$ .
+Solution 4
+Let $c,$ $m,$ and $p$ be the total amount of coffee, total amount of milk, and number of people in the family, respectively. $c$ and $m$ obviously can't be $0$ . 
+We know $\frac{c}{6} + \frac{m}{4} = 8$ or $2c + 3m = 96$ and $c + m = 8p$ or $2c + 2m = 16p$ . 
+Then,
+
+\[(2c + 2m) + m = 16p + m = 96\]
+
+Because $16p$ and $96$ are both divisible by $16$ , $m$ must also be divisible by $16$ . Let $m = 16k$ . Now,
+
+\[3(16k) + 2c = 48k + 2c = 96\]
+
+$k$ can't be $0$ , otherwise $m$ is $0$ , and $k$ can't be $2$ , otherwise $c$ is $0$ . Therefore $k$ must be $1$ , $m = 16$ and $c = 24$ . $c + m = 24 + 16 = 40 = 8p$ . Therefore, $p = 5\ \mathrm{(C)}$ .
+Solution 5
+Let $m$ , $c$ be the total amounts of milk and coffee, respectively. In order to know the number of people, we first need to find the total amount of mixture $t = m + c$ . We are given that
+
+\[\frac{m}{4} + \frac{c}{6} = 8\]
+
+Multiplying the equation by $4$ yields
+
+\[m + \frac{2}{3}c = (m + c) - \frac{1}{3}c = t - \frac{1}{3}c = 32\]
+
+Since $\frac{1}{3}c > 0$ , we have $t > 32$ . Now multiplying the equation by $6$ yields
+
+\[\frac{3}{2}m + c = (m+c) + \frac{1}{2}m = t + \frac{1}{2}m = 48\]
+
+Since $\frac{1}{2}m > 0$ , we have $t < 48$ . Thus, $32 < t < 48$ .
+Since $t$ is a multiple of $8$ , the only possible value for $t$ in that range is $40$ . Therefore, there are $\frac{40}{8} = 5$ people in Angela's family. $\mathrm{(C)}$ .
+~ Nafer
+Solution 6 (Constraints)
+If there were 4 people in the family, and each of them drank exactly the same amount of coffee and milk as Angela, there would be too much coffee. If there were 6 people in the family, and each of them drank exactly the same amount of coffee and milk as Angela, there would be not enough milk. Thus, it has to be $\boxed{5}$ .
+Solution 7 (Guess and check)
+The number of ounces that Angela's family drank has to be a multiple of 8, so we can find the right answer by guessing random values for the number of ounces of coffee and milk Angela drank. With Angela drinking 4 ounces of milk and 4 ounces of coffee, we get 40 total ounces Angela's family drank. Dividing that by 8(each person drank 8 ounces) we get 5 members who drank the coffee with milk, or $\boxed{C}$ ~ Mathyguy88
+Video Solution 0 by Power Solve
+https://youtu.be/G4c2oCtupTg?si=SwV2TLJ1EWeE6EeW&t=422
+Video Solution 1 (Fast and Easy) ~ Pi Academy
+https://youtu.be/UGcqyhh03LQ?si=WKAVn2VitpmeCvSd ~ Pi Academy
+Video Solution 2
+https://youtu.be/k6G5BjjILGY https://www.youtube.com/watch?v=OT42J21ZNC8&feature=youtu.be
+https://www.youtube.com/watch?v=7QU8OlnljHw ~David
+Sidenote
+If we now solve for $c$ and $m$ , we find that $m=16$ and $c=24$ . Thus in total the family drank $16$ ounces of milk and $24$ ounces of coffee. Angela drank exactly $4$ ounces of milk and $4$ ounces of coffee.
+See also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 21 Followed by 
+ Problem 23
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

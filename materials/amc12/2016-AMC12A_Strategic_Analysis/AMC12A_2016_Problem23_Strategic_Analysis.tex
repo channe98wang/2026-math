@@ -1,0 +1,814 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+
+\geometry{margin=1in}
+
+% Define color boxes for different sections
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{1. PROBLEM CONFIGURATION ANALYSIS},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=\textbf{2. STRATEGIC FRAMEWORK APPLICATION},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=\textbf{3. TACTICAL METHODOLOGY SELECTION},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=\textbf{4. CONVERSION TECHNIQUES APPLICATION},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=\textbf{5. VERIFICATION STRATEGY DESIGN},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=\textbf{6. SOLUTION ROADMAP},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=\textbf{7. COMPETITION STRATEGY INTEGRATION},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=\textbf{KEY INSIGHT},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=\textbf{WARNING},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{tipbox}{
+    colback=teal!10!white,
+    colframe=teal!75!black,
+    title=\textbf{PRO TIP},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\title{\textbf{Strategic Analysis: 2016 AMC 12A Problem 23\\
+Triangle Inequality Probability}}
+\author{AMC12/COMC Problem-Solving Framework Analysis}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+Three numbers in the interval $[0,1]$ are chosen independently and at random. What is the probability that the chosen numbers are the side lengths of a triangle with positive area?
+
+\[
+\textbf{(A) }\frac{1}{6}\qquad\textbf{(B) }\frac{1}{3}\qquad\textbf{(C) }\frac{1}{2}\qquad\textbf{(D) }\frac{2}{3}\qquad\textbf{(E) }\frac{5}{6}
+\]
+
+\vspace{0.5cm}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - calculate a probability
+    \item \textbf{Difficulty Band}: Late-band (Problem 23 of 25)
+    \item \textbf{Competition Context}: AMC 12A (75 min, 25 problems) - approximately 3 minutes average per problem, but this warrants 5-7 minutes
+    \item \textbf{Mathematical Domain}: Probability (Geometric Probability) with Geometry (Triangle Inequality)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Three numbers $x, y, z$ chosen independently
+        \item Each uniformly distributed on interval $[0,1]$
+        \item Numbers represent potential triangle side lengths
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Triangle inequality: $x+y>z$, $x+z>y$, $y+z>x$ (all three must hold)
+        \item All values in $[0,1]$
+        \item Positive area requires strict inequalities
+    \end{itemize}
+    \item \textbf{Objective}: Find $P(\text{three random numbers form valid triangle})$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Uniform distribution allows geometric probability interpretation
+        \item Independence permits modeling as point in unit cube
+        \item Degenerate cases (equality) have measure zero
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Simple fractions suggest elegant solution
+        \item Choice (C) $\frac{1}{2}$ stands out for symmetric problems
+        \item Complement structure: $\frac{1}{6}$ and $\frac{5}{6}$ are complements
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Three random values satisfy triangle inequality
+    \item \textbf{Conclusion}: Determine probability as volume ratio
+    \item \textbf{Notation}: $x, y, z$ for the three random numbers
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Geometric probability: volume in unit cube $[0,1]^3$
+        \item Triangle inequality creates constrained region
+        \item Symmetry suggests using WLOG
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Multivariable calculus (triple integration)
+        \item Linear inequalities (half-space intersections)
+        \item Conditional probability (2D reduction)
+        \item Complementary counting
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: 
+    \begin{itemize}
+        \item Late-band problem expects multiple attempts
+        \item Don't be discouraged if first approach unclear
+        \item Stay flexible with methods
+    \end{itemize}
+    \item \textbf{Creativity Cultivation}: 
+    \begin{itemize}
+        \item Use WLOG to simplify
+        \item Exploit symmetry creatively
+        \item Consider both direct and complement approaches
+    \end{itemize}
+    \item \textbf{Iterative Refinement}: 
+    \begin{itemize}
+        \item If 3D approach complex, try conditional probability
+        \item If direct fails, use complement
+        \item Verify with alternative method
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: 
+    \begin{itemize}
+        \item Identify as geometric probability
+        \item Recognize triangle inequality constraint
+        \item Note three-way symmetry in variables
+    \end{itemize}
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Test: $(0.5, 0.5, 0.5)$ forms triangle? Yes
+        \item Test: $(0.9, 0.05, 0.05)$ forms triangle? No
+        \item Test: $(0.4, 0.4, 0.6)$ forms triangle? Yes
+    \end{itemize}
+    \item \textbf{Penultimate Step}: 
+    \begin{itemize}
+        \item Final step: compute volume ratio
+        \item Need favorable region identified first
+        \item Express as inequality constraints
+    \end{itemize}
+    \item \textbf{Wishful Thinking}: 
+    \begin{itemize}
+        \item Wish: Check only one inequality
+        \item Reality: WLOG achieves this via ordering
+        \item Result: Reduce three constraints to one
+    \end{itemize}
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Reduce 3D to 2D via conditioning
+        \item Use symmetry to avoid redundant calculation
+        \item Consider complement when direct is messy
+    \end{itemize}
+    \item \textbf{Conjecture via Small Cases}: 
+    \begin{itemize}
+        \item Pattern: triangle fails when one side too large
+        \item Suggests roughly half satisfy constraint
+        \item Points to answer $\frac{1}{2}$
+    \end{itemize}
+    \item \textbf{Visualization}: 
+    \begin{itemize}
+        \item Unit cube $[0,1]^3$ with axes $x, y, z$
+        \item Shade region satisfying all inequalities
+        \item Observe symmetric structure
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item Choice (C) $\frac{1}{2}$ likely due to symmetry
+        \item Work backwards: what implies $\frac{1}{2}$?
+        \item Symmetric answer for symmetric problem
+    \end{itemize}
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item WLOG: assume $z \geq x, y$ (largest)
+        \item Reduces to checking: $x+y>z$
+        \item Eliminates two of three inequalities
+    \end{itemize}
+    \item \textbf{Penultimate Step}: 
+    \begin{itemize}
+        \item Identify region, then compute volume
+        \item Probability = favorable volume / total volume
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Approach}: Direct geometric probability with WLOG
+    \item \textbf{Key Lemma}: For triangle: sum of any two sides exceeds third
+    \item \textbf{Simplification}: Symmetry allows assuming ordering
+    \item \textbf{Cross-Domain}: Translate geometry to probability via volume
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: 
+    \begin{itemize}
+        \item Problem symmetric in $x, y, z$
+        \item Each ordering equally likely
+        \item Reduces complexity via WLOG
+    \end{itemize}
+    \item \textbf{WLOG (Without Loss of Generality)}: 
+    \begin{itemize}
+        \item Assume $z \geq x, y$
+        \item Triangle inequality becomes: $x+y>z$
+        \item Single constraint replaces three
+    \end{itemize}
+    \item \textbf{Complementary Counting}: 
+    \begin{itemize}
+        \item Alternative: find $P(\text{NOT triangle})$
+        \item When largest $\geq$ sum of others
+        \item Answer = $1 - P(\text{complement})$
+    \end{itemize}
+    \item \textbf{Geometric Probability}: 
+    \begin{itemize}
+        \item Model as unit cube $[0,1]^3$
+        \item Favorable region volume
+        \item Probability = volume ratio
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Probability}: 
+    \begin{itemize}
+        \item Geometric probability for continuous uniform
+        \item Conditional probability for dimension reduction
+        \item Symmetry for simplification
+    \end{itemize}
+    \item \textbf{Geometry}: 
+    \begin{itemize}
+        \item Triangle inequality application
+        \item 3D region visualization
+        \item Volume computation
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Calculus}: Triple integration over region
+    \item \textbf{Linear Algebra}: Half-space intersections
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. Recognition Index - Applicable Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{HIGH Probability Techniques}:
+    \begin{enumerate}
+        \item \textbf{WLOG Ordering}: Assume $z \geq y \geq x$, reduce to one inequality
+        \item \textbf{Conditional Probability}: Fix largest, find probability for others
+        \item \textbf{Geometric Probability}: Volume of region in unit cube
+        \item \textbf{Symmetry}: Use to avoid redundant cases
+        \item \textbf{Complement}: Find when triangle fails
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Technique Selection Rationale}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary: WLOG + Conditional Probability}
+    \begin{itemize}
+        \item Why: Reduces 3D to 2D elegantly
+        \item When: After recognizing symmetry
+        \item Risk: Low - standard technique
+    \end{itemize}
+    
+    \item \textbf{Secondary: 3D Geometric Volume}
+    \begin{itemize}
+        \item Why: Direct computation
+        \item When: If WLOG unclear
+        \item Risk: Medium - requires careful integration
+    \end{itemize}
+    
+    \item \textbf{Backup: Complementary Probability}
+    \begin{itemize}
+        \item Why: Sometimes easier to find failure cases
+        \item When: If direct messy
+        \item Risk: Low - simple subtraction
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Approach 1 (WLOG + Conditional - RECOMMENDED)}:
+\begin{enumerate}
+    \item Assume $z$ largest (by symmetry)
+    \item For fixed $z$: $x, y$ uniform on $[0,z]$
+    \item Need: $P(x+y>z | x,y \in [0,z])$
+    \item Sample space: square $[0,z]^2$, area $z^2$
+    \item Favorable: region above line $x+y=z$
+    \item Area = $\frac{1}{2}z^2$ (triangle)
+    \item Probability = $\frac{z^2/2}{z^2} = \frac{1}{2}$ (independent of $z$!)
+    \item By symmetry: answer is $\frac{1}{2}$
+\end{enumerate}
+
+\textbf{Approach 2 (3D Complement)}:
+\begin{enumerate}
+    \item Find volume where $x+y \leq z$ (pyramid)
+    \item Base: triangle in plane $z=1$, area $\frac{1}{2}$
+    \item Height: 1
+    \item Volume: $\frac{1}{3} \cdot \frac{1}{2} \cdot 1 = \frac{1}{6}$
+    \item By symmetry: 3 pyramids total
+    \item Total bad volume: $3 \times \frac{1}{6} = \frac{1}{2}$
+    \item Good volume: $1 - \frac{1}{2} = \frac{1}{2}$
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Issue}: Do pyramids overlap in Approach 2?
+    \item \textbf{Resolution}: No - point can't violate two inequalities simultaneously
+    \item \textbf{Verification}: Both methods yield $\frac{1}{2}$ $\checkmark$
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 4 - Strong Verification
+    \item \textbf{Justification}:
+    \begin{itemize}
+        \item Late-band problem (high stakes)
+        \item Multiple approaches available
+        \item Clean answer suggests correctness
+        \item Time permits thorough check
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Verification Methods Applied}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Alternative Solution Path}: 
+    \begin{itemize}
+        \item Method 1 (WLOG): Answer = $\frac{1}{2}$ $\checkmark$
+        \item Method 2 (3D volume): Answer = $\frac{1}{2}$ $\checkmark$
+        \item Agreement confirms correctness
+    \end{itemize}
+    
+    \item \textbf{Extreme Case Testing}:
+    \begin{itemize}
+        \item $(0.5, 0.5, 0.5)$: Triangle? Yes $\checkmark$
+        \item $(0.99, 0.005, 0.005)$: Triangle? No $\checkmark$
+        \item $(0.4, 0.4, 0.6)$: Triangle? Yes ($0.8 > 0.6$) $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Check}:
+    \begin{itemize}
+        \item Matches (C) $\frac{1}{2}$ $\checkmark$
+        \item Symmetric answer for symmetric problem $\checkmark$
+        \item Reasonable probability value $\checkmark$
+    \end{itemize}
+    
+    \item \textbf{Dimensional Analysis}:
+    \begin{itemize}
+        \item Result is dimensionless $\checkmark$
+        \item Probability in $[0,1]$ $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial}: 70\% (after first solution)
+    \item \textbf{After Alt Method}: 90\% (agreement)
+    \item \textbf{After Testing}: 95\% (passes all tests)
+    \item \textbf{Final}: 98\% (multiple verifications, answer choice confirmed)
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Total Time Budget: 5-6 minutes}
+
+\textbf{Step 1: Setup (30 sec)}
+\begin{itemize}
+    \item Identify: Three random $x, y, z \in [0,1]$
+    \item Goal: $P$(triangle inequality holds)
+    \item Constraint: $x+y>z$, $x+z>y$, $y+z>x$
+\end{itemize}
+
+\textbf{Step 2: Strategic Recognition (1 min)}
+\begin{itemize}
+    \item Note symmetry in variables
+    \item Apply WLOG: assume $z \geq x, y$
+    \item Reduce to: $x+y>z$
+    \item \textit{Checkpoint}: Single inequality? YES → proceed
+\end{itemize}
+
+\textbf{Step 3: Conditional Setup (1 min)}
+\begin{itemize}
+    \item Fix $z \in [0,1]$ as largest
+    \item Then $x, y$ uniform on $[0,z]$
+    \item Need: $P(x+y>z | x,y \in [0,z])$
+\end{itemize}
+
+\textbf{Step 4: Geometric Calculation (1.5 min)}
+\begin{itemize}
+    \item Sample space: $[0,z] \times [0,z]$, area $z^2$
+    \item Favorable: above line $x+y=z$
+    \item Triangle vertices: $(0,z), (z,0), (z,z)$
+    \item Area: $\frac{1}{2}z^2$
+    \item Probability: $\frac{z^2/2}{z^2} = \frac{1}{2}$
+    \item \textit{Checkpoint}: Independent of $z$? YES $\checkmark$
+\end{itemize}
+
+\textbf{Step 5: Answer (30 sec)}
+\begin{itemize}
+    \item Conditional prob = $\frac{1}{2}$ for any $z$
+    \item By symmetry: same for all orderings
+    \item Answer: $\boxed{\textbf{(C) } \frac{1}{2}}$
+\end{itemize}
+
+\textbf{Step 6: Verification (1 min)}
+\begin{itemize}
+    \item Test extreme cases $\checkmark$
+    \item Confirm symmetry used correctly $\checkmark$
+    \item Verify: $\frac{z^2/2}{z^2} = \frac{1}{2}$ $\checkmark$
+\end{itemize}
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Backup: 3D Volume Method}
+\begin{itemize}
+    \item Model as unit cube
+    \item Volume where $x+y \leq z$: pyramid = $\frac{1}{6}$
+    \item Three such pyramids (symmetry)
+    \item Bad volume: $\frac{1}{2}$
+    \item Good volume: $1 - \frac{1}{2} = \frac{1}{2}$ $\checkmark$
+\end{itemize}
+
+\subsection*{C. Comprehensive Pitfall Guide}
+
+\textbf{CRITICAL PITFALLS}:
+\begin{enumerate}
+    \item \textbf{Missing Triangle Inequalities}
+    \begin{itemize}
+        \item ERROR: Only checking $x+y>z$
+        \item PREVENTION: WLOG ensures all via symmetry
+        \item RECOVERY: Verify each or use symmetric approach
+    \end{itemize}
+    
+    \item \textbf{Wrong Conditional Space}
+    \begin{itemize}
+        \item ERROR: Using $[0,1]$ not $[0,z]$ when $z$ largest
+        \item PREVENTION: Carefully define given conditions
+        \item RECOVERY: Re-examine constraint meaning
+    \end{itemize}
+    
+    \item \textbf{Overlapping Regions}
+    \begin{itemize}
+        \item ERROR: Double-counting in complement
+        \item PREVENTION: Verify regions disjoint
+        \item RECOVERY: Use inclusion-exclusion if needed
+    \end{itemize}
+    
+    \item \textbf{Area Miscalculation}
+    \begin{itemize}
+        \item ERROR: Triangle area in $[0,z]^2$
+        \item PREVENTION: Vertices $(0,z), (z,0), (z,z)$
+        \item RECOVERY: Area = $\frac{1}{2}z^2$
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{D. Time Management}
+\begin{itemize}
+    \item \textbf{Target}: 5-6 minutes
+    \item \textbf{Minimum}: 3 minutes (quick WLOG)
+    \item \textbf{Maximum}: 8 minutes (with full verification)
+    \item \textbf{Pivots}:
+    \begin{itemize}
+        \item At 2 min: If stuck, try 3D volume
+        \item At 4 min: If messy, switch methods
+        \item At 6 min: Guess (C) based on symmetry
+    \end{itemize}
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Position}: Problem 23/25 - late-band
+    \item \textbf{Allocation}: 5-6 minutes ideal
+    \item \textbf{Pacing}:
+    \begin{itemize}
+        \item Ahead: 7 min with thorough verification
+        \item On pace: 5-6 min standard
+        \item Behind: 3-4 min, flag for review
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Attempt When}:
+    \begin{itemize}
+        \item After P1-20 complete
+        \item Comfortable with probability/geometry
+        \item 15+ minutes remain for P21-25
+    \end{itemize}
+    \item \textbf{Skip If}:
+    \begin{itemize}
+        \item $<$10 min for final 5 problems
+        \item Weak in probability
+        \item Already 20+ correct
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Thresholds}:
+    \begin{itemize}
+        \item High ($>$90\%): Submit immediately
+        \item Medium (70-90\%): Quick check, submit
+        \item Low (50-70\%): Flag, submit guess
+        \item Very low ($<$50\%): Consider blank (1.5 pts)
+    \end{itemize}
+    
+    \item \textbf{Error Recovery}:
+    \begin{itemize}
+        \item Arithmetic error: Fix affected steps
+        \item Conceptual error: Try alternative method
+        \item Stuck at 4 min: Switch approaches
+    \end{itemize}
+    
+    \item \textbf{Guess Strategy}:
+    \begin{itemize}
+        \item Eliminate extremes unless clear
+        \item Favor (C) $\frac{1}{2}$ due to symmetry
+        \item Late-band often elegant answers
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}:
+    \begin{itemize}
+        \item 5 min: No clear path
+        \item 6 min: Calculations unwieldy
+        \item Frustration building
+    \end{itemize}
+    
+    \item \textbf{Hard Abandon}:
+    \begin{itemize}
+        \item 8 min: Still no answer
+        \item Same error twice
+        \item $<$5 min for P24-25
+        \item Missing key technique
+    \end{itemize}
+    
+    \item \textbf{Protocol}:
+    \begin{itemize}
+        \item Guess (C) - symmetry indicates
+        \item Mark for review
+        \item Note partial progress
+        \item Move on with clear mind
+    \end{itemize}
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The transformative insight is recognizing that by symmetry and WLOG, we can assume $z$ is the largest value, reducing three triangle inequalities to one: $x+y>z$.
+
+The profound observation: when $z$ is largest, $x$ and $y$ are uniformly distributed on $[0,z]$, and $P(x+y>z | x,y \in [0,z]) = \frac{1}{2}$ \textbf{regardless of $z$'s value}.
+
+This independence from $z$ immediately yields $P(\text{triangle}) = \boxed{\frac{1}{2}}$.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Critical Pitfall}: Incorrect conditional probability setup.
+
+When assuming "$z$ is largest," students often forget that $x$ and $y$ are then constrained to $[0,z]$, NOT $[0,1]$.
+
+\textbf{Wrong}: $P(x+y>z)$ with all three on $[0,1]$ independently.
+
+\textbf{Correct}: $P(x+y>z | z \geq x,y)$ requires $x,y \in [0,z]$.
+
+The sample space for $(x,y)$ given $z$ is largest is the square $[0,z] \times [0,z]$, not the unit square.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Speed Technique}: For late-band symmetric probability problems, the answer is often $\frac{1}{2}$ or related fractions.
+
+\textbf{Emergency Strategy} (if time critical):
+\begin{enumerate}
+    \item Recognize three-way symmetry in $x,y,z$
+    \item Observe simple fraction choices
+    \item Educated guess: (C) $\frac{1}{2}$
+    \item Success rate: $>$70\% for symmetric probability
+\end{enumerate}
+
+\textbf{Time-Saver}: WLOG technique is powerful - instead of handling three inequalities, symmetry reduces to one.
+\end{tipbox}
+
+\section*{Final Answer}
+\[
+\boxed{\textbf{(C) } \frac{1}{2}}
+\]
+
+\section*{Complete Solution}
+
+\subsection*{Method 1: WLOG + Conditional Probability (Recommended)}
+
+\textbf{Step 1}: For three numbers to form a triangle, all triangle inequalities must hold:
+\[x+y>z, \quad x+z>y, \quad y+z>x\]
+
+\textbf{Step 2}: By symmetry, assume WLOG that $z \geq x,y$. When $z$ is largest, the inequalities $x+z>y$ and $y+z>x$ automatically hold. The binding constraint is:
+\[x+y>z\]
+
+\textbf{Step 3}: Given $z$ is largest, both $x$ and $y$ must lie in $[0,z]$. For fixed $z \in [0,1]$:
+\begin{itemize}
+    \item Sample space: $(x,y) \in [0,z] \times [0,z]$ with area $z^2$
+    \item Favorable region: $\{(x,y) : x+y>z, \, 0 \leq x,y \leq z\}$
+\end{itemize}
+
+\textbf{Step 4}: The favorable region is above the line $x+y=z$ within square $[0,z]^2$. This forms a triangle with vertices $(0,z)$, $(z,0)$, and $(z,z)$.
+
+Area of triangle: $\frac{1}{2} \cdot z \cdot z = \frac{z^2}{2}$
+
+\textbf{Step 5}: The conditional probability is:
+\[P(x+y>z \,|\, z \text{ largest}) = \frac{z^2/2}{z^2} = \frac{1}{2}\]
+
+\textbf{Step 6}: This probability is \textbf{independent of $z$}! By symmetry, the same holds regardless of which variable is largest.
+
+Therefore: $P(\text{triangle forms}) = \boxed{\frac{1}{2}}$
+
+\subsection*{Method 2: 3D Geometric Volume (Alternative)}
+
+\textbf{Step 1}: Model as point $(x,y,z)$ uniformly chosen in unit cube $[0,1]^3$.
+
+\textbf{Step 2}: Find volume where triangle inequality FAILS. Region where $x+y \leq z$:
+\begin{itemize}
+    \item This is a pyramid (tetrahedron)
+    \item Vertices: $(0,0,0)$, $(1,0,1)$, $(0,1,1)$, $(0,0,1)$
+    \item Base: triangle in plane $z=1$ with vertices $(0,0,1)$, $(1,0,1)$, $(0,1,1)$
+    \item Base area: $\frac{1}{2}(1)(1) = \frac{1}{2}$
+    \item Height: 1 (from $z=0$ to $z=1$)
+    \item Volume: $V = \frac{1}{3} \times \frac{1}{2} \times 1 = \frac{1}{6}$
+\end{itemize}
+
+\textbf{Step 3}: By symmetry, three such pyramids exist:
+\begin{itemize}
+    \item Pyramid where $x+y \leq z$: volume $\frac{1}{6}$
+    \item Pyramid where $x+z \leq y$: volume $\frac{1}{6}$
+    \item Pyramid where $y+z \leq x$: volume $\frac{1}{6}$
+\end{itemize}
+
+These pyramids are disjoint (a point cannot violate two inequalities simultaneously).
+
+\textbf{Step 4}: Total volume where triangle fails: $3 \times \frac{1}{6} = \frac{1}{2}$
+
+\textbf{Step 5}: Volume where triangle forms: $1 - \frac{1}{2} = \frac{1}{2}$
+
+Therefore: $P(\text{triangle forms}) = \boxed{\frac{1}{2}}$
+
+\section*{Verification Summary}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Multiple Methods Agree}: Both approaches yield $\frac{1}{2}$ $\checkmark$
+    \item \textbf{Extreme Cases Pass}:
+    \begin{itemize}
+        \item Equal sides $(0.5,0.5,0.5)$: Forms triangle $\checkmark$
+        \item One large $(0.9,0.05,0.05)$: No triangle ($0.1 \not> 0.9$) $\checkmark$
+        \item Borderline $(0.4,0.4,0.6)$: Forms triangle ($0.8>0.6$) $\checkmark$
+    \end{itemize}
+    \item \textbf{Answer Choice Match}: (C) confirmed $\checkmark$
+    \item \textbf{Symmetry Check}: Symmetric problem → symmetric answer $\checkmark$
+    \item \textbf{Reasonableness}: About half the time seems intuitive $\checkmark$
+\end{itemize}
+
+\section*{Confidence Assessment}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 98\% - Very high confidence
+    \begin{itemize}
+        \item Two independent solution methods agree
+        \item Multiple verification tests passed
+        \item Answer matches expected pattern (symmetry)
+        \item Mathematical reasoning sound
+    \end{itemize}
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item Alternative solution paths $\checkmark$
+        \item Extreme case testing $\checkmark$
+        \item Answer choice validation $\checkmark$
+        \item Dimensional analysis $\checkmark$
+    \end{itemize}
+    \item \textbf{Flag for Review}: No - extremely high confidence
+    \item \textbf{Time Spent}: 5-6 minutes (appropriate for Problem 23)
+\end{itemize}
+
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item \textbf{Symmetry is Powerful}: Three-way symmetry allows WLOG to reduce three inequalities to one
+    \item \textbf{Conditional Probability}: Proper sample space definition is critical ($[0,z]$ not $[0,1]$)
+    \item \textbf{Multiple Methods}: Always valuable to verify with alternative approach
+    \item \textbf{Independence Insight}: The probability being independent of $z$ is the key realization
+    \item \textbf{Answer Patterns}: Symmetric problems often have simple, symmetric answers
+    \item \textbf{Geometric Probability}: Volume ratios elegantly solve continuous probability problems
+\end{enumerate}
+
+\section*{Pattern Library Entry}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: Triangle Inequality Probability
+    \item \textbf{Key Signature}: 
+    \begin{itemize}
+        \item Three random numbers from continuous distribution
+        \item Triangle inequality constraint
+        \item Symmetric structure in variables
+    \end{itemize}
+    \item \textbf{Core Technique}: WLOG + Conditional Probability or 3D Geometric Volume
+    \item \textbf{Time Investment}: 5-7 minutes for late-band
+    \item \textbf{Success Rate}: High when symmetry recognized
+    \item \textbf{Related Problems}: 
+    \begin{itemize}
+        \item Stick-breaking problems
+        \item Random point in geometric region
+        \item Continuous probability with constraints
+    \end{itemize}
+\end{itemize}
+
+\section*{Practice Recommendations}
+
+\begin{enumerate}
+    \item \textbf{Master WLOG Arguments}: Practice identifying when symmetry allows assuming an ordering
+    \item \textbf{Conditional Probability}: Ensure proper sample space identification
+    \item \textbf{Geometric Probability}: Strengthen visualization of regions in 2D and 3D
+    \item \textbf{Triangle Inequality}: Review when sum of two sides exceeds the third
+    \item \textbf{Volume Calculations}: Practice computing volumes of pyramids, tetrahedra
+    \item \textbf{Similar Problems}: Seek out other symmetric probability problems for pattern recognition
+\end{enumerate}
+
+\vfill
+
+\begin{center}
+\textit{Analysis completed using AMC12/COMC Strategic Problem-Solving Framework}\\
+\textit{For optimal results, review all colored sections systematically}
+\end{center}
+
+\end{document}

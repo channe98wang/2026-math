@@ -1,0 +1,1025 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Define colored boxes - all with breakable option
+\newtcolorbox{configbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategybox}[1]{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticsbox}[1]{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}[1]{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}[1]{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}[1]{
+    colback=cyan!10!white,
+    colframe=cyan!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}[1]{
+    colback=violet!10!white,
+    colframe=violet!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1]{
+    colback=red!15!white,
+    colframe=red!85!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{protipbox}[1]{
+    colback=purple!10!white,
+    colframe=purple!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 17:\\Comprehensive Strategic Analysis}}
+\author{Using Enhanced Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+Integers $a$, $b$, and $c$ satisfy $ab + c = 100$, $bc + a = 87$, and $ca + b = 60$. What is $ab + bc + ca$?
+
+$$\textbf{(A) } 212 \qquad \textbf{(B) } 247 \qquad \textbf{(C) } 258 \qquad \textbf{(D) } 276 \qquad \textbf{(E) } 284$$
+
+\vspace{1em}
+\noindent\textit{Note: The answer is provided at the END of this document to allow you to work through the problem yourself first.}
+
+\section*{Framework-Based Analysis}
+
+\begin{configbox}{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (specific numerical value)
+    \item \textbf{Competition Context}: AMC 12A 2024, Problem 17
+    \item \textbf{Difficulty Band}: Mid-band (P17/25) - upper intermediate difficulty
+    \item \textbf{Mathematical Domain}: Algebra (systems of equations, factorization, SFFT)
+    \item \textbf{Estimated Time}: 3-5 minutes depending on approach
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Three equations: $ab + c = 100$, $bc + a = 87$, $ca + b = 60$
+        \item Variables: integers $a, b, c$
+        \item Three equations, three unknowns (system is potentially solvable)
+    \end{itemize}
+    
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $a, b, c$ are integers (important for factorization approach)
+        \item System must have integer solutions
+        \item Answer must be one of the given choices
+    \end{itemize}
+    
+    \item \textbf{Objective}: Calculate $ab + bc + ca$ (NOT find $a, b, c$ individually necessarily)
+    
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item May not need to find exact values of $a, b, c$ (though we might)
+        \item Strategic equation manipulation could avoid solving completely
+        \item The sum of all three given equations has structure
+        \item Factorization patterns exist (Simon's Favorite Factoring Trick)
+    \end{itemize}
+    
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Choices: 212, 247, 258, 276, 284
+        \item Notice: $100 + 87 + 60 = 247$ (choice B!)
+        \item Pattern: All are close to 247 (the sum of RHS values)
+        \item This suggests $ab + bc + ca = 247 + \text{something}$ or $247 - \text{something}$
+        \item In fact: $ab + bc + ca = (ab+c) + (bc+a) + (ca+b) - (a+b+c) = 247 - (a+b+c)$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Key insight is that we can find $a+b+c$ without solving for individual values
+    
+    \item \textbf{Conclusion}: Use equation manipulation (adding/subtracting) to create factored forms
+    
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Equations: (1) $ab + c = 100$, (2) $bc + a = 87$, (3) $ca + b = 60$
+        \item Goal: $ab + bc + ca = 247 - (a+b+c)$
+    \end{itemize}
+    
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Method 1: Add/subtract equations to get factored forms, find $b$, then find $a+b+c$
+        \item Method 2: Add all equations and use the identity
+        \item Method 3: Solve system directly
+        \item Method 4: Guess and check (since integers)
+    \end{itemize}
+    
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure algebra (equation manipulation)
+        \item Number theory (integer factorization)
+        \item Pattern recognition (SFFT - Simon's Favorite Factoring Trick)
+    \end{itemize}
+\end{itemize}
+
+\end{configbox}
+
+\begin{strategybox}{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Don't be intimidated by three equations - strategic manipulation makes it clean
+    
+    \item \textbf{Creativity Cultivation}: Multiple elegant approaches exist:
+    \begin{itemize}
+        \item SFFT with strategic addition/subtraction (most elegant)
+        \item Direct identity: $ab+bc+ca = 247 - (a+b+c)$ (if you can find sum)
+        \item Complete solution of system (more work but straightforward)
+        \item Smart guessing based on factorizations (surprisingly effective)
+    \end{itemize}
+    
+    \item \textbf{Iterative Refinement}: If direct solving seems messy, try adding/subtracting equations
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: This is a system with hidden structure - look for factorization patterns
+    
+    \item \textbf{Get Your Hands Dirty}: Try basic operations:
+    \begin{itemize}
+        \item Add equations: $(ab+c) + (bc+a) = a + ab + bc + c = a(b+1) + c(b+1) = (a+c)(b+1) = 187$
+        \item Subtract equations: $(ab+c) - (bc+a) = ab - bc + c - a = (a-c)(b-1) = 13$
+        \item These factorizations are KEY!
+    \end{itemize}
+    
+    \item \textbf{Penultimate Step}: Once we find $b$, we can find $a+c$, then $a+b+c$
+    
+    \item \textbf{Wishful Thinking}: Hope that $b$ has few possibilities (and it does: need to factor 187 and 13)
+    
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Use the identity $ab+bc+ca = 247 - (a+b+c)$ to avoid computing products
+        \item Factor small numbers like 13 and 187 to constrain $b$
+    \end{itemize}
+    
+    \item \textbf{Conjecture via Small Cases}: Could test simple values, but factorization approach is faster
+    
+    \item \textbf{Visualization}: Think of the equations as constraints on a 3D integer lattice
+\end{itemize}
+
+\subsection*{C. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Approach (Method 1 - SFFT)}: 
+    \begin{enumerate}
+        \item Add equations (1) and (2): get $(a+c)(b+1) = 187$
+        \item Subtract equation (2) from (1): get $(a-c)(b-1) = 13$
+        \item Factor 187 and 13 to find possible values of $b$
+        \item Find consistent value, determine $a+c$
+        \item Calculate $a+b+c$
+        \item Use identity: $ab+bc+ca = 247 - (a+b+c)$
+    \end{enumerate}
+    
+    \item \textbf{Identity Approach (Method 2)}:
+    \begin{enumerate}
+        \item Observe: $(ab+c) + (bc+a) + (ca+b) = ab + bc + ca + (a+b+c) = 247$
+        \item Therefore: $ab+bc+ca = 247 - (a+b+c)$
+        \item Use factorization method to find $a+b+c$
+        \item Compute answer
+    \end{enumerate}
+    
+    \item \textbf{Complete Solution (Method 3)}:
+    \begin{enumerate}
+        \item Use factorization to find $b = -12$
+        \item Substitute to find $a$ and $c$
+        \item Calculate $ab + bc + ca$ directly
+    \end{enumerate}
+\end{itemize}
+
+\end{strategybox}
+
+\begin{tacticsbox}{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Simon's Favorite Factoring Trick (SFFT)}: Manipulate to create products like $(x+y)(z+w)$
+    
+    \item \textbf{Integer Factorization}: Use constraint that variables are integers
+    
+    \item \textbf{System Manipulation}: Add/subtract equations strategically
+    
+    \item \textbf{Algebraic Identities}: Recognize patterns in sums/products
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics (Algebra/Systems)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Adding Equations}: 
+    \begin{itemize}
+        \item $(ab + c) + (bc + a) = (a+c)(b+1)$ (factors out $b+1$)
+        \item Creates factored form amenable to integer constraints
+    \end{itemize}
+    
+    \item \textbf{Subtracting Equations}: 
+    \begin{itemize}
+        \item $(ab + c) - (bc + a) = (a-c)(b-1)$ (factors out $b-1$)
+        \item Another factored form
+    \end{itemize}
+    
+    \item \textbf{Sum Identity}:
+    \begin{itemize}
+        \item $\sum (ab + c) = ab + bc + ca + (a+b+c)$
+        \item Powerful for this problem type
+    \end{itemize}
+    
+    \item \textbf{Factorization}: 
+    \begin{itemize}
+        \item $187 = 11 \times 17$ (or $-11 \times -17$, etc.)
+        \item $13 = 1 \times 13$ (or $-1 \times -13$, prime)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Problem-Specific Insights}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Key Insight 1}: $(a+c)(b+1) = 187 = 11 \times 17$ or $(-11) \times (-17)$
+    
+    \item \textbf{Key Insight 2}: $(a-c)(b-1) = 13 = 1 \times 13$ or $(-1) \times (-13)$
+    
+    \item \textbf{Key Insight 3}: From both conditions, $b$ is highly constrained
+    \begin{itemize}
+        \item From first: $b+1 \in \{\pm 1, \pm 11, \pm 17, \pm 187\}$
+        \item From second: $b-1 \in \{\pm 1, \pm 13\}$
+        \item Intersection: $(b+1) - (b-1) = 2$, so difference must be 2
+        \item Only works when $b+1 = -11$ and $b-1 = -13$, giving $b = -12$
+    \end{itemize}
+    
+    \item \textbf{Key Insight 4}: Once $b = -12$, we get $a+c = -17$ from $(a+c)(b+1) = 187$
+    
+    \item \textbf{Key Insight 5}: Therefore $a+b+c = -17 + (-12) = -29$
+    
+    \item \textbf{Key Insight 6}: Answer is $247 - (-29) = 247 + 29 = 276$
+\end{itemize}
+
+\end{tacticsbox}
+
+\begin{conversionbox}{4. Conversion Techniques Application}
+
+\subsection*{A. High-Probability Techniques}
+
+\textbf{Primary Technique}: \textbf{SFFT with Factorization Constraints}
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item System of equations with products
+    \item Integer constraints
+    \item Symmetric-looking structure
+    \item Answer choices suggest specific relationship
+\end{itemize}
+
+\textbf{Application Steps (Method 1: SFFT Approach)}:
+\begin{enumerate}
+    \item \textbf{Add first two equations}:
+    \begin{align*}
+    (ab + c) + (bc + a) &= 100 + 87\\
+    ab + bc + a + c &= 187\\
+    b(a+c) + (a+c) &= 187\\
+    (a+c)(b+1) &= 187
+    \end{align*}
+    
+    \item \textbf{Subtract second from first}:
+    \begin{align*}
+    (ab + c) - (bc + a) &= 100 - 87\\
+    ab - bc + c - a &= 13\\
+    b(a-c) - (a-c) &= 13\\
+    (a-c)(b-1) &= 13
+    \end{align*}
+    
+    \item \textbf{Factor the results}:
+    \begin{itemize}
+        \item $187 = 11 \times 17 = 1 \times 187$ (or negatives)
+        \item $13 = 1 \times 13$ (prime, or negatives)
+    \end{itemize}
+    
+    \item \textbf{Find consistent $b$}:
+    
+    From $(a+c)(b+1) = 187$:
+    \[b+1 \in \{\pm 1, \pm 11, \pm 17, \pm 187\}\]
+    \[b \in \{0, -2, 10, -12, 16, -18, 186, -188\}\]
+    
+    From $(a-c)(b-1) = 13$:
+    \[b-1 \in \{\pm 1, \pm 13\}\]
+    \[b \in \{2, 0, 14, -12\}\]
+    
+    Intersection: $b \in \{0, -12\}$
+    
+    \item \textbf{Test $b = 0$}:
+    From equation (2): $bc + a = 0 + a = 87$, so $a = 87$
+    From equation (3): $ca + b = 87c + 0 = 60$, so $c = \frac{60}{87}$ (not an integer!)
+    
+    So $b = 0$ doesn't work.
+    
+    \item \textbf{Test $b = -12$}:
+    From $(a+c)(b+1) = 187$: $(a+c)(-11) = 187$, so $a+c = -17$
+    
+    From $(a-c)(b-1) = 13$: $(a-c)(-13) = 13$, so $a-c = -1$
+    
+    Solving: $a+c = -17$ and $a-c = -1$
+    \begin{align*}
+    2a &= -18 \implies a = -9\\
+    2c &= -16 \implies c = -8
+    \end{align*}
+    
+    \item \textbf{Verify}: Check all three original equations:
+    \begin{align*}
+    ab + c &= (-9)(-12) + (-8) = 108 - 8 = 100 \quad \checkmark\\
+    bc + a &= (-12)(-8) + (-9) = 96 - 9 = 87 \quad \checkmark\\
+    ca + b &= (-8)(-9) + (-12) = 72 - 12 = 60 \quad \checkmark
+    \end{align*}
+    
+    \item \textbf{Calculate answer}:
+    \[a + b + c = -9 + (-12) + (-8) = -29\]
+    \[ab + bc + ca = 247 - (a+b+c) = 247 - (-29) = 276\]
+    
+    Or directly:
+    \[ab + bc + ca = 108 + 96 + 72 = 276\]
+\end{enumerate}
+
+\subsection*{B. Alternative Techniques}
+
+\textbf{Method 2: Direct Identity Application}
+
+\textbf{Application}:
+\begin{enumerate}
+    \item Observe that:
+    \begin{align*}
+    (ab+c) + (bc+a) + (ca+b) &= ab + bc + ca + (a+b+c)\\
+    100 + 87 + 60 &= ab + bc + ca + (a+b+c)\\
+    247 &= ab + bc + ca + (a+b+c)
+    \end{align*}
+    
+    \item Therefore:
+    \[ab + bc + ca = 247 - (a+b+c)\]
+    
+    \item Use SFFT method (as above) to find $a+b+c = -29$
+    
+    \item Result:
+    \[ab + bc + ca = 247 - (-29) = 276\]
+\end{enumerate}
+
+\textbf{Method 3: Complete Solution}
+
+\begin{enumerate}
+    \item From SFFT, we found $b = -12$, $a = -9$, $c = -8$
+    
+    \item Calculate directly:
+    \begin{align*}
+    ab &= (-9)(-12) = 108\\
+    bc &= (-12)(-8) = 96\\
+    ca &= (-8)(-9) = 72\\
+    ab + bc + ca &= 108 + 96 + 72 = 276
+    \end{align*}
+\end{enumerate}
+
+\textbf{Method 4: Smart Elimination (Competition Strategy)}
+
+From the identity $ab + bc + ca = 247 - (a+b+c)$:
+\begin{itemize}
+    \item (A) 212: $a+b+c = 35$ (seems large for negatives)
+    \item (B) 247: $a+b+c = 0$ (sum of three different integers = 0, possible but check)
+    \item (C) 258: $a+b+c = -11$ (possible)
+    \item (D) 276: $a+b+c = -29$ (possible)
+    \item (E) 284: $a+b+c = -37$ (possible)
+\end{itemize}
+
+Test middle values or use factorization to narrow down.
+
+\subsection*{C. Technique Comparison}
+
+\begin{itemize}
+    \item \textbf{Method 1 (SFFT)}: Most elegant, ~4 minutes, requires recognizing factorization
+    \item \textbf{Method 2 (Identity + SFFT)}: Clean structure, ~4 minutes, uses key observation
+    \item \textbf{Method 3 (Complete solve)}: Most reliable, ~5 minutes, straightforward
+    \item \textbf{Method 4 (Elimination)}: Quick estimate, ~2 minutes, but needs verification
+\end{itemize}
+
+\end{conversionbox}
+
+\begin{verificationbox}{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard Verification, 30-60 seconds)
+    
+    \item \textbf{Justification}: 
+    \begin{itemize}
+        \item Mid-band problem (P17) with multiple steps
+        \item Easy to make sign errors with negative numbers
+        \item Should verify solution satisfies all three equations
+        \item Check arithmetic in final calculation
+    \end{itemize}
+    
+    \item \textbf{Time Budget}: 45 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+
+\textbf{For SFFT Method}:
+\begin{itemize}
+    \item \textbf{Verify factorizations}:
+    \begin{itemize}
+        \item $187 = 11 \times 17$ \checkmark
+        \item $13$ is prime \checkmark
+    \end{itemize}
+    
+    \item \textbf{Verify $b$ satisfies both conditions}:
+    \begin{itemize}
+        \item $b+1 = -11$ (divides 187) \checkmark
+        \item $b-1 = -13$ (divides 13) \checkmark
+        \item $b = -12$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Verify $a$ and $c$}:
+    \begin{itemize}
+        \item $a + c = -17$ \checkmark
+        \item $a - c = -1$ \checkmark
+        \item Solving: $a = -9$, $c = -8$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Verify original equations}:
+    \begin{itemize}
+        \item $ab + c = (-9)(-12) + (-8) = 108 - 8 = 100$ \checkmark
+        \item $bc + a = (-12)(-8) + (-9) = 96 - 9 = 87$ \checkmark
+        \item $ca + b = (-8)(-9) + (-12) = 72 - 12 = 60$ \checkmark
+    \end{itemize}
+    
+    \item \textbf{Verify answer calculation}:
+    \begin{itemize}
+        \item Method 1: $ab + bc + ca = 108 + 96 + 72 = 276$ \checkmark
+        \item Method 2: $a+b+c = -29$, so $247 - (-29) = 276$ \checkmark
+    \end{itemize}
+\end{itemize}
+
+\textbf{Cross-Method Verification}:
+\begin{itemize}
+    \item Both calculation methods give 276 \checkmark
+    \item Answer matches choice (D) \checkmark
+    \item Sanity check: all three variables are negative, products are positive \checkmark
+\end{itemize}
+
+\subsection*{C. Common Calculation Errors to Avoid}
+\begin{itemize}[leftmargin=*]
+    \item Sign errors with negative numbers (especially products)
+    \item Forgetting to check $b = 0$ (it doesn't work)
+    \item Arithmetic errors in addition: $108 + 96 + 72$
+    \item Wrong factorizations of 187 or 13
+    \item Not verifying solution in all three equations
+\end{itemize}
+
+\end{verificationbox}
+
+\begin{roadmapbox}{6. Solution Roadmap}
+
+\subsection*{A. Step-by-Step Solution Plan (SFFT Method)}
+
+\textbf{Step 1: Problem Setup (20 seconds)}
+\begin{itemize}
+    \item Identify: Three equations with three unknowns, looking for $ab + bc + ca$
+    \item Key observation: Sum of equations gives structure
+    \item Plan: Use SFFT to factor and find constraints on $b$
+\end{itemize}
+
+\textbf{Step 2: Add First Two Equations (30 seconds)}
+\begin{itemize}
+    \item $(ab + c) + (bc + a) = 187$
+    \item Factor: $(a+c)(b+1) = 187$
+    \item Note: $187 = 11 \times 17$
+\end{itemize}
+
+\textbf{Step 3: Subtract Second from First (30 seconds)}
+\begin{itemize}
+    \item $(ab + c) - (bc + a) = 13$
+    \item Factor: $(a-c)(b-1) = 13$
+    \item Note: $13$ is prime
+\end{itemize}
+
+\textbf{Step 4: Find Possible Values of $b$ (45 seconds)}
+\begin{itemize}
+    \item From $(a+c)(b+1) = 187$: $b+1 \in \{\pm 1, \pm 11, \pm 17, \pm 187\}$
+    \item From $(a-c)(b-1) = 13$: $b-1 \in \{\pm 1, \pm 13\}$
+    \item Key: $(b+1) - (b-1) = 2$ must hold
+    \item Only match: $b+1 = -11$ and $b-1 = -13$
+    \item Therefore: $b = -12$
+\end{itemize}
+
+\textbf{Step 5: Find $a+c$ (15 seconds)}
+\begin{itemize}
+    \item $(a+c)(-11) = 187$
+    \item $a + c = -17$
+\end{itemize}
+
+\textbf{Step 6: Calculate $a+b+c$ (10 seconds)}
+\begin{itemize}
+    \item $a + b + c = -17 + (-12) = -29$
+\end{itemize}
+
+\textbf{Step 7: Apply Identity (20 seconds)}
+\begin{itemize}
+    \item $ab + bc + ca = 247 - (a+b+c)$
+    \item $= 247 - (-29)$
+    \item $= 247 + 29$
+    \item $= 276$
+\end{itemize}
+
+\textbf{Step 8: Verification (30 seconds)}
+\begin{itemize}
+    \item Optional: Find $a = -9$, $c = -8$ and verify original equations
+    \item Check answer matches choice (D)
+\end{itemize}
+
+\subsection*{B. Alternative Approach Summary}
+
+\textbf{Complete Solution Method}:
+\begin{enumerate}
+    \item Use SFFT to find $b = -12$
+    \item From $a+c = -17$ and $a-c = -1$: solve to get $a = -9$, $c = -8$
+    \item Calculate directly: $ab + bc + ca = 108 + 96 + 72 = 276$
+\end{enumerate}
+
+\subsection*{C. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{SFFT method}: ~3-4 minutes total
+    \item \textbf{Complete solution}: ~4-5 minutes total
+    \item \textbf{Recommended}: SFFT with identity (fastest and cleanest)
+    \item \textbf{Fallback}: Complete solution for verification
+\end{itemize}
+
+\end{roadmapbox}
+
+\begin{competitionbox}{7. Competition Strategy Integration}
+
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 3-5 minutes (appropriate for P17)
+    \item \textbf{Time Checkpoints}:
+    \begin{itemize}
+        \item At 1 min: Should have factored to get $(a+c)(b+1) = 187$ and $(a-c)(b-1) = 13$
+        \item At 2 min: Should have identified $b = -12$
+        \item At 3 min: Should have found $a+b+c = -29$
+        \item At 4 min: Should have answer calculated
+        \item At 5+ min: If stuck, use answer choices to work backwards
+    \end{itemize}
+    \item \textbf{Priority Level}: High (P17 is accessible for students targeting 90+)
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% after verification
+    
+    \item \textbf{Error Risks}: 
+    \begin{itemize}
+        \item Sign errors with negative numbers
+        \item Missing the $b = 0$ case (though it doesn't work)
+        \item Arithmetic errors in final sum
+        \item Not recognizing SFFT pattern
+    \end{itemize}
+    
+    \item \textbf{Mitigation}:
+    \begin{itemize}
+        \item Be careful with signs throughout
+        \item Check both potential values of $b$
+        \item Verify final answer in at least one original equation
+        \item Use identity $ab+bc+ca = 247 - (a+b+c)$ for cleaner calculation
+    \end{itemize}
+    
+    \item \textbf{Abandonment Criteria}: If stuck after 5 minutes, guess (D) 276 (middle-upper choice)
+    
+    \item \textbf{Flag for Review}: No - straightforward verification possible
+\end{itemize}
+
+\subsection*{C. Answer Choice Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item (A) 212 = $247 - 35$
+        \item (B) 247 = $100 + 87 + 60$ (sum of RHS - suspicious!)
+        \item (C) 258 = $247 + 11$
+        \item (D) 276 = $247 + 29$ ← correct
+        \item (E) 284 = $247 + 37$
+    \end{itemize}
+    
+    \item \textbf{Working Backwards}:
+    \begin{itemize}
+        \item If answer is (D) 276, then $a+b+c = 247 - 276 = -29$
+        \item This seems reasonable (all negative values)
+        \item Can verify this is consistent with equations
+    \end{itemize}
+    
+    \item \textbf{Elimination}:
+    \begin{itemize}
+        \item (B) 247 would mean $a+b+c = 0$ - unlikely given asymmetric RHS values
+        \item (A) 212 would mean $a+b+c = 35$ - would need positive values, but products suggest negatives
+    \end{itemize}
+    
+    \item \textbf{Reasonableness}:
+    \begin{itemize}
+        \item The values 100, 87, 60 are decreasing
+        \item Suggests $a$, $b$, $c$ have specific relationships
+        \item All negative makes sense for the pattern
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Accessibility}: High - recognizable SFFT pattern
+    \item \textbf{Technique Familiarity}: 
+    \begin{itemize}
+        \item High for basic algebra
+        \item Medium for SFFT (if practiced)
+        \item High for factorization
+    \end{itemize}
+    \item \textbf{Computational Difficulty}: Low-moderate - mostly small integer arithmetic
+    \item \textbf{Verification Ease}: Excellent - can check all equations easily
+    \item \textbf{Guessing Strategy}: Moderate - can use identity to narrow down
+\end{itemize}
+
+\end{competitionbox}
+
+\begin{highlightbox}{Key Insight}
+
+The most elegant solution uses \textbf{Simon's Favorite Factoring Trick (SFFT)}:
+\begin{enumerate}
+    \item Add equations (1) and (2) to get $(a+c)(b+1) = 187$
+    \item Subtract equation (2) from (1) to get $(a-c)(b-1) = 13$
+    \item Use integer constraints: $b+1$ divides 187 and $b-1$ divides 13
+    \item Key observation: $(b+1) - (b-1) = 2$, which severely limits possibilities
+    \item Find $b = -12$, then $a+c = -17$, thus $a+b+c = -29$
+    \item Use identity: $ab + bc + ca = 247 - (a+b+c) = 276$
+\end{enumerate}
+
+\vspace{0.5em}
+\noindent\textbf{Recognition Pattern}: When you have a system with products like $xy + z$, try adding/subtracting equations to create factored forms like $(x+z)(y+1)$.
+
+\vspace{0.5em}
+\noindent\textbf{Critical Identity}: $ab + bc + ca = (ab+c) + (bc+a) + (ca+b) - (a+b+c) = 247 - (a+b+c)$
+
+\end{highlightbox}
+
+\begin{warningbox}{Common Pitfalls}
+
+\textbf{Pitfall 1: Sign Errors with Negatives}
+\begin{itemize}
+    \item \textit{Error}: Computing $(-9)(-12) = -108$ instead of $+108$
+    \item \textit{Prevention}: Remember: negative $\times$ negative = positive
+    \item \textit{Check}: All products $ab$, $bc$, $ca$ should be positive (all vars negative)
+\end{itemize}
+
+\textbf{Pitfall 2: Missing $b=0$ Check}
+\begin{itemize}
+    \item \textit{Error}: Not checking if $b = 0$ works (it appears in both factor lists)
+    \item \textit{Correct}: Must verify $b=0$ gives $a = 87$, but then $c = 60/87$ (not integer)
+    \item \textit{Prevention}: Always test all candidates from factorization
+\end{itemize}
+
+\textbf{Pitfall 3: Wrong Difference Calculation}
+\begin{itemize}
+    \item \textit{Error}: Using $(b+1) + (b-1) = 2b$ instead of difference
+    \item \textit{Correct}: Need $(b+1) - (b-1) = 2$ to match factor pairs
+    \item \textit{Prevention}: Write out explicitly: if $b+1 = -11$ and $b-1 = ?$, then difference is 2
+\end{itemize}
+
+\textbf{Pitfall 4: Arithmetic in Final Sum}
+\begin{itemize}
+    \item \textit{Error}: Computing $108 + 96 + 72$ incorrectly
+    \item \textit{Correct}: $108 + 96 = 204$, then $204 + 72 = 276$
+    \item \textit{Prevention}: Do addition carefully, or use identity method
+\end{itemize}
+
+\textbf{Pitfall 5: Forgetting the Identity}
+\begin{itemize}
+    \item \textit{Error}: Solving completely for $a, b, c$ when only need sum
+    \item \textit{More efficient}: Use $ab+bc+ca = 247 - (a+b+c)$ after finding $a+b+c = -29$
+    \item \textit{Prevention}: Look for relationships before solving completely
+\end{itemize}
+
+\textbf{Pitfall 6: Not Verifying Solution}
+\begin{itemize}
+    \item \textit{Error}: Assuming solution is correct without checking
+    \item \textit{Correct}: Quick check of $ab + c = 108 - 8 = 100$ confirms answer
+    \item \textit{Prevention}: Always verify at least one equation
+\end{itemize}
+
+\end{warningbox}
+
+\begin{protipbox}{Competition Tips}
+
+\textbf{Tip 1: Recognize SFFT Opportunities}
+\begin{itemize}
+    \item When you see $xy + z = k$, think about adding/subtracting equations
+    \item Goal: create factored forms like $(x+z)(y+1)$
+    \item This is one of the most powerful algebraic tricks in AMC
+\end{itemize}
+
+\textbf{Tip 2: Use the Sum Identity}
+\begin{itemize}
+    \item For problems asking for $ab + bc + ca$, observe:
+    \item $(ab+c) + (bc+a) + (ca+b) = ab + bc + ca + (a+b+c)$
+    \item So: $ab + bc + ca = \text{(sum of RHS)} - (a+b+c)$
+    \item Often finding $a+b+c$ is easier than finding individual products
+\end{itemize}
+
+\textbf{Tip 3: Factor Difference Constraint}
+\begin{itemize}
+    \item When you have $(x+y)(w+1) = A$ and $(x-y)(w-1) = B$
+    \item The key is that $(w+1) - (w-1) = 2$ is fixed!
+    \item Look for factor pairs of $A$ and $B$ that differ by 2
+\end{itemize}
+
+\textbf{Tip 4: Integer Constraint Power}
+\begin{itemize}
+    \item "Integers $a, b, c$" is powerful information
+    \item Means you can use factorization to limit possibilities
+    \item Here: $13$ is prime, so only factors are $\pm 1, \pm 13$
+\end{itemize}
+
+\textbf{Tip 5: Check Edge Cases}
+\begin{itemize}
+    \item Always check if $b = 0$ or other simple values work
+    \item Even if they seem unlikely, verify they fail
+    \item Shows completeness and catches errors
+\end{itemize}
+
+\textbf{Tip 6: Work Backwards from Answers}
+\begin{itemize}
+    \item If stuck, use $ab+bc+ca = 247 - (a+b+c)$
+    \item Each answer choice gives a specific value of $a+b+c$
+    \item Can sometimes verify which is consistent without complete solution
+\end{itemize}
+
+\textbf{Tip 7: Negative Numbers Make Sense}
+\begin{itemize}
+    \item The RHS values decrease: 100, 87, 60
+    \item This pattern suggests specific signs for variables
+    \item Don't be surprised if all variables are negative
+\end{itemize}
+
+\end{protipbox}
+
+\section*{Complete Solution (Detailed)}
+
+\subsection*{Solution Method 1: SFFT with Identity (Recommended)}
+
+\textbf{Problem}: Given $ab + c = 100$, $bc + a = 87$, $ca + b = 60$ where $a, b, c$ are integers, find $ab + bc + ca$.
+
+\textbf{Step 1: Add first two equations}
+
+\begin{align*}
+(ab + c) + (bc + a) &= 100 + 87\\
+ab + c + bc + a &= 187\\
+ab + bc + a + c &= 187
+\end{align*}
+
+Factor out common terms:
+\begin{align*}
+b(a + c) + (a + c) &= 187\\
+(a + c)(b + 1) &= 187
+\end{align*}
+
+\textbf{Step 2: Subtract second equation from first}
+
+\begin{align*}
+(ab + c) - (bc + a) &= 100 - 87\\
+ab + c - bc - a &= 13\\
+ab - bc + c - a &= 13
+\end{align*}
+
+Factor:
+\begin{align*}
+b(a - c) - (a - c) &= 13\\
+(a - c)(b - 1) &= 13
+\end{align*}
+
+\textbf{Step 3: Factor the right-hand sides}
+
+For $(a+c)(b+1) = 187$:
+\[187 = 11 \times 17 = 1 \times 187\]
+
+So $b+1 \in \{\pm 1, \pm 11, \pm 17, \pm 187\}$
+
+For $(a-c)(b-1) = 13$:
+\[13 = 1 \times 13 \text{ (prime)}\]
+
+So $b-1 \in \{\pm 1, \pm 13\}$
+
+\textbf{Step 4: Find consistent value of $b$}
+
+We need $(b+1) - (b-1) = 2$ to hold.
+
+Checking factor pairs:
+\begin{itemize}
+    \item If $b+1 = 1$ and $b-1 = -1$: Difference is $1-(-1) = 2$ \checkmark, giving $b = 0$
+    \item If $b+1 = -1$ and $b-1 = -3$: Not possible (would need $b = -2$ and $b = -2$, but $-3 \neq -2-1$)
+    \item If $b+1 = 11$ and $b-1 = 9$: Difference is $11-9 = 2$, but $9$ doesn't divide $13$ $\times$
+    \item If $b+1 = -11$ and $b-1 = -13$: Difference is $-11-(-13) = 2$ \checkmark, giving $b = -12$
+    \item If $b+1 = 17$ and $b-1 = 15$: $15$ doesn't divide $13$ $\times$
+    \item Similar analysis for other pairs shows no matches
+\end{itemize}
+
+So $b \in \{0, -12\}$.
+
+\textbf{Step 5: Test $b = 0$}
+
+If $b = 0$:
+\begin{itemize}
+    \item From equation (2): $bc + a = 0 + a = 87$, so $a = 87$
+    \item From equation (3): $ca + b = c(87) + 0 = 60$, so $c = \frac{60}{87} = \frac{20}{29}$
+\end{itemize}
+
+But $c$ must be an integer! So $b = 0$ doesn't work.
+
+\textbf{Step 6: Use $b = -12$}
+
+From $(a+c)(b+1) = 187$:
+\[(a+c)(-11) = 187\]
+\[a + c = -17\]
+
+Therefore:
+\[a + b + c = -17 + (-12) = -29\]
+
+\textbf{Step 7: Apply the sum identity}
+
+Observe that:
+\begin{align*}
+(ab+c) + (bc+a) + (ca+b) &= ab + bc + ca + (a+b+c)\\
+100 + 87 + 60 &= ab + bc + ca + (a+b+c)\\
+247 &= ab + bc + ca + (a+b+c)
+\end{align*}
+
+Therefore:
+\[ab + bc + ca = 247 - (a+b+c) = 247 - (-29) = 247 + 29 = 276\]
+
+\textbf{Answer: } $\boxed{\textbf{(D) } 276}$
+
+\subsection*{Solution Method 2: Complete Solution (Verification)}
+
+From above, we have $b = -12$ and $a+c = -17$.
+
+We also found $(a-c)(b-1) = 13$, so:
+\[(a-c)(-13) = 13\]
+\[a - c = -1\]
+
+Now solve the system:
+\begin{align*}
+a + c &= -17\\
+a - c &= -1
+\end{align*}
+
+Adding: $2a = -18$, so $a = -9$
+
+Subtracting: $2c = -16$, so $c = -8$
+
+\textbf{Verification}: Check all three original equations:
+\begin{align*}
+ab + c &= (-9)(-12) + (-8) = 108 - 8 = 100 \quad \checkmark\\
+bc + a &= (-12)(-8) + (-9) = 96 - 9 = 87 \quad \checkmark\\
+ca + b &= (-8)(-9) + (-12) = 72 - 12 = 60 \quad \checkmark
+\end{align*}
+
+All correct!
+
+\textbf{Calculate answer directly}:
+\begin{align*}
+ab + bc + ca &= 108 + 96 + 72\\
+&= 204 + 72\\
+&= 276
+\end{align*}
+
+\textbf{Answer: } $\boxed{\textbf{(D) } 276}$
+
+\section*{Final Answer}
+
+The solution is $(a, b, c) = (-9, -12, -8)$, giving:
+
+$$ab + bc + ca = 108 + 96 + 72 = 276$$
+
+$$\boxed{\textbf{(D) } 276}$$
+
+\section*{Confidence Assessment}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 99\% - Complete verification with two methods
+    
+    \item \textbf{Verification Applied}: 
+    \begin{itemize}
+        \item SFFT method gave $a+b+c = -29$ \checkmark
+        \item Identity method: $276 = 247 - (-29)$ \checkmark
+        \item Complete solution: $(a,b,c) = (-9, -12, -8)$ \checkmark
+        \item All three original equations verified \checkmark
+        \item Direct calculation: $108 + 96 + 72 = 276$ \checkmark
+        \item Answer matches choice (D) \checkmark
+    \end{itemize}
+    
+    \item \textbf{Flag for Review}: No - extremely high confidence with triple verification
+    
+    \item \textbf{Time Spent}: 3-4 minutes (excellent for P17)
+    \begin{itemize}
+        \item SFFT setup: 1 minute
+        \item Finding $b$: 1 minute
+        \item Calculating answer: 1 minute
+        \item Verification: 1 minute
+    \end{itemize}
+    
+    \item \textbf{Alternative Methods Available}: Yes (complete solution, working backwards)
+    
+    \item \textbf{Error Risk Assessment}: Very low - multiple independent confirmations
+\end{itemize}
+
+\section*{Pattern Recognition}
+
+\textbf{Problem Signature}: System of equations with product terms, SFFT application
+
+\textbf{Recognition Cues}:
+\begin{itemize}
+    \item Equations of form $xy + z = k$
+    \item Integer constraints
+    \item Asking for sum of products
+    \item Three equations, three unknowns
+\end{itemize}
+
+\textbf{Standard Approach}:
+\begin{enumerate}
+    \item Add/subtract equations to create factored forms
+    \item Use SFFT: $(a+c)(b+1) = 187$ and $(a-c)(b-1) = 13$
+    \item Apply integer factorization constraints
+    \item Use difference condition: $(b+1) - (b-1) = 2$
+    \item Find $b$, then $a+c$, then $a+b+c$
+    \item Apply identity: $ab+bc+ca = 247 - (a+b+c)$
+    \item Verify solution
+\end{enumerate}
+
+\textbf{Time Estimate}: 3-4 minutes for P17-level problem
+
+\textbf{Similar Problems}: SFFT problems, symmetric function problems, integer constraint problems
+
+\end{document}
+

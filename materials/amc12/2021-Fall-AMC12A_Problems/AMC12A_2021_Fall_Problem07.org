@@ -1,0 +1,47 @@
+2021 AMC 12A Problems/Problem 7
+Contents
+1 Problem
+2 Solution
+3 Video Solution (Simple and Quick)
+4 Video Solution by TheBeautyofMath
+5 Video Solution by WhyMath
+6 See Also
+Problem
+A school has $100$ students and $5$ teachers. In the first period, each student is taking one class, and each teacher is teaching one class. The enrollments in the classes are $50, 20, 20, 5,$ and $5$ . Let $t$ be the average value obtained if a teacher is picked at random and the number of students in their class is noted. Let $s$ be the average value obtained if a student was picked at random and the number of students in their class, including the student, is noted. What is $t-s$ ?
+$\textbf{(A)}\ {-}18.5 \qquad\textbf{(B)}\ {-}13.5 \qquad\textbf{(C)}\ 0 \qquad\textbf{(D)}\ 13.5 \qquad\textbf{(E)}\ 18.5$
+Solution
+The formula for expected values is
+
+\[\text{Expected Value}=\sum(\text{Outcome}\cdot\text{Probability}).\]
+
+We have 
+
+\begin{align*} t &= 50\cdot\frac15 + 20\cdot\frac15 + 20\cdot\frac15 + 5\cdot\frac15 + 5\cdot\frac15 \\ &= (50+20+20+5+5)\cdot\frac15 \\ &= 100\cdot\frac15 \\ &= 20, \\ s &= 50\cdot\frac{50}{100} + 20\cdot\frac{20}{100} + 20\cdot\frac{20}{100} + 5\cdot\frac{5}{100} + 5\cdot\frac{5}{100} \\ &= 25 + 4 + 4 + 0.25 + 0.25 \\ &= 33.5. \end{align*}
+
+ Therefore, the answer is $t-s=\boxed{\textbf{(B)}\ {-}13.5}.$
+~MRENTHUSIASM
+Video Solution (Simple and Quick)
+https://youtu.be/nZBIoUS0mdk
+~Education, the Study of Everything
+Video Solution by TheBeautyofMath
+for AMC 10: https://youtu.be/ycRZHCOKTVk?t=789
+for AMC 12: https://youtu.be/wlDlByKI7A8?t=157
+~IceMatrix
+Video Solution by WhyMath
+https://youtu.be/f7vhOCnvl0k
+~savannahsolver
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2021 Fall AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 9 Followed by 
+ Problem 11
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,520 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+% Define colored boxes
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=\textbf{1. PROBLEM CONFIGURATION},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=\textbf{2. STRATEGIC FRAMEWORK APPLICATION},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=\textbf{3. TACTICAL METHODOLOGY SELECTION},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=\textbf{4. CONVERSION TECHNIQUES APPLICATION},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=\textbf{5. VERIFICATION STRATEGY},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=\textbf{6. SOLUTION ROADMAP},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=\textbf{7. COMPETITION INTEGRATION},
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{highlightbox}[1]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=#1,
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{\textbf{Strategic Analysis: 2018 AMC 12A Problem 11\\Paper Triangle Folding}}
+\author{Generated using AMC12/COMC Problem Solving Framework}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+A paper triangle with sides of lengths $3, 4,$ and $5$ inches is folded so that point $A$ falls on point $B$. What is the length in inches of the crease?
+
+\textbf{Answer Choices:}
+\begin{itemize}
+    \item[(A)] $1+\frac{1}{2}\sqrt{2}$
+    \item[(B)] $\sqrt{3}$
+    \item[(C)] $\frac{7}{4}$
+    \item[(D)] $\frac{15}{8}$
+    \item[(E)] $2$
+\end{itemize}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find
+    \item \textbf{Difficulty Band}: Mid-band (Problem 11 out of 25)
+    \item \textbf{Competition Context}: AMC 12A 2018
+    \item \textbf{Mathematical Domain}: Geometry (with connections to reflections, coordinate geometry, and similarity)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Right triangle with legs 3 and 4 inches (thus hypotenuse is 5 inches by Pythagorean theorem)
+        \item Point $A$ is at the right angle
+        \item Point $B$ is at the vertex opposite the leg of length 4
+        \item The paper is folded so $A$ maps onto $B$
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item The triangle is a 3-4-5 right triangle
+        \item The fold creates a crease line
+        \item The folding is a reflection (paper folding)
+    \end{itemize}
+    \item \textbf{Objective}: Find the length of the crease line
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The crease is a straight line (property of paper folding)
+        \item When folding $A$ onto $B$, the crease is the perpendicular bisector of segment $AB$
+        \item The crease intersects the sides of the triangle
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All answers are between approximately 1.4 and 2
+        \item Answer (D) $\frac{15}{8} = 1.875$ is the most ``natural'' fraction
+        \item Can eliminate by rough estimation or measurement
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The crease is the perpendicular bisector of $AB$
+    \item \textbf{Conclusion}: We need to find where this perpendicular bisector intersects the triangle's sides and calculate its length
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $A$ be at the origin $(0,0)$
+        \item Let $C$ be at $(4,0)$ on the horizontal leg
+        \item Let $B$ be at $(0,3)$ on the vertical leg
+        \item Let $D$ be the midpoint of $AB$
+        \item Let $E$ be the intersection of the crease with side $AC$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Recognize that paper folding creates a perpendicular bisector
+        \item Use similar triangles to find the crease length
+        \item Alternatively, use coordinate geometry to find the crease equation
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure geometry via similar triangles
+        \item Coordinate geometry approach
+        \item Reflection/transformation geometry
+        \item Area-based approach using triangle decomposition
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This problem requires recognizing the key insight that a fold creates a perpendicular bisector. If the first approach doesn't work, try visualization or coordinate geometry.
+    \item \textbf{Creativity Cultivation}: Think about what happens when you physically fold paper - the crease is equidistant from the two points being matched. This physical intuition can guide the mathematical approach.
+    \item \textbf{Iterative Refinement}: If similar triangles seem complicated, switch to coordinates. If coordinates get messy, return to pure geometry.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Read carefully - we fold $A$ onto $B$, not just any fold. This immediately tells us the crease is the perpendicular bisector of $AB$.
+    \item \textbf{Get Your Hands Dirty}: Draw a clear diagram. Mark the midpoint $D$ of $AB$. Draw a line through $D$ perpendicular to $AB$. Find where this line intersects side $AC$.
+    \item \textbf{Penultimate Step}: The final calculation is finding the distance between the midpoint of $AB$ and the intersection point on $AC$.
+    \item \textbf{Wishful Thinking}: ``I wish I could use similar triangles'' - and indeed, $\triangle ADE \sim \triangle ACB$!
+    \item \textbf{Make It Easier}: Instead of worrying about where the crease goes, first find the midpoint of $AB$ and recognize the perpendicularity property.
+    \item \textbf{Conjecture via Small Cases}: Not directly applicable, but we can verify our answer makes geometric sense (crease length should be less than either leg).
+    \item \textbf{Visualization}: Drawing the perpendicular bisector reveals the similar triangle structure immediately.
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+Not applicable - this is Problem 11 (mid-band), not 17-25.
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Use similarity ratios directly: $\frac{BC}{AC} = \frac{DE}{AD}$ where $D$ is the midpoint of $AB$ and $E$ is on $AC$.
+    \item \textbf{Proof by Contradiction}: Not needed for this problem.
+    \item \textbf{Mathematical Induction}: Not applicable.
+    \item \textbf{Stylistic Conventions}: WLOG, we can orient the triangle with $A$ at the origin.
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential! The diagram reveals the similar triangle structure.
+    \item \textbf{Recast the Problem}: ``Find the perpendicular bisector of $AB$ and its intersection with the triangle'' is clearer than ``find the crease.''
+    \item \textbf{Change Your Point of View}: 
+    \begin{itemize}
+        \item View as a reflection problem
+        \item View as a perpendicular bisector problem
+        \item View as a locus problem (points equidistant from $A$ and $B$)
+        \item View using coordinates with $A$ at origin
+    \end{itemize}
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: The crease line has reflection symmetry - every point on the crease is equidistant from $A$ and $B$.
+    \item \textbf{The Extreme Principle}: Not directly applicable.
+    \item \textbf{The Pigeonhole Principle}: Not applicable.
+    \item \textbf{Invariants}: The property that the crease is the perpendicular bisector is invariant regardless of how we orient the triangle.
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory}: Not applicable.
+    \item \textbf{Complex Numbers}: Not needed, though could represent points as complex numbers.
+    \item \textbf{Generating Functions}: Not applicable.
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. Recognition Index}
+
+\textbf{High-Probability Techniques Applicable:}
+\begin{enumerate}
+    \item \textbf{Coordinate Geometry Conversion} (90\% match): Place $A$ at origin, use coordinates to find crease equation
+    \item \textbf{Symmetry Exploitation} (95\% match): The crease is a line of symmetry mapping $A$ to $B$
+    \item \textbf{Similar Triangles} (95\% match): $\triangle ADE \sim \triangle ACB$
+    \item \textbf{Pythagorean Theorem} (100\% match): Used to verify 3-4-5 triangle and in distance calculations
+\end{enumerate}
+
+\subsection*{B. Technique Selection}
+
+\textbf{Primary Approach: Similar Triangles}
+\begin{itemize}
+    \item Success Rate: 95\%
+    \item Time Cost: 2-3 minutes
+    \item Cognitive Load: Low (if you recognize the similarity)
+    \item Justification: Most elegant and fastest approach
+\end{itemize}
+
+\textbf{Secondary Approach: Coordinate Geometry}
+\begin{itemize}
+    \item Success Rate: 90\%
+    \item Time Cost: 3-4 minutes
+    \item Cognitive Load: Medium (more calculation)
+    \item Justification: More mechanical, less insight required
+\end{itemize}
+
+\textbf{Tertiary Approach: Area Method}
+\begin{itemize}
+    \item Success Rate: 85\%
+    \item Time Cost: 4-5 minutes
+    \item Cognitive Load: Medium-High
+    \item Justification: Works but requires more steps
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Technique Chain:}
+\begin{enumerate}
+    \item Recognize fold $\Rightarrow$ perpendicular bisector
+    \item Find midpoint $D$ of $AB$: $D = (\frac{5}{2}, \frac{5}{2})$ in terms of hypotenuse coordinates
+    \item Recognize $\triangle ADE \sim \triangle ACB$ by AA similarity
+    \item Set up ratio: $\frac{DE}{AD} = \frac{BC}{AC}$
+    \item Calculate: $\frac{DE}{\frac{5}{2}} = \frac{3}{4}$
+    \item Solve: $DE = \frac{15}{8}$
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{Potential Conflicts:}
+\begin{itemize}
+    \item \textbf{Conflict}: Should I use coordinates or pure geometry?
+    \item \textbf{Resolution}: Pure geometry via similar triangles is faster once you see it
+    \item \textbf{Conflict}: Which triangle is similar to which?
+    \item \textbf{Resolution}: Both have a right angle, and they share angle at $A$
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Level Selection with Decision Tree}
+
+\textbf{Confidence Level: High (this is Problem 11, mid-difficulty)}
+
+\textbf{Verification Level: Standard (Level 2)}
+\begin{itemize}
+    \item Check similar triangle setup is correct
+    \item Verify ratio calculation
+    \item Check answer is among choices
+    \item Verify answer makes geometric sense (between 1 and 2)
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+
+\textbf{Dimensional Analysis:}
+\begin{itemize}
+    \item Input units: inches
+    \item Output units: inches
+    \item Calculation preserves units: $\checkmark$
+\end{itemize}
+
+\textbf{Limit Case Analysis:}
+\begin{itemize}
+    \item If triangle were degenerate (flat), crease length would approach 0: makes sense
+    \item If $A$ and $B$ were very far apart, crease would approach leg lengths: makes sense
+    \item Our answer $\frac{15}{8} = 1.875$ is reasonable for a 3-4-5 triangle
+\end{itemize}
+
+\textbf{Symmetry Check:}
+\begin{itemize}
+    \item The crease should be perpendicular to $AB$: verified by construction
+    \item The crease should pass through midpoint of $AB$: verified
+\end{itemize}
+
+\textbf{Answer Choice Elimination:}
+\begin{itemize}
+    \item (E) $2$ is too large (would exceed the shorter leg)
+    \item (B) $\sqrt{3} \approx 1.73$ is close but not quite right
+    \item (C) $\frac{7}{4} = 1.75$ is close
+    \item (A) $1 + \frac{\sqrt{2}}{2} \approx 1.707$ is close
+    \item (D) $\frac{15}{8} = 1.875$ is our answer
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Pre-Solution Confidence:} 70\% (recognizing perpendicular bisector property)
+
+\textbf{Post-Solution Confidence:} 95\% (calculation is straightforward, answer is among choices)
+
+\textbf{Decision:} Mark answer and move on (high confidence, verified)
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{A. Step-by-Step Solution Plan}
+
+\textbf{Phase 1: Setup and Recognition (30 seconds)}
+\begin{enumerate}
+    \item Read problem carefully
+    \item Draw diagram with labeled points
+    \item Recognize 3-4-5 right triangle
+    \item Identify key insight: fold creates perpendicular bisector of $AB$
+\end{enumerate}
+
+\textbf{Phase 2: Geometric Construction (45 seconds)}
+\begin{enumerate}
+    \item Mark midpoint $D$ of hypotenuse $AB$
+    \item Draw perpendicular from $D$ to $AB$
+    \item Mark intersection $E$ with side $AC$
+    \item Recognize $\triangle ADE$ and $\triangle ACB$ share angle at $A$ and both have right angles
+\end{enumerate}
+
+\textbf{Phase 3: Similar Triangle Application (60 seconds)}
+\begin{enumerate}
+    \item State $\triangle ADE \sim \triangle ACB$ by AA similarity
+    \item Set up ratio: $\frac{DE}{AD} = \frac{BC}{AC}$
+    \item Calculate $AD = \frac{AB}{2} = \frac{5}{2}$
+    \item Substitute: $\frac{DE}{\frac{5}{2}} = \frac{3}{4}$
+    \item Solve: $DE = \frac{3}{4} \cdot \frac{5}{2} = \frac{15}{8}$
+\end{enumerate}
+
+\textbf{Phase 4: Verification (15 seconds)}
+\begin{enumerate}
+    \item Check answer is among choices: Yes, choice (D)
+    \item Verify reasonableness: $\frac{15}{8} = 1.875$ is between 1 and 2, makes sense
+    \item Mark answer
+\end{enumerate}
+
+\textbf{Total Time: 2.5 minutes}
+
+\subsection*{B. Alternative Approaches}
+
+\textbf{Approach 2: Coordinate Geometry}
+\begin{enumerate}
+    \item Place $A$ at origin $(0,0)$, $C$ at $(4,0)$, $B$ at $(0,3)$
+    \item Find midpoint $D = (2, 1.5)$
+    \item Find slope of $AB$: $m_{AB} = \frac{3}{4}$
+    \item Crease is perpendicular: $m_{\text{crease}} = -\frac{4}{3}$
+    \item Equation of crease: $y - 1.5 = -\frac{4}{3}(x - 2)$
+    \item Find intersection with $AC$ (the $x$-axis): $y = 0$
+    \item Solve: $-1.5 = -\frac{4}{3}(x-2) \Rightarrow x = \frac{7}{8}$
+    \item Point $E = (\frac{7}{8}, 0)$
+    \item Distance: $DE = \sqrt{(2-\frac{7}{8})^2 + (1.5)^2} = \sqrt{(\frac{9}{8})^2 + (\frac{3}{2})^2} = \sqrt{\frac{81}{64} + \frac{144}{64}} = \sqrt{\frac{225}{64}} = \frac{15}{8}$
+\end{enumerate}
+
+\textbf{Approach 3: Isosceles Triangle Method}
+\begin{enumerate}
+    \item Let $D$ be point on $AC$ such that $AD = DB$ (creating isosceles triangle)
+    \item The altitude from $D$ to $AB$ is the crease
+    \item Use areas to find this altitude
+    \item Set $DC = x$, then $AD = DB = 4 - x$
+    \item In $\triangle BCD$: $x^2 + 9 = (4-x)^2$
+    \item Solve: $x = \frac{7}{8}$
+    \item Area of $\triangle ADB = \frac{75}{16}$ (by subtraction)
+    \item Using $A = \frac{1}{2}bh$ with $b = AB = 5$: $h = \frac{15}{8}$
+\end{enumerate}
+
+\subsection*{C. Checkpoints and Validation}
+
+\begin{itemize}
+    \item \textbf{Checkpoint 1}: After recognizing perpendicular bisector, verify you understand what needs to be calculated
+    \item \textbf{Checkpoint 2}: After setting up similar triangles, verify the angles are correct
+    \item \textbf{Checkpoint 3}: After calculating ratio, verify arithmetic
+    \item \textbf{Checkpoint 4}: Answer should be among choices (D)
+\end{itemize}
+
+\subsection*{D. Comprehensive Pitfall Guide}
+
+\begin{highlightbox}{Common Errors to Avoid}
+\textbf{Conceptual Errors:}
+\begin{itemize}
+    \item \textbf{Pitfall}: Thinking the crease is parallel to a side
+    \item \textbf{Prevention}: Remember fold $\Rightarrow$ perpendicular bisector
+    
+    \item \textbf{Pitfall}: Finding the wrong intersection point
+    \item \textbf{Prevention}: Crease must intersect $AC$ (the bottom leg), not $BC$
+    
+    \item \textbf{Pitfall}: Confusing which triangles are similar
+    \item \textbf{Prevention}: Both have right angles, both share angle $A$
+\end{itemize}
+
+\textbf{Calculation Errors:}
+\begin{itemize}
+    \item \textbf{Pitfall}: Getting midpoint wrong: $AD = 5/2$, not $5$
+    \item \textbf{Prevention}: Midpoint divides segment in half
+    
+    \item \textbf{Pitfall}: Setting up ratio incorrectly
+    \item \textbf{Prevention}: Corresponding sides: $\frac{\text{small triangle}}{\text{small triangle}} = \frac{\text{large triangle}}{\text{large triangle}}$
+    
+    \item \textbf{Pitfall}: Arithmetic error: $\frac{3}{4} \times \frac{5}{2} = \frac{15}{8}$
+    \item \textbf{Prevention}: Double-check multiplication
+\end{itemize}
+\end{highlightbox}
+
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Target Time: 2-3 minutes}
+
+\textbf{Time Allocation:}
+\begin{itemize}
+    \item Reading and diagram: 30 seconds
+    \item Recognition of perpendicular bisector: 15 seconds
+    \item Similar triangle setup: 45 seconds
+    \item Calculation: 45 seconds
+    \item Verification: 15 seconds
+\end{itemize}
+
+\textbf{Decision Points:}
+\begin{itemize}
+    \item If stuck after 1 minute: try coordinate geometry approach
+    \item If stuck after 2 minutes: use answer choice elimination (measure diagram)
+    \item If stuck after 3 minutes: make educated guess and flag for review
+\end{itemize}
+
+\subsection*{B. Problem Prioritization Strategy}
+
+\textbf{Priority Level: High}
+
+This is Problem 11, solidly in the mid-band. It should be attempted after problems 1-10 are complete. The geometric insight required is moderate, and the calculation is straightforward once the approach is identified.
+
+\textbf{Accessibility Factors:}
+\begin{itemize}
+    \item \textbf{Domain}: Geometry (if comfortable with geometry, prioritize)
+    \item \textbf{Structure}: Clear diagram provided, visual problem
+    \item \textbf{Technique}: Similar triangles (standard AMC technique)
+    \item \textbf{Calculation}: Light arithmetic
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Confidence Threshold: 70\% to proceed}
+
+\textbf{Risk Assessment:}
+\begin{itemize}
+    \item \textbf{High Risk}: Not recognizing perpendicular bisector property
+    \item \textbf{Medium Risk}: Setting up wrong similar triangle relationship
+    \item \textbf{Low Risk}: Arithmetic errors (easily checked)
+\end{itemize}
+
+\textbf{Abandonment Criteria:}
+\begin{itemize}
+    \item If after 4 minutes you haven't set up a clear approach, make educated guess
+    \item Guess (D) $\frac{15}{8}$ if you must guess (most ``natural'' answer for AMC)
+    \item Flag for review if time permits
+\end{itemize}
+
+\subsection*{D. Strategic Notes for Competition Day}
+
+\begin{highlightbox}{Pro Tips}
+\begin{itemize}
+    \item \textbf{Pattern Recognition}: Paper folding always creates perpendicular bisectors
+    \item \textbf{Similar Triangles}: When you see ``perpendicular from midpoint,'' think similar triangles
+    \item \textbf{Answer Estimation}: $\frac{15}{8}$ is close to 2 but less than the short leg
+    \item \textbf{Physical Intuition}: If you have scratch paper, actually fold a 3-4-5 triangle and measure!
+    \item \textbf{Time Investment}: This is worth 3 minutes - it's very doable with the right insight
+\end{itemize}
+\end{highlightbox}
+
+\end{competitionbox}
+
+\section*{Summary}
+
+\textbf{Key Insight:} Paper folding creates a perpendicular bisector, and the resulting configuration produces similar triangles.
+
+\textbf{Answer: (D) $\dfrac{15}{8}$}
+
+\textbf{Core Technique:} Similar triangles with ratio $\dfrac{DE}{AD} = \dfrac{BC}{AC} = \dfrac{3}{4}$
+
+\textbf{Time Required:} 2-3 minutes for experienced solver
+
+\textbf{Difficulty Assessment:} Moderate (Problem 11/25) - requires geometric insight but straightforward calculation
+
+\end{document}

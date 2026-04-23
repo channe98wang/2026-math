@@ -1,0 +1,387 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Define colored boxes as per framework
+\newtcolorbox{problemconfigbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title={\textbf{1. PROBLEM CONFIGURATION ANALYSIS}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{strategicbox}{
+    colback=pink!10!white,
+    colframe=pink!75!black,
+    title={\textbf{2. STRATEGIC FRAMEWORK APPLICATION}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title={\textbf{3. TACTICAL METHODOLOGY SELECTION}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{conversionbox}{
+    colback=yellow!10!white,
+    colframe=yellow!75!black,
+    title={\textbf{4. CONVERSION TECHNIQUES APPLICATION}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{verificationbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title={\textbf{5. VERIFICATION STRATEGY DESIGN}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{roadmapbox}{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title={\textbf{6. SOLUTION ROADMAP}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{competitionbox}{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title={\textbf{7. COMPETITION STRATEGY INTEGRATION}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=orange!10!white,
+    colframe=orange!75!black,
+    title={\textbf{Key Insight}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10!white,
+    colframe=red!75!black,
+    title={\textbf{Warning}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10!white,
+    colframe=green!75!black,
+    title={\textbf{Pro Tip}},
+    breakable,
+    fonttitle=\bfseries
+}
+
+\title{\textbf{AMC 12A 2016 Problem 22\\Strategic Analysis}}
+\author{Comprehensive Problem-Solving Framework}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+How many ordered triples $(x,y,z)$ of positive integers satisfy 
+$\text{lcm}(x,y) = 72, \quad \text{lcm}(x,z) = 600, \quad \text{lcm}(y,z)=900$
+
+\textbf{Answer Choices:} 
+$\textbf{(A)}\ 15\qquad\textbf{(B)}\ 16\qquad\textbf{(C)}\ 24\qquad\textbf{(D)}\ 27\qquad\textbf{(E)}\ 64$
+
+\vspace{1em}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (counting problem)
+    \item \textbf{Difficulty Band}: Late-band (Problem 22 of 25)
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems, multiple choice)
+    \item \textbf{Mathematical Domain}: Number Theory (LCM properties, prime factorization, counting)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Three LCM equations involving positive integers $x, y, z$
+        \item $\text{lcm}(x,y) = 72 = 2^3 \cdot 3^2$
+        \item $\text{lcm}(x,z) = 600 = 2^3 \cdot 3 \cdot 5^2$
+        \item $\text{lcm}(y,z) = 900 = 2^2 \cdot 3^2 \cdot 5^2$
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item All variables are positive integers
+        \item Must satisfy all three LCM conditions simultaneously
+        \item Order matters (looking for ordered triples)
+    \end{itemize}
+    \item \textbf{Objective}: Count the number of valid ordered triples $(x,y,z)$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item LCM property: $\text{lcm}(a,b) = p_1^{\max(\alpha_1,\beta_1)} \cdot p_2^{\max(\alpha_2,\beta_2)} \cdots$
+        \item The prime factorizations determine unique constraints on exponents
+        \item Some primes may not appear in certain numbers (exponent = 0)
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Small answer choices suggest systematic casework is feasible
+        \item Options are well-separated: 15, 16, 24, 27, 64
+        \item Can verify answer by checking if casework yields a small number
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Prime factorization will decompose problem into independent counting problems
+    \item \textbf{Conclusion}: Total count equals product of counts for each prime
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item $x = 2^a \cdot 3^b \cdot 5^c$
+        \item $y = 2^d \cdot 3^e \cdot 5^f$
+        \item $z = 2^g \cdot 3^h \cdot 5^i$
+        \item Non-negative integer exponents
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: Convert LCM conditions to max conditions on exponents, solve independently
+    \item \textbf{Cross-Domain Potential}: Could visualize as lattice paths, but algebraic approach most direct
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Problem 22 expects multiple steps and careful casework. Don't get discouraged
+    \item \textbf{Creativity Cultivation}: Recognize that triangle diagram approach provides elegant organization
+    \item \textbf{Iterative Refinement}: Start with one prime, understand pattern, then apply to others
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately recognize LCM $\rightarrow$ prime factorization
+    \item \textbf{Get Your Hands Dirty}: Factorize all LCMs completely
+    \item \textbf{Penultimate Step}: Final answer will be product of counts for primes 2, 3, and 5
+    \item \textbf{Wishful Thinking}: Each prime can be handled independently - this is true!
+    \item \textbf{Make It Easier}: Consider each prime separately, use multiplicative principle
+    \item \textbf{Conjecture via Small Cases}: Try $p=2$ first, find pattern, apply to others
+    \item \textbf{Visualization}: Triangle with vertices $x,y,z$ and edges labeled with LCMs
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Answer 15 = $5 \times 3 \times 1$ suggests independent counting
+    \item \textbf{Make It Easier}: Start with just constraints from prime 2
+    \item \textbf{Penultimate Step}: Once we have counts per prime, multiply together
+    \item \textbf{Conjecture via Small Cases}: Factorization approach emerged from considering how LCM works
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Invariant Principle}: LCM structure preserved under prime factorization
+    \item \textbf{Extreme Principle}: Consider which variable must have maximum exponent for each prime
+    \item \textbf{Symmetry Breaking}: Identify which variables are constrained by each LCM condition
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Number Theory}:
+    \begin{itemize}
+        \item Prime factorization decomposition
+        \item LCM as maximum of exponents: $\text{lcm}(a,b) = \prod p_i^{\max(\alpha_i, \beta_i)}$
+        \item Multiplicative counting principle for independent events
+    \end{itemize}
+    \item \textbf{Combinatorial Tactics}:
+    \begin{itemize}
+        \item Casework by prime
+        \item Product rule for independent choices
+        \item Systematic enumeration of valid exponent combinations
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Signals}: LCM, positive integers, counting $\Rightarrow$ prime factorization
+    \item \textbf{Pattern Match}: Three constraints, three unknowns, factorization separates into independent pieces
+    \item \textbf{Solution Archetype}: Independent counting with product rule
+\end{itemize}
+
+\subsection*{B. Technique Selection Decision Tree}
+\begin{enumerate}
+    \item See LCM $\rightarrow$ Prime factorization
+    \item Multiple LCM conditions $\rightarrow$ Write as max conditions on exponents  
+    \item Different primes $\rightarrow$ Solve independently
+    \item Count solutions per prime $\rightarrow$ Multiply counts
+\end{enumerate}
+
+\subsection*{C. Multi-Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary}: Prime factorization decomposition
+    \item \textbf{Secondary}: Casework for each prime's exponent constraints
+    \item \textbf{Tertiary}: Multiplicative counting principle
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Standard Verification
+    \item \textbf{Justification}: Late-band problem requires careful checking
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Boundary Case Check}: Verify at least one solution exists (e.g., $(24, 36, 300)$)
+    \item \textbf{Dimensional Analysis}: Answer should be product of small integers (matches $5 \times 3 \times 1 = 15$)
+    \item \textbf{Answer Choice Elimination}: 64 too large, 15 = $5 \times 3$ is reasonable
+    \item \textbf{Spot Check}: Verify one complete triple satisfies all three LCM conditions
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% after systematic casework
+    \item \textbf{Post-Verification Confidence}: 95\% after confirming independence
+    \item \textbf{Decision}: Submit answer (A) 15 with high confidence
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\subsection*{Step-by-Step Solution Path}
+
+\textbf{Step 1: Prime Factorization Setup (1-2 min)}
+\begin{itemize}
+    \item Factor all given LCMs:
+    \begin{align*}
+        72 &= 2^3 \cdot 3^2 \cdot 5^0 \\
+        600 &= 2^3 \cdot 3^1 \cdot 5^2 \\
+        900 &= 2^2 \cdot 3^2 \cdot 5^2
+    \end{align*}
+    \item Express unknowns: $x = 2^a \cdot 3^b \cdot 5^c$, $y = 2^d \cdot 3^e \cdot 5^f$, $z = 2^g \cdot 3^h \cdot 5^i$
+\end{itemize}
+
+\textbf{Step 2: Convert LCMs to Max Conditions (1 min)}
+\begin{itemize}
+    \item From $\text{lcm}(x,y) = 72$: $\max(a,d) = 3$, $\max(b,e) = 2$, $\max(c,f) = 0$
+    \item From $\text{lcm}(x,z) = 600$: $\max(a,g) = 3$, $\max(b,h) = 1$, $\max(c,i) = 2$
+    \item From $\text{lcm}(y,z) = 900$: $\max(d,g) = 2$, $\max(e,h) = 2$, $\max(f,i) = 2$
+\end{itemize}
+
+\textbf{Step 3: Deduce Fixed Values (1 min)}
+\begin{itemize}
+    \item From $\max(c,f) = 0$: must have $c = f = 0$
+    \item From $c = 0$ and $\max(c,i) = 2$: must have $i = 2$
+    \item From $\max(a,d) = 3$ and $\max(d,g) = 2$: must have $a = 3$
+    \begin{itemize}
+        \item Why: If $a < 3$, then $d = 3$ to satisfy $\max(a,d) = 3$
+        \item But then $\max(d,g) \geq 3$, contradicting $\max(d,g) = 2$
+        \item Therefore $a = 3$
+    \end{itemize}
+    \item From $\max(b,e) = 2$ and $\max(b,h) = 1$ and $\max(e,h) = 2$: must have $e = 2$
+    \begin{itemize}
+        \item Why: If $e < 2$, then $b = 2$ to satisfy $\max(b,e) = 2$
+        \item But then $\max(b,h) \geq 2$, contradicting $\max(b,h) = 1$
+        \item Therefore $e = 2$
+    \end{itemize}
+\end{itemize}
+
+\textbf{Step 4: Count Powers of 2 (1 min)}
+\begin{itemize}
+    \item With $a = 3$ fixed, need $\max(d,g) = 2$
+    \item Valid ordered pairs $(d,g)$: 
+    \begin{itemize}
+        \item $(2,0), (2,1), (2,2), (1,2), (0,2)$
+    \end{itemize}
+    \item Count: \textbf{5 pairs} (matching exponents for $y$ and $z$)
+    \item \textbf{Checkpoint}: Verify each pair satisfies $\max(d,g) = 2$: Yes.
+\end{itemize}
+
+\textbf{Step 5: Count Powers of 3 (1 min)}
+\begin{itemize}
+    \item With $e = 2$ fixed, need $\max(b,h) = 1$
+    \item Valid ordered pairs $(b,h)$:
+    \begin{itemize}
+        \item $(1,0), (0,1), (1,1)$
+    \end{itemize}
+    \item Count: \textbf{3 pairs} (matching exponents for $x$ and $z$)
+    \item \textbf{Checkpoint}: Verify each pair satisfies $\max(b,h) = 1$: Yes.
+\end{itemize}
+
+\textbf{Step 6: Count Powers of 5 (30 sec)}
+\begin{itemize}
+    \item Fixed: $c = 0, f = 0, i = 2$
+    \item Only \textbf{1 possibility}
+\end{itemize}
+
+\textbf{Step 7: Apply Multiplicative Principle (30 sec)}
+\begin{itemize}
+    \item Total = $5 \times 3 \times 1 = 15$
+\end{itemize}
+
+\subsection*{Comprehensive Pitfall Guide}
+\begin{enumerate}
+    \item \textbf{Forgetting $5^0$}: Not recognizing $c=f=0$ from $\text{lcm}(x,y)=72$
+    \item \textbf{Missing $a=3$ deduction}: Not seeing that $\max(d,g)=2$ forces $a=3$
+    \item \textbf{Overcounting}: Listing pairs violating max constraints
+    \item \textbf{Independence error}: Thinking constraints on different primes interact
+    \item \textbf{Calculation error}: Getting $5 \times 3 = 15$ wrong
+\end{enumerate}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 4-6 minutes
+    \item \textbf{Actual Time Benchmark}: If exceeding 7 min, flag for review
+\end{itemize}
+
+\subsection*{B. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Guess Strategy}: Eliminate 64, 27; guess 15 or 16 if stuck
+\end{itemize}
+
+\subsection*{C. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}: If casework becomes unwieldy after 5 min
+    \item \textbf{Hard Abandon}: If fundamentally stuck on LCM properties
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The key insight is recognizing that LCM constraints on different primes are \textbf{independent}. Each prime can be analyzed separately, and the total count is the product of individual counts. The constraint $\max(d,g) = 2$ combined with $\max(a,d) = 3$ forces $a=3$.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Most Common Pitfall}: Failing to recognize that $\text{lcm}(x,y) = 72 = 2^3 \cdot 3^2 \cdot 5^0$ means both $x$ and $y$ have no factors of 5 (i.e., $c = f = 0$).
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Tip}: When you see LCM in AMC12 Problem 20+, immediately write out complete prime factorizations including $p^0$ terms. Answer choices often hint at structure: 15 = $5 \times 3$ suggests independent cases.
+\end{tipbox}
+
+\section*{Final Answer}
+$\boxed{\textbf{(A) } 15}$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\%
+    \item \textbf{Verification Applied}: Dimensional analysis, boundary check, answer choice elimination
+    \item \textbf{Time Spent}: Estimated 5 minutes
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,55 @@
+2025 AMC 12A Problems/Problem 4
+Contents
+1 Solution 1
+2 Solution 2
+3 Solution 3
+4 Solution 4
+5 Video Solution (In 1 Min)
+6 See Also
+Agnes writes the following four statements on a blank piece of paper.
+$\bullet$ At least one of these statements is true.
+$\bullet$ At least two of these statements are true.
+$\bullet$ At least two of these statements are false.
+$\bullet$ At least one of these statements is false.
+Each statement is either true or false. How many false statements did Agnes write on the paper?
+$\textbf{(A) } 0 \qquad\textbf{(B) } 1 \qquad\textbf{(C) } 2 \qquad\textbf{(D) } 3 \qquad\textbf{(E) } 4$
+Solution 1
+We first number all the statements:
+1) At least one of these statements is true.
+2) At least two of these statements are true.
+3) At least two of these statements are false.
+4) At least one of these statements is false.
+We can immediately see that statement 4 must be true, as it would contradict itself if it were false. Similarly, statement 1 must be true, as all the other statements must be false if it were true, which is contradictory because statement 4 is true. Since both 1 and 4 are true, statement 2 has to be true. Therefore, statement 3 is the only false statement, making the answer $\boxed{\text{(B) }1}$ . 
+-Rainjs
+Solution 2
+Statements $I,II,$ and $IV$ are true, while statement $III$ is false. Hence, there are $3$ true statements and $\boxed{\text{(B) }1}$ false statement. This result can be checked by examining the statements individually again.
+Statements $I$ and $II$ will be true because there are $3\ge2$ true statements. Statement $IV$ is also true because there is $1\ge1$ false statement. Finally, statement $III$ is false because there are $1\ngeq2$ false statements.
+~Tacos_are_yummy_1
+Solution 3
+Let's say there are $T$ true statements. We know that $T$ can be any integer from $0$ to $4$ . We denote $A$ as $T \geq 1$ , Statement $B$ as $T \geq 2$ , Statement $C$ as $T \leq 2$ , and Statement $D$ as $T \leq 3$ .
+If $T=0$ , then $C$ and $D$ are met, so there are $2$ true statements, which is a contradiction.
+If $T=1$ , then $A,C,D$ are met, so there are $3$ true statements, which is a contradiction.
+If $T=2$ , then $A,B,C,D$ are met, so there are $4$ true statements, which is a contradiction.
+If $T=3$ , then $A,B,D$ are met, so there are $3$ true statements, which is consistent with our assumption that $T=3$ .
+If $T=4$ , then $A,B$ are met, so there are $2$ true statements, which is a contradiction.
+Only $T=3$ was consistent, so there are $3$ true statements and $4-3=\boxed{1}$ false statement. (In particular, Statement C is the false statement).
+~lprado
+Solution 4
+Suppose Statement $I$ is false, then none of the Statements are true, which contradicts the fact that a false Statement $III$ or $IV$ is telling the truth. Therefore, Statement $I$ is true and assume Statement $II$ is false.
+Statement $II$ thus implies that only Statement $I$ was the truth, and the rest, false. But then, there are 3 false statements but then Statement $III$ and Statement $IV$ are telling the truth. So Statement $II$ is also true.
+Now, if Statement $III$ is true, then both Statement $III$ and Statement $IV$ is false, contradicting the fact that it is true. Statement $III$ is hence false and Statement $IV$ tells the truth since Statement $III$ lied so indeed, there are at least one lie. There are a total of 3 truths and 1 lie, making the answer $\boxed{\text{(B) }1}$ . ~hxve
+Video Solution (In 1 Min)
+https://youtu.be/uv3uIMwIkrg?si=XCbsXL7ikMawCGyM ~ Pi Academy
+See Also
+2025 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+- AMC 10
+- AMC 10 Problems and Solutions
+- Mathematics competitions
+- Mathematics competition resources
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions . Error creating thumbnail: File missing
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions. Error creating thumbnail: File missing

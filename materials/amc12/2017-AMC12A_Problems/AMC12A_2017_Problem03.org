@@ -1,0 +1,29 @@
+2017 AMC 12A Problems/Problem 3
+Contents
+1 Problem
+2 Solution
+3 Video Solution
+4 See Also
+Problem
+Ms. Carroll promised that anyone who got all the multiple choice questions right on the upcoming exam would receive an A on the exam. Which one of these statements necessarily follows logically?
+$\textbf{(A)}\ \text{ If Lewis did not receive an A, then he got all of the multiple choice questions wrong.} \\ \qquad\textbf{(B)}\ \text{ If Lewis did not receive an A, then he got at least one of the multiple choice questions wrong.} \\ \qquad\textbf{(C)}\ \text{ If Lewis got at least one of the multiple choice questions wrong, then he did not receive an A.} \\ \qquad\textbf{(D)}\ \text{ If Lewis received an A, then he got all of the multiple choice questions right.} \\ \qquad\textbf{(E)}\ \text{ If Lewis received an A, then he got at least one of the multiple choice questions right.}$
+Solution
+Taking the contrapositive of the statement "if he got all of them right, he got an A" yields "if he didn't get an A, he didn't get all of them right", yielding the answer $\boxed{\textbf{(B)}}$ .
+Video Solution
+https://www.youtube.com/watch?v=iHlOCfubaq8
+~Math4All999
+See Also
+2017 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 5 Followed by 
+ Problem 7
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2017 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 2 Followed by 
+ Problem 4
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions .
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions.

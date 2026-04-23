@@ -1,0 +1,1136 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{\today}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+% Highlight boxes
+\newtcolorbox{keyinsight}{
+    colback=gold!10,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1.5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red,
+    title=Warning,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1.5pt,
+    breakable
+}
+
+\newtcolorbox{protip}{
+    colback=green!10,
+    colframe=green!70!black,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1.5pt,
+    breakable
+}
+
+\title{\textbf{AMC 12A 2024 Problem 21 Analysis}\\
+\large{Comprehensive Strategic Framework Application}}
+\author{Problem Analysis Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+Suppose that $a_1 = 2$ and the sequence $(a_n)$ satisfies the recurrence relation
+
+\[\frac{a_n -1}{n-1}=\frac{a_{n-1}+1}{(n-1)+1}\]
+
+for all $n \geq 2$. What is the greatest integer less than or equal to
+
+\[\sum^{100}_{n=1} a_n^2?\]
+
+\begin{align*}
+\textbf{(A) } 338{,}550 \qquad \textbf{(B) } 338{,}551 \qquad \textbf{(C) } 338{,}552 \qquad \textbf{(D) } 338{,}553 \qquad \textbf{(E) } 338{,}554
+\end{align*}
+
+\section{Problem Configuration Analysis}
+
+\begin{problemconfigbox}
+
+\subsection*{A. Problem Classification}
+
+\textbf{Problem Type:} To Find (computational problem with sequences and series)
+
+\textbf{Difficulty Band:} Late-band (Problem 21 of 25)
+\begin{itemize}
+    \item Expected time: 5-7 minutes
+    \item Difficulty level: High (84\% position)
+    \item Requires recurrence relation solution
+    \item Involves summation and estimation
+\end{itemize}
+
+\textbf{Competition Context:} AMC 12A (75 minutes, 25 problems, multiple choice)
+
+\textbf{Mathematical Domain:} 
+\begin{itemize}
+    \item Primary: Sequences and Series (recurrence relations)
+    \item Secondary: Algebra (manipulation and simplification)
+    \item Tertiary: Summation Formulas (sum of squares, telescoping)
+    \item Quaternary: Estimation (bounding infinite series)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+
+\textbf{Given Information:}
+\begin{itemize}
+    \item Initial condition: $a_1 = 2$
+    \item Recurrence: $\frac{a_n -1}{n-1}=\frac{a_{n-1}+1}{n}$ for $n \geq 2$
+    \item Goal: Find $\lfloor \sum_{n=1}^{100} a_n^2 \rfloor$
+    \item Answer choices differ by only 1
+\end{itemize}
+
+\textbf{Constraints:}
+\begin{itemize}
+    \item Must solve recurrence to find explicit formula
+    \item Must evaluate sum to 100 terms
+    \item Need floor function (greatest integer)
+    \item Answer choices very close together (requires precision)
+\end{itemize}
+
+\textbf{Objective:} Find the greatest integer $\leq \sum_{n=1}^{100} a_n^2$.
+
+\textbf{Hidden Assumptions:}
+\begin{itemize}
+    \item The recurrence can be solved explicitly
+    \item The sum will not be an integer (otherwise floor irrelevant)
+    \item Small terms matter (answer choices differ by 1)
+    \item Estimation techniques needed for $\sum \frac{1}{n^2}$
+\end{itemize}
+
+\textbf{Answer Choice Leverage:}
+\begin{itemize}
+    \item All choices in narrow range: 338,550-338,554
+    \item Sequential: differ by exactly 1
+    \item Large values suggest sum dominated by large terms
+    \item Middle choice (C) might be trap if calculation error
+    \item Need precise calculation to distinguish
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+
+\textbf{Hypothesis:} The recurrence transforms into a simpler form via substitution.
+
+\textbf{Conclusion:} Solve for $a_n$, compute $a_n^2$, sum, and apply floor function.
+
+\textbf{Notation:}
+\begin{itemize}
+    \item Let $b_n = n(a_n - 1)$ or $b_n = na_n$ (clever substitution)
+    \item Use standard summation formulas
+    \item Denote $S = \sum_{n=1}^{100} a_n^2$
+\end{itemize}
+
+\textbf{Intuitive Approach:} 
+\begin{itemize}
+    \item Transform recurrence via substitution
+    \item Use telescoping to find explicit formula
+    \item Recognize $a_n = n + \frac{1}{n}$ pattern
+    \item Split sum into manageable parts
+    \item Estimate $\sum \frac{1}{n^2}$ term
+\end{itemize}
+
+\textbf{Cross-Domain Potential:}
+\begin{itemize}
+    \item Algebraic: Manipulation and substitution
+    \item Analysis: Series estimation and bounds
+    \item Number theory: Floor function application
+\end{itemize}
+
+\end{problemconfigbox}
+
+\begin{keyinsight}
+\textbf{Critical Discovery:} The recurrence simplifies beautifully via substitution.
+
+\textbf{Method 1 - Substitution $b_n = n(a_n - 1)$:}
+
+Starting from: $\frac{a_n -1}{n-1}=\frac{a_{n-1}+1}{n}$
+
+Cross-multiply: $n(a_n - 1) = (n-1)(a_{n-1} + 1)$
+
+Let $b_n = n(a_n - 1)$, then:
+\[b_n = (n-1)(a_{n-1} - 1) + 2(n-1) = b_{n-1} + 2(n-1)\]
+
+This telescopes to: $b_n = b_1 + 2(1 + 2 + \cdots + (n-1)) = 1 + n(n-1) = n^2 - n + 1$
+
+Therefore: $a_n = \frac{b_n + n}{n} = \frac{n^2 + 1}{n} = n + \frac{1}{n}$
+
+\textbf{Method 2 - Substitution $b_n = na_n$:}
+
+Transform to: $na_n - (n-1)a_{n-1} = 2n - 1$
+
+Let $b_n = na_n$, then: $b_n - b_{n-1} = 2n - 1$
+
+Telescoping: $b_n = b_1 + \sum_{k=2}^{n}(2k-1) = 2 + (3 + 5 + \cdots + (2n-1)) = 1 + n^2$
+
+Therefore: $a_n = \frac{1 + n^2}{n} = n + \frac{1}{n}$
+
+\textbf{Key Result:} $a_n = n + \frac{1}{n}$, so $a_n^2 = n^2 + 2 + \frac{1}{n^2}$
+\end{keyinsight}
+
+\section{Strategic Framework Application}
+
+\begin{strategicbox}
+
+\subsection*{A. Psychological Strategies}
+
+\textbf{Mental Toughness:}
+\begin{itemize}
+    \item Problem 21 requires algebraic persistence
+    \item Multiple steps: solve recurrence, sum, estimate
+    \item Don't panic at complex recurrence
+    \item Trust that clever substitution exists
+\end{itemize}
+
+\textbf{Creativity Cultivation:}
+\begin{itemize}
+    \item Think: What substitution simplifies this?
+    \item Consider: Multiply both sides by something useful
+    \item Pattern recognition: Look for telescoping
+    \item Guess-and-check: Compute first few terms
+\end{itemize}
+
+\textbf{Iterative Refinement:}
+\begin{itemize}
+    \item First: Try to isolate $a_n$
+    \item Second: If messy, try substitution
+    \item Third: Look for pattern in small cases
+    \item Fourth: Verify formula works
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+
+\textbf{Startup Orientation:}
+\begin{itemize}
+    \item Understand: This is a recurrence relation problem
+    \item Identify: Need explicit formula for $a_n$
+    \item Recognize: Substitution likely needed
+    \item Note: Answer choices very close (need precision)
+\end{itemize}
+
+\textbf{Get Your Hands Dirty:}
+\begin{itemize}
+    \item Compute: $a_1 = 2$
+    \item Compute: $a_2 = \frac{5}{2}$ from recurrence
+    \item Compute: $a_3 = \frac{10}{3}$, $a_4 = \frac{17}{4}$
+    \item Pattern: $a_n = \frac{n^2+1}{n}$ becomes evident!
+\end{itemize}
+
+\textbf{Penultimate Step:}
+\begin{itemize}
+    \item Final step: Apply floor function to sum
+    \item Before that: Estimate $\sum \frac{1}{n^2}$ term
+    \item Before that: Sum $n^2$ and constant terms
+    \item Before that: Find $a_n^2 = n^2 + 2 + \frac{1}{n^2}$
+    \item Before that: Solve for $a_n = n + \frac{1}{n}$
+\end{itemize}
+
+\textbf{Wishful Thinking:}
+\begin{itemize}
+    \item Wish: If only recurrence was simple $a_n = a_{n-1} + c$
+    \item Reality: More complex, but substitution helps
+    \item Wish: If only $\sum \frac{1}{n^2}$ was known exactly
+    \item Reality: Need to bound between 1 and 2
+\end{itemize}
+
+\textbf{Make It Easier:}
+\begin{itemize}
+    \item Simplify: Cross-multiply recurrence first
+    \item Simplify: Use substitution to linearize
+    \item Simplify: Recognize telescoping pattern
+    \item Simplify: Split sum into three manageable parts
+\end{itemize}
+
+\textbf{Conjecture via Small Cases:}
+\begin{itemize}
+    \item $a_1 = 2 = 1 + 1$
+    \item $a_2 = \frac{5}{2} = 2 + \frac{1}{2}$
+    \item $a_3 = \frac{10}{3} = 3 + \frac{1}{3}$
+    \item $a_4 = \frac{17}{4} = 4 + \frac{1}{4}$
+    \item Pattern: $a_n = n + \frac{1}{n}$ $\checkmark$
+\end{itemize}
+
+\textbf{Visualization:}
+\begin{itemize}
+    \item Visualize: Telescoping sum as cancellation
+    \item Think: $\sum \frac{1}{n^2}$ converges to $\frac{\pi^2}{6} \approx 1.645$
+    \item Understand: Why answer is 338,551 not 338,552
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+
+\textbf{Answer-Choice Leverage:}
+\begin{itemize}
+    \item Sequential answers: 338,550 through 338,554
+    \item Difference of 1: Small fractional part matters
+    \item Pattern: $338,550 + k$ where $k \in \{0,1,2,3,4\}$
+    \item Strategy: Once we get 338,550 + (1 to 2), answer is (B)
+\end{itemize}
+
+\textbf{Make It Easier Application:}
+\begin{itemize}
+    \item Replace: Complex recurrence with explicit formula
+    \item Replace: Sum of $a_n^2$ with sum of simpler terms
+    \item Replace: Exact calculation of $\sum \frac{1}{n^2}$ with bounds
+    \item Build: Use known formula for $\sum n^2$
+\end{itemize}
+
+\textbf{Penultimate Step Focus:}
+\begin{itemize}
+    \item Working backwards: Need $\lfloor S \rfloor = 338,551$
+    \item Therefore: Need $338,551 < S < 338,552$
+    \item Therefore: Need $338,550 + 1 < S < 338,550 + 2$
+    \item Check: $\sum \frac{1}{n^2} \in (1, 2)$ gives this $\checkmark$
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+
+\textbf{Direct Approach:}
+\begin{enumerate}
+    \item Cross-multiply the recurrence relation
+    \item Apply clever substitution to linearize
+    \item Use telescoping to find explicit formula
+    \item Square $a_n$ and split into three sums
+    \item Evaluate using standard formulas and bounds
+    \item Apply floor function
+\end{enumerate}
+
+\textbf{Key Lemma:} $1 < \sum_{n=1}^{100} \frac{1}{n^2} < 2$
+
+\textit{Proof:} Lower bound is trivial ($\frac{1}{1^2} = 1$). For upper bound, use comparison:
+\[\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} < 2\]
+or group terms and bound by geometric series.
+
+\end{strategicbox}
+
+\begin{warningbox}
+\textbf{Common Mistakes:}
+\begin{enumerate}
+    \item \textbf{Algebraic errors in recurrence manipulation:} Losing track of signs or coefficients
+    \item \textbf{Forgetting initial condition:} Not verifying $a_1 = 2$ works with formula
+    \item \textbf{Wrong summation formula:} Using $\frac{n(n+1)}{2}$ instead of $\frac{n(n+1)(2n+1)}{6}$
+    \item \textbf{Misapplying floor function:} Taking floor too early or incorrectly
+    \item \textbf{Poor estimation:} Not bounding $\sum \frac{1}{n^2}$ correctly
+    \item \textbf{Arithmetic errors:} Large numbers make calculation mistakes likely
+\end{enumerate}
+\end{warningbox}
+
+\section{Tactical Methodology Selection}
+
+\begin{tacticalbox}
+
+\subsection*{A. Core Mathematical Tactics}
+
+\textbf{Substitution:}
+\begin{itemize}
+    \item Applied: Transform $a_n$ to $b_n$ for simpler recurrence
+    \item Two approaches: $b_n = n(a_n-1)$ or $b_n = na_n$
+    \item Goal: Linearize the recurrence
+    \item Success: Creates telescoping sum
+\end{itemize}
+
+\textbf{Telescoping:}
+\begin{itemize}
+    \item Recognition: $b_n - b_{n-1} = f(n)$ pattern
+    \item Application: Sum both sides from 2 to $n$
+    \item Result: Most terms cancel, leaving simple expression
+    \item Efficiency: Avoids iterating 100 times
+\end{itemize}
+
+\textbf{Pattern Recognition:}
+\begin{itemize}
+    \item Strategy: Compute first few terms
+    \item Observation: $a_n = \frac{n^2+1}{n}$
+    \item Verification: Check formula satisfies recurrence
+    \item Advantage: Direct path if substitution unclear
+\end{itemize}
+
+\textbf{Estimation:}
+\begin{itemize}
+    \item Target: $\sum_{n=1}^{100} \frac{1}{n^2}$
+    \item Method: Bound between simple values
+    \item Lower: Clearly $> 1$
+    \item Upper: Use $< \frac{\pi^2}{6} < 2$ or telescoping comparison
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+
+\textbf{Sequences and Series Tactics:}
+\begin{itemize}
+    \item \textbf{Recurrence Solving:} Substitution, characteristic equations
+    \item \textbf{Telescoping Sums:} Key for finding explicit formulas
+    \item \textbf{Standard Formulas:} $\sum n^2 = \frac{n(n+1)(2n+1)}{6}$
+    \item \textbf{Series Bounds:} Comparison tests, grouping methods
+\end{itemize}
+
+\textbf{Algebra Tactics:}
+\begin{itemize}
+    \item \textbf{Cross-Multiplication:} Clear fractions
+    \item \textbf{Expansion:} $(n + \frac{1}{n})^2 = n^2 + 2 + \frac{1}{n^2}$
+    \item \textbf{Factoring:} Recognize patterns
+\end{itemize}
+
+\textbf{Estimation Tactics:}
+\begin{itemize}
+    \item \textbf{Bounding Series:} Upper and lower bounds
+    \item \textbf{Known Constants:} $\frac{\pi^2}{6} \approx 1.645$
+    \item \textbf{Comparison:} $\frac{1}{n^2} < \frac{1}{n(n-1)}$ for $n \geq 2$
+\end{itemize}
+
+\subsection*{C. Crossover Techniques}
+
+\textbf{Algebra $\leftrightarrow$ Sequences:}
+\begin{itemize}
+    \item Translate: Recurrence relation to algebraic equation
+    \item Manipulate: Using standard algebraic techniques
+    \item Return: To sequence interpretation
+\end{itemize}
+
+\textbf{Discrete $\leftrightarrow$ Analysis:}
+\begin{itemize}
+    \item Discrete: Finite sum to 100 terms
+    \item Analysis: Use infinite series bounds
+    \item Connection: Finite sum $<$ infinite sum
+\end{itemize}
+
+\end{tacticalbox}
+
+\begin{protip}
+\textbf{Standard Formula Quick Reference:}
+
+Always have these memorized for AMC 12:
+
+\begin{align*}
+\sum_{n=1}^{N} n &= \frac{N(N+1)}{2} \\
+\sum_{n=1}^{N} n^2 &= \frac{N(N+1)(2N+1)}{6} \\
+\sum_{n=1}^{N} n^3 &= \left(\frac{N(N+1)}{2}\right)^2 \\
+\sum_{n=1}^{\infty} \frac{1}{n^2} &= \frac{\pi^2}{6} \approx 1.645
+\end{align*}
+
+\textbf{Quick Calculation for $N=100$:}
+\[\sum_{n=1}^{100} n^2 = \frac{100 \cdot 101 \cdot 201}{6} = \frac{2{,}030{,}100}{6} = 338{,}350\]
+
+\textbf{Bounding $\sum \frac{1}{n^2}$:}
+
+Lower bound: Obviously $> 1$ (first term alone)
+
+Upper bound (telescoping method):
+\[\frac{1}{n^2} < \frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}\]
+\[\sum_{n=2}^{100} \frac{1}{n^2} < \sum_{n=2}^{100} \left(\frac{1}{n-1} - \frac{1}{n}\right) = 1 - \frac{1}{100} < 1\]
+\[\sum_{n=1}^{100} \frac{1}{n^2} < 1 + 1 = 2\]
+\end{protip}
+
+\section{Conversion Techniques Application}
+
+\begin{techniquesbox}
+
+\subsection*{A. Recognition Index}
+
+\textbf{Primary Technique: Substitution to Linearize}
+\begin{itemize}
+    \item Recognition trigger: Non-linear recurrence
+    \item Strategy: Find substitution that creates linear form
+    \item Candidates: $b_n = n(a_n - 1)$ or $b_n = na_n$
+    \item Result: Telescoping sum emerges
+\end{itemize}
+
+\textbf{Secondary Technique: Pattern Recognition}
+\begin{itemize}
+    \item Recognition trigger: Small cases compute easily
+    \item Strategy: Calculate $a_1, a_2, a_3, a_4$
+    \item Pattern: $a_n = n + \frac{1}{n}$ becomes obvious
+    \item Advantage: Bypasses substitution if pattern seen quickly
+\end{itemize}
+
+\textbf{Tertiary Technique: Series Decomposition}
+\begin{itemize}
+    \item Recognition trigger: Sum of $a_n^2$ with known form
+    \item Strategy: Split into three separate sums
+    \item Application: $\sum(n^2 + 2 + \frac{1}{n^2})$ separates cleanly
+    \item Benefit: Each sum uses different technique
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+
+\textbf{Why Substitution Method?}
+\begin{itemize}
+    \item Systematic: Works even without pattern recognition
+    \item Rigorous: Proves formula rather than guessing
+    \item Generalizable: Technique applies to similar problems
+    \item Elegant: Creates beautiful telescoping
+\end{itemize}
+
+\textbf{Why Pattern Recognition as Alternative?}
+\begin{itemize}
+    \item Fast: Immediate if pattern obvious
+    \item Intuitive: Natural for visual thinkers
+    \item Competition-friendly: Saves time under pressure
+    \item Risk: Must verify formula works
+\end{itemize}
+
+\textbf{Why Series Estimation?}
+\begin{itemize}
+    \item Necessary: Can't compute $\sum \frac{1}{n^2}$ exactly easily
+    \item Efficient: Bounds suffice for floor function
+    \item Standard: Common competition technique
+    \item Precise: Gives tight enough bounds
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Phase 1: Solve Recurrence}
+\begin{itemize}
+    \item Cross-multiply original recurrence
+    \item Apply substitution $b_n = n(a_n-1)$ or $b_n = na_n$
+    \item Use telescoping to find $b_n$
+    \item Extract $a_n = n + \frac{1}{n}$
+\end{itemize}
+
+\textbf{Phase 2: Square and Decompose}
+\begin{itemize}
+    \item Calculate $a_n^2 = n^2 + 2 + \frac{1}{n^2}$
+    \item Write sum: $\sum a_n^2 = \sum n^2 + \sum 2 + \sum \frac{1}{n^2}$
+    \item Recognize standard formulas apply
+\end{itemize}
+
+\textbf{Phase 3: Evaluate and Estimate}
+\begin{itemize}
+    \item Compute $\sum_{n=1}^{100} n^2 = 338,350$
+    \item Compute $\sum_{n=1}^{100} 2 = 200$
+    \item Estimate $1 < \sum_{n=1}^{100} \frac{1}{n^2} < 2$
+    \item Sum: $338,550 + (1 \text{ to } 2)$
+\end{itemize}
+
+\textbf{Phase 4: Apply Floor Function}
+\begin{itemize}
+    \item Range: $S \in (338,551, 338,552)$
+    \item Floor: $\lfloor S \rfloor = 338,551$
+    \item Answer: (B)
+\end{itemize}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{Potential Conflict 1: Which Substitution?}
+\begin{itemize}
+    \item Conflict: $b_n = n(a_n-1)$ vs. $b_n = na_n$
+    \item Resolution: Both work! Choose whichever you see first
+    \item Lesson: Multiple valid approaches exist
+\end{itemize}
+
+\textbf{Potential Conflict 2: Exact vs. Approximate}
+\begin{itemize}
+    \item Conflict: Need exact value of $\sum \frac{1}{n^2}$?
+    \item Resolution: No! Bounds suffice for floor function
+    \item Lesson: Don't overwork the problem
+\end{itemize}
+
+\textbf{Potential Conflict 3: Answer Choice Ambiguity}
+\begin{itemize}
+    \item Conflict: Sum could be near 338,551.5
+    \item Resolution: Better bounds show it's in (338,551, 338,552)
+    \item Lesson: Precision matters when choices are close
+\end{itemize}
+
+\end{techniquesbox}
+
+\section{Verification Strategy Design}
+
+\begin{verificationbox}
+
+\subsection*{A. Verification Level Selection}
+
+\textbf{Selected Level: Level 5 - Targeted Deep Check (2-3 minutes)}
+
+\textbf{Decision Tree Analysis:}
+\begin{itemize}
+    \item Problem difficulty: Late-band (P21) $\to$ High stakes
+    \item Personal confidence: Moderate (many calculation steps)
+    \item Time remaining: Assume 12-15 minutes left $\to$ Can afford thorough check
+    \item Answer type: Close multiple choices $\to$ Need precision
+    \item Recommendation: Level 5 (Targeted Deep Check)
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+
+\textbf{Formula Verification:}
+
+\textbf{Check 1: Does $a_n = n + \frac{1}{n}$ satisfy initial condition?}
+\[a_1 = 1 + \frac{1}{1} = 2 \checkmark\]
+
+\textbf{Check 2: Does formula satisfy recurrence?}
+\begin{align*}
+\frac{a_n - 1}{n-1} &= \frac{n + \frac{1}{n} - 1}{n-1} = \frac{n - 1 + \frac{1}{n}}{n-1} = 1 + \frac{1}{n(n-1)} \\
+\frac{a_{n-1} + 1}{n} &= \frac{(n-1) + \frac{1}{n-1} + 1}{n} = \frac{n + \frac{1}{n-1}}{n} = 1 + \frac{1}{n(n-1)} \checkmark
+\end{align*}
+
+\textbf{Check 3: Verify pattern with computed values}
+\begin{align*}
+a_2 &= 2 + \frac{1}{2} = \frac{5}{2} \checkmark \\
+a_3 &= 3 + \frac{1}{3} = \frac{10}{3} \checkmark \\
+a_4 &= 4 + \frac{1}{4} = \frac{17}{4} \checkmark
+\end{align*}
+
+\textbf{Summation Verification:}
+
+\textbf{Check 4: Sum of Squares Formula}
+\begin{align*}
+\sum_{n=1}^{100} n^2 &= \frac{100 \cdot 101 \cdot 201}{6} \\
+&= \frac{2{,}030{,}100}{6} \\
+&= 338{,}350 \checkmark
+\end{align*}
+
+\textbf{Check 5: Constant Sum}
+\[\sum_{n=1}^{100} 2 = 2 \cdot 100 = 200 \checkmark\]
+
+\textbf{Check 6: Bounds on $\sum \frac{1}{n^2}$}
+
+Lower bound:
+\[\sum_{n=1}^{100} \frac{1}{n^2} \geq \frac{1}{1^2} = 1 \checkmark\]
+
+Upper bound (telescoping):
+\begin{align*}
+\sum_{n=1}^{100} \frac{1}{n^2} &= 1 + \sum_{n=2}^{100} \frac{1}{n^2} \\
+&< 1 + \sum_{n=2}^{100} \frac{1}{n(n-1)} \\
+&= 1 + \sum_{n=2}^{100} \left(\frac{1}{n-1} - \frac{1}{n}\right) \\
+&= 1 + \left(1 - \frac{1}{100}\right) \\
+&< 2 \checkmark
+\end{align*}
+
+\textbf{Check 7: Total Sum Range}
+\begin{align*}
+\sum a_n^2 &= 338{,}350 + 200 + \sum \frac{1}{n^2} \\
+&= 338{,}550 + \sum \frac{1}{n^2} \\
+&\in (338{,}550 + 1, 338{,}550 + 2) \\
+&= (338{,}551, 338{,}552) \checkmark
+\end{align*}
+
+\textbf{Check 8: Floor Function Application}
+\[\lfloor S \rfloor = 338{,}551 \text{ when } S \in (338{,}551, 338{,}552) \checkmark\]
+
+\textbf{Answer Choice Validation:}
+
+\textbf{Check 9: Does Answer Match?}
+\begin{itemize}
+    \item Our answer: 338,551
+    \item Choice (B): 338,551 $\checkmark$
+\end{itemize}
+
+\textbf{Check 10: Why Not Adjacent Choices?}
+\begin{itemize}
+    \item (A) 338,550: Would need $\sum \frac{1}{n^2} < 1$ (impossible)
+    \item (C) 338,552: Would need $\sum \frac{1}{n^2} \geq 2$ (false)
+    \item Both ruled out $\checkmark$
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Pre-Verification Confidence: 80\%}
+\begin{itemize}
+    \item Strong: Clear derivation path
+    \item Strong: Formula checks out for small cases
+    \item Concern: Arithmetic errors in large numbers
+    \item Concern: Bounds on series might be wrong
+\end{itemize}
+
+\textbf{Post-Verification Confidence: 97\%}
+\begin{itemize}
+    \item Confirmed: Formula satisfies recurrence
+    \item Confirmed: All arithmetic correct
+    \item Confirmed: Bounds are tight
+    \item Confirmed: Answer matches choice
+    \item Remaining 3\%: Minimal risk of oversight
+\end{itemize}
+
+\textbf{Final Decision: SELECT ANSWER (B)}
+
+\end{verificationbox}
+
+\section{Solution Roadmap}
+
+\begin{solutionbox}
+
+\subsection*{Complete Solution Path}
+
+\textbf{Phase 1: Solve the Recurrence (2-3 minutes)}
+
+\textbf{Step 1.1: Cross-Multiply the Recurrence}
+
+Given: $\frac{a_n -1}{n-1}=\frac{a_{n-1}+1}{n}$
+
+Cross-multiply:
+\[n(a_n - 1) = (n-1)(a_{n-1} + 1)\]
+
+\textbf{Step 1.2: Apply Substitution}
+
+Let $b_n = n(a_n - 1)$. Then:
+\begin{align*}
+b_n &= (n-1)(a_{n-1} + 1) \\
+&= (n-1)(a_{n-1} - 1) + 2(n-1) \\
+&= b_{n-1} + 2(n-1)
+\end{align*}
+
+This is a simple recurrence: $b_n - b_{n-1} = 2(n-1)$
+
+\textbf{Step 1.3: Use Telescoping}
+
+Summing from $n=2$ to $n=N$:
+\begin{align*}
+b_N - b_1 &= \sum_{k=2}^{N} 2(k-1) \\
+&= 2\sum_{k=1}^{N-1} k \\
+&= 2 \cdot \frac{(N-1)N}{2} \\
+&= N(N-1)
+\end{align*}
+
+Since $b_1 = 1(a_1 - 1) = 1(2-1) = 1$:
+\[b_N = 1 + N(N-1) = N^2 - N + 1\]
+
+\textbf{Step 1.4: Extract $a_n$}
+\begin{align*}
+n(a_n - 1) &= n^2 - n + 1 \\
+a_n - 1 &= n - 1 + \frac{1}{n} \\
+a_n &= n + \frac{1}{n}
+\end{align*}
+
+\textbf{Checkpoint 1:} Have I correctly solved for $a_n$?
+
+\textbf{Phase 2: Square and Decompose (1 minute)}
+
+\textbf{Step 2.1: Calculate $a_n^2$}
+\begin{align*}
+a_n^2 &= \left(n + \frac{1}{n}\right)^2 \\
+&= n^2 + 2 \cdot n \cdot \frac{1}{n} + \frac{1}{n^2} \\
+&= n^2 + 2 + \frac{1}{n^2}
+\end{align*}
+
+\textbf{Step 2.2: Write Sum as Three Parts}
+\begin{align*}
+\sum_{n=1}^{100} a_n^2 &= \sum_{n=1}^{100} \left(n^2 + 2 + \frac{1}{n^2}\right) \\
+&= \sum_{n=1}^{100} n^2 + \sum_{n=1}^{100} 2 + \sum_{n=1}^{100} \frac{1}{n^2}
+\end{align*}
+
+\textbf{Checkpoint 2:} Have I correctly expanded $a_n^2$ and separated the sum?
+
+\textbf{Phase 3: Evaluate Each Sum (2-3 minutes)}
+
+\textbf{Step 3.1: Sum of Squares}
+\begin{align*}
+\sum_{n=1}^{100} n^2 &= \frac{100 \cdot 101 \cdot 201}{6} \\
+&= \frac{100 \cdot 101 \cdot 201}{6} \\
+&= \frac{2{,}030{,}100}{6} \\
+&= 338{,}350
+\end{align*}
+
+\textbf{Step 3.2: Sum of Constants}
+\[\sum_{n=1}^{100} 2 = 2 \cdot 100 = 200\]
+
+\textbf{Step 3.3: Bound Sum of Reciprocal Squares}
+
+Lower bound (trivial):
+\[\sum_{n=1}^{100} \frac{1}{n^2} > \frac{1}{1^2} = 1\]
+
+Upper bound (telescoping comparison):
+\begin{align*}
+\sum_{n=1}^{100} \frac{1}{n^2} &= 1 + \sum_{n=2}^{100} \frac{1}{n^2} \\
+&< 1 + \sum_{n=2}^{100} \frac{1}{n(n-1)} \quad \text{(since } \frac{1}{n^2} < \frac{1}{n(n-1)} \text{ for } n \geq 2\text{)} \\
+&= 1 + \sum_{n=2}^{100} \left(\frac{1}{n-1} - \frac{1}{n}\right) \\
+&= 1 + \left(\frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \cdots + \frac{1}{99} - \frac{1}{100}\right) \\
+&= 1 + \left(1 - \frac{1}{100}\right) \\
+&= 2 - \frac{1}{100} < 2
+\end{align*}
+
+Therefore: $1 < \sum_{n=1}^{100} \frac{1}{n^2} < 2$
+
+\textbf{Checkpoint 3:} Have I correctly bounded the reciprocal sum?
+
+\textbf{Phase 4: Final Calculation (30 seconds)}
+
+\textbf{Step 4.1: Sum All Parts}
+\begin{align*}
+\sum_{n=1}^{100} a_n^2 &= 338{,}350 + 200 + \sum_{n=1}^{100} \frac{1}{n^2} \\
+&= 338{,}550 + \sum_{n=1}^{100} \frac{1}{n^2}
+\end{align*}
+
+Since $1 < \sum_{n=1}^{100} \frac{1}{n^2} < 2$:
+\[338{,}551 < \sum_{n=1}^{100} a_n^2 < 338{,}552\]
+
+\textbf{Step 4.2: Apply Floor Function}
+\[\lfloor \sum_{n=1}^{100} a_n^2 \rfloor = 338{,}551\]
+
+\textbf{Step 4.3: Match to Answer}
+\begin{itemize}
+    \item Our answer: 338,551
+    \item Choice: $\textbf{(B) } 338{,}551$
+\end{itemize}
+
+\textbf{Checkpoint 4:} Is my final answer correct?
+
+\subsection*{Alternative Approaches}
+
+\textbf{Alternative 1: Pattern Recognition Only}
+\begin{itemize}
+    \item Compute $a_1 = 2$, $a_2 = \frac{5}{2}$, $a_3 = \frac{10}{3}$, $a_4 = \frac{17}{4}$
+    \item Recognize pattern: $a_n = \frac{n^2+1}{n}$
+    \item Verify formula works for computed values
+    \item Proceed directly to squaring and summing
+    \item Faster if pattern seen quickly
+\end{itemize}
+
+\textbf{Alternative 2: Different Substitution}
+\begin{itemize}
+    \item Use $b_n = na_n$ instead of $b_n = n(a_n-1)$
+    \item Transform: $na_n - (n-1)a_{n-1} = 2n - 1$
+    \item Telescoping: $b_n = b_1 + \sum_{k=2}^{n}(2k-1) = 2 + (3+5+\cdots+(2n-1))$
+    \item Result: $b_n = 1 + n^2$, so $a_n = \frac{1+n^2}{n} = n + \frac{1}{n}$
+    \item Same result, different path
+\end{itemize}
+
+\textbf{Alternative 3: Use Known Value of $\frac{\pi^2}{6}$}
+\begin{itemize}
+    \item If you know $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1.6449$
+    \item Conclude $\sum_{n=1}^{100} \frac{1}{n^2} \approx 1.635$ (slightly less)
+    \item Directly get $338{,}550 + 1.635 \approx 338{,}551.635$
+    \item Floor gives 338,551
+    \item Faster if constant memorized
+\end{itemize}
+
+\subsection*{Common Pitfalls}
+
+\textbf{Pitfall 1: Algebraic Errors in Substitution}
+\begin{itemize}
+    \item Error: Incorrectly expanding $(n-1)(a_{n-1}+1)$
+    \item Why wrong: Sign errors or missing terms
+    \item Prevention: Carefully expand and check each step
+\end{itemize}
+
+\textbf{Pitfall 2: Wrong Summation Formula}
+\begin{itemize}
+    \item Common: Using $\sum n^2 = \frac{n(n+1)}{2}$ (wrong!)
+    \item Correct: $\sum n^2 = \frac{n(n+1)(2n+1)}{6}$
+    \item Prevention: Memorize standard formulas
+\end{itemize}
+
+\textbf{Pitfall 3: Poor Bounds on $\sum \frac{1}{n^2}$}
+\begin{itemize}
+    \item Error: Not bounding tightly enough
+    \item Why wrong: Might not distinguish between answer choices
+    \item Prevention: Use telescoping comparison to get $< 2$
+\end{itemize}
+
+\textbf{Pitfall 4: Arithmetic Errors}
+\begin{itemize}
+    \item Common: $\frac{2{,}030{,}100}{6} = 338{,}350$ miscalculated
+    \item Prevention: Double-check division with large numbers
+    \item Tip: $\frac{100 \cdot 101 \cdot 201}{6} = \frac{100 \cdot 101 \cdot 201}{6}$
+\end{itemize}
+
+\textbf{Pitfall 5: Floor Function Confusion}
+\begin{itemize}
+    \item Error: Rounding instead of flooring
+    \item Why wrong: Floor always rounds down
+    \item Example: $\lfloor 338{,}551.9 \rfloor = 338{,}551$, not 338,552
+\end{itemize}
+
+\end{solutionbox}
+
+\section{Competition Strategy Integration}
+
+\begin{competitionbox}
+
+\subsection*{A. Time Management}
+
+\textbf{Time Budget for Problem 21:}
+\begin{itemize}
+    \item Total allocated: 5-7 minutes (late-band problem)
+    \item Phase 1 (Solve recurrence): 2-3 minutes
+    \item Phase 2 (Square/decompose): 1 minute
+    \item Phase 3 (Evaluate sums): 2-3 minutes
+    \item Phase 4 (Final calculation): 30 seconds
+    \item Phase 5 (Verification): 1-2 minutes
+\end{itemize}
+
+\textbf{Time Checkpoints:}
+\begin{itemize}
+    \item After 3 minutes: Should have $a_n = n + \frac{1}{n}$
+    \item After 5 minutes: Should have sum decomposed and evaluated
+    \item After 7 minutes: Should have final answer
+    \item After 8 minutes: If not done, make educated guess
+\end{itemize}
+
+\subsection*{B. Strategic Positioning}
+
+\textbf{When to Attempt:}
+\begin{itemize}
+    \item Strong algebra: Attempt after P1-20
+    \item Weak sequences: Consider skipping for P22-25
+    \item If $>$12 minutes remaining: Attempt
+    \item If familiar with recurrences: High success probability
+\end{itemize}
+
+\textbf{Problem Sequencing:}
+\begin{itemize}
+    \item This is P21 - beginning of late band
+    \item More accessible than P22-25 for some students
+    \item Consider: Algebraic vs. geometric/combinatorial preference
+    \item Strategy: Attempt if algebra is strength
+\end{itemize}
+
+\subsection*{C. Risk Assessment}
+
+\textbf{Success Probability:}
+\begin{itemize}
+    \item With strong algebra: 70-80\%
+    \item With recurrence experience: 75-85\%
+    \item Standard preparation: 50-60\%
+    \item If pattern seen quickly: 80-90\%
+\end{itemize}
+
+\textbf{Risk Level: MEDIUM}
+\begin{itemize}
+    \item Difficulty: High (P21/25)
+    \item Complexity: Multiple steps but systematic
+    \item Time cost: 5-7 minutes
+    \item Payoff: Same 6 points as easier problems
+    \item Advantage: More systematic than P23-24
+\end{itemize}
+
+\textbf{Risk Mitigation:}
+\begin{itemize}
+    \item Quick check: Can I compute $a_2, a_3$? (If yes: proceed)
+    \item Quick check: Do I see pattern in small cases? (If yes: fast path)
+    \item Quick check: Do I know $\sum n^2$ formula? (If no: risky)
+    \item Backup: Answer choices differ by 1, so precision matters
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+
+\textbf{When to Abandon:}
+
+\textbf{Scenario 1: After 3 minutes, can't solve recurrence}
+\begin{itemize}
+    \item Action: Try pattern recognition with small cases
+    \item If still stuck: Skip to next problem
+    \item Reason: Fundamental blockage unlikely to resolve
+\end{itemize}
+
+\textbf{Scenario 2: After 6 minutes, arithmetic errors mounting}
+\begin{itemize}
+    \item Action: Use answer choice structure to guess
+    \item Reasoning: Middle choices (B,C,D) most likely
+    \item Best guess: (B) based on bound analysis
+\end{itemize}
+
+\textbf{Scenario 3: Less than 10 minutes remaining in exam}
+\begin{itemize}
+    \item Action: Strategic guess immediately
+    \item Reason: Not enough time for full solution
+\end{itemize}
+
+\textbf{Strategic Guessing (if must abandon):}
+\begin{itemize}
+    \item Observe: Answers are 338,550 through 338,554
+    \item Pattern: Sequential, differ by 1
+    \item Key insight: $\sum \frac{1}{n^2}$ is between 1 and 2
+    \item Therefore: Answer is 338,550 + 1 = 338,551 or 338,550 + 2 = 338,552
+    \item Best guess: (B) 338,551 (sum is closer to 1.6 than to 2)
+\end{itemize}
+
+\subsection*{E. Answer Recording}
+
+\textbf{Recording Protocol:}
+\begin{itemize}
+    \item Write answer clearly: B
+    \item Double-check bubble: (B) is filled
+    \item Cross-reference: Problem 21 = bubble 21
+    \item Watch for: Large numbers, easy to misread
+\end{itemize}
+
+\subsection*{F. Post-Problem Strategy}
+
+\textbf{If Solved Successfully:}
+\begin{itemize}
+    \item Confidence: Algebra skills validated
+    \item Time check: How much remaining?
+    \item Next: Tackle remaining late-band problems
+\end{itemize}
+
+\textbf{If Abandoned:}
+\begin{itemize}
+    \item No regret: P21 requires specific techniques
+    \item Focus: Maximize points on achievable problems
+    \item Learn: Review telescoping and substitution methods later
+\end{itemize}
+
+\end{competitionbox}
+
+\section{Summary and Key Takeaways}
+
+\begin{keyinsight}
+\textbf{Critical Insights for This Problem:}
+
+\begin{enumerate}
+    \item The recurrence relation simplifies beautifully via substitution. Either $b_n = n(a_n-1)$ or $b_n = na_n$ works, creating a telescoping sum.
+    
+    \item The explicit formula $a_n = n + \frac{1}{n}$ can be found either by solving the recurrence or by computing small cases and recognizing the pattern.
+    
+    \item Squaring gives $a_n^2 = n^2 + 2 + \frac{1}{n^2}$, which decomposes into three manageable sums.
+    
+    \item The key to getting the right answer is bounding $\sum_{n=1}^{100} \frac{1}{n^2}$ correctly between 1 and 2. The telescoping comparison $\frac{1}{n^2} < \frac{1}{n(n-1)}$ is the elegant method.
+    
+    \item With $338,550 + (1 \text{ to } 2)$, the floor gives $338,551$. Answer choices differ by 1, so precision is essential.
+\end{enumerate}
+\end{keyinsight}
+
+\begin{protip}
+\textbf{General Strategy for Recurrence Problems:}
+
+When faced with recurrence relations:
+
+\begin{enumerate}
+    \item \textbf{Try small cases first:} Compute $a_1, a_2, a_3, a_4$ and look for patterns. Often the pattern is obvious and you can guess-and-verify.
+    
+    \item \textbf{Look for simplifying substitutions:} If pattern unclear, try:
+    \begin{itemize}
+        \item Multiplying/dividing by $n$
+        \item Adding/subtracting related terms
+        \item Creating combinations like $b_n = n \cdot a_n$ or $b_n = a_n - f(n)$
+    \end{itemize}
+    
+    \item \textbf{Aim for telescoping:} The ideal transformed recurrence has form $b_n - b_{n-1} = f(n)$, which telescopes cleanly.
+    
+    \item \textbf{Verify your formula:} Always check that your explicit formula satisfies both the recurrence and initial condition.
+    
+    \item \textbf{Use standard formulas:} Memorize $\sum n$, $\sum n^2$, $\sum n^3$ and know how to bound simple series.
+\end{enumerate}
+
+For this problem, recognizing that $b_n = n(a_n - 1)$ or $b_n = na_n$ creates a linear recurrence is the breakthrough that unlocks everything.
+\end{protip}
+
+\section{Final Answer}
+
+\begin{center}
+\Large
+\fbox{\textbf{Answer: (B) } $338{,}551$}
+\end{center}
+
+\textbf{Solution Summary:}
+\begin{itemize}
+    \item Transform recurrence via substitution: $b_n = n(a_n-1)$ gives $b_n - b_{n-1} = 2(n-1)$
+    \item Telescope to find: $b_n = n^2 - n + 1$
+    \item Extract explicit formula: $a_n = n + \frac{1}{n}$
+    \item Square: $a_n^2 = n^2 + 2 + \frac{1}{n^2}$
+    \item Sum parts:
+    \begin{align*}
+    \sum_{n=1}^{100} a_n^2 &= \sum_{n=1}^{100} n^2 + \sum_{n=1}^{100} 2 + \sum_{n=1}^{100} \frac{1}{n^2} \\
+    &= 338{,}350 + 200 + (1 \text{ to } 2) \\
+    &\in (338{,}551, 338{,}552)
+    \end{align*}
+    \item Apply floor: $\lfloor S \rfloor = 338{,}551$
+\end{itemize}
+
+\end{document}

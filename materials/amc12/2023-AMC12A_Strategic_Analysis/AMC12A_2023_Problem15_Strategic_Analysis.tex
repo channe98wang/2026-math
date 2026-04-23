@@ -1,0 +1,684 @@
+% AMC 12A 2023 Problem 15 Strategic Analysis
+% Generated using Strategic Problem Solving Framework v2.1
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{xcolor}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Custom colored boxes
+\newtcolorbox{problembox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Problem Configuration Analysis,
+    breakable,
+    #1
+}
+
+\newtcolorbox{strategybox}[1][]{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=Strategic Framework Application,
+    breakable,
+    #1
+}
+
+\newtcolorbox{tacticalbox}[1][]{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=Tactical Selection,
+    breakable,
+    #1
+}
+
+\newtcolorbox{conversionbox}[1][]{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=Conversion Techniques,
+    breakable,
+    #1
+}
+
+\newtcolorbox{verificationbox}[1][]{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=Verification Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{roadmapbox}[1][]{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=Solution Roadmap,
+    breakable,
+    #1
+}
+
+\newtcolorbox{competitionbox}[1][]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=Competition Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{pitfallbox}[1][]{
+    colback=gray!5!white,
+    colframe=gray!75!black,
+    title=Common Pitfalls and Warnings,
+    breakable,
+    #1
+}
+
+\newtcolorbox{solutionbox}[1][]{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=Detailed Solution,
+    breakable,
+    #1
+}
+
+\newtcolorbox{keyinsightbox}[1][]{
+    colback=magenta!5!white,
+    colframe=magenta!75!black,
+    title=Key Insights,
+    breakable,
+    #1
+}
+
+\begin{document}
+
+\title{\textbf{AMC 12A 2023 Problem 15}\\Strategic Analysis}
+\author{Using Framework v2.1}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+
+Usain is walking for exercise by zigzagging across a $100$-meter by $30$-meter rectangular field, beginning at point $A$ and ending on the segment $\overline{BC}$. He wants to increase the distance walked by zigzagging as shown in the figure. What angle $\theta = \angle PAB = \angle QPC = \angle RQB = \cdots$ will produce a length that is $120$ meters?
+
+\[\textbf{(A) } \arccos\frac{5}{6} \qquad \textbf{(B) } \arccos\frac{4}{5} \qquad \textbf{(C) } \arccos\frac{3}{10} \qquad \textbf{(D) } \arcsin\frac{4}{5} \qquad \textbf{(E) } \arcsin\frac{5}{6}\]
+
+\textit{Note: The figure shows a rectangular field $ABCD$ with $A$ at bottom-left, $B$ at bottom-right, $C$ at top-right, $D$ at top-left. The zigzag path goes from $A$ to $P$ (on $\overline{DC}$), then to $Q$ (on $\overline{AB}$), then to $R$ (on $\overline{DC}$), and so on, with all angles $\theta$ equal.}
+
+\begin{problembox}
+\section*{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Competition}: AMC 12A 2023
+    \item \textbf{Problem Number}: 15
+    \item \textbf{Difficulty Band}: Mid-range (Problem 15/25)
+    \item \textbf{Expected Time}: 3-4 minutes
+    \item \textbf{Point Value}: 6 points (standard AMC 12 scoring)
+\end{itemize}
+
+\subsection*{B. Mathematical Domain Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Domain}: Geometry / Trigonometry
+    \item \textbf{Secondary Domain}: Path Optimization / Reflection
+    \item \textbf{Tertiary Domain}: Similar Triangles / Pythagorean Theorem
+    \item \textbf{Cross-Domain Potential}: High (connects geometry, trigonometry, physics concepts)
+\end{itemize}
+
+\subsection*{C. Problem Type}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Format}: Multiple choice (angle determination)
+    \item \textbf{Question Type}: ``What angle...'' (inverse trigonometric function)
+    \item \textbf{Core Task}: Find angle $\theta$ that produces a specific path length
+    \item \textbf{Answer Form}: Inverse trigonometric expression
+\end{itemize}
+
+\subsection*{D. Given Information}
+\begin{itemize}[leftmargin=*]
+    \item Rectangular field dimensions: $100$ m (length) $\times$ $30$ m (width)
+    \item Starting point: $A$ (corner of rectangle)
+    \item Ending location: somewhere on segment $\overline{BC}$
+    \item All zigzag angles are equal: $\theta = \angle PAB = \angle QPC = \angle RQB = \cdots$
+    \item Total path length: $120$ meters
+    \item The number of zigzag segments is not specified
+\end{itemize}
+
+\subsection*{E. Constraints}
+\begin{itemize}[leftmargin=*]
+    \item Path must zigzag between top and bottom edges
+    \item All angles $\theta$ must be equal
+    \item Path starts at $A$ and ends on $\overline{BC}$
+    \item Total length must be exactly $120$ meters
+    \item Field dimensions are fixed
+\end{itemize}
+
+\subsection*{F. Objective}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Find}: The angle $\theta$ that produces a $120$-meter path
+    \item \textbf{Output}: Select the correct inverse trigonometric expression
+\end{itemize}
+
+\subsection*{G. Key Structural Features}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Reflection property}: Zigzag path resembles light reflecting between mirrors
+    \item \textbf{Unfolding potential}: Path can be ``unfolded'' into a straight line
+    \item \textbf{Similar triangles}: All zigzag segments form similar right triangles
+    \item \textbf{Constant ratio}: Horizontal distance : path length = $100:120 = 5:6$
+    \item \textbf{Physics analogy}: Horizontal velocity component is constant
+\end{itemize}
+
+\subsection*{H. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Strategy}: Unfolding technique (flatten zigzag into straight line)
+    \item \textbf{Key Insight}: $\cos\theta$ represents horizontal progress per unit path length
+    \item \textbf{Expected Difficulty}: Moderate - requires geometric insight or trigonometric setup
+    \item \textbf{Time Pressure}: Should be completed in 3-4 minutes
+\end{itemize}
+\end{problembox}
+
+\begin{strategybox}
+\section*{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Calibration}: 
+    \begin{itemize}
+        \item Mid-range problem with elegant solution
+        \item Multiple solution approaches available
+        \item Answer choices help narrow possibilities
+    \end{itemize}
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item Recognize zigzag/reflection pattern
+        \item Connection to unfolding technique
+        \item Ratio $100:120 = 5:6$ suggests $\cos\theta = 5/6$
+    \end{itemize}
+    \item \textbf{Problem Familiarity}:
+    \begin{itemize}
+        \item Similar to light reflection problems
+        \item Related to path optimization
+        \item Common geometry/trig problem type
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Exploration}:
+    \begin{itemize}
+        \item Observe that horizontal distance is $100$ m, path length is $120$ m
+        \item Ratio: $\frac{100}{120} = \frac{5}{6}$
+        \item This suggests $\cos\theta = 5/6$ (horizontal component)
+    \end{itemize}
+    \item \textbf{Visualization Techniques}:
+    \begin{itemize}
+        \item Draw one zigzag segment with its projection
+        \item Imagine unfolding the path into a straight line
+        \item Consider the physics analogy: constant horizontal velocity
+    \end{itemize}
+    \item \textbf{Multiple Approaches}:
+    \begin{itemize}
+        \item Method 1: Unfolding (most elegant)
+        \item Method 2: Similar triangles and proportions
+        \item Method 3: Algebraic setup with Pythagorean theorem
+        \item Method 4: Physics/velocity decomposition
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Logical Structure (Unfolding Method)}:
+    \begin{enumerate}
+        \item Visualize unfolding the zigzag path
+        \item When unfolded, path becomes a straight line of length $120$ m
+        \item Horizontal distance remains $100$ m
+        \item In the right triangle formed: $\cos\theta = \frac{100}{120} = \frac{5}{6}$
+        \item Therefore: $\theta = \arccos\frac{5}{6}$
+    \end{enumerate}
+    \item \textbf{Key Deductions}:
+    \begin{itemize}
+        \item Horizontal progress per unit path length = $\cos\theta$
+        \item Total horizontal progress = (total path length) $\times$ $\cos\theta$
+        \item Therefore: $120 \cos\theta = 100$
+        \item So: $\cos\theta = 5/6$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometric Interpretation}: Unfolding creates a right triangle
+    \item \textbf{Trigonometric Interpretation}: $\cos\theta$ is the horizontal component
+    \item \textbf{Physics Interpretation}: Horizontal velocity component is constant
+    \item \textbf{Algebraic Interpretation}: Solve for $\theta$ using constraint equation
+\end{itemize}
+\end{strategybox}
+
+\begin{tacticalbox}
+\section*{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Unfolding/Reflection}: Flatten zigzag path into straight line
+    \item \textbf{Similar Triangles}: All zigzag segments are similar
+    \item \textbf{Trigonometric Ratios}: Use $\cos\theta$ for horizontal component
+    \item \textbf{Ratio Analysis}: Compare horizontal distance to path length
+    \item \textbf{Pythagorean Theorem}: Relate segment lengths (alternative approach)
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometry}:
+    \begin{itemize}
+        \item Unfolding preserves path length but changes configuration
+        \item Reflection angles create equal angles
+        \item Similar triangles have proportional sides
+    \end{itemize}
+    \item \textbf{Trigonometry}:
+    \begin{itemize}
+        \item $\cos\theta$ represents horizontal progress rate
+        \item Inverse trig functions recover angle from ratio
+        \item Answer choices indicate $\arccos$ vs $\arcsin$
+    \end{itemize}
+    \item \textbf{Problem-Solving Techniques}:
+    \begin{itemize}
+        \item Draw auxiliary lines (projections)
+        \item Use physics intuition (velocity components)
+        \item Check answer choices for plausibility
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Tactical Priorities}
+\begin{enumerate}[leftmargin=*]
+    \item Recognize the $100:120 = 5:6$ ratio (30 seconds)
+    \item Connect ratio to $\cos\theta$ (45 seconds)
+    \item Visualize unfolding or similar triangles (60 seconds)
+    \item Set up equation: $\cos\theta = 5/6$ (30 seconds)
+    \item Identify answer: $\arccos(5/6)$ (30 seconds)
+    \item Verify with answer choices (30 seconds)
+\end{enumerate}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\section*{4. Conversion Techniques Application}
+
+\subsection*{A. Method 1: Unfolding (Most Elegant)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Concept}: Imagine ``unfolding'' the zigzag by reflecting alternating segments
+    \item When unfolded, the path becomes a straight line from $A$ to some point $S'$
+    \item The unfolded path has:
+    \begin{itemize}
+        \item Horizontal distance: $100$ m (same as rectangle length)
+        \item Total path length: $120$ m (given)
+    \end{itemize}
+    \item This creates a right triangle where:
+    \begin{align*}
+    \cos\theta &= \frac{\text{adjacent (horizontal)}}{\text{hypotenuse (path)}}\\
+    &= \frac{100}{120}\\
+    &= \frac{5}{6}
+    \end{align*}
+    \item Therefore: $\theta = \arccos\frac{5}{6}$
+\end{itemize}
+
+\subsection*{B. Method 2: Similar Triangles and Proportions}
+\begin{itemize}[leftmargin=*]
+    \item Drop perpendicular from $P$ to $\overline{AB}$, meeting at point $Q'$
+    \item Let $AQ' = x$, then $Q'P = 30$ (width of rectangle)
+    \item By Pythagorean theorem: $AP = \sqrt{x^2 + 900}$
+    \item All zigzag segments are similar, so they're all proportional
+    \item Total horizontal distance = sum of all horizontal projections = $100$
+    \item Total path length = sum of all segment lengths = $120$
+    \item The ratio is preserved: if horizontal is $x$, path is $\frac{6x}{5}$
+    \item Therefore: $\cos\theta = \frac{x}{\frac{6x}{5}} = \frac{5}{6}$
+\end{itemize}
+
+\subsection*{C. Method 3: Algebraic Setup}
+\begin{itemize}[leftmargin=*]
+    \item Let $x = $ horizontal projection of one full segment
+    \item Then the hypotenuse of one full segment = $\sqrt{x^2 + 900}$
+    \item Number of segments = $\frac{100}{x}$ (may not be integer, but proportions work)
+    \item Total path length:
+    \[\frac{100}{x} \cdot \sqrt{x^2 + 900} = 120\]
+    \item Simplify:
+    \[\sqrt{x^2 + 900} = \frac{6x}{5}\]
+    \item Square both sides:
+    \[x^2 + 900 = \frac{36x^2}{25}\]
+    \[25x^2 + 22500 = 36x^2\]
+    \[11x^2 = 22500\]
+    \[x^2 = \frac{22500}{11}\]
+    \item Then:
+    \[\cos\theta = \frac{x}{\sqrt{x^2 + 900}} = \frac{x}{\frac{6x}{5}} = \frac{5}{6}\]
+\end{itemize}
+
+\subsection*{D. Method 4: Physics Analogy}
+\begin{itemize}[leftmargin=*]
+    \item Imagine Usain walks at constant speed
+    \item Horizontal velocity component is constant (like light reflecting off mirrors)
+    \item Horizontal velocity = (total velocity) $\times$ $\cos\theta$
+    \item Time is proportional to distance walked
+    \item Horizontal distance = (horizontal velocity) $\times$ (time)
+    \item So: horizontal distance = (total distance) $\times$ $\cos\theta$
+    \item Therefore: $100 = 120 \cos\theta$
+    \item Thus: $\cos\theta = \frac{100}{120} = \frac{5}{6}$
+\end{itemize}
+
+\subsection*{E. Answer Selection}
+\begin{itemize}[leftmargin=*]
+    \item We found $\cos\theta = \frac{5}{6}$
+    \item Therefore $\theta = \arccos\frac{5}{6}$
+    \item Check answer choices: This is \textbf{(A)}
+    \item Verify it's not $\arcsin$: $\sin\theta = \sqrt{1 - \cos^2\theta} = \sqrt{1 - \frac{25}{36}} = \sqrt{\frac{11}{36}} = \frac{\sqrt{11}}{6} \neq \frac{5}{6}$
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\section*{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 3 - Reasonableness Check + Alternative Method
+    \item \textbf{Reasoning}: Geometric problem with elegant solution
+    \item \textbf{Time Budget}: 45-60 seconds
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Check ratio}:
+    \begin{itemize}
+        \item $\frac{100}{120} = \frac{5}{6}$ $\checkmark$
+        \item This matches $\cos\theta = 5/6$
+    \end{itemize}
+    \item \textbf{Verify angle type}:
+    \begin{itemize}
+        \item Since $\cos\theta = 5/6 < 1$, angle exists $\checkmark$
+        \item Since $5/6 > 0$, angle is acute $\checkmark$
+        \item Answer should be $\arccos$, not $\arcsin$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Check answer format}:
+    \begin{itemize}
+        \item Answer (A): $\arccos\frac{5}{6}$ matches our result $\checkmark$
+    \end{itemize}
+    \item \textbf{Reasonableness}:
+    \begin{itemize}
+        \item Path length $120 > 100$ (straight distance) makes sense $\checkmark$
+        \item Zigzag adds $20\%$ extra distance, reasonable $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1}: Compute $\theta \approx \arccos(0.833) \approx 33.6^\circ$, seems reasonable for zigzag
+    \item \textbf{Method 2}: Check that $\sin\theta = \frac{\sqrt{11}}{6}$ gives vertical component
+    \item \textbf{Method 3}: Verify with one specific segment using Pythagorean theorem
+\end{itemize}
+
+\subsection*{D. Answer Choice Validation}
+\begin{itemize}[leftmargin=*]
+    \item Our answer: $\arccos\frac{5}{6}$
+    \item Matches choice: \textbf{(A)}
+    \item Why not the others?
+    \begin{itemize}
+        \item (B) $\arccos\frac{4}{5}$: Would give $100/120 = 4/5$, but that's $0.8 \neq 5/6 \approx 0.833$
+        \item (C) $\arccos\frac{3}{10}$: Would need $\cos\theta = 0.3$, too small (very large angle)
+        \item (D) $\arcsin\frac{4}{5}$: Uses $\arcsin$ instead of $\arccos$
+        \item (E) $\arcsin\frac{5}{6}$: Uses $\arcsin$ instead of $\arccos$
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\section*{6. Solution Roadmap}
+
+\subsection*{A. High-Level Solution Path}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Recognize pattern}: Horizontal distance $100$ m, path length $120$ m
+    \item \textbf{Identify key ratio}: $\frac{100}{120} = \frac{5}{6}$
+    \item \textbf{Connect to trigonometry}: This ratio represents $\cos\theta$
+    \item \textbf{Solve for angle}: $\theta = \arccos\frac{5}{6}$
+    \item \textbf{Select answer}: Choice (A)
+\end{enumerate}
+
+\subsection*{B. Detailed Solution Steps}
+
+\textbf{Step 1}: Understand the geometry.
+\begin{itemize}
+    \item Rectangle is $100$ m $\times$ $30$ m
+    \item Zigzag path starts at $A$, ends somewhere on $\overline{BC}$
+    \item Total path length is $120$ m
+    \item All angles $\theta$ are equal
+\end{itemize}
+
+\textbf{Step 2}: Use the unfolding technique.
+\begin{itemize}
+    \item Imagine ``unfolding'' the zigzag path by reflecting segments
+    \item When unfolded, the path becomes a straight line
+    \item This straight line has length $120$ m
+    \item The horizontal distance covered is $100$ m (rectangle length)
+\end{itemize}
+
+\textbf{Step 3}: Apply trigonometry.
+\begin{itemize}
+    \item The unfolded path forms the hypotenuse of a right triangle
+    \item The horizontal distance is the adjacent side
+    \item Therefore: $\cos\theta = \frac{\text{horizontal}}{\text{path}} = \frac{100}{120} = \frac{5}{6}$
+\end{itemize}
+
+\textbf{Step 4}: Solve for the angle.
+\begin{itemize}
+    \item $\theta = \arccos\frac{5}{6}$
+\end{itemize}
+
+\textbf{Step 5}: Select the answer.
+\begin{itemize}
+    \item This matches choice \textbf{(A)}
+\end{itemize}
+
+\subsection*{C. Key Decision Points}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Decision 1}: Recognize that horizontal distance / path length gives $\cos\theta$
+    \item \textbf{Decision 2}: Use unfolding technique (or similar approach)
+    \item \textbf{Decision 3}: Identify answer as $\arccos$, not $\arcsin$
+\end{itemize}
+
+\subsection*{D. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item Understanding problem: 30 seconds
+    \item Computing ratio $100/120 = 5/6$: 20 seconds
+    \item Connecting to $\cos\theta$: 45 seconds
+    \item Solving for $\theta$: 30 seconds
+    \item Verification: 45 seconds
+    \item \textbf{Total}: 3 minutes 30 seconds
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\section*{7. Competition Strategy Integration}
+
+\subsection*{A. Problem Triage}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Difficulty Assessment}: Medium (Problem 15/25)
+    \item \textbf{Confidence Level}: High if you recognize the unfolding technique
+    \item \textbf{Decision}: Attempt if comfortable with geometry/trig; otherwise return later
+\end{itemize}
+
+\subsection*{B. Time Allocation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 3-4 minutes
+    \item \textbf{Maximum Time}: 5 minutes
+    \item \textbf{Quick Approach}: If you see $100:120 = 5:6$ immediately, guess \textbf{(A)} $\arccos\frac{5}{6}$
+\end{itemize}
+
+\subsection*{C. Solution Format}
+\begin{itemize}[leftmargin=*]
+    \item Multiple choice: Select \textbf{(A)} $\arccos\frac{5}{6}$
+    \item Verification: Check ratio and answer format
+    \item Bubble answer sheet carefully
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}: If you've seen unfolding problems before, this is quick
+    \item \textbf{Elimination}: Can eliminate (D) and (E) if you determine answer uses $\arccos$
+    \item \textbf{Ratio Clue}: $5:6$ ratio strongly suggests answer (A)
+    \item \textbf{Time Saver}: Don't overthink - the elegant solution is usually correct
+\end{itemize}
+\end{competitionbox}
+
+\begin{pitfallbox}
+\section*{Common Pitfalls and Warnings}
+
+\subsection*{A. Conceptual Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confusing $\arcsin$ with $\arccos$}: The horizontal component uses cosine, not sine
+    \item \textbf{Using wrong ratio}: Don't use $\frac{30}{120}$ or $\frac{30}{100}$ - these don't directly give the angle
+    \item \textbf{Forgetting unfolding}: Trying to set up complex equations instead of using elegant unfolding
+    \item \textbf{Assuming integer segments}: The number of zigzag segments doesn't need to be an integer
+\end{itemize}
+
+\subsection*{B. Computational Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Ratio simplification}: $\frac{100}{120} = \frac{5}{6}$, not $\frac{4}{5}$ or other values
+    \item \textbf{Angle type}: Answer is $\arccos$, not $\arcsin$ (check which trig function you're inverting)
+    \item \textbf{Arithmetic}: $100 \div 120 = 5 \div 6$, verify this carefully
+\end{itemize}
+
+\subsection*{C. Strategic Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Overcomplicating}: Don't set up unnecessary variables or equations
+    \item \textbf{Ignoring answer choices}: The choices tell you the answer involves $\frac{5}{6}$, $\frac{4}{5}$, or $\frac{3}{10}$
+    \item \textbf{Time management}: If stuck after 3 minutes, guess (A) and move on
+\end{itemize}
+
+\subsection*{D. Warning Signs}
+\begin{itemize}[leftmargin=*]
+    \item If you get $\sin\theta = \frac{5}{6}$, reconsider - horizontal component is cosine
+    \item If you get $\cos\theta = \frac{4}{5}$, recheck your ratio calculation
+    \item If your answer isn't among the choices, revisit the unfolding concept
+\end{itemize}
+\end{pitfallbox}
+
+\begin{solutionbox}
+\subsection*{A. Main Solution (Unfolding Method)}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Visualize the unfolding}:
+    \begin{itemize}
+        \item The zigzag path reflects between top and bottom edges
+        \item Imagine ``unfolding'' by reflecting alternating segments
+        \item The unfolded path becomes a straight line from $A$ to endpoint
+    \end{itemize}
+    
+    \item \textbf{Identify distances}:
+    \begin{itemize}
+        \item Horizontal distance (rectangle length): $100$ m
+        \item Total path length (unfolded hypotenuse): $120$ m
+    \end{itemize}
+    
+    \item \textbf{Apply trigonometry}:
+    \begin{align*}
+    \cos\theta &= \frac{\text{adjacent}}{\text{hypotenuse}}\\
+    &= \frac{\text{horizontal distance}}{\text{path length}}\\
+    &= \frac{100}{120}\\
+    &= \frac{5}{6}
+    \end{align*}
+    
+    \item \textbf{Solve for angle}:
+    \[\theta = \arccos\frac{5}{6}\]
+\end{enumerate}
+
+\subsection*{B. Alternative Solution (Similar Triangles)}
+\begin{enumerate}[leftmargin=*]
+    \item Let $x$ be the horizontal projection of one zigzag segment
+    \item The vertical component is $30$ m (width of rectangle)
+    \item By Pythagorean theorem, segment length = $\sqrt{x^2 + 900}$
+    \item All segments are similar (same angle $\theta$)
+    \item Total horizontal distance: $100$ m
+    \item Total path length: $120$ m
+    \item Since all segments are similar with the same ratio:
+    \[\frac{\text{total horizontal}}{\text{total path}} = \frac{x}{\sqrt{x^2 + 900}}\]
+    \item This gives us:
+    \[\frac{100}{120} = \cos\theta = \frac{5}{6}\]
+    \item Therefore: $\theta = \arccos\frac{5}{6}$
+\end{enumerate}
+
+\subsection*{C. Physics Interpretation}
+\begin{itemize}[leftmargin=*]
+    \item Imagine Usain walks at constant speed
+    \item The horizontal velocity component is constant (like light reflecting)
+    \item Horizontal velocity = (total velocity) $\times$ $\cos\theta$
+    \item Since time is the same, distance ratio equals velocity ratio:
+    \[\frac{\text{horizontal distance}}{\text{total distance}} = \cos\theta = \frac{100}{120} = \frac{5}{6}\]
+    \item Therefore: $\theta = \arccos\frac{5}{6}$
+\end{itemize}
+
+\subsection*{D. Verification}
+\begin{itemize}[leftmargin=*]
+    \item Check ratio: $\frac{100}{120} = \frac{5}{6}$ $\checkmark$
+    \item Verify answer type: $\arccos$ (not $\arcsin$) $\checkmark$
+    \item Matches choice (A): $\arccos\frac{5}{6}$ $\checkmark$
+    \item Reasonableness: $\theta \approx 33.6^\circ$, appropriate for zigzag $\checkmark$
+\end{itemize}
+\end{solutionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The most elegant approach is the \textbf{unfolding technique}. When you ``unfold'' a zigzag path by reflecting alternating segments, the path becomes a straight line. The horizontal distance remains $100$ m, and the total path length is $120$ m. This creates a right triangle where:
+
+\[\cos\theta = \frac{\text{horizontal distance}}{\text{path length}} = \frac{100}{120} = \frac{5}{6}\]
+
+Therefore: $\theta = \arccos\frac{5}{6}$
+
+\textbf{General Pattern}: For zigzag problems:
+\begin{itemize}
+    \item Horizontal progress = (path length) $\times$ $\cos\theta$
+    \item Vertical progress = (path length) $\times$ $\sin\theta$
+    \item Unfolding preserves lengths and reveals the geometry
+\end{itemize}
+
+\textbf{Physics Analogy}: Like light reflecting between parallel mirrors, the horizontal velocity component remains constant. This is why the ratio of horizontal distance to total path length equals $\cos\theta$.
+
+\textbf{Why this works}: The unfolding technique works because:
+\begin{itemize}
+    \item Each reflection preserves the angle
+    \item The sum of horizontal projections equals the rectangle length
+    \item The sum of segment lengths equals the total path length
+    \item These ratios are preserved in the unfolded configuration
+\end{itemize}
+\end{keyinsightbox}
+
+\section*{Final Answer}
+
+The angle $\theta$ that produces a path length of $120$ meters is:
+
+\[\boxed{\textbf{(A) } \arccos\frac{5}{6}}\]
+
+\textbf{Solution Summary}:
+\begin{itemize}
+    \item Horizontal distance: $100$ m
+    \item Path length: $120$ m
+    \item Using unfolding: $\cos\theta = \frac{100}{120} = \frac{5}{6}$
+    \item Therefore: $\theta = \arccos\frac{5}{6}$
+\end{itemize}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 99\%
+    \begin{itemize}
+        \item Elegant unfolding technique gives clear answer
+        \item Simple ratio calculation: $100/120 = 5/6$
+        \item Multiple verification methods confirm result
+        \item Answer format matches problem type
+    \end{itemize}
+    \item \textbf{Verification Applied}: Level 3 - Reasonableness + Alternative Method
+    \begin{itemize}
+        \item Checked ratio calculation
+        \item Verified answer type ($\arccos$ vs $\arcsin$)
+        \item Confirmed with physics interpretation
+        \item All methods agree
+    \end{itemize}
+    \item \textbf{Time-Confidence Trade-off}: High confidence achieved in 3-4 minutes
+\end{itemize}
+
+\end{document}
+

@@ -1,0 +1,29 @@
+2002 AMC 12A Problems/Problem 5
+Contents
+1 Problem
+2 Solution
+3 Video Solution by Daily Dose of Math
+4 See Also
+Problem
+Each of the small circles in the figure has radius one. The innermost circle is tangent to the six circles that surround it, and each of those circles is tangent to the large circle and to its small-circle neighbors. Find the area of the shaded region.
+[asy] unitsize(.3cm); path c=Circle((0,2),1); filldraw(Circle((0,0),3),grey,black); filldraw(Circle((0,0),1),white,black); filldraw(c,white,black); filldraw(rotate(60)*c,white,black); filldraw(rotate(120)*c,white,black); filldraw(rotate(180)*c,white,black); filldraw(rotate(240)*c,white,black); filldraw(rotate(300)*c,white,black); [/asy]
+$\textbf{(A)}\ \pi \qquad \textbf{(B)}\ 1.5\pi \qquad \textbf{(C)}\ 2\pi \qquad \textbf{(D)}\ 3\pi \qquad \textbf{(E)}\ 3.5\pi$
+Solution
+The outer circle has radius $1+1+1=3$ , and thus area $9\pi$ . The little circles have area $\pi$ each; since there are 7, their total area is $7\pi$ . Thus, our answer is $9\pi-7\pi=\boxed{2\pi\Rightarrow \textbf{(C)}}$ .
+Video Solution by Daily Dose of Math
+https://youtu.be/VSPM5_pTK34?si=EIQDi3PF6I0P7wMR
+~Thesmartgreekmathdude
+See Also
+2002 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2002 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

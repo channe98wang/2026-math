@@ -1,0 +1,20 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.tex="pdflatex";
+defaultfilename="AMC12A_2018_Problem15_Strategic_Analysis-1";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+size(100pt);
+draw((1,0)--(8,0),linewidth(0.5));
+draw((1,2)--(6,2),linewidth(0.5));
+draw((1,4)--(4,4),linewidth(0.5));
+draw((1,6)--(2,6),linewidth(0.5));
+draw((2,6)--(2,0),linewidth(0.5));
+draw((4,4)--(4,0),linewidth(0.5));
+draw((6,2)--(6,0),linewidth(0.5));
+draw((1,0)--(1,7),dashed+linewidth(0.5));
+draw((1,7)--(8,0),dashed+linewidth(0.5));

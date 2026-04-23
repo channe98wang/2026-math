@@ -1,0 +1,24 @@
+2006 AMC 12A Problems/Problem 13
+Problem
+The vertices of a $3-4-5$ right triangle are the centers of three mutually externally tangent circles , as shown. What is the sum of the areas of the three circles?
+$\mathrm{(A) \ } 12\pi\qquad \mathrm{(B) \ } \frac{25\pi}{2}\qquad \mathrm{(C) \ } 13\pi\qquad \mathrm{(D) \ } \frac{27\pi}{2}\qquad\mathrm{(E) \ } 14\pi$
+Solution
+Let the radius of the smallest circle be $r_A$ , the radius of the second largest circle be $r_B$ , and the radius of the largest circle be $r_C$ .
+
+\[r_A + r_B = 3\]
+
+\[r_A + r_C = 4\]
+
+\[r_ B + r_C = 5\]
+Adding up all these equations and then dividing both sides by 2, we get,
+\[r_A + r_B + r_C = 6\]
+Then, we get $r_A = 1$ , $r_B = 2$ , and $r_C = 3$ Then we get $1^2 \pi + 2^2 \pi + 3^2 \pi = 14 \pi \iff\mathrm{(E)}$
+See also
+- 2006 AMC 12A Problems
+2006 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,20 @@
+2002 AMC 12B Problems/Problem 7
+Problem
+The product of three consecutive positive integers is $8$ times their sum. What is the sum of their squares ?
+$\mathrm{(A)}\ 50 \qquad\mathrm{(B)}\ 77 \qquad\mathrm{(C)}\ 110 \qquad\mathrm{(D)}\ 149 \qquad\mathrm{(E)}\ 194$
+Solution
+Let the three consecutive positive integers be $a-1$ , $a$ , and $a+1$ . Since the mean is $a$ , the sum of the integers is $3a$ . So $8$ times the sum is just $24a$ . With this, we now know that $a(a-1)(a+1)=24a\Rightarrow(a-1)(a+1)=24$ . $24=4\times6$ , so $a=5$ . Hence, the sum of the squares is $4^2+5^2+6^2=\boxed{\mathrm{ (B)}\ 77}$ .
+See also
+2002 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 10 Followed by 
+ Problem 12
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2002 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 6 Followed by 
+ Problem 8
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

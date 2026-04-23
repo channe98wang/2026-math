@@ -1,0 +1,14 @@
+2011 AMC 12A Problems/Problem 5
+Problem
+Last summer $30\%$ of the birds living on Town Lake were geese, $25\%$ were swans, $10\%$ were herons, and $35\%$ were ducks. What percent of the birds that were not swans were geese?
+$\textbf{(A)}\ 20 \qquad \textbf{(B)}\ 30 \qquad \textbf{(C)}\ 40 \qquad \textbf{(D)}\ 50 \qquad \textbf{(E)}\ 60$
+Solution
+To simplify the problem, WLOG, let us say that there were a total of $100$ birds. The number of birds that are not swans is $75$ . The number of geese is $30$ . Therefore the percentage is just $\frac{30}{75} \times 100 = 40 \Rightarrow \boxed{C}$
+See also
+2011 AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 4 Followed by 
+ Problem 6
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

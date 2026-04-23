@@ -1,0 +1,30 @@
+2002 AMC 12B Problems/Problem 14
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution
+5 See also
+Problem
+Four distinct circles are drawn in a plane . What is the maximum number of points where at least two of the circles intersect?
+$\mathrm{(A)}\ 8 \qquad\mathrm{(B)}\ 9 \qquad\mathrm{(C)}\ 10 \qquad\mathrm{(D)}\ 12 \qquad\mathrm{(E)}\ 16$
+Solution 1
+For any given pair of circles, they can intersect at most $2$ times. Since there are ${4\choose 2} = 6$ pairs of circles, the maximum number of possible intersections is $6 \cdot 2 = 12$ . We can construct such a situation as below, so the answer is $\boxed{\mathrm{(D)}\ 12}$ .
+Solution 2
+Because a pair or circles can intersect at most $2$ times, the first circle can intersect the second at $2$ points, the third can intersect the first two at $4$ points, and the fourth can intersect the first three at $6$ points. This means that our answer is $2+4+6=\boxed{\mathrm{(D)}\ 12}.$
+Solution
+Pick a circle any circle- $4$ ways. Then, pick any other circle- $3$ ways. For each of these circles, there will be $2$ intersections for a total of $4*3*2$ = $24$ intersections. However, we have counted each intersection twice, so we divide for overcounting. Therefore, we reach a total of $\frac{24}{2}=\boxed{12}$ , which corresponds to $\text{(D)}$ .
+See also
+2002 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 17 Followed by 
+ Problem 19
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+2002 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 13 Followed by 
+ Problem 15
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

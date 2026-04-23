@@ -1,0 +1,491 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12A 2016 Problem 17 Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    breakable,
+    boxrule=1pt
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12A 2016 Problem 17: Strategic Analysis}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Let $ABCD$ be a square. Let $E, F, G$ and $H$ be the centers, respectively, of equilateral triangles with bases $\overline{AB}, \overline{BC}, \overline{CD},$ and $\overline{DA},$ each exterior to the square. What is the ratio of the area of square $EFGH$ to the area of square $ABCD$?
+
+$$\textbf{(A)}\ 1\qquad\textbf{(B)}\ \frac{2+\sqrt{3}}{3} \qquad\textbf{(C)}\ \sqrt{2} \qquad\textbf{(D)}\ \frac{\sqrt{2}+\sqrt{3}}{2} \qquad\textbf{(E)}\ \sqrt{3}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - calculate a ratio of areas
+    \item \textbf{Difficulty Band}: Late-band (Problem 17 of 25)
+    \item \textbf{Competition Context}: AMC12A (75 min, 25 problems) - approximately 3 minutes per problem
+    \item \textbf{Mathematical Domain}: Geometry (plane geometry with squares and equilateral triangles)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Square $ABCD$ (base figure)
+        \item Four equilateral triangles, each with one side of the square as base
+        \item Triangles are exterior to the square
+        \item Centers $E, F, G, H$ of these triangles form another square
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Triangles must be equilateral (all angles $60^\circ$, all sides equal)
+        \item Each triangle is exterior (points away from square)
+        \item Original figure $ABCD$ is a square (all sides equal, all angles $90^\circ$)
+    \end{itemize}
+    \item \textbf{Objective}: Find $\frac{[EFGH]}{[ABCD]}$ where $[X]$ denotes area
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item The centers of equilateral triangles are at the centroid (intersection of medians)
+        \item By symmetry, $EFGH$ forms a square (not just a quadrilateral)
+        \item Answer choices suggest radical expressions involving $\sqrt{2}$ and $\sqrt{3}$
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All choices contain radicals except (A)
+        \item $\sqrt{3}$ appears frequently (related to equilateral triangles)
+        \item $\sqrt{2}$ appears (related to diagonals of squares)
+        \item Can eliminate unreasonable values by estimation
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: By symmetry, the configuration has 4-fold rotational symmetry
+    \item \textbf{Conclusion}: Need to find the side length of square $EFGH$ in terms of the side length of square $ABCD$
+    \item \textbf{Notation}: Let side length of $ABCD = s$ (or set $s=1$ for simplicity)
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Find coordinates of the centers $E, F, G, H$
+        \item Calculate distance between adjacent centers
+        \item Use area formula for square
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Coordinate geometry approach
+        \item Vector/complex number approach
+        \item Pure geometric approach using distance formulas
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: This is Problem 17, expect it to require multiple insights. Don't be discouraged if first approach feels stuck.
+    \item \textbf{Creativity Cultivation}: Visualize the figure carefully. Draw it! The symmetry should guide the solution.
+    \item \textbf{Iterative Refinement}: If coordinate approach gets messy, try pure geometry. If that's unclear, return to coordinates with better setup.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Recognize this as a configuration problem requiring geometric analysis of centers
+    \item \textbf{Get Your Hands Dirty}: 
+    \begin{itemize}
+        \item Draw a careful diagram showing the square and all four triangles
+        \item Mark the centers explicitly
+        \item Notice the symmetry - this is crucial!
+    \end{itemize}
+    \item \textbf{Penultimate Step}: The final step will be computing $\frac{(\text{side of } EFGH)^2}{s^2}$ where $s$ is the side of $ABCD$
+    \item \textbf{Wishful Thinking}: If we knew the distance from center of triangle to the square's side, we could find coordinates easily
+    \item \textbf{Make It Easier}: Set side length of original square to 1. Place square conveniently in coordinate system (e.g., vertices at $(0,0), (1,0), (1,1), (0,1)$)
+    \item \textbf{Conjecture via Small Cases}: Not applicable here (geometric configuration, not numerical)
+    \item \textbf{Visualization}: Essential! The symmetry tells us $EFGH$ is also a square, rotated $45^\circ$ and scaled relative to $ABCD$
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: 
+    \begin{itemize}
+        \item Choice (A) = 1 seems too simple (would mean squares are equal)
+        \item Choice (E) = $\sqrt{3} \approx 1.73$ seems large for a ratio
+        \item Choices (B), (C), (D) are in reasonable range $[1.3, 1.5]$
+    \end{itemize}
+    \item \textbf{Make It Easier}: Setting $s=1$ dramatically simplifies calculations
+    \item \textbf{Penultimate Step}: Once we have the diagonal of $EFGH$, divide by $\sqrt{2}$ to get its side length
+    \item \textbf{Wishful Thinking}: We wish the center was simply "height/3" from the base (this is true for centroids!)
+    \item \textbf{Conjecture via Small Cases}: Could verify with specific measurements if desperate
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Calculate coordinates → find distances → compute area ratio
+    \item \textbf{Proof by Computation}: Primary approach for this problem
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: 
+    \begin{itemize}
+        \item 4-fold rotational symmetry means we only need to find one center
+        \item All centers are equidistant from the square's center
+    \end{itemize}
+    \item \textbf{Coordinate Geometry}: 
+    \begin{itemize}
+        \item Set up coordinate system with square at origin
+        \item Use centroid formula for equilateral triangle
+    \end{itemize}
+    \item \textbf{Distance Formula}: Calculate $|EF|$ using coordinates
+    \item \textbf{Properties of Equilateral Triangles}: 
+    \begin{itemize}
+        \item Height $= \frac{\sqrt{3}}{2} \times \text{base}$
+        \item Centroid divides median in ratio 2:1 from vertex
+        \item Distance from centroid to base $= \frac{1}{3} \times \text{height}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometry}: 
+    \begin{itemize}
+        \item Centroid properties
+        \item Pythagorean theorem for distances
+        \item Area of square from side length or diagonal
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Complex Numbers}: Could represent points as complex numbers and use rotation
+    \item \textbf{Vectors}: Could use vector addition to find center positions
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Coordinate Geometry Method}: 
+    \begin{itemize}
+        \item Set square with side length 1: vertices at $(0,0), (1,0), (1,1), (0,1)$
+        \item For bottom side $\overline{AB}$: midpoint at $(1/2, 0)$
+        \item Equilateral triangle has height $\sqrt{3}/2$ pointing downward
+        \item Centroid is $1/3$ of height from base: $(1/2, -\sqrt{3}/6)$
+        \item By symmetry: $E = (1/2, -\sqrt{3}/6)$, $F = (1+\sqrt{3}/6, 1/2)$, etc.
+    \end{itemize}
+    \item \textbf{Scaling and Normalization}: Setting $s=1$ eliminates parameter
+    \item \textbf{Centroid Properties}: Key insight that center of equilateral triangle is its centroid
+\end{itemize}
+
+\subsection*{B. Medium-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Diagonal Method}: 
+    \begin{itemize}
+        \item Find diagonal $EG$ directly
+        \item Use $\text{Area} = \frac{d^2}{2}$ for square with diagonal $d$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Why Coordinates Work}: Symmetric configuration with regular shapes
+    \item \textbf{Why Centroid Matters}: "Center" of equilateral triangle = centroid
+    \item \textbf{Why Answer Has $\sqrt{3}$}: Equilateral triangles have $\sqrt{3}$ in their height
+    \item \textbf{Why Setting $s=1$ Helps}: Ratio is scale-invariant
+\end{itemize}
+
+\subsection*{D. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary}: Coordinate geometry + centroid formula
+    \item \textbf{Supporting}: Symmetry to reduce calculation
+    \item \textbf{Verification}: Use diagonal method as alternative check
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4 (Standard) - Late-band problem requires thorough check
+    \item \textbf{Rationale}: Geometric calculation with multiple steps; errors likely in distance computation
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Dimensional Analysis}: Check that ratio is dimensionless (area/area)
+    \item \textbf{Answer Choice Check}: Result should match one of the five choices
+    \item \textbf{Symmetry Verification}: All four centers should be equidistant from origin
+    \item \textbf{Alternative Method}: Compute using diagonal instead of side length
+    \item \textbf{Reasonableness}: Ratio should be $> 1$ (outer square is larger)
+\end{itemize}
+
+\subsection*{C. Specialized Verification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Coordinate Check}: Verify one center position by direct calculation
+    \item \textbf{Distance Verification}: Check $|EF|^2$ calculation carefully
+    \item \textbf{Algebraic Simplification}: Ensure final ratio is fully simplified
+\end{itemize}
+
+\subsection*{D. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Before Verification}: 70\% (calculation-heavy, prone to arithmetic errors)
+    \item \textbf{After Verification}: 90\% (if alternative method agrees)
+    \item \textbf{Flag for Review}: Only if verification methods disagree
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Step-by-Step Solution Plan}
+
+\textbf{Step 1: Setup and Normalization (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Set side length of square $ABCD$ to 1
+    \item Place square with vertices: $A=(0,0)$, $B=(1,0)$, $C=(1,1)$, $D=(0,1)$
+\end{itemize}
+
+\textbf{Step 2: Find Center of One Equilateral Triangle (1 minute)}
+\begin{itemize}[leftmargin=*]
+    \item Consider triangle on base $\overline{AB}$
+    \item Midpoint of $\overline{AB}$: $M = (1/2, 0)$
+    \item Height of equilateral triangle: $h = \frac{\sqrt{3}}{2} \cdot 1 = \frac{\sqrt{3}}{2}$
+    \item Triangle points downward (exterior), so apex at $(1/2, -\sqrt{3}/2)$
+    \item Centroid is $\frac{1}{3}$ of distance from base to apex
+    \item Distance from midpoint to centroid: $\frac{1}{3} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{3}}{6}$
+    \item Therefore $E = (1/2, -\sqrt{3}/6)$
+\end{itemize}
+
+\textbf{Step 3: Find Adjacent Center by Symmetry (45 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item By 90° rotational symmetry about center of $ABCD$ at $(1/2, 1/2)$
+    \item Next center $F$ corresponds to triangle on $\overline{BC}$
+    \item Midpoint of $\overline{BC}$: $(1, 1/2)$
+    \item Triangle points right (exterior)
+    \item $F = (1 + \sqrt{3}/6, 1/2)$
+\end{itemize}
+
+\textbf{Step 4: Calculate Distance $|EF|$ (1 minute)}
+\begin{itemize}[leftmargin=*]
+    \item $E = (1/2, -\sqrt{3}/6)$, $F = (1 + \sqrt{3}/6, 1/2)$
+    \item $\Delta x = 1 + \sqrt{3}/6 - 1/2 = 1/2 + \sqrt{3}/6 = \frac{3+\sqrt{3}}{6}$
+    \item $\Delta y = 1/2 - (-\sqrt{3}/6) = 1/2 + \sqrt{3}/6 = \frac{3+\sqrt{3}}{6}$
+    \item Note: $\Delta x = \Delta y$ (reflecting 45$^\circ$ angle due to symmetry)
+    \item $|EF|^2 = (\Delta x)^2 + (\Delta y)^2 = 2 \cdot \left(\frac{3+\sqrt{3}}{6}\right)^2$
+    \item $= 2 \cdot \frac{(3+\sqrt{3})^2}{36} = \frac{(3+\sqrt{3})^2}{18}$
+    \item $= \frac{9 + 6\sqrt{3} + 3}{18} = \frac{12 + 6\sqrt{3}}{18}$
+    \item $= \frac{6(2 + \sqrt{3})}{18} = \frac{2 + \sqrt{3}}{3}$
+\end{itemize}
+
+\textbf{Step 5: Calculate Area Ratio (30 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item Area of $EFGH = |EF|^2 = \frac{2+\sqrt{3}}{3}$
+    \item Area of $ABCD = 1^2 = 1$
+    \item Ratio $= \frac{2+\sqrt{3}}{3}$
+\end{itemize}
+
+\textbf{Alternative Approach: Diagonal Method (Official Solution)}
+\begin{itemize}[leftmargin=*]
+    \item Find centers $E$ and $G$ (opposite corners on same vertical line by symmetry)
+    \item $E = (1/2, -\sqrt{3}/6)$ below the square
+    \item $G = (1/2, 1+\sqrt{3}/6)$ above the square
+    \item Diagonal $|EG| = 1 + 2 \cdot \frac{\sqrt{3}}{6} = 1 + \frac{\sqrt{3}}{3}$
+    \item (This accounts for: distance below + square side + distance above)
+    \item $|EG|^2 = \left(1 + \frac{\sqrt{3}}{3}\right)^2 = 1 + \frac{2\sqrt{3}}{3} + \frac{3}{9}$
+    \item $= 1 + \frac{2\sqrt{3}}{3} + \frac{1}{3} = \frac{4 + 2\sqrt{3}}{3}$
+    \item Area $= \frac{|EG|^2}{2} = \frac{4 + 2\sqrt{3}}{6} = \frac{2(2 + \sqrt{3})}{6} = \frac{2+\sqrt{3}}{3}$ $\checkmark$
+\end{itemize}
+
+\subsection*{Checkpoints and Pivot Indicators}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Checkpoint 1}: After finding $E$, verify it's below the square
+    \item \textbf{Checkpoint 2}: After calculating $|EF|^2$, check if it matches answer choices
+    \item \textbf{Pivot Indicator}: If algebra becomes very messy (5+ terms), restart with cleaner approach
+\end{itemize}
+
+\subsection*{Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 3-4 minutes total
+    \item \textbf{Maximum Time}: 6 minutes before flagging and moving on
+    \item \textbf{Actual Breakdown}: Setup (30s) + Center (1m) + Distance (1m) + Ratio (30s) + Verify (1m)
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Allocated Time}: 3-4 minutes (Problem 17 is late-band but geometric)
+    \item \textbf{Quick Win Opportunity}: If coordinates are set up correctly, calculation is straightforward
+    \item \textbf{Abandon Threshold}: If unable to find center coordinates after 2 minutes, move on
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Relative Difficulty}: Medium-high (P17/25)
+    \item \textbf{Skill Match}: Good for students strong in coordinate geometry
+    \item \textbf{Skip Consideration}: If weak in geometry or short on time, skip and return later
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: Need 75\%+ confidence before submitting
+    \item \textbf{Guess Strategy}: If stuck, eliminate (A) and (E) by estimation, guess from (B), (C), (D)
+    \item \textbf{Error Recovery}: If calculation error discovered, restart with diagonal method
+\end{itemize}
+
+\subsection*{D. Abandonment Criteria}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Soft Abandon}: After 5 minutes without progress
+    \item \textbf{Hard Abandon}: If algebra becomes unmanageable or same error made twice
+    \item \textbf{Strategic Note}: This problem rewards careful setup; rushing leads to errors
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The center of an equilateral triangle is its centroid, which lies at distance $\frac{h}{3}$ from the base, where $h = \frac{\sqrt{3}}{2} s$ is the height. This gives us $\frac{\sqrt{3}}{6}$ as the offset distance, which is the crucial value needed for coordinate calculation.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: The most common error is miscalculating the position of the centroid. Remember: the centroid divides each median in ratio 2:1 from the vertex, meaning it's $\frac{1}{3}$ of the way from the base (or $\frac{2}{3}$ from the opposite vertex). Also, be careful about direction - triangles are exterior, so they point away from the square.
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: Setting the side length to 1 and placing the square at convenient coordinates (like $(0,0)$ to $(1,1)$) dramatically simplifies the arithmetic. Also, recognize that by symmetry, you only need to find TWO adjacent centers - all distances $|EF| = |FG| = |GH| = |HE|$ are equal.
+\end{tipbox}
+
+\section*{Final Answer}
+
+$$\boxed{\textbf{(B) } \frac{2+\sqrt{3}}{3}}$$
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% - Verified with both side length and diagonal methods
+    \item \textbf{Verification Applied}: Level 4 (Standard) with alternative calculation check
+    \item \textbf{Flag for Review}: No - both methods agree and answer matches choice (B)
+    \item \textbf{Time Spent}: Estimated 4 minutes (reasonable for P17)
+\end{itemize}
+
+\section*{Solution Summary}
+
+The problem leverages the key geometric fact that the center (centroid) of an equilateral triangle lies at distance $\frac{\sqrt{3}}{6}$ from its base (when base length is 1). By placing the square at convenient coordinates and computing the distance between adjacent triangle centers using the distance formula, we find that the side length squared of the outer square $EFGH$ is $\frac{2+\sqrt{3}}{3}$. Since the inner square has area 1, this is also the ratio of areas.
+
+\end{document}

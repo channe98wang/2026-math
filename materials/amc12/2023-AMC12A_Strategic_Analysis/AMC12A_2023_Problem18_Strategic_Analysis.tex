@@ -1,0 +1,712 @@
+% AMC 12A 2023 Problem 18 Strategic Analysis
+% Generated using Strategic Problem Solving Framework v2.1
+
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{xcolor}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Custom colored boxes
+\newtcolorbox{problembox}[1][]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    title=Problem Configuration Analysis,
+    breakable,
+    #1
+}
+
+\newtcolorbox{strategybox}[1][]{
+    colback=pink!5!white,
+    colframe=pink!75!black,
+    title=Strategic Framework Application,
+    breakable,
+    #1
+}
+
+\newtcolorbox{tacticalbox}[1][]{
+    colback=green!5!white,
+    colframe=green!75!black,
+    title=Tactical Selection,
+    breakable,
+    #1
+}
+
+\newtcolorbox{conversionbox}[1][]{
+    colback=yellow!5!white,
+    colframe=yellow!75!black,
+    title=Conversion Techniques,
+    breakable,
+    #1
+}
+
+\newtcolorbox{verificationbox}[1][]{
+    colback=orange!5!white,
+    colframe=orange!75!black,
+    title=Verification Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{roadmapbox}[1][]{
+    colback=purple!5!white,
+    colframe=purple!75!black,
+    title=Solution Roadmap,
+    breakable,
+    #1
+}
+
+\newtcolorbox{competitionbox}[1][]{
+    colback=red!5!white,
+    colframe=red!75!black,
+    title=Competition Strategy,
+    breakable,
+    #1
+}
+
+\newtcolorbox{pitfallbox}[1][]{
+    colback=gray!5!white,
+    colframe=gray!75!black,
+    title=Common Pitfalls and Warnings,
+    breakable,
+    #1
+}
+
+\newtcolorbox{solutionbox}[1][]{
+    colback=cyan!5!white,
+    colframe=cyan!75!black,
+    title=Detailed Solution,
+    breakable,
+    #1
+}
+
+\newtcolorbox{keyinsightbox}[1][]{
+    colback=magenta!5!white,
+    colframe=magenta!75!black,
+    title=Key Insights,
+    breakable,
+    #1
+}
+
+\begin{document}
+
+\title{\textbf{AMC 12A 2023 Problem 18}\\Strategic Analysis}
+\author{Using Framework v2.1}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+
+Circle $C_1$ and $C_2$ each have radius $1$, and the distance between their centers is $\frac{1}{2}$. Circle $C_3$ is the largest circle internally tangent to both $C_1$ and $C_2$. Circle $C_4$ is internally tangent to both $C_1$ and $C_2$ and externally tangent to $C_3$. What is the radius of $C_4$?
+
+\[\textbf{(A) } \frac{1}{14} \qquad \textbf{(B) } \frac{1}{12} \qquad \textbf{(C) } \frac{1}{10} \qquad \textbf{(D) } \frac{3}{28} \qquad \textbf{(E) } \frac{1}{9}\]
+
+\begin{problembox}
+\section*{1. Problem Configuration Analysis}
+
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Competition}: AMC 12A 2023
+    \item \textbf{Problem Number}: 18
+    \item \textbf{Difficulty Band}: Upper-mid to late-mid range (Problem 18/25)
+    \item \textbf{Expected Time}: 4-6 minutes
+    \item \textbf{Point Value}: 6 points (standard AMC 12 scoring)
+\end{itemize}
+
+\subsection*{B. Mathematical Domain Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Domain}: Geometry (Circles)
+    \item \textbf{Secondary Domain}: Coordinate Geometry / Tangency
+    \item \textbf{Tertiary Domain}: Pythagorean Theorem
+    \item \textbf{Cross-Domain Potential}: Moderate (geometry, algebra, spatial reasoning)
+\end{itemize}
+
+\subsection*{C. Problem Type}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Format}: Multiple choice (numerical answer)
+    \item \textbf{Question Type}: ``What is the radius...''
+    \item \textbf{Core Task}: Find radius of circle with multiple tangency conditions
+    \item \textbf{Answer Form}: Simple fraction
+\end{itemize}
+
+\subsection*{D. Given Information}
+\begin{itemize}[leftmargin=*]
+    \item $C_1$ and $C_2$: radius = 1 each
+    \item Distance between centers of $C_1$ and $C_2$: $\frac{1}{2}$
+    \item $C_3$: largest circle internally tangent to both $C_1$ and $C_2$
+    \item $C_4$: internally tangent to both $C_1$ and $C_2$, externally tangent to $C_3$
+    \item Two large circles overlap significantly (centers $\frac{1}{2}$ apart, radii 1 each)
+\end{itemize}
+
+\subsection*{E. Constraints}
+\begin{itemize}[leftmargin=*]
+    \item $C_3$ must be the \textit{largest} such circle (unique)
+    \item $C_4$ satisfies three tangency conditions simultaneously
+    \item All circles lie in the same plane
+\end{itemize}
+
+\subsection*{F. Objective}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Find}: Radius of circle $C_4$
+    \item \textbf{Output}: Select correct fraction from choices
+\end{itemize}
+
+\subsection*{G. Key Structural Features}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: Configuration has reflection symmetry about perpendicular bisector
+    \item \textbf{Tangency conditions}: Internal tangency means distance between centers = $|r_1 - r_2|$
+    \item \textbf{External tangency}: Distance between centers = $r_1 + r_2$
+    \item \textbf{Coordinate setup}: Natural to place centers of $C_1$ and $C_2$ symmetrically
+    \item \textbf{Right triangle}: Perpendicular bisector creates right triangle
+\end{itemize}
+
+\subsection*{H. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Strategy}: Set up coordinate system, use tangency conditions
+    \item \textbf{Key Technique}: Pythagorean theorem on right triangle
+    \item \textbf{Expected Difficulty}: Moderate to challenging - requires careful setup
+    \item \textbf{Time Pressure}: Should be completed in 4-6 minutes
+\end{itemize}
+\end{problembox}
+
+\begin{strategybox}
+\section*{2. Strategic Framework Application}
+
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Calibration}: 
+    \begin{itemize}
+        \item Upper-mid difficulty problem
+        \item Standard geometry techniques apply
+        \item Answer choices are simple fractions
+    \end{itemize}
+    \item \textbf{Pattern Recognition}:
+    \begin{itemize}
+        \item Recognize tangency conditions translate to distance formulas
+        \item Symmetry suggests coordinate placement
+        \item Multiple tangencies create system of constraints
+    \end{itemize}
+    \item \textbf{Problem Familiarity}:
+    \begin{itemize}
+        \item Classic tangent circles problem
+        \item Similar to Apollonian gasket configurations
+        \item Standard competition geometry
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Exploration}:
+    \begin{itemize}
+        \item Draw diagram carefully (provided in problem)
+        \item Identify centers and radii relationships
+        \item Note that $C_1$ and $C_2$ overlap significantly
+    \end{itemize}
+    \item \textbf{Coordinate Setup}:
+    \begin{itemize}
+        \item Place origin at midpoint between centers of $C_1$ and $C_2$
+        \item $C_1$ centered at $(-\frac{1}{4}, 0)$, $C_2$ centered at $(\frac{1}{4}, 0)$
+        \item By symmetry, $C_3$ and $C_4$ centered on $y$-axis
+    \end{itemize}
+    \item \textbf{Key Calculations}:
+    \begin{itemize}
+        \item Find radius of $C_3$ first
+        \item Set up equation for radius of $C_4$ using tangency conditions
+        \item Use Pythagorean theorem
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Logical Structure}:
+    \begin{enumerate}
+        \item Set up coordinates with origin at midpoint
+        \item Find radius of $C_3$ using internal tangency to $C_1$ and $C_2$
+        \item Let radius of $C_4$ be $r$, find its center location
+        \item Use internal tangency to $C_1$ (or $C_2$): distance equation
+        \item Use external tangency to $C_3$: distance equation
+        \item Apply Pythagorean theorem to right triangle
+        \item Solve for $r$
+    \end{enumerate}
+    \item \textbf{Key Deductions}:
+    \begin{itemize}
+        \item Radius of $C_3$ is $\frac{3}{4}$ (from internal tangency conditions)
+        \item Center of $C_4$ lies on positive $y$-axis
+        \item Distance from origin to boundary of $C_3$ is $\frac{3}{4}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{D. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometric}: Tangent circles and distance relationships
+    \item \textbf{Algebraic}: System of distance equations
+    \item \textbf{Coordinate}: Place circles in coordinate system
+    \item \textbf{Trigonometric}: Right triangle with Pythagorean theorem
+\end{itemize}
+\end{strategybox}
+
+\begin{tacticalbox}
+\section*{3. Tactical Methodology Selection}
+
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Coordinate Geometry}: Place centers strategically
+    \item \textbf{Tangency Conditions}: Translate to distance formulas
+    \item \textbf{Symmetry}: Use reflection symmetry to simplify
+    \item \textbf{Pythagorean Theorem}: Apply to right triangle
+    \item \textbf{Algebraic Manipulation}: Solve for unknown radius
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Circle Tangency}:
+    \begin{itemize}
+        \item Internal tangency: $d = |r_1 - r_2|$ (larger circle contains smaller)
+        \item External tangency: $d = r_1 + r_2$
+        \item Distance between centers determines relationship
+    \end{itemize}
+    \item \textbf{Coordinate Setup}:
+    \begin{itemize}
+        \item Origin at midpoint: centers at $(\pm\frac{1}{4}, 0)$
+        \item Symmetry implies $C_3$ and $C_4$ on $y$-axis
+        \item Right triangle naturally appears
+    \end{itemize}
+    \item \textbf{Problem-Solving Sequence}:
+    \begin{itemize}
+        \item Find $C_3$ first (largest, well-defined)
+        \item Use $C_3$ to constrain $C_4$
+        \item Three tangency conditions → solvable system
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Tactical Priorities}
+\begin{enumerate}[leftmargin=*]
+    \item Set up coordinate system (60 seconds)
+    \item Find radius of $C_3$ (60 seconds)
+    \item Set up equation for $C_4$ using tangency (90 seconds)
+    \item Apply Pythagorean theorem (60 seconds)
+    \item Solve for $r$ (60 seconds)
+    \item Verify answer (30 seconds)
+\end{enumerate}
+\end{tacticalbox}
+
+\begin{conversionbox}
+\section*{4. Conversion Techniques Application}
+
+\subsection*{A. Method 1: Coordinate Geometry (Standard Approach)}
+
+\textbf{Step 1: Set up coordinates}
+\begin{itemize}
+    \item Place origin $O$ at midpoint between centers of $C_1$ and $C_2$
+    \item Center of $C_1$: $A = (-\frac{1}{4}, 0)$
+    \item Center of $C_2$: $B = (\frac{1}{4}, 0)$
+    \item Both have radius 1
+\end{itemize}
+
+\textbf{Step 2: Find radius of $C_3$}
+\begin{itemize}
+    \item $C_3$ is internally tangent to both $C_1$ and $C_2$
+    \item By symmetry, center of $C_3$ is at origin $(0, 0)$
+    \item Let radius of $C_3$ be $r_3$
+    \item Internal tangency to $C_1$: distance from $O$ to $A$ equals $1 - r_3$
+    \[\frac{1}{4} = 1 - r_3 \implies r_3 = \frac{3}{4}\]
+\end{itemize}
+
+\textbf{Step 3: Find location of center of $C_4$}
+\begin{itemize}
+    \item By symmetry, center of $C_4$ is on $y$-axis at $(0, y_0)$ for some $y_0 > 0$
+    \item Let radius of $C_4$ be $r$
+\end{itemize}
+
+\textbf{Step 4: Apply tangency conditions}
+\begin{itemize}
+    \item Internal tangency to $C_1$: 
+    \[\sqrt{(0-(-\frac{1}{4}))^2 + (y_0-0)^2} = 1 - r\]
+    \[\sqrt{\frac{1}{16} + y_0^2} = 1 - r\]
+    
+    \item External tangency to $C_3$:
+    \[y_0 = r_3 + r = \frac{3}{4} + r\]
+\end{itemize}
+
+\textbf{Step 5: Substitute and solve}
+\begin{itemize}
+    \item Substitute $y_0 = \frac{3}{4} + r$:
+    \[\sqrt{\frac{1}{16} + (\frac{3}{4} + r)^2} = 1 - r\]
+    
+    \item Square both sides:
+    \[\frac{1}{16} + (\frac{3}{4} + r)^2 = (1-r)^2\]
+    
+    \item Expand:
+    \[\frac{1}{16} + \frac{9}{16} + \frac{3r}{2} + r^2 = 1 - 2r + r^2\]
+    
+    \item Simplify:
+    \[\frac{10}{16} + \frac{3r}{2} = 1 - 2r\]
+    \[\frac{5}{8} + \frac{3r}{2} = 1 - 2r\]
+    \[\frac{3r}{2} + 2r = 1 - \frac{5}{8} = \frac{3}{8}\]
+    \[\frac{7r}{2} = \frac{3}{8}\]
+    \[r = \frac{3}{8} \cdot \frac{2}{7} = \frac{3}{28}\]
+\end{itemize}
+
+\subsection*{B. Method 2: Direct Right Triangle Approach}
+
+\textbf{Setup}: Same coordinate system as Method 1.
+
+\textbf{Key observation}: If we draw radii from centers $A$, $O$, and center of $C_4$ (call it $D$), we form a right triangle.
+
+\begin{itemize}
+    \item $A = (-\frac{1}{4}, 0)$ (center of $C_1$)
+    \item $O = (0, 0)$ (center of $C_3$)
+    \item $D = (0, \frac{3}{4} + r)$ (center of $C_4$)
+    
+    \item Triangle $AOD$ has:
+    \begin{itemize}
+        \item Right angle at $O$
+        \item $AO = \frac{1}{4}$ (horizontal leg)
+        \item $OD = \frac{3}{4} + r$ (vertical leg)
+        \item $AD = 1 - r$ (hypotenuse, from internal tangency to $C_1$)
+    \end{itemize}
+    
+    \item Pythagorean theorem:
+    \[\left(\frac{1}{4}\right)^2 + \left(\frac{3}{4} + r\right)^2 = (1-r)^2\]
+\end{itemize}
+
+This gives the same equation as Method 1, yielding $r = \frac{3}{28}$.
+
+\subsection*{C. Method 3: Estimation (Quick Check)}
+
+\begin{itemize}
+    \item Radius of $C_3$ is $\frac{3}{4}$
+    \item $C_4$ is much smaller than $C_3$
+    \item Looking at answer choices: (A) $\frac{1}{14} \approx 0.071$, (D) $\frac{3}{28} \approx 0.107$
+    \item From diagram, $r_{C_4}$ looks to be roughly $\frac{1}{10}$ of the large circles
+    \item $\frac{3}{28} \approx 0.107$ is close to $\frac{1}{10} = 0.1$
+    \item This matches (D)
+\end{itemize}
+
+\subsection*{D. Answer Selection}
+\begin{itemize}
+    \item Calculated: $r = \frac{3}{28}$
+    \item Matches choice: \textbf{(D)}
+\end{itemize}
+\end{conversionbox}
+
+\begin{verificationbox}
+\section*{5. Verification Strategy Design}
+
+\subsection*{A. Verification Level}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 4 - Direct Substitution
+    \item \textbf{Reasoning}: Can verify all tangency conditions
+    \item \textbf{Time Budget}: 60 seconds
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Check arithmetic}:
+    \begin{itemize}
+        \item $\frac{7r}{2} = \frac{3}{8}$
+        \item $r = \frac{3}{28}$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Verify tangency to $C_1$}:
+    \begin{itemize}
+        \item Center of $C_4$: $(0, \frac{3}{4} + \frac{3}{28}) = (0, \frac{21+3}{28}) = (0, \frac{24}{28}) = (0, \frac{6}{7})$
+        \item Distance to $A = (-\frac{1}{4}, 0)$:
+        \[\sqrt{\frac{1}{16} + \frac{36}{49}} = \sqrt{\frac{49 + 576}{784}} = \sqrt{\frac{625}{784}} = \frac{25}{28}\]
+        \item Should equal $1 - r = 1 - \frac{3}{28} = \frac{25}{28}$ $\checkmark$
+    \end{itemize}
+    \item \textbf{Verify tangency to $C_3$}:
+    \begin{itemize}
+        \item Distance between centers: $\frac{6}{7}$
+        \item Should equal $r_3 + r = \frac{3}{4} + \frac{3}{28} = \frac{21+3}{28} = \frac{24}{28} = \frac{6}{7}$ $\checkmark$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Method 1}: Check Pythagorean theorem directly
+    \item \textbf{Method 2}: Verify answer is among choices
+    \item \textbf{Method 3}: Dimensional analysis (radius should be small)
+\end{itemize}
+
+\subsection*{D. Answer Choice Validation}
+\begin{itemize}[leftmargin=*]
+    \item Our answer: $\frac{3}{28}$
+    \item Matches choice: \textbf{(D)}
+    \item Why not the others?
+    \begin{itemize}
+        \item (A) $\frac{1}{14} = \frac{2}{28}$: too small
+        \item (B) $\frac{1}{12} \approx 0.083$: too small
+        \item (C) $\frac{1}{10} = 0.1$: close but not exact
+        \item (E) $\frac{1}{9} \approx 0.111$: too large
+    \end{itemize}
+\end{itemize}
+\end{verificationbox}
+
+\begin{roadmapbox}
+\section*{6. Solution Roadmap}
+
+\subsection*{A. High-Level Solution Path}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Set up coordinates}: Origin at midpoint
+    \item \textbf{Find $r_3$}: Use internal tangency to $C_1$ and $C_2$
+    \item \textbf{Locate $C_4$}: By symmetry, on $y$-axis
+    \item \textbf{Apply Pythagorean theorem}: Use right triangle
+    \item \textbf{Solve for $r$}: Get $\frac{3}{28}$
+\end{enumerate}
+
+\subsection*{B. Detailed Solution Steps}
+
+\textbf{Step 1}: Set up coordinate system.
+\begin{itemize}
+    \item Origin at midpoint between centers
+    \item $C_1$ centered at $(-\frac{1}{4}, 0)$, radius 1
+    \item $C_2$ centered at $(\frac{1}{4}, 0)$, radius 1
+\end{itemize}
+
+\textbf{Step 2}: Find radius of $C_3$.
+\begin{itemize}
+    \item $C_3$ centered at origin (by symmetry)
+    \item Internal tangency: $\frac{1}{4} = 1 - r_3$
+    \item Therefore: $r_3 = \frac{3}{4}$
+\end{itemize}
+
+\textbf{Step 3}: Set up for $C_4$.
+\begin{itemize}
+    \item Let radius of $C_4$ be $r$
+    \item Center at $(0, y_0)$ where $y_0 = \frac{3}{4} + r$ (external tangency to $C_3$)
+\end{itemize}
+
+\textbf{Step 4}: Apply Pythagorean theorem.
+\begin{itemize}
+    \item Right triangle with legs $\frac{1}{4}$ and $\frac{3}{4} + r$, hypotenuse $1-r$:
+    \[\left(\frac{1}{4}\right)^2 + \left(\frac{3}{4} + r\right)^2 = (1-r)^2\]
+\end{itemize}
+
+\textbf{Step 5}: Solve for $r$.
+\begin{itemize}
+    \item Expand and simplify: $\frac{7r}{2} = \frac{3}{8}$
+    \item Therefore: $r = \frac{3}{28}$
+\end{itemize}
+
+\subsection*{C. Key Decision Points}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Decision 1}: Place origin at midpoint (uses symmetry)
+    \item \textbf{Decision 2}: Find $C_3$ first (simplifies problem)
+    \item \textbf{Decision 3}: Recognize right triangle structure
+\end{itemize}
+
+\subsection*{D. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item Understanding problem: 30 seconds
+    \item Setting up coordinates: 60 seconds
+    \item Finding $r_3$: 60 seconds
+    \item Setting up equation for $r_4$: 90 seconds
+    \item Solving: 60 seconds
+    \item Verification: 60 seconds
+    \item \textbf{Total}: 5 minutes 30 seconds
+\end{itemize}
+\end{roadmapbox}
+
+\begin{competitionbox}
+\section*{7. Competition Strategy Integration}
+
+\subsection*{A. Problem Triage}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Difficulty Assessment}: Upper-medium (Problem 18/25)
+    \item \textbf{Confidence Level}: Moderate if comfortable with coordinate geometry
+    \item \textbf{Decision}: Worth attempting if you have 5+ minutes
+\end{itemize}
+
+\subsection*{B. Time Allocation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 5-6 minutes
+    \item \textbf{Maximum Time}: 7 minutes
+    \item \textbf{Quick Strategy}: If stuck, estimate from diagram
+\end{itemize}
+
+\subsection*{C. Solution Format}
+\begin{itemize}[leftmargin=*]
+    \item Multiple choice: Select \textbf{(D)} $\frac{3}{28}$
+    \item Verification: Check one tangency condition
+    \item Bubble answer sheet carefully
+\end{itemize}
+
+\subsection*{D. Strategic Considerations}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Diagram essential}: Understanding geometry from diagram
+    \item \textbf{Symmetry shortcut}: Recognizes centers lie on axes
+    \item \textbf{Estimation backup}: Can narrow to (C) or (D) from diagram
+    \item \textbf{Verification important}: Easy to make algebra errors
+\end{itemize}
+\end{competitionbox}
+
+\begin{pitfallbox}
+\section*{Common Pitfalls and Warnings}
+
+\subsection*{A. Conceptual Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confusing tangency types}: Internal vs external tangency have different distance formulas
+    \item \textbf{Missing $C_3$ calculation}: Must find $r_3 = \frac{3}{4}$ first
+    \item \textbf{Wrong coordinate setup}: Not using symmetry to simplify
+    \item \textbf{Forgetting which circle}: Mixing up $C_1$, $C_2$, $C_3$, $C_4$
+\end{itemize}
+
+\subsection*{B. Computational Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Expanding $(r + \frac{3}{4})^2$}: Must be careful with algebra
+    \item \textbf{Pythagorean theorem}: Easy to mix up which is hypotenuse
+    \item \textbf{Solving linear equation}: $\frac{7r}{2} = \frac{3}{8}$ gives $r = \frac{3}{28}$
+    \item \textbf{Simplification}: $\frac{3}{4} + \frac{3}{28} = \frac{21+3}{28} = \frac{24}{28} = \frac{6}{7}$
+\end{itemize}
+
+\subsection*{C. Strategic Errors}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Not drawing diagram}: Difficult to visualize without picture
+    \item \textbf{Overcomplicating}: Using general formulas instead of coordinates
+    \item \textbf{Time management}: This problem takes 5-6 minutes minimum
+\end{itemize}
+
+\subsection*{D. Warning Signs}
+\begin{itemize}[leftmargin=*]
+    \item If you get $r > \frac{1}{4}$, something is wrong ($C_4$ is small)
+    \item If answer isn't among choices, recheck algebra
+    \item If verification fails, revisit tangency conditions
+\end{itemize}
+\end{pitfallbox}
+
+\begin{solutionbox}
+\subsection*{A. Complete Solution}
+
+\textbf{Setup}: Place origin $O$ at the midpoint between the centers of $C_1$ and $C_2$.
+\begin{itemize}
+    \item Center of $C_1$: $A = (-\frac{1}{4}, 0)$, radius 1
+    \item Center of $C_2$: $B = (\frac{1}{4}, 0)$, radius 1
+\end{itemize}
+
+\textbf{Find radius of $C_3$}:
+\begin{itemize}
+    \item By symmetry, $C_3$ is centered at origin
+    \item $C_3$ is internally tangent to $C_1$
+    \item Distance from $O$ to $A$ is $\frac{1}{4}$
+    \item For internal tangency: $\frac{1}{4} = 1 - r_3$
+    \item Therefore: $r_3 = \frac{3}{4}$
+\end{itemize}
+
+\textbf{Find radius of $C_4$}:
+\begin{itemize}
+    \item Let radius of $C_4$ be $r$
+    \item By symmetry, center of $C_4$ is on $y$-axis
+    \item $C_4$ is externally tangent to $C_3$, so center is at $(0, \frac{3}{4} + r)$
+    
+    \item Consider right triangle $AOD$ where $D$ is center of $C_4$:
+    \begin{itemize}
+        \item Horizontal leg $AO = \frac{1}{4}$
+        \item Vertical leg $OD = \frac{3}{4} + r$
+        \item Hypotenuse $AD = 1 - r$ (from internal tangency to $C_1$)
+    \end{itemize}
+    
+    \item Pythagorean theorem:
+    \[\left(\frac{1}{4}\right)^2 + \left(\frac{3}{4} + r\right)^2 = (1-r)^2\]
+    
+    \item Expand:
+    \[\frac{1}{16} + \frac{9}{16} + \frac{3r}{2} + r^2 = 1 - 2r + r^2\]
+    
+    \item Simplify:
+    \[\frac{10}{16} + \frac{3r}{2} = 1 - 2r\]
+    \[\frac{5}{8} + \frac{3r}{2} + 2r = 1\]
+    \[\frac{7r}{2} = \frac{3}{8}\]
+    \[r = \frac{3}{28}\]
+\end{itemize}
+
+\subsection*{B. Verification}
+\begin{itemize}
+    \item Center of $C_4$: $(0, \frac{3}{4} + \frac{3}{28}) = (0, \frac{6}{7})$
+    \item Distance to $A = (-\frac{1}{4}, 0)$:
+    \[\sqrt{\frac{1}{16} + \frac{36}{49}} = \frac{25}{28}\]
+    \item Should equal $1 - \frac{3}{28} = \frac{25}{28}$ $\checkmark$
+\end{itemize}
+\end{solutionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The key to this problem is recognizing the geometric structure and using symmetry effectively.
+
+\textbf{Critical observations}:
+\begin{itemize}
+    \item The configuration has bilateral symmetry about the perpendicular bisector
+    \item This means $C_3$ and $C_4$ both have centers on the $y$-axis
+    \item The problem naturally sets up a right triangle
+    \item Finding $C_3$ first ($r_3 = \frac{3}{4}$) is essential for solving for $C_4$
+\end{itemize}
+
+\textbf{Tangency conditions translate to distances}:
+\begin{itemize}
+    \item Internal tangency: If circle with radius $R$ contains circle with radius $r$, and they're internally tangent, then the distance between centers is $R - r$
+    \item External tangency: If two circles with radii $r_1$ and $r_2$ are externally tangent, distance between centers is $r_1 + r_2$
+\end{itemize}
+
+\textbf{Right triangle structure}:
+\begin{itemize}
+    \item The perpendicular from the $y$-axis to the center of $C_1$ creates a right angle
+    \item This allows us to use the Pythagorean theorem
+    \item The three tangency conditions reduce to one equation in one unknown
+\end{itemize}
+
+\textbf{Why this approach works}:
+\begin{itemize}
+    \item Symmetry reduces variables (centers must lie on axes)
+    \item Coordinate geometry makes distance calculations straightforward
+    \item Pythagorean theorem is simpler than general distance formulas
+    \item Finding $C_3$ first provides a constraint for $C_4$
+\end{itemize}
+
+\textbf{General principle}: For multiple tangent circle problems:
+\begin{itemize}
+    \item Use symmetry to reduce complexity
+    \item Set up coordinates to align with symmetry axes
+    \item Find simpler circles first, then use them to constrain more complex ones
+    \item Translate tangency conditions to algebraic distance equations
+\end{itemize}
+\end{keyinsightbox}
+
+\section*{Final Answer}
+
+The radius of circle $C_4$ is:
+
+\[\boxed{\textbf{(D) } \frac{3}{28}}\]
+
+\textbf{Solution Summary}:
+\begin{itemize}
+    \item Place origin at midpoint: centers of $C_1$ and $C_2$ at $(\pm\frac{1}{4}, 0)$
+    \item Find $C_3$: radius $= \frac{3}{4}$, centered at origin
+    \item Set up for $C_4$: radius $r$, centered at $(0, \frac{3}{4} + r)$
+    \item Pythagorean theorem: $(\frac{1}{4})^2 + (\frac{3}{4} + r)^2 = (1-r)^2$
+    \item Solve: $r = \frac{3}{28}$
+\end{itemize}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\%
+    \begin{itemize}
+        \item Standard coordinate geometry approach
+        \item All tangency conditions verified
+        \item Arithmetic checked carefully
+        \item Answer matches expected size
+    \end{itemize}
+    \item \textbf{Verification Applied}: Level 4 - Direct Substitution
+    \begin{itemize}
+        \item Verified internal tangency to $C_1$
+        \item Verified external tangency to $C_3$
+        \item Checked arithmetic multiple times
+    \end{itemize}
+    \item \textbf{Time-Confidence Trade-off}: High confidence in 5-6 minutes
+\end{itemize}
+
+\end{document}
+

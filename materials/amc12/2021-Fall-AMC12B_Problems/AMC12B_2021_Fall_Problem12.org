@@ -1,0 +1,98 @@
+2021 AMC 12B Problems/Problem 12
+Contents
+1 Problem
+2 Solution 1
+3 Solution 2
+4 Solution 3
+5 Solution 4
+6 Solution 5
+7 Solution 6
+8 Solution 7
+9 Video Solution by OmegaLearn
+10 Video Solution by TheBeautyofMath
+11 See Also
+Problem
+For $n$ a positive integer, let $f(n)$ be the quotient obtained when the sum of all positive divisors of $n$ is divided by $n.$ For example,
+
+\[f(14)=(1+2+7+14)\div 14=\frac{12}{7}\]
+
+What is $f(768)-f(384)?$
+$\textbf{(A)}\ \frac{1}{768} \qquad\textbf{(B)}\ \frac{1}{192} \qquad\textbf{(C)}\ 1 \qquad\textbf{(D)}\ \frac{4}{3} \qquad\textbf{(E)}\ \frac{8}{3}$
+Solution 1
+The prime factorizations of $768$ and $384$ are $2^8\cdot3$ and $2^7\cdot3,$ respectively. Note that $f(n)$ is the sum of all fractions of the form $\frac 1d,$ where $d$ is a positive divisor of $n.$ By geometric series, it follows that 
+
+\begin{alignat*}{8} f(768)&=\left(\sum_{k=0}^{8}\frac{1}{2^k}\right)+\left(\sum_{k=0}^{8}\frac{1}{2^k\cdot3}\right)&&=\frac{511}{256}+\frac{511}{768}&&=\frac{2044}{768}, \\ f(384)&=\left(\sum_{k=0}^{7}\frac{1}{2^k}\right)+\left(\sum_{k=0}^{7}\frac{1}{2^k\cdot3}\right)&&=\frac{255}{128}+\frac{255}{384}&&=\frac{1020}{384}. \end{alignat*}
+
+ Therefore, the answer is $f(768)-f(384)=\boxed{\textbf{(B)}\ \frac{1}{192}}.$
+~lopkiloinm ~MRENTHUSIASM
+Solution 2
+The prime factorization of $384$ is $2^7\cdot3,$ so each of its positive divisors is of the form $2^m$ or $2^m\cdot3$ for some integer $m$ such that $0\leq m\leq7.$ We will use this fact to calculate the sum of all its positive divisors. Note that
+
+\[2^m + 2^m\cdot3 = 2^m\cdot(1+3) = 2^m\cdot4 = 2^m\cdot2^2 = 2^{m+2}\]
+
+is the sum of the two forms of positive divisors for all such $m.$ By geometric series, the sum of all positive divisors of $384$ is
+
+\[\sum_{k=2}^{9}2^k = \frac{2^{10}-2^2}{2-1} = 1020,\]
+
+from which $f(384) = \frac{1020}{384}.$ Similarly, since the prime factorization of $768$ is $2^8 \cdot 3,$ we have $f(768) = \frac{2044}{768}.$
+Therefore, the answer is $f(768)-f(384)=\boxed{\textbf{(B)}\ \frac{1}{192}}.$
+~mahaler
+Solution 3
+Let $\sigma(n)$ denotes the sum of all positive divisors of $n,$ so $f(n)=\sigma(n)\div n.$
+Suppose that $n=\prod_{i=1}^{k}p_i^{e_i}$ is the prime factorization of $n.$ Since $\sigma(n)$ is multiplicative, we have
+
+\[\sigma(n)=\sigma\left(\prod_{i=1}^{k}p_i^{e_i}\right)=\prod_{i=1}^{k}\sigma\left(p_i^{e_i}\right)=\prod_{i=1}^{k}\left(\sum_{j=0}^{e_i}p_i^j\right)=\prod_{i=1}^{k}\frac{p_i^{e_i+1}-1}{p_i-1}\]
+
+by geometric series.
+The prime factorizations of $768$ and $384$ are $2^8\cdot3$ and $2^7\cdot3,$ respectively. Note that 
+
+\begin{alignat*}{8} f(768) &= \left(\frac{2^9-1}{2-1}\cdot\frac{3^2-1}{3-1}\right)\div768 &&= \frac{2044}{768}, \\ f(384) &= \left(\frac{2^8-1}{2-1}\cdot\frac{3^2-1}{3-1}\right)\div384 &&= \frac{1020}{384}. \end{alignat*}
+
+ Therefore, the answer is $f(768)-f(384)=\boxed{\textbf{(B)}\ \frac{1}{192}}.$
+~MRENTHUSIASM
+Solution 4
+Note that 
+
+\begin{align*} 384 &= 2^7\cdot3, \\ 768 &= 2^8\cdot3. \end{align*}
+
+ Both numbers take the form $2^n\cdot3$ . Define a function $S(n)$ as being the sum of the factors for any number $2^n\cdot3$ , where $n$ is a nonnegative integer.
+If you list out the factors of a number $2^n\cdot3$ , all the factors are even except for $1$ and $3$ . So to produce a list of factors for the number $2^{n+1}\cdot3$ , you can multiply all the factors on the first list by $2$ and then add on $1$ and $3$ . Thus, $S(n) = 2S(n-1) + 4$ .
+We need to find $\frac{S(8)}{768} - \frac{S(7)}{384}$ . This can be written as $\frac{2S(7)+4-2S(7)}{768}$ . Our recursive formula states that $S(n) = 2S(n-1) + 4$ so $S(n) - 2S(n-1) = 4$ . Thus, the fraction simplifies to $\frac{4}{768} = \boxed{\textbf{(B)}\ \frac{1}{192}}$ . Note that we never needed to figure out what $S(8)$ or $S(7)$ were, sparing us a lot of calculation.
+~Curious_crow
+Solution 5
+We know that 
+
+\begin{align*} f(768) &= \frac{1 + 2 + 3 + 4 + \cdots + 768}{768}, \\ f(384) &= \frac{1 + 2 + 3 + 4 + \cdots + 384}{384}. \end{align*}
+
+ We want to find the difference of these so
+
+\[\frac{1 + 2 + 3 + 4 + \cdots + 768}{768} - \frac{ 2(1 + 2 + 3 + 4 + \cdots + 384)}{2\cdot384} = \frac{1 + 2 + 3 + 4 + \cdots + 768}{768} - \frac{ 2 + 4 + 6 + 8 + \cdots + 768}{768}.\]
+
+We are only left with the even divisors of $768$ on the fraction on the right so the answer would be the sum of all odd divisors of $768$ ( $1$ and $3$ ) over $768$ :
+
+\[\frac{1 + 3}{768}=\boxed{\textbf{(B)}\ \frac{1}{192}}.\]
+
+~pengf
+Solution 6
+As in Solution 1, the prime factorization of $768$ is $2^8 \cdot 3$ , and the prime factorization of $384$ is $2^7 \cdot 3$ . Recalling the sum of factors formula and sum of the powers of 2 formula, we find that the sum of the factors of $768$ is $(1+2^1+2^2+2^3+2^4+2^5+2^6+2^7+2^8)(1+3^1)=(2^9-1)(4)=(511)(4)$ , and the sum of factors of $384$ is $1+2^1+2^2+2^3+2^4+2^5+2^6+2^7)(1+3^1)=(2^8-1)(4)=(255)(4)$ . Then $f(768)=\frac{(511)(4)}{768}=\frac{511}{192}$ , and $f(384)=\frac{(255)(4)}{384}=\frac{510}{192}$ . So, $f(768)-f(384)=\frac{511}{192}-\frac{510}{192}=\boxed{\textbf{(B)}\ \frac{1}{192}}$ .
+~ cxsmi
+Solution 7
+Observe that $f(n)$ equals the sum of the reciprocals of the positive divisors of $n$ . Since 768 is a multiple of 384, every divisor of 384 will also be a divisor of 768. Then $f(768)-f(384)$ equals the sum of the reciprocals of the positive divisors of 768 which are not divisors of 384. Since $768 = 2^8 \cdot 3$ and $384 = 2^7 \cdot 3$ , the divisors of 768 which are not divisors of 384 are $2^8 = 256$ and $2^8 \cdot 3 = 768$ . Therefore
+\[f(768)-f(384) = \frac{1}{256} + \frac{1}{768} = \frac{3 + 1}{768} = \boxed{\textbf{(B) } \frac{1}{192}}.\]
+
+~scrabbler94
+Video Solution by OmegaLearn
+https://youtu.be/jgyyGeEKhwk?t=1116
+~ pi_is_3.14
+Video Solution by TheBeautyofMath
+https://youtu.be/FFlj8W_xkPc
+~IceMatrix
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

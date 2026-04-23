@@ -1,0 +1,16 @@
+2025 AMC 12A Problems/Problem 7
+Problem
+In a certain alien world, the maximum running speed $v$ of an organism is dependent on its number of toes $n$ and number of eyes $m$ . The relationship can be expressed as $v$ $=$ $kn^am^b$ centimeters per hour, where k, a, b are integer constants. In a population where all organisms have 5 toes, $log$ $v$ $=$ $4+2log$ $m$ ; and in a population where all organisms have 25 eyes, $log$ $v$ $=$ $4 + 4 log$ $n$ (base 10). What is $k+a+b$ ?
+$\textbf{(A) } 20 \qquad \textbf{(B) } 21 \qquad \textbf{(C) } 22 \qquad \textbf{(D) } 23 \qquad \textbf{(E) } 24$
+Solution 1 (logs and system of equations)
+Taking the logarithm of both sides and using n = 5, we have:
+$log$ $(k$ * $5^am^b)$ $=$ $4+2logm$ .
+Using logarithmic properties, we can write this as:
+$log$ $(k$ * $5^am^b)$ $=$ $log(10^4*m^2)$
+We can do this with the other equation:
+$log$ $(k$ * $n^a25^b)$ $=$ $log(10^4*n^2)$
+Now we can get rid of the logs on both sides and are left with the following system of equations:
+$k*5^am^b$ $=$ $log(10^4*n^4)$
+$k*n^a25^b$ $=$ $10^4*n^4)$
+From the first equation, we know that $b=2$ . $10^4$ can be written as $2^4 * 5^4$ , which means that $a=4$ and $k=2^4=16$ . Checking this in the second equation, we find that it works, therefore the answer is $4+16+2=22$ . C
+-Cyrus825

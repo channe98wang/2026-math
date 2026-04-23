@@ -1,0 +1,124 @@
+2000 AMC 12 Problems/Problem 8
+Contents
+1 Problem
+2 Video:
+3 Solution 1
+4 Solution 2
+5 Solution 3
+6 Solution 4
+7 Solution 5
+8 Solution 6 (Newton's Forward Differences)
+9 Solution 7 (Newton’s little formula)
+10 Solution 8 (geometrical intuition)
+11 Solution 9
+12 Video Solution by Power Solve
+13 Video Solution by Daily Dose of Math
+14 See Also
+Problem
+Figures $0$ , $1$ , $2$ , and $3$ consist of $1$ , $5$ , $13$ , and $25$ nonoverlapping unit squares, respectively. If the pattern were continued, how many nonoverlapping unit squares would there be in figure 100?
+[asy] unitsize(8); draw((0,0)--(1,0)--(1,1)--(0,1)--cycle); draw((9,0)--(10,0)--(10,3)--(9,3)--cycle); draw((8,1)--(11,1)--(11,2)--(8,2)--cycle); draw((19,0)--(20,0)--(20,5)--(19,5)--cycle); draw((18,1)--(21,1)--(21,4)--(18,4)--cycle); draw((17,2)--(22,2)--(22,3)--(17,3)--cycle); draw((32,0)--(33,0)--(33,7)--(32,7)--cycle); draw((29,3)--(36,3)--(36,4)--(29,4)--cycle); draw((30,2)--(35,2)--(35,5)--(30,5)--cycle); label("Figure",(0.5,-1),S); label("$0$",(0.5,-2.5),S); label("Figure",(9.5,-1),S); label("$1$",(9.5,-2.5),S); label("Figure",(19.5,-1),S); label("$2$",(19.5,-2.5),S); label("Figure",(32.5,-1),S); label("$3$",(32.5,-2.5),S); [/asy]
+$\textbf{(A)}\ 10401 \qquad\textbf{(B)}\ 19801 \qquad\textbf{(C)}\ 20201 \qquad\textbf{(D)}\ 39801 \qquad\textbf{(E)}\ 40801$
+Video:
+https://www.youtube.com/watch?v=HVP6qjKAkjA&t=2s
+Solution 1
+We can attempt $0^2+1^2=1$ and $1^2+2^2=5$ , so the pattern here looks like the number of squares in the $n$ -th figure is $n^2+(n+1)^2$ . When we plug in 100 for $n$ , we get $100^2+101^2=10000+10201=20201$ , or option $\textbf{(C)}$ .
+Solution 2
+Using the recursion from solution 1, we see that the first differences of $4, 8, 12, ...$ form an arithmetic progression, and consequently that the second differences are constant and all equal to $4$ . Thus, the original sequence can be generated from a quadratic function.
+If $f(n) = an^2 + bn + c$ , and $f(0) = 1$ , $f(1) = 5$ , and $f(2) = 13$ , we get a system of three equations in three variables:
+$f(0) = 1$ gives $c = 1$
+$f(1) = 5$ gives $a + b + c = 5$
+$f(2) = 13$ gives $4a + 2b + c = 13$
+Plugging in $c=1$ into the last two equations gives
+$a + b = 4$
+$4a + 2b = 12$
+Dividing the second equation by 2 gives the system:
+$a + b = 4$
+$2a + b = 6$
+Subtracting the first equation from the second gives $a = 2$ , and hence $b = 2$ . Thus, our quadratic function is:
+$f(n) = 2n^2 + 2n + 1$
+Calculating the answer to our problem, $f(100) = 20000 + 200 + 1 = 20201$ , which is choice $\boxed{\textbf{(C) }20201}$ .
+Solution 3
+We can see that each figure $n$ has a central box and 4 columns of $n$ boxes on each side of each square. Therefore, at figure 100, there is a central box with 100 boxes on the top, right, left, and bottom. Knowing that each quarter of each figure has a pyramid structure, we know that for each quarter there are $\sum_{n=1}^{100} n = 5050$ squares. $4 \cdot 5050 = 20200$ . Adding in the original center box we have $20200 + 1 = \boxed{\textbf{(C) }20201}$ .
+Solution 4
+Let $a_n$ be the number of squares in figure $n$ . We can easily see that
+
+\[a_0=4\cdot 0+1\]
+
+\[a_1=4\cdot 1+1\]
+
+\[a_2=4\cdot 3+1\]
+
+\[a_3=4\cdot 6+1.\]
+
+See that we multiply the number we are on to the next consecutive number. 
+Note that in $a_n$ , the number multiplied by the 4 is the $n$ th triangular number. Hence, $a_{100}=4\cdot \frac{100\cdot 101}{2}+1=\boxed{\textbf{(C) }20201}$ .
+~ edited by mathlover66
+Solution 5
+Let $f_n$ denote the number of unit cubes in a figure. We have
+
+\[f_0=1\]
+
+\[f_1=5\]
+
+\[f_2=13\]
+
+\[f_3=25\]
+
+\[f_4=41\]
+
+\[...\]
+Computing the difference between the number of cubes in each figure yields
+
+\[4,8,12,16,...\]
+
+It is easy to notice that this is an arithmetic sequence, with the first term being $4$ and the difference being $4$ . Let this sequence be $a_n$
+From $f_0$ to $f_{100}$ , the sequence will have $100$ terms. Using the arithmetic sum formula yields
+\[S_{100}=\frac{100[2\cdot 4+(100-1)4]}{2}\]
+
+\[=50(2\cdot 4+99\cdot 4)\]
+
+\[=50(101\cdot 4)\]
+
+\[=200\cdot 101\]
+
+\[=20200\]
+So $f_{100}=1+20200=\boxed{\textbf{(C) }20201}$ unit cubes.
+~ljlbox
+Solution 6 (Newton's Forward Differences)
+We know that 1 and 5 differ by 4, 5 and 13 differ by 8, and 13 and 25 differ by 12. Hence the differences are 4, 8, and 12, resp. And the differences of the differences area all 4. So by Newton's Forward Difference Formula, we get the 100th figure is(because Figure 0 exists) $\dbinom{101-1}{0}+4\dbinom{101-1}{1}+4\dbinom{101-1}{2}=20201$ or $\textbf{(C)}$ -vsamc
+Solution 7 (Newton’s little formula)
+Newton’s little formula states that $a_n = A \binom{n-1}{0} + B \binom{n-1}{1} + C \binom{n-1}{2} + \cdots + K \binom{n-1}{m}$ if first term is $a_1$ and $A =$ first difference, $B =$ second difference, and so on. Hence we apply the formula (because we start at term 0, term 100 is $a_{101}$ ): $a_{101} = 5 \binom{100}{0} + 8 \binom{100}{1} + 4 \binom{100}{2} = \boxed{20201} = \textbf{(C)}.$ ~Peelybonehead
+~clarification by LeonidasTheConquerer
+Solution 8 (geometrical intuition)
+By taking figure $n$ , putting the centers of each square on a grid, and rotating the figure 45 degrees, we get the following shape (figure 3 is shown for reference): 
+
+[asy] import olympiad; int fig = 3; for (int i = 0; i <= 2*fig; ++i) { for (int j = 0; j <= 2*fig; ++j) { pair p = (i, j); //do we need this point? if ((i+j)%2 == 1) { continue; } //draw squares draw((p+N)--(p+E)--(p+S)--(p+W)--cycle); //draw lattices if (i < 2*fig-1) { draw(p--p+2*E, red); } if (j < 2*fig-1) { draw(p--p+2*N, red); } //mark center points if (i % 2 == 0) { dot(p, green); } else { dot(p, blue); } } } [/asy]
+
+ There are two lattices of points (shown in red): one of side length $n$ (blue) and one of $n+1$ (green). The rest follows like in solution 1.
+- Integralarefun ( talk ) 18:21, 29 July 2023 (EDT)
+Solution 9
+If you do not want to base off the previous number in the sequence, you can come up with a formula based on which figure you are looking for:
+$1+x(x-2+x)$
+- However, this formula says that in figure 1, there is 1 square and so forth. Therefore, if we are looking to find $f(100)$ , we will have to find $f(101)$ .
+This is the formula because to get from 1 to 5, we have +4. To get 1 to 13, it is +12. To get 1 to 25, it is +24. Assuming that 5 squares is figure 2 rather than in figure one (sorry, it just made better sense in my brain), then in figure two, it is 2*2 to get +4 on top of one. In figure “3”, to get +12, you have 3*4. In figure 4, to get +24, you have 4*6. Now, you can notice that in figure two, it is 2* (the distance to 2- which is 0- added onto 2) which is +2*2. In figure 3, to get +12, it is 3 (the figure number) * (the distance from 3 to 2- which is 1, added back onto the figure number). In figure 4, to get +24, you can get 4*6 (the figure number * (the distance from 4 to two- which is 2- added back onto the figure number, 6).
+So to get figure 100, we have to do f(101) because I said that figure 1 was 1 rather than figure 0. So 1+ 101(101-2+101) which is 20201.
+-Smartgrowth
+Video Solution by Power Solve
+https://youtu.be/p3bwMuK1RUM?si=1ZOdEq2kRS8DnOVs&t=263
+Video Solution by Daily Dose of Math
+https://youtu.be/y7WrXbKEh18?si=T5jENfI9Wa9UJLuo
+~Thesmartgreekmathdude
+See Also
+2000 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2000 AMC 10 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 11 Followed by 
+ Problem 13
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

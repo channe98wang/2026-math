@@ -1,0 +1,65 @@
+2024 AMC 12A Problems/Problem 4
+Contents
+1 Problem
+2 Solution
+3 Video Solution by Central Valley Math Circle
+4 Video Solution
+5 Video Solution by Math from my desk
+6 Video Solution (⚡️ 1 min solve ⚡️)
+7 Video Solution by Pi Academy
+8 Video Solution by Daily Dose of Math
+9 Video Solution 1 by Power Solve
+10 Video Solution by SpreadTheMathLove
+11 Video Solution by TheBeautyofMath
+12 Video Solution by Dr. David
+13 Video solution by TheNeuralMathAcademy
+14 See Also
+Problem
+What is the least value of $n$ such that $n!$ is a multiple of $2024$ ?
+$\textbf{(A) } 11\qquad\textbf{(B) } 21\qquad\textbf{(C) } 22\qquad\textbf{(D) } 23\qquad\textbf{(E) } 253$
+Solution
+Note that $2024=2^3\cdot11\cdot23$ in the prime factorization. Since $23!$ is a multiple of $2^3, 11,$ and $23,$ we conclude that $23!$ is a multiple of $2024.$ Therefore, we have $n=\boxed{\textbf{(D) } 23}.$
+Memorizing the prime factorization of the current year is useful for the AMC 8/10/12 Exams.
+~MRENTHUSIASM
+Note that $2024$ is $2025 -1$ , which is $45^2 -1 = (45+1)(45-1) = 46\cdot44$ .
+~WISETIGERJ2
+Video Solution by Central Valley Math Circle
+https://youtu.be/Hc5DxRT-DOU
+~mr_mathman
+Video Solution
+https://youtu.be/l3VrUsZkv8I
+Video Solution by Math from my desk
+https://www.youtube.com/watch?v=fAitluI5SoY&t=3s
+Video Solution (⚡️ 1 min solve ⚡️)
+https://youtu.be/FD6rV3wGQ74
+~Education, the Study of Everything
+Video Solution by Pi Academy
+https://youtu.be/GPoTfGAf8bc?si=JYDhLVzfHUbXa3DW
+Video Solution by Daily Dose of Math
+https://youtu.be/DXDJUCVX3yU
+~Thesmartgreekmathdude
+Video Solution 1 by Power Solve
+https://youtu.be/j-37jvqzhrg?si=qwyiAvKLbySyDR7D&t=529
+Video Solution by SpreadTheMathLove
+https://www.youtube.com/watch?v=6SQ74nt3ynw
+Video Solution by TheBeautyofMath
+For AMC 10: https://youtu.be/uKXSZyrIOeU?t=1168
+For AMC 12: https://youtu.be/zaswZfIEibA?t=984
+~IceMatrix
+Video Solution by Dr. David
+https://youtu.be/uhpWASWW2ns
+Video solution by TheNeuralMathAcademy
+https://www.youtube.com/watch?v=4b_YLnyegtw&t=782s
+See Also
+2024 AMC 10A ( Problems • Answer Key • Resources )
+Preceded by 
+ 2023 AMC 10B Problems Followed by 
+ 2024 AMC 10B Problems
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+- AMC 10
+- AMC 10 Problems and Solutions
+- Mathematics competitions
+- Mathematics competition resources
+These problems are copyrighted © by the Mathematical Association of America , as part of the American Mathematics Competitions .
+These problems are copyrighted © by the Mathematical Association of America, as part of the American Mathematics Competitions.

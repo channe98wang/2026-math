@@ -1,0 +1,684 @@
+% LaTeX Strategic Analysis for AMC 12B 2017 Problem 17
+% Using AMC12/COMC Problem-Solving Framework
+
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2017 AMC 12B Problem 17}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{\textbf{AMC12/COMC Strategic Problem Analysis\\2017 AMC 12B Problem 17}}
+\author{Competition Math Framework}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+A coin is biased in such a way that on each toss the probability of heads is $\frac{2}{3}$ and the probability of tails is $\frac{1}{3}$. The outcomes of the tosses are independent. A player has the choice of playing Game A or Game B. In Game A she tosses the coin three times and wins if all three outcomes are the same. In Game B she tosses the coin four times and wins if both the outcomes of the first and second tosses are the same and the outcomes of the third and fourth tosses are the same. How do the chances of winning Game A compare to the chances of winning Game B?
+
+\textbf{Answer Choices:}
+\begin{itemize}
+    \item[\textbf{(A)}] The probability of winning Game A is $\frac{4}{81}$ less than the probability of winning Game B.
+    \item[\textbf{(B)}] The probability of winning Game A is $\frac{2}{81}$ less than the probability of winning Game B.
+    \item[\textbf{(C)}] The probabilities are the same.
+    \item[\textbf{(D)}] The probability of winning Game A is $\frac{2}{81}$ greater than the probability of winning Game B.
+    \item[\textbf{(E)}] The probability of winning Game A is $\frac{4}{81}$ greater than the probability of winning Game B.
+\end{itemize}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find (compare two probabilities)
+    \item \textbf{Difficulty Band}: Late-band (Problem 17 of 25) - requires careful probability calculation and comparison
+    \item \textbf{Competition Context}: AMC12 (75 minutes, 25 problems) - approximately 3-4 minutes allocated
+    \item \textbf{Mathematical Domain}: Probability (independent events, biased coin, comparative analysis)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Biased coin: $P(H) = \frac{2}{3}$, $P(T) = \frac{1}{3}$
+        \item Tosses are independent
+        \item Game A: 3 tosses, win if all same
+        \item Game B: 4 tosses, win if (1st = 2nd) AND (3rd = 4th)
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Must use independence of tosses
+        \item Must compute exact probabilities (no approximation)
+        \item Must compare (not just compute) the probabilities
+    \end{itemize}
+    \item \textbf{Objective}: Determine the sign and magnitude of $P(\text{win A}) - P(\text{win B})$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Each toss has exactly two outcomes (heads or tails)
+        \item ``Same'' means either all heads or all tails
+        \item Game B's condition applies to pairs independently
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item All differences involve denominator 81 = $3^4$
+        \item This suggests working with fractions over 81 from the start
+        \item Numerators 2 vs 4 suggest the difference might be ``small'' relative to the probabilities
+        \item The symmetry between (A)/(E) and (B)/(D) suggests careful calculation needed
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: The biased nature of the coin (2:1 ratio favoring heads) will affect which game is more favorable
+    \item \textbf{Conclusion}: Need to compute both $P(\text{win A})$ and $P(\text{win B})$, then find their difference
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $p = \frac{2}{3}$ (probability of heads)
+        \item Let $q = \frac{1}{3}$ (probability of tails)
+        \item Note: $p + q = 1$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Game A: Direct computation of $P(HHH) + P(TTT)$
+        \item Game B: Recognize independence of the two pairs
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Algebraic: Can factor and simplify expressions
+        \item Combinatorial: Could enumerate all outcomes (but tedious)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: If initial calculation seems messy, stay organized with clear notation. The arithmetic with fractions can be tedious but is straightforward.
+    \item \textbf{Creativity Cultivation}: Recognize that Game B's structure allows factoring: the probability of two pairs being the same is the square of the probability of one pair being the same.
+    \item \textbf{Iterative Refinement}: If the first answer doesn't match choices, check arithmetic carefully before redoing the entire calculation.
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately recognize this as an independent events probability problem. Write down the given probabilities and the winning conditions clearly.
+    \item \textbf{Get Your Hands Dirty}: Calculate $P(\text{win A})$ first as it's more straightforward, then tackle Game B
+    \item \textbf{Penultimate Step}: After computing both probabilities, the final step is simple subtraction
+    \item \textbf{Wishful Thinking}: Wish that both probabilities had the same denominator - which they do (81)!
+    \item \textbf{Make It Easier}: Could start with a fair coin ($p = q = \frac{1}{2}$) to understand the structure, then apply the actual probabilities
+    \item \textbf{Conjecture via Small Cases}: For Game B, realize that the probability factors as $[P(\text{pair same})]^2$
+    \item \textbf{Visualization}: Could draw probability trees, but direct calculation is faster
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: The denominator 81 suggests expressing everything as fractions over 81 from the start. Work backwards: what numerators over 81 give the answer choices?
+    \item \textbf{Make It Easier}: Consider fair coin case: Game A would give $\frac{1}{4}$, Game B would give $\frac{1}{4}$, so they'd be equal. The bias breaks this symmetry.
+    \item \textbf{Penultimate Step}: Once both probabilities are computed, the comparison is immediate
+    \item \textbf{Wishful Thinking}: The structure of Game B suggests it might factor nicely - and it does!
+    \item \textbf{Conjecture via Small Cases}: Test intuition: which game seems more likely to win? Game A requires 3 in a row; Game B requires two separate pairs. Game A might seem harder initially.
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Use probability rules for independent events directly
+    \item \textbf{Proof by Contradiction}: Not applicable
+    \item \textbf{Mathematical Induction}: Not applicable
+    \item \textbf{Stylistic Conventions}: Clear separation of cases (HHH vs TTT for Game A)
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Probability tree would work but is time-consuming
+    \item \textbf{Recast the Problem}: Game B can be recast as ``win twice in a row where each win is getting a matching pair''
+    \item \textbf{Change Your Point of View}: Think of Game B as playing a simpler game twice
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry}: The two outcomes (H and T) are treated symmetrically in the win conditions
+    \item \textbf{The Extreme Principle}: Not directly applicable
+    \item \textbf{The Pigeonhole Principle}: Not applicable
+    \item \textbf{Invariants}: Not applicable
+\end{itemize}
+
+\subsection*{B. Crossover Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Graph Theory}: Not applicable
+    \item \textbf{Complex Numbers}: Not applicable
+    \item \textbf{Generating Functions}: Not applicable
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index - Instant Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Trigger Pattern Detected}: ``Independent tosses'' + ``probability of specific outcomes'' → Multiply probabilities
+    \item \textbf{Domain Signal}: Probability - biased coin, independent events
+    \item \textbf{Structural Signature}: Comparison of two different game structures
+\end{itemize}
+
+\subsection*{B. High-Probability Techniques (Selected)}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Multiplication Rule for Independent Events}: $\checkmark$ CRITICAL - $P(A \cap B) = P(A) \cdot P(B)$
+    \item \textbf{Addition Rule for Disjoint Events}: $\checkmark$ ESSENTIAL - $P(A \cup B) = P(A) + P(B)$ when disjoint
+    \item \textbf{Complementary Probabilities}: Available but not needed here
+    \item \textbf{Algebraic Manipulation}: $\checkmark$ REQUIRED - Simplifying powers and products of fractions
+\end{itemize}
+
+\subsection*{C. Technique Selection Rationale}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Direct probability calculation using multiplication rule
+    \item \textbf{Backup Techniques}: Enumeration of outcomes (but inefficient)
+    \item \textbf{Technique Integration}: Multiply probabilities within each case, add probabilities across cases
+    \item \textbf{Conflict Resolution}: No conflicts - probability rules are unambiguous
+\end{itemize}
+
+\subsection*{D. Detailed Technique Application}
+
+\textbf{Game A Analysis:}
+
+Win condition: All three tosses are the same
+
+Two disjoint cases:
+\begin{itemize}
+    \item Case 1 (HHH): $P(HHH) = \left(\frac{2}{3}\right)^3 = \frac{8}{27}$
+    \item Case 2 (TTT): $P(TTT) = \left(\frac{1}{3}\right)^3 = \frac{1}{27}$
+\end{itemize}
+
+By addition rule:
+\[P(\text{win A}) = P(HHH) + P(TTT) = \frac{8}{27} + \frac{1}{27} = \frac{9}{27} = \frac{1}{3}\]
+
+Converting to denominator 81: $P(\text{win A}) = \frac{27}{81}$
+
+\textbf{Game B Analysis:}
+
+Win condition: (1st and 2nd same) AND (3rd and 4th same)
+
+Key insight: The two pairs are independent!
+
+\textbf{Step 1:} Find $P(\text{first pair same})$
+\begin{itemize}
+    \item Case HH: $P(HH) = \left(\frac{2}{3}\right)^2 = \frac{4}{9}$
+    \item Case TT: $P(TT) = \left(\frac{1}{3}\right)^2 = \frac{1}{9}$
+    \item $P(\text{pair same}) = \frac{4}{9} + \frac{1}{9} = \frac{5}{9}$
+\end{itemize}
+
+\textbf{Step 2:} Find $P(\text{both pairs same})$
+
+Since the pairs are independent:
+\[P(\text{win B}) = P(\text{1st pair same}) \times P(\text{2nd pair same}) = \frac{5}{9} \times \frac{5}{9} = \frac{25}{81}\]
+
+\textbf{Comparison:}
+
+\begin{align*}
+P(\text{win A}) - P(\text{win B}) &= \frac{27}{81} - \frac{25}{81}\\
+&= \frac{2}{81}
+\end{align*}
+
+Since the difference is positive, Game A has higher probability.
+
+\subsection*{E. Integration Strategy}
+The techniques integrate perfectly:
+\begin{enumerate}
+    \item Use multiplication rule for sequences of independent tosses
+    \item Use addition rule for disjoint cases (HHH vs TTT, HH vs TT)
+    \item Recognize independence of the two pairs in Game B
+    \item Apply arithmetic with fractions carefully
+\end{enumerate}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Difficulty}: Late-band (P17)
+    \item \textbf{Confidence Level}: High (90\%+) after careful calculation
+    \item \textbf{Available Time}: 30-45 seconds for verification
+    \item \textbf{Cost of Errors}: Moderate - P17 is expected to be solved correctly
+    \item \textbf{Selected Level}: Level 4 (Standard Verification)
+\end{itemize}
+
+\subsection*{B. Standard Verification Methods Applied}
+
+\textbf{Primary Verification - Sanity Checks:}
+\begin{itemize}[leftmargin=*]
+    \item Both probabilities are between 0 and 1: $\frac{27}{81} \approx 0.33$ $\checkmark$, $\frac{25}{81} \approx 0.31$ $\checkmark$
+    \item Game A probability = $\frac{1}{3}$ seems reasonable (one outcome in three is ``all same'')
+    \item Game B probability $\approx 0.31$ is close to but less than $\frac{1}{3}$, which makes intuitive sense
+\end{itemize}
+
+\textbf{Arithmetic Verification:}
+\begin{itemize}[leftmargin=*]
+    \item $\left(\frac{2}{3}\right)^3 = \frac{2^3}{3^3} = \frac{8}{27}$ $\checkmark$
+    \item $\left(\frac{1}{3}\right)^3 = \frac{1}{27}$ $\checkmark$
+    \item $\frac{8}{27} + \frac{1}{27} = \frac{9}{27} = \frac{1}{3} = \frac{27}{81}$ $\checkmark$
+    \item $\left(\frac{2}{3}\right)^2 = \frac{4}{9}$ $\checkmark$
+    \item $\left(\frac{1}{3}\right)^2 = \frac{1}{9}$ $\checkmark$
+    \item $\frac{4}{9} + \frac{1}{9} = \frac{5}{9}$ $\checkmark$
+    \item $\left(\frac{5}{9}\right)^2 = \frac{25}{81}$ $\checkmark$
+\end{itemize}
+
+\textbf{Alternative Approach - Expand Game B:}
+
+Game B wins when: HHHH, HHTT, TTHH, or TTTT
+
+\begin{align*}
+P(\text{HHHH}) &= \left(\frac{2}{3}\right)^4 = \frac{16}{81}\\
+P(\text{HHTT}) &= \left(\frac{2}{3}\right)^2\left(\frac{1}{3}\right)^2 = \frac{4}{9} \cdot \frac{1}{9} = \frac{4}{81}\\
+P(\text{TTHH}) &= \left(\frac{1}{3}\right)^2\left(\frac{2}{3}\right)^2 = \frac{1}{9} \cdot \frac{4}{9} = \frac{4}{81}\\
+P(\text{TTTT}) &= \left(\frac{1}{3}\right)^4 = \frac{1}{81}\\
+\text{Sum} &= \frac{16 + 4 + 4 + 1}{81} = \frac{25}{81} \checkmark
+\end{align*}
+
+This confirms our earlier calculation!
+
+\textbf{Boundary Check - Fair Coin:}
+
+If $p = q = \frac{1}{2}$:
+\begin{itemize}
+    \item Game A: $P = 2 \times \left(\frac{1}{2}\right)^3 = \frac{2}{8} = \frac{1}{4}$
+    \item Game B: $P = \left[2 \times \left(\frac{1}{2}\right)^2\right]^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4}$
+    \item They would be equal $\checkmark$ (consistent with intuition)
+\end{itemize}
+
+\subsection*{C. Domain-Specific Verification}
+
+\textbf{Probability Axioms Check:}
+\begin{itemize}[leftmargin=*]
+    \item All computed probabilities are non-negative $\checkmark$
+    \item All computed probabilities are at most 1 $\checkmark$
+    \item We properly used independence (tosses are independent) $\checkmark$
+    \item We properly used disjoint union (HHH and TTT are mutually exclusive) $\checkmark$
+\end{itemize}
+
+\textbf{Answer Choice Consistency:}
+\begin{itemize}[leftmargin=*]
+    \item Our answer $\frac{2}{81}$ greater matches choice (D)
+    \item The magnitude is reasonable (not too large, not too small)
+\end{itemize}
+
+\subsection*{D. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Initial Confidence}: 85\% (clear method but requires careful arithmetic)
+    \item \textbf{Post-Verification}: 98\% (alternative method confirms, fair coin check works)
+    \item \textbf{Remaining Uncertainty}: 2\% (possible arithmetic error, but unlikely given multiple confirmations)
+    \item \textbf{Decision}: Mark answer (D), move on with very high confidence
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Complete Solution Path}
+
+\textbf{Step 1: Set Up Notation (15 seconds)}
+\begin{itemize}[leftmargin=*]
+    \item $p = P(H) = \frac{2}{3}$, $q = P(T) = \frac{1}{3}$
+    \item Game A: Win if all 3 tosses same
+    \item Game B: Win if (tosses 1,2 same) AND (tosses 3,4 same)
+\end{itemize}
+
+\textbf{Step 2: Calculate $P(\text{win A})$ (45 seconds)}
+
+Win cases: HHH or TTT
+\begin{align*}
+P(\text{win A}) &= P(HHH) + P(TTT)\\
+&= p^3 + q^3\\
+&= \left(\frac{2}{3}\right)^3 + \left(\frac{1}{3}\right)^3\\
+&= \frac{8}{27} + \frac{1}{27}\\
+&= \frac{9}{27}\\
+&= \frac{27}{81} \quad \text{(converting to common denominator)}
+\end{align*}
+
+\textbf{Step 3: Calculate $P(\text{win B})$ (60 seconds)}
+
+Key insight: Two pairs are independent
+
+First, find probability one pair is the same:
+\begin{align*}
+P(\text{pair same}) &= P(HH) + P(TT)\\
+&= p^2 + q^2\\
+&= \left(\frac{2}{3}\right)^2 + \left(\frac{1}{3}\right)^2\\
+&= \frac{4}{9} + \frac{1}{9}\\
+&= \frac{5}{9}
+\end{align*}
+
+Since pairs are independent:
+\begin{align*}
+P(\text{win B}) &= P(\text{1st pair same}) \times P(\text{2nd pair same})\\
+&= \frac{5}{9} \times \frac{5}{9}\\
+&= \frac{25}{81}
+\end{align*}
+
+\textbf{Step 4: Compare Probabilities (30 seconds)}
+
+\begin{align*}
+P(\text{win A}) - P(\text{win B}) &= \frac{27}{81} - \frac{25}{81}\\
+&= \frac{2}{81}
+\end{align*}
+
+Since the difference is positive, Game A is more favorable by $\frac{2}{81}$.
+
+\textbf{Step 5: Select Answer (10 seconds)}
+
+Answer: $\boxed{\textbf{(D)}}$ The probability of winning Game A is $\frac{2}{81}$ greater than the probability of winning Game B.
+
+\subsection*{B. Alternative Solution Approaches}
+
+\textbf{Alternative 1 - Enumerate All Outcomes:}
+
+\begin{itemize}[leftmargin=*]
+    \item Game A: List all $2^3 = 8$ possible outcomes, identify winning ones
+    \item Game B: List all $2^4 = 16$ possible outcomes, identify winning ones
+    \item Count and compute probabilities
+\end{itemize}
+
+(More tedious but works; shown in verification section)
+
+\textbf{Alternative 2 - Algebraic Approach:}
+
+Express in terms of $p$ and $q = 1-p$:
+\begin{align*}
+P(\text{win A}) &= p^3 + q^3 = p^3 + (1-p)^3\\
+P(\text{win B}) &= (p^2 + q^2)^2 = (p^2 + (1-p)^2)^2
+\end{align*}
+
+Substitute $p = \frac{2}{3}$ and compute.
+
+\subsection*{C. Pitfall Avoidance Strategy}
+
+\textbf{Common Error 1: Forgetting to square for Game B}
+\begin{itemize}[leftmargin=*]
+    \item Prevention: Recognize that Game B requires BOTH pairs to be the same (use multiplication)
+    \item Check: Game B probability should be $\left(\frac{5}{9}\right)^2$, not just $\frac{5}{9}$
+\end{itemize}
+
+\textbf{Common Error 2: Arithmetic mistakes with fractions}
+\begin{itemize}[leftmargin=*]
+    \item Prevention: Write out all steps clearly; don't rush
+    \item Mnemonic: $\frac{2^3}{3^3} = \frac{8}{27}$, $\left(\frac{5}{9}\right)^2 = \frac{25}{81}$
+\end{itemize}
+
+\textbf{Common Error 3: Comparing in wrong direction}
+\begin{itemize}[leftmargin=*]
+    \item Prevention: Carefully read answer choices (greater vs. less)
+    \item Check: $\frac{27}{81} > \frac{25}{81}$, so Game A is greater
+\end{itemize}
+
+\textbf{Common Error 4: Wrong common denominator}
+\begin{itemize}[leftmargin=*]
+    \item Prevention: Notice all answers use denominator 81
+    \item Conversion: $\frac{9}{27} = \frac{27}{81}$ (multiply by $\frac{3}{3}$)
+\end{itemize}
+
+\textbf{Common Error 5: Misunderstanding Game B}
+\begin{itemize}[leftmargin=*]
+    \item Prevention: Game B wins if BOTH conditions hold (first pair same AND second pair same), not OR
+    \item Intuition: Four consecutive same is NOT required; HHTT wins in Game B
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Time Budget}: 3-4 minutes for P17 (late-band problem)
+    \item \textbf{Actual Expected}: 3 minutes with verification
+    \item \textbf{Decision Point}: If not solved in 5 minutes, flag and move on
+    \item \textbf{Time Distribution}:
+    \begin{itemize}
+        \item Problem reading and setup: 20 seconds
+        \item Game A calculation: 45 seconds
+        \item Game B calculation: 60 seconds
+        \item Comparison and answer selection: 30 seconds
+        \item Verification: 30 seconds
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Problem Prioritization Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Accessibility}: MEDIUM-HIGH - standard probability with clear technique
+    \item \textbf{Point Value}: Standard (6 points for AMC12)
+    \item \textbf{Strategic Importance}: ``Should solve'' for competitive scores (aiming for 120+)
+    \item \textbf{Domain Rotation}: Good probability problem after number theory/geometry sequence
+\end{itemize}
+
+\subsection*{C. Risk Management}
+
+\textbf{Confidence Thresholds:}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Confidence}: 90\%+ (achievable with careful calculation)
+    \item \textbf{Error Probability}: Moderate (arithmetic errors possible but detectable)
+    \item \textbf{Review Priority}: Medium - quick arithmetic check if time permits
+\end{itemize}
+
+\textbf{Answer Strategy:}
+\begin{itemize}[leftmargin=*]
+    \item If arithmetic is messy, re-check rather than guessing
+    \item Symmetry of choices (A/E mirror, B/D mirror) suggests the answer is deterministic
+    \item If stuck, note that biased coin favors heads, so intuition might help
+\end{itemize}
+
+\subsection*{D. Problem Abandonment Criteria}
+
+\textbf{Soft Abandon} (after 5 minutes):
+\begin{itemize}[leftmargin=*]
+    \item If arithmetic is taking too long, mark best guess based on partial work
+    \item Make educated guess: Game A seems simpler, might be more likely
+    \item Flag for review if time permits
+\end{itemize}
+
+\textbf{Hard Abandon} (immediate):
+\begin{itemize}[leftmargin=*]
+    \item \textit{Not applicable} - this problem has straightforward technique
+    \item If completely unfamiliar with independent probability, skip to P18
+\end{itemize}
+
+\textbf{Optimization Strategy - AMC12 Specific:}
+\begin{itemize}[leftmargin=*]
+    \item Blanks worth 1.5 points, wrong answers worth 0
+    \item Strong approach here means wrong answer unlikely
+    \item If uncertain between two choices, favor (D) over (B) based on symmetry of setup
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The elegant structure of Game B!
+
+Game B doesn't require all four tosses to be the same. Instead:
+\begin{itemize}
+    \item First pair can be HH or TT (probability $\frac{5}{9}$)
+    \item Second pair can be HH or TT (probability $\frac{5}{9}$)
+    \item These are INDEPENDENT
+\end{itemize}
+
+Therefore: $P(\text{win B}) = \left(\frac{5}{9}\right)^2 = \frac{25}{81}$
+
+This factorization makes the calculation much cleaner than enumerating all 16 possible outcomes!
+
+\textbf{Why Game A Wins:}
+\begin{itemize}
+    \item Game A: $\frac{27}{81} = \frac{1}{3}$
+    \item Game B: $\frac{25}{81} \approx 0.309$
+    \item The bias toward heads (2:1) helps Game A more because $p^3 + q^3$ benefits from the asymmetry more than $(p^2 + q^2)^2$ does
+\end{itemize}
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Don't confuse Game B's condition!
+
+Game B does NOT require all four tosses to be the same. The winning outcomes are:
+\begin{itemize}
+    \item HHHH (all heads)
+    \item HHTT (first pair heads, second pair tails)
+    \item TTHH (first pair tails, second pair heads)
+    \item TTTT (all tails)
+\end{itemize}
+
+HTHT does NOT win (first pair different, second pair different).
+
+HHHT does NOT win (first pair same, second pair different).
+
+The key is: BOTH pairs must be matching (each pair internally consistent).
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip - Probability Pattern Recognition}: 
+
+When you see ``pairs of tosses with same outcome'' in probability:
+\begin{enumerate}
+    \item Calculate $P(\text{one pair same}) = p^2 + q^2$ first
+    \item If multiple independent pairs, use $(p^2 + q^2)^n$ for $n$ pairs
+\end{enumerate}
+
+\textbf{Mental Math Shortcut}:
+\begin{itemize}
+    \item $\left(\frac{2}{3}\right)^2 = \frac{4}{9}$ (remember: square numerator and denominator)
+    \item $\frac{4}{9} + \frac{1}{9} = \frac{5}{9}$ (common denominator addition)
+    \item $\left(\frac{5}{9}\right)^2 = \frac{25}{81}$ (quick: $5^2 = 25$, $9^2 = 81$)
+\end{itemize}
+
+\textbf{Verification Trick}: For biased coin problems, check with fair coin ($p = q = \frac{1}{2}$) to see if your formula makes sense. Here, both games would give $\frac{1}{4}$ for a fair coin, which is symmetric and sensible.
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(D)} \text{ The probability of winning Game A is } \frac{2}{81} \text{ greater than the probability of winning Game B.}}\]
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 98\% - calculation verified by alternative method
+    \item \textbf{Verification Applied}: Level 4 Standard Verification (sanity checks, arithmetic verification, alternative enumeration method, fair coin boundary check)
+    \item \textbf{Flag for Review}: No - very high confidence, move forward
+    \item \textbf{Time Spent}: 3 minutes (on target for P17)
+    \item \textbf{Key Success Factors}: 
+    \begin{itemize}
+        \item Recognized independence structure in Game B
+        \item Careful fraction arithmetic
+        \item Alternative method confirmed answer
+        \item Common denominator simplification
+    \end{itemize}
+\end{itemize}
+
+\end{document}

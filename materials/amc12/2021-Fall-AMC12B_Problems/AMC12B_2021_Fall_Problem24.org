@@ -1,0 +1,122 @@
+2021 AMC 12B Problems/Problem 24
+Contents
+1 Problem
+2 Solution 1 (Reflection)
+3 Solution 2 (Olympiad Solution using Spiral Similarity)
+4 Solution 3
+4.1 Solution 3.1 (Stewart's theorem)
+4.2 Solution 3.2 (Double Cosine Law)
+5 Solution 4
+6 Solution 5
+7 Video Solution by Power of Logic(Trig and Power of a point)
+8 See Also
+Problem
+Triangle $ABC$ has side lengths $AB = 11, BC=24$ , and $CA = 20$ . The bisector of $\angle{BAC}$ intersects $\overline{BC}$ in point $D$ , and intersects the circumcircle of $\triangle{ABC}$ in point $E \ne A$ . The circumcircle of $\triangle{BED}$ intersects the line $AB$ in points $F \ne B$ . What is $CF$ ?
+$\textbf{(A) } 28 \qquad \textbf{(B) } 20\sqrt{2} \qquad \textbf{(C) } 30 \qquad \textbf{(D) } 32 \qquad \textbf{(E) } 20\sqrt{3}$
+Solution 1 (Reflection)
+By the Law of Cosine $\cos A = \frac{AC^2 + AB^2 - BC^2}{ 2 \cdot AC \cdot AB} = \frac{20^2 + 11^2 - 24^2}{2\cdot20\cdot11} = -\frac18$
+As $ABEC$ is a cyclic quadrilateral, $\angle CEA = \angle CBA$ . As $BDEF$ is a cyclic quadrilateral, $\angle CBA = \angle FEA$ .
+$\because \quad \angle CEA = \angle FEA \quad \text{and} \quad \angle CAE = \angle FAE$
+$\therefore \quad \triangle AFE \cong \triangle ACE$ by $ASA$
+Hence, $AF = AC = 20$
+By the Law of Cosine $CF = \sqrt{20^2 + 20^2 - 2 \cdot 20 \cdot 20 (-\frac18)} = \sqrt{900} = \boxed{\textbf{C}~\text{30}}$
+Note that $F$ is $C$ 's reflection over line $AE$ , quadrilateral $ACEF$ is a kite symmetrical by line $AE$ , $AE \perp CF$ .
+~ isabelchen
+Solution 2 (Olympiad Solution using Spiral Similarity)
+Construct the $E$ -antipode, $E^{\prime}\in(ABC)$ . Notice $\triangle CE^{\prime}A\stackrel{+}{\sim}\triangle CBF$ by spiral similarity at $C$ , thus $CF=\dfrac{CB\cdot CA}{CE^{\prime}}=\frac{480}{CE^{\prime}}$ . Let $CE^{\prime}=x$ ; by symmetry $BE^{\prime}=x$ as well and $\cos\angle BE^{\prime}C=\cos\angle A=\tfrac{11^{2}+20^{2}-24^{2}}{2\cdot 11\cdot 20}=-\tfrac{1}{8}$ from Law of Cosines in $\triangle ABC$ , so by Law of Cosines in $\triangle BE^{\prime}C$ we have
+
+\[x^{2}+x^{2}+\left(2x^{2}\right)\left(-\dfrac{1}{8}\right)=24^{2}\]
+
+from which $x=16$ . Now, $CF=\dfrac{480}{16}=\boxed{\textbf{C}~\text{30}}$ .
+Error creating thumbnail: File missing
+Solution 3
+Claim: $\triangle ADC \sim \triangle ABE.$
+Proof: Note that $\angle CAD = \angle CAE = \angle EAB$ and $\angle DCA = \angle BCA = \angle BEA$ meaning that our claim is true by AA similarity.
+Because of this similarity, we have that
+
+\[\frac{AC}{AD} = \frac{AE}{AB} \Longrightarrow AB \cdot AC = AD \cdot AE = AB \cdot AF\]
+
+by Power of a Point. Thus, $AC=AF=20.$
+Two solution methods follow from here.
+Solution 3.1 (Stewart's theorem)
+Applying Stewart's theorem on $\triangle ABC$ with cevian $\overline{CF}$ using the directed lengths $AF = AC = 20$ and $FB = 11-20 = -9$ , we obtain 
+
+\begin{align*} (20)(-9)(11) + (CF)(11)(CF) &= (24)(20)(24) + (20)(-9)(20) \\ 11CF^{2} - 1980 &= 11520 - 3600\end{align*}
+
+ so $CF=\sqrt{\frac{11520 - 3600 + 1980}{11}}=\sqrt{\frac{9900}{11}}=\sqrt{900}=\boxed{\textbf{(C) }30}$ .
+Solution 3.2 (Double Cosine Law)
+Note that $\angle CAF = \angle CAB$ so we may plug into Law of Cosines to find the angle's cosine:
+
+\[AB^2+AC^2-2\cdot AB \cdot AC \cdot \cos(\angle CAB) = BC^2 \to \cos(\angle CAB) = -\frac{1}{8}.\]
+So, we observe that we can use Law of Cosines again to find $CF$ :
+
+\[CF^2 = AF^2+AC^2-2 \cdot AF \cdot AC \cdot \cos(\angle CAF) = 900 \to CF=\boxed{\textbf{(C) }30}\]
+
+both ways.
+- Kevinmathz
+Solution 4
+This solution is based on this figure:
+Denote by $O$ the circumcenter of $\triangle BED$ .
+Denote by $R$ the circumradius of $\triangle BED$ .
+In $\triangle BCF$ , following from the law of cosines, we have 
+
+\begin{align*} CF^2 & = BC^2 + BF^2 - 2 BC \cdot BF \cos \angle CBF \\ & = BC^2 + BF^2 + 2 BC \cdot BF \cos \angle ABC . \hspace{1cm} (1) \end{align*}
+
+ For $BF$ , we have 
+
+\begin{align*} BF & = 2 R \cos \angle FBO \\ & = 2 R \cos \left( 180^\circ - \angle ABC - \angle CBO \right) \\ & = 2 R \cos \left( 180^\circ - \angle ABC - \frac{180^\circ - \angle BOD}{2} \right) \\ & = 2 R \cos \left( 180^\circ - \angle ABC - \frac{180^\circ - 2 \angle BED}{2} \right) \\ & = 2 R \cos \left( 180^\circ - \angle ABC - \frac{180^\circ - 2 \angle BCA}{2} \right) \\ & = 2 R \cos \left( 90^\circ - \angle ABC + \angle BCA \right) \\ & = 2 R \sin \left( \angle ABC - \angle BCA \right) \\ & = \frac{BD}{\sin \angle BED} \sin \left( \angle ABC - \angle BCA \right) \\ & = \frac{BD}{\sin \angle BCA} \sin \left( \angle ABC - \angle BCA \right) \\ & = BD \left( \sin \angle ABC \cot \angle BCA - \cos \angle ABC \right) . \hspace{1cm} (2) \end{align*}
+
+ The fourth equality follows from the property that $B$ , $D$ , $E$ are concyclic.
+The fifth and the ninth equalities follow from the property that $A$ , $B$ , $C$ , $E$ are concyclic.
+Because $AD$ bisects $\angle BAC$ , following from the angle bisector theorem, we have
+
+\[\frac{BD}{CD} = \frac{AB}{AC} .\]
+
+Hence, $BD = \frac{24 \cdot 11}{31}$ .
+In $\triangle ABC$ , following from the law of cosines, we have 
+
+\begin{align*} \cos \angle ABC & = \frac{AB^2 + BC^2 - AC^2}{2 AB \cdot BC} \\ & = \frac{9}{16} \end{align*}
+
+ and 
+
+\begin{align*} \cos \angle BCA & = \frac{AC^2 + BC^2 - AB^2}{2 AC \cdot BC} \\ & = \frac{57}{64} . \end{align*}
+
+ Hence, $\sin \angle ABC = \frac{5 \sqrt{7}}{16}$ and $\sin \angle BCA = \frac{11 \sqrt{7}}{64}$ .
+Hence, $\cot \angle BCA = \frac{57}{11 \sqrt{7}}$ .
+Now, we are ready to compute $BF$ whose expression is given in Equation (2).
+We get $BF = 9$ .
+Now, we can compute $CF$ whose expression is given in Equation (1).
+We have $CF = 30$ .
+Therefore, the answer is $\boxed{\textbf{(C) }30}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 5
+Denote $B=(0, 0)$ and $C=(24, 0)$ . Note that by Heron's formula the area of $\triangle ABC$ is $\frac{165\sqrt{7}}{4}$ so the $y$ -coordinate of $A$ (height of $A$ above the $x$ -axis) is easily computed by the base-height formula as $\frac{55\sqrt7}{16}$ .
+Now, since $AB=11$ , the $x$ -coordinate of $A$ satisfies $x^2+(\frac{55\sqrt7}{16})^2=11^2$ and solving gives $x=\frac{99}{16}$ .
+The circumcircle of $\triangle ABC$ has radius $\frac{abc}{4A}=\frac{11\cdot 24\cdot 20}{165\sqrt7}=\frac{32}{\sqrt7}$ . We know by the perpendicular bisector rule that the circumcenter $O$ is located directly below the midpoint of $\overline{BC}$ ( $x$ -coordinate $12$ ).
+So, the negative $y$ coordinate of $O$ satisfies $12^2+y^2=(\frac{32}{\sqrt7})^2$ and solving gives $y=-\frac{4}{\sqrt7}$ .
+It's also clear that point $E$ is going to be located directly below $O$ on the circle, because the angle bisector intersects the circumcircle at the midpoint of the arc (Fact 5). Since the radius of the circle is $\frac{32}{\sqrt7}$ , we have the coordinates of $E=(12, -\frac{36}{\sqrt7})$
+Solving for point $D$ (the point on the $x$ -axis between $A$ and $E$ ), we get that $D=(\frac{264}{31}, 0)$ .
+So now we know six of the critical points: $A=(\frac{99}{16}, \frac{55\sqrt7}{16})$ ; $B=(0, 0)$ ; $C=(24, 0)$ ; $D=(\frac{264}{31}, 0)$ ; $E=(12, -\frac{36}{\sqrt7})$ ; $O=(12, -\frac{4}{\sqrt7})$ .
+We are now ready to add in the circumcircle of $\triangle BDE$ , which has radius $\frac{BD\cdot DE\cdot BE}{4[BDE]}$ . From the above information, $BD=\frac{264}{31}$ , $DE=\sqrt{(\frac{108}{31})^2+(\frac{36}{\sqrt7})^2}$ , and $BE=\sqrt{12^2+(\frac{36}{\sqrt7})^2}$ .
+After a bit of simplification we end up with $DE=\frac{1152}{31\sqrt7}$ and $BE=\frac{48}{\sqrt7}$ .
+For the area of $\triangle BDE$ , the altitude dropped from vertex $E$ has height $\frac{36}{\sqrt7}$ , and the base $\overline{BD}$ has length $\frac{264}{31}$ , so its area is $\frac12\cdot\frac{36}{\sqrt7}\cdot\frac{264}{31}=\frac{4752}{31\sqrt7}$ .
+Thus, $\frac{BD\cdot DE\cdot BE}{4[BDE]}=\frac{\tfrac{264}{31}\cdot\tfrac{1152}{31\sqrt7}\cdot\tfrac{48}{\sqrt{7}}}{4\cdot\tfrac{4752}{31\sqrt7}}$ which after tons of cancellations becomes $\frac{768}{31\sqrt7}$ .
+We know from the perpendicular bisector rule that the circumcenter $P$ of $\triangle BDE$ is located directly below the midpoint of $\overline{BD}$ ( $x$ -coordinate $\frac{132}{31}$ ).
+So, the negative $y$ -coordinate of $P$ satisfies $(\frac{132}{31})^2+y^2=(\frac{768}{31\sqrt7})^2$ , and solving gives $y=-\frac{684}{31\sqrt7}$ . Thus, the equation of the circumcircle of $\triangle BDE$ is $(x-\frac{132}{31})^2+(y+\frac{684}{31\sqrt7})^2=(\frac{768}{31\sqrt7})^2$ .
+Point $F$ is the intersection of this circle and the line $\overline{AB}$ , which has equation $y=\frac{5\sqrt7}{9}x$ . So, we substitute $y=\frac{5\sqrt7}{9}x$ into the equation of the circle to get $(x-\frac{132}{31})^2+(\frac{5\sqrt7}{9}x+\frac{684}{31\sqrt7})^2=(\frac{768}{31\sqrt7})^2$ .
+After simplifying, we have $\frac{256}{81}x^2+16x=0$ (the $\frac{768}{31\sqrt7}$ 's cancel out), whose solutions are $x=0$ and $x=-\frac{81}{16}$ . The first corresponds to the origin, and the second corresponds to point $F$ . Thus the coordinates of $F$ are $(-\frac{81}{16}, \frac{5\sqrt7}{9}\cdot\frac{-81}{16})=(-\frac{81}{16}, -\frac{45\sqrt7}{16})$ .
+The coordinates of $C$ are $(24, 0)$ , so
+
+\[CF=\sqrt{(24+\frac{81}{16})^2+(\frac{45\sqrt7}{16})^2}=\sqrt{(\frac{465}{16})^2+(\frac{45\sqrt7}{16})^2}=\frac{\sqrt{465^2+(45\sqrt7)^2}}{16}=\frac{\sqrt{(15\cdot 31)^2+(15\cdot 3\sqrt7)^2}}{16}=\frac{15\sqrt{31^2+(3\sqrt7)^2}}{16}=\frac{15\sqrt{961+63}}{16}=\frac{15\sqrt{1024}}{16}=\frac{15}{16}\cdot 32=30.\]
+Video Solution by Power of Logic(Trig and Power of a point)
+https://youtu.be/tEVbTtJlZjA
+~math2718281828459
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

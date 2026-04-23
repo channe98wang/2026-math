@@ -1,0 +1,76 @@
+2021 AMC 12B Problems/Problem 22
+Contents
+1 Problem
+2 Diagram
+3 Solution 1
+4 Solution 2
+5 Solution 3 (Analytic Geometry)
+6 Solution 4
+7 Solution 5
+8 Video Solution
+9 Video Solution by Mathematical Dexterity
+Problem
+Right triangle $ABC$ has side lengths $BC=6$ , $AC=8$ , and $AB=10$ . A circle centered at $O$ is tangent to line $BC$ at $B$ and passes through $A$ . A circle centered at $P$ is tangent to line $AC$ at $A$ and passes through $B$ . What is $OP$ ?
+$\textbf{(A)}\ \frac{23}{8} \qquad\textbf{(B)}\ \frac{29}{10} \qquad\textbf{(C)}\ \frac{35}{12} \qquad\textbf{(D)}\ \frac{73}{25} \qquad\textbf{(E)}\ 3$
+Diagram
+[asy] defaultpen(fontsize(10)+0.8); size(150); pair A,B,C,M,Ic,Ib,O,P; C=MP("C",origin,down+left); A=MP("A",8*right,down+right); B=MP("B",6*up,2*up); draw(A--B--C--A); draw(B--(B+A), gray+0.25); M=MP("M",(A+B)/2,down+left); O=MP("O",extension(B,B+A,M,M+(B-M)*dir(-90)),down); P=MP("P",extension(A,B+A,M,M+(B-M)*dir(-90)),up); draw(M--P^^A--P, gray+0.25); label("$\theta$", A, 7*dir(162)); label("$\theta$", B, 7*dir(-20)); label("$\theta$", P, 7*dir(-110)); label("$6$", B--C, left); label("$8$", A--C, down); label("$D$", A+B, right); [/asy]
+Solution 1
+Let $M$ be the midpoint of $AB$ ; so $BM=AM=5$ . Let $D$ be the point such that $ABCD$ is a rectangle. Then $MO\perp AB$ and $MP\perp AB$ . Let $\theta = \angle BAC$ ; so $\tan\theta = \tfrac 68 = \tfrac 34$ . Then
+
+\[OP=MP-MO=AM\cot\theta - BM\tan\theta = 5(\tfrac 43 - \tfrac 34) = \boxed{\textbf{(C)}\ \tfrac{35}{12}}.\]
+Solution 2
+This one uses the same diagram as Solution 1, except we draw $BP$ . After doing angle chasing we find $\triangle BPM \sim \triangle BAC$ and $\frac{BM}{BC} = \frac{PM}{AC}$ , resulting in $PM = \frac{20}{3}$ .
+We also find that $\triangle BOM \sim \triangle ABC$ and $\frac{BM}{AC} = \frac{OM}{BC}$ , resulting in $OM = \frac{15}{4}$ . $OP = PM - OM = \frac{35}{12}$ .
+-ThisUsernameIsTaken
+Solution 3 (Analytic Geometry)
+In a Cartesian plane, let $C, B,$ and $A$ be $(0,0),(0,6),(8,0)$ respectively.
+[asy] size(8cm); pair A = (0,8); pair B = (6,0); pair C = (0,0); pair O = (6,6.25); pair P = (8.3333,8); draw(A--B--C--cycle); draw(Circle(O, 6.2498)); draw(Circle(P, 8.3331)); draw(O--P); draw(O--B, red+dotted+1.2bp); draw(A--P, blue+dotted+1.2bp); filldraw(O--(0,6.25)--A--cycle, red+opacity(0.3), invisible); filldraw(P--B--(6,8)--cycle, blue+opacity(0.3), invisible); dot(O); dot(P); label("$A$", A, W); label("$B$", B, S); label("$C$", C, W); label("$O$", O, S); label("$P$", P, E); label("$a$", midpoint(O--B), W); label("$b$", midpoint(P--A), N); draw(rightanglemark(A,C,B,15)); [/asy]
+
+ ~(Diagram By MaPhyCom)
+By analyzing the behaviors of the two circles, we set $O$ to be $(a,6)$ and $P$ be $(b,8)$ .
+Hence derive the two equations:
+$(x-a)^2+(y-6)^2=a^2$
+$(x-8)^2+(y-b)^2=b^2$
+Considering the coordinates of $A$ and $B$ for the two equations respectively, we get:
+$(8-a)^2+(0-6)^2=a^2$
+$(0-8)^2+(6-b)^2=b^2$
+Solve to get $a=\frac{25}{4}$ and $b=\frac{25}{3}$
+Through using the distance formula,
+$OP=\sqrt{(8-\frac{25}{4})^2+(\frac{25}{3}-6)^2}= \boxed{\textbf{(C)}\ \frac{35}{12}}$ .
+~Wilhelm Z
+Solution 4
+Because the circle with center $O$ passes through points $A$ and $B$ and is tangent to line $BC$ at point $B$ , $O$ is on the perpendicular bisector of segment $AB$ and $OB \perp BC$ .
+Because the circle with center $P$ passes through points $A$ and $B$ and is tangent to line $AC$ at point $A$ , $P$ is on the perpendicular bisector of segment $AB$ and $PA \perp AC$ .
+Let lines $OB$ and $AP$ intersect at point $D$ .
+Hence, $ACBD$ is a rectangle.
+Denote by $M$ the midpoint of segment $AB$ . Hence, $BM = \frac{AB}{2} = 5$ .
+Because $O$ and $P$ are on the perpendicular bisector of segment $AB$ , points $M$ , $O$ , $P$ are collinear with $OM \perp AB$ .
+We have $\triangle MOB \sim \triangle CBA$ .
+Hence, $\frac{BO}{AB} = \frac{BM}{AC}$ .
+Hence, $BO = \frac{25}{4}$ .
+Hence, $OD = BD - BO = \frac{7}{4}$ .
+We have $\triangle DOP \sim \triangle CBA$ .
+Hence, $\frac{OP}{BA} = \frac{DO}{CB}$ .
+Therefore, $OP = \frac{35}{12}$ .
+Therefore, the answer is $\boxed{\textbf{(C) }\frac{35}{12}}$ .
+~Steven Chen (www.professorchenedu.com)
+Solution 5
+Let $C$ be the origin, making $B=(0,6)$ and $A=(8,0)$ . Let $D$ be the midpoint of $AB$ ; $D=(4,3)$ .
+Notice that both $O$ and $P$ must be on the perpendicular bisector $l$ of $AB$ . The slope of $AB$ is $-\dfrac{3}{4}$ , making the $l$ 's slope be $\dfrac{4}{3}$ . Since $l$ passes through $D$ , the equation for $l$ becomes
+\[y-3=\dfrac{4}{3} (x-4),\]
+using the slope intersect form. Since $OB$ is perpendicular to $AC$ and $AP$ is perpendicular to $AC$ (cause of tangencies), the $y$ -coordinate for $O$ is $6$ and the $x$ -coordinate for $P$ is $8$ . Plugging these numbers in the equation for $l$ gives $O=\left( \dfrac{25}{4}, 6 \right)$ and $P=\left( 8, \dfrac{25}{3} \right)$ . Thus,
+\[OP=\sqrt{\left(\dfrac{7}{4}\right)^2 + \left(\dfrac{7}{3}\right)^2} = 7\sqrt{\dfrac{3^2+4^2}{(3^2)(4^2)}} = 7\cdot \dfrac{5}{12} = \boxed{\dfrac{35}{12} \textbf{ (C)}}\]
+~ sml1809
+Video Solution
+https://youtu.be/0TeJ-9XUkAA
+~MathProblemSolvingSkills.com
+Video Solution by Mathematical Dexterity
+https://www.youtube.com/watch?v=ctx67nltpE0
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 21 Followed by 
+ Problem 23
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

@@ -1,0 +1,101 @@
+2021 AMC 12B Problems/Problem 20
+Contents
+1 Problem
+2 Solution 1 (Graph Theory)
+3 Solution 2 (Casework, Counting Down)
+4 Solution 3 (Casework, Counting Up)
+5 Solution 4 (Burnside Lemma)
+6 Solution 5 (Quick 'n Easy but not rigorous)
+7 Video Solution 1
+8 Video Solution 2
+9 Video Solution 3
+10 See Also
+Problem
+A cube is constructed from $4$ white unit cubes and $4$ blue unit cubes. How many different ways are there to construct the $2 \times 2 \times 2$ cube using these smaller cubes? (Two constructions are considered the same if one can be rotated to match the other.)
+$\textbf{(A)}\ 7 \qquad\textbf{(B)}\ 8 \qquad\textbf{(C)}\ 9 \qquad\textbf{(D)}\ 10 \qquad\textbf{(E)}\ 11$
+Solution 1 (Graph Theory)
+This problem is about the relationships between the white unit cubes and the blue unit cubes, which can be solved by Graph Theory . We use a Planar Graph to represent the larger cube. Each vertex of the planar graph represents a unit cube. Each edge of the planar graph represents a shared face between $2$ neighboring unit cubes. Each face of the planar graph represents a face of the larger cube.
+Now the problem becomes a Graph Coloring problem of how many ways to assign $4$ vertices blue and $4$ vertices white with Topological Equivalence . For example, in Figure $(1)$ , as long as the $4$ blue vertices belong to the same planar graph face, the different planar graphs are considered to be topological equivalent by rotating the larger cube.
+Error creating thumbnail: File missing
+Here is how the $4$ blue unit cubes are arranged:
+In Figure $(1)$ : $4$ blue unit cubes are on the same layer (horizontal or vertical).
+In Figure $(2)$ : $4$ blue unit cubes are in $T$ shape.
+In Figure $(3)$ and $(4)$ : $4$ blue unit cubes are in $S$ shape.
+In Figure $(5)$ : $3$ blue unit cubes are in $L$ shape, and the other is isolated without a shared face.
+In Figure $(6)$ : $2$ pairs of neighboring blue unit cubes are isolated from each other without a shared face.
+In Figure $(7)$ : $4$ blue unit cubes are isolated from each other without a shared face.
+So the answer is $\boxed{\textbf{(A)}\ 7}$
+~ isabelchen
+Solution 2 (Casework, Counting Down)
+Let’s split the cube into two layers; a bottom and top. Note that there must be four of each color, so however many number of one color are in the bottom, there will be four minus that number of the color on the top. We do casework on the color distribution of the bottom layer.
+Case 1: 4, 0
+In this case, there is only one possibility for the top layer - all of the other color - $\binom{4}{4}$ . Therefore there is 1 construction from this case.
+Case 2: 3, 1
+In this case, the top layer has four possibilities, because there are four different ways to arrange it so that it also has a 3, 1 color distribution - $\binom{4}{3}$ . Therefore there are 4 constructions from this case.
+Case 3: 2, 2
+In this case, the top layer has six possibilities of arrangement - $\binom{4}{2}$ . However, having adjacent colors one way can be rotated to having adjacent colors any other way, so there is only one construction for the adjacent colors subcase and similarly, only one for the diagonal color subcase. Therefore the total number of constructions for this case is 2.
+The total number of constructions for the cube is thus $1+4+2=7=\boxed{A}$
+~KingRavi
+Solution 3 (Casework, Counting Up)
+Divide the $2 \times 2 \times 2$ cube into two layers, say, front and back. Any possible construction can be rotated such that the front layer has the same or greater number of white cubes than blue cubes, so we only need to count the number of cases given that is true.
+- Case 1: Each layer contains 2 cubes of each color. Note that we only need to consider the configuration of the white cubes because all the other cubes will be blue cubes. There are 2 ways that the 2 white cubes in each layer can be arranged: adjacent or diagonal to each other.
+- Case 2: The front layer contains 3 white cubes, and the back layer contains one white cube. In this case, unless the sole white and sole blue cubes in the front and back layers are on opposite corners of the $2 \times 2 \times 2$ cube, then that cube can be split into left and right layers with 2 cubes of each color in each layer. Those constructions were counted in case 1, so case 2 results in $1$ additional construction.
+- Case 3: The front layer contains 4 white cubes, and the back layer contains no white cubes. If we split this construction into its left and right layers, then each layer will have 2 cubes of each color. So, this construction was counted in case 1, and case 3 results in $0$ additional constructions.
+Therefore, our answer is $6+1+0=\boxed{\textbf{(A)}\ 7}$ .
+Solution 4 (Burnside Lemma)
+Burnside lemma is used to counting number of orbit where the element on the same orbit can be achieved by the defined operator, naming rotation, reflection and etc.
+The facts for Burnside lemma are
+1. the sum of stabilizer on the same orbit equals to the # of operators;
+2. the sum of stabilizer can be counted as $fix(g)$
+3. the sum of the $fix(g)/|G|$ equals the # of orbit.
+Let's start with defining the operator for a cube,
+1. $\textbf{e (identity)}$
+For identity, there are $\frac{8!}{4!4!} = 70$
+2. ${\bf r^{1}, r^{2}, r^{3}}$ to be the rotation axis along three pair of opposite face,
+each contains $r^{i}_{90}, r^{i}_{180}, r^{i}_{270}$ where $i= 1, 2, 3$
+$fix(r^{i}_{90}) = fix(r^{i}_{270}) = 2\cdot1 = 2$
+$fix(r^{i}_{180}) = \frac{4!}{2!\cdot2!} = 6$
+therefore $fix(\bf r^{i}) = 2+2+6 = 10$ , and $fix(\bf r^{1})+fix(\bf r^{2})+fix(\bf r^{3}) = 30$
+3. ${\bf r^{4}, r^{5}, r^{6}, r^{7}}$ to the rotation axis along four cube diagonals.
+each contains $r^{i}_{120}, r^{i}_{240}$ where $i= 4, 5, 6, 7$
+$fix(r^{i}_{120}) = fix(r^{i}_{240}) = 2\cdot1\cdot2\cdot1 = 4$
+therefore $fix(\bf r^{i}) = 4+4 = 8$ , and $fix(\bf r^{4})+fix(\bf r^{5})+fix(\bf r^{6})+fix(\bf r^{7}) = 32$
+4. ${\bf r^{8}, r^{9}, r^{10}, r^{11}, r^{12}, r^{13}}$ to be the rotation axis along 6 pairs of diagonally opposite sides
+each contains $r^{i}_{180}$ where $i= 8, 9, 10, 11, 12, 13$
+$fix(r^{i}_{180}) = \frac{4!}{2!\cdot2!} = 6$
+therefore $fix(\bf r^{8})+fix(\bf r^{9})+fix(\bf r^{10})+fix(\bf r^{11})+fix(\bf r^{12})+fix(\bf r^{13}) = 36$
+5. The total number of operators are
+$|G| = 1 + 3\cdot3 + 4\cdot2 + 6\cdot1 = 24$
+Based on 1, 2, 3, 4 the total number of stabilizers is $70 + 30 + 32 + 36 = 168$
+therefore the number of orbits $= \frac{168}{G=24} = \boxed{7}$
+~wwei.yu
+Solution 5 (Quick 'n Easy but not rigorous)
+Since rotations of a single pattern are considered indistinguishable, we can assume that the forward upper right corner of the 2-by-2-by-2 cube is a blue cube (since we can always rotate the big cube to place a blue cube in that spot).
+Once we've assigned this cube to be blue, we note that 3 1-by-1-by-1 cubes share a side with it, 3 1-by-1-by-1 cubes share a corner with it, and 1 1-by-1-by-1 cube does not touch the assigned cube at all, from the perspective of someone who can only see the cube's faces. We'll call the first 3 "adjacent", the second 3 "cornering", and the last one "opposite."
+We can use a little bit of intuition to confirm that due to the rotation condition, we should treat all adjacents as indistinguishable, all cornerings as indistinguishable, and of course the opposite one is unique from all the others. Thus, we can list out like so (keeping in mind that there are 3 adjacents, 3 cornerings, and 1 opposite, and that we're choosing the positions of the remaining 3 blue cubes):
+OAA, OAC, OCC, CCC, CAA, CCA, AAA.
+This gives the answer to be $\boxed{\textbf{(A)}\ 7}$ .
+~ Curious_crow
+Video Solution 1
+https://youtu.be/Khnq5ZMTwXQ
+Video Solution 2
+https://youtu.be/Va_leSKAjRw
+~Interstigation
+Video Solution 3
+https://youtu.be/nBL8mXHblHE
+~savannahsolver
+See Also
+2021 Fall AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 19 Followed by 
+ Problem 21
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2021 Fall AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

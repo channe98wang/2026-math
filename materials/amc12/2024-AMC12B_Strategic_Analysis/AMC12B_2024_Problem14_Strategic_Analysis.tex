@@ -1,0 +1,835 @@
+% LaTeX Template for AI Problem Analysis Output
+% AMC12B 2024 Problem 14 - Strategic Analysis
+% Framework Version: 2.1 (Enhanced for COMC)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{2024 AMC 12B Problem 14}
+\cfoot{\thepage}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=PROBLEM CONFIGURATION ANALYSIS,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=STRATEGIC FRAMEWORK APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=TACTICAL METHODOLOGY SELECTION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=CONVERSION TECHNIQUES APPLICATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=VERIFICATION STRATEGY DESIGN,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=SOLUTION ROADMAP,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=violet,
+    title=COMPETITION STRATEGY INTEGRATION,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+% Special highlight boxes
+\newtcolorbox{keyinsightbox}{
+    colback=gold!20,
+    colframe=gold,
+    title=\textbf{KEY INSIGHT},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!80!black,
+    title=\textbf{WARNING},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt
+}
+
+\newtcolorbox{protipbox}{
+    colback=green!10,
+    colframe=green!80!black,
+    title=\textbf{PRO TIP},
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt
+}
+
+\title{\textbf{2024 AMC 12B Problem 14:\\Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework v2.1}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem Statement}
+
+How many different remainders can result when the $100$th power of an integer is divided by $125$?
+
+\[
+\textbf{(A) } 1 \qquad 
+\textbf{(B) } 2 \qquad 
+\textbf{(C) } 5 \qquad 
+\textbf{(D) } 25 \qquad 
+\textbf{(E) } 125
+\]
+
+\vspace{1em}
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type:} To Find -- count distinct remainders
+    \item \textbf{Difficulty Band:} Mid-to-Late band (Problem 14 of 25)
+    \begin{itemize}
+        \item Expected time: 4-6 minutes
+        \item Requires number theory knowledge (Euler's theorem or modular arithmetic)
+        \item Tests understanding of modular exponentiation
+    \end{itemize}
+    \item \textbf{Competition Context:} AMC 12 (75 minutes, 25 problems, multiple choice)
+    \item \textbf{Mathematical Domain:} Number Theory (modular arithmetic, Euler's totient)
+    \item \textbf{Source Context:} 2024 AMC 12B -- recent contest problem
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+
+\textbf{Given Information:}
+\begin{itemize}
+    \item Consider all integers $n$
+    \item Compute $n^{100} \pmod{125}$
+    \item Count how many distinct remainders are possible
+\end{itemize}
+
+\textbf{Constraints:}
+\begin{itemize}
+    \item Exponent: 100 (fixed, large power)
+    \item Modulus: 125 = $5^3$ (prime power)
+    \item Domain: all integers (positive, negative, zero)
+\end{itemize}
+
+\textbf{Objective:}
+\begin{itemize}
+    \item Find the number of distinct values of $n^{100} \pmod{125}$
+    \item Must match one of five given answer choices
+    \item Choices suggest powers of 5: $1, 2, 5, 25, 125$
+\end{itemize}
+
+\textbf{Hidden Assumptions \& Key Observations:}
+\begin{itemize}
+    \item $125 = 5^3$ is a prime power
+    \item $100 = 4 \times 25 = 2^2 \times 5^2$ has interesting factorization
+    \item Euler's totient: $\phi(125) = 125(1 - \frac{1}{5}) = 100$
+    \item This is a remarkable coincidence: exponent equals $\phi$(modulus)!
+    \item Integers relatively prime to 125 will satisfy $n^{100} \equiv 1 \pmod{125}$
+    \item Integers not relatively prime to 125 must be multiples of 5
+\end{itemize}
+
+\textbf{Answer Choice Leverage:}
+\begin{itemize}
+    \item Choice (A) 1: Would mean all powers have same remainder (unlikely)
+    \item Choice (B) 2: Suspiciously small but possible
+    \item Choice (C) 5: Related to base of 125
+    \item Choice (D) 25: $5^2$, interesting structure
+    \item Choice (E) 125: All possible remainders (unlikely for such large exponent)
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+
+\textbf{Hypothesis:} 
+The problem leverages Euler's theorem since $\phi(125) = 100$. We need to consider two cases based on whether integers are relatively prime to 125.
+
+\textbf{Conclusion Goal:}
+Determine exactly which remainders are achievable when $n^{100}$ is divided by 125.
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\phi(n)$: Euler's totient function
+    \item $\gcd(a, b)$: greatest common divisor
+    \item $a \equiv b \pmod{n}$: $a$ and $b$ have the same remainder when divided by $n$
+\end{itemize}
+
+\textbf{Key Approaches:}
+\begin{enumerate}
+    \item \textbf{Euler's Theorem:} Use $a^{\phi(n)} \equiv 1 \pmod{n}$ when $\gcd(a,n) = 1$
+    \item \textbf{Casework:} Separate based on divisibility by 5
+    \item \textbf{Direct Computation:} Test small values and look for pattern
+\end{enumerate}
+\end{problemconfigbox}
+
+\vspace{1em}
+
+\begin{keyinsightbox}
+\textbf{Central Insight:} The key coincidence is that $\phi(125) = 100$, which is exactly our exponent! By Euler's theorem, any integer $n$ with $\gcd(n, 125) = 1$ satisfies $n^{100} \equiv 1 \pmod{125}$. For integers divisible by 5, we have $n = 5m$, so $n^{100} = 5^{100} \cdot m^{100}$. Since $5^{100} = 5^3 \cdot 5^{97} = 125 \cdot 5^{97}$, we get $n^{100} \equiv 0 \pmod{125}$. Therefore, only remainders 0 and 1 are possible!
+\end{keyinsightbox}
+
+\vspace{1em}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+
+\textbf{Mental Toughness:}
+\begin{itemize}
+    \item Number theory can be intimidating -- stay calm
+    \item The coincidence $\phi(125) = 100$ is the key hint
+    \item Trust that there's an elegant approach using Euler's theorem
+\end{itemize}
+
+\textbf{Creativity Cultivation:}
+\begin{itemize}
+    \item Notice: $125 = 5^3$ is a prime power
+    \item Calculate: $\phi(125) = 125 \cdot \frac{4}{5} = 100$ (exactly our exponent!)
+    \item Recognize this cannot be coincidence -- it's the problem's core structure
+\end{itemize}
+
+\subsection*{B. Investigation Methods}
+
+\textbf{Get Your Hands Dirty -- Test Small Cases:}
+\begin{itemize}
+    \item Try $n = 1$: $1^{100} = 1 \equiv 1 \pmod{125}$
+    \item Try $n = 2$: $2^{100} = (2^{10})^{10} = 1024^{10}$. Since $1024 \equiv -1 \pmod{125}$, we get $2^{100} \equiv 1 \pmod{125}$
+    \item Try $n = 5$: $5^{100} = 5^3 \cdot 5^{97} = 125 \cdot 5^{97} \equiv 0 \pmod{125}$
+    \item Try $n = 10$: $(10)^{100} = (2 \cdot 5)^{100} = 2^{100} \cdot 5^{100} \equiv 0 \pmod{125}$
+    \item Pattern emerges: remainder is 1 if $\gcd(n, 125) = 1$, and 0 otherwise
+\end{itemize}
+
+\textbf{Recognize Euler's Theorem Applicability:}
+\begin{itemize}
+    \item Euler's theorem: If $\gcd(a, n) = 1$, then $a^{\phi(n)} \equiv 1 \pmod{n}$
+    \item Here: $n = 125$, exponent is 100
+    \item Calculate: $\phi(125) = \phi(5^3) = 5^3 - 5^2 = 125 - 25 = 100$
+    \item Perfect match! So $a^{100} \equiv 1 \pmod{125}$ when $\gcd(a, 125) = 1$
+\end{itemize}
+
+\textbf{Case Analysis:}
+\begin{itemize}
+    \item \textbf{Case 1:} $\gcd(n, 125) = 1$ (i.e., $n$ not divisible by 5)
+    \begin{itemize}
+        \item By Euler's theorem: $n^{100} \equiv 1 \pmod{125}$
+    \end{itemize}
+    \item \textbf{Case 2:} $\gcd(n, 125) > 1$ (i.e., $n$ divisible by 5)
+    \begin{itemize}
+        \item Write $n = 5m$ for some integer $m$
+        \item Then $n^{100} = (5m)^{100} = 5^{100} \cdot m^{100}$
+        \item Since $5^{100} = 5^3 \cdot 5^{97} = 125 \cdot 5^{97}$
+        \item We have $n^{100} \equiv 0 \pmod{125}$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Alternative Approach: Binomial Theorem}
+
+For students who don't know Euler's theorem, there's a clever approach:
+\begin{itemize}
+    \item $(5 + n)^{100} = \sum_{k=0}^{100} \binom{100}{k} 5^{100-k} n^k$
+    \item Terms with $5^{100-k}$ where $100 - k \geq 3$ are divisible by $125 = 5^3$
+    \item Only last 3 terms matter: $\binom{100}{98}5^2 n^{98} + \binom{100}{99}5 n^{99} + n^{100}$
+    \item After calculation: $(5 + n)^{100} \equiv n^{100} \pmod{125}$
+    \item This shows periodicity: need only check $n = 0, 1, 2, 3, 4$
+    \item By symmetry and testing: only 0 and 1 appear as remainders
+\end{itemize}
+
+\subsection*{D. Argument Construction}
+
+\textbf{Proof Framework (Euler's Theorem):}
+\begin{enumerate}
+    \item Establish that $\phi(125) = 100$
+    \item Apply Euler's theorem for integers relatively prime to 125
+    \item Show that multiples of 5 give remainder 0
+    \item Conclude that only remainders 0 and 1 are possible
+    \item Count: 2 distinct remainders
+\end{enumerate}
+\end{strategicbox}
+
+\vspace{1em}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+
+\textbf{Primary Tactic: Euler's Theorem}
+\begin{itemize}
+    \item \textbf{Statement:} If $\gcd(a, n) = 1$, then $a^{\phi(n)} \equiv 1 \pmod{n}$
+    \item \textbf{Application:} With $n = 125$ and $\phi(125) = 100$, we get $a^{100} \equiv 1 \pmod{125}$
+    \item \textbf{Power:} Immediately determines remainder for coprime integers
+\end{itemize}
+
+\textbf{Secondary Tactic: Euler's Totient Function}
+\begin{itemize}
+    \item \textbf{For Prime Powers:} $\phi(p^k) = p^k - p^{k-1} = p^{k-1}(p - 1)$
+    \item \textbf{Application:} $\phi(125) = \phi(5^3) = 5^2(5 - 1) = 25 \cdot 4 = 100$
+    \item \textbf{Alternative:} $\phi(5^3) = 5^3(1 - \frac{1}{5}) = 125 \cdot \frac{4}{5} = 100$
+\end{itemize}
+
+\textbf{Tertiary Tactic: Modular Exponentiation}
+\begin{itemize}
+    \item \textbf{Prime Power Modulus:} When $n = 5m$, powers inherit divisibility
+    \item \textbf{Key Observation:} $5^{100} = 5^3 \cdot 5^{97}$ is divisible by $125 = 5^3$
+    \item \textbf{Result:} $(5m)^{100} = 5^{100} \cdot m^{100} \equiv 0 \pmod{125}$
+\end{itemize}
+
+\subsection*{B. Cross-Domain Techniques}
+
+\textbf{Number Theory $\rightarrow$ Counting:}
+\begin{itemize}
+    \item Classify integers by $\gcd$ with modulus
+    \item Each class gives specific remainder behavior
+    \item Count distinct remainders across all classes
+\end{itemize}
+
+\textbf{Modular Arithmetic Structure:}
+\begin{itemize}
+    \item Multiplicative group of units modulo $n$
+    \item Size of this group is $\phi(n)$
+    \item Powers cycle with period dividing $\phi(n)$
+\end{itemize}
+
+\textbf{Pattern Recognition:}
+\begin{itemize}
+    \item Testing small cases reveals pattern
+    \item Pattern: only 0 and 1 appear as remainders
+    \item Proof confirms pattern holds universally
+\end{itemize}
+\end{tacticalbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Competition Hack:} When you see a problem asking about $n^k \pmod{m}$ where $k$ and $m$ have interesting relationship, immediately compute $\phi(m)$! If $k = \phi(m)$ or $k$ is a multiple of $\phi(m)$, Euler's theorem becomes extremely powerful. This is a common AMC pattern!
+\end{protipbox}
+
+\vspace{1em}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+
+\textbf{Pattern Signature:} Modular exponentiation with prime power modulus
+
+\textbf{Trigger Recognition:}
+\begin{itemize}
+    \item \textbf{``$n^{100} \pmod{125}$''} $\to$ Check if $100 = \phi(125)$
+    \item \textbf{``125 = $5^3$''} $\to$ Prime power, use $\phi(p^k)$ formula
+    \item \textbf{``How many remainders''} $\to$ Classify by $\gcd$ with modulus
+    \item \textbf{Coincidence check:} $\phi(125) = 100$ -- too perfect to ignore!
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+
+\textbf{Approach 1: Euler's Theorem (Recommended for those who know it)}
+\begin{itemize}
+    \item \textbf{Why:} Most efficient, uses powerful theorem
+    \item \textbf{Prerequisites:} Must know Euler's theorem and totient function
+    \item \textbf{Method:} Calculate $\phi(125)$, apply theorem, case analysis
+    \item \textbf{Result:} Clean proof in 3-4 minutes
+    \item \textbf{Time:} $\sim$3-4 minutes
+\end{itemize}
+
+\textbf{Approach 2: Direct Computation + Pattern Recognition}
+\begin{itemize}
+    \item \textbf{Why:} Accessible without advanced number theory
+    \item \textbf{Method:} Test $n = 0, 1, 2, 3, 4$ and recognize periodicity
+    \item \textbf{Result:} See that only 0 and 1 appear
+    \item \textbf{Time:} $\sim$5-6 minutes (more computational)
+\end{itemize}
+
+\textbf{Approach 3: Binomial Theorem}
+\begin{itemize}
+    \item \textbf{Why:} Clever alternative without Euler's theorem
+    \item \textbf{Method:} Show $(5+n)^{100} \equiv n^{100} \pmod{125}$
+    \item \textbf{Result:} Reduces problem to testing 5 values
+    \item \textbf{Time:} $\sim$6-7 minutes (requires careful expansion)
+\end{itemize}
+
+\textbf{Approach 4: Answer Choice Analysis (Last Resort)}
+\begin{itemize}
+    \item \textbf{Why:} When very short on time
+    \item \textbf{Observation:} Answer choices are $1, 2, 5, 25, 125$ (all related to 5)
+    \item \textbf{Logic:} Choice (B) 2 stands out as not fitting pattern
+    \item \textbf{Time:} 30 seconds, but risky!
+\end{itemize}
+
+\subsection*{C. Integration Strategy}
+
+\textbf{Recommended Path for Competition:}
+\begin{enumerate}
+    \item Recognize $125 = 5^3$ (10 sec)
+    \item Calculate $\phi(125) = 100$ (30 sec)
+    \item Notice coincidence with exponent (10 sec)
+    \item Apply Euler's theorem for Case 1 (1 min)
+    \item Analyze Case 2 (multiples of 5) (1 min)
+    \item Conclude 2 remainders (30 sec)
+    \item Verify with example or answer choice check (30 sec)
+\end{enumerate}
+
+\subsection*{D. Conflict Resolution}
+
+\textbf{With vs. Without Euler's Theorem:}
+\begin{itemize}
+    \item If you know Euler's theorem: use it immediately (fastest)
+    \item If you don't: use direct computation or binomial approach
+    \item Both paths lead to same answer
+\end{itemize}
+\end{techniquesbox}
+
+\vspace{1em}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+
+\textbf{Recommended Level: 3 (Unit Test)}
+
+\textbf{Justification:}
+\begin{itemize}
+    \item Mid-to-late band problem with theoretical component
+    \item Euler's theorem application needs verification
+    \item Answer choices are well-separated
+    \item Time budget: approximately 30-45 seconds for verification
+\end{itemize}
+
+\subsection*{B. Verification Methods}
+
+\textbf{Primary Verification: Test Specific Cases}
+\begin{itemize}
+    \item \textbf{Case 1:} Test $n = 1$: $1^{100} = 1 \equiv 1 \pmod{125}$ $\checkmark$
+    \item \textbf{Case 1:} Test $n = 2$: By Euler's theorem, since $\gcd(2, 125) = 1$ and $\phi(125) = 100$, we have $2^{100} \equiv 1 \pmod{125}$ $\checkmark$
+    \item \textbf{Case 2:} Test $n = 5$: $5^{100}$ contains factor $5^{100} = 5^3 \cdot 5^{97} \equiv 0 \pmod{125}$ $\checkmark$
+    \item \textbf{Case 2:} Test $n = 10$: $10^{100} = (2 \cdot 5)^{100} = 2^{100} \cdot 5^{100} \equiv 0 \pmod{125}$ $\checkmark$
+\end{itemize}
+
+\textbf{Secondary Verification: Check $\phi(125)$ Calculation}
+\begin{itemize}
+    \item Formula: $\phi(5^3) = 5^3 - 5^2 = 125 - 25 = 100$ $\checkmark$
+    \item Alternative: $\phi(5^3) = 5^3 \cdot (1 - \frac{1}{5}) = 125 \cdot \frac{4}{5} = 100$ $\checkmark$
+    \item Both methods agree $\checkmark$
+\end{itemize}
+
+\textbf{Tertiary Verification: Logical Consistency}
+\begin{itemize}
+    \item There are exactly 100 integers in $\{1, 2, \ldots, 125\}$ coprime to 125
+    \item These are the non-multiples of 5
+    \item All give remainder 1 when raised to 100th power
+    \item The 25 multiples of 5 all give remainder 0
+    \item Total: 2 distinct remainders $\checkmark$
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+
+\textbf{Confidence Level: Very High (95\%)}
+
+\textbf{Reasoning:}
+\begin{itemize}
+    \item Euler's theorem is a standard, well-established result
+    \item $\phi(125) = 100$ calculation is straightforward
+    \item Case analysis is complete and exhaustive
+    \item Multiple test cases confirm the pattern
+    \item Answer matches choice (B) exactly
+\end{itemize}
+
+\textbf{Risk Assessment:}
+\begin{itemize}
+    \item Low risk if Euler's theorem is applied correctly
+    \item Main risk: forgetting to check Case 2 (multiples of 5)
+    \item Verification via specific examples mitigates risk
+\end{itemize}
+\end{verificationbox}
+
+\vspace{1em}
+
+\begin{warningbox}
+\textbf{Common Mistake:} Students might apply Euler's theorem blindly to all integers without checking the condition $\gcd(n, 125) = 1$. Remember: Euler's theorem only applies when the integer and modulus are relatively prime! You must separately analyze what happens when $\gcd(n, 125) > 1$ (i.e., when $n$ is a multiple of 5).
+\end{warningbox}
+
+\vspace{1em}
+
+\begin{solutionbox}
+\subsection*{Solution Roadmap -- Primary Approach (Euler's Theorem)}
+
+\textbf{Step 1: Identify the Modulus Structure (30 seconds)}
+\begin{itemize}
+    \item Modulus: $125 = 5^3$ (prime power)
+    \item This is important for calculating Euler's totient function
+\end{itemize}
+
+\textbf{Step 2: Calculate Euler's Totient Function (30 seconds)}
+
+Using the formula for prime powers:
+\begin{align*}
+\phi(125) &= \phi(5^3) \\
+&= 5^3 - 5^2 \\
+&= 125 - 25 \\
+&= 100
+\end{align*}
+
+\textbf{Key Observation:} The exponent (100) equals $\phi(125)$! This is the central hint.
+
+\textbf{Step 3: Apply Euler's Theorem -- Case 1 (1 minute)}
+
+\textbf{Case 1:} If $\gcd(n, 125) = 1$ (i.e., $n$ is not divisible by 5)
+
+By Euler's theorem:
+\[n^{\phi(125)} \equiv 1 \pmod{125}\]
+\[n^{100} \equiv 1 \pmod{125}\]
+
+Therefore, any integer not divisible by 5 gives remainder \textbf{1} when its 100th power is divided by 125.
+
+\textbf{Step 4: Analyze Multiples of 5 -- Case 2 (1 minute)}
+
+\textbf{Case 2:} If $\gcd(n, 125) > 1$ (i.e., $n$ is divisible by 5)
+
+Write $n = 5m$ for some integer $m$. Then:
+\begin{align*}
+n^{100} &= (5m)^{100} \\
+&= 5^{100} \cdot m^{100} \\
+&= 5^3 \cdot 5^{97} \cdot m^{100} \\
+&= 125 \cdot (5^{97} \cdot m^{100})
+\end{align*}
+
+Since $125 \mid n^{100}$, we have:
+\[n^{100} \equiv 0 \pmod{125}\]
+
+Therefore, any integer divisible by 5 gives remainder \textbf{0} when its 100th power is divided by 125.
+
+\textbf{Step 5: Count Distinct Remainders (30 seconds)}
+
+From our case analysis:
+\begin{itemize}
+    \item Case 1: Remainder is 1
+    \item Case 2: Remainder is 0
+\end{itemize}
+
+Total distinct remainders: \textbf{2}
+
+\textbf{Step 6: Match to Answer Choice (5 seconds)}
+\begin{itemize}
+    \item Our result: 2 distinct remainders
+    \item This is answer choice \textbf{(B)}
+\end{itemize}
+
+\subsection*{Time Checkpoint}
+
+\textbf{Total Time: Approximately 3-4 minutes}
+\begin{itemize}
+    \item Identifying structure: 30 sec
+    \item Calculating $\phi(125)$: 30 sec
+    \item Case 1 (Euler's theorem): 1 min
+    \item Case 2 (multiples of 5): 1 min
+    \item Counting: 30 sec
+    \item Verification: 30 sec
+\end{itemize}
+
+This is reasonable for Problem 14, which is entering late mid-band territory.
+
+\subsection*{Verification by Examples}
+
+Let's verify our answer with specific examples:
+
+\textbf{Examples for Case 1 ($\gcd(n, 125) = 1$):}
+
+\begin{itemize}
+    \item $n = 1$: $1^{100} = 1 \equiv 1 \pmod{125}$ $\checkmark$
+    \item $n = 2$: By Euler's theorem, since $\gcd(2, 125) = 1$ and $\phi(125) = 100$, we have $2^{100} \equiv 1 \pmod{125}$ $\checkmark$
+    \item $n = 3$: By Euler's theorem, $3^{100} \equiv 1 \pmod{125}$ $\checkmark$
+\end{itemize}
+
+\textbf{Examples for Case 2 (multiples of 5):}
+
+\begin{itemize}
+    \item $n = 5$: $5^{100} = (5^3) \cdot 5^{97} = 125 \cdot 5^{97} \equiv 0 \pmod{125}$ $\checkmark$
+    \item $n = 10$: $10^{100} = (2 \cdot 5)^{100} = 2^{100} \cdot 5^{100} \equiv 0 \pmod{125}$ $\checkmark$
+    \item $n = 25$: $25^{100} = (5^2)^{100} = 5^{200} \equiv 0 \pmod{125}$ $\checkmark$
+\end{itemize}
+
+All examples confirm our conclusion: only remainders 0 and 1 are possible.
+
+\subsection*{Alternative Approach: Binomial Theorem}
+
+For students without knowledge of Euler's theorem, here's an elegant alternative:
+
+\textbf{Key Lemma:} $(5 + n)^{100} \equiv n^{100} \pmod{125}$
+
+\textbf{Proof:} By binomial theorem:
+\begin{align*}
+(5 + n)^{100} &= \sum_{k=0}^{100} \binom{100}{k} 5^{100-k} n^k
+\end{align*}
+
+Terms with $5^{100-k}$ where $100 - k \geq 3$ contain a factor of $5^3 = 125$, so they vanish modulo 125.
+
+Only the last three terms matter:
+\begin{align*}
+&\binom{100}{98} 5^2 n^{98} + \binom{100}{99} 5 n^{99} + \binom{100}{100} n^{100} \\
+&= \frac{100 \cdot 99}{2} \cdot 25 n^{98} + 100 \cdot 5 n^{99} + n^{100} \\
+&= 4950 \cdot 25 n^{98} + 500 n^{99} + n^{100}
+\end{align*}
+
+Now $4950 \cdot 25 = 123750 = 990 \cdot 125$, so first term vanishes.
+
+And $500 = 4 \cdot 125$, so second term vanishes.
+
+Therefore: $(5 + n)^{100} \equiv n^{100} \pmod{125}$
+
+\textbf{Implication:} The remainder of $n^{100}$ repeats with period 5. So we only need to check $n = 0, 1, 2, 3, 4$.
+
+By symmetry $(5-n)^{100} \equiv n^{100}$, we have:
+\begin{itemize}
+    \item $4^{100} \equiv 1^{100}$
+    \item $3^{100} \equiv 2^{100}$
+\end{itemize}
+
+So we really only need to check $n = 0, 1, 2$:
+\begin{itemize}
+    \item $0^{100} = 0$
+    \item $1^{100} = 1$
+    \item $2^{100}$: We showed earlier that $2^{100} \equiv 1 \pmod{125}$
+\end{itemize}
+
+Therefore, only remainders 0 and 1 appear. Answer: \textbf{2}.
+
+\textbf{Complexity Assessment:} This approach is more computational but doesn't require knowledge of Euler's theorem. It's a good fallback method.
+\end{solutionbox}
+
+\vspace{1em}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+
+\textbf{Time Allocation for Problem 14:}
+\begin{itemize}
+    \item Target time: 3-4 minutes (with Euler's theorem)
+    \item Maximum time: 6 minutes (without Euler's theorem)
+    \item This problem rewards number theory knowledge
+\end{itemize}
+
+\textbf{Decision Point:}
+\begin{itemize}
+    \item \textbf{Know Euler's theorem?} Use it immediately (3-4 min)
+    \item \textbf{Don't know it?} Try direct computation or binomial approach (5-6 min)
+    \item \textbf{Very short on time?} Educated guess based on answer choices (30 sec)
+\end{itemize}
+
+\subsection*{B. Answer Format Requirements}
+
+\textbf{AMC 12 Multiple Choice:}
+\begin{itemize}
+    \item Select one answer: \textbf{(B)} 2
+    \item No partial credit
+    \item Guessing penalty: None (score 0 for wrong/blank)
+\end{itemize}
+
+\subsection*{C. Strategic Context}
+
+\textbf{Problem 14 Position Strategy:}
+\begin{itemize}
+    \item This is entering late mid-band territory
+    \item Tests specific number theory knowledge (Euler's theorem)
+    \item Students familiar with theorem can solve quickly
+    \item Students without it need more time for alternative approaches
+    \item Worth 6 points (standard for all AMC problems)
+\end{itemize}
+
+\textbf{Knowledge Gate:}
+\begin{itemize}
+    \item \textbf{With Euler's theorem:} Problem becomes straightforward
+    \item \textbf{Without it:} Still solvable but requires more creativity
+    \item This is typical for Problem 14-16 range: rewards specific techniques
+\end{itemize}
+
+\subsection*{D. Risk Assessment}
+
+\textbf{Risk Level: Medium}
+
+\textbf{Factors:}
+\begin{itemize}
+    \item \textbf{Medium Risk:} Depends on number theory background
+    \item \textbf{Pitfall:} Forgetting to check multiples of 5 separately
+    \item \textbf{Mitigation:} Careful case analysis and testing examples
+\end{itemize}
+
+\textbf{When to Skip:}
+\begin{itemize}
+    \item If number theory is a major weakness
+    \item If you don't know Euler's theorem and can't see alternative approach
+    \item If already behind on time
+\end{itemize}
+
+\textbf{When to Commit:}
+\begin{itemize}
+    \item If you immediately recognize $\phi(125) = 100$
+    \item If you're comfortable with modular arithmetic
+    \item If you have 4+ minutes available
+\end{itemize}
+
+\subsection*{E. Learning Opportunity}
+
+\textbf{Post-Contest Study:}
+\begin{itemize}
+    \item If you didn't know Euler's theorem, learn it now!
+    \item Formula: $a^{\phi(n)} \equiv 1 \pmod{n}$ when $\gcd(a,n) = 1$
+    \item Totient function: $\phi(p^k) = p^{k-1}(p-1)$ for prime $p$
+    \item This appears frequently in AMC 12 and AIME problems
+\end{itemize}
+\end{competitionbox}
+
+\vspace{1em}
+
+\begin{protipbox}
+\textbf{Post-Exam Learning:} Euler's theorem and the totient function are extremely powerful tools for modular arithmetic problems. If you didn't know them before this problem, add them to your toolkit immediately! They appear frequently on AMC 12, AIME, and olympiad problems. The investment in learning them pays huge dividends.
+\end{protipbox}
+
+\newpage
+
+\section*{Complete Solution Summary}
+
+\subsection*{Key Steps:}
+
+\begin{enumerate}
+    \item \textbf{Recognize Structure:} 
+    
+    $125 = 5^3$ is a prime power, making Euler's totient function applicable.
+    
+    \item \textbf{Calculate Totient:}
+    \[
+    \phi(125) = \phi(5^3) = 5^3 - 5^2 = 125 - 25 = 100
+    \]
+    
+    \item \textbf{Notice Coincidence:}
+    
+    The exponent (100) equals $\phi(125)$! This is the key to the problem.
+    
+    \item \textbf{Apply Euler's Theorem (Case 1):}
+    
+    If $\gcd(n, 125) = 1$, then by Euler's theorem:
+    \[
+    n^{100} = n^{\phi(125)} \equiv 1 \pmod{125}
+    \]
+    
+    \item \textbf{Analyze Multiples of 5 (Case 2):}
+    
+    If $5 \mid n$, write $n = 5m$:
+    \[
+    n^{100} = 5^{100} \cdot m^{100} = 125 \cdot 5^{97} \cdot m^{100} \equiv 0 \pmod{125}
+    \]
+    
+    \item \textbf{Count Remainders:}
+    
+    Only two possible remainders: 0 and 1
+\end{enumerate}
+
+\subsection*{Final Answer:}
+
+\begin{center}
+\fbox{\Large \textbf{(B) } $\displaystyle 2$}
+\end{center}
+
+\vspace{1em}
+
+\subsection*{Verification:}
+\begin{itemize}
+    \item Test $n = 1$: $1^{100} = 1 \equiv 1 \pmod{125}$ $\checkmark$
+    \item Test $n = 2$: By Euler's theorem, $2^{100} \equiv 1 \pmod{125}$ $\checkmark$
+    \item Test $n = 5$: $5^{100} = 125 \cdot 5^{97} \equiv 0 \pmod{125}$ $\checkmark$
+    \item Test $n = 10$: $(2 \cdot 5)^{100} = 2^{100} \cdot 5^{100} \equiv 0 \pmod{125}$ $\checkmark$
+    \item Matches answer choice (B) $\checkmark$
+\end{itemize}
+
+\subsection*{Key Takeaways:}
+
+\begin{enumerate}
+    \item \textbf{Euler's Theorem:} When $\gcd(a,n) = 1$, we have $a^{\phi(n)} \equiv 1 \pmod{n}$. This is a fundamental tool for modular exponentiation.
+    
+    \item \textbf{Totient of Prime Powers:} For $p$ prime, $\phi(p^k) = p^{k-1}(p-1)$. Specifically, $\phi(5^3) = 5^2 \cdot 4 = 100$.
+    
+    \item \textbf{Case Analysis by GCD:} When dealing with modular arithmetic, always consider separately the cases where integers are or aren't relatively prime to the modulus.
+    
+    \item \textbf{Prime Power Divisibility:} If $p^k \mid n$, then $p^{km} \mid n^m$. Here, $5^3 \mid 5^{100}$ forces remainder 0.
+    
+    \item \textbf{Coincidence as Hint:} When the exponent equals $\phi(\text{modulus})$, it's not coincidence -- it's the problem's core structure.
+    
+    \item \textbf{Alternative Methods:} Binomial theorem provides an elegant alternative for those unfamiliar with Euler's theorem, showing mathematical flexibility.
+\end{enumerate}
+
+\vspace{2em}
+
+\hrule
+
+\vspace{1em}
+
+\begin{center}
+\textit{Analysis completed using AMC12/COMC Strategic Problem-Solving Framework v2.1}
+
+\textit{Framework emphasizes: Number Theory Techniques • Theorem Application • Case Analysis}
+\end{center}
+
+\end{document}

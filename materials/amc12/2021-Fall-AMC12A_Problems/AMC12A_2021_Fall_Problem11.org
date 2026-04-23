@@ -1,0 +1,72 @@
+2021 AMC 12A Problems/Problem 11
+Contents
+1 Problem
+2 Solution 1 (Pythagorean Theorem)
+3 Solution 2 (Power of a Point)
+4 Solution 3 (Coordinate Geometry)
+5 Video Solution by TheBeautyofMath
+6 Video Solution (Logic and Geometry)
+7 See Also
+Problem
+Consider two concentric circles of radius $17$ and $19.$ The larger circle has a chord, half of which lies inside the smaller circle. What is the length of the chord in the larger circle?
+$\textbf{(A)}\ 12\sqrt{2} \qquad\textbf{(B)}\ 10\sqrt{3} \qquad\textbf{(C)}\ \sqrt{17 \cdot 19} \qquad\textbf{(D)}\ 18 \qquad\textbf{(E)}\ 8\sqrt{6}$
+Solution 1 (Pythagorean Theorem)
+Label the center of both circles $O$ . Label the chord in the larger circle as $\overline{ABCD}$ , where $A$ and $D$ are on the larger circle and $B$ and $C$ are on the smaller circle. Construct the radius perpendicular to the chord and label their intersection as $M$ . Because a radius that is perpendicular to a chord bisects the chord, $M$ is the midpoint of the chord.
+Construct segments $\overline{AO}$ and $\overline{BO}$ . These are radii with lengths 17 and 19 respectively.
+Then, use the Pythagorean Theorem . In $\triangle OMA$ , we have 
+
+\begin{align*} OM^2 & = OA^2 - AM^2 \\ & = OA^2 - \left( \frac{AD}{2} \right)^2 \\ & = 19^2 - \frac{AD^2}{4} . \end{align*}
+In $\triangle OMB$ , we have 
+
+\begin{align*} OM^2 & = OB^2 - BM^2 \\ & = OB^2 - \left( \frac{BC}{2} \right)^2 \\ & = OB^2 - \left( \frac{AD}{4} \right)^2 \\ & = 17^2 - \frac{AD^2}{16} . \end{align*}
+Equating these two expressions, we get
+
+\[19^2 - \frac{AD^2}{4} = 17^2 - \frac{AD^2}{16}\]
+
+and $AD=\boxed{\textbf{(E) }8 \sqrt{6}}$ .
+~eisthefifthletter and Steven Chen
+Solution 2 (Power of a Point)
+Draw the diameter perpendicular to the chord. Notice that by symmetry this diameter bisects the chord.
+Call the intersection between that diameter and the chord $A$ . In the smaller circle, let the shorter piece of the diameter cut by the chord be $x$ , making the longer piece $34-x.$ In that same circle, let the $y$ be the length of the portion of the chord that is cut by the diameter.
+The radius of the larger circle is $2$ more than the radius of the small circle. So, in the larger circle, the shorter piece of the diameter cut by the chord is of length $x+2$ and the longer piece is $36-x.$ As given in the problem, the bisected length of the chord in the larger circle is twice as much, so it is of length $2y$ . By Power of a Point , we can construct a system of equations
+
+\[x(34-x) = y^2\]
+
+\[(x+2)(36-x) = (2y)^2.\]
+
+Expanding both equations, we get
+
+\[34x-x^2 = y^2\]
+
+\[36x-x^2+72-2x = 4y^2,\]
+
+in which the $34x$ and $-x^2$ terms magically cancel when we subtract the first equation from the second equation. Thus, now we have
+
+\[72 = 3y^2 \implies y = 2\sqrt{6} \implies 4y = \boxed{\textbf{(E)} \: 8\sqrt{6}}.\]
+-fidgetboss_4000
+Solution 3 (Coordinate Geometry)
+Represent the circles as $x^{2}+y^{2}=17^{2}$ , and $x^{2}+y^{2}=19^{2}$ . Solving for $x$ in these equations we obtain $x=\sqrt{17^{2}-y^{2}}$ and $x=\sqrt{19^{2}-y^{2}}$ . Because half of the chord is in the smaller circle, the larger circle should have an $x$ value that is twice as big as the smaller circle's $x$ value. We set up the equation:
+
+\[2\sqrt{289-y^{2}}=\sqrt{361-y^{2}}\]
+
+\[4(289-y^{2})=361-y^{2}\]
+
+\[y^{2}=265\]
+
+Substituting $y^{2}$ into $x^{2}+y^{2}=19^{2}$ , we obtain $x=\sqrt{96}=4\sqrt{6}$ . However, this is only half of the chord length, so we must double it to obtain $\boxed{\textbf{(E)} \: 8\sqrt{6}}.$
+-helpmebro
+Video Solution by TheBeautyofMath
+https://youtu.be/ToiOlqWz3LY
+~IceMatrix
+Video Solution (Logic and Geometry)
+https://youtu.be/iG1vVXeTv58
+~Education, the Study of Everything
+See Also
+2021 Fall AMC 12A ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 10 Followed by 
+ Problem 12
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America .
+These problems are copyrighted © by the Mathematical Association of America.

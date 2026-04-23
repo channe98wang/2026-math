@@ -1,0 +1,770 @@
+% LaTeX Template for AI Problem Analysis Output (v2.0)
+% AMC 12B 2023 Problem 15 Strategic Analysis
+% Structure your analysis results using this template with colorful boxes
+% IMPORTANT: Use LaTeX commands for all mathematical symbols, NOT unicode characters
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{AMC12 Problem Analysis}
+\lhead{\today}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}    % Light blue
+\definecolor{strategic}{RGB}{255, 230, 242}       % Light pink
+\definecolor{tactical}{RGB}{242, 255, 230}        % Light green
+\definecolor{techniques}{RGB}{255, 242, 230}      % Light yellow
+\definecolor{verification}{RGB}{255, 230, 230}    % Light red
+\definecolor{solution}{RGB}{230, 255, 255}        % Light cyan
+\definecolor{competition}{RGB}{242, 242, 255}     % Light purple
+\definecolor{proofwriting}{RGB}{240, 230, 255}    % Light lavender
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\begin{document}
+
+\title{AMC12 Strategic Problem Analysis\\2023 AMC 12B Problem 15}
+\author{Competition Math Framework v2.1}
+\date{\today}
+\maketitle
+
+\section*{Problem Statement}
+
+Suppose $a$, $b$, and $c$ are positive integers such that
+$$\frac{a}{14}+\frac{b}{15}=\frac{c}{210}.$$
+
+Which of the following statements are necessarily true?
+
+\textbf{I.} If $\gcd(a,14)=1$ or $\gcd(b,15)=1$ or both, then $\gcd(c,210)=1$.
+
+\textbf{II.} If $\gcd(c,210)=1$, then $\gcd(a,14)=1$ or $\gcd(b,15)=1$ or both.
+
+\textbf{III.} $\gcd(c,210)=1$ if and only if $\gcd(a,14)=\gcd(b,15)=1$.
+
+$$\textbf{(A)}~\text{I, II, and III}\qquad\textbf{(B)}~\text{I only}\qquad\textbf{(C)}~\text{I and II only}\qquad\textbf{(D)}~\text{III only}\qquad\textbf{(E)}~\text{II and III only}$$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Prove/Disprove (determine which logical statements are true)
+    \item \textbf{Competition Context}: AMC12 2023B Problem 15
+    \item \textbf{Difficulty Band}: Mid-to-Late transition (P15/25) - requires number theory reasoning and logical analysis
+    \item \textbf{Mathematical Domain}: Number Theory (GCD properties) / Logic (if-then, if-and-only-if statements)
+    \item \textbf{Estimated Time}: 5-7 minutes for careful analysis or strategic testing
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item Equation: $\frac{a}{14}+\frac{b}{15}=\frac{c}{210}$
+        \item Equivalent form: $15a + 14b = c$ (multiply by $\text{lcm}(14,15) = 210$)
+        \item $a, b, c$ are positive integers
+        \item Three logical statements about GCD relationships
+        \item Five answer choices combining the statements
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item $a, b, c > 0$ (positive integers)
+        \item Linear Diophantine equation: $15a + 14b = c$
+        \item Note: $14 = 2 \cdot 7$, $15 = 3 \cdot 5$, $210 = 2 \cdot 3 \cdot 5 \cdot 7 = 14 \cdot 15$
+        \item $\gcd(14, 15) = 1$ (coprime)
+    \end{itemize}
+    \item \textbf{Objective}: Determine which statements are necessarily true (always true for all valid $a, b, c$)
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item Need to distinguish between ``or'' (at least one) and ``and'' (both)
+        \item ``If and only if'' means bidirectional: $P \Leftrightarrow Q$ means $P \Rightarrow Q$ AND $Q \Rightarrow P$
+        \item Can disprove statements with counterexamples
+        \item Must prove true statements rigorously or use GCD properties
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Five choices with different combinations
+        \item If we can quickly disprove Statement I, we eliminate (A), (B), (C)
+        \item Statement III appears in both (D) and (E), so it's likely true
+        \item The difference between (D) and (E) is Statement II
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: Statement I is likely false (easiest to find counterexample), Statements II and III are likely true
+    \item \textbf{Conclusion}: Determine which combination of I, II, III is correct
+    \item \textbf{Notation}: 
+    \begin{itemize}
+        \item Let $d_a = \gcd(a, 14)$, $d_b = \gcd(b, 15)$, $d_c = \gcd(c, 210)$
+        \item Key equation: $15a + 14b = c$
+        \item Prime factorizations: $14 = 2 \cdot 7$, $15 = 3 \cdot 5$, $210 = 2 \cdot 3 \cdot 5 \cdot 7$
+    \end{itemize}
+    \item \textbf{Intuitive Approach}: 
+    \begin{enumerate}
+        \item Rewrite equation in cleaner form: $15a + 14b = c$
+        \item Test Statement I with small counterexamples
+        \item Use GCD properties and modular arithmetic for Statements II and III
+        \item Leverage answer choices to narrow possibilities
+    \end{enumerate}
+    \item \textbf{Cross-Domain Potential}: This combines number theory (GCD), logic (conditional statements), and algebra (Diophantine equations).
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Multi-part logic problems require careful reading. Don't rush - understand what each statement claims.
+    \item \textbf{Creativity Cultivation}: Finding counterexamples requires creativity. Try simple values first ($a=1, b=1$, etc.).
+    \item \textbf{Iterative Refinement}: If a statement seems false, try a few counterexamples. If they all fail, maybe the statement is true!
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Immediately convert the fraction equation to $15a + 14b = c$ for clarity.
+    \item \textbf{Get Your Hands Dirty}: Test Statement I with small values like $a=1, b=1$ or $a=2, b=2$.
+    \item \textbf{Penultimate Step}: Once you narrow to two answer choices, focus on the distinguishing statement.
+    \item \textbf{Make It Easier}: 
+    \begin{itemize}
+        \item Use answer choice structure: If I is false, eliminate (A), (B), (C)
+        \item Notice III appears in both remaining choices, so it must be true
+        \item Only need to determine if II is true
+    \end{itemize}
+    \item \textbf{Wishful Thinking}: Wish for a simple counterexample to I - often the simplest values work!
+    \item \textbf{Conjecture via Small Cases}: Test with $a=1, 2, 3$ and $b=1, 2, 3$ to see patterns.
+\end{itemize}
+
+\subsection*{C. Argument Construction}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Proof Method}: 
+    \begin{itemize}
+        \item For false statements: Find counterexamples
+        \item For true statements: Use GCD properties and modular arithmetic
+        \item For ``if and only if'': Prove both directions
+    \end{itemize}
+    \item \textbf{Key Lemmas}: 
+    \begin{enumerate}
+        \item $15a + 14b = c$
+        \item GCD property: $\gcd(ma + nb, m) = \gcd(nb, m) = \gcd(b, m) \cdot \gcd(n, m/\gcd(b,m))$
+        \item Simplified: $\gcd(c, 14) = \gcd(15a + 14b, 14) = \gcd(15a, 14) = \gcd(a, 14)$ (since $\gcd(15,14)=1$)
+        \item Similarly: $\gcd(c, 15) = \gcd(b, 15)$
+        \item Therefore: $\gcd(c, 210) = \gcd(c, 14) \cdot \gcd(c, 15) = \gcd(a, 14) \cdot \gcd(b, 15)$ (since $\gcd(14,15)=1$)
+    \end{enumerate}
+    \item \textbf{Logical Structure}: Test statements systematically, use answer choices to guide strategy
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Tactics}: 
+    \begin{itemize}
+        \item \emph{Counterexample Testing}: Find specific values that violate a statement
+        \item \emph{GCD Properties}: Use properties of greatest common divisor
+        \item \emph{Modular Arithmetic}: Take equation modulo prime factors
+        \item \emph{Logical Analysis}: Understand ``or'' vs ``and'', ``if-then'' vs ``if-and-only-if''
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics (Number Theory)}: 
+    \begin{itemize}
+        \item GCD multiplication rule: If $\gcd(m,n)=1$, then $\gcd(a, mn) = \gcd(a,m) \cdot \gcd(a,n)$
+        \item Linear combination: $\gcd(ma+nb, n) = \gcd(ma, n)$ when appropriate
+        \item Prime factorization: $14 = 2 \cdot 7$, $15 = 3 \cdot 5$, $210 = 2 \cdot 3 \cdot 5 \cdot 7$
+        \item Coprimality: $\gcd(14,15) = 1$ is crucial
+    \end{itemize}
+    \item \textbf{Domain-Specific Tactics (Logic)}: 
+    \begin{itemize}
+        \item ``Or'' means at least one (inclusive or)
+        \item ``If and only if'' requires proving both directions
+        \item Contrapositive: ``If P then Q'' is equivalent to ``If not Q then not P''
+    \end{itemize}
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. High-Probability Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: \textbf{Answer Choice Testing} + \textbf{GCD Properties}
+    \item \textbf{Recognition Cues}: 
+    \begin{itemize}
+        \item Multiple logical statements to evaluate
+        \item Answer choices combine statements in different ways
+        \item Counterexamples can eliminate statements
+        \item Small numbers ($14, 15, 210$) suggest testing is feasible
+    \end{itemize}
+    \item \textbf{Application - Strategic Approach}: 
+    \begin{enumerate}
+        \item Convert equation: $\frac{a}{14}+\frac{b}{15}=\frac{c}{210} \Rightarrow 15a + 14b = c$
+        \item Test Statement I with simple counterexample: Try $a=2, b=2$
+        \begin{itemize}
+            \item $c = 15(2) + 14(2) = 30 + 28 = 58$
+            \item $\gcd(2, 14) = 2 \neq 1$, $\gcd(2, 15) = 1$ $\checkmark$
+            \item So I's condition is satisfied (at least one GCD is 1)
+            \item But $\gcd(58, 210) = \gcd(58, 210) = 2 \neq 1$
+            \item Statement I is FALSE!
+        \end{itemize}
+        \item Eliminate answer choices (A), (B), (C)
+        \item Remaining choices: (D) III only, or (E) II and III only
+        \item Since III appears in both, Statement III must be TRUE
+        \item Determine if Statement II is true to choose between (D) and (E)
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{B. Alternative Techniques}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Rigorous GCD Analysis}: 
+    \begin{itemize}
+        \item Use GCD property: $\gcd(c, 14) = \gcd(15a+14b, 14) = \gcd(15a, 14) = \gcd(a, 14)$
+        \item Similarly: $\gcd(c, 15) = \gcd(b, 15)$
+        \item Since $\gcd(14,15)=1$: $\gcd(c, 210) = \gcd(a,14) \cdot \gcd(b,15)$
+        \item This directly proves Statement III!
+    \end{itemize}
+    \item \textbf{Modular Arithmetic Approach}: 
+    \begin{itemize}
+        \item For Statement III's ``if'' direction: Assume $\gcd(a,14)=\gcd(b,15)=1$ but $\gcd(c,210) \neq 1$
+        \item Then $c$ has a prime factor $p \in \{2,3,5,7\}$
+        \item Taking modulo $p$ on $15a+14b=c$: contradiction arises
+    \end{itemize}
+    \item \textbf{Technique Integration}: Answer choice elimination is fastest, but GCD analysis provides rigorous proof.
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Chosen Level}: Level 4-5 (Standard to Thorough, 1-2 minutes)
+    \item \textbf{Justification}: Logic problem with multiple statements. Need to verify counterexample works and check remaining statements.
+    \item \textbf{Time Budget}: 1-2 minutes for verification
+\end{itemize}
+
+\subsection*{B. Verification Checklist}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Counterexample Validity}: 
+    \begin{itemize}
+        \item Does counterexample satisfy the original equation?
+        \item Does it satisfy the condition of the statement?
+        \item Does it violate the conclusion of the statement?
+    \end{itemize}
+    \item \textbf{Logical Rigor}: 
+    \begin{itemize}
+        \item For ``or'' statements: Is at least one condition satisfied?
+        \item For ``and'' statements: Are both conditions satisfied?
+        \item For ``if and only if'': Are both directions proven?
+    \end{itemize}
+    \item \textbf{Answer Choice Check}: Does selection match one of the five options?
+\end{itemize}
+
+\subsection*{C. Detailed Verification}
+
+\textbf{Verify Statement I is False}:
+
+Counterexample: $a=2, b=2$
+\begin{align*}
+    c &= 15(2) + 14(2) = 58\\
+    \gcd(2, 14) &= 2 \neq 1\\
+    \gcd(2, 15) &= 1 \checkmark \text{ (at least one GCD is 1)}\\
+    \gcd(58, 210) &= \gcd(58, 210)
+\end{align*}
+
+Find $\gcd(58, 210)$:
+\begin{align*}
+    58 &= 2 \cdot 29\\
+    210 &= 2 \cdot 3 \cdot 5 \cdot 7\\
+    \gcd(58, 210) &= 2 \neq 1
+\end{align*}
+
+Statement I claims: condition satisfied $\Rightarrow$ $\gcd(c,210)=1$
+
+But we have: condition satisfied, yet $\gcd(c,210)=2 \neq 1$
+
+Therefore Statement I is FALSE $\checkmark$
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{A. Step-by-Step Solution (Strategic Approach)}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Convert equation to cleaner form (30 seconds)}
+    
+    Given: $\frac{a}{14}+\frac{b}{15}=\frac{c}{210}$
+    
+    Multiply both sides by $210 = \text{lcm}(14, 15)$:
+    $$210 \cdot \frac{a}{14} + 210 \cdot \frac{b}{15} = 210 \cdot \frac{c}{210}$$
+    $$15a + 14b = c$$
+    
+    This is our working equation.
+    
+    \item \textbf{Test Statement I with counterexample (60 seconds)}
+    
+    \textbf{Statement I}: If $\gcd(a,14)=1$ or $\gcd(b,15)=1$ or both, then $\gcd(c,210)=1$.
+    
+    Try $a=2, b=2$:
+    \begin{align*}
+        c &= 15(2) + 14(2) = 30 + 28 = 58\\
+        \gcd(2, 14) &= \gcd(2, 2 \cdot 7) = 2 \neq 1\\
+        \gcd(2, 15) &= \gcd(2, 3 \cdot 5) = 1 \checkmark
+    \end{align*}
+    
+    Condition is satisfied: $\gcd(b,15)=1$ $\checkmark$
+    
+    Check conclusion:
+    \begin{align*}
+        \gcd(58, 210) &= \gcd(2 \cdot 29, 2 \cdot 3 \cdot 5 \cdot 7) = 2 \neq 1
+    \end{align*}
+    
+    Statement I is \textbf{FALSE}! (Counterexample found)
+    
+    \item \textbf{Eliminate answer choices (10 seconds)}
+    
+    Statement I is false, so eliminate:
+    \begin{itemize}
+        \item (A) I, II, and III - \textbf{Eliminated}
+        \item (B) I only - \textbf{Eliminated}
+        \item (C) I and II only - \textbf{Eliminated}
+    \end{itemize}
+    
+    Remaining choices:
+    \begin{itemize}
+        \item (D) III only
+        \item (E) II and III only
+    \end{itemize}
+    
+    \item \textbf{Observe that Statement III must be true (15 seconds)}
+    
+    Since Statement III appears in both remaining answer choices (D) and (E), it \emph{must} be true.
+    
+    The only difference is whether Statement II is true.
+    
+    \item \textbf{Determine Statement II (2-3 minutes)}
+    
+    \textbf{Statement II}: If $\gcd(c,210)=1$, then $\gcd(a,14)=1$ or $\gcd(b,15)=1$ or both.
+    
+    We can prove this using the contrapositive or by using GCD properties.
+    
+    \textbf{Method 1: Contrapositive}
+    
+    Contrapositive: If $\gcd(a,14) \neq 1$ AND $\gcd(b,15) \neq 1$, then $\gcd(c,210) \neq 1$.
+    
+    Assume $\gcd(a,14) > 1$ and $\gcd(b,15) > 1$.
+    
+    Then:
+    \begin{itemize}
+        \item $\gcd(a,14) \geq 2$ (or 7), so $a$ shares a factor with 14
+        \item $\gcd(b,15) \geq 3$ (or 5), so $b$ shares a factor with 15
+    \end{itemize}
+    
+    Case: Suppose $2|a$ (since $2|14$).
+    
+    From $c = 15a + 14b$:
+    \begin{align*}
+        c &\equiv 15a + 14b \pmod{2}\\
+        &\equiv a + 0 \pmod{2} \quad \text{(since $15 \equiv 1$, $14 \equiv 0 \pmod{2}$)}\\
+        &\equiv 0 \pmod{2} \quad \text{(since $2|a$)}
+    \end{align*}
+    
+    So $2|c$, thus $\gcd(c,210) \geq 2 > 1$ $\checkmark$
+    
+    Similar arguments work for other prime factors.
+    
+    Therefore Statement II is \textbf{TRUE}.
+    
+    \item \textbf{Verify Statement III for completeness (optional, 2-3 minutes)}
+    
+    \textbf{Statement III}: $\gcd(c,210)=1$ if and only if $\gcd(a,14)=\gcd(b,15)=1$.
+    
+    This requires proving both directions.
+    
+    \textbf{``If'' direction ($\Rightarrow$)}: 
+    
+    If $\gcd(a,14)=1$ and $\gcd(b,15)=1$, then $\gcd(c,210)=1$.
+    
+    Suppose not: $\gcd(c,210) > 1$. Then $c$ has a prime factor $p \in \{2,3,5,7\}$.
+    
+    \begin{itemize}
+        \item If $p \in \{2,7\}$ (factors of 14): Then $p|c$ implies $p|15a$ (from $c=15a+14b$). Since $p \nmid 15$, we have $p|a$. But $\gcd(a,14)=1$ means $p \nmid a$. Contradiction.
+        \item If $p \in \{3,5\}$ (factors of 15): Then $p|c$ implies $p|14b$. Since $p \nmid 14$, we have $p|b$. But $\gcd(b,15)=1$ means $p \nmid b$. Contradiction.
+    \end{itemize}
+    
+    Therefore $\gcd(c,210)=1$ $\checkmark$
+    
+    \textbf{``Only if'' direction ($\Leftarrow$)}: 
+    
+    If $\gcd(c,210)=1$, then $\gcd(a,14)=1$ AND $\gcd(b,15)=1$.
+    
+    This is stronger than Statement II (which uses ``or''). Since Statement II is true, and this requires both conditions, we need to verify.
+    
+    Actually, we can use GCD property:
+    $$\gcd(c,14) = \gcd(15a+14b, 14) = \gcd(15a, 14) = \gcd(a,14)$$
+    
+    (since $\gcd(15,14)=1$)
+    
+    Similarly: $\gcd(c,15) = \gcd(b,15)$
+    
+    Since $\gcd(14,15)=1$:
+    $$\gcd(c,210) = \gcd(c,14 \cdot 15) = \gcd(c,14) \cdot \gcd(c,15) = \gcd(a,14) \cdot \gcd(b,15)$$
+    
+    If $\gcd(c,210)=1$, then $\gcd(a,14) \cdot \gcd(b,15) = 1$.
+    
+    Since both are positive integers, this requires $\gcd(a,14)=1$ AND $\gcd(b,15)=1$ $\checkmark$
+    
+    Therefore Statement III is \textbf{TRUE}.
+    
+    \item \textbf{Final answer (5 seconds)}
+    
+    Statements II and III are true, Statement I is false.
+    
+    Answer: \textbf{(E) II and III only}
+\end{enumerate}
+
+\subsection*{B. Alternative Counterexamples for Statement I}
+
+Other counterexamples that work:
+\begin{itemize}
+    \item $a=1, b=3$: $c = 15(1) + 14(3) = 15+42 = 57 = 3 \cdot 19$
+    \begin{itemize}
+        \item $\gcd(1,14)=1$ $\checkmark$, $\gcd(3,15)=3 \neq 1$
+        \item $\gcd(57, 210) = 3 \neq 1$ (Statement I violated)
+    \end{itemize}
+    
+    \item $a=1, b=5$: $c = 15(1) + 14(5) = 15+70 = 85 = 5 \cdot 17$
+    \begin{itemize}
+        \item $\gcd(1,14)=1$ $\checkmark$, $\gcd(5,15)=5 \neq 1$
+        \item $\gcd(85, 210) = 5 \neq 1$ (Statement I violated)
+    \end{itemize}
+    
+    \item $a=3, b=5$: $c = 15(3) + 14(5) = 45+70 = 115 = 5 \cdot 23$
+    \begin{itemize}
+        \item $\gcd(3,14)=1$ $\checkmark$, $\gcd(5,15)=5 \neq 1$
+        \item $\gcd(115, 210) = 5 \neq 1$ (Statement I violated)
+    \end{itemize}
+\end{itemize}
+
+All of these work as counterexamples!
+
+\subsection*{C. Rigorous Proof Using GCD Properties}
+
+The elegant approach uses:
+$$\gcd(c,210) = \gcd(a,14) \cdot \gcd(b,15)$$
+
+This immediately proves:
+\begin{itemize}
+    \item Statement III: $\gcd(c,210)=1 \Leftrightarrow \gcd(a,14)=\gcd(b,15)=1$
+    \item Statement II: If $\gcd(c,210)=1$, then $\gcd(a,14)=\gcd(b,15)=1$, which implies at least one is 1
+    \item Statement I is false: If only one of $\gcd(a,14)$ or $\gcd(b,15)$ is 1, the product may not be 1
+\end{itemize}
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Estimated Time}: 5-7 minutes total
+    \begin{itemize}
+        \item Quick approach (counterexample + answer choice elimination): 3-4 minutes
+        \item Rigorous approach (prove all statements): 7-9 minutes
+    \end{itemize}
+    \item \textbf{Time Checkpoints}: 
+    \begin{itemize}
+        \item At 1 minute: Should have converted to $15a+14b=c$
+        \item At 2 minutes: Should have found counterexample to Statement I
+        \item At 3 minutes: Should have eliminated (A), (B), (C) and focused on II vs III
+        \item If stuck: Try simple values like $a=1, 2, 3$ with $b=1, 2, 3$
+    \end{itemize}
+    \item \textbf{Priority Level}: High - Mid-to-late band problem testing important techniques
+\end{itemize}
+
+\subsection*{B. Risk Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 85-90\% after finding counterexample and using answer choice logic
+    \item \textbf{Common Errors}:
+    \begin{itemize}
+        \item Misreading ``or'' as ``and'' (or vice versa)
+        \item Not checking counterexample arithmetic carefully
+        \item Confusing ``if-then'' with ``if-and-only-if''
+        \item Spending too long trying to prove Statement I (just find counterexample!)
+    \end{itemize}
+    \item \textbf{Abandonment Criteria}: If spending more than 8 minutes, make educated guess
+    \item \textbf{Flag for Review}: If counterexample arithmetic is uncertain
+\end{itemize}
+
+\subsection*{C. Competition Context}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem 15/25 Strategy}: Transition to late-band. This separates students who can think logically about number theory from those who can't.
+    \item \textbf{Point Value}: 6 points (standard AMC12), with 1.5 points for leaving blank
+    \item \textbf{Difficulty Assessment}: Mid-to-late band. Tests:
+    \begin{itemize}
+        \item GCD properties and number theory reasoning
+        \item Logical analysis (or, and, if-then, if-and-only-if)
+        \item Counterexample construction
+        \item Strategic use of answer choices
+        \item Modular arithmetic (for rigorous approach)
+    \end{itemize}
+    \item \textbf{Strategic Value}: This problem type (logical statements about number theory) appears regularly on AMC. Master the technique of testing with simple counterexamples.
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+\textbf{Key Insight}: The fundamental relationship is:
+$$\gcd(c,210) = \gcd(a,14) \cdot \gcd(b,15)$$
+
+This comes from:
+\begin{itemize}
+    \item $c = 15a + 14b$
+    \item $\gcd(c,14) = \gcd(15a+14b, 14) = \gcd(15a, 14) = \gcd(a,14)$ (using $\gcd(15,14)=1$)
+    \item $\gcd(c,15) = \gcd(b,15)$ (similarly)
+    \item $\gcd(c,210) = \gcd(c,14 \cdot 15) = \gcd(c,14) \cdot \gcd(c,15)$ (using $\gcd(14,15)=1$)
+\end{itemize}
+
+From this relationship:
+\begin{itemize}
+    \item \textbf{Statement III is true}: $\gcd(c,210)=1 \Leftrightarrow \gcd(a,14) \cdot \gcd(b,15)=1 \Leftrightarrow \gcd(a,14)=\gcd(b,15)=1$
+    \item \textbf{Statement II is true}: It's the ``only if'' part of Statement III, which we just proved
+    \item \textbf{Statement I is false}: If only ONE of the GCDs is 1, the product may not be 1. Example: $\gcd(a,14)=2, \gcd(b,15)=1$ gives $\gcd(c,210)=2 \neq 1$
+\end{itemize}
+
+The strategic insight for competition: Find a simple counterexample to Statement I (like $a=2, b=2$), eliminate three answer choices, then use the answer choice structure to deduce the rest!
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Warning}: Common Pitfalls to Avoid
+
+\begin{itemize}
+    \item \textbf{Misreading logical connectives}: 
+    \begin{itemize}
+        \item ``Or'' means AT LEAST ONE (inclusive or), not exactly one
+        \item ``And'' means BOTH must be true
+        \item ``If and only if'' means BOTH directions: $P \Rightarrow Q$ AND $Q \Rightarrow P$
+    \end{itemize}
+    
+    \item \textbf{Arithmetic errors in counterexamples}: 
+    \begin{itemize}
+        \item Always verify: $c = 15a + 14b$ computed correctly
+        \item Check GCDs carefully: $\gcd(58, 210) = 2$, not 1
+        \item Don't assume - calculate!
+    \end{itemize}
+    
+    \item \textbf{Trying to prove false statements}: 
+    \begin{itemize}
+        \item If Statement I seems hard to prove, try to disprove it!
+        \item One counterexample is sufficient to show a statement is not ``necessarily true''
+    \end{itemize}
+    
+    \item \textbf{Confusing Statement II and III}: 
+    \begin{itemize}
+        \item Statement II: $\gcd(c,210)=1 \Rightarrow \gcd(a,14)=1$ OR $\gcd(b,15)=1$ (or both)
+        \item Statement III: $\gcd(c,210)=1 \Leftrightarrow \gcd(a,14)=1$ AND $\gcd(b,15)=1$
+        \item III is STRONGER (requires both, not just one)
+    \end{itemize}
+    
+    \item \textbf{Not using answer choice structure}: 
+    \begin{itemize}
+        \item Once you eliminate (A), (B), (C), notice that III appears in BOTH remaining choices
+        \item This means III must be true - no need to fully prove it if pressed for time!
+    \end{itemize}
+    
+    \item \textbf{Time mismanagement}: 
+    \begin{itemize}
+        \item Don't spend 5 minutes trying to rigorously prove all three statements
+        \item Quick strategic approach: 2 minutes to find counterexample, 1 minute to narrow choices
+    \end{itemize}
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Pro Tip}: Competition Strategy
+
+\begin{itemize}
+    \item \textbf{Test Statement I first}: It's often the easiest to disprove with a counterexample. This eliminates half the answer choices!
+    
+    \item \textbf{Use small values}: Try $a=1, 2, 3$ and $b=1, 2, 3$. Don't overthink - simple counterexamples often work.
+    
+    \item \textbf{Answer choice leverage}: 
+    \begin{itemize}
+        \item After eliminating (A), (B), (C), notice that (D) and (E) both contain III
+        \item Therefore III must be true - you can assume this without proof!
+        \item Only need to determine if II is true to choose between (D) and (E)
+    \end{itemize}
+    
+    \item \textbf{Contrapositive is your friend}: Statement II can be proven via contrapositive, which is often easier than direct proof.
+    
+    \item \textbf{Know GCD properties}: 
+    \begin{itemize}
+        \item $\gcd(ma+nb, m) = \gcd(nb, m)$ when $m|ma$
+        \item When $\gcd(m,n)=1$: $\gcd(k, mn) = \gcd(k,m) \cdot \gcd(k,n)$
+    \end{itemize}
+    
+    \item \textbf{Verify counterexamples}: Always check that your counterexample:
+    \begin{itemize}
+        \item Satisfies the original equation
+        \item Satisfies the condition of the statement
+        \item Violates the conclusion of the statement
+    \end{itemize}
+    
+    \item \textbf{Time allocation}: 
+    \begin{itemize}
+        \item 2 minutes: Find counterexample to Statement I
+        \item 1 minute: Use answer choices to narrow to (D) or (E)
+        \item 2-3 minutes: Determine if Statement II is true
+        \item Total: 5-6 minutes
+    \end{itemize}
+    
+    \item \textbf{Pattern recognition}: When you see GCD relationships in a linear equation, think about modular arithmetic and the GCD product rule.
+\end{itemize}
+\end{tipbox}
+
+\section*{Final Answer}
+
+The statements that are necessarily true are:
+$$\boxed{\textbf{(E) } \text{II and III only}}$$
+
+\textbf{Summary}:
+\begin{itemize}
+    \item \textbf{Statement I is FALSE}: Counterexample $a=2, b=2$ gives $c=58$ with $\gcd(2,15)=1$ but $\gcd(58,210)=2 \neq 1$
+    \item \textbf{Statement II is TRUE}: Can be proven via contrapositive or using $\gcd(c,210)=\gcd(a,14) \cdot \gcd(b,15)$
+    \item \textbf{Statement III is TRUE}: $\gcd(c,210)=1 \Leftrightarrow \gcd(a,14)=\gcd(b,15)=1$ (follows from GCD product rule)
+\end{itemize}
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 90\% - Counterexample verified, answer choice logic is sound, rigorous proof available for Statements II and III
+    \item \textbf{Verification Applied}: Level 4-5 (Standard to Thorough) - Checked counterexample arithmetic and logical reasoning
+    \item \textbf{Flag for Review}: No - Solution is complete and verified
+    \item \textbf{Time Spent}: Estimated 5-6 minutes (optimal for P15)
+\end{itemize}
+
+\section*{Summary of Solution Path}
+
+\textbf{Strategic Approach (5-6 minutes):}
+\begin{enumerate}
+    \item Convert to $15a + 14b = c$
+    \item Test Statement I: Find counterexample $a=2, b=2 \Rightarrow c=58$
+    \item Verify: $\gcd(2,15)=1$ $\checkmark$, but $\gcd(58,210)=2 \neq 1$ (Statement I false)
+    \item Eliminate answer choices (A), (B), (C)
+    \item Observe: Statement III appears in both (D) and (E), so it must be true
+    \item Determine Statement II: Use contrapositive or GCD properties to show it's true
+    \item Answer: (E) II and III only
+\end{enumerate}
+
+\textbf{Rigorous Approach (7-9 minutes):}
+\begin{enumerate}
+    \item Use GCD property: $\gcd(c,210) = \gcd(a,14) \cdot \gcd(b,15)$
+    \item Prove directly:
+    \begin{itemize}
+        \item Statement I false: Product of two GCDs (one being >1) may not be 1
+        \item Statement II true: Follows from Statement III's ``only if'' part
+        \item Statement III true: Product equals 1 $\Leftrightarrow$ both factors equal 1
+    \end{itemize}
+    \item Answer: (E) II and III only
+\end{enumerate}
+
+\end{document}
+

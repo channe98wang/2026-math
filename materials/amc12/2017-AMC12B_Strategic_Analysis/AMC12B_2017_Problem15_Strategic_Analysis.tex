@@ -1,0 +1,516 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\tcbuselibrary{skins, breakable}
+
+% Page setup
+\pagestyle{plain}
+
+% Color definitions
+\definecolor{problemconfig}{RGB}{230, 242, 255}
+\definecolor{strategic}{RGB}{255, 230, 242}
+\definecolor{tactical}{RGB}{242, 255, 230}
+\definecolor{techniques}{RGB}{255, 242, 230}
+\definecolor{verification}{RGB}{255, 230, 230}
+\definecolor{solution}{RGB}{230, 255, 255}
+\definecolor{competition}{RGB}{242, 242, 255}
+\definecolor{gold}{RGB}{218, 165, 32}
+
+% Box styles
+\newtcolorbox{problemconfigbox}{
+    colback=problemconfig,
+    colframe=blue,
+    title=Problem Configuration Analysis,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{strategicbox}{
+    colback=strategic,
+    colframe=purple,
+    title=Strategic Framework Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{tacticalbox}{
+    colback=tactical,
+    colframe=green,
+    title=Tactical Methodology Selection,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{techniquesbox}{
+    colback=techniques,
+    colframe=orange,
+    title=Conversion Techniques Application,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{verificationbox}{
+    colback=verification,
+    colframe=red,
+    title=Verification Strategy Design,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{solutionbox}{
+    colback=solution,
+    colframe=cyan,
+    title=Solution Roadmap,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{competitionbox}{
+    colback=competition,
+    colframe=purple,
+    title=Competition Strategy Integration,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=1pt,
+    breakable
+}
+
+\newtcolorbox{keyinsightbox}{
+    colback=yellow!20,
+    colframe=gold,
+    title=Key Insight,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{warningbox}{
+    colback=red!10,
+    colframe=red!50,
+    title=Warning: Common Pitfall,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\newtcolorbox{tipbox}{
+    colback=green!10,
+    colframe=green!50,
+    title=Pro Tip,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=2pt,
+    leftrule=5pt,
+    breakable
+}
+
+\title{\textbf{2017 AMC 12B Problem 15: Strategic Analysis}}
+\author{Using AMC12/COMC Problem-Solving Framework}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+Let $ABC$ be an equilateral triangle. Extend side $\overline{AB}$ beyond $B$ to a point $B'$ so that $BB'=3AB$. Similarly, extend side $\overline{BC}$ beyond $C$ to a point $C'$ so that $CC'=3BC$, and extend side $\overline{CA}$ beyond $A$ to a point $A'$ so that $AA'=3CA$. What is the ratio of the area of $\triangle A'B'C'$ to the area of $\triangle ABC$?
+
+\textbf{Answer Choices:} 
+$\textbf{(A)}\ 9:1 \qquad\textbf{(B)}\ 16:1 \qquad\textbf{(C)}\ 25:1 \qquad\textbf{(D)}\ 36:1 \qquad\textbf{(E)}\ 37:1$
+
+\begin{problemconfigbox}
+\subsection*{A. Problem Classification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Problem Type}: To Find - determine a specific numerical ratio
+    \item \textbf{Difficulty Band}: Mid-band (Problem 15 of 25) - requires geometric insight and calculation
+    \item \textbf{Competition Context}: AMC12 (75 min, 25 problems) - approximately 3 minutes allocated
+    \item \textbf{Mathematical Domain}: Geometry (triangle areas, symmetry, similar figures)
+\end{itemize}
+
+\subsection*{B. Problem Structure Identification}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Given Information}: 
+    \begin{itemize}
+        \item $ABC$ is equilateral (all sides equal, all angles $60^{\circ}$)
+        \item Extensions: $BB' = 3AB$, $CC' = 3BC$, $AA' = 3CA$
+        \item Symmetric construction pattern
+    \end{itemize}
+    \item \textbf{Constraints}: 
+    \begin{itemize}
+        \item Extensions are along existing sides (collinear)
+        \item All extensions have the same ratio (3:1)
+        \item Must maintain geometric relationships
+    \end{itemize}
+    \item \textbf{Objective}: Find ratio $\frac{[A'B'C']}{[ABC]}$
+    \item \textbf{Hidden Assumptions}: 
+    \begin{itemize}
+        \item $\triangle A'B'C'$ is also equilateral by symmetry
+        \item Can decompose $\triangle A'B'C'$ into smaller regions
+        \item Area ratios relate to side length ratios squared
+    \end{itemize}
+    \item \textbf{Answer Choice Leverage}: 
+    \begin{itemize}
+        \item Options (A)-(D) are perfect squares suggesting integer side length ratio
+        \item Option (E) $= 37 = 36 + 1$ hints at decomposition strategy
+        \item Can eliminate unreasonable bounds quickly
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Strategic Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Hypothesis}: By symmetry, $\triangle A'B'C'$ is equilateral
+    \item \textbf{Conclusion}: Need to find either side length ratio or direct area ratio
+    \item \textbf{Notation}: Let $AB = BC = CA = s$ (side length of original triangle)
+    \item \textbf{Intuitive Approach}: 
+    \begin{itemize}
+        \item Decompose large triangle into original plus three corner triangles
+        \item Use Law of Cosines to find side of $\triangle A'B'C'$
+        \item Apply area formula or coordinate geometry
+    \end{itemize}
+    \item \textbf{Cross-Domain Potential}: 
+    \begin{itemize}
+        \item Pure geometry (Law of Cosines, area formulas)
+        \item Coordinate geometry (place triangle on coordinate system)
+        \item Vector methods (barycentric coordinates)
+    \end{itemize}
+\end{itemize}
+\end{problemconfigbox}
+
+\begin{strategicbox}
+\subsection*{A. Psychological Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mental Toughness}: Multiple solution paths exist; if one fails, try another approach
+    \item \textbf{Creativity Cultivation}: Recognize symmetry immediately; visualize decomposition
+    \item \textbf{Iterative Refinement}: Start with simplest approach (side length), escalate if needed
+\end{itemize}
+
+\subsection*{B. Investigation Strategies}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Startup Orientation}: Draw accurate diagram, label all points, identify symmetry
+    \item \textbf{Get Your Hands Dirty}: Set $AB = 1$ or $AB = 2$ for concrete calculations
+    \item \textbf{Penultimate Step}: Once side of $\triangle A'B'C'$ is found, square it for area ratio
+    \item \textbf{Wishful Thinking}: Wish for simple integer or radical answer (guides verification)
+    \item \textbf{Make It Easier}: Consider just one corner triangle first, then multiply by 3
+    \item \textbf{Conjecture via Small Cases}: Check answer choices against extreme cases
+    \item \textbf{Visualization}: Draw clear diagram showing extensions and resulting triangles
+\end{itemize}
+
+\subsection*{C. Late-Band Strategic Playbook}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Answer-Choice Leverage}: Option (E) being $37 = 36 + 1$ suggests $36 = 3 \times 12$ decomposition
+    \item \textbf{Make It Easier}: Focus on finding one side of $\triangle A'B'C'$ instead of full area
+    \item \textbf{Penultimate Step}: Area ratio = (side ratio)$^2$ for similar triangles
+    \item \textbf{Elimination}: Quick bounds check rules out (A) and (B) as too small
+\end{itemize}
+
+\subsection*{D. Argument Construction Strategy}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct Proof}: Calculate side of $\triangle A'B'C'$ using Law of Cosines, then square
+    \item \textbf{Decomposition Argument}: Split $\triangle A'B'C'$ into four triangles, sum areas
+    \item \textbf{WLOG}: Without loss of generality, let $AB = 1$ or $AB = 2$ (scales cancel)
+\end{itemize}
+
+\subsection*{E. Cross-Domain Translation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Draw a Picture}: Essential - draw triangle with extensions to visualize structure
+    \item \textbf{Recast the Problem}: Transform to coordinate geometry if pure geometry stalls
+    \item \textbf{Change Point of View}: View as three congruent triangles surrounding original
+\end{itemize}
+\end{strategicbox}
+
+\begin{tacticalbox}
+\subsection*{A. Core Mathematical Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Symmetry Exploitation}: 
+    \begin{itemize}
+        \item All three extensions are identical by rotational symmetry
+        \item $\triangle A'B'C'$ must be equilateral
+        \item Three corner triangles are congruent
+    \end{itemize}
+    \item \textbf{Wishful Thinking}: Assume answer has clean form, guides calculation strategy
+    \item \textbf{Normalization}: WLOG set $AB = 1$ or $AB = 2$ to simplify arithmetic
+    \item \textbf{Decomposition}: Break complex region into manageable pieces
+    \item \textbf{Invariant Principle}: Area ratios independent of actual side length (scaling)
+\end{itemize}
+
+\subsection*{B. Domain-Specific Tactics}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Geometry}: 
+    \begin{itemize}
+        \item Law of Cosines for finding side lengths
+        \item Area formula: $A = \frac{1}{2}ab\sin\theta$
+        \item Equilateral triangle area: $A = \frac{s^2\sqrt{3}}{4}$
+        \item Similar triangles: area ratio = (side ratio)$^2$
+    \end{itemize}
+    \item \textbf{Coordinate Geometry}: Place triangle strategically (e.g., $B$ at origin)
+    \item \textbf{Vector Methods}: Barycentric coordinates for advanced approach
+\end{itemize}
+\end{tacticalbox}
+
+\begin{techniquesbox}
+\subsection*{A. Recognition Index}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Pattern Recognition}: 
+    \begin{itemize}
+        \item Symmetric construction $\Rightarrow$ symmetric result
+        \item Equilateral triangle $\Rightarrow$ all angles $60^{\circ}$ or $120^{\circ}$
+        \item Extension ratio 3:1 $\Rightarrow$ sides become 4:1
+    \end{itemize}
+    \item \textbf{Technique Triggers}:
+    \begin{itemize}
+        \item ``Extend beyond'' $\Rightarrow$ Law of Cosines likely useful
+        \item ``Ratio of areas'' $\Rightarrow$ Consider both direct and decomposition methods
+        \item Equilateral triangle $\Rightarrow$ Exploit $60^{\circ}$ angles
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Technique Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Primary Technique}: Law of Cosines
+    \begin{itemize}
+        \item To find $B'C'$: Given $BB' = 3s$, $BC' = BC + CC' = 4s$
+        \item Angle $\angle B'BC' = 180^{\circ} - 60^{\circ} = 120^{\circ}$
+        \item Apply: $(B'C')^2 = (BB')^2 + (BC')^2 - 2(BB')(BC')\cos(120^{\circ})$
+    \end{itemize}
+    \item \textbf{Alternative Technique}: Area Decomposition
+    \begin{itemize}
+        \item $[A'B'C'] = [ABC] + [AA'B'] + [BB'C'] + [CC'A']$
+        \item Each corner triangle has area using $\frac{1}{2}ab\sin\theta$
+        \item $[AA'B'] = \frac{1}{2} \cdot AA' \cdot AB' \cdot \sin(120^{\circ})$
+    \end{itemize}
+\end{itemize}
+
+\subsection*{C. Technique Integration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Workflow}: 
+    \begin{enumerate}
+        \item Set $AB = s$ (or $s = 1$ for simplicity)
+        \item Compute extended lengths: $AB' = 4s$, $BC' = 4s$, $CA' = 4s$
+        \item Find $B'C'$ using Law of Cosines with $\angle B'BC' = 120^{\circ}$
+        \item Compute area ratio: $\frac{[A'B'C']}{[ABC]} = \left(\frac{B'C'}{BC}\right)^2$
+    \end{enumerate}
+\end{itemize}
+
+\subsection*{D. Conflict Resolution}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Calculation Check}: If Law of Cosines gives non-integer under radical, verify arithmetic
+    \item \textbf{Alternative Verification}: Use area decomposition method to confirm
+    \item \textbf{Answer Compatibility}: Result must match one of five answer choices exactly
+\end{itemize}
+\end{techniquesbox}
+
+\begin{verificationbox}
+\subsection*{A. Verification Level Selection}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Selected Level}: Level 3 (Standard) - 1 minute
+    \item \textbf{Decision Factors}:
+    \begin{itemize}
+        \item Mid-band problem (Problem 15)
+        \item Multiple calculation steps
+        \item Answer is one of five specific choices (provides confirmation)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{B. Specialized Verification Methods}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Algebraic Check}: Verify $(3s)^2 + (4s)^2 - 2(3s)(4s)\cos(120^{\circ}) = 37s^2$
+    \item \textbf{Geometric Sanity Check}: 
+    \begin{itemize}
+        \item Ratio must be $> 9:1$ (since extensions go beyond)
+        \item Ratio should be close to but greater than $36:1$
+        \item Answer (E) $37 = 36 + 1$ aligns with decomposition intuition
+    \end{itemize}
+    \item \textbf{Alternative Method}: Calculate using area decomposition and verify same result
+    \item \textbf{Limiting Cases}: If extensions were 0, ratio would be 1:1; our ratio should grow
+\end{itemize}
+
+\subsection*{C. Confidence Calibration}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{High Confidence Indicators}:
+    \begin{itemize}
+        \item Calculation yields clean answer matching choice (E)
+        \item Decomposition method confirms result
+        \item Answer $37 = 36 + 1$ has intuitive geometric meaning
+    \end{itemize}
+    \item \textbf{Target Confidence}: 95\% after verification
+\end{itemize}
+\end{verificationbox}
+
+\begin{solutionbox}
+\subsection*{Complete Solution}
+
+\textbf{Method 1: Law of Cosines (Recommended)}
+
+\textbf{Step 1: Setup and Normalization} (30 seconds)
+
+WLOG, let $AB = BC = CA = s$. By the problem:
+\begin{itemize}
+    \item $BB' = 3AB = 3s$, so $AB' = AB + BB' = 4s$
+    \item $CC' = 3BC = 3s$, so $BC' = BC + CC' = 4s$
+    \item $AA' = 3CA = 3s$, so $CA' = CA + AA' = 4s$
+\end{itemize}
+
+By symmetry, $\triangle A'B'C'$ is also equilateral.
+
+\textbf{Step 2: Find Angle} (15 seconds)
+
+Since $\triangle ABC$ is equilateral, $\angle ABC = 60^{\circ}$.
+
+Points $B$, $B'$ are collinear with $A$, so $\angle B'BC = 180^{\circ} - \angle ABC = 180^{\circ} - 60^{\circ} = 120^{\circ}$.
+
+\textbf{Step 3: Apply Law of Cosines} (60 seconds)
+
+For $\triangle B'BC'$, we have $BB' = 3s$, $BC' = 4s$, and $\angle B'BC' = 120^{\circ}$.
+
+Using Law of Cosines:
+\begin{align*}
+    (B'C')^2 &= (BB')^2 + (BC')^2 - 2(BB')(BC')\cos(120^{\circ}) \\
+    &= (3s)^2 + (4s)^2 - 2(3s)(4s)\cos(120^{\circ}) \\
+    &= 9s^2 + 16s^2 - 24s^2 \cdot \left(-\frac{1}{2}\right) \\
+    &= 9s^2 + 16s^2 + 12s^2 \\
+    &= 37s^2
+\end{align*}
+
+Therefore, $B'C' = s\sqrt{37}$.
+
+\textbf{Step 4: Calculate Area Ratio} (30 seconds)
+
+Since both triangles are equilateral, they are similar. The ratio of their areas equals the square of the ratio of corresponding sides:
+
+\[\frac{[A'B'C']}{[ABC]} = \left(\frac{B'C'}{BC}\right)^2 = \left(\frac{s\sqrt{37}}{s}\right)^2 = \left(\sqrt{37}\right)^2 = 37\]
+
+Therefore, the answer is $\boxed{\textbf{(E) } 37:1}$.
+
+\vspace{0.5cm}
+
+\textbf{Method 2: Area Decomposition (Verification)}
+
+\textbf{Step 1: Identify Components}
+
+$[A'B'C'] = [ABC] + [AA'B'] + [BB'C'] + [CC'A']$
+
+\textbf{Step 2: Calculate Original Triangle Area}
+
+For equilateral triangle with side $s$: $[ABC] = \frac{s^2\sqrt{3}}{4}$
+
+\textbf{Step 3: Calculate Corner Triangle Area}
+
+For $\triangle AA'B'$:
+\begin{itemize}
+    \item $AA' = 3s$, $AB' = 4s$
+    \item $\angle A'AB' = 180^{\circ} - 60^{\circ} = 120^{\circ}$
+\end{itemize}
+
+Using $A = \frac{1}{2}ab\sin\theta$:
+\[[AA'B'] = \frac{1}{2} \cdot 3s \cdot 4s \cdot \sin(120^{\circ}) = \frac{1}{2} \cdot 12s^2 \cdot \frac{\sqrt{3}}{2} = 3s^2\sqrt{3}\]
+
+By symmetry: $[BB'C'] = [CC'A'] = 3s^2\sqrt{3}$
+
+\textbf{Step 4: Sum Areas}
+\begin{align*}
+    [A'B'C'] &= [ABC] + 3[AA'B'] \\
+    &= \frac{s^2\sqrt{3}}{4} + 3 \cdot 3s^2\sqrt{3} \\
+    &= \frac{s^2\sqrt{3}}{4} + 9s^2\sqrt{3} \\
+    &= \frac{s^2\sqrt{3}}{4} + \frac{36s^2\sqrt{3}}{4} \\
+    &= \frac{37s^2\sqrt{3}}{4}
+\end{align*}
+
+\textbf{Step 5: Calculate Ratio}
+\[\frac{[A'B'C']}{[ABC]} = \frac{\frac{37s^2\sqrt{3}}{4}}{\frac{s^2\sqrt{3}}{4}} = 37\]
+
+Confirmed: $\boxed{\textbf{(E) } 37:1}$
+\end{solutionbox}
+
+\begin{competitionbox}
+\subsection*{A. Time Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Target Time}: 3-4 minutes for Problem 15
+    \item \textbf{Time Breakdown}:
+    \begin{itemize}
+        \item Reading and diagram: 30 seconds
+        \item Setup and angle finding: 45 seconds
+        \item Law of Cosines calculation: 90 seconds
+        \item Area ratio computation: 30 seconds
+        \item Verification: 30 seconds
+    \end{itemize}
+    \item \textbf{Actual Expectation}: 3.5 minutes total
+\end{itemize}
+
+\subsection*{B. Problem Prioritization}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Accessibility}: High - clear geometric setup, standard techniques
+    \item \textbf{Value}: 6 points (standard AMC12 scoring)
+    \item \textbf{Risk Assessment}: Low risk if Law of Cosines is well-practiced
+    \item \textbf{Strategic Position}: Should attempt in first pass through problems
+\end{itemize}
+
+\subsection*{C. Risk Management}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Threshold}: Should achieve 90\%+ confidence
+    \item \textbf{Abandonment Criteria}:
+    \begin{itemize}
+        \item If stuck after 5 minutes, flag and move on
+        \item If arithmetic becomes messy, switch to area decomposition
+        \item If neither method works in 7 minutes, guess (E) based on pattern
+    \end{itemize}
+    \item \textbf{Error Recovery}: If calculation error, re-check angle and cosine value
+\end{itemize}
+\end{competitionbox}
+
+\begin{keyinsightbox}
+The key insight is recognizing that by symmetry, $\triangle A'B'C'$ is also equilateral, allowing us to find the area ratio by computing just one side length. The angle $\angle B'BC' = 120^{\circ}$ is crucial for the Law of Cosines application. The answer $37 = 36 + 1$ reflects the decomposition: three corner triangles (each 12 times the original) plus the original triangle itself.
+\end{keyinsightbox}
+
+\begin{warningbox}
+\textbf{Common Pitfalls:}
+\begin{itemize}
+    \item Forgetting that extensions create $120^{\circ}$ angles, not $60^{\circ}$
+    \item Miscalculating $\cos(120^{\circ}) = -\frac{1}{2}$ (sign error is common)
+    \item Using $AB + BB' = 3s$ instead of $4s$ (forgetting to add the original side)
+    \item Attempting to find area directly without recognizing the equilateral property
+    \item In decomposition method, forgetting to include the original triangle $[ABC]$
+\end{itemize}
+\end{warningbox}
+
+\begin{tipbox}
+\textbf{Competition Tips:}
+\begin{itemize}
+    \item Draw a clear diagram immediately - visualization is critical
+    \item Set $s = 2$ (not $s = 1$) to avoid fractions in intermediate steps
+    \item Recognize answer (E) stands out as $37 = 36 + 1$, hinting at the decomposition structure
+    \item If pressed for time, the area decomposition using $\frac{1}{2}ab\sin\theta$ is faster for those comfortable with it
+    \item Remember: $\cos(120^{\circ}) = -\frac{1}{2}$ and $\sin(120^{\circ}) = \frac{\sqrt{3}}{2}$
+\end{itemize}
+\end{tipbox}
+
+\section*{Final Answer}
+\[\boxed{\textbf{(E) } 37:1}\]
+
+\section*{Confidence Assessment}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Confidence Level}: 95\% - calculation verified by two independent methods
+    \item \textbf{Verification Applied}: Law of Cosines (primary) + Area Decomposition (confirmation)
+    \item \textbf{Flag for Review}: No - high confidence, clean calculation
+    \item \textbf{Time Spent}: Approximately 3.5 minutes (on target for Problem 15)
+\end{itemize}
+
+\end{document}

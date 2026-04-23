@@ -1,0 +1,21 @@
+2003 AMC 12B Problems/Problem 8
+Problem
+Let $\clubsuit(x)$ denote the sum of the digits of the positive integer $x$ . For example, $\clubsuit(8)=8$ and $\clubsuit(123)=1+2+3=6$ . For how many two-digit values of $x$ is $\clubsuit(\clubsuit(x))=3$ ?
+$\textbf{(A) } 3 \qquad\textbf{(B) } 4 \qquad\textbf{(C) } 6 \qquad\textbf{(D) } 9 \qquad\textbf{(E) } 10$
+Solution
+Let $y=\clubsuit (x)$ . Since $x \leq 99$ , we have $y \leq 18$ . Thus if $\clubsuit (y)=3$ , then $y=3$ or $y=12$ . The 3 values of $x$ for which $\clubsuit (x)=3$ are 12, 21, and 30, and the 7 values of $x$ for which $\clubsuit (x)=12$ are 39, 48, 57, 66, 75, 84, and 93. There are $\boxed{E}$ = $\boxed{10}$ values in all.
+~Andrew_Lu/Mismatchedcubing
+See Also
+2003 AMC 12B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 7 Followed by 
+ Problem 9
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+2003 AMC 10B ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 12 Followed by 
+ Problem 14
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 10 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

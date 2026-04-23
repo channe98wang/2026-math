@@ -1,0 +1,95 @@
+2001 AMC 12 Problems/Problem 24
+Contents
+1 Problem
+2 Solution 2 (what happened to solution 1?)
+3 Solution 3
+4 Solution 4(FAST)
+5 Solution 5 (Law of Sines)
+6 Solution 6
+7 See Also
+Problem
+In $\triangle ABC$ , $\angle ABC=45^\circ$ . Point $D$ is on $\overline{BC}$ so that $2\cdot BD=CD$ and $\angle DAB=15^\circ$ . Find $\angle ACB.$
+$\text{(A) }54^\circ \qquad \text{(B) }60^\circ \qquad \text{(C) }72^\circ \qquad \text{(D) }75^\circ \qquad \text{(E) }90^\circ$
+Solution 2 (what happened to solution 1?)
+Draw a good diagram! Now, let's call $BD=t$ , so $DC=2t$ . Given the rather nice angles of $\angle ABD = 45^\circ$ and $\angle ADC = 60^\circ$ as you can see, let's do trig. Drop an altitude from $A$ to $BC$ ; call this point $H$ . We realize that there is no specific factor of $t$ we can call this just yet, so let $AH=kt$ . Notice that in $\triangle{ABH}$ we get $BH=kt$ . Using the 60-degree angle in $\triangle{ADH}$ , we obtain $DH=\frac{\sqrt{3}}{3}kt$ . The comparable ratio is that $BH-DH=t$ . If we involve our $k$ , we get:
+$kt(\frac{3}{3}-\frac{\sqrt{3}}{3})=t$ . Eliminating $t$ and removing radicals from the denominator, we get $k=\frac{3+\sqrt{3}}{2}$ . From there, one can easily obtain $HC=3t-kt=\frac{3-\sqrt{3}}{2}t$ . Now we finally have a desired ratio. Since $\tan\angle ACH = 2+\sqrt{3}$ upon calculation, we know that $\angle ACH$ can be simplified. Indeed, if you know that $\tan(75)=2+\sqrt{3}$ or even take a minute or two to work out the sine and cosine using $\sin(x)^2+\cos(x)^2=1$ , and perhaps the half- or double-angle formulas, you get $\boxed{75^\circ}$ .
+Solution 3
+Without loss of generality, we can assume that $BD = 1$ and $CD = 2$ . As above, we are able to find that $\angle ADC = 60^\circ$ and $\angle ADB = 120^\circ$ .
+Using Law of Sines on triangle $ADB$ , we find that
+
+\[\frac{1}{\sin15^\circ} = \frac{AD}{\sin 45^\circ} = \frac{AB}{\sin 120^\circ}.\]
+
+Since we know that
+
+\[\sin 15^\circ = \frac{\sqrt{6}-\sqrt{2}}{4},\]
+
+\[\sin 45^\circ = \frac{\sqrt{2}}{2},\]
+
+\[\sin 120^\circ = \frac{\sqrt{3}}{2},\]
+
+we can compute $AD$ to equal $1+\sqrt{3}$ and $AB$ to be $\frac{3\sqrt{2}+\sqrt{6}}{2}$ .
+Next, we apply Law of Cosines to triangle $ADC$ to see that
+
+\[AC^2 = (1+\sqrt{3})^2 + 2^2 - (2)(1+\sqrt{3})(2)(\cos 60^\circ).\]
+
+Simplifying the right side, we get $AC^2 = 6$ , so $AC = \sqrt{6}$ .
+Now, we apply Law of Sines to triangle $ABC$ to see that
+
+\[\frac{\sqrt{6}}{\sin 45^\circ} = \frac{\frac{3\sqrt{2}+\sqrt{6}}{2}}{\sin ACB}.\]
+
+After rearranging and noting that $\sin 45^\circ = \frac{\sqrt{2}}{2}$ , we get
+
+\[\sin ACB = \frac{\sqrt{6}+3\sqrt{2}}{4\sqrt{3}}.\]
+Dividing the right side by $\sqrt{3}$ , we see that
+
+\[\sin ACB = \frac{\sqrt{6}+\sqrt{2}}{4},\]
+
+so $\angle ACB$ is either $75^\circ$ or $105^\circ$ . Since $105^\circ$ is not a choice, we know $\angle ACB = \boxed{75^\circ}$ .
+Note that we can also confirm that $\angle ACB \neq 105^\circ$ by computing $\angle CAB$ with Law of Sines.
+Solution 4(FAST)
+Note that $\angle{ADB} = 120$ and $\angle{ADC} = 60$ . Seeing these angles makes us think of 30-60-90 triangles. Let $E$ be the foot of the altitude from $A$ to $BC$ . This means $\angle{DAE} = 30$ and $\angle{BAE} = 45$ . Let $BD = x$ and $DE = y$ . This means $AE = y\sqrt{3}$ and since $AE = BE$ we know that $x + y = y\sqrt{3}$ . This means $y = \frac{x(\sqrt{3} + 1)}{2}$ . This gives $CE = \frac{4x - x(\sqrt{3} + 1)}{2}$ . Note that $\tan{\angle{ACE}} = \frac{AE}{CE} = 2 + \sqrt{3}$ . Looking that the answer options we see that $\tan{75^\circ} = 2 + \sqrt{3}$ . This means the answer is $D$ .
+~coolmath_2018 6 7
+Solution 5 (Law of Sines)
+$\angle ADB = 120^\circ$ , $\angle ADC = 60^\circ$ , $\angle DAB = 15^\circ$ , let $\angle ACB = \theta$ , $\angle DAC = 120^\circ - \theta$
+By the Law of Sines , we have $\frac{CD}{\sin(120^\circ - \theta)} = \frac{AD}{\sin \theta}$
+$\space$ $\frac{BD}{\sin15^\circ} = \frac{AD}{\sin45^\circ}$
+$\frac{BD}{CD} \cdot \frac{\sin(120^\circ - \theta)}{\sin15^\circ} = \frac{\sin \theta}{\sin45^\circ}$
+$\frac{1}{2} \cdot \frac{\sin(120^\circ - \theta)}{\sin15^\circ} = \frac{\sin \theta}{\sin45^\circ}$
+By the Triple-angle Identities , $\sin 45^\circ = 3\sin15^\circ -4\sin^3 15^\circ$
+$\frac{\sin(120^\circ - \theta)}{2} = \frac{\sin \theta}{3\ -4\sin^2 15^\circ}$
+$\sin^2 15^\circ = \frac{1 - \cos 30^\circ}{2} = \frac{1 - \frac{\sqrt{3}}{2}}{2} = \frac{2 - \sqrt{3}}{4}$
+$\frac{\sin(120^\circ - \theta)}{2} = \frac{\sin \theta}{3 - 4 \cdot \frac{2 - \sqrt{3}}{4}} = \frac{\sin \theta}{1+\sqrt{3}}$
+$\frac{\sin \theta}{\sin(120^\circ - \theta)} = \frac{1+\sqrt{3}}{2}$
+$\sin(120^\circ - \theta) = \sin120^\circ \cos\theta - \sin\theta \cos120^\circ = \frac{\sqrt{3}}{2} \cdot \cos\theta + \frac{1}{2} \cdot \sin\theta$ ，so
+$\frac{\sin \theta}{\frac{\sqrt{3}}{2} \cdot \cos\theta + \frac{1}{2} \cdot \sin\theta} = \frac{1+\sqrt{3}}{2}$
+$\frac{\sqrt{3} \cdot \cos\theta + \sin\theta}{2 \sin \theta} = \frac{2}{1+\sqrt{3}}$
+$\frac{\sqrt{3}}{2} \cdot \cot \theta = \frac{2}{1+\sqrt{3}} - \frac{1}{2} = \frac{3 - \sqrt{3}}{2 + 2 \sqrt{3}}$
+$\cot \theta = \frac{\cos \theta}{\sin \theta} = \frac{\sqrt{3} - 1}{\sqrt{3} + 1}$
+Suppose $\cos \theta = k(\sqrt{3} - 1)$ , and $\sin \theta = k(\sqrt{3} + 1)$
+$\sin^2 \theta + \cos^2 \theta = 1$ , $k^2(\sqrt{3} + 1)^2 + k^2(\sqrt{3} - 1)^2 = 8k^2 = 1$ , $k = \frac{1}{2 \sqrt{2}}$
+$\sin \theta = \frac{\sqrt{3} + 1}{2 \sqrt{2}}$ , $\cos \theta = \frac{\sqrt{3} - 1}{2 \sqrt{2}}$
+$\sin 2 \theta = 2 \cdot \frac{\sqrt{3} + 1}{2 \sqrt{2}} \cdot \frac{\sqrt{3} - 1}{2 \sqrt{2}} = \frac{1}{2}$
+Two possible values of $2 \theta$ are $150^\circ$ and $30^\circ$ . However we can rule out $30^\circ$ because $\cos 15^\circ$ is positive, while $\cos \theta$ is negative.
+Therefore $2 \theta = 150^\circ$ , $\angle ACB = \boxed{\textbf{(D) } 75^\circ }$
+~ isabelchen
+Solution 6
+For starters, we have $\angle ABD=120^\circ.$ Dropping perpendiculars $\overline{DX}$ and $\overline{CY}$ from $D$ and $C$ to $\overline{AB}$ gives $\angle ADX=120^\circ-45^\circ=75^\circ,$ since $\angle BDX=45^\circ.$
+Without loss of generality, let $BD=1$ and $CD=2.$ This tells us that $BX=DX=\sqrt{2}/2.$ Using trigonometric identities, we find that
+\[\tan \angle ADX=\tan 75^\circ=\dfrac{\sqrt 6+\sqrt 2}{\sqrt 6-\sqrt 2}.\]
+
+Thus, $AX/DX=\dfrac{\sqrt 6+\sqrt 2}{\sqrt 6-\sqrt 2},$ which gives $AX=\dfrac{2\sqrt 2+\sqrt 6}{2}.$ Thus, $AB=AX+BX=\dfrac{3\sqrt 2+\sqrt 6}{2}.$
+Now, note that $BCY$ is a $45-45-90$ triangle, so $CY=BY=\dfrac{3\sqrt 2}{2}.$ Thus, we have
+\[[ABC]=\dfrac{1}{2}\cdot AB\cdot CY=\dfrac{1}{2}\cdot \dfrac{3\sqrt 2+\sqrt 6}{2}\cdot \dfrac{3\sqrt 2}{2}=\dfrac{9+3\sqrt 3}{4}.\]
+
+Additionally, note that $AY=AB-BY=\sqrt{6}/2.$ Applying the Pythagorean Theorem to triangle $AYC$ then tells us that $AC=\sqrt{6}.$ By the trigonometric formula for area,
+\[[ABC]=\dfrac{1}{2}\cdot BC\cdot AC\cdot \sin \angle ACB=\dfrac{3\sqrt 6}{2}\sin \angle ACB.\]
+
+Setting this equal to our other area and solving gives $\sin \angle ACB=\dfrac{\sqrt 6+\sqrt 2}{4},$ so $\angle ACB=\boxed{75^\circ}.$ ~vaporwave
+See Also
+2001 AMC 12 ( Problems • Answer Key • Resources )
+Preceded by 
+ Problem 23 Followed by 
+ Problem 25
+1 • 2 • 3 • 4 • 5 • 6 • 7 • 8 • 9 • 10 • 11 • 12 • 13 • 14 • 15 • 16 • 17 • 18 • 19 • 20 • 21 • 22 • 23 • 24 • 25
+All AMC 12 Problems and Solutions
+These problems are copyrighted © by the Mathematical Association of America.

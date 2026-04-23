@@ -1,0 +1,27 @@
+2025 AMC 12A Problems/Problem 18
+Problem 19
+How many ordered triples $(x, y, z)$ of different positive integers less than or equal to $8$ satisfy $xy > z$ , $xz > y$ , and $yz > x$ ?
+$\textbf{(A)}~36 \qquad \textbf{(B)}~84 \qquad \textbf{(C)}~186 \qquad \textbf{(D)}~336 \qquad \textbf{(E)}~486$
+Solution 1
+let 0<=x<y<z<=8;
+x cannot be 0 because it makes xy>z --> 0>z; 
+x cannot be 1 because it makes xy>z ---> y>z;
+x=2, y=3, z can be 4, 5 but not others; 
+x=2, y=4, z can be 5, 6, 7;
+x=2, y=5, z can be 6, 7, 8;
+x=2, y=6, z can be 7, 8;
+x=2, y=7, z can be 8;
+for x=2, total 11 cases;
+similarly, for x=3,y=4, 5, 6, 7, total 10 cases; for x=4, y =5, 6, 7, total 6 cases; x=5, y=6, 7, 3 cases; x=6, y=7, z=8, 1 cases;
+total = 11 + 10 +6 +3 +1 = 31. permutate x, y, z for ordered triple, it is 31*6=186, C.
+~imagination
+Solution 2
+For now, assume $x\leq y\leq z$ .
+First note that no number can be 0, as it would imply $0y>z$ . Similarly, no number can be 1, as it would imply $1y>z$ . So we only need to consider numbers between 2 and 8, inclusive.
+We may use complementary counting:
+Consider when $xy\leq z$ . This implies $xy\leq 8$ . Some quick calculations gives us the products $2\cdot2,2\cdot3,2\cdot4$ . We may now calculate the number of times each happens (we are no longer assuming $x\leq y\leq z$ ):
+- $2\cdot2$ : This case is invalid as it asks for distinct integers.
+- $2\cdot3$ : $2,3,(n\geq6)$ . Then we have $6\cdot3=18$ cases.
+- $2\cdot4$ : $2,4,(n\geq8)$ . Then we have $6\cdot1=6$ cases.
+In total, there are $7\cdot6\cdot5=210$ total cases, so our final answer is $210 - (18 + 6) = \boxed{186}$ .
+~SilverRush
