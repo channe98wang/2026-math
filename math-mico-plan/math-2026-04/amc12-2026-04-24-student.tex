@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{xcolor}
+\usepackage{asymptote}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \cfoot{\thepage\ of \pageref{LastPage}}%
+}
+
+\title{AMC 12 Prep 2026}
+\author{}
+\date{\today}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+\maketitle
+
+\section{2002 AMC12A Problem 10}
+
+\textbf{Problem:}
+Sarah places four ounces of coffee into an eight-ounce cup and four ounces of cream into a second cup of the same size. She then pours half the coffee from the first cup to the second and, after stirring thoroughly, pours half the liquid in the second cup back to the first. What fraction of the liquid in the first cup is now cream?
+
+$\mathrm{(A) \ } \frac{1}{4}\qquad \mathrm{(B) \ } \frac13\qquad \mathrm{(C) \ } \frac38\qquad \mathrm{(D) \ } \frac25\qquad \mathrm{(E) \ } \frac12$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2002 AMC12B Problem 10}
+
+\textbf{Problem:}
+How many different integers can be expressed as the sum of three distinct members of the set $\{1,4,7,10,13,16,19\}$ ?
+
+$\text{(A)}\ 13 \qquad \text{(B)}\ 16 \qquad \text{(C)}\ 24 \qquad \text{(D)}\ 30 \qquad \text{(E)}\ 35$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2003 AMC12A Problem 10}
+
+\textbf{Problem:}
+Al, Bert, and Carl are the winners of a school drawing for a pile of Halloween candy, which they are to divide in a ratio of $3:2:1$ , respectively. Due to some confusion they come at different times to claim their prizes, and each assumes he is the first to arrive. If each takes what he believes to be the correct share of candy, what fraction of the candy goes unclaimed?
+
+$\mathrm{(A) \ } \frac{1}{18}\qquad \mathrm{(B) \ } \frac{1}{6}\qquad \mathrm{(C) \ } \frac{2}{9}\qquad \mathrm{(D) \ } \frac{5}{18}\qquad \mathrm{(E) \ } \frac{5}{12}$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2003 AMC12B Problem 10}
+
+\textbf{Problem:}
+Several figures can be made by attaching two equilateral triangles to the regular pentagon ABCDE in two of the five positions shown. How many non-congruent figures can be constructed in this way? \begin{asy}
+size(200);
+defaultpen(0.9);
+real r = 5/dir(54).x, h = 5 tan(54*pi/180);
+pair A = (5,0), B = A+10*dir(72), C = (0,r+h), E = (-5,0), D = E+10*dir(108);
+draw(A--B--C--D--E--cycle);
+label("\(A\)",A+(0,-0.5),SSE);
+label("\(B\)",B+(0.5,0),ENE);
+label("\(C\)",C+(0,0.5),N);
+label("\(D\)",D+(-0.5,0),WNW);
+label("\(E\)",E+(0,-0.5),SW);
+real l = 5*sqrt(3);
+pair ab = (h+l)*dir(72), bc = (h+l)*dir(54);
+pair AB = (ab.y, h-ab.x), BC = (bc.x,h+bc.y), CD = (-bc.x,h+bc.y), DE = (-ab.y, h-ab.x), EA = (0,-l);
+draw(A--AB--B^^B--BC--C^^C--CD--D^^D--DE--E^^E--EA--A, dashed);
+// dot(A);
+dot(B);
+dot(C);
+dot(D);
+dot(E);
+dot(AB);
+dot(BC);
+dot(CD);
+dot(DE);
+dot(EA);
+\end{asy}
+
+$\text {(A) } 1 \qquad \text {(B) } 2 \qquad \text {(C) } 3 \qquad \text {(D) } 4 \qquad \text {(E) } 5$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\end{document}

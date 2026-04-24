@@ -342,6 +342,17 @@ class AMC12PrepBuilder:
         latex_parts.append(r'\geometry{margin=1in}')
         latex_parts.append(r'\usepackage{xcolor}')
         latex_parts.append(r'\usepackage{asymptote}')
+        latex_parts.append(r'\usepackage{lastpage}')
+        latex_parts.append(r'\usepackage{fancyhdr}')
+        latex_parts.append(r'\pagestyle{fancy}')
+        latex_parts.append(r'\fancyhf{}')
+        latex_parts.append(r'\renewcommand{\headrulewidth}{0pt}')
+        latex_parts.append(r'\cfoot{\thepage\ of \pageref{LastPage}}')
+        latex_parts.append(r'\fancypagestyle{plain}{%')
+        latex_parts.append(r'  \fancyhf{}%')
+        latex_parts.append(r'  \renewcommand{\headrulewidth}{0pt}%')
+        latex_parts.append(r'  \cfoot{\thepage\ of \pageref{LastPage}}%')
+        latex_parts.append(r'}')
         latex_parts.append('')
         latex_parts.append(r'\title{' + title + '}')
         latex_parts.append(r'\author{}')
@@ -369,12 +380,9 @@ class AMC12PrepBuilder:
 
         # Add problems to document
         for group_key in sorted(grouped.keys()):
-            latex_parts.append(r'\section{' + group_key + '}')
-            latex_parts.append('')
-
             for problem in grouped[group_key]:
                 problem_label = f"{problem['year']} AMC12{problem['version']} Problem {problem['number']}"
-                latex_parts.append(r'\subsection{' + problem_label + '}')
+                latex_parts.append(r'\section{' + problem_label + '}')
                 latex_parts.append('')
 
                 # Problem statement (now includes embedded Asymptote code if present)
