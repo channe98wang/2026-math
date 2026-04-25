@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{xcolor}
+\usepackage{asymptote}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \cfoot{\thepage\ of \pageref{LastPage}}%
+}
+
+\title{AMC 12 Prep 2026}
+\author{}
+\date{\today}
+
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+\maketitle
+
+\section{2004 AMC12A Problem 10}
+
+\textbf{Problem:}
+The sum of $49$ consecutive integers is $7^5$ . What is their median ?
+
+$\text {(A)}\ 7 \qquad \text {(B)}\ 7^2\qquad \text {(C)}\ 7^3\qquad \text {(D)}\ 7^4\qquad \text {(E)}\ 7^5$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2004 AMC12B Problem 10}
+
+\textbf{Problem:}
+An annulus is the region between two concentric circles. The concentric circles in the figure have radii $b$ and $c$ , with $b>c$ . Let $OX$ be a radius of the larger circle, let $XZ$ be tangent to the smaller circle at $Z$ , and let $OY$ be the radius of the larger circle that contains $Z$ . Let $a=XZ$ , $d=YZ$ , and $e=XY$ . What is the area of the annulus? \begin{asy}
+unitsize(1.5cm);
+defaultpen(0.8);
+real r1=1.5, r2=2.5;
+pair O=(0,0);
+path inner=circle(O,r1), outer=circle(O,r2);
+pair Y=(0,r2), Z=(0,r1), X=intersectionpoint( Z--(Z+(10,0)), outer );
+filldraw(outer,lightgray,black);
+filldraw(inner,white,black);
+draw(X--O--Y);
+draw(Y--X--Z);
+label("$O$",O,SW);
+label("$X$",X,E);
+label("$Y$",Y,N);
+label("$Z$",Z,SW);
+label("$a$",X--Z,N);
+label("$b$",0.25*X,SE);
+label("$c$",O--Z,E);
+label("$d$",Y--Z,W);
+label("$e$",Y*0.65 + X*0.35,SW);
+defaultpen(0.5);
+dot(O);
+dot(X);
+dot(Z);
+dot(Y);
+\end{asy}
+
+$\mathrm{(A) \ } \pi a^2 \qquad \mathrm{(B) \ } \pi b^2 \qquad \mathrm{(C) \ } \pi c^2 \qquad \mathrm{(D) \ } \pi d^2 \qquad \mathrm{(E) \ } \pi e^2$ 
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2005 AMC12A Problem 10}
+
+\textbf{Problem:}
+A wooden cube $n$ units on a side is painted red on all six faces and then cut into $n^3$ unit cubes. Exactly one-fourth of the total number of faces of the unit cubes are red. What is $n$ ?
+
+$(\mathrm {A}) \ 3 \qquad (\mathrm {B}) \ 4 \qquad (\mathrm {C})\ 5 \qquad (\mathrm {D}) \ 6 \qquad (\mathrm {E})\ 7$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\section{2005 AMC12B Problem 10}
+
+\textbf{Problem:}
+The first term of a sequence is $2005$ . Each succeeding term is the sum of the cubes of the digits of the previous term. What is the ${2005}^{\text{th}}$ term of the sequence?
+
+$\mathrm{(A)} 29 \qquad \mathrm{(B)} 55 \qquad \mathrm{(C)} 85 \qquad \mathrm{(D)} 133 \qquad \mathrm{(E)} 250$
+
+\vspace{0.3cm}
+\noindent\textbf{Answer:}~\underline{\hspace{5cm}}\hfill\textbf{Time:}~\underline{\hspace{1.2cm}}:\underline{\hspace{1.2cm}}
+
+\vspace{0.5cm}
+
+\end{document}
