@@ -1,0 +1,30 @@
+2022 AMC 12A Answer Key
+Source: https://artofproblemsolving.com/wiki/index.php?title=2022_AMC_12A_Answer_Key
+
+| Problem | Answer |
+|-
+| 1 | D |
+| 2 | E |
+| 3 | B |
+| 4 | B |
+| 5 | C |
+| 6 | D |
+| 7 | D |
+| 8 | A |
+| 9 | A |
+| 10 | E |
+| 11 | E |
+| 12 | B |
+| 13 | A |
+| 14 | C |
+| 15 | D |
+| 16 | D |
+| 17 | A |
+| 18 | A |
+| 19 | D |
+| 20 | B |
+| 21 | E |
+| 22 | A |
+| 23 | D |
+| 24 | E |
+| 25 | E |
