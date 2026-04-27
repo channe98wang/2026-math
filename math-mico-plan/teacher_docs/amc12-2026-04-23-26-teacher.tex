@@ -1,0 +1,224 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{longtable}
+\geometry{margin=1in}
+
+\setcounter{secnumdepth}{0}
+\newcommand{\cmark}{$\checkmark$}
+\newcommand{\xmark}{$\times$}
+
+\title{AMC 12 Teacher Report: April 23--26, 2026}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Grading Summary}
+
+\textbf{Scope.} Rows 1--15 of \texttt{amc12-2026-04\_student.csv} were completed. Rows 16--50 were not attempted yet and were left blank in the redo CSV.
+
+\textbf{Timing standard.} Use the student's AMC12 pacing rule: Questions 1--10 should average 2:00 each, Questions 11--15 should average 3:00 each, Questions 16--20 should stay near a 4:00 cap, and selected Questions 21--25 may receive up to 5:00 only when progress is clear. Since this worksheet contains Problem 10 items, the target budget is 2:00 per problem. Correct answers over 2:00 are treated as speed-review items, not redo items.
+
+\section{AMC12 Pace Strategy}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth} >{\centering\arraybackslash}p{0.18\textwidth} >{\centering\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.32\textwidth}@{}}
+\textbf{Question Band} & \textbf{Target} & \textbf{Checkpoint} & \textbf{Decision Rule}\\
+\hline
+Q1--Q10 & 2:00 each & 20:00 total & Build a time bank. If there is no clear path after 90 seconds, mark it and move.\\
+Q11--Q15 & 3:00 each & 35:00 total & Solve cleanly, but skip if still setting up after 2.5 minutes.\\
+Q16--Q20 & Up to 4:00 each & 55:00 total & Attempt only while progress is visible; otherwise save the time for later.\\
+Q21--Q25 & Selective, up to 5:00 & Final 20:00 & Do not spend 5 minutes on all five. Choose accessible problems and return to flagged work.\\
+\end{longtable}
+
+\textbf{Important caveat.} A flat allocation of 2 minutes for Q1--Q10, 3 minutes for Q11--Q15, and 5 minutes for every Q16--Q25 problem totals \(20+15+50=85\) minutes, which exceeds the 75-minute AMC12 limit. Therefore the 5-minute rule for Q16--Q25 is a maximum for selected problems, not a promise to attempt all ten hard problems fully.
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.05\textwidth} >{\raggedright\arraybackslash}p{0.26\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
+\textbf{\#} & \textbf{Source} & \textbf{Stud.} & \textbf{Key} & \textbf{Time} & \textbf{Result} & \textbf{Note}\\
+\hline
+1 & 2000 AMC 12 P10 & E & E & 03:27 & \cmark & Over budget\\
+2 & 2001 AMC 12 P10 & D & D & 01:09 & \cmark & Efficient\\
+3 & 2002 AMC 12A P10 & D & D & 01:42 & \cmark & Efficient\\
+4 & 2002 AMC 12B P10 & B & A & 01:45 & \xmark & Redo\\
+5 & 2003 AMC 12A P10 & D & D & 01:23 & \cmark & Efficient\\
+6 & 2003 AMC 12B P10 & B & B & 00:31 & \cmark & Very fast\\
+7 & 2004 AMC 12A P10 & C & C & 03:58 & \cmark & Over budget\\
+8 & 2004 AMC 12B P10 & A & A & 00:37 & \cmark & Very fast\\
+9 & 2005 AMC 12A P10 & B & B & 05:14 & \cmark & Over budget\\
+10 & 2005 AMC 12B P10 & E & E & 02:06 & \cmark & Slightly over\\
+11 & 2006 AMC 12A P10 & D & E & 00:40 & \xmark & Redo\\
+12 & 2006 AMC 12B P10 & A & A & 00:45 & \cmark & Very fast\\
+13 & 2007 AMC 12A P10 & A & A & 02:10 & \cmark & Slightly over\\
+14 & 2007 AMC 12B P10 & C & C & 03:05 & \cmark & Over budget\\
+15 & 2008 AMC 12A P10 & D & D & 01:05 & \cmark & Efficient\\
+\end{longtable}
+\normalsize
+
+\textbf{Completed score:} 13 correct out of 15 attempted, or \(86.7\%\). \textbf{Redo items:} rows 4 and 11. \textbf{Speed-review items:} rows 1, 7, 9, 10, 13, and 14.
+
+\section{Speed-Review Solutions}
+
+\subsection{Row 1: 2000 AMC 12 Problem 10}
+
+\textbf{Answer:} E.
+
+\textbf{Fast method.} Write each transformation as a coordinate rule instead of trying to visualize the whole 3D motion.
+\[
+(x,y,z)\xrightarrow{\text{reflect in }xy}(x,y,-z)
+\xrightarrow{180^\circ\text{ about }x}(x,-y,-z)
+\xrightarrow{+5\text{ in }y}(x,-y+5,-z).
+\]
+Applying this to \(P=(1,2,3)\) is fast:
+\[
+(1,2,3)\to(1,2,-3)\to(1,-2,3)\to(1,3,3).
+\]
+
+\textbf{Speed focus.} Use a three-column sign table: \(x\) unchanged, \(y\) changes only under the rotation and translation, and \(z\) changes under the reflection and rotation. This should be a 60--90 second problem once the rules are memorized.
+
+\subsection{Row 7: 2004 AMC 12A Problem 10}
+
+\textbf{Answer:} C.
+
+\textbf{Fast method.} For an odd number of consecutive integers, the median equals the average. There are \(49=7^2\) integers and the sum is \(7^5\), so
+\[
+\text{median}=\frac{7^5}{49}=\frac{7^5}{7^2}=7^3.
+\]
+
+\textbf{Speed focus.} The key recognition is ``odd consecutive list \(\Rightarrow\) median = mean.'' Do not find endpoints. Pair terms around the center mentally, then divide sum by count.
+
+\subsection{Row 9: 2005 AMC 12A Problem 10}
+
+\textbf{Answer:} B.
+
+\textbf{Fast method.} Count faces, not small cubes. The total number of faces on all \(n^3\) unit cubes is \(6n^3\). The painted red faces are exactly the surface unit squares of the original cube, so there are \(6n^2\). Thus
+\[
+\frac{6n^2}{6n^3}=\frac{1}{n}=\frac14,
+\]
+so \(n=4\).
+
+\textbf{Speed focus.} When a painted-solid problem asks for a fraction of faces, first compare ``surface area faces'' to ``all cube faces.'' Avoid classifying corner, edge, and face-center cubes unless the problem asks how many cubes have 1, 2, or 3 painted faces.
+
+\subsection{Row 10: 2005 AMC 12B Problem 10}
+
+\textbf{Answer:} E.
+
+\textbf{Fast method.} Compute only until a cycle appears:
+\[
+2005\to 2^3+5^3=133,\qquad
+133\to 1^3+3^3+3^3=55,\qquad
+55\to 5^3+5^3=250,
+\]
+and
+\[
+250\to 2^3+5^3=133.
+\]
+So from term 2 onward the cycle is \(133,55,250\), with period 3. Term 1 is outside the cycle, so for \(k\ge2\) index into \([133,55,250]\) by \((k-2)\bmod 3\). Since \(2005-2=2003\equiv2\pmod3\), the 2005th term is the third entry of the cycle, \(250\).
+
+\textbf{Speed focus.} For digit-iteration sequences, do not continue linearly. Find the first repeat, write the cycle, then use modular arithmetic.
+
+\subsection{Row 13: 2007 AMC 12A Problem 10}
+
+\textbf{Answer:} A.
+
+\textbf{Fast method.} A \(3:4:5\) triangle is right, so its hypotenuse is the diameter of the circumcircle. The circle radius is 3, so the hypotenuse is 6. The scale factor from \(3:4:5\) is \(6/5\), giving legs
+\[
+\frac{18}{5}\quad\text{and}\quad \frac{24}{5}.
+\]
+The area is
+\[
+\frac12\cdot\frac{18}{5}\cdot\frac{24}{5}=\frac{216}{25}=8.64.
+\]
+
+\textbf{Speed focus.} For any right triangle in a circle, immediately use ``hypotenuse = diameter.'' This avoids trigonometry and side-solving.
+
+\subsection{Row 14: 2007 AMC 12B Problem 10}
+
+\textbf{Answer:} C.
+
+\textbf{Fast method.} The total group size does not change: two girls leave and two boys arrive. The fraction of girls drops from \(40\%\) to \(30\%\), a drop of \(10\%\) of the total group. That drop is exactly 2 girls, so
+\[
+10\%\text{ of total}=2 \quad\Rightarrow\quad \text{total}=20.
+\]
+Initially \(40\%\) of 20 were girls, so the answer is \(8\).
+
+\textbf{Speed focus.} Compare the before/after percentages before setting up equations. If the total is unchanged, a percentage drop can be converted directly into a number of people.
+
+\section{Redo Solutions}
+
+\subsection{Row 4: 2002 AMC 12B Problem 10}
+
+\textbf{Correct answer:} A. The student chose B.
+
+\textbf{Systematic method.} The set
+\[
+\{1,4,7,10,13,16,19\}
+\]
+is an arithmetic sequence. Every element has the form \(1+3k\), where \(k=0,1,2,3,4,5,6\). The sum of three distinct elements is
+\[
+(1+3a)+(1+3b)+(1+3c)=3+3(a+b+c).
+\]
+So different original sums correspond exactly to different values of \(a+b+c\), where \(a,b,c\) are distinct numbers chosen from \(0\) through \(6\).
+
+The smallest possible index sum is \(0+1+2=3\), and the largest is \(4+5+6=15\). All values from 3 through 15 are possible, so there are
+\[
+15-3+1=13
+\]
+different sums.
+
+\textbf{Methodology lesson.} For arithmetic-sequence choice problems, convert to indices and count the possible index sums. Do not count triples; many different triples can produce the same integer sum. Always separate ``number of selections'' from ``number of distinct values.''
+
+\subsection{Row 11: 2006 AMC 12A Problem 10}
+
+\textbf{Correct answer:} E. The student chose D.
+
+\textbf{Systematic method.} Let
+\[
+\sqrt{120-\sqrt{x}}=k,
+\]
+where \(k\) is a nonnegative integer. Then
+\[
+120-\sqrt{x}=k^2
+\quad\Rightarrow\quad
+\sqrt{x}=120-k^2.
+\]
+Since \(\sqrt{x}\ge 0\), we need \(120-k^2\ge 0\), so \(k^2\le 120\). The possible values are
+\[
+k=0,1,2,\ldots,10,
+\]
+because \(10^2=100\le120\) and \(11^2=121>120\). This gives 11 possible values of \(k\), and each one produces exactly one real value
+\[
+x=(120-k^2)^2.
+\]
+
+\textbf{Methodology lesson.} For nested radicals, name the whole expression first, then translate every square root into a domain inequality. Include endpoint cases: here \(k=0\) is valid, and missing it changes 11 to 10.
+
+\section{Student Strengths}
+
+\begin{itemize}
+  \item Strong accuracy on the attempted set: 13 out of 15 correct on mid-band Problem 10 material.
+  \item Very fast execution on several algebra/geometry items: rows 6, 8, 11, and 12 were under one minute. Row 11 was wrong, but the speed shows the student is willing to commit; the next step is adding a quick endpoint check before bubbling.
+  \item Good breadth across topics: coordinate geometry, ratios, sequences, counting, geometry, cube face counting, recursive digit process, inequalities, triangle geometry, and rate equations were mostly handled correctly.
+\end{itemize}
+
+\section{Growth Opportunities}
+
+\begin{itemize}
+  \item Add a 10-second classification step before solving: ``Am I counting choices, values, cases, or arrangements?'' This directly targets row 4.
+  \item For radical/counting-domain problems, write the auxiliary variable and endpoint inequalities before answering. This directly targets row 11.
+  \item Improve speed on straightforward recognition problems. Rows 1, 7, 9, 10, 13, and 14 were correct but over the 2-minute Q10 pace; each has a one-line shortcut once the problem type is recognized.
+  \item Use a final ``endpoint and units'' check. For row 11, check both endpoints \(k=0\) and \(k=10\); an answer of 10 usually means one endpoint was dropped. For row 9, verify the numerator and denominator count the same object, unit-cube faces, before simplifying.
+\end{itemize}
+
+\section{Recommended Next Practice}
+
+\begin{itemize}
+  \item Redo rows 4 and 11 without looking at the solution, then explain the counting object in one sentence.
+  \item Re-solve rows 1, 7, 9, 10, 13, and 14 with a 2:00 timer. The goal is not just to get the answer again, but to use the faster method.
+  \item For future Problem 10 sets, pause at 1:30. If the path is not clear, switch to answer-choice testing, invariant recognition, or a simpler variable setup.
+\end{itemize}
+
+\end{document}
