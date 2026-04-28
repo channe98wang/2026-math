@@ -1,0 +1,23 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.tex="pdflatex";
+defaultfilename="amc12-2026-04-28-student-1";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+unitsize(4mm);
+defaultpen(linewidth(.8pt)+fontsize(8pt));
+dotfactor=4;
+pair C=(0,0), B=(17,0);
+pair D=intersectionpoints(circle(C,5),circle(B,13))[0];
+pair A=intersectionpoints(circle(D,9),circle(B,5))[0];
+pair[] dotted={A,B,C,D};
+draw(D--A--B--C--D--B);
+dot(dotted);
+label("$D$",D,NW);
+label("$C$",C,W);
+label("$B$",B,E);
+label("$A$",A,NE);

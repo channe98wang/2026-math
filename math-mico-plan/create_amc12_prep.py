@@ -242,6 +242,13 @@ class AMC12PrepBuilder:
             # This fixes cases where variable definitions are commented but used in the code
             asy_content = re.sub(r'//\s*((?:real|pair|int|bool|path|guide|string|transform|picture|frame|Label|Legend|size|margin|pen|projection|triple)\s+\w+\s*=)', r'\1', asy_content)
 
+            # Replace Circle(...) with circle(...). The capitalized Circle lives in
+            # the Asymptote `geometry` module, which our asy.bat invocation doesn't
+            # auto-import, so it fails with "no matching variable 'Circle'". The
+            # lowercase circle(pair c, real r) is a base builtin with the same
+            # signature for our usage and works without extra imports.
+            asy_content = re.sub(r'\bCircle\b(?=\s*\()', 'circle', asy_content)
+
             # Format the Asymptote code with proper line breaks and indentation
             asy_lines = []
             for line in asy_content.split(';'):
