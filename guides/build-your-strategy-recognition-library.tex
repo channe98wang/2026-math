@@ -1,0 +1,257 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Building Your Strategy Recognition Library}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Color boxes for emphasis
+\newtcolorbox{warningbox}{colback=red!5!white,colframe=red!75!black,title=Important}
+\newtcolorbox{strategybox}{colback=blue!5!white,colframe=blue!75!black}
+
+\title{\textbf{Building Your Strategy Recognition Library\\for AMC12 and COMC Late-Band Mastery}}
+\author{}
+\date{Competition Timeline: COMC (Oct 30), AMC12A (Nov 5), AMC12B (Nov 13)}
+
+\begin{document}
+
+\maketitle
+
+\section{Why These Strategies Matter: The Cognitive Challenge}
+
+Late-band problems (AMC12 P21--25, COMC Part C) deliberately exceed normal cognitive processing capacity. They require managing 6--8 simultaneous constraints while evaluating multiple solution paths. Success depends not on raw intelligence but on systematic cognitive strategies that compensate for working memory limitations.
+
+\begin{strategybox}
+\textbf{The 70-20-10 Practice Rule}: Structure your practice portfolio with 70\% ``stretch zone'' problems (just beyond current ability), 20\% ``expansion'' problems (requiring new techniques), and 10\% ``impossible'' problems (building persistence).
+\end{strategybox}
+
+\section{Core Strategy Library with Success Rates}
+
+The following five strategies form your tactical arsenal. Success rates are empirical ranges from late-band practice---they guide prioritization, not guarantees.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}p{2.5cm}p{1.5cm}p{3cm}p{3cm}p{3.5cm}@{}}
+\toprule
+\textbf{Strategy} & \textbf{Success Rate} & \textbf{Use When} & \textbf{How} & \textbf{Outcome} \\
+\midrule
+Answer-Choice Leverage & 75--90\% & Choices reveal bounds, parity/mod patterns, recognizable forms & Bracket with estimates, test residues mod small primes, reverse-engineer answer templates & Rapid elimination; narrows to 2--3 choices quickly \\
+\addlinespace
+Make It Easier & 70--85\% & No traction after 60s; messy constants; near-symmetry present & Normalize geometry, set special values, strengthen constraints, analyze limit cases & Reveals core structure; transferable pattern \\
+\addlinespace
+Penultimate Step & 65--80\% & Clear target form; ``it suffices to show'' is writable & State the sufficient condition, reverse-engineer key relations, choose substitutions making finish inevitable & Streamlined path to known endpoint \\
+\addlinespace
+Wishful Thinking & 60--75\% & Nearly factorable; equality case likely; symmetric structure & Assume hoped-for form with parameters, derive consequences, solve for parameters, verify rigor & Conjectured form becomes exact \\
+\addlinespace
+Conjecture via Small Cases & 55--70\% & Opaque recurrence; combinatorial process; hidden pattern & Compute n=1,2,3,4; track invariants; identify period/formula; verify generally & Pattern guides full solution \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{warningbox}
+\textbf{AMC12 Scoring Note}: No penalty for wrong answers; unanswered questions earn 1.5 points each. When Answer-Choice Leverage eliminates 2+ options, guessing becomes statistically advantageous.
+\end{warningbox}
+
+\section{Enhanced Strategy Logging Template}
+
+For every strategy application, maintain this structured entry:
+
+\begin{verbatim}
+Strategy: "Answer-Choice Leverage"
+Problem: AMC12 2019 P23
+Success Rate: 75-90% (empirical)
+Time Invested: 3:15
+Trigger: Answer choices showed pattern sqrt(a) - sqrt(b)
+Execution: 
+  - Tested parity: eliminated 2 choices
+  - Bounded expression: eliminated 1 more
+  - Reverse-engineered remaining forms
+Outcome: Solved correctly / Failed at [specific step]
+Error Category (if failed): Computational / Conceptual / Strategic
+Key Learning: Works best with structured answer patterns
+Next Time: Check mod 3 and mod 4, not just parity
+\end{verbatim}
+
+\section{Six-to-Seven-Week Implementation Schedule}
+
+\textbf{Important}: Don't implement every strategy at once. Start with 3--4 core strategies that address your biggest weaknesses.
+
+\subsection{Weeks 1--2: Foundation (Focus on Three-Pass Protocol)}
+\begin{itemize}[leftmargin=*]
+    \item Master the \textbf{Three-Pass Protocol}:
+    \begin{enumerate}
+        \item First pass (3--4 min): Tag most accessible of P21--25
+        \item Per attempt (2:30--4:00): Commit to conversion, push to subgoal
+        \item Endgame (5--7 min left): Verify solves, revisit one promising partial
+    \end{enumerate}
+    \item Build initial pattern library (8--10 problem signatures)
+    \item Practice Answer-Choice Leverage on AMC12 P16--20
+    \item Begin error tracking with three categories: Computational, Conceptual, Strategic
+\end{itemize}
+\textbf{Weekly Goal}: Solve 3--4 P16--20 problems correctly using time protocols
+
+\subsection{Weeks 3--4: Integration (Add Metacognitive Monitoring)}
+\begin{itemize}[leftmargin=*]
+    \item Expand pattern library to 15--18 signatures
+    \item Apply all five strategies to AMC12 P21--23
+    \item Implement the \textbf{Four Questions} (when stuck):
+    \begin{enumerate}
+        \item ``What am I trying to find?'' $\rightarrow$ Restate goal
+        \item ``What haven't I used?'' $\rightarrow$ Check constraints
+        \item ``Is there an easier version?'' $\rightarrow$ Consider simplification
+        \item ``What would make this trivial?'' $\rightarrow$ Work backwards
+    \end{enumerate}
+    \item \textbf{End of Week 4}: Take full-length practice AMC12 for baseline
+\end{itemize}
+\textbf{Weekly Goal}: Solve 1--2 P21--23 problems correctly
+
+\subsection{Weeks 5--6: Advanced Execution (Contest-Specific Tactics)}
+\begin{itemize}[leftmargin=*]
+    \item Full AMC12 P21--25 problem sets with time limits
+    \item COMC Part C proof practice (40 points: 4 problems × 10 points each)
+    \item Practice partial credit strategies for COMC:
+    \begin{itemize}
+        \item Write clear approach statement
+        \item Show key insight or lemma
+        \item Verify base cases
+        \item State what remains to be proven
+    \end{itemize}
+    \item Weekly challenge: One AMC12 P24--25 problem (20--30 min limit)
+\end{itemize}
+\textbf{Weekly Goal}: Solve 2--3 P21--25 problems correctly
+
+\subsection{Week 7: Competition Simulation and Emergency Protocols}
+\begin{itemize}[leftmargin=*]
+    \item 2--3 full timed mock exams
+    \item Practice emergency protocols when stuck:
+    \begin{itemize}
+        \item AMC12: Use answers to guide approach, eliminate 2+ options, test easy cases
+        \item COMC: Write approach, show insight, verify base cases, state remaining work
+    \end{itemize}
+    \item Review entire pattern library
+    \item Test-day preparation checklist
+\end{itemize}
+\textbf{Goal}: Consistent performance on P21--25
+
+\section{Common Failure Modes and Prevention}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}p{3.5cm}p{4.5cm}p{5cm}@{}}
+\toprule
+\textbf{Failure Mode} & \textbf{Symptoms} & \textbf{Prevention} \\
+\midrule
+Over-solving (AMC) & Working past answer determination & Always try bounds/mod/parity first; stop when answer is unique \\
+Under-justifying (COMC) & Lost partial credit on correct approach & Every non-obvious step needs reason; state theorem conditions \\
+Triage drift & Spending 7+ minutes on one problem & Set timer at 3:00 mark; switch if no progress \\
+Tunnel vision & Missing simpler approach & Apply Three-Approach Rule: identify 3 methods before committing \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Progress Tracking and Metrics}
+
+\subsection{Weekly Metrics to Track}
+\begin{itemize}[leftmargin=*]
+    \item Success rate by problem difficulty (P16--20, P21--23, P24--25)
+    \item Average time to solution
+    \item Strategy effectiveness rate (attempts vs. successes per strategy)
+    \item Error pattern frequency by category
+\end{itemize}
+
+\subsection{Realistic Benchmarks (from baseline 0--1 correct on P21--25)}
+\begin{itemize}[leftmargin=*]
+    \item Week 3: 1 correct on P21--25
+    \item Week 5: 2 correct on P21--25
+    \item Week 7: 2--3 correct on P21--25 consistently
+\end{itemize}
+
+\textbf{Remember}: Focus on improvement trend rather than exact numbers. Partial progress has value, especially on COMC.
+
+\section{Test Day Preparation}
+
+\subsection{Physical and Mental Readiness}
+\begin{itemize}[leftmargin=*]
+    \item Sleep 8+ hours for two nights before
+    \item Protein-rich breakfast, avoid sugar crash
+    \item Arrive early with backup supplies (calculator, pencils, eraser)
+    \item Review pattern library morning of test
+    \item Practice deep breathing for anxiety management
+\end{itemize}
+
+\subsection{During the Contest}
+\begin{itemize}[leftmargin=*]
+    \item First 5 minutes: Scan all problems, mark by perceived difficulty
+    \item Problems 1--20: Move quickly but accurately (45--50 min)
+    \item Problems 21--25: Apply full strategy arsenal (20--25 min)
+    \item Last 5 minutes: Verify high-confidence answers, make educated guesses
+\end{itemize}
+
+\section{Continuous Improvement}
+
+\subsection{After Each Practice Session}
+\begin{enumerate}
+    \item Update strategy log with new entries
+    \item Identify which strategies felt most natural
+    \item Note any new problem signatures discovered
+    \item Celebrate small wins: ``Recognized pattern faster,'' ``Made fewer computational errors''
+\end{enumerate}
+
+\subsection{Weekly Review Process}
+\begin{enumerate}
+    \item Analyze error patterns: Are mistakes clustered in one category?
+    \item Refine strategy triggers: Which cues most reliably indicate each strategy?
+    \item Prune redundant patterns: Combine similar signatures
+    \item Set specific goals for next week based on weaknesses
+\end{enumerate}
+
+\section{Key Mindset Principles}
+
+\begin{strategybox}
+\begin{enumerate}
+    \item \textbf{Problems are puzzles}: Approach with curiosity, not fear
+    \item \textbf{Every attempt teaches}: Failed approaches reveal gaps
+    \item \textbf{Speed follows recognition}: Pattern library is crucial
+    \item \textbf{Progress over perfection}: Partial solutions have value (especially COMC)
+    \item \textbf{Trust the process}: Consistent practice with these strategies yields results
+    \item \textbf{The gap between P20 and P25 is technique, not intelligence}
+\end{enumerate}
+\end{strategybox}
+
+\section{Conclusion}
+
+Elite performance in late-band problems comes from systematic training, not innate talent. This enhanced library framework provides:
+\begin{itemize}[leftmargin=*]
+    \item Five core strategies with empirical success rates
+    \item Time management protocols proven effective
+    \item Error prevention through systematic analysis
+    \item Competition-specific tactical advantages
+\end{itemize}
+
+Your consistent application and refinement will build mastery. Track progress, learn from mistakes, and remember that these strategies transform the hardest problems into your competitive edge.
+
+\vfill
+\begin{center}
+\textit{Master late-band strategy, and you turn the hardest points into your competitive advantage.}
+\end{center}
+
+\end{document}

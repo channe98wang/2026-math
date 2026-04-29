@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Building Your Pattern Recognition Library}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Building Your Pattern Recognition Library}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+A well-organized pattern recognition library accelerates problem solving for late-band AMC 12 and COMC problems. Use this guide to create and maintain your own library. This document expands on the pattern recognition approach outlined in the strategic playbook for late-band AMC12/COMC problems.
+
+\section{Create Problem Signatures}
+
+Group problems by structural ``signatures'' rather than broad topics. Each signature captures the key pattern that signals a particular solving approach.
+
+\textbf{Example signatures:}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}p{3cm}p{2.5cm}p{2.5cm}p{3cm}p{2cm}@{}}
+\toprule
+\textbf{Signature} & \textbf{Primary Approach} & \textbf{Secondary Approach} & \textbf{Example Trigger} & \textbf{Source} \\
+\midrule
+Three variables, symmetric expression & Symmetric polynomials & AM-GM if positive & $a^3 + b^3 + c^3 - 3abc$ & AMC12 2021 P22 \\
+Recursion with initial values & Compute small cases & Characteristic equation & $a_{n+2} = pa_{n+1} + qa_n$ & COMC 2020 Part C \\
+Circle with multiple chords & Power of a Point & Complex coordinates & Intersecting chords with lengths & AMC12 2019 P23 \\
+Floor/ceiling in equation & Casework on fractional part & Graphical analysis & $\lfloor x \rfloor + \lfloor 2x \rfloor = n$ & AMC12 2022 P21 \\
+Optimization with constraint & Lagrange/substitution & AM-GM or Cauchy-Schwarz & Maximize $xy$ subject to $x^2 + y^2 = 1$ & COMC 2021 Part C \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Aim to build 15--20 signatures through focused practice and refine them weekly.
+
+\section{Log Each Pattern}
+
+Maintain entries in a notebook or spreadsheet. Include:
+
+\begin{verbatim}
+Signature: "Three variables, symmetric expression"
+Primary Approach: Symmetric polynomials
+Secondary Approach: AM-GM if positive
+Example Trigger: a^3 + b^3 + c^3 - 3abc
+Source: AMC12 2021 P22
+Solution Outline: Express in terms of elementary symmetric sums
+Common Pitfall: Forgetting to check for negative values
+\end{verbatim}
+
+Review recent problems after each session and update entries with new insights.
+
+\section{Select Practice Problems}
+
+Use the 70-20-10 rule:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{70\% Stretch:} AMC12 P18--23
+    \item \textbf{20\% Expansion:} COMC Part C or harder AMC12 P21--23
+    \item \textbf{10\% Impossible:} AMC12 P24--25
+\end{itemize}
+
+Add useful problems to your library and note whether they introduced new signatures or reinforced existing ones.
+
+\section{Focus on Weak Areas}
+
+If your log reveals repeated mistakes in specific topics---probability, geometry, number theory, or advanced algebra---allocate extra practice to those areas for 1--2 weeks and record any new patterns.
+
+\section{Expand with Multiple Solutions}
+
+For every problem solved, review 2--3 alternative solution methods from reliable sources (MAA, AoPS forums, or Canadian Mathematical Society). Adding these variations broadens your pattern recognition.
+
+\section{Leverage Community and Tools}
+
+\begin{itemize}[leftmargin=*]
+    \item Discuss problems on AoPS forums or with study partners.
+    \item Track problems digitally with a spreadsheet, database, or spaced-repetition tool like Anki or Notion.
+    \item Set small rewards for weekly library updates to maintain motivation.
+\end{itemize}
+
+\section{Address Knowledge Gaps}
+
+When a problem requires an unfamiliar technique:
+
+\begin{enumerate}[leftmargin=*]
+    \item Identify the missing concept.
+    \item Learn it quickly from targeted resources.
+    \item Practice 3--5 similar problems.
+    \item Add the new pattern to your library.
+    \item Move on if the technique is too time-consuming to master immediately.
+\end{enumerate}
+
+\section{Review and Maintain}
+
+Revisit your library at least once a week. Consolidate overlapping signatures, update entries with faster methods, and remove patterns you consistently recognize. Periodically retest yourself on old problems to ensure the triggers still work.
+
+Consistent iteration on this process builds a powerful reference that improves speed and accuracy on challenging competition problems.
+
+\end{document}

@@ -36,6 +36,100 @@ Q21--Q25 & Selective, up to 5:00 & Final 20:00 & Do not spend 5 minutes on all f
 
 \textbf{Important caveat.} A flat allocation of 2 minutes for Q1--Q10, 3 minutes for Q11--Q15, and 5 minutes for every Q16--Q25 problem totals \(20+15+50=85\) minutes, which exceeds the 75-minute AMC12 limit. Therefore the 5-minute rule for Q16--Q25 is a maximum for selected problems, not a promise to attempt all ten hard problems fully.
 
+\section{Systematic Speed Methodologies for Instruction}
+
+\textbf{Teaching objective.} Do not train the student to ``rush.'' Train the student to reduce the number of decisions made under time pressure. The guides in \texttt{guides} consistently point to the same system: classify quickly, execute one clean first method, pivot before algebra expands, verify at the right depth, and log the trigger that should be recognized faster next time.
+
+\subsection{Two-Minute Operating System for Problem 10}
+
+For the current worksheet, every item is a Problem 10 item, so the working target is 2:00. Use the following routine until it becomes automatic.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\textbf{Time} & \textbf{Teacher Cue} & \textbf{In the Head} & \textbf{On Scratch Paper}\\
+\hline
+0--15s & Classify before solving. & Read for domain, objective, answer-choice shape, and confidence. Ask: algebra, geometry, counting, number theory, probability, or sequence? & Problem number; one domain tag; one technique cue such as ``Vieta,'' ``PoP,'' ``cycle,'' ``mean,'' ``faces.''\\
+15--35s & Make the first move. & Choose the simplest viable method. Prefer recognition, symmetry, answer choices, or a known formula over a full setup. & One minimal setup: equation, diagram labels, coordinate rule, case labels, cycle list, or divisor condition.\\
+35--65s & Check progress. & Continue only if expressions are shrinking, variables are canceling, or a known pattern is appearing. If not, pivot. & If pivoting, write the new method label, not a long explanation: ``test choices,'' ``mod 3,'' ``small cases,'' ``coordinates.''\\
+65--100s & Finish or eliminate. & Decide whether the problem is becoming exact. If exact finish is not visible, use bounds, parity, modular checks, or answer testing. & Clean final computation or 2+ eliminated choices. Do not keep expanding a messy expression.\\
+100--120s & Verify and commit. & Use a fast sanity check: magnitude, sign, integer/endpoint, units, probability between 0 and 1, or plug-back. & Circle the answer, write one check mark reason, or mark for return if confidence is too low.\\
+\end{longtable}
+
+\textbf{Teacher correction language.} When the student exceeds 2:00 on a correct Problem 10, the first question is not ``Why were you slow?'' Ask: ``Which 15-second trigger did you miss?'' Then identify the one cue that should have selected the shortcut.
+
+\subsection{What Belongs on Scratch Paper vs. in the Head}
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
+\textbf{Category} & \textbf{Keep in the Head} & \textbf{Write on Scratch Paper}\\
+\hline
+Classification & Domain scan, confidence level, answer-choice shape, obvious one-step facts. & Domain tag, objective in 2--4 words, and the selected method cue.\\
+Arithmetic & Single-operation facts: \(20\%=1/5\), \(25\%=1/4\), \(12^2=144\), \(13^2=169\), \(2^{10}=1024\), \(5!=120\). & Multi-step products, fractions that must be compared, modular cycles, and any calculation where a carry or sign could change the answer.\\
+Algebra & Recognition of Vieta, completing square, SFFT, difference of squares, or substitution pattern. & The substitution, transformed equation, domain restrictions, and final simplified expression.\\
+Geometry & Common triples, special angle ratios, diameter of a right-triangle circumcircle, and area/volume scaling rules. & Diagram, given labels, target quantity, coordinate rules, similarity ratios, and any hidden right triangle.\\
+Counting/probability & Choice of complement, symmetry, expected value, or whether order matters. & Cases, sample space, restrictions, inclusion-exclusion terms, and the object being counted.\\
+Number theory/sequences & Divisibility tests, parity, small mod choices, arithmetic/geometric recognition. & Congruences, periods, cycle lists, endpoint ranges, and recursive terms until a repeat appears.\\
+\end{longtable}
+
+\textbf{Write-it-down triggers.} The student should write immediately if there are more than two moving quantities, a sign or inequality reversal, a nested radical endpoint, a coordinate transformation, a counting case split, or a modular/cyclic pattern. These are working-memory traps; writing them down is faster than recovering from a missed condition.
+
+\subsection{Mental Math Training Sequence}
+
+Use mental math as a recognition and verification tool, not just as faster arithmetic. The student should practice these in short daily drills and then apply them inside timed problems.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth} >{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
+\textbf{Skill Block} & \textbf{Must-Know Mental Facts} & \textbf{AMC12 Speed Use}\\
+\hline
+Core values & Squares through \(25^2\), cubes through \(6^3\), powers of 2 through \(2^{10}\), factorials through \(7!\), common fractions \(1/3,1/4,1/5,1/6,1/8,1/9\). & Recognize answer magnitude and avoid writing small lookup facts.\\
+Shortcut multiplication & \(\times 5,\times 9,\times 11,\times 15,\times 25,\times 125\); near-square products; \(a^2-b^2=(a+b)(a-b)\). & Compress routine calculations and identify factorizations quickly.\\
+Percent/ratio sense & \(10\%\), \(5\%\), \(20\%\), \(25\%\), \(12.5\%=1/8\), \(33\frac{1}{3}\%=1/3\), \(62.5\%=5/8\). & Convert before/after percentage problems directly, as in row 14.\\
+Algebra triggers & Vieta, completing square, hidden quadratic, SFFT, substitution \(x+1/x\), simple plug-in values \(0,1,-1,2\). & Choose a one-line setup instead of expanding.\\
+Geometry triggers & \(3\!:\!4\!:\!5\), \(5\!:\!12\!:\!13\), \(8\!:\!15\!:\!17\), \(7\!:\!24\!:\!25\); \(30^\circ/45^\circ/60^\circ\); radius/diameter facts; area scales by \(k^2\). & Turn geometry into one remembered fact plus one proportional computation.\\
+Number theory triggers & Mod 2, 3, 4, 5, 8, 9, 11; digit sums; units digit cycles; simple periods for powers and digit iterations. & Stop repeated computation once a cycle appears, as in row 10.\\
+Counting/probability triggers & \(\binom{n}{2}=n(n-1)/2\), \(\binom{n}{3}=n(n-1)(n-2)/6\), complement, cases by parity/sign/range, probability bounds \(0\le P\le1\). & Prevent counting the wrong object and quickly reject impossible answers.\\
+\end{longtable}
+
+\textbf{Daily five-minute drill.} Spend 2 minutes on recall facts, 2 minutes on transformations, and 1 minute explaining one trigger aloud. Example: ``Odd number of consecutive integers means median equals mean,'' or ``right triangle in a circle means hypotenuse equals diameter.''
+
+\subsection{Current Speed-Review Rows: Trigger Map}
+
+\begin{longtable}{@{}>{\centering\arraybackslash}p{0.08\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth}@{}}
+\textbf{Row} & \textbf{Trigger to Recognize} & \textbf{Keep in the Head} & \textbf{Write on Scratch Paper}\\
+\hline
+1 & 3D transformations as coordinate rules. & Reflections/rotations change signs or swap coordinates according to rule. & A three-column \(x,y,z\) sign table and the final transformed point.\\
+7 & Odd consecutive list. & Median equals average. \(49=7^2\). & \(\text{median}=7^5/7^2=7^3\).\\
+9 & Painted cube asks fraction of faces, not fraction of cubes. & Surface faces compare to all small-cube faces. & \(\frac{6n^2}{6n^3}=1/n=1/4\).\\
+10 & Digit iteration sequence. & A repeat means period; stop computing linearly. & Terms until first repeat, then \((k-\text{first cycle index})\bmod \text{period}\).\\
+13 & \(3:4:5\) right triangle in a circle. & Right triangle hypotenuse equals circle diameter. & Scale factor \(6/5\), then area computation.\\
+14 & Total group size unchanged. & Girl fraction drops by \(10\%\); the drop is 2 girls. & \(0.10T=2\Rightarrow T=20\), then \(0.40T=8\).\\
+\end{longtable}
+
+\subsection{Pivot and Verification Rules}
+
+\textbf{Pivot rule.} At 35 seconds, the student must be able to say what is getting simpler. If the answer is ``nothing,'' pivot immediately. Valid pivots are:
+\begin{itemize}
+  \item test answer choices after eliminating by magnitude, sign, parity, units, or domain;
+  \item try a smaller case \(n=1,2,3\) to expose a pattern;
+  \item switch representation: algebra to coordinates, geometry to ratios, counting to complement, sequence to cycle;
+  \item use modular arithmetic, parity, or endpoints to reduce possibilities.
+\end{itemize}
+
+\textbf{Verification depth.} Match verification to the problem and clock:
+\begin{itemize}
+  \item \textbf{1--3 seconds:} gut check for sign, magnitude, integer requirement, probability range, or obvious endpoint.
+  \item \textbf{5--10 seconds:} minimal sanity check for Q1--Q10: units, bounds, divisibility, and answer-choice consistency.
+  \item \textbf{15--30 seconds:} targeted spot check for Q11--Q15 or any answer produced by a fragile computation: plug one value, check endpoint, or recalculate the riskiest line.
+  \item \textbf{30+ seconds:} use only when the problem is high value or the student has extra time. Do not fully re-solve routine Problem 10 items.
+\end{itemize}
+
+\subsection{Teacher Practice Routine}
+
+\begin{enumerate}
+  \item \textbf{Recognition pass.} Give the student 15 seconds per problem. They must write only the domain tag, objective, and method cue. No solving.
+  \item \textbf{Timed solve pass.} Re-solve the same problems with a 2:00 cap. Stop at 35 seconds to ask whether the path is shrinking. Stop at 65 seconds if no progress is visible.
+  \item \textbf{Compression pass.} After each solution, require one trigger sentence and one computation line. Example: ``Odd consecutive list \(\Rightarrow\) median = mean; \(7^5/49=7^3\).''
+  \item \textbf{Pattern log.} Record: source, domain tag, missed trigger, what stayed in head, what should have been written, time lost, faster method, and one follow-up drill.
+  \item \textbf{Weekly review.} Consolidate repeated patterns into a small recognition library. Keep only high-yield signatures: the goal is 15--20 fast triggers the student can recall instantly, not a long formula sheet.
+\end{enumerate}
+
 \small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.05\textwidth} >{\raggedright\arraybackslash}p{0.26\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\centering\arraybackslash}p{0.08\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth}@{}}
 \textbf{\#} & \textbf{Source} & \textbf{Stud.} & \textbf{Key} & \textbf{Time} & \textbf{Result} & \textbf{Note}\\
@@ -79,6 +173,15 @@ Applying this to \(P=(1,2,3)\) is fast:
 
 \textbf{Speed focus.} Use a three-column sign table: \(x\) unchanged, \(y\) changes only under the rotation and translation, and \(z\) changes under the reflection and rotation. This should be a 60--90 second problem once the rules are memorized.
 
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Geometry/3D transformation problem. Convert each motion into a coordinate rule instead of visualizing the whole solid.
+  \item \textbf{Keep in the head:} Reflection in the \(xy\)-plane flips \(z\); a \(180^\circ\) rotation about the \(x\)-axis flips \(y\) and \(z\); translation changes only one coordinate.
+  \item \textbf{Write on scratch:} A compact sign table or rule chain, then one application to \(P=(1,2,3)\).
+  \item \textbf{35-second pivot:} If the picture feels confusing, stop drawing and switch to the coordinate table immediately.
+  \item \textbf{Verification:} Two sign flips return \(z\) to positive, and the final \(y\)-coordinate is \(-2+5=3\).
+\end{itemize}
+
 \subsection{Row 7: 2004 AMC 12A Problem 10}
 
 \textbf{Answer:} C.
@@ -89,6 +192,15 @@ Applying this to \(P=(1,2,3)\) is fast:
 \]
 
 \textbf{Speed focus.} The key recognition is ``odd consecutive list \(\Rightarrow\) median = mean.'' Do not find endpoints. Pair terms around the center mentally, then divide sum by count.
+
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Sequence/statistics problem with an odd number of consecutive integers and a total sum.
+  \item \textbf{Keep in the head:} Odd consecutive list means the center term equals the mean; \(49=7^2\).
+  \item \textbf{Write on scratch:} Only \(\text{median}=\text{sum}/\text{count}=7^5/7^2=7^3\).
+  \item \textbf{35-second pivot:} If endpoints are being computed, stop; endpoints are unnecessary for an odd consecutive list.
+  \item \textbf{Verification:} The count is odd, so the median is an actual listed integer, not an average of two middle terms.
+\end{itemize}
 
 \subsection{Row 9: 2005 AMC 12A Problem 10}
 
@@ -101,6 +213,15 @@ Applying this to \(P=(1,2,3)\) is fast:
 so \(n=4\).
 
 \textbf{Speed focus.} When a painted-solid problem asks for a fraction of faces, first compare ``surface area faces'' to ``all cube faces.'' Avoid classifying corner, edge, and face-center cubes unless the problem asks how many cubes have 1, 2, or 3 painted faces.
+
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Solid geometry/counting problem asking for a fraction of painted faces, not a count of painted cubes.
+  \item \textbf{Keep in the head:} Surface of an \(n\times n\times n\) cube has \(6n^2\) exposed unit faces; all \(n^3\) small cubes have \(6n^3\) faces.
+  \item \textbf{Write on scratch:} One unit-consistent ratio: \(\frac{6n^2}{6n^3}=1/n\).
+  \item \textbf{35-second pivot:} If corner/edge/face-center cube cases appear, ask whether the problem counts cubes or faces. Here it counts faces, so abandon cube classification.
+  \item \textbf{Verification:} Numerator and denominator both count unit-square faces; \(n=4\) gives \(1/4\), matching the given fraction.
+\end{itemize}
 
 \subsection{Row 10: 2005 AMC 12B Problem 10}
 
@@ -120,6 +241,15 @@ So from term 2 onward the cycle is \(133,55,250\), with period 3. Term 1 is outs
 
 \textbf{Speed focus.} For digit-iteration sequences, do not continue linearly. Find the first repeat, write the cycle, then use modular arithmetic.
 
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Sequence problem asking for a far-out term under a repeated digit operation.
+  \item \textbf{Keep in the head:} Cubes of small digits: \(1^3=1\), \(2^3=8\), \(3^3=27\), \(5^3=125\). A repeated value means the sequence has entered a cycle.
+  \item \textbf{Write on scratch:} Terms only until the repeat: \(2005\to133\to55\to250\to133\), then the cycle and modular index.
+  \item \textbf{35-second pivot:} If more than four terms are being generated without writing a cycle, stop and look for the first repeated value.
+  \item \textbf{Verification:} The cycle starts at term 2 and has period 3, so use \((2005-2)\bmod 3\), not \(2005\bmod 3\).
+\end{itemize}
+
 \subsection{Row 13: 2007 AMC 12A Problem 10}
 
 \textbf{Answer:} A.
@@ -135,6 +265,15 @@ The area is
 
 \textbf{Speed focus.} For any right triangle in a circle, immediately use ``hypotenuse = diameter.'' This avoids trigonometry and side-solving.
 
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Geometry problem with a \(3:4:5\) triangle and a circumcircle.
+  \item \textbf{Keep in the head:} \(3:4:5\) is right; a right triangle inscribed in a circle has hypotenuse equal to the diameter.
+  \item \textbf{Write on scratch:} Diameter \(=6\), scale factor \(6/5\), legs \(18/5\) and \(24/5\), then area.
+  \item \textbf{35-second pivot:} If trigonometry or side-solving begins, stop and use the diameter shortcut.
+  \item \textbf{Verification:} The hypotenuse after scaling is \(5\cdot6/5=6\), exactly the circle diameter.
+\end{itemize}
+
 \subsection{Row 14: 2007 AMC 12B Problem 10}
 
 \textbf{Answer:} C.
@@ -146,6 +285,15 @@ The area is
 Initially \(40\%\) of 20 were girls, so the answer is \(8\).
 
 \textbf{Speed focus.} Compare the before/after percentages before setting up equations. If the total is unchanged, a percentage drop can be converted directly into a number of people.
+
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Percent-change word problem where the total group size stays fixed.
+  \item \textbf{Keep in the head:} \(40\%-30\%=10\%\), and two girls leaving accounts for that entire \(10\%\) drop.
+  \item \textbf{Write on scratch:} \(0.10T=2\Rightarrow T=20\), then \(0.40T=8\).
+  \item \textbf{35-second pivot:} If two-variable equations for boys and girls are forming, check whether the total is unchanged and switch to percent-drop reasoning.
+  \item \textbf{Verification:} Initially 8 girls out of 20 is \(40\%\); after two girls leave, 6 out of 20 is \(30\%\).
+\end{itemize}
 
 \section{Redo Solutions}
 
@@ -171,6 +319,15 @@ different sums.
 
 \textbf{Methodology lesson.} For arithmetic-sequence choice problems, convert to indices and count the possible index sums. Do not count triples; many different triples can produce the same integer sum. Always separate ``number of selections'' from ``number of distinct values.''
 
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Counting problem with sums from an arithmetic sequence; the question asks for distinct values.
+  \item \textbf{Keep in the head:} Arithmetic sequence terms can be replaced by indices; adding the same constant and scale factor preserves distinct sums.
+  \item \textbf{Write on scratch:} \(1+3k\), then the minimum and maximum index sums: \(0+1+2=3\), \(4+5+6=15\).
+  \item \textbf{35-second pivot:} If listing triples, stop and ask whether the question asks for selections or possible sum values.
+  \item \textbf{Verification:} The index sums form every integer from 3 to 15, so the count is \(15-3+1=13\), not \(\binom{7}{3}\).
+\end{itemize}
+
 \subsection{Row 11: 2006 AMC 12A Problem 10}
 
 \textbf{Correct answer:} E. The student chose D.
@@ -195,6 +352,15 @@ x=(120-k^2)^2.
 \]
 
 \textbf{Methodology lesson.} For nested radicals, name the whole expression first, then translate every square root into a domain inequality. Include endpoint cases: here \(k=0\) is valid, and missing it changes 11 to 10.
+
+\textbf{Speed-system application.}
+\begin{itemize}
+  \item \textbf{15-second trigger:} Nested radical/counting-domain problem asking for how many real \(x\) values work.
+  \item \textbf{Keep in the head:} If the outer square root is an integer \(k\), then \(k\ge0\), and \(11^2=121>120\).
+  \item \textbf{Write on scratch:} Let \(\sqrt{120-\sqrt{x}}=k\), derive \(\sqrt{x}=120-k^2\), and write the endpoint inequality \(0\le k\le10\).
+  \item \textbf{35-second pivot:} If solving for \(x\) directly becomes messy, return to the count of allowed integer \(k\) values.
+  \item \textbf{Verification:} Check both endpoints: \(k=0\) gives \(x=120^2\), and \(k=10\) gives \(x=20^2\); both are valid.
+\end{itemize}
 
 \section{Student Strengths}
 
