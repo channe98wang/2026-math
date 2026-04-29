@@ -336,8 +336,15 @@ class AMC12PrepBuilder:
         return problem_data
 
     def generate_latex(self, problems, include_solutions=False, title="AMC 12 Prep 2026",
-                       include_toc=False):
-        """Generate LaTeX document content."""
+                       include_toc=False, date_str=None):
+        """Generate LaTeX document content.
+
+        If ``date_str`` is provided (YYYY-MM-DD, or legacy YYYYMMDD), it is used
+        verbatim (after formatting) for the document's ``\\date{...}`` field so
+        that the rendered PDF reflects the requested date rather than whatever
+        day LaTeX happens to be compiled on. If ``date_str`` is ``None``, we
+        fall back to ``\\today``.
+        """
         latex_parts = []
 
         # Document header
@@ -363,7 +370,10 @@ class AMC12PrepBuilder:
         latex_parts.append('')
         latex_parts.append(r'\title{' + title + '}')
         latex_parts.append(r'\author{}')
-        latex_parts.append(r'\date{\today}')
+        if date_str:
+            latex_parts.append(r'\date{' + format_latex_date(date_str) + '}')
+        else:
+            latex_parts.append(r'\date{\today}')
         latex_parts.append('')
         # Hide section numbering
         latex_parts.append(r'\setcounter{secnumdepth}{0}')
@@ -476,6 +486,23 @@ def year_month_from_date_str(date_str: str) -> str:
     return f"{yyyy}-{mm}"
 
 
+def format_latex_date(date_str: str) -> str:
+    """
+    Format a date string for LaTeX's ``\\date{...}`` to match the look of
+    ``\\today`` (e.g. ``April 28, 2026``).
+
+    Accepts the same inputs as :func:`normalize_date_str` (YYYY-MM-DD or
+    legacy YYYYMMDD). Falls back to the normalized YYYY-MM-DD form if the
+    month is somehow out of range.
+    """
+    normalized = normalize_date_str(date_str)
+    try:
+        dt = datetime.strptime(normalized, "%Y-%m-%d")
+    except ValueError:
+        return normalized
+    return dt.strftime("%B %-d, %Y") if os.name != "nt" else dt.strftime("%B %#d, %Y")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Create an AMC 12 Prep LaTeX document from extracted problems",
@@ -498,7 +525,8 @@ def main():
     parser.add_argument('--output', '-o', help='Output LaTeX file path')
     parser.add_argument('--title', '-t', default='AMC 12 Prep 2026', help='Document title')
     parser.add_argument('--date', '-d', default=datetime.now().strftime("%Y-%m-%d"),
-                        help='Date for output filename (YYYY-MM-DD format, default: today; also accepts legacy YYYYMMDD)')
+                        help='Date for output filename and LaTeX \\date{...} '
+                             '(YYYY-MM-DD format, default: today; also accepts legacy YYYYMMDD)')
 
     args = parser.parse_args()
 
@@ -562,6 +590,7 @@ def main():
         include_solutions=args.include_solutions,
         title=args.title,
         include_toc=args.include_toc,
+        date_str=args.date,
     )
 
     # Save document
